@@ -1,0 +1,96 @@
+<br>
+<br>
+
+
+
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+
+
+<br><br>
+
+<div class="card">
+
+    <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
+    <p-panel header="Prueba de primeNG">
+        <p-table #dt [value]="pruebas" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th cpSortableColumn="name" pResizableColumn>ID
+
+                    </th>
+
+                    <th pSortableColumn="name" pResizableColumn>Codigo
+
+                    </th>
+                    <th pSortableColumn="name" pResizableColumn>Nombre
+
+                    </th>
+
+                    <th class="descarto" pSortableColumn="name" pResizableColumn>Confirmacion
+
+                    </th>
+
+                    <th class="descarto" pSortableColumn="name" pResizableColumn>Edad
+
+                    </th>
+                    <th class="descarto" pSortableColumn="name" pResizableColumn>Tipo
+
+                    </th>
+                    <th class="descarto" pSortableColumn="name" pResizableColumn>Estado
+
+                    </th>
+                    <th pSortableColumn="name" pResizableColumn>
+
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-columns let-prueba let-i="rowIndex">
+                <tr>
+                    <td style="text-align:center" class="old-car">{{prueba.pr_id}}</td>
+                    <td style="text-align:center">{{prueba.codigo}}</td>
+                    <td style="text-align:center">{{prueba.nombre}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.confirmar}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.edad}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.tipo}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.estado}}</td>
+                    <td style="text-align:right">
+                        <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/prueba/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <!-- <ng-template style="text-align:center" pTemplate="summary">
+
+                <div class="ui-g">
+
+                    <div class="ui-g-12 ui-md-6 ui-lg-3"> En total documentos.</div>
+
+                </div>
+
+
+
+            </ng-template> -->
+
+        </p-table>
+        <br>
+        <div style="text-align:center">
+            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/prueba/crear" (click)="newcPrueba()" label="Agregar"></button>
+
+        </div>
+    </p-panel>
+
+
+
+</div>

@@ -1,0 +1,80 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="Datos">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+
+
+
+
+            <fieldset>
+                <legend><b>Detalles</b></legend>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%" [class.is-invalid]="pr_id" formControlName="pr_id" type="text" pInputText> 
+                        <label for="float-input">ID</label>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="pr_id"></p-message>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%" [class.is-invalid]="codigo" formControlName="codigo" type="text" pInputText> 
+                        <label for="float-input">Codigo</label>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="codigo"></p-message>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%" [class.is-invalid]="nombre" formControlName="nombre" type="text" pInputText> 
+                        <label for="float-input">Nombre</label>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="nombre"></p-message>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%" [class.is-invalid]="confirmar" formControlName="confirmar" type="text" pInputText> 
+                        <label for="float-input">Confirmar</label>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="confirmar"></p-message>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%" [class.is-invalid]="edad" formControlName="edad" type="text" pInputText> 
+                        <label for="float-input">edad</label>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="edad"></p-message>
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%" [class.is-invalid]="biginteger" formControlName="biginteger" type="text" pInputText> 
+                        <label for="float-input">biginteger</label>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="biginteger"></p-message>
+                </div>
+            </fieldset>
+
+
+
+
+            <br>
+            <div style="text-align:center">
+
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/listarPrueba']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+
+</form>
