@@ -1,0 +1,268 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="Ficha de Datos Generales">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+
+
+
+
+            <fieldset>
+                <legend><b>Nuevo Empleado</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdcedula" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Numero de Identificacion</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdnombres" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;"> Nombre</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input    formControlName="emdapellidos" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Apellido</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="sexo"  formControlName="emdsexo" [showClear]="true" [style]="{'font-weight':'bold'}" ></p-dropdown>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdfecnacido" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Año de Nacimiento</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="civil" formControlName="emdestcivil" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="estudio" formControlName="emdnivelestudio" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdprofesion" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Ocupacion o profesion</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Lugar de residencia actual</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdciudad" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Ciudad</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emddepartamento" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Departamento</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emddireccion" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Direccion</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdtelefono" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Telefono</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdemail" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Correo</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="estrato" formControlName="emdestracto" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+
+
+
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <div style="width: 245px;">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="tipovivi" formControlName="emdtipovivienda" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 90%; heigth : 1%"  formControlName="emdpersdepen" type="text" pInputText> 
+                        <label for="float-input" style="font-size: 13px; font-weight: bold;">Numero de personas que dependen de usted</label>
+                    </span>
+
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Lugar donde trabaja actualmente</b></legend>
+                <!--                 <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input     formControlName="emdempresa" type="text" pInputText> 
+                        <label for="float-input">Empresa</label>
+                    </span>
+
+                </div> -->
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown   [options]="empresa" formControlName="emdempresa" [showClear]="true" placeholder="Empresas">
+                            </p-dropdown>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input   formControlName="emdtiempolab" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">tiempo trabajando alli</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdcargo" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Nombre del Cargo</label>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="cargo" formControlName="emdtipodecargo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdtiemcargo" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">tiempo en el cargo</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+
+                            <p-dropdown  [options]="area" formControlName="emdarea" [showClear]="true" >
+                            </p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="tContrato" formControlName="emdtipocontrato" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdtiemcargo" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">Horas de trabajo</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown   [options]="tsalario" formControlName="emdtiposalario" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdusuarioreg" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">usuario Que digito</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input     formControlName="emdipreg" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; font-weight: bold;">emdipreg</label>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+
+
+
+            <br>
+            <div style="text-align:center">
+
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/empleado']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+
+    <pre>{{userform.value | json}}</pre>
+
+</form>

@@ -1,0 +1,584 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="CUESTIONARIO INTRALABORAL FORMA B">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+
+
+
+
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las condiciones ambientales del(los) sitio(s) o lugar(es) donde habitualmente realiza su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">El ruido en el lugar donde trabajo es molesto</label>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux1" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <label for="float-input">En el lugar donde trabajo hace mucho frío</label>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux2" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <label for="float-input">En el lugar donde trabajo hace mucho calor</label>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux3" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <label for="float-input">El aire en el lugar donde trabajo es fresco y agradable</label>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux4" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <label for="float-input">La luz del sitio donde trabajo es agradable</label>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux5" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <label for="float-input">El espacio donde trabajo es cómodo</label>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux6" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">En mi trabajo me preocupa estar expuesto a sustancias químicas que afecten mi salud</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux7" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me exige hacer mucho esfuerzo físico</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux8" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Los equipos o herramientas con los que trabajo son cómodos</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="aux9" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">En mi trabajo me preocupa estar expuesto amicrobios, animales o plantas que afecten mi salud</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux10" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me preocupa accidentarme en mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux11" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">El lugar donde trabajo es limpio y ordenado</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux12" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Para responder a las siguientes preguntas piense en la cantidad de trabajo que usted tiene a cargo.</b></legend>
+
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Por la cantidad de trabajo que tengo debo quedarme tiempo adicional</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux13" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me alcanza el tiempo de trabajo para tener al día mis deberes</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux14" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Por la cantidad de trabajo que tengo debo trabajar sin parar</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux15" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con el esfuerzo mental que le exige su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me exige hacer mucho esfuerzo mental</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux16" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me exige estar muy concentrado</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux17" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me exige memorizar mucha información</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux18" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">En mi trabajo tengo que hacer cálculos matemáticos</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux19" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo requiere que me fije en pequeños detalles</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux20" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las responsabilidades y actividades que usted debe hacer en su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Trabajo en horario de noche</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux21" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">En mi trabajo es posible tomar pausas para descansar</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux22" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me exige laborar en días de descanso, festivos o fines de semana</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux23" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">En mi trabajo puedo tomar fines de semana o días de descanso al mes</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux24" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Cuando estoy en casa sigo pensando en el trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux25" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Discuto con mi familia o amigos por causa de mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux26" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Debo atender asuntos de trabajo cuando estoy en casa</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux27" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Por mi trabajo el tiempo que paso con mi familia y amigos es muy poco</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux28" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las decisiones y el control que le permite su
+                    trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">En mi trabajo puedo hacer cosas nuevas</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux29" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me permite desarrollar mis habilidades</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux30" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me permite aplicar mis conocimientos</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux31" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Mi trabajo me permite aprender nuevas cosas</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux32" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Puedo tomar pausas cuando las necesito</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux33" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Puedo decidir cuánto trabajo hago en el día</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux34" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Puedo decidir la velocidad a la que trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux35" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Puedo cambiar el orden de las actividades en mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux36" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Puedo parar un momento mi trabajo para atender algún asunto personal</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux37" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con cualquier tipo de cambio que ocurra en su
+                    trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me explican claramente los cambios que ocurren en mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux38" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Puedo dar sugerencias sobre los cambios que ocurren en mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux39" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Cuando se presentan cambios en mi trabajo se tienen en cuenta mis ideas y sugerencias</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux40" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con la información que la empresa le ha dado 
+                    sobre su trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me informan con claridad cuáles son mis funciones</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux41" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me informan cuáles son las decisiones que puedo tomar en mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux42" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me explican claramente los resultados que debo lograr en mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux43" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me explican claramente los objetivos de mi trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux44" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <label for="float-input">Me informan claramente con quien puedo resolver los asuntos de trabajo</label>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="aux45" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+
+
+
+
+
+
+            <br>
+            <div style="text-align:center">
+
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/empleado']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="estres" pRipple [routerLink]="['/main/addEstres/crear']" label="estres" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="extralaboral" pRipple [routerLink]="['/main/addExtralaboral/crear']" label="extralaboral" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+
+    <!--     <pre>{{userform.value | json}}</pre> -->
+
+</form>

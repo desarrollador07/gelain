@@ -1,0 +1,99 @@
+<div id="search-wrapper">
+    <input type="text" id="search" pInputText placeholder="Buscar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+    <i class="pi pi-search"></i>
+</div>
+<br><br><br>
+
+
+
+
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+
+
+<div class="card">
+
+    <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
+    <p-panel header="Empleados">
+        <p-table #dt [value]="pruebas" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+
+
+            <ng-template pTemplate="header">
+                <tr>
+
+                    <th pSortableColumn="emdcedula" pResizableColumn>Cedula
+
+                    </th>
+                    <th pSortableColumn="emdnombres" pResizableColumn>Nombre
+
+                    </th>
+
+                    <!--                     <th class="descarto" pSortableColumn="emdapellidos" pResizableColumn>Apellido
+
+                    </th> -->
+
+                    <th class="descarto" pSortableColumn="emddepartamento" pResizableColumn>Departamento
+
+                    </th>
+                    <th class="descarto" pSortableColumn="emdciudad" pResizableColumn>Ciudad
+
+                    </th>
+                    <th class="descarto" pSortableColumn="emdtelefono" pResizableColumn>Telefono
+
+                    </th>
+                    <th class="descarto" pSortableColumn=" nomempresa" pResizableColumn>Empresa
+
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-prueba let-i="rowIndex">
+                <tr>
+
+                    <td style="text-align:left">{{prueba.emdcedula}}</td>
+                    <td style="text-align:left">{{prueba.emdnombres | uppercase}} {{prueba.emdapellidos | uppercase}}</td>
+                    <!--  <td style="text-align:center" class="descarto">{{prueba.emdapellidos}}</td> -->
+                    <td style="text-align:left" class="descarto">{{prueba.emddepartamento | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{prueba.emdciudad | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{prueba.emdtelefono}}</td>
+                    <td style="text-align:left" class="descarto">{{prueba.nomempresa | uppercase}}</td>
+                    <td style="text-align:right">
+                        <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/addempleado/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <!-- <ng-template style="text-align:center" pTemplate="summary">
+
+                <div class="ui-g">
+
+                    <div class="ui-g-12 ui-md-6 ui-lg-3"> En total documentos.</div>
+
+                </div>
+
+
+
+            </ng-template> -->
+
+        </p-table>
+        <br>
+        <div style="text-align:center">
+            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/addempleado/crear" (click)="newcPrueba()" label="Agregar"></button>
+
+        </div>
+    </p-panel>
+
+
+
+</div>

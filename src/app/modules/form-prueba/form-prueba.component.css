@@ -215,3 +215,9 @@ fieldset legend {
         margin: 1% 0;
     }
 }
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}

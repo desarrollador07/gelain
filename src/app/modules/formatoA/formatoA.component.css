@@ -1,0 +1,250 @@
+input {
+    border-radius: 10px;
+}
+
+button {
+    border-radius: 10px;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip::before {
+    background-color: #2162b0;
+    border: 1px solid #888;
+    border-radius: 6px;
+    color: #FFF;
+    content: attr(data-title);
+    display: none;
+    font-family: sans-serif;
+    font-size: 14px;
+    padding: 5px 0;
+    position: absolute;
+    top: 20px;
+    left: 5px;
+    z-index: 1;
+}
+
+.tooltip:hover::before {
+    display: block;
+}
+
+#search-wrapper {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-flow: row-reverse nowrap;
+    -ms-flex-flow: row-reverse nowrap;
+    flex-flow: row-reverse nowrap;
+    width: 200px;
+}
+
+#search-wrapper #search {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-radius: 0 25px 25px 0;
+    color: #444;
+    padding: .6rem .5rem;
+    font-size: 15px;
+    font-weight: lighter;
+    -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+    width: 150px;
+}
+
+#search-wrapper #search+i {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    height: 39px;
+    border-right: 0;
+    color: #777;
+    padding: .67rem .65rem;
+    -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+}
+
+#search-wrapper #search:focus {
+    border-color: #999;
+    outline: none;
+}
+
+#search-wrapper #search:focus+i {
+    border-color: #999;
+}
+
+.fec {
+    width: auto;
+}
+
+.btnsearch {
+    border-radius: 10px;
+    width: 150px;
+}
+
+p-calendar {
+    border-radius: 10px !important;
+}
+
+.fe1 {
+    margin-left: 0px;
+}
+
+.fe {
+    border-radius: 10px 0px 0px 10px !important;
+}
+
+:host ::ng-deep .custom-spinner .p-progress-spinner-circle {
+    animation: custom-progress-spinner-dash 1.5s ease-in-out infinite, custom-progress-spinner-color 6s ease-in-out infinite;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes custom-progress-spinner-color {
+    100%,
+    0% {
+        stroke: #16697A;
+    }
+    40% {
+        stroke: #489FB5;
+    }
+    66% {
+        stroke: #82C0CC;
+    }
+    80%,
+    90% {
+        stroke: #FFA62B;
+    }
+}
+
+@keyframes custom-progress-spinner-dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+button {
+    border-radius: 10px;
+}
+
+fieldset {
+    font-family: sans-serif;
+    border: 2px solid #eb0c0c;
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    width: auto;
+}
+
+
+/* .formStyle{
+    justify-content: center;
+    align-items: center;
+    
+} */
+
+fieldset legend {
+    background: #eb0c0c;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px white;
+    margin-left: 20px;
+}
+
+.ui-button-rounded {
+    width: 40%;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .imagenazul {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .imagenazul {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media only screen and (max-width: 760px),
+(min-width: 768px) and (max-width: 1024px) {
+    .imagenazul {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.doble {
+    display: inline-block
+}
+
+.bloque {
+    display: inline-block;
+}
+
+@media screen and (max-width: 600px) {
+    .bloque {
+        width: 100%;
+        margin: 1% 0;
+    }
+}
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}
+
+.ui-steps .ui-steps-item {
+    width: 25%;
+}
+
+.ui-steps.steps-custom {
+    margin-bottom: 30px;
+}
+
+.ui-steps.steps-custom .ui-steps-item .ui-menuitem-link {
+    height: 10px;
+    padding: 0 1em;
+}
+
+.ui-steps.steps-custom .ui-steps-item .ui-steps-number {
+    background-color: #eb0c0c;
+    color: #FFFFFF;
+    display: inline-block;
+    width: 36px;
+    border-radius: 50%;
+    margin-top: -14px;
+    margin-bottom: 10px;
+}
+
+.ui-steps.steps-custom .ui-steps-item .ui-steps-title {
+    color: #555555;
+}

@@ -1,0 +1,30 @@
+export interface Empleado{
+    emdid?: number;
+    emdcedula?: string,
+    emdnombres?: string,
+    emdapellidos?: string,
+    emdsexo?:string,
+    emdfecnacido?: Date,
+    emdestcivil?: string,
+    emdnivelestudio?: string,
+    emdprofesion?: string,
+    emddepartamento?:string,
+    emdciudad?: string,
+    emddireccion?: string,
+    emdtelefono?: string,
+    emdemail?: string,
+    emdestracto?: string,
+    emdtipovivienda?: string,
+    emdpersdepen?: number,
+    emdempresa?: number,
+    emdtiempolab?: string,
+    emdcargo?: string,
+    emdtipodecargo?: string,
+    emdtiemcargo?: string,
+    emdarea?: number,
+    emdtipocontrato?: string,
+    emdtiposalario?: string,
+    emdusuarioreg?: string,
+    emdipreg?: string
+    nomempresa?:string
+}

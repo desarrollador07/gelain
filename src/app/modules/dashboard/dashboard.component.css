@@ -1,0 +1,303 @@
+.personalizada {
+    border: 2px solid #dedede;
+    background-color: #ffffff;
+    color: #333333;
+    border-radius: 23px;
+    margin-left: 15px;
+    width: 802px;
+    height: 400px;
+}
+
+.centerText {
+    text-align: center;
+    padding: 378px;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+}
+
+.factmensual {
+    padding-left: 247px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+}
+
+.medidor {
+    width: 95%;
+    height: 100%;
+    overflow: hidden;
+    left: -0.5px;
+    top: -0.5px;
+}
+
+.total {
+    width: 119px;
+    float: left;
+    font-size: 12px;
+    color: black;
+    padding-left: 17px;
+}
+
+.box01 {
+    width: 99.5%;
+    /* height: 500%; */
+    border: 1px solid #dddddd;
+    background: white;
+    color: black;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: end;
+}
+
+.box02 {
+    width: 60%;
+    height: 50%;
+}
+
+.box03 {
+    width: 12%;
+    padding: 0 0 0 0px;
+}
+
+.box04 {
+    width: 16%;
+    padding: 0 0 0 0px;
+}
+
+.box05 {
+    width: 10%;
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .termo {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .termo {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+@media only screen and (max-width: 760px),
+(min-width: 768px) and (max-width: 1024px) {
+    .termo {
+        width: 80%;
+        height: 80%;
+    }
+}
+
+
+/* Smartphones (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .imagenazul {
+        width: 100%;
+        height: 100%;
+    }
+    .descarto {
+        display: none;
+    }
+}
+
+
+/* iPads (portrait and landscape) ----------- */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .imagenazul {
+        width: 100%;
+        height: 100%;
+    }
+    .descarto {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 760px),
+(min-width: 768px) and (max-width: 1024px) {
+    .imagenazul {
+        width: 100%;
+        height: 100%;
+    }
+    .descarto {
+        display: none;
+    }
+}
+
+.overview-box {
+    padding-top: 18px;
+    color: #ffffff;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.overview-box>img {
+    width: 80px;
+    height: auto;
+    float: right;
+    margin-right: 20px;
+    vertical-align: middle;
+}
+
+.overview-box>img.image-icon {
+    width: auto;
+    height: 50px;
+}
+
+.overview-box .overview-title {
+    margin-left: 12px;
+    margin-bottom: 8px;
+    font-size: 13px;
+}
+
+.overview-box .overview-numbers {
+    margin-left: 12px;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.overview-box .overview-subinfo {
+    background-color: #E9E9E9;
+    height: 38px;
+    font-size: 13px;
+    border: 1px solid #dedede;
+}
+
+.overview-box .overview-subinfo i {
+    color: #44BE2D;
+    font-size: 13px;
+    margin-right: 8px;
+}
+
+.overview-box .overview-subinfo .progressbar {
+    height: 10px;
+    background-color: #B3B0B0;
+    border-radius: 5px;
+    padding: 0;
+    margin: 14px 0 14px 12px;
+}
+
+.overview-box .overview-subinfo .progressbar .progress {
+    width: 45%;
+    height: 10px;
+    border-radius: 5px;
+}
+
+.overview-box .overview-subinfo .progressbar .progress.sale {
+    width: 75%;
+    background-color: #F39611;
+    background-image: -webkit-gradient(linear, left top, right top, from(#F39611), to(#EE4F10));
+    background-image: -webkit-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: -moz-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: -ms-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: -o-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: linear-gradient(to right, #F39611, #EE4F10);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#F39611", endColorstr="#EE4F10", gradientType="1");
+}
+
+.overview-box .overview-subinfo .progressbar .progress.view {
+    background-color: #326DDF;
+    background-image: -webkit-gradient(linear, left top, right top, from(#326DDF), to(#214B9C));
+    background-image: -webkit-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: -moz-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: -ms-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: -o-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: linear-gradient(to right, #326DDF, #214B9C);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#326DDF", endColorstr="#214B9C", gradientType="1");
+}
+
+.overview-box .overview-subinfo span {
+    color: #585858;
+    width: auto;
+    line-height: 26px;
+}
+
+.overview-box .overview-subinfo.user {
+    height: 38px;
+    padding: 8px 12px;
+}
+
+.overview-box .overview-subinfo.checkin {
+    height: 38px;
+    padding: 8px 12px;
+}
+
+.overview-box.sales {
+    background-color: #F39611;
+    background-image: -webkit-gradient(linear, left top, right top, from(#F39611), to(#EE4F10));
+    background-image: -webkit-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: -moz-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: -ms-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: -o-linear-gradient(to right, #F39611, #EE4F10);
+    background-image: linear-gradient(to right, #F39611, #EE4F10);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#F39611", endColorstr="#EE4F10", gradientType="1");
+}
+
+.overview-box.views {
+    background-color: #326DDF;
+    background-image: -webkit-gradient(linear, left top, right top, from(#326DDF), to(#214B9C));
+    background-image: -webkit-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: -moz-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: -ms-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: -o-linear-gradient(to right, #326DDF, #214B9C);
+    background-image: linear-gradient(to right, #326DDF, #214B9C);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#326DDF", endColorstr="#214B9C", gradientType="1");
+}
+
+.overview-box.users {
+    background-color: #E02364;
+    background-image: -webkit-gradient(linear, left top, right top, from(#E02364), to(#A22650));
+    background-image: -webkit-linear-gradient(to right, #E02364, #A22650);
+    background-image: -moz-linear-gradient(to right, #E02364, #A22650);
+    background-image: -ms-linear-gradient(to right, #E02364, #A22650);
+    background-image: -o-linear-gradient(to right, #E02364, #A22650);
+    background-image: linear-gradient(to right, #E02364, #A22650);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#E02364", endColorstr="#A22650", gradientType="1");
+}
+
+.overview-box.checkins {
+    background-color: #7DC931;
+    background-image: -webkit-gradient(linear, left top, right top, from(#7DC931), to(#14A143));
+    background-image: -webkit-linear-gradient(to right, #7DC931, #14A143);
+    background-image: -moz-linear-gradient(to right, #7DC931, #14A143);
+    background-image: -ms-linear-gradient(to right, #7DC931, #14A143);
+    background-image: -o-linear-gradient(to right, #7DC931, #14A143);
+    background-image: linear-gradient(to right, #7DC931, #14A143);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#7DC931", endColorstr="#14A143", gradientType="1");
+}
+
+.completa {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background-size: cover;
+}
+
+.ui-panel-images {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

@@ -43,6 +43,7 @@ button {
     -ms-flex-flow: row-reverse nowrap;
     flex-flow: row-reverse nowrap;
     width: 200px;
+    float: left;
 }
 
 #search-wrapper #search {

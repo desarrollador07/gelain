@@ -26,6 +26,8 @@ import {  PanelModule } from 'primeng/panel';
 import {DataViewModule} from 'primeng/dataview';
 import { DialogModule } from 'primeng/primeng';
 import {RadioButtonModule} from 'primeng/radiobutton';
+import {TabMenuModule} from 'primeng/tabmenu';
+
 
 
 @NgModule({
@@ -55,6 +57,8 @@ import {RadioButtonModule} from 'primeng/radiobutton';
     DataViewModule,
     DialogModule,
     RadioButtonModule,
+    TabMenuModule,
+
   ],
   providers:[
     DatePipe,

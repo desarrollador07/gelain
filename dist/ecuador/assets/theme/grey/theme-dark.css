@@ -1887,6 +1887,10 @@ body .fc .fc-head .fc-row {
   background-color: #050505;
   color: #ffffff;
 }
+body .fc .fc-head .fc-row th {
+  border: 1px solid #050505;
+  padding: 0.857em 1em;
+}
 body .fc td.fc-today {
   background-color: #707277;
   color: #ffffff;

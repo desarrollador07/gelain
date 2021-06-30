@@ -1,0 +1,39 @@
+<p-toast></p-toast>
+<p-toast position="top-center" key="tl"></p-toast>
+<div class="login-body">
+    <div class="login-image">
+        <div class="login-panel">
+            <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="Logo" />
+            <!-- <div class="log">Gelain</div> -->
+            <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginform">
+                <div class="ui-g-12">
+
+                    <div class="input-wrapper">
+                        <input type="text" formControlName="user" placeholder="Usuario" class="ui-inputtext ui-widget">
+
+                    </div>
+                </div>
+                <div class="ui-g-12">
+                    <div class="input-wrapper">
+                        <input type="password" formControlName="pwd" placeholder="Contraseña" class="ui-inputtext ui-widget">
+
+                    </div>
+                </div>
+                <div class="checkbox-container">
+
+                    <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+                                <span class="ui-button-text ui-c">Login</span>
+                            </button>
+                </div>
+
+                <div class="separator"></div>
+
+
+                <!-- <p class="subinfo">V 1.0</p> -->
+
+            </form>
+
+        </div>
+
+    </div>
+</div>

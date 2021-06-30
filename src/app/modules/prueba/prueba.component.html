@@ -1,7 +1,8 @@
-<br>
-<br>
-
-
+<div id="search-wrapper">
+    <input type="text" id="search" pInputText placeholder="Buscar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+    <i class="pi pi-search"></i>
+</div>
+<br><br><br>
 
 <p-toast></p-toast>
 <p-toast position="top-left" key="tl"></p-toast>
@@ -15,39 +16,34 @@
 
 
 
-<br><br>
-
 <div class="card">
 
     <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
-    <p-panel header="Prueba de primeNG">
-        <p-table #dt [value]="pruebas" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+    <p-panel header="Empresas">
+        <p-table #dt [value]="pruebas" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
 
 
             <ng-template pTemplate="header">
                 <tr>
-                    <th cpSortableColumn="name" pResizableColumn>ID
+
+                    <th pSortableColumn="empnit" pResizableColumn>Nit
+
+                    </th>
+                    <th pSortableColumn="empnombre" pResizableColumn>Nombre
 
                     </th>
 
-                    <th pSortableColumn="name" pResizableColumn>Codigo
-
-                    </th>
-                    <th pSortableColumn="name" pResizableColumn>Nombre
+                    <th class="descarto" pSortableColumn="emprepresentante" pResizableColumn>Representante
 
                     </th>
 
-                    <th class="descarto" pSortableColumn="name" pResizableColumn>Confirmacion
+                    <th class="descarto" pSortableColumn="empdepartamento" pResizableColumn>Departamento
 
                     </th>
-
-                    <th class="descarto" pSortableColumn="name" pResizableColumn>Edad
-
-                    </th>
-                    <th class="descarto" pSortableColumn="name" pResizableColumn>Tipo
+                    <th class="descarto" pSortableColumn="empciudad" pResizableColumn>Ciudad
 
                     </th>
-                    <th class="descarto" pSortableColumn="name" pResizableColumn>Estado
+                    <th class="descarto" pSortableColumn="emptelefono" pResizableColumn>Telefono
 
                     </th>
                     <th pSortableColumn="name" pResizableColumn>
@@ -57,13 +53,12 @@
             </ng-template>
             <ng-template pTemplate="body" let-columns let-prueba let-i="rowIndex">
                 <tr>
-                    <td style="text-align:center" class="old-car">{{prueba.pr_id}}</td>
-                    <td style="text-align:center">{{prueba.codigo}}</td>
-                    <td style="text-align:center">{{prueba.nombre}}</td>
-                    <td style="text-align:center" class="descarto">{{prueba.confirmar}}</td>
-                    <td style="text-align:center" class="descarto">{{prueba.edad}}</td>
-                    <td style="text-align:center" class="descarto">{{prueba.tipo}}</td>
-                    <td style="text-align:center" class="descarto">{{prueba.estado}}</td>
+                    <td style="text-align:center">{{prueba.empnit}}</td>
+                    <td style="text-align:center">{{prueba.empnombre}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.emprepresentante}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.empdepartamento}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.empciudad}}</td>
+                    <td style="text-align:center" class="descarto">{{prueba.emptelefono}}</td>
                     <td style="text-align:right">
                         <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/prueba/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                         <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>

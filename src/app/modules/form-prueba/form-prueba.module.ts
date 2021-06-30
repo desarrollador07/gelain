@@ -17,7 +17,7 @@ import {ToastModule} from 'primeng/toast';
 import {CalendarModule} from 'primeng/calendar';
 import { DatePipe } from '@angular/common';
 import {StepsModule} from 'primeng/steps';
-
+import {ChipsModule} from 'primeng/chips';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 
 
@@ -40,6 +40,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     ToastModule,
     CalendarModule,
     StepsModule,
+    ChipsModule,
   ],
   providers:[
     MessageService,

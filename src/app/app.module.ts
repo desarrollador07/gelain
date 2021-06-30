@@ -53,7 +53,6 @@ import { PickListModule } from 'primeng/picklist';
 import { ProgressBarModule } from 'primeng/progressbar';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { RatingModule } from 'primeng/rating';
-import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { SlideMenuModule } from 'primeng/slidemenu';
 import { SliderModule } from 'primeng/slider';
@@ -101,6 +100,7 @@ import { BreadcrumbService } from './breadcrumb.service';
 import { MainComponent } from './layout/main/main.component';
 import { PruebaComponent } from './modules/prueba/prueba.component';
 import { FormPruebaComponent } from './modules/form-prueba/form-prueba.component';
+import { LoginModule} from './modules/login/login.module';
 
 @NgModule({
     imports: [
@@ -156,7 +156,6 @@ import { FormPruebaComponent } from './modules/form-prueba/form-prueba.component
         ProgressBarModule,
         RadioButtonModule,
         RatingModule,
-        ScrollPanelModule,
         SelectButtonModule,
         SlideMenuModule,
         SliderModule,
@@ -174,7 +173,8 @@ import { FormPruebaComponent } from './modules/form-prueba/form-prueba.component
         TooltipModule,
         TreeModule,
         TreeTableModule,
-        VirtualScrollerModule
+        VirtualScrollerModule,
+        LoginModule
     ],
     declarations: [
         AppComponent,
