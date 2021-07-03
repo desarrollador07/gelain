@@ -34,49 +34,60 @@ export class FormEmpleadosComponent implements OnInit {
   area: SelectItem[] = [];
   areas: Area[] = [];
   localPrueba: Empleado = {};
+/*   localArea: Area = {}; */
   userform: FormGroup;
   es: any;
   id: number;
   idd: any;
+  idem:string = "10";
+
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
     console.log(this.id);
+    
+    
   }
 
   async ngOnInit() {
+   
+    this.calendarEspañol();
     this.userform = this.fb.group({
       emdid:[''],
-      emdcedula: [''],
-      emdnombres: [''],
-      emdapellidos: [''],
-      emdsexo: [''],
-      emdfecnacido: [''],
-      emdestcivil: [''],
-      emdnivelestudio: [''],
-      emdprofesion: [''],
-      emddepartamento: [''],
-      emdciudad: [''],
-      emddireccion: [''],
-      emdtelefono: [''],
-      emdemail: [''],
-      emdestracto: [''],
-      emdtipovivienda: [''],
-      emdpersdepen: [''],
-      emdempresa: [''],
-      emdtiempolab: [''],
-      emdcargo: [''],
-      emdtipodecargo: [''],
-      emdtiemcargo: [''],
-      emdarea: [''],
-      emdtipocontrato: [''],
-      emdtiposalario: [''],
-      emdusuarioreg: [''],
-      emdipreg: [''],
+      emdcedula: ['', Validators.required],
+      emdnombres: ['', Validators.required],
+      emdapellidos: ['', Validators.required],
+      emdsexo: ['', Validators.required],
+      emdfecnacido: ['', Validators.required],
+      emdestcivil: ['', Validators.required],
+      emdnivelestudio: ['', Validators.required],
+      emdprofesion: ['', Validators.required],
+      emddepartamento: ['', Validators.required],
+      emdciudad: ['', Validators.required],
+      emddireccion: ['', Validators.required],
+      emdtelefono: ['',  [Validators.required, Validators.minLength(7),Validators.maxLength(10)]],
+      emdemail: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      emdestracto: ['', Validators.required],
+      emdtipovivienda: ['', Validators.required],
+      emdpersdepen: ['', Validators.required],
+      emdempresa: ['', Validators.required],
+      emdtiempolab: ['', Validators.required],
+      emdcargo: ['', Validators.required],
+      emdtipodecargo: ['', Validators.required],
+      emdtiemcargo: ['', Validators.required],
+      emdarea: ['', Validators.required],
+      emdtipocontrato: ['', Validators.required],
+      emdhorasdia:['', Validators.required],
+      emdtiposalario: ['', Validators.required],
+      emdusuarioreg: ['jennifer'],
+      emdipreg: ['127.0.0.1'],
     });
 
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
     console.log('f',this.localPrueba);
+
+/*     this.localArea =JSON.parse(localStorage.getItem('Areas'));
+    console.log('Are',this.localArea); */
 
     await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
       console.log(data);
@@ -86,51 +97,22 @@ export class FormEmpleadosComponent implements OnInit {
         this.empresa.push({
           label:x.empnombre,
           value: x.empid
-        })
+        }) 
       })
     })
 
 
-    
 
-    this.userform = this.fb.group({
-      emdid:[''],
-      emdcedula: [''],
-      emdnombres: [''],
-      emdapellidos: [''],
-      emdsexo: [''],
-      emdfecnacido: [''],
-      emdestcivil: [''],
-      emdnivelestudio: [''],
-      emdprofesion: [''],
-      emddepartamento: [''],
-      emdciudad: [''],
-      emddireccion: [''],
-      emdtelefono: [''],
-      emdemail: [''],
-      emdestracto: [''],
-      emdtipovivienda: [''],
-      emdpersdepen: [''],
-      emdempresa: [''],
-      emdtiempolab: [''],
-      emdcargo: [''],
-      emdtipodecargo: [''],
-      emdtiemcargo: [''],
-      emdarea: [''],
-      emdtipocontrato: [''],
-      emdtiposalario: [''],
-      emdusuarioreg: [''],
-      emdipreg: [''],
-    });
+
 
     this.sexo = [];
-    this.sexo.push({ label: 'Sexo', value: 'NR'});
+    this.sexo.push({ label: 'Sexo', value: ''});
     this.sexo.push({ label: 'Masculino', value: 'M' });
     this.sexo.push({ label: 'Femenino', value: 'F' });
     this.sexo.push({ label: 'No Responde', value: 'NR' });
 
     this.civil = [];
-    this.civil.push({ label: 'Estado Civil', value: 'NR' });
+    this.civil.push({ label: 'Estado Civil', value: '' });
     this.civil.push({ label: 'Soltero(a)', value: '1' });
     this.civil.push({ label: 'Casado(a)', value: '2' });
     this.civil.push({ label: 'Union libre', value: '3' });
@@ -141,7 +123,7 @@ export class FormEmpleadosComponent implements OnInit {
     this.civil.push({ label: 'No Responde', value: 'NR' });
 
     this.estudio = [];
-    this.estudio.push({ label: 'Ultimos niveles de estudio', value: 'NR' });
+    this.estudio.push({ label: 'Ultimos niveles de estudio', value: '' });
     this.estudio.push({ label: 'Ninguno', value: '1' });
     this.estudio.push({ label: 'Primaria incompleta', value: '2' });
     this.estudio.push({ label: 'Primaria completa', value: '3' });
@@ -157,7 +139,7 @@ export class FormEmpleadosComponent implements OnInit {
     this.estudio.push({ label: 'No Responde', value: 'NR' });
 
     this.estrato = [];
-    this.estrato.push({ label: 'Estrato de su vivienda', value: 'NR' });
+    this.estrato.push({ label: 'Estrato de su vivienda', value: '' });
     this.estrato.push({ label: '1', value: '1' });
     this.estrato.push({ label: '2', value: '2' });
     this.estrato.push({ label: '3', value: '3' });
@@ -169,14 +151,14 @@ export class FormEmpleadosComponent implements OnInit {
     this.estrato.push({ label: 'No Responde', value: 'NR' });
 
     this.tipovivi = [];
-    this.tipovivi.push({ label: 'Tipo de Vivienda', value: 'NR' });
+    this.tipovivi.push({ label: 'Tipo de Vivienda', value: '' });
     this.tipovivi.push({ label: 'Propia', value: '1' });
     this.tipovivi.push({ label: 'En arriendo', value: '2' });
     this.tipovivi.push({ label: 'Familiar', value: '3' });
     this.tipovivi.push({ label: 'No Responde', value: 'NR' });
 
     this.cargo = [];
-    this.cargo.push({ label: 'Tipo de Cargo', value: 'NR' });
+    this.cargo.push({ label: 'Tipo de Cargo', value: '' });
     this.cargo.push({ label: 'Jefatura - tiene personal a cargo', value: '1' });
     this.cargo.push({ label: 'Profesional - analista - técnico - tecnólogo', value: '2' });
     this.cargo.push({ label: 'Auxiliar - asistente administrativo - asistente técnico', value: '3' });
@@ -184,7 +166,7 @@ export class FormEmpleadosComponent implements OnInit {
     this.cargo.push({ label: 'No Responde', value: 'NR' });
 
     this.tContrato = [];
-    this.tContrato.push({ label: 'Tipo de Contrato', value: 'NR' });
+    this.tContrato.push({ label: 'Tipo de Contrato', value: '' });
     this.tContrato.push({ label: 'Temporal de menos de 1 año', value: '1' });
     this.tContrato.push({ label: 'Temporal de 1 año o mas', value: '2' });
     this.tContrato.push({ label: 'Termino indefinido', value: '3' });
@@ -194,19 +176,16 @@ export class FormEmpleadosComponent implements OnInit {
     this.tContrato.push({ label: 'No Responde', value: 'NR' });
 
     this.tsalario = [];
-    this.tsalario.push({ label: 'Tipo de salario', value: 'NR' });
+    this.tsalario.push({ label: 'Tipo de salario', value: '' });
     this.tsalario.push({ label: 'Fijo', value: '1' });
     this.tsalario.push({ label: 'Una parte fija y otra variable', value: '2' });
     this.tsalario.push({ label: 'Todo variable', value: '3' });
     this.tsalario.push({ label: 'No Responde', value: 'NR' });
 
-    this.area = [];
-    this.area.push({ label: 'Areas', value: 'NR' });
-    this.area.push({ label: 'Sistemas', value: '4' });
-    this.area.push({ label: 'Contable', value: '5' });
-    this.area.push({ label: 'Comercial', value: '6' });
+
 
      if(this.localPrueba !==null){
+      
       this.userform.patchValue({
         /* emdid:this.localPrueba.emdid, */
         emdcedula:this.localPrueba.emdcedula,
@@ -230,15 +209,107 @@ export class FormEmpleadosComponent implements OnInit {
         emdcargo:this.localPrueba.emdcargo,
         emdtipodecargo:this.localPrueba.emdtipodecargo,
         emdtiemcargo:this.localPrueba.emdtiemcargo,
-        emdarea:this.localPrueba.emdarea,
         emdtipocontrato:this.localPrueba.emdtipocontrato,
+        emdhorasdia:this.localPrueba.emdhorasdia,
         emdtiposalario:this.localPrueba.emdtiposalario,
         emdusuarioreg:this.localPrueba.emdusuarioreg,
         emdipreg:this.localPrueba.emdipreg,
       })
     } 
+  
+
+
   }
 
+
+  get emdCedula() {
+    return this.userform.get('emdcedula').invalid && this.userform.get('emdcedula').touched
+  }
+
+  get emdNombres() {
+    return this.userform.get('emdnombres').invalid && this.userform.get('emdnombres').touched
+  }
+  get emdApellidos() {
+    return this.userform.get('emdapellidos').invalid && this.userform.get('emdapellidos').touched
+  }
+  get emdSexo() {
+    return this.userform.get('emdsexo').invalid && this.userform.get('emdsexo').touched
+  }
+  get emdFecnacido() {
+    return this.userform.get('emdfecnacido').invalid && this.userform.get('emdfecnacido').touched
+  }
+  get emdEstcivil() {
+    return this.userform.get('emdestcivil').invalid && this.userform.get('emdestcivil').touched
+  }
+  get emdNivelestudio() {
+    return this.userform.get('emdnivelestudio').invalid && this.userform.get('emdnivelestudio').touched
+  }
+  get emdProfesion() {
+    return this.userform.get('emdprofesion').invalid && this.userform.get('emdprofesion').touched
+  }
+  get emDepartamento() {
+    return this.userform.get('emddepartamento').invalid && this.userform.get('emddepartamento').touched
+  }
+  get emdCiudad() {
+    return this.userform.get('emdciudad').invalid && this.userform.get('emdciudad').touched
+  }
+  get emdDireccion() {
+    return this.userform.get('emddireccion').invalid && this.userform.get('emddireccion').touched
+  }
+  get emdTelefono() {
+    return this.userform.get('emdtelefono').invalid && this.userform.get('emdtelefono').touched
+  }
+  get emdTelefonomin() {
+    return this.userform.get('emdtelefono').hasError('minlength') 
+  }
+  get emdTelefonomax() {
+    return this.userform.get('emdtelefono').hasError('maxlength') 
+  }
+  get emdEmail() {
+    return this.userform.get('emdemail').invalid && this.userform.get('emdemail').touched
+  }
+  get emdEstracto() {
+    return this.userform.get('emdestracto').invalid && this.userform.get('emdestracto').touched
+  }
+  get emdTipovivienda() {
+    return this.userform.get('emdtipovivienda').invalid && this.userform.get('emdtipovivienda').touched
+  }
+  get emdPersdepen() {
+    return this.userform.get('emdpersdepen').invalid && this.userform.get('emdpersdepen').touched
+  }
+  get emdEmpresa() {
+    return this.userform.get('emdempresa').invalid && this.userform.get('emdempresa').touched
+  }
+  get emdTiempolab() {
+    return this.userform.get('emdtiempolab').invalid && this.userform.get('emdtiempolab').touched
+  }
+  get emdCargo() {
+    return this.userform.get('emdcargo').invalid && this.userform.get('emdcargo').touched
+  }
+  get emdTipodecargo() {
+    return this.userform.get('emdtipodecargo').invalid && this.userform.get('emdtipodecargo').touched
+  }
+  get emdTiemcargo() {
+    return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
+  }
+  get emdArea() {
+    return this.userform.get('emdarea').invalid && this.userform.get('emdarea').touched
+  }
+  get emdTipocontrato() {
+    return this.userform.get('emdtipocontrato').invalid && this.userform.get('emdtipocontrato').touched
+  }
+  get emdHorasdia() {
+    return this.userform.get('emdhorasdia').invalid && this.userform.get('emdhorasdia').touched
+  }
+  get emdTiposalario() {
+    return this.userform.get('emdtiposalario').invalid && this.userform.get('emdtiposalario').touched
+  }
+  get emdUsuarioreg() {
+    return this.userform.get('emdusuarioreg').invalid && this.userform.get('emdusuarioreg').touched
+  }
+  get emdIpreg() {
+    return this.userform.get('emdipreg').invalid && this.userform.get('emdipreg').touched
+  }
 
 
 
@@ -252,7 +323,12 @@ export class FormEmpleadosComponent implements OnInit {
           console.log(data);
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
-          this.router.navigate(["/main/empleado"]);
+          if (Number(data.emdtipodecargo)==1) {
+            console.log("ingreso");
+            this.router.navigate(["/main/addFormatoA/crear"]);
+          }else{
+            this.router.navigate(["/main/addFormatoB/crear"]);
+          }
         })
       }else{
         console.log("voy a crear");
@@ -281,5 +357,52 @@ export class FormEmpleadosComponent implements OnInit {
       
     }
   }
+
+  async buscarArea(){
+    this.area =[];
+    if (this.localPrueba !== null) {
+     await this.pruebaservices.buscarByArea(this.localPrueba.emdempresa).toPromise().then((data:any)=>{
+        console.log("buscar editar",data);
+        this.areas = data;
+        this.areas.map(x=>{
+          console.log('x:',x);
+          
+          this.area.push({
+            label:x.arenombre,
+            value: x.areid
+          });
+        });
+      });
+      this.userform.patchValue({
+        emdarea: this.localPrueba.emdarea
+      });
+    }else{
+      this.pruebaservices.buscarByArea(this.userform.value.emdempresa).toPromise().then((data:any)=>{
+        console.log("buscar agregar",data);
+        this.areas = data;
+        this.areas.map(x=>{
+          this.area.push({
+            label:x.arenombre,
+            value: x.areid
+          });
+        });
+      });
+    }
+  }
+
+  calendarEspañol(){
+    this.es = {
+        firstDayOfWeek: 1,
+        dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+        dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+        dayNamesMin: ["Do","Lu","Ma","Mi","Ju","Vi","Sa"],
+        monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
+        monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun","Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ],
+        today: 'Hoy',
+        clear: 'Borrar',
+        dateFormat: 'yy-mm-dd',
+        weekHeader: 'SM'
+    };
+}
 
 }

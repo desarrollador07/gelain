@@ -22,61 +22,71 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="empnit" type="text" pInputText> 
+                            <input   [class.is-invalid]="empNit"  formControlName="empnit" type="number" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nit</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empNit"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="empnombre" type="text" pInputText> 
+                            <input  [class.is-invalid]="empNombre"   formControlName="empnombre" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empNombre"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="emprepresentante" type="text" pInputText> 
+                            <input  [class.is-invalid]="empRepresentante"   formControlName="emprepresentante" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Reprecentante</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empRepresentante"></p-message>
                     </div>
                 </div>
 
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="empdepartamento" type="text" pInputText> 
+                            <input  [class.is-invalid]="empDepartamento"    formControlName="empdepartamento" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Departamento</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empDepartamento"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="empciudad" type="text" pInputText> 
+                            <input   [class.is-invalid]="empCiudad"  formControlName="empciudad" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Ciudad</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empCiudad"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="empdireccion" type="text" pInputText> 
+                            <input  [class.is-invalid]="empDireccion"   formControlName="empdireccion" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Direccion</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empDireccion"></p-message>
                     </div>
                 </div>
 
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input     formControlName="emptelefono" type="text" pInputText> 
+                            <input  [class.is-invalid]="empTelefono"   formControlName="emptelefono" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Telefono</label>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empTelefono"></p-message>
+                        <p-message severity="error" text="la cantidad minima son 7 caracteres" *ngIf="empTelefonomin"></p-message>
+                        <p-message severity="error" text="la cantidad maxima son 10 caracteres" *ngIf="empTelefonomax"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="estado" formControlName="empactiva" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="empActiva" [options]="estado" formControlName="empactiva" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="empActiva"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -86,16 +96,24 @@
 
             </fieldset>
             <br>
-            <fieldset>
+            <!--             <fieldset *ngIf="bandera">
                 <legend><b>Areas</b></legend>
-                <p>luego de escribir el Area presione la tecla enter para agregarla</p>
-                <p-chips formControlName="emparea">
+                <p>Digite el Area y luego presione la tecla enter para agregarla</p>
+                <div class="ui-g-6">
+                    <span class="ui-float-label">
+                <p-chips [class.is-invalid]="empArea" formControlName="emparea">
                     <ng-template let-item pTemplate="item">
                         {{item}} - (active) <i class="pi pi-inbox" style="margin-right:2em"></i>
                     </ng-template>
                 </p-chips>
+                </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="empArea"></p-message>
+                </div>
+                <div class="ui-g-2">
+                    <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editArea()" routerLink="/main/area" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em" *ngIf="bandera" label="Editar Areas"></button>
+                </div>
 
-            </fieldset>
+            </fieldset> -->
 
 
 
@@ -110,6 +128,100 @@
         </div>
 
     </p-panel>
-    <!--  <pre>{{userform.value | json}}</pre> -->
+    <!-- <pre>{{userform.value | json}}</pre> -->
 
 </form>
+
+
+
+
+
+<!-- <div id="search-wrapper">
+    <input type="text" id="search" pInputText placeholder="Buscar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+    <i class="pi pi-search"></i>
+</div>
+<br><br><br> -->
+
+
+
+<!-- <p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog> -->
+
+
+
+
+<div class="card">
+
+    <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
+    <p-panel header="Areas">
+        <p-table #dt [value]="pruebas" [globalFilterFields]="['areid','areempresa','arenombre','arefechaini','areactivo']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <!--                     <th pSortableColumn="areid" pResizableColumn>ID
+
+                    </th> -->
+
+                    <!--  <th pSortableColumn="areempresa" pResizableColumn>Empresa
+
+                    </th> -->
+                    <th pSortableColumn="arenombre" pResizableColumn>Nombre
+
+                    </th>
+
+                    <!--                     <th class="descarto" pSortableColumn="arefechaini" pResizableColumn>Fecha de Inicio
+
+                    </th>
+
+                    <th class="descarto" pSortableColumn="areactivo" pResizableColumn>Activo
+
+                    </th> -->
+                    <th pSortableColumn="name" pResizableColumn>
+
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-columns let-prueba let-i="rowIndex">
+                <tr>
+                    <!--  <td style="text-align:center" class="old-car">{{prueba.areid}}</td> -->
+                    <!--  <td style="text-align:center">{{prueba.areempresa}}</td> -->
+                    <td style="text-align:center">{{prueba.arenombre}}</td>
+                    <!--  <td style="text-align:center" class="descarto">{{prueba.arefechaini}}</td> -->
+                    <!-- <td style="text-align:center" class="descarto">{{prueba.areactivo}}</td> -->
+                    <td style="text-align:right">
+                        <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/addArea/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>
+                    </td>
+                </tr>
+            </ng-template>
+
+            <!-- <ng-template style="text-align:center" pTemplate="summary">
+
+                <div class="ui-g">
+
+                    <div class="ui-g-12 ui-md-6 ui-lg-3"> En total documentos.</div>
+
+                </div>
+
+
+
+            </ng-template> -->
+
+        </p-table>
+        <br>
+        <div style="text-align:center">
+            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/addArea/crear" (click)="newcPrueba()" label="Agregar"></button>
+
+        </div>
+    </p-panel>
+
+
+
+</div>

@@ -17,10 +17,13 @@ import { routes } from '../../app.routes';
 })
 export class FormAreaComponent implements OnInit {
   localPrueba: Area = {};
+  localIDEmp:number;
   userform: FormGroup;
   es: any;
   id: number;
   idd: any;
+ 
+
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) { 
@@ -29,7 +32,9 @@ export class FormAreaComponent implements OnInit {
   }
 
   ngOnInit() {
+    let today = new Date();
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
+    this.localIDEmp =JSON.parse(localStorage.getItem('idempre'));
     console.log('f',this.localPrueba);
 
 
@@ -37,8 +42,8 @@ export class FormAreaComponent implements OnInit {
         areid:[''],
         areempresa: [''],
         arenombre: [''],
-        arefechaini: [''],
-        areactivo: [''],
+        arefechaini: [today],
+        areactivo: ['1'],
 
     })
 
@@ -62,16 +67,17 @@ export class FormAreaComponent implements OnInit {
           console.log(data);
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
-          this.router.navigate(["/main/area"]);
+          this.router.navigate(["/main/listarEmpresa"]);
         })
       }else{
         console.log("voy a crear");
+        this.userform.value.areempresa = this.localIDEmp;
         this.pruebaservices.createArea(this.userform.value)
         .subscribe((data=>{
           console.log(data);
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
-          this.router.navigate(["/main/area"]);
+          this.router.navigate(["/main/listarEmpresa"]);
           
         }))
       }

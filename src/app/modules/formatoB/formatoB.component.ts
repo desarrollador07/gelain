@@ -19,128 +19,141 @@ import { FormatoB } from '../../models/formatoB.model';
 })
 export class FormatoBComponent implements OnInit {
   localPrueba: FormatoB = {};
+  forrr:any[]=[];
   userform: FormGroup;
   es: any;
   idd: any;
   a1: SelectItem[];
+  a2: SelectItem[];
   idl:any;
   items: MenuItem[];
   activeIndex: number = 1;
+  vart : boolean;
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
  
+                this.forrr =JSON.parse(localStorage.getItem('ForB'));
+                
+                if (this.forrr !== null) {
+                  this.localPrueba = this.forrr[0];
+                }else{
+                  this.localPrueba = null;
+                }
+                console.log("lo",this.localPrueba);
+                
+                    
+                
+                    
+                    
+                
+                    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
   ngOnInit() {
-
-    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
-    console.log('idl',this.idl);
-
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    console.log('idl',this.idl);
-
+    this.vart=false;
 
     this.userform = this.fb.group({
-      inaid: [''],
-      inaidempleado: [Number(this.idl)],
-      aux1:[''],
-      aux2:[''],
-      aux3:[''],
-      aux4:[''],
-      aux5:[''],
-      aux6:[''],
-      aux7:[''],
-      aux8:[''],
-      aux9:[''],
-      aux10:[''],
-      aux11:[''],
-      aux12:[''],
-      aux13:[''],
-      aux14:[''],
-      aux15:[''],
-      aux16:[''],
-      aux17:[''],
-      aux18:[''],
-      aux19:[''],
-      aux20:[''],
-      aux21:[''],
-      aux22:[''],
-      aux23:[''],
-      aux24:[''],
-      aux25:[''],
-      aux26:[''],
-      aux27:[''],
-      aux28:[''],
-      aux29:[''],
-      aux30:[''],
-      aux31:[''],
-      aux32:[''],
-      aux33:[''],
-      aux34:[''],
-      aux35:[''],
-      aux36:[''],
-      aux37:[''],
-      aux38:[''],
-      aux39:[''],
-      aux40:[''],
-      aux41:[''],
-      aux42:[''],
-      aux43:[''],
-      aux44:[''],
-      aux45:[''],
-      aux46:[''],
-      aux47:[''],
-      aux48:[''],
-      aux49:[''],
-      aux50:[''],
-      aux51:[''],
-      aux52:[''],
-      aux53:[''],
-      aux54:[''],
-      aux55:[''],
-      aux56:[''],
-      aux57:[''],
-      aux58:[''],
-      aux59:[''],
-      aux60:[''],
-      aux61:[''],
-      aux62:[''],
-      aux63:[''],
-      aux64:[''],
-      aux65:[''],
-      aux66:[''],
-      aux67:[''],
-      aux68:[''],
-      aux69:[''],
-      aux70:[''],
-      aux71:[''],
-      aux72:[''],
-      aux73:[''],
-      aux74:[''],
-      aux75:[''],
-      aux76:[''],
-      aux77:[''],
-      aux78:[''],
-      aux79:[''],
-      aux80:[''],
-      aux81:[''],
-      aux82:[''],
-      aux83:[''],
-      aux84:[''],
-      aux85:[''],
-      aux86:[''],
-      aux87:[''],
-      aux88:[''],
-      aux89:[''],
-      aux90:[''],
-      aux91:[''],
-      aux92:[''],
-      aux93:[''],
-      aux94:[''],
-      aux95:[''],
-      aux96:[''],
-      aux97:[''], 
+      inbid: [''],
+      inbidempleado: [Number(this.idl)],
+      inbruido :[''],
+      inbfrio :[''],
+      inbcalor :[''],
+      inbairefresco :[''],
+      inbluz :[''],
+      inbcomodo :[''],
+      inbsustanquimicas :[''],
+      inbesfuerzofisico :[''],
+      inbequiposcomodos :[''],
+      inbanimalesplantas :[''],
+      inbpreoaccidente :[''],
+      inblugarlimpio :[''],
+      inbtiempoadicional :[''],
+      inbalcanzatiempo :[''],
+      inbtrabajasinparar :[''],
+      inbesfuerzomental :[''],
+      inbexigeconcentrado :[''],
+      inbexigememoria :[''],
+      inbhacercalculos :[''],
+      inbpqnosdetalles :[''],
+      inbtrabajonoche :[''],
+      inbtomarpausas :[''],
+      inbtrabajodiadesca :[''],
+      inbfinsemdesc :[''],
+      inbencasapiensotra :[''],
+      inbdiscutofamilia :[''],
+      inbasuntosencasa :[''],
+      inbpocotiempofami :[''],
+      inbhacercosasnuevas :[''],
+      inbpermitehabilidad :[''],
+      inbpermiteconocimi :[''],
+      inbpermiteaprender :[''],
+      inbpausasnecesito :[''],
+      inbtrabajodiario :[''],
+      inbdecivelocidad :[''],
+      inbcambiarordenact :[''],
+      inbatenderasunpers :[''],
+      inbexplicancambios :[''],
+      inbpuedodarsugeren :[''],
+      inbencuentamisideas :[''],
+      inbclaridadfunciones :[''],
+      inbdecisionesatomar :[''],
+      inbresultadoslograr :[''],
+      inbexplicanobjetivos :[''],
+      inbinfquienresolver :[''],
+      inbasiscapacitacion :[''],
+      inbrecibocapacitaci :[''],
+      inbrecibocapaciayuda :[''],
+      inbjefeayudaorganiz :[''],
+      inbjefemispuntosvist :[''],
+      inbjefeanima :[''],
+      inbjefedistribuye :[''],
+      inbjefecomunica :[''],
+      inbjefeorienracion :[''],
+      inbjefeayudaprogres :[''],
+      inbjefeayudasentime :[''],
+      inbjefesolucionar :[''],
+      inbjeferespeto :[''],
+      inbjefeconfio :[''],
+      inbjefeescucha :[''],
+      inbjefeapoyo :[''],
+      inbagradaambiente :[''],
+      inbgruporespeto :[''],
+      inbconfiocompaneros :[''],
+      inbagustocompaneros :[''],
+      inbgrupomaltrata :[''],
+      inbsolucionacompa :[''],
+      inbgrupounido :[''],
+      inbtrabajogrupo :[''],
+      inbgrupodeacuerdo :[''],
+      inbgrupoayuda :[''],
+      inbapoyounootros :[''],
+      inbescuchanproble :[''],
+      inbinfhagobien :[''],
+      inbinfmejorar :[''],
+      inbinfrendimiento :[''],
+      inbevaluantrabajo :[''],
+      inbinfatiempomejora :[''],
+      inbemppaganatiempo :[''],
+      inbpagoofrecido :[''],
+      inbpagomerezco :[''],
+      inbposibprogresar :[''],
+      inbhacerbienprog :[''],
+      inbempbienestartrab :[''],
+      inbtrabajoestable :[''],
+      inbtrabsentirbien :[''],
+      inbsientoorgullo :[''],
+      inbhablobienempres :[''],
+      inbatencionausuarios :[''],
+      inbusuenojados :[''],
+      inbusupreocupados :[''],
+      inbusutristes :[''],
+      inbusuenfermos :[''],
+      inbusuneceayuda :[''],
+      inbusumemaltratan :[''],
+      inbsituaviolencia :[''],
+      inbexigedolorosas :[''],
+      inbexpretristeza :[''] 
 
     })
 
@@ -152,59 +165,179 @@ export class FormatoBComponent implements OnInit {
     this.a1.push({ label: 'Casi nunca', value: '4' });
     this.a1.push({ label: 'Nunca', value: '5' });
 
+    this.a2 = [];
+    this.a2.push({ label: 'Seleccione...', value: '' });
+    this.a2.push({ label: 'Si', value: '1' });
+    this.a2.push({ label: 'No', value: '2' });
 
 
-/*     if(this.localPrueba !==null){
+
+     if(this.localPrueba !==null){
       this.userform.patchValue({
-        empnit:this.localPrueba.empnit,
-        empnombre:this.localPrueba.empnombre,
-        emprepresentante:this.localPrueba.emprepresentante,
-        empdepartamento:this.localPrueba.empdepartamento,
-        empciudad:this.localPrueba.empciudad,
-        empdireccion:this.localPrueba.empdireccion,
-        emptelefono:this.localPrueba.emptelefono,
-        empactiva:this.localPrueba.empactiva,
-        empfechaini:this.localPrueba.empfechaini,
+        inbidempleado:this.localPrueba.inbidempleado,
+        inbruido:this.localPrueba.inbruido,
+        inbfrio:this.localPrueba.inbfrio,
+        inbcalor:this.localPrueba.inbcalor,
+        inbairefresco:this.localPrueba.inbairefresco,
+        inbluz:this.localPrueba.inbluz,
+        inbcomodo:this.localPrueba.inbcomodo,
+        inbsustanquimicas:this.localPrueba.inbsustanquimicas,
+        inbesfuerzofisico:this.localPrueba.inbesfuerzofisico,
+        inbequiposcomodos:this.localPrueba.inbequiposcomodos,
+        inbanimalesplantas:this.localPrueba.inbanimalesplantas,
+        inbpreoaccidente:this.localPrueba.inbpreoaccidente,
+        inblugarlimpio:this.localPrueba.inblugarlimpio,
+        inbtiempoadicional:this.localPrueba.inbtiempoadicional,
+        inbalcanzatiempo:this.localPrueba.inbalcanzatiempo,
+        inbtrabajasinparar:this.localPrueba.inbtrabajasinparar,
+        inbesfuerzomental:this.localPrueba.inbesfuerzomental,
+        inbexigeconcentrado:this.localPrueba.inbexigeconcentrado,
+        inbexigememoria:this.localPrueba.inbexigememoria,
+        inbhacercalculos:this.localPrueba.inbhacercalculos,
+        inbpqnosdetalles:this.localPrueba.inbpqnosdetalles,
+        inbtrabajonoche:this.localPrueba.inbtrabajonoche,
+        inbtomarpausas:this.localPrueba.inbtomarpausas,
+        inbtrabajodiadesca:this.localPrueba.inbtrabajodiadesca,
+        inbfinsemdesc:this.localPrueba.inbfinsemdesc,
+        inbencasapiensotra:this.localPrueba.inbencasapiensotra,
+        inbdiscutofamilia:this.localPrueba.inbdiscutofamilia,
+        inbasuntosencasa:this.localPrueba.inbasuntosencasa,
+        inbpocotiempofami:this.localPrueba.inbpocotiempofami,
+        inbhacercosasnuevas:this.localPrueba.inbhacercosasnuevas,
+        inbpermitehabilidad:this.localPrueba.inbpermitehabilidad,
+        inbpermiteconocimi:this.localPrueba.inbpermiteconocimi,
+        inbpermiteaprender:this.localPrueba.inbpermiteaprender,
+        inbpausasnecesito:this.localPrueba.inbpausasnecesito,
+        inbtrabajodiario:this.localPrueba.inbtrabajodiario,
+        inbdecivelocidad:this.localPrueba.inbdecivelocidad,
+        inbcambiarordenact:this.localPrueba.inbcambiarordenact,
+        inbatenderasunpers:this.localPrueba.inbatenderasunpers,
+        inbexplicancambios:this.localPrueba.inbexplicancambios,
+        inbpuedodarsugeren:this.localPrueba.inbpuedodarsugeren,
+        inbencuentamisideas:this.localPrueba.inbencuentamisideas,
+        inbclaridadfunciones:this.localPrueba.inbclaridadfunciones,
+        inbdecisionesatomar:this.localPrueba.inbdecisionesatomar,
+        inbresultadoslograr:this.localPrueba.inbresultadoslograr,
+        inbexplicanobjetivos:this.localPrueba.inbexplicanobjetivos,
+        inbinfquienresolver:this.localPrueba.inbinfquienresolver,
+        inbasiscapacitacion:this.localPrueba.inbasiscapacitacion,
+        inbrecibocapacitaci:this.localPrueba.inbrecibocapacitaci,
+        inbrecibocapaciayuda:this.localPrueba.inbrecibocapaciayuda,
+        inbjefeayudaorganiz:this.localPrueba.inbjefeayudaorganiz,
+        inbjefemispuntosvist:this.localPrueba.inbjefemispuntosvist,
+        inbjefeanima:this.localPrueba.inbjefeanima,
+        inbjefedistribuye:this.localPrueba.inbjefedistribuye,
+        inbjefecomunica:this.localPrueba.inbjefecomunica,
+        inbjefeorienracion:this.localPrueba.inbjefeorienracion,
+        inbjefeayudaprogres:this.localPrueba.inbjefeayudaprogres,
+        inbjefeayudasentime:this.localPrueba.inbjefeayudasentime,
+        inbjefesolucionar:this.localPrueba.inbjefesolucionar,
+        inbjeferespeto:this.localPrueba.inbjeferespeto,
+        inbjefeconfio:this.localPrueba.inbjefeconfio,
+        inbjefeescucha:this.localPrueba.inbjefeescucha,
+        inbjefeapoyo:this.localPrueba.inbjefeapoyo,
+        inbagradaambiente:this.localPrueba.inbagradaambiente,
+        inbgruporespeto:this.localPrueba.inbgruporespeto,
+        inbconfiocompaneros:this.localPrueba.inbconfiocompaneros,
+        inbagustocompaneros:this.localPrueba.inbagustocompaneros,
+        inbgrupomaltrata:this.localPrueba.inbgrupomaltrata,
+        inbsolucionacompa:this.localPrueba.inbsolucionacompa,
+        inbgrupounido:this.localPrueba.inbgrupounido,
+        inbtrabajogrupo:this.localPrueba.inbtrabajogrupo,
+        inbgrupodeacuerdo:this.localPrueba.inbgrupodeacuerdo,
+        inbgrupoayuda:this.localPrueba.inbgrupoayuda,
+        inbapoyounootros:this.localPrueba.inbapoyounootros,
+        inbescuchanproble:this.localPrueba.inbescuchanproble,
+        inbinfhagobien:this.localPrueba.inbinfhagobien,
+        inbinfmejorar:this.localPrueba.inbinfmejorar,
+        inbinfrendimiento:this.localPrueba.inbinfrendimiento,
+        inbevaluantrabajo:this.localPrueba.inbevaluantrabajo,
+        inbinfatiempomejora:this.localPrueba.inbinfatiempomejora,
+        inbemppaganatiempo:this.localPrueba.inbemppaganatiempo,
+        inbpagoofrecido:this.localPrueba.inbpagoofrecido,
+        inbpagomerezco:this.localPrueba.inbpagomerezco,
+        inbposibprogresar:this.localPrueba.inbposibprogresar,
+        inbhacerbienprog:this.localPrueba.inbhacerbienprog,
+        inbempbienestartrab:this.localPrueba.inbempbienestartrab,
+        inbtrabajoestable:this.localPrueba.inbtrabajoestable,
+        inbtrabsentirbien:this.localPrueba.inbtrabsentirbien,
+        inbsientoorgullo:this.localPrueba.inbsientoorgullo,
+        inbhablobienempres:this.localPrueba.inbhablobienempres,
+        inbatencionausuarios:this.localPrueba.inbatencionausuarios,
+        inbusuenojados:this.localPrueba.inbusuenojados,
+        inbusupreocupados:this.localPrueba.inbusupreocupados,
+        inbusutristes:this.localPrueba.inbusutristes,
+        inbusuenfermos:this.localPrueba.inbusuenfermos,
+        inbusuneceayuda:this.localPrueba.inbusuneceayuda,
+        inbusumemaltratan:this.localPrueba.inbusumemaltratan,
+        inbsituaviolencia:this.localPrueba.inbsituaviolencia,
+        inbexigedolorosas:this.localPrueba.inbexigedolorosas,
+        inbexpretristeza:this.localPrueba.inbexpretristeza,  
       })
-    } */
+    } 
   };
 
 
 
 
 
- onSubmit(){
-     if(this.userform.valid){
-       console.log("validacion",this.localPrueba);
-       
-      if(this.localPrueba !== null){
-        console.log("voy a actualizar");
-        this.idd = this.localPrueba.inaid;
-        this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          console.log(data);
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(["/main/listarEmpresa"]);
-        })
-      }else{
-        console.log("voy a crear");
-        this.pruebaservices.createFormatoA(this.userform.value)
-        .subscribe((data=>{
-          console.log(data);
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(["/main/addExtralaboral/crear"]);
-          
-        }))
-      }
-      
+  onSubmit(){
+    if(this.userform.valid){       
+     if(this.localPrueba !== null){
+ 
+       if(this.forrr.length !== 0  || this.forrr !== null){
+                 
+       console.log("voy a actualizar");
+       this.idd = this.localPrueba.inbid;
+       this.pruebaservices.updateFormatoB(this.userform.value,this.idd)
+       .subscribe((data: any) =>{
+         console.log(data);
+         this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+         this.userform.reset();
+         console.log("idd",this.idd);
+         
+
+         this.router.navigate(["/main/addExtralaboral/editar"]);
+       })
+       }else{
+         console.log("voy a crear");
+         this.pruebaservices.createFormatoB(this.userform.value)
+         .subscribe((data=>{
+           console.log(data);
+           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+           this.userform.reset();
+           this.router.navigate(["/main/addExtralaboral/crear"]);
+           
+         }))
+       }
+
+     }else{
+       console.log("voy a crear");
+       this.pruebaservices.createFormatoB(this.userform.value)
+       .subscribe((data=>{
+         console.log(data);
+         this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+         this.userform.reset();
+         this.router.navigate(["/main/addExtralaboral/crear"]);
+         
+       }))
+     }
+     
+   }else{
+     this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
+     this.userform.reset();
+     this.router.navigate(["/main/listarPrueba"]);
+     
+   } 
+ }
+
+  vlaidar(){
+    if (this.userform.value.inbatencionausuarios == 1) {
+      this.vart = true;
     }else{
-      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
-      this.userform.reset();
-      this.router.navigate(["/main/listarPrueba"]);
-      
-    } 
-  }
+      this.vart = false;
+    }
+    
+    }
 
 }

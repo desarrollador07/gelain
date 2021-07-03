@@ -26,6 +26,7 @@ export class EstresComponent implements OnInit {
   idl:any;
   items: MenuItem[];
   activeIndex: number = 1;
+  forrr:any[]=[];
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
@@ -34,11 +35,18 @@ export class EstresComponent implements OnInit {
 
   ngOnInit() {
 
-    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
-    console.log('idl',this.idl);
+    this.forrr =JSON.parse(localStorage.getItem('estres'));
+
+
+    if (this.forrr !== null) {
+      this.localPrueba = this.forrr[0];
+    }else{
+      this.localPrueba = null;
+    }
+  
 
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    console.log('idl',this.idl);
+
 
 
     this.userform = this.fb.group({
@@ -91,19 +99,43 @@ export class EstresComponent implements OnInit {
 
 
 
-/*     if(this.localPrueba !==null){
+     if(this.localPrueba !==null){
       this.userform.patchValue({
-        empnit:this.localPrueba.empnit,
-        empnombre:this.localPrueba.empnombre,
-        emprepresentante:this.localPrueba.emprepresentante,
-        empdepartamento:this.localPrueba.empdepartamento,
-        empciudad:this.localPrueba.empciudad,
-        empdireccion:this.localPrueba.empdireccion,
-        emptelefono:this.localPrueba.emptelefono,
-        empactiva:this.localPrueba.empactiva,
-        empfechaini:this.localPrueba.empfechaini,
+        estidempleado:this.idl,
+        estdolorcuello:this.localPrueba.estdolorcuello,
+        estprobgastrico:this.localPrueba.estprobgastrico,
+        estprobrespira:this.localPrueba.estprobrespira,
+        estdolorcabeza:this.localPrueba.estdolorcabeza,
+        esttrastsueno:this.localPrueba.esttrastsueno,
+        estpalpitacion:this.localPrueba.estpalpitacion,
+        estcamapetito:this.localPrueba.estcamapetito,
+        estprobgenital:this.localPrueba.estprobgenital,
+        estdiffamiliar:this.localPrueba.estdiffamiliar,
+        estdifquieto:this.localPrueba.estdifquieto,
+        estdifpersonas:this.localPrueba.estdifpersonas,
+        estsensaislami:this.localPrueba.estsensaislami,
+        estsobrecarga:this.localPrueba.estsobrecarga,
+        estdifconcentrar:this.localPrueba.estdifconcentrar,
+        estaumentaccid:this.localPrueba.estaumentaccid,
+        estsentfrustra:this.localPrueba.estsentfrustra,
+        estcansancio:this.localPrueba.estcansancio,
+        estdismrendimie:this.localPrueba.estdismrendimie,
+        estdeseonotrab:this.localPrueba.estdeseonotrab,
+        estpocointeres:this.localPrueba.estpocointeres,
+        estdifdecisiones:this.localPrueba.estdifdecisiones,
+        estcambioempleo:this.localPrueba.estcambioempleo,
+        estsentisoledad:this.localPrueba.estsentisoledad,
+        estsentinegativo:this.localPrueba.estsentinegativo,
+        estsetangpretris:this.localPrueba.estsetangpretris,
+        estconsdrogas:this.localPrueba.estconsdrogas,
+        estsentinosirve:this.localPrueba.estsentinosirve,
+        estconsucigarri:this.localPrueba.estconsucigarri,
+        estperdirazon:this.localPrueba.estperdirazon,
+        estcomprigido:this.localPrueba.estcomprigido,
+        estsensproblem:this.localPrueba.estsensproblem,
+        estusuarioreg:this.localPrueba.estusuarioreg
       })
-    } */
+    } 
   };
 
 
@@ -113,15 +145,29 @@ export class EstresComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){
       if(this.localPrueba !== null){
-        console.log("voy a actualizar");
-        this.idd = this.localPrueba.estid;
-        this.pruebaservices.updateEstres(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          console.log(data);
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(['/main/empleado']);
-        })
+
+        if(this.forrr.length !== 0 || this.forrr.length !== null){
+          console.log("voy a actualizar");
+          this.idd = this.localPrueba.estid;
+          this.pruebaservices.updateEstres(this.userform.value,this.idd)
+          .subscribe((data: any) =>{
+            console.log(data);
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this.userform.reset();
+            this.router.navigate(['/main/empleado']);
+          })
+        }else{
+          console.log("voy a crear");
+          this.pruebaservices.createEstres(this.userform.value)
+          .subscribe((data=>{
+            console.log(data);
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+            this.userform.reset();
+            this.router.navigate(['/main/empleado']);
+            
+          }))
+        }
+
       }else{
         console.log("voy a crear");
         this.pruebaservices.createEstres(this.userform.value)

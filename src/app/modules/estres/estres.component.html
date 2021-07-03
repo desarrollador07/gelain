@@ -13,7 +13,13 @@
     <p-panel header="CUESTIONARIO ESTRES">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
 
-
+            <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g-3"></div>
+                <div class="ui-g-3"></div>
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Estres.png" alt="">
+                </div>
+            </div>
 
 
 
@@ -379,10 +385,9 @@
 
             <br>
             <div style="text-align:center">
-
+                <button style="height:30px;width:120px" class="ui-button-rounded ui-button-warning" title="Atras" pRipple pButton type="button" label="Atras" class="ui-button-rounded" icon="pi pi-caret-left" [routerLink]="['/main/addExtralaboral/editar']"></button>&nbsp;
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/empleado']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
-                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="estres" pRipple [routerLink]="['/main/addEstres/crear']" label="estres" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
 
         </div>

@@ -29,11 +29,7 @@ export class PruebaComponent implements OnInit {
 
   ngOnInit() {
 
-    this.pruebaServices
-    .getEmpresa().subscribe((data: any)=>{
-      this.pruebas = data;
-      console.log('los datos son: ',this.pruebas);
-    })
+    this.indexData();
 
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
@@ -53,6 +49,7 @@ export class PruebaComponent implements OnInit {
         this.pruebaServices.deleteEmpresa(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
+          this.indexData();
         });
       }
     });
@@ -62,10 +59,21 @@ export class PruebaComponent implements OnInit {
 
       editPrueba(cpruebas:Empresa){
         localStorage.setItem('prueba',JSON.stringify(cpruebas));
+        localStorage.setItem('Idempres',JSON.stringify(cpruebas.empid));
+        
       }
     
       newcPrueba(){
         localStorage.removeItem('prueba');
+        localStorage.removeItem('Idempres');
+      }
+
+      indexData(){
+        this.pruebaServices
+        .getEmpresa().subscribe((data: any)=>{
+          this.pruebas = data;
+          console.log('los datos son: ',this.pruebas);
+        })
       }
   
 

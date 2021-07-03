@@ -10,6 +10,8 @@ import {MenuItem} from 'primeng/api';
   styleUrls: ['./area.component.css']
 })
 export class AreaComponent implements OnInit {
+
+  localIDEmp: number;
   prueba: Area;
 
   pruebas: Area[] = [];
@@ -27,12 +29,8 @@ export class AreaComponent implements OnInit {
    }
 
   ngOnInit() {
-
-    this.pruebaServices
-    .getArea().subscribe((data: any)=>{
-      this.pruebas = [...data];
-      console.log('los datos son: ',this.pruebas);
-    })
+    this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
+    this.indexData();
 
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
@@ -52,6 +50,7 @@ export class AreaComponent implements OnInit {
         this.pruebaServices.deleteArea(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
+          this.indexData();
         });
       }
     });
@@ -65,6 +64,14 @@ export class AreaComponent implements OnInit {
     
       newcPrueba(){
         localStorage.removeItem('prueba');
+      }
+
+      indexData(){
+        this.pruebaServices
+        .buscarByArea(this.localIDEmp).subscribe((data: any)=>{
+          this.pruebas = [...data];
+          console.log('los datos son: ',this.pruebas);
+        })
       }
   
 

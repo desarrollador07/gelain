@@ -6,6 +6,7 @@ import { Area } from '../models/area.model';
 import { FormatoA } from '../models/formatoAmodel';
 import { Estres } from '../models/estres.nodel';
 import { Extralaboral } from '../models/extralaboral.model';
+import { FormatoB } from '../models/formatoB.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -25,21 +26,31 @@ export class PruebaService {
   Url2pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createArea';
   Url3pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateArea';
   Url4pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteArea';
+  Url5pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideArea';
 
   Url1fa  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allformatoA';
   Url2fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createformatoA';
   Url3fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateformatoA';
   Url4fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteformatoA';
+  Url5fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideForA';
+
+  Url1fb  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allformatoB';
+  Url2fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createformatoB';
+  Url3fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateformatoB';
+  Url4fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteformatoB';
+  Url5fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideForB';
 
   Url1es  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allestres';
   Url2es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createestres';
   Url3es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateestres';
   Url4es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteestres';
+  Url5es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideEstres';
 
   Url1ex  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allextra';
   Url2ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createextra';
   Url3ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateextra';
   Url4ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteextra';
+  Url5ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideExtra';
 
 
   constructor(private http: HttpClient) {
@@ -91,8 +102,12 @@ export class PruebaService {
     return this.http.post<Area>(this.Url2pa,prueba);
   }
 
-  updateArea(prueba: Area,id:String){
+  updateArea(prueba: Area,id:number){
     return this.http.put<Area>(this.Url3pa + "/" + id,prueba);
+  }
+
+ buscarByArea(id:number){
+    return this.http.get(this.Url5pa + "/" + id);
   }
 
   getFormatoA(){
@@ -110,6 +125,29 @@ export class PruebaService {
   updateFormatoA(prueba: FormatoA,id:String){
     return this.http.put<FormatoA>(this.Url3fa + "/" + id,prueba);
   }
+  buscarByFa(id:number){
+    return this.http.get(this.Url5fa + "/" + id);
+  }
+
+  
+  getFormatoB(){
+    return this.http.get(this.Url1fb);
+  }
+
+  deleteFormatoB(prueba: FormatoB){
+    return this.http.delete<FormatoB>(this.Url4fb+"/"+prueba.inbid);
+  }
+
+  createFormatoB(prueba: FormatoB){
+    return this.http.post<FormatoB>(this.Url2fb,prueba);
+  }
+
+  updateFormatoB(prueba: FormatoB,id:String){
+    return this.http.put<FormatoB>(this.Url3fb + "/" + id,prueba);
+  }
+  buscarByFb(id:number){
+    return this.http.get(this.Url5fb + "/" + id);
+  }
 
   getEstres(){
     return this.http.get(this.Url1es);
@@ -126,6 +164,9 @@ export class PruebaService {
   updateEstres(prueba: Estres,id:String){
     return this.http.put<Estres>(this.Url3es + "/" + id,prueba);
   }
+  buscarByEstres(id:number){
+    return this.http.get(this.Url5es + "/" + id);
+  }
 
   getExtra(){
     return this.http.get(this.Url1ex);
@@ -141,6 +182,9 @@ export class PruebaService {
 
   updateExtra(prueba: Extralaboral,id:String){
     return this.http.put<Extralaboral>(this.Url3ex + "/" + id,prueba);
+  }
+  buscarExtra(id:number){
+    return this.http.get(this.Url5ex + "/" + id);
   }
 
 }

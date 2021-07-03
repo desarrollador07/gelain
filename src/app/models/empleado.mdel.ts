@@ -23,6 +23,7 @@ export interface Empleado{
     emdtiemcargo?: string,
     emdarea?: number,
     emdtipocontrato?: string,
+    emdhorasdia?:string,
     emdtiposalario?: string,
     emdusuarioreg?: string,
     emdipreg?: string

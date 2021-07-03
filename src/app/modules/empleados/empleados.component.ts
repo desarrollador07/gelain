@@ -5,6 +5,7 @@ import { PruebaService } from '../../services/prueba.service';
 import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
+import { Area } from '../../models/area.model';
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',
@@ -24,6 +25,9 @@ export class EmpleadosComponent implements OnInit {
   empresas: Empresa[] = [];
 
   nomempresa:String;
+
+  area: SelectItem[] = [];
+  areas: Area[] = [];
 
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
@@ -73,6 +77,7 @@ export class EmpleadosComponent implements OnInit {
         this.pruebaServices.deletePrueba(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
+          this.indexData();
         });
       }
     });
@@ -82,11 +87,68 @@ export class EmpleadosComponent implements OnInit {
 
       editPrueba(cpruebas:Empleado){
         localStorage.setItem('prueba',JSON.stringify(cpruebas));
+        localStorage.setItem('IdEmpleado',JSON.stringify(cpruebas.emdid));
+        this.pruebaServices.buscarByFa(cpruebas.emdid)
+        .subscribe((data:any)=>{
+          console.log("forA",data);
+          localStorage.setItem('ForA',JSON.stringify(data));
+        })
+        this.pruebaServices.buscarExtra(cpruebas.emdid)
+        .subscribe((data:any)=>{
+          console.log("Extra",data);
+          localStorage.setItem('Extra',JSON.stringify(data));
+        })
+        this.pruebaServices.buscarByEstres(cpruebas.emdid)
+        .subscribe((data:any)=>{
+          console.log("estres",data);
+          localStorage.setItem('estres',JSON.stringify(data));
+        })
+        this.pruebaServices.buscarByFb(cpruebas.emdid)
+        .subscribe((data:any)=>{
+          console.log("forB",data);
+          localStorage.setItem('ForB',JSON.stringify(data));
+        })
       }
     
       newcPrueba(){
         localStorage.removeItem('prueba');
+        localStorage.removeItem('IdEmpleado');
+        localStorage.removeItem('ForA');
+        localStorage.removeItem('ForB');
+        localStorage.removeItem('Extra');
+        localStorage.removeItem('estres');
       }
-  
 
+      buscarArea(cpruebas:Empleado){
+        this.area =[];
+        this.pruebaServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
+          console.log(data);
+          this.areas = data;
+          this.areas.map(x=>{
+            this.area.push({
+              label:x.arenombre,
+              value: x.areid
+            })
+          })
+        })
+      }
+
+      indexData(){
+         this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+          console.log(data);
+          this.empresas = data;
+        })
+    
+         this.pruebaServices
+        .getPrueba().toPromise().then((data: any)=>{
+          this.pruebas = [...data];
+          this.pruebas.map(res=>{
+            this.empresas.map(x=>{
+            if (res.emdempresa === x.empid) {
+              res.nomempresa = x.empnombre;
+            }
+            })
+          })
+      })
+    }
 }

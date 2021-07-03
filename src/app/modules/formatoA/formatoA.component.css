@@ -145,7 +145,7 @@ button {
 
 fieldset {
     font-family: sans-serif;
-    border: 2px solid #eb0c0c;
+    border: 2px solid #920ceb;
     background: white;
     border-radius: 5px;
     padding: 15px;
@@ -160,7 +160,7 @@ fieldset {
 } */
 
 fieldset legend {
-    background: #eb0c0c;
+    background: #920ceb;
     color: #fff;
     padding: 5px 10px;
     font-size: 14px;
@@ -236,7 +236,7 @@ fieldset legend {
 }
 
 .ui-steps.steps-custom .ui-steps-item .ui-steps-number {
-    background-color: #eb0c0c;
+    background-color: #920ceb;
     color: #FFFFFF;
     display: inline-block;
     width: 36px;
