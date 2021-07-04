@@ -173,6 +173,11 @@ export class FormatoBComponent implements OnInit {
 
 
      if(this.localPrueba !==null){
+      if (this.localPrueba.inbatencionausuarios == "1") {
+        this.vart=true;
+       }else{
+        this.vart=false;
+       }
       this.userform.patchValue({
         inbidempleado:this.localPrueba.inbidempleado,
         inbruido:this.localPrueba.inbruido,

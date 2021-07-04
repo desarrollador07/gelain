@@ -60,6 +60,7 @@ export class PruebaComponent implements OnInit {
       editPrueba(cpruebas:Empresa){
         localStorage.setItem('prueba',JSON.stringify(cpruebas));
         localStorage.setItem('Idempres',JSON.stringify(cpruebas.empid));
+        localStorage.setItem('pruebaArea',JSON.stringify(cpruebas));
         
       }
     

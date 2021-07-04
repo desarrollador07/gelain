@@ -10,15 +10,11 @@
 
 <p-toast></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
-    <p-panel header="Nueva Empresa">
+    <p-panel header="NUEVA EMPRESA">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
 
-
-
-
-
             <fieldset>
-                <legend><b>Informacion</b></legend>
+                <legend><b>INFORMACION DE LA EMPRESA</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -96,32 +92,41 @@
 
             </fieldset>
             <br>
-            <!--             <fieldset *ngIf="bandera">
-                <legend><b>Areas</b></legend>
-                <p>Digite el Area y luego presione la tecla enter para agregarla</p>
-                <div class="ui-g-6">
-                    <span class="ui-float-label">
-                <p-chips [class.is-invalid]="empArea" formControlName="emparea">
-                    <ng-template let-item pTemplate="item">
-                        {{item}} - (active) <i class="pi pi-inbox" style="margin-right:2em"></i>
-                    </ng-template>
-                </p-chips>
-                </span>
-                    <p-message severity="error" text="Este campo es requerido" *ngIf="empArea"></p-message>
-                </div>
-                <div class="ui-g-2">
-                    <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editArea()" routerLink="/main/area" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em" *ngIf="bandera" label="Editar Areas"></button>
-                </div>
-
-            </fieldset> -->
-
-
-
-
             <br>
             <div style="text-align:center">
 
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/listarEmpresa']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+        </div>
+    </p-panel>
+    <!-- <pre>{{userform.value | json}}</pre> -->
+
+</form>
+
+<form [formGroup]="userformArea" (ngSubmit)="onSubmit2()">
+    <p-panel header="NUEVA AREA">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+
+
+
+
+            <fieldset>
+                <legend><b>NOMBRE DEL AREAS</b></legend>
+                <div class="ui-g-12 ui-md-6 ui-lg-4">
+                    <span class="ui-float-label">
+                        <input   style="width : 60%; heigth : 1%"  formControlName="arenombre" type="text" pInputText> 
+                        <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
+                    </span>
+
+                </div>
+            </fieldset>
+
+
+            <br>
+            <div style="text-align:center">
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userformArea.valid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/listarEmpresa']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
 
@@ -132,96 +137,30 @@
 
 </form>
 
-
-
-
-
-<!-- <div id="search-wrapper">
-    <input type="text" id="search" pInputText placeholder="Buscar" (input)="dt.filterGlobal($event.target.value, 'contains')">
-    <i class="pi pi-search"></i>
-</div>
-<br><br><br> -->
-
-
-
-<!-- <p-toast></p-toast>
-<p-toast position="top-left" key="tl"></p-toast>
-<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
-    <p-footer>
-        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
-        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
-    </p-footer>
-</p-confirmDialog> -->
-
-
-
-
 <div class="card">
-
-    <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
     <p-panel header="Areas">
         <p-table #dt [value]="pruebas" [globalFilterFields]="['areid','areempresa','arenombre','arefechaini','areactivo']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
-
-
             <ng-template pTemplate="header">
                 <tr>
-                    <!--                     <th pSortableColumn="areid" pResizableColumn>ID
-
-                    </th> -->
-
-                    <!--  <th pSortableColumn="areempresa" pResizableColumn>Empresa
-
-                    </th> -->
                     <th pSortableColumn="arenombre" pResizableColumn>Nombre
-
                     </th>
-
-                    <!--                     <th class="descarto" pSortableColumn="arefechaini" pResizableColumn>Fecha de Inicio
-
-                    </th>
-
-                    <th class="descarto" pSortableColumn="areactivo" pResizableColumn>Activo
-
-                    </th> -->
                     <th pSortableColumn="name" pResizableColumn>
-
                     </th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-columns let-prueba let-i="rowIndex">
                 <tr>
-                    <!--  <td style="text-align:center" class="old-car">{{prueba.areid}}</td> -->
-                    <!--  <td style="text-align:center">{{prueba.areempresa}}</td> -->
                     <td style="text-align:center">{{prueba.arenombre}}</td>
-                    <!--  <td style="text-align:center" class="descarto">{{prueba.arefechaini}}</td> -->
-                    <!-- <td style="text-align:center" class="descarto">{{prueba.areactivo}}</td> -->
                     <td style="text-align:right">
-                        <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/addArea/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                         <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>
                     </td>
                 </tr>
             </ng-template>
-
-            <!-- <ng-template style="text-align:center" pTemplate="summary">
-
-                <div class="ui-g">
-
-                    <div class="ui-g-12 ui-md-6 ui-lg-3"> En total documentos.</div>
-
-                </div>
-
-
-
-            </ng-template> -->
-
         </p-table>
         <br>
         <div style="text-align:center">
-            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/addArea/crear" (click)="newcPrueba()" label="Agregar"></button>
+            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Salir" pRipple routerLink="/main/listarEmpresa" (click)="SalirPrueba()" label="Salir"></button>
 
         </div>
     </p-panel>
-
-
-
 </div>

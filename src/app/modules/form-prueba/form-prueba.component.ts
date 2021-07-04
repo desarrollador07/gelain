@@ -19,6 +19,7 @@ import { Area } from '../../models/area.model';
 })
 export class FormPruebaComponent implements OnInit {
   localIDEmp: number;
+  localIDEmp2: number;
   prueba: Area;
 
   pruebas: Area[] = [];
@@ -29,10 +30,11 @@ export class FormPruebaComponent implements OnInit {
 
   activeItem: MenuItem;
 
-
-  localPrueba: Empresa = {};
-  userform: FormGroup;
   userformArea: FormGroup;
+  localPrueba: Empresa = {};
+  localPruebaA: Area = {};
+  userform: FormGroup;
+
   es: any;
   id: number;
   idd: any;
@@ -46,11 +48,13 @@ export class FormPruebaComponent implements OnInit {
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService,private _activatedRoute: ActivatedRoute,private _confirmationServices: ConfirmationService) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
-    console.log(this.id);
+    //console.log(this.id);
   }
 
   ngOnInit() {
+    let today = new Date();
     this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
+
     this.indexData();
 
     this.items1 = [
@@ -59,9 +63,9 @@ export class FormPruebaComponent implements OnInit {
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
   ];
 
-
+    this.localPruebaA =JSON.parse(localStorage.getItem('pruebaArea'));
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
-    console.log('f',this.localPrueba);
+    //console.log('f',this.localPrueba);
 
 
     this.userform = this.fb.group({
@@ -81,12 +85,21 @@ export class FormPruebaComponent implements OnInit {
 
     this.userformArea = this.fb.group({
       areid:[''],
-      areempresa: [],
-      arenombre: [''],
-      arefechaini: [''],
-      areactivo: [''],
+      areempresa: [''],
+      arenombre: ['', Validators.required],
+      arefechaini: [today],
+      areactivo: ['1'],
 
   })
+
+  if(this.localPrueba !==null){
+    this.userformArea.patchValue({
+      areempresa:this.localPruebaA.areempresa,
+      arenombre:this.localPruebaA.arenombre,
+      arefechaini:this.localPruebaA.arefechaini,
+      areactivo:this.localPruebaA.areactivo,
+    })
+  }
 
     this.estado = [];
     this.estado.push({ label: 'Estado', value: '' });
@@ -146,6 +159,10 @@ export class FormPruebaComponent implements OnInit {
     return this.userform.get('emparea').invalid && this.userform.get('emparea').touched
   }
 
+  get areNombre() {
+    return this.userform.get('arenombre').invalid && this.userform.get('arenombre').touched
+  }
+
 
  onSubmit(){
      if(this.userform.valid){
@@ -166,22 +183,11 @@ export class FormPruebaComponent implements OnInit {
         this.pruebaservices.createEmpresa(this.userform.value)
         .subscribe((data=>{
           console.log(data);
-          localStorage.setItem('idempre',JSON.stringify(data.empid));
+          localStorage.setItem('Idempres',JSON.stringify(data.empid));
           console.log("ide",data.empid);
           
-          /* this.userform.value.emparea.map(res=>{
-            this.areas = {};
-            this.areas.arenombre = res;
-            this.areas.areempresa = data.empid;
-            this.areas.areactivo = "1";
-            this.pruebaservices.createArea(this.areas)
-            .subscribe();
-          }) */
           
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-          //this.userform.reset();
-          //this.router.navigate(["/main/listarEmpresa"]);
-          
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})        
         }))
       }
       
@@ -192,6 +198,34 @@ export class FormPruebaComponent implements OnInit {
       
     } 
   }
+
+  onSubmit2(){
+    this.localIDEmp2 =JSON.parse(localStorage.getItem('Idempres'));
+    this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
+    if(this.userformArea.valid){
+        console.log("voy a crear");
+        console.log("localId2",this.localIDEmp2);
+        
+        this.userformArea.value.areempresa = this.localIDEmp2;
+        this.pruebaservices.createArea(this.userformArea.value)
+        .subscribe((data=>{
+          console.log(data);
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+          this.userformArea.reset();
+          this.indexData();
+          
+        }))
+      
+      
+    }else{
+      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
+      this.userform.reset();
+      this.router.navigate(["/main/listarPrueba"]);
+      
+    } 
+  }
+
+  
 
   async buscarArea(){
     this.area =[];
@@ -234,6 +268,12 @@ export class FormPruebaComponent implements OnInit {
 
   newcPrueba(){
     localStorage.removeItem('prueba');
+  }
+
+  SalirPrueba(){
+    localStorage.removeItem('prueba');
+    localStorage.removeItem('pruebaArea');
+    localStorage.removeItem('Idempres');
   }
 
   indexData(){

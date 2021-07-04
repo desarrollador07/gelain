@@ -212,8 +212,17 @@ export class FormatoAComponent implements OnInit {
 
 
      if(this.localPrueba !==null){
-       console.log("hi");
-       
+       if (this.localPrueba.inaatencionausuarios == "1") {
+        this.vart=true;
+       }else{
+        this.vart=false;
+       }
+
+       if (this.localPrueba.inasoyjefe == "1") {
+        this.vart2=true;
+       }else{
+        this.vart2=false;
+       }
       this.userform.patchValue({
         inaidempleado:this.localPrueba.inaidempleado,
         inaruido:this.localPrueba.inaruido,
