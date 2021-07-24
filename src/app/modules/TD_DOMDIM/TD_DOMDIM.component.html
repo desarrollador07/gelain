@@ -28,10 +28,10 @@
                             </tr>
 
                             <tr>
-                                <th style="text-align: left; font-size: 10px;">Características del liderazgo</th>
-                                <th style="text-align: left; font-size: 10px;">Relaciones sociales en el trabajo</th>
-                                <th style="text-align: left; font-size: 10px;">Retroalimentación del desempeño</th>
-                                <th style="text-align: left; font-size: 10px;">Relación con los colaboradores</th>
+                                <th style="text-align: left; font-size: 10px;">Características del liderazgo(Q1)</th>
+                                <th style="text-align: left; font-size: 10px;">Relaciones sociales en el trabajo(Q2)</th>
+                                <th style="text-align: left; font-size: 10px;">Retroalimentación del desempeño(Q3)</th>
+                                <th style="text-align: left; font-size: 10px;">Relación con los colaboradores(Q4)</th>
                                 <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
                             </tr>
                         </ng-template>
@@ -50,12 +50,23 @@
                 </div>
                 <div class="ui-g-3">
                     <kendo-chart>
+                        <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title>
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
                         <kendo-chart-series>
                             <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
@@ -74,11 +85,11 @@
                             </tr>
 
                             <tr>
-                                <th style="text-align: left; font-size: 10px;">Claridad de rol</th>
-                                <th style="text-align: left; font-size: 10px;">Capacitación</th>
-                                <th style="text-align: left; font-size: 10px;">Oportunidades para el uso y desarrollo de habilidades y conocimientos</th>
-                                <th style="text-align: left; font-size: 10px;">Participación y manejo del cambio</th>
-                                <th style="text-align: left; font-size: 10px;">Control y autonomía sobre el trabajo</th>
+                                <th style="text-align: left; font-size: 10px;">Claridad de rol(Q1)</th>
+                                <th style="text-align: left; font-size: 10px;">Capacitación(Q2)</th>
+                                <th style="text-align: left; font-size: 10px;">Oportunidades para el uso y desarrollo de habilidades y conocimientos(Q3)</th>
+                                <th style="text-align: left; font-size: 10px;">Participación y manejo del cambio(Q4)</th>
+                                <th style="text-align: left; font-size: 10px;">Control y autonomía sobre el trabajo(Q5)</th>
                                 <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
                             </tr>
                         </ng-template>
@@ -98,12 +109,23 @@
                 </div>
                 <div class="ui-g-3">
                     <kendo-chart>
+                        <kendo-chart-title text="CONTROL SOBRE EL TRABAJO"></kendo-chart-title>
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
                         <kendo-chart-series>
                             <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[claridad2[0], capacitacion2[0], oportunidades2[0],manejo2[0],control2[0]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[claridad2[1], capacitacion2[1], oportunidades2[1],manejo2[1],control2[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[claridad2[2], capacitacion2[2], oportunidades2[2],manejo2[2],control2[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
@@ -120,14 +142,14 @@
                             </tr>
 
                             <tr>
-                                <th style="text-align: left; font-size: 10px;">Demandas ambientales y de esfuerzo físico</th>
-                                <th style="text-align: left; font-size: 10px;">Nivel de responsabilidad del cargo</th>
-                                <th style="text-align: left; font-size: 10px;">Consistencia del rol</th>
-                                <th style="text-align: left; font-size: 10px;">Demandas emocionales</th>
-                                <th style="text-align: left; font-size: 10px;">Demandas de la jornada de trabajo</th>
-                                <th style="text-align: left; font-size: 10px;">Influencia del trabajo sobre el entorno extralaboral</th>
-                                <th style="text-align: left; font-size: 10px;">Demandas cuantitativas</th>
-                                <th style="text-align: left; font-size: 10px;">Demandas de carga mental</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas ambientales y de esfuerzo físico(Q1)</th>
+                                <th style="text-align: left; font-size: 10px;">Nivel de responsabilidad del cargo(Q2)</th>
+                                <th style="text-align: left; font-size: 10px;">Consistencia del rol(Q3)</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas emocionales(Q4)</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas de la jornada de trabajo(Q5)</th>
+                                <th style="text-align: left; font-size: 10px;">Influencia del trabajo sobre el entorno extralaboral(Q6)</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas cuantitativas(Q7)</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas de carga mental(Q8)</th>
                                 <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
                             </tr>
                         </ng-template>
@@ -150,12 +172,23 @@
                 </div>
                 <div class="ui-g-3">
                     <kendo-chart>
+                        <kendo-chart-title text="DEMANDAS DEL TRABAJO"></kendo-chart-title>
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
                         <kendo-chart-series>
                             <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[demandas_ambientales2[0], reponsabilidad2[0], consistencia_rol2[0],demandas_emocionales2[0],demandas_jornada2[0],influ_extralaboral2[0],demandas_cuantitativas2[0],demandas_mental2[0]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[demandas_ambientales2[1], reponsabilidad2[1], consistencia_rol2[1],demandas_emocionales2[1],demandas_jornada2[1],influ_extralaboral2[1],demandas_cuantitativas2[1],demandas_mental2[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[demandas_ambientales2[2], reponsabilidad2[2], consistencia_rol2[2],demandas_emocionales2[2],demandas_jornada2[2],influ_extralaboral2[2],demandas_cuantitativas2[2],demandas_mental2[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
@@ -172,8 +205,8 @@
                             </tr>
 
                             <tr>
-                                <th style="text-align: left; font-size: 10px;">Reconocimiento y compensación</th>
-                                <th style="text-align: left; font-size: 10px;">Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza</th>
+                                <th style="text-align: left; font-size: 10px;">Reconocimiento y compensación (Q1)</th>
+                                <th style="text-align: left; font-size: 10px;">Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza (Q2)</th>
                                 <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
                             </tr>
                         </ng-template>
@@ -191,12 +224,23 @@
                 </div>
                 <div class="ui-g-3">
                     <kendo-chart>
+                        <kendo-chart-title text="RECOMPENSAS"></kendo-chart-title>
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
                         <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[recompensas_trabajo2[0], reconocimiento2[0]]">
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [spacing]="0" [data]="[recompensas_trabajo2[0] , reconocimiento2[0] ]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[recompensas_trabajo2[1], reconocimiento2[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                             <kendo-chart-series-item type="bar" [data]="[recompensas_trabajo2[2], reconocimiento2[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
@@ -209,7 +253,7 @@
         <p-panel header="RIESGO PSICOSOCIAL  EXTRALABORAL">
             <div class="ui-g">
                 <div class="ui-g-9">
-                    <p-table [value]="sales">
+                    <p-table [value]="sales5">
                         <ng-template pTemplate="header">
                             <tr>
                                 <th rowspan="3">Nivel de riesgo</th>
@@ -217,27 +261,27 @@
                             </tr>
 
                             <tr>
-                                <th style="text-align: left; font-size: 10px;">Tiempo fuera del trabajo</th>
-                                <th style="text-align: left; font-size: 10px;">Relaciones familiares</th>
-                                <th style="text-align: left; font-size: 10px;">Comunicación y relaciones interpersonales</th>
-                                <th style="text-align: left; font-size: 10px;">Situación económica</th>
-                                <th style="text-align: left; font-size: 10px;">Características de la vivienda y de su entorno</th>
-                                <th style="text-align: left; font-size: 10px;">Influencia del entorno extralaboral sobre el trabajo</th>
-                                <th style="text-align: left; font-size: 10px;">Desplazamiento vivienda – trabajo – vivienda</th>
+                                <th style="text-align: left; font-size: 10px;">Tiempo fuera del trabajo(Q1)</th>
+                                <th style="text-align: left; font-size: 10px;">Relaciones familiares(Q2)</th>
+                                <th style="text-align: left; font-size: 10px;">Comunicación y relaciones interpersonales(Q3)</th>
+                                <th style="text-align: left; font-size: 10px;">Situación económica(Q4)</th>
+                                <th style="text-align: left; font-size: 10px;">Características de la vivienda y de su entorno(Q5)</th>
+                                <th style="text-align: left; font-size: 10px;">Influencia del entorno extralaboral sobre el trabajo(Q6)</th>
+                                <th style="text-align: left; font-size: 10px;">Desplazamiento vivienda – trabajo – vivienda(Q7)</th>
                                 <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="body" let-sale>
                             <tr>
                                 <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.liderazgo}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.relaciones}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.retroalimentacion}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
-                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.tiempo_fuera}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.relaciones_familiares}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.com_relaciones_interperson}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.situacion_economica}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.caract_vivienda}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.influencia_extralaboral}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.desplaz_vivienda}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.TotalDominio}}</td>
                             </tr>
                         </ng-template>
 
@@ -245,12 +289,23 @@
                 </div>
                 <div class="ui-g-3">
                     <kendo-chart>
+                        <kendo-chart-title text="EXTRALABORAL"></kendo-chart-title>
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
                         <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[1, 1, 1,1,1,1,1]">
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[tiempo_fuera2[0], relaciones_familiares2[0], com_relaciones_interperson2[0],situacion_economica2[0],caract_vivienda2[0],influencia_extralaboral2[0],desplaz_vivienda2[0]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" [data]="[1, 1, 1,1,1,1,1]">
+                            <kendo-chart-series-item type="bar" [data]="[tiempo_fuera2[1], relaciones_familiares2[1], com_relaciones_interperson2[1],situacion_economica2[1],caract_vivienda2[1],influencia_extralaboral2[1],desplaz_vivienda2[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" [data]="[1, 1, 1,1,1,1,1]">
+                            <kendo-chart-series-item type="bar" [data]="[tiempo_fuera2[2], relaciones_familiares2[2], com_relaciones_interperson2[2],situacion_economica2[2],caract_vivienda2[2],influencia_extralaboral2[2],desplaz_vivienda2[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>

@@ -68,6 +68,15 @@ export class PruebaService {
 
   Urlrecompensas = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/recompensas';
 
+  UrlliderazgoRB = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/liderazgoRelacionesB';
+
+  UrlcontrolSobreRolB = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/controlSobreRolB';
+
+  UrlDemandasTrabajoB= 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DemandasTrabajoB';
+
+  UrlrecompensasB = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/recompensasB';
+
+  UrlPSICOSOCIAL_EXTRALABORAL = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/PSICOSOCIAL_EXTRALABORAL';
 
   constructor(private http: HttpClient) {
   }
@@ -222,21 +231,44 @@ export class PruebaService {
     return this.http.get(this.Url5ex + "/" + id);
   }
 
-  getLiderazgoRA(){
-    return this.http.get(this.UrlliderazgoRA);
+  getLiderazgoRA(id:number){
+    return this.http.get(this.UrlliderazgoRA+ "/" + id);
   }
 
-  getcontrolSobreRol(){
-    return this.http.get(this.UrlcontrolSobreRol);
+  getcontrolSobreRol(id:number){
+    return this.http.get(this.UrlcontrolSobreRol+ "/" + id);
   }
 
-  getDemandasTrabajo(){
-    return this.http.get(this.UrlDemandasTrabajo);
+  getDemandasTrabajo(id:number){
+    return this.http.get(this.UrlDemandasTrabajo+ "/" + id);
   }
 
-  getRecompensas(){
-    return this.http.get(this.Urlrecompensas);
+  getRecompensas(id:number){
+    return this.http.get(this.Urlrecompensas+ "/" + id);
   }
+
+  getLiderazgoRB(id:number){
+    return this.http.get(this.UrlliderazgoRB+ "/" + id);
+  }
+
+  getcontrolSobreRolB(id:number){
+    return this.http.get(this.UrlcontrolSobreRolB+ "/" + id);
+  }
+
+  getDemandasTrabajoB(id:number){
+    return this.http.get(this.UrlDemandasTrabajoB+ "/" + id);
+  }
+
+  getRecompensasB(id:number){
+    return this.http.get(this.UrlrecompensasB+ "/" + id);
+  }
+
+  getPSICOSOCIAL_EXTRALABORAL(id:number){
+    return this.http.get(this.UrlPSICOSOCIAL_EXTRALABORAL+ "/" + id);
+  }
+
+
+  
 /*  getIPAddress()  
   {  
     return this.http.get("http://api.ipify.org/?format=json");  
