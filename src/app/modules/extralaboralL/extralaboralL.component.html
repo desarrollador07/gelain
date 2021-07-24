@@ -1,0 +1,410 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="CUESTIONARIO EXTRALABORAL">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+            <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Extralaboral.png" alt="" width="100%" height="100%">
+                </div>
+                <div class="ui-g-3" style="text-align: center;">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
+                </div>
+            </div>
+
+
+
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con varias condiciones de la zona donde usted vive:</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Es fácil trasportarme entre mi casa y el trabajo</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="extfaciltransporte" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo que tomar varios medios de transporte para llegar a mi lugar de trabajo</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="extvariostransporte" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Paso mucho tiempo viajando de ida y regreso al trabajo</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="extmuchotiemviaje" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Me transporto cómodamente entre mi casa y el trabajo</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="exttranscomodo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">La zona donde vivo es segura</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="extzonasegura" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En la zona donde vivo se presentan hurtos y mucha delincuencia</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="extzonadelincuencia" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Desde donde vivo me es fácil llegar al centro médico donde me atienden</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="extfacilcmedico" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cerca a mi vivienda las vías están en buenas condiciones</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="extbuenasvias" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cerca a mi vivienda encuentro fácilmente transporte</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="extcercatransporte" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Las condiciones de mi vivienda son buenas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extcondicvivienda" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi vivienda hay servicios de agua y luz</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extagualuz" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Las condiciones de mi vivienda me permiten descansar cuando lo requiero</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extpermdescanzar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Las condiciones de mi vivienda me permiten sentirme cómodo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extviviendacomoda" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con su vida fuera del trabajo:</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Me queda tiempo para actividades de recreación</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="exttiemporecreo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Fuera del trabajo tengo tiempo suficiente para descansar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="exttiempodescanzo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo tiempo para atender mis asuntos personales y del hogar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="exttiempopersonal" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo tiempo para compartir con mi familia o amigos</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="exttiempofamilia" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo buena comunicación con las personas cercanas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extbuenacomunica" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Las relaciones con mis amigos son buenas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extrelacionamigos" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Converso con personas cercanas sobre diferentes temas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extconversoperson" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mis amigos están dispuestos a escucharme cuando tengo problemas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extamigosescuchan" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cuento con el apoyo de mi familia cuando tengo problemas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extapoyofamiliar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Puedo hablar con personas cercanas sobre las cosas que me pasan</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="exthabloconperso" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mis problemas personales o familiares afectan mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="extproblemfamiliar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">La relación con mi familia cercana es cordial</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extrelacionfamiliar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mis problemas personales o familiares me quitan la energía que necesito para trabajar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="extquitanenergia" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Los problemas con mis familiares los resolvemos de manera amistosa"</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extresolveamistosa" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mis problemas personales o familiares afectan mis relaciones en el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="extafectrelacionestra" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">El dinero que ganamos en el hogar alcanza para cubrir los gastos básicos</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="extdineroalcanza" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo otros compromisos económicos que afectan mucho el presupuesto familiar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="extpresupuesfamilia" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi hogar tenemos deudas difíciles de pagar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="extdeudashogar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <br>
+            <div style="text-align:center">
+                <button style="height:30px;width:120px" class="ui-button-rounded ui-button-warning" title="Atras" pRipple pButton type="button" label="Atras" class="ui-button-rounded" icon="pi pi-caret-left" (click)="volver()"></button>&nbsp;
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['FinalFormularios']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+
+    <!--     <pre>{{userform.value | json}}</pre> -->
+
+</form>

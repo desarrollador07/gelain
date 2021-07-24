@@ -1,0 +1,11 @@
+.imgRedonda {
+    width: 300px;
+    height: 300px;
+    border-radius: 150px;
+}
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}

@@ -21,6 +21,7 @@ import { style } from '@angular/animations';
   styleUrls: ['./form-empleados.component.css']
 })
 export class FormEmpleadosComponent implements OnInit {
+  estado:SelectItem[];
   sexo: SelectItem[];
   civil: SelectItem[];
   estudio: SelectItem[];
@@ -40,12 +41,14 @@ export class FormEmpleadosComponent implements OnInit {
   id: number;
   idd: any;
   idem:string = "10";
-
+  nombre:any;
+nummax:number = 0;
+nummaxpre:number = 0;
+bandera:boolean=false;
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) { 
+              private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
-    console.log(this.id);
-    
+    this.nombre = localStorage.getItem("user");
     
   }
 
@@ -66,22 +69,24 @@ export class FormEmpleadosComponent implements OnInit {
       emdciudad: ['', Validators.required],
       emddireccion: ['', Validators.required],
       emdtelefono: ['',  [Validators.required, Validators.minLength(7),Validators.maxLength(10)]],
-      emdemail: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
+      emdemail: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$')]],
       emdestracto: ['', Validators.required],
       emdtipovivienda: ['', Validators.required],
-      emdpersdepen: ['', Validators.required],
+      emdpersdepen: ['', [Validators.required,Validators.pattern('^[0-9]+')]],
       emdempresa: ['', Validators.required],
-      emdtiempolab: ['', Validators.required],
+      emdtiempolab: ['',  Validators.required],
       emdcargo: ['', Validators.required],
       emdtipodecargo: ['', Validators.required],
       emdtiemcargo: ['', Validators.required],
       emdarea: ['', Validators.required],
       emdtipocontrato: ['', Validators.required],
-      emdhorasdia:['', Validators.required],
+      emdhorasdia:['', [Validators.required,Validators.pattern('^[0-9]+')]],
       emdtiposalario: ['', Validators.required],
-      emdusuarioreg: ['jennifer'],
+      emdusuarioreg: [this.nombre],
       emdipreg: ['127.0.0.1'],
+      emdactivo:['1'],
     });
+
 
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
     console.log('f',this.localPrueba);
@@ -102,6 +107,10 @@ export class FormEmpleadosComponent implements OnInit {
     })
 
 
+    this.estado = [];
+    this.estado.push({ label: 'Estado', value: '' });
+    this.estado.push({ label: 'Activo', value: '1' });
+    this.estado.push({ label: 'Inactivo', value: '0' });
 
 
 
@@ -160,7 +169,7 @@ export class FormEmpleadosComponent implements OnInit {
     this.cargo = [];
     this.cargo.push({ label: 'Tipo de Cargo', value: '' });
     this.cargo.push({ label: 'Jefatura - tiene personal a cargo', value: '1' });
-    this.cargo.push({ label: 'Profesional - analista - técnico - tecnólogo', value: '2' });
+    this.cargo.push({ label: 'Profesional - analista - técnico - tecnólogo - Manejo de dinero - Información confidencial - Salud y seguridad de otras personas', value: '2' });
     this.cargo.push({ label: 'Auxiliar - asistente administrativo - asistente técnico', value: '3' });
     this.cargo.push({ label: 'Operario, operador, ayudante, servicios generales', value: '4' });
     this.cargo.push({ label: 'No Responde', value: 'NR' });
@@ -214,6 +223,7 @@ export class FormEmpleadosComponent implements OnInit {
         emdtiposalario:this.localPrueba.emdtiposalario,
         emdusuarioreg:this.localPrueba.emdusuarioreg,
         emdipreg:this.localPrueba.emdipreg,
+        emdactivo:this.localPrueba.emdactivo,
       })
     } 
   
@@ -292,6 +302,9 @@ export class FormEmpleadosComponent implements OnInit {
   get emdTiemcargo() {
     return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
   }
+  get emdTiemcargomax() {
+    return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
+  }
   get emdArea() {
     return this.userform.get('emdarea').invalid && this.userform.get('emdarea').touched
   }
@@ -311,20 +324,26 @@ export class FormEmpleadosComponent implements OnInit {
     return this.userform.get('emdipreg').invalid && this.userform.get('emdipreg').touched
   }
 
+  get emdActivo() {
+    return this.userform.get('emdactivo').invalid && this.userform.get('emdactivo').touched
+  }
+
 
 
  onSubmit(){
     if(this.userform.valid){
       if(this.localPrueba !== null){
         console.log("voy a actualizar");
+        let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
+        this.userform.value.emdfecnacido = date;
         this.idd = this.localPrueba.emdid;
         this.pruebaservices.updatePrueba(this.userform.value,this.idd)
         .subscribe((data: any) =>{
           console.log(data);
+          localStorage.setItem('prueba',JSON.stringify(data));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
-          if (Number(data.emdtipodecargo)==1) {
-            console.log("ingreso");
+          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
             this.router.navigate(["/main/addFormatoA/crear"]);
           }else{
             this.router.navigate(["/main/addFormatoB/crear"]);
@@ -332,14 +351,17 @@ export class FormEmpleadosComponent implements OnInit {
         })
       }else{
         console.log("voy a crear");
+        let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
+        this.userform.value.emdfecnacido = date;
         this.pruebaservices.createPrueba(this.userform.value)
         .subscribe((data=>{
           console.log(data);
           console.log("tipo cargo",data.emdtipodecargo);
           localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
+          localStorage.setItem('prueba',JSON.stringify(data));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
-          if (Number(data.emdtipodecargo)==1) {
+          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
             console.log("ingreso");
             this.router.navigate(["/main/addFormatoA/crear"]);
           }else{
@@ -359,14 +381,13 @@ export class FormEmpleadosComponent implements OnInit {
   }
 
   async buscarArea(){
+    console.log("verficando");
+    
     this.area =[];
     if (this.localPrueba !== null) {
      await this.pruebaservices.buscarByArea(this.localPrueba.emdempresa).toPromise().then((data:any)=>{
-        console.log("buscar editar",data);
         this.areas = data;
-        this.areas.map(x=>{
-          console.log('x:',x);
-          
+        this.areas.map(x=>{    
           this.area.push({
             label:x.arenombre,
             value: x.areid
@@ -378,7 +399,6 @@ export class FormEmpleadosComponent implements OnInit {
       });
     }else{
       this.pruebaservices.buscarByArea(this.userform.value.emdempresa).toPromise().then((data:any)=>{
-        console.log("buscar agregar",data);
         this.areas = data;
         this.areas.map(x=>{
           this.area.push({
@@ -390,6 +410,37 @@ export class FormEmpleadosComponent implements OnInit {
     }
   }
 
+  numeromax(){
+    if(this.localPrueba !==null){
+      this.nummaxpre = Number(this.localPrueba.emdtiempolab);
+      this.nummax = this.userform.value.emdtiempolab;
+      
+    }else{
+      this.nummax = this.userform.value.emdtiempolab;
+     
+    }
+  }
+  validaciontiempos(){
+      if (this.userform.value.emdtiemcargo > this.userform.value.emdtiempolab) {
+        //this.userform.value.emdtiemcargo = null;
+        this.bandera = true;
+
+      }else{
+        this.bandera = false;
+      }
+  
+  }
+
+/*   validaciontiemposnegativos(){
+    if (this.userform.value.emdtiemcargo < -1) {
+      //this.userform.value.emdtiemcargo = null;
+      this.bandera2 = true;
+
+    }else{
+      this.bandera2 = false;
+    }
+
+} */
   calendarEspañol(){
     this.es = {
         firstDayOfWeek: 1,
@@ -404,5 +455,7 @@ export class FormEmpleadosComponent implements OnInit {
         weekHeader: 'SM'
     };
 }
+
+
 
 }

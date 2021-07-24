@@ -27,5 +27,10 @@ export interface Empleado{
     emdtiposalario?: string,
     emdusuarioreg?: string,
     emdipreg?: string
-    nomempresa?:string
+    nomempresa?:string,
+    ciudadEmpresa?:string,
+    DepartamentoEmpresa?:string,
+    emdactivo?:string
+    emdfecnacidoRepor?: Number,
+    areaNom?: string,
 }

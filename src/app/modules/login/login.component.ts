@@ -4,6 +4,9 @@ import { Router, RouterLink } from "@angular/router";
 
 import { ConfirmationService, MessageService } from "primeng/api";
 import { routes } from '../../app.routes';
+import { PruebaService } from '../../services/prueba.service';
+import { async } from '@angular/core/testing';
+import { User } from '../../models/user';
 
 
 
@@ -18,12 +21,16 @@ export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     user:String;
     password:String;
+    usuarioR:User = {};
+    token:string;
+    err:User;
 
     constructor(
         private fb: FormBuilder,
         private router: Router,
         private messageService: MessageService,
         private confirmationService: ConfirmationService,
+        private pruebaservices: PruebaService,
 
  
 
@@ -32,6 +39,8 @@ export class LoginComponent implements OnInit {
     }
 
     async ngOnInit() {
+        
+
         //  await this.configService.getEmisores()
         //  .toPromise().then((data: Emisor[]) =>{
         //    this.emisores = [...data];
@@ -42,17 +51,8 @@ export class LoginComponent implements OnInit {
 
     crearFormulario() {
         this.loginForm = this.fb.group({
-            user: ["", [Validators.required, Validators.minLength(3)]],
-            pwd: [
-                "",
-                [
-                    Validators.required,
-                    Validators.minLength(8),
-                    Validators.pattern(
-                        "(?=\\D*\\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z]).{8,30}"
-                    ),
-                ],
-            ],
+            email: [],
+            password: [],
         });
     }
     // get usuarioInvalid() {
@@ -69,11 +69,40 @@ export class LoginComponent implements OnInit {
     }
 
     ingresar() {
-        if (this.loginForm.get("user").value === "jennifer@gmail.com" && this.loginForm.get("pwd").value === "12345") {
-            this.router.navigate(['/main/dashboard']);
-        }else{
-            this.router.navigate(['/login']);
+        this.pruebaservices.logIn(this.loginForm.value).then(async(resp: any)=>{
+
+            if (resp.Autherror == "Unauthorized") {
+                this.messageService.add({
+                    severity: "error",
+                    summary: "Verificar",
+                    detail: "Usuario o contraseña no validos",
+                    life: 3000,
+                });
+            }else{
+
+                if (resp.access_token !== null ) {
+                    console.log(resp);
+                    this.usuarioR = resp.user;
+                    console.log("user",this.usuarioR);
+                    console.log("userN",this.usuarioR.name);
+                    localStorage.setItem("token",resp.access_token);
+                    localStorage.setItem("user",this.usuarioR.name);
+                    this.router.navigate(["/main/dashboard"]);
+                }
+                else {
+                    this.messageService.add({
+                        severity: "error",
+                        summary: "Verificar",
+                        detail: "Usuario o contraseña no validos",
+                        life: 3000,
+                    });
+                }
+            }
+
+
+            
         }
+        );
     
     }
 }

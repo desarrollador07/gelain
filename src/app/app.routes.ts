@@ -16,6 +16,13 @@ import { DocumentationComponent } from './demo/view/documentation.component';
 import { MainComponent } from './layout/main/main.component';
 import { LoginComponent } from '../app/modules/login/login.component';
 import { FormatoBModule } from './modules/formatoB/formatoB.module';
+import { AuthGuard } from './guard/auth.guard';
+import { TD_DOMDIMModule } from './modules/TD_DOMDIM/TD_DOMDIM.module';
+import { FormEmpleadosLComponent } from './modules/FormularioEmpleado/formEmpleadosL.component';
+import { FormatoALComponent } from './modules/formularioAL/formatoAL.component';
+import { ExtralaboralLComponent } from './modules/extralaboralL/extralaboralL.component';
+import { EstresLComponent } from './modules/estresL/estresL.component';
+import { FinalFormularioComponent } from './modules/finalFormulario/finalFormulario.component';
 
 export const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -23,10 +30,54 @@ export const routes: Routes = [
         path: "login",
         component:LoginComponent
     },
+     {
+        path: "FormularioEmpleado",
+        loadChildren: () =>
+            import("./modules/FormularioEmpleado/formEmpleadoL.module").then(
+                (m) => m.FormEmpleadosLModule
+            ),
+    }, 
+    {
+        path: "FormularioAL",
+        loadChildren: () =>
+            import("./modules/formularioAL/formatoAL.module").then(
+                (m) => m.FormatoALModule
+            ),
+    },
+    {
+        path: "FormularioBL",
+        loadChildren: () =>
+            import("./modules/formularioBL/formatoBL.module").then(
+                (m) => m.FormatoBLModule
+            ),
+    },  
+    {
+        path: "ExtralaboralL",
+        loadChildren: () =>
+            import("./modules/extralaboralL/extralaboralL.module").then(
+                (m) => m.ExtralaboralModule
+            ),
+    }, 
+    {
+        path: "EstresL",
+        loadChildren: () =>
+            import("./modules/estresL/estresL.module").then(
+                (m) => m.EstresLModule
+            ),
+    }, 
+    {
+        path: "FinalFormularios",
+        loadChildren: () =>
+            import("./modules/finalFormulario/finalFormulario.module").then(
+                (m) => m.FinalFormulariosModule
+            ),
+    }, 
+
     {
         
         path:"main",
         component:MainComponent,
+        canActivate: [AuthGuard],
         children:[
 
             {
@@ -106,11 +157,39 @@ export const routes: Routes = [
                         (m) => m.FormatoBModule
                     ),
             },  
+            {
+                path: "Reportes",
+                loadChildren: () =>
+                    import("./modules/reportes/reportes.module").then(
+                        (m) => m.ReportesModule
+                    ),
+            },
+
+            {
+                path: "BDRDG",
+                loadChildren: () =>
+                    import("./modules/BDRDG/BDRDG.module").then(
+                        (m) => m.BDRDGModule
+                    ),
+            },
+
+            {
+                path: "TD_DOMDIM",
+                loadChildren: () =>
+                    import("./modules/TD_DOMDIM/TD_DOMDIM.module").then(
+                        (m) => m.TD_DOMDIMModule
+                    ),
+            },
 
 
             
         ]
-    }
+    },
+
+
+
+
 ];
 
-export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});
+export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled',
+relativeLinkResolution: 'legacy'});

@@ -44,6 +44,7 @@ export class FormPruebaComponent implements OnInit {
   values1: string[] = [];
   area:any[];
   bandera:Boolean;
+  linkformulario:any;
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService,private _activatedRoute: ActivatedRoute,private _confirmationServices: ConfirmationService) { 
@@ -52,9 +53,13 @@ export class FormPruebaComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     let today = new Date();
     this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
-
+    //this.linkformulario="http://localhost:4200/#/FormularioEmpleado/"+this.localIDEmp;
+    this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng/#/FormularioEmpleado/"+this.localIDEmp;
+    //this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng2/#/FormularioEmpleado/"+this.localIDEmp;
+    
     this.indexData();
 
     this.items1 = [

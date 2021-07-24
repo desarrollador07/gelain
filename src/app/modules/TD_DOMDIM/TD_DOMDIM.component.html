@@ -1,0 +1,306 @@
+<p-toast>
+
+
+
+</p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<div class="card">
+    <div class="ui-g">
+
+        <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
+
+        <p-panel header="RIESGO PSICOSOCIAL INTRALABORAL">
+            <div class="ui-g">
+                <div class="ui-g-9">
+                    <p-table [value]="sales">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan="3">Nivel de riesgo</th>
+                                <th colspan="5">LIDERAZGO Y RELACIONES SOCIALES</th>
+                            </tr>
+
+                            <tr>
+                                <th style="text-align: left; font-size: 10px;">Características del liderazgo</th>
+                                <th style="text-align: left; font-size: 10px;">Relaciones sociales en el trabajo</th>
+                                <th style="text-align: left; font-size: 10px;">Retroalimentación del desempeño</th>
+                                <th style="text-align: left; font-size: 10px;">Relación con los colaboradores</th>
+                                <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-sale>
+                            <tr>
+                                <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.liderazgo}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.relaciones}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.retroalimentacion}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.TotalDominio}}</td>
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+                </div>
+                <div class="ui-g-3">
+                    <kendo-chart>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+
+
+            <br>
+            <div class="ui-g">
+                <div class="ui-g-9">
+                    <p-table [value]="sales2">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan="3">Nivel de riesgo</th>
+                                <th colspan="6">CONTROL SOBRE EL TRABAJO</th>
+                            </tr>
+
+                            <tr>
+                                <th style="text-align: left; font-size: 10px;">Claridad de rol</th>
+                                <th style="text-align: left; font-size: 10px;">Capacitación</th>
+                                <th style="text-align: left; font-size: 10px;">Oportunidades para el uso y desarrollo de habilidades y conocimientos</th>
+                                <th style="text-align: left; font-size: 10px;">Participación y manejo del cambio</th>
+                                <th style="text-align: left; font-size: 10px;">Control y autonomía sobre el trabajo</th>
+                                <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-sale>
+                            <tr>
+                                <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.claridad}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.capacitacion}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.oportunidades}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.manejo}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.control}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.TotalDominio}}</td>
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+                </div>
+                <div class="ui-g-3">
+                    <kendo-chart>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[claridad2[0], capacitacion2[0], oportunidades2[0],manejo2[0],control2[0]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[claridad2[1], capacitacion2[1], oportunidades2[1],manejo2[1],control2[1]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[claridad2[2], capacitacion2[2], oportunidades2[2],manejo2[2],control2[2]]">
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+            <br>
+            <div class="ui-g">
+                <div class="ui-g-9">
+                    <p-table [value]="sales3">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan="2">Nivel de riesgo</th>
+                                <th colspan="9">DEMANDAS DEL TRABAJO</th>
+                            </tr>
+
+                            <tr>
+                                <th style="text-align: left; font-size: 10px;">Demandas ambientales y de esfuerzo físico</th>
+                                <th style="text-align: left; font-size: 10px;">Nivel de responsabilidad del cargo</th>
+                                <th style="text-align: left; font-size: 10px;">Consistencia del rol</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas emocionales</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas de la jornada de trabajo</th>
+                                <th style="text-align: left; font-size: 10px;">Influencia del trabajo sobre el entorno extralaboral</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas cuantitativas</th>
+                                <th style="text-align: left; font-size: 10px;">Demandas de carga mental</th>
+                                <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-sale>
+                            <tr>
+                                <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.demandas_ambientales}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.reponsabilidad}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.consistencia_rol}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.demandas_emocionales}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.demandas_jornada}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.influ_extralaboral}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.demandas_cuantitativas}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.demandas_mental}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.TotalDominio}}</td>
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+                </div>
+                <div class="ui-g-3">
+                    <kendo-chart>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[demandas_ambientales2[0], reponsabilidad2[0], consistencia_rol2[0],demandas_emocionales2[0],demandas_jornada2[0],influ_extralaboral2[0],demandas_cuantitativas2[0],demandas_mental2[0]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[demandas_ambientales2[1], reponsabilidad2[1], consistencia_rol2[1],demandas_emocionales2[1],demandas_jornada2[1],influ_extralaboral2[1],demandas_cuantitativas2[1],demandas_mental2[1]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[demandas_ambientales2[2], reponsabilidad2[2], consistencia_rol2[2],demandas_emocionales2[2],demandas_jornada2[2],influ_extralaboral2[2],demandas_cuantitativas2[2],demandas_mental2[2]]">
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+            <br>
+            <div class="ui-g">
+                <div class="ui-g-9">
+                    <p-table [value]="sales4">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan="3">Nivel de riesgo</th>
+                                <th colspan="3">RECOMPENSAS</th>
+                            </tr>
+
+                            <tr>
+                                <th style="text-align: left; font-size: 10px;">Reconocimiento y compensación</th>
+                                <th style="text-align: left; font-size: 10px;">Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza</th>
+                                <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-sale>
+                            <tr>
+                                <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.recompensas_trabajo}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.reconocimiento}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.TotalDominio}}</td>
+
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+                </div>
+                <div class="ui-g-3">
+                    <kendo-chart>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[recompensas_trabajo2[0], reconocimiento2[0]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[recompensas_trabajo2[1], reconocimiento2[1]]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[recompensas_trabajo2[2], reconocimiento2[2]]">
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+    <br>
+    <div class="ui-g">
+        <p-panel header="RIESGO PSICOSOCIAL  EXTRALABORAL">
+            <div class="ui-g">
+                <div class="ui-g-9">
+                    <p-table [value]="sales">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan="3">Nivel de riesgo</th>
+
+                            </tr>
+
+                            <tr>
+                                <th style="text-align: left; font-size: 10px;">Tiempo fuera del trabajo</th>
+                                <th style="text-align: left; font-size: 10px;">Relaciones familiares</th>
+                                <th style="text-align: left; font-size: 10px;">Comunicación y relaciones interpersonales</th>
+                                <th style="text-align: left; font-size: 10px;">Situación económica</th>
+                                <th style="text-align: left; font-size: 10px;">Características de la vivienda y de su entorno</th>
+                                <th style="text-align: left; font-size: 10px;">Influencia del entorno extralaboral sobre el trabajo</th>
+                                <th style="text-align: left; font-size: 10px;">Desplazamiento vivienda – trabajo – vivienda</th>
+                                <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-sale>
+                            <tr>
+                                <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.liderazgo}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.relaciones}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.retroalimentacion}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.rela_colaboradores}}</td>
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+                </div>
+                <div class="ui-g-3">
+                    <kendo-chart>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[1, 1, 1,1,1,1,1]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[1, 1, 1,1,1,1,1]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[1, 1, 1,1,1,1,1]">
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+    <br>
+    <div class="ui-g">
+        <p-panel header="RIESGO PSICOSOCIAL">
+            <div class="ui-g">
+                <div class="ui-g-9">
+                    <p-table [value]="sales">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th rowspan="3">Nivel de riesgo</th>
+
+                            </tr>
+
+                            <tr>
+                                <th style="text-align: left; font-size: 10px;">INTRALABORAL</th>
+                                <th style="text-align: left; font-size: 10px;">EXTRALABORAL</th>
+                                <th style="text-align: left; font-size: 10px;">TOTAL DOMINIO</th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-sale>
+                            <tr>
+                                <td style="text-align: left; font-size: 10px;"><b>{{sale.brand}}</b></td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.liderazgo}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.relaciones}}</td>
+                                <td style="text-align: left; font-size: 10px;">{{sale.relaciones}}</td>
+                            </tr>
+                        </ng-template>
+
+                    </p-table>
+                </div>
+                <div class="ui-g-3">
+                    <kendo-chart>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" [stack]="{ type: '100%' }" [data]="[1, 1]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[1, 1]">
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" [data]="[1, 1]">
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+
+</div>

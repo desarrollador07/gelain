@@ -98,9 +98,9 @@ import { EventService } from './demo/service/eventservice';
 import { NodeService } from './demo/service/nodeservice';
 import { BreadcrumbService } from './breadcrumb.service';
 import { MainComponent } from './layout/main/main.component';
-import { PruebaComponent } from './modules/prueba/prueba.component';
-import { FormPruebaComponent } from './modules/form-prueba/form-prueba.component';
 import { LoginModule} from './modules/login/login.module';
+import { EmpleadosComponent } from './modules/empleados/empleados.component';
+
 
 @NgModule({
     imports: [
@@ -174,7 +174,9 @@ import { LoginModule} from './modules/login/login.module';
         TreeModule,
         TreeTableModule,
         VirtualScrollerModule,
-        LoginModule
+        LoginModule,
+
+
     ],
     declarations: [
         AppComponent,
@@ -199,11 +201,13 @@ import { LoginModule} from './modules/login/login.module';
         FileDemoComponent,
         DocumentationComponent,
         MainComponent,
+        
+
 
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        CarService, CountryService, EventService, NodeService, BreadcrumbService
+        CarService, CountryService, EventService, NodeService, BreadcrumbService,EmpleadosComponent
     ],
     bootstrap: [AppComponent]
 })

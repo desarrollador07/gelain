@@ -7,6 +7,8 @@ import { FormatoA } from '../models/formatoAmodel';
 import { Estres } from '../models/estres.nodel';
 import { Extralaboral } from '../models/extralaboral.model';
 import { FormatoB } from '../models/formatoB.model';
+import { User } from '../models/user';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,17 +18,21 @@ export class PruebaService {
   Url2 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createEmpleados';
   Url3 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateEmpleados';
   Url4 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteEmpleados';
+  Url5 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getid';
+  Url6  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpleadosReportes';
 
   Url1p  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpresa';
   Url2p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createEmpresa';
   Url3p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateEmpresa';
   Url4p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteEmpresa';
+  Url5p  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/getnobEmpresa';
 
   Url1pa  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allArea';
   Url2pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createArea';
   Url3pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateArea';
   Url4pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteArea';
   Url5pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideArea';
+  Url6pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideAreaUnica';
 
   Url1fa  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allformatoA';
   Url2fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createformatoA';
@@ -52,8 +58,22 @@ export class PruebaService {
   Url4ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteextra';
   Url5ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideExtra';
 
+  UrlLogin = 'https://gelainbienestarlaboral.com/GELAIN/lv2/public/api/auth/signin';
+
+  UrlliderazgoRA = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/liderazgoRelacionesA';
+
+  UrlcontrolSobreRol = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/controlSobreRol';
+
+  UrlDemandasTrabajo= 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DemandasTrabajo';
+
+  Urlrecompensas = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/recompensas';
+
 
   constructor(private http: HttpClient) {
+  }
+
+  logIn(user: User) {
+    return this.http.post(this.UrlLogin, user).toPromise();
   }
 
   getPrueba(){
@@ -72,6 +92,13 @@ export class PruebaService {
     return this.http.put<Empleado>(this.Url3 + "/" + id,prueba);
   }
 
+  buscarByEmpleados(id:number){
+    return this.http.get(this.Url5 + "/" + id);
+  }
+  buscarByEmpleadosRepor(id:number){
+    return this.http.get(this.Url6+ "/" + id);
+  }
+
 
   getEmpresa(){
     return this.http.get(this.Url1p);
@@ -87,6 +114,10 @@ export class PruebaService {
 
   updateEmpresa(prueba: Empresa,id:String){
     return this.http.put<Empresa>(this.Url3p + "/" + id,prueba);
+  }
+
+  getEmpresaId(id:number){
+    return this.http.get(this.Url5p + "/" + id);
   }
 
 
@@ -108,6 +139,10 @@ export class PruebaService {
 
  buscarByArea(id:number){
     return this.http.get(this.Url5pa + "/" + id);
+  }
+
+  buscarByAreaExpecifica(idE:number,id:number){
+    return this.http.get(this.Url6pa + "/" + idE+"/"+id);
   }
 
   getFormatoA(){
@@ -186,5 +221,25 @@ export class PruebaService {
   buscarExtra(id:number){
     return this.http.get(this.Url5ex + "/" + id);
   }
+
+  getLiderazgoRA(){
+    return this.http.get(this.UrlliderazgoRA);
+  }
+
+  getcontrolSobreRol(){
+    return this.http.get(this.UrlcontrolSobreRol);
+  }
+
+  getDemandasTrabajo(){
+    return this.http.get(this.UrlDemandasTrabajo);
+  }
+
+  getRecompensas(){
+    return this.http.get(this.Urlrecompensas);
+  }
+/*  getIPAddress()  
+  {  
+    return this.http.get("http://api.ipify.org/?format=json");  
+  } */
 
 }

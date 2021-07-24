@@ -12,9 +12,13 @@ import { Area } from '../../models/area.model';
   styleUrls: ['./empleados.component.css']
 })
 export class EmpleadosComponent implements OnInit {
+  idEmpresa:any;
+  idtemporal:any;
   prueba: Empleado;
 
   pruebas: Empleado[] = [];
+
+  pruebas2: Empleado[] = [];
 
   items1: MenuItem[];
 
@@ -29,13 +33,40 @@ export class EmpleadosComponent implements OnInit {
   area: SelectItem[] = [];
   areas: Area[] = [];
 
+  public  async actualizarData(id:any){
+      
+    this.pruebaServices
+   .buscarByEmpleados(id).toPromise().then((data: any)=>{
+     console.log("verificando",data);
+     this.pruebas = [...data];
+     this.pruebas.map(res=>{
+       this.empresas.map(x=>{
+       if (res.emdempresa === x.empid) {
+         res.nomempresa = x.empnombre;
+       }
+       })
+     })
+     console.log("estas son:",this.pruebas);
+     
+   }) 
+}
+
+
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService) {
-
+                this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
+                this.idtemporal = 0;
+                
    }
 
   async ngOnInit() {
+    this.pruebas2 = this.pruebas;
+  console.log("ongi",this.pruebas2);
+  
+  
+    console.log("tempo",this.idtemporal);
+    
 
     await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
       console.log(data);
@@ -43,7 +74,8 @@ export class EmpleadosComponent implements OnInit {
     })
 
     await this.pruebaServices
-    .getPrueba().toPromise().then((data: any)=>{
+    .buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
+      console.log("verificando",data);
       this.pruebas = [...data];
       this.pruebas.map(res=>{
         this.empresas.map(x=>{
@@ -52,9 +84,10 @@ export class EmpleadosComponent implements OnInit {
         }
         })
       })
+      console.log("estas son:",this.pruebas);
+      
+    }) 
 
-      console.log('los datos son: ',this.pruebas);
-    })
 
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
@@ -62,10 +95,14 @@ export class EmpleadosComponent implements OnInit {
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
   ];
 
- 
-
 
   }
+
+  ngOnChanges() {
+    this.pruebas;
+  console.log("ongi",this.pruebas);
+  }
+  
 
   deletePrueba(prueba: Empleado) {
 
@@ -77,7 +114,20 @@ export class EmpleadosComponent implements OnInit {
         this.pruebaServices.deletePrueba(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
-          this.indexData();
+          this.pruebaServices
+    .buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
+      console.log("verificando",data);
+      this.pruebas = [...data];
+      this.pruebas.map(res=>{
+        this.empresas.map(x=>{
+        if (res.emdempresa === x.empid) {
+          res.nomempresa = x.empnombre;
+        }
+        })
+      })
+      console.log("estas son:",this.pruebas);
+      
+    })
         });
       }
     });
@@ -114,9 +164,11 @@ export class EmpleadosComponent implements OnInit {
         localStorage.removeItem('prueba');
         localStorage.removeItem('IdEmpleado');
         localStorage.removeItem('ForA');
+        localStorage.removeItem('ForAA');
         localStorage.removeItem('ForB');
         localStorage.removeItem('Extra');
         localStorage.removeItem('estres');
+        localStorage.removeItem('estresEs');
       }
 
       buscarArea(cpruebas:Empleado){
@@ -151,4 +203,8 @@ export class EmpleadosComponent implements OnInit {
           })
       })
     }
+
+
+
+
 }

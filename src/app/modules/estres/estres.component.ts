@@ -23,29 +23,43 @@ export class EstresComponent implements OnInit {
   es: any;
   idd: any;
   a1: SelectItem[];
+  a11: SelectItem[];
+  a12: SelectItem[];
   idl:any;
   items: MenuItem[];
   activeIndex: number = 1;
   forrr:any[]=[];
- 
+  forrrEs:Estres;
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
- 
+                this.forrr =JSON.parse(localStorage.getItem('estres'));
+                this.forrrEs =JSON.parse(localStorage.getItem('estresEs'));
+                console.log("estresEs",this.forrrEs);
+                console.log("estres",this.forrr);
+
+                if (this.forrr !== null) {
+                  console.log("ina");
+                  
+                  this.localPrueba = this.forrr[0];
+                }if (this.forrrEs !== null) {
+                  console.log("inb");
+                  this.forrr = [];
+                  this.localPrueba = this.forrrEs;
+                }
+                if(this.forrr == null && this.forrrEs == null){
+                  console.log("inc");
+                  
+                  this.localPrueba = null;
+                }
+                console.log("lo",this.localPrueba);
+              
+            
+                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
   ngOnInit() {
 
-    this.forrr =JSON.parse(localStorage.getItem('estres'));
 
-
-    if (this.forrr !== null) {
-      this.localPrueba = this.forrr[0];
-    }else{
-      this.localPrueba = null;
-    }
-  
-
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
 
 
 
@@ -91,11 +105,24 @@ export class EstresComponent implements OnInit {
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: 'NR' });
-    this.a1.push({ label: 'Siempre', value: '1' });
-    this.a1.push({ label: 'Casi Siempre', value: '2' });
-    this.a1.push({ label: 'Algunas Veces', value: '3' });
-    this.a1.push({ label: 'Casi nunca', value: '4' });
-    this.a1.push({ label: 'Nunca', value: '5' });
+    this.a1.push({ label: 'Siempre', value: '9' });
+    this.a1.push({ label: 'Casi Siempre', value: '6' });
+    this.a1.push({ label: 'A Veces', value: '3' });
+    this.a1.push({ label: 'Nunca', value: '0' });
+
+    this.a11 = [];
+    this.a11.push({ label: 'Seleccione...', value: 'NR' });
+    this.a11.push({ label: 'Siempre', value: '6' });
+    this.a11.push({ label: 'Casi Siempre', value: '4' });
+    this.a11.push({ label: 'A Veces', value: '2' });
+    this.a11.push({ label: 'Nunca', value: '0' });
+
+    this.a12 = [];
+    this.a12.push({ label: 'Seleccione...', value: 'NR' });
+    this.a12.push({ label: 'Siempre', value: '3' });
+    this.a12.push({ label: 'Casi Siempre', value: '2' });
+    this.a12.push({ label: 'A Veces', value: '1' });
+    this.a12.push({ label: 'Nunca', value: '0' });
 
 
 
@@ -146,33 +173,58 @@ export class EstresComponent implements OnInit {
      if(this.userform.valid){
       if(this.localPrueba !== null){
 
-        if(this.forrr.length !== 0 || this.forrr.length !== null){
+        if(this.forrr.length !== 0 || this.forrr !== null){
           console.log("voy a actualizar");
           this.idd = this.localPrueba.estid;
           this.pruebaservices.updateEstres(this.userform.value,this.idd)
           .subscribe((data: any) =>{
+            this.pruebaservices.buscarByEstres(this.localPrueba.estidempleado)
+        .subscribe((data:any)=>{
+          console.log("estres",data);
+          localStorage.setItem('estres',JSON.stringify(data));
+        })
             console.log(data);
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['/main/empleado']);
           })
-        }else{
+        }
+        if (this.forrrEs !== null) {
+          console.log("voy a actualizar");
+          this.idd = this.localPrueba.estid;
+          this.pruebaservices.updateEstres(this.userform.value,this.idd)
+          .subscribe((data: any) =>{
+            this.pruebaservices.buscarByEstres(this.localPrueba.estidempleado)
+        .subscribe((data:any)=>{
+          console.log("estres",data);
+          localStorage.setItem('estres',JSON.stringify(data));
+          localStorage.removeItem('estresEs');
+        })
+            console.log(data);
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this.userform.reset();
+            this.router.navigate(['/main/empleado']);
+          })
+        }
+/*         else{
           console.log("voy a crear");
           this.pruebaservices.createEstres(this.userform.value)
           .subscribe((data=>{
             console.log(data);
+            localStorage.setItem('estresEs',JSON.stringify(data));
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
             this.userform.reset();
             this.router.navigate(['/main/empleado']);
             
           }))
-        }
+        } */
 
       }else{
         console.log("voy a crear");
         this.pruebaservices.createEstres(this.userform.value)
         .subscribe((data=>{
           console.log(data);
+          localStorage.setItem('estresEs',JSON.stringify(data));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
           this.router.navigate(['/main/empleado']);
@@ -186,6 +238,18 @@ export class EstresComponent implements OnInit {
       this.router.navigate(['/main/empleado']);
       
     } 
+  }
+
+  salir(){
+    localStorage.removeItem('prueba');
+    localStorage.removeItem('IdEmpleado');
+    localStorage.removeItem('ForA');
+    localStorage.removeItem('ForAA');
+    localStorage.removeItem('ForB');
+    localStorage.removeItem('Extra');
+    localStorage.removeItem('ExtraE');
+    localStorage.removeItem('estresEs');
+    localStorage.removeItem('estres');
   }
 
 }

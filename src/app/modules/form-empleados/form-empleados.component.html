@@ -13,10 +13,18 @@
     <p-panel header="FICHA DE DATOS GENERALES">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px">
 
-            <div class="ui-g" style="padding: 0;">
-                <div class="ui-g-6"></div>
-                <div class="ui-g-3" style="padding: 0;">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Datos_Generales.png" alt="">
+            <div class="ui-g">
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
+                </div>
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Datos_Generales.png" alt="" width="100%" height="100%">
+                </div>
+                <div class="ui-g-3" style="text-align: center;">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
                 </div>
             </div>
 
@@ -35,7 +43,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input [class.is-invalid]="emdNombres"  formControlName="emdnombres" type="text" pInputText> 
+                            <input [class.is-invalid]="emdNombres"  formControlName="emdnombres" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; "> Nombre</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdNombres"></p-message>
@@ -43,7 +51,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdApellidos"  formControlName="emdapellidos" type="text" pInputText> 
+                            <input  [class.is-invalid]="emdApellidos"  formControlName="emdapellidos" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Apellido</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdApellidos"></p-message>
@@ -60,8 +68,10 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-calendar  [class.is-invalid]="emdFecnacido" formControlName="emdfecnacido" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" [monthNavigator]="true"  showButtonBar="true"></p-calendar>
-                            <label for="float-input" style="font-size: 15px; ">Año de Nacimiento</label>
+                            <!-- <p-calendar  [class.is-invalid]="emdFecnacido" formControlName="emdfecnacido" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" [monthNavigator]="true"  showButtonBar="true"></p-calendar>
+                            <label for="float-input" style="font-size: 15px; ">Año de Nacimiento</label> -->
+                            <input   [class.is-invalid]="emdFecnacido"  formControlName="emdfecnacido" type="text" pInputText> 
+                            <label  style="font-size: 15px; ">Año de Nacimiento (AAAA-MM-DD)</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdFecnacido"></p-message>
                     </div>
@@ -84,7 +94,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdProfesion"  formControlName="emdprofesion" type="text" pInputText> 
+                            <input   [class.is-invalid]="emdProfesion"  formControlName="emdprofesion" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ocupacion o profesion</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdProfesion"></p-message>
@@ -101,7 +111,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdCiudad"   formControlName="emdciudad" type="text" pInputText> 
+                            <input  [class.is-invalid]="emdCiudad"   formControlName="emdciudad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ciudad</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message>
@@ -109,7 +119,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input    [class.is-invalid]="emDepartamento"  formControlName="emddepartamento" type="text" pInputText> 
+                            <input    [class.is-invalid]="emDepartamento"  formControlName="emddepartamento" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Departamento</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emDepartamento"></p-message>
@@ -117,7 +127,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdDireccion"  formControlName="emddireccion" type="text" pInputText> 
+                            <input   [class.is-invalid]="emdDireccion"  formControlName="emddireccion" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Direccion</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdDireccion"></p-message>
@@ -137,7 +147,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdEmail"  formControlName="emdemail" type="text" pInputText> 
+                            <input   [class.is-invalid]="emdEmail"  formControlName="emdemail" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Correo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdEmail"></p-message>
@@ -165,7 +175,7 @@
                 </div>
                 <div class="ui-g-12 ui-md-6 ui-lg-4">
                     <span class="ui-float-label">
-                        <input [class.is-invalid]="emdPersdepen"  style="width : 90%; heigth : 1%"  formControlName="emdpersdepen" type="number" pInputText> 
+                        <input [class.is-invalid]="emdPersdepen"  style="width : 90%; heigth : 1%"  formControlName="emdpersdepen" type="number" min="0" pInputText> 
                         <label for="float-input" style="font-size: 13px; ">Numero de personas que dependen de usted</label>
                     </span>
                     <p-message severity="error" text="Este campo es requerido" *ngIf="emdPersdepen"></p-message>
@@ -185,15 +195,16 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input [class.is-invalid]="emdTiempolab"  formControlName="emdtiempolab" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Cuantos Años lleva en la Empresa</label>
+                            <!-- <input  [class.is-invalid]="emdArea"   formControlName="emdarea" type="text" pInputText> -->
+                            <p-dropdown [class.is-invalid]="emdArea" [options]="area" formControlName="emdarea" [showClear]="true" placeholder="Areas">
+                            </p-dropdown>
                         </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiempolab"></p-message>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdArea"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdCargo"   formControlName="emdcargo" type="text" pInputText> 
+                            <input  [class.is-invalid]="emdCargo"   formControlName="emdcargo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdCargo"></p-message>
@@ -210,36 +221,9 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdTiemcargo"   formControlName="emdtiemcargo" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">tiempo en el cargo</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiemcargo"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <!-- <input  [class.is-invalid]="emdArea"   formControlName="emdarea" type="text" pInputText> -->
-                            <p-dropdown [class.is-invalid]="emdArea" [options]="area" formControlName="emdarea" [showClear]="true" >
-                            </p-dropdown>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdArea"></p-message>
-                    </div>
-                </div>
-
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="emdTipocontrato" [options]="tContrato" formControlName="emdtipocontrato" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTipocontrato"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdHorasdia"   formControlName="emdhorasdia" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Horas de trabajo</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdHorasdia"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -249,14 +233,40 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiposalario"></p-message>
                     </div>
                 </div>
+
+
+                <b><p>NOTA: Si lleva menos de un año coloque (-1). Si no responde coloque cero (0) en los siguientes campos : </p></b>
+
                 <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input [class.is-invalid]="emdTiempolab"  formControlName="emdtiempolab" type="number" min="-1" (ngModelChange)="numeromax()"  pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Cuantos Años lleva en la Empresa</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiempolab"></p-message>
+                        <!-- <p-message severity="error" text="no puede ser menor a -1" *ngIf="bandera2"></p-message> -->
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdTiemcargo"   formControlName="emdtiemcargo" type="number" min="-1" max="{{nummax}}" (ngModelChange)="validaciontiempos()"  pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Cuantos años en el Cargo</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiemcargo"></p-message>
+                        <p-message severity="error" text="Este campo no puede ser mayor al tiempo en la empresa" *ngIf="bandera"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdHorasdia"   formControlName="emdhorasdia" type="number" min="0"   pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Horas de trabajo al día</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido,Debe ser entero" *ngIf="emdHorasdia"></p-message>
+                    </div>
+                </div>
 
-                <p>NOTA: Si lleva menos de un año coloque (-1). Si no responde coloque cero (0) en los campos de: </p>
-                <p>*Hace cuantos años que trabaja en esta empresa</p>
-                <p>*Hace cuantos que desempeña este cargo</p>
-
-
-
+                <br>
 
             </fieldset>
 
@@ -273,7 +283,7 @@
         </div>
 
     </p-panel>
-
+    <!-- <pre>{{nummax}}</pre> -->
     <!-- <pre>{{userform.value | json}}</pre> -->
 
 </form>

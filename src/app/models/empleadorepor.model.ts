@@ -1,0 +1,27 @@
+export interface EmpleadoRepor{
+    id?: number;
+    cedula?: string,
+    nombres?: string,
+    apellidos?: string,
+    sexo?:string,
+    fecnacido?: Date,
+    estcivil?: string,
+    nivelestudio?: string,
+    profesion?: string,
+    ciudad?: string,
+    departamento?:string,
+    estracto?: string,
+    tipovivienda?: string,
+    persdepen?: number,
+    emdempresa?: number,
+    tiempolab?: string,
+    cargo?: string,
+    tipodecargo?: string,
+    tiemcargo?: string,
+    area?: number,
+    tipocontrato?: string,
+    horasdia?:string,
+    usuarioreg?: string,
+    nomempresa?:string,
+
+}

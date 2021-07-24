@@ -1,0 +1,41 @@
+cardd {
+    border-radius: 0px;
+    background: #ffffff;
+    padding: 56px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    border: 1px solid #dddddd;
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.old-car1 {
+    background-color: rgb(204, 79, 70) !important;
+    color: #ffffff !important;
+}
+
+.old-car2 {
+    background-color: rgb(204, 168, 56) !important;
+    color: #ffffff !important;
+}
+
+.old-car3 {
+    background-color: rgb(96, 168, 44) !important;
+    color: #ffffff !important;
+}
+
+.old-car4 {
+    background-color: rgb(32, 144, 160) !important;
+    color: #ffffff !important;
+}
+
+.old-car5 {
+    background-color: rgb(36, 92, 196) !important;
+    color: #ffffff !important;
+}
+
+.old-car6 {
+    background-color: rgb(136, 56, 152) !important;
+    color: #ffffff !important;
+}

@@ -24,30 +24,38 @@ export class FormatoBComponent implements OnInit {
   es: any;
   idd: any;
   a1: SelectItem[];
+  a11: SelectItem[];
   a2: SelectItem[];
   idl:any;
   items: MenuItem[];
   activeIndex: number = 1;
   vart : boolean;
- 
+  forrrB:FormatoB;
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
  
                 this.forrr =JSON.parse(localStorage.getItem('ForB'));
+                this.forrrB =JSON.parse(localStorage.getItem('ForBB'));
+                console.log("forBB",this.forrrB);
+                console.log("forB",this.forrr);
                 
-                if (this.forrr !== null) {
-                  this.localPrueba = this.forrr[0];
-                }else{
-                  this.localPrueba = null;
-                }
-                console.log("lo",this.localPrueba);
-                
-                    
-                
-                    
-                    
-                
-                    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+            if (this.forrr !== null) {
+              console.log("ina");
+              
+              this.localPrueba = this.forrr[0];
+            }if (this.forrrB !== null) {
+              console.log("inb");
+              this.forrr = [];
+              this.localPrueba = this.forrrB;
+            }
+            if(this.forrr == null && this.forrrB == null){
+              console.log("inc");
+              
+              this.localPrueba = null;
+            }
+            console.log("lo",this.localPrueba);
+
+                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
   ngOnInit() {
@@ -159,11 +167,19 @@ export class FormatoBComponent implements OnInit {
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: 'NR' });
-    this.a1.push({ label: 'Siempre', value: '1' });
-    this.a1.push({ label: 'Casi Siempre', value: '2' });
-    this.a1.push({ label: 'Algunas Veces', value: '3' });
-    this.a1.push({ label: 'Casi nunca', value: '4' });
-    this.a1.push({ label: 'Nunca', value: '5' });
+    this.a1.push({ label: 'Siempre', value: '0' });
+    this.a1.push({ label: 'Casi Siempre', value: '1' });
+    this.a1.push({ label: 'Algunas Veces', value: '2' });
+    this.a1.push({ label: 'Casi nunca', value: '3' });
+    this.a1.push({ label: 'Nunca', value: '4' });
+
+    this.a11 = [];
+    this.a11.push({ label: 'Seleccione...', value: 'NR' });
+    this.a11.push({ label: 'Siempre', value: '4' });
+    this.a11.push({ label: 'Casi Siempre', value: '3' });
+    this.a11.push({ label: 'Algunas Veces', value: '2' });
+    this.a11.push({ label: 'Casi nunca', value: '1' });
+    this.a11.push({ label: 'Nunca', value: '0' });
 
     this.a2 = [];
     this.a2.push({ label: 'Seleccione...', value: '' });
@@ -296,7 +312,10 @@ export class FormatoBComponent implements OnInit {
        this.idd = this.localPrueba.inbid;
        this.pruebaservices.updateFormatoB(this.userform.value,this.idd)
        .subscribe((data: any) =>{
-         console.log(data);
+         this.pruebaservices.buscarByFb(this.localPrueba.inbidempleado)
+         .subscribe((data:any)=>{
+           localStorage.setItem('ForB',JSON.stringify(data));
+         })
          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
          this.userform.reset();
          console.log("idd",this.idd);
@@ -304,7 +323,28 @@ export class FormatoBComponent implements OnInit {
 
          this.router.navigate(["/main/addExtralaboral/editar"]);
        })
-       }else{
+       }
+       if (this.forrrB !== null) {
+        console.log("voy a actualizarA");
+        this.idd = this.localPrueba.inbid;
+        this.pruebaservices.updateFormatoB(this.userform.value,this.idd)
+        .subscribe((data: any) =>{
+          this.pruebaservices.buscarByFb(this.localPrueba.inbidempleado)
+        .subscribe((data:any)=>{
+          localStorage.setItem('ForB',JSON.stringify(data));
+          localStorage.removeItem('ForBB');
+        })
+
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+          this.userform.reset();
+          console.log("idd",this.idd);
+          
+
+          this.router.navigate(["/main/addExtralaboral/editar"]);
+        })
+      }
+       
+/*        else{
          console.log("voy a crear");
          this.pruebaservices.createFormatoB(this.userform.value)
          .subscribe((data=>{
@@ -314,13 +354,13 @@ export class FormatoBComponent implements OnInit {
            this.router.navigate(["/main/addExtralaboral/crear"]);
            
          }))
-       }
+       } */
 
      }else{
        console.log("voy a crear");
        this.pruebaservices.createFormatoB(this.userform.value)
        .subscribe((data=>{
-         console.log(data);
+        localStorage.setItem('ForBB',JSON.stringify(data));
          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
          this.userform.reset();
          this.router.navigate(["/main/addExtralaboral/crear"]);

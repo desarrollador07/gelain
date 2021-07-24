@@ -1,0 +1,413 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="CUESTIONARIO ESTRES">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+            <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Estres.png" alt="" width="100%" height="100%">
+                </div>
+                <div class="ui-g-3" style="text-align: center;">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
+                </div>
+            </div>
+
+
+
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las condiciones ambientales del(los) sitio(s) o lugar(es) donde habitualmente realiza su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Dolores en el cuello y espalda o tensión muscular</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="estdolorcuello" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="estprobgastrico" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">Problemas respiratorios</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="estprobrespira" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">Dolor de cabeza</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="estdolorcabeza" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">Transtornos del sueño como somnolencia durante el día o desvelo en la noche</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="esttrastsueno" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b> <label for="float-input" style="font-size: 15px;">Palpitaciones en el pecho o problemas cardíacos</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="estpalpitacion" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Cambios fuertes en el apetito</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a12" formControlName="estcamapetito" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">Problemas relacionados con la función de los organos genitales (impotencia, frigidez)</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a12" formControlName="estprobgenital" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Dificultades en las relaciones familiares</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="estdiffamiliar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">Dificultad para permanecer quieto o dificultad para iniciar actividades</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estdifquieto" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Dificultad en las relaciones con otras personas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estdifpersonas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Sensación de asilamiento o desinterés</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estsensaislami" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de sobrecarga de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="estsobrecarga" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">Dificultad para concentrarse, olvidos frecuentes</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="estdifconcentrar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">Aumento en el número de accidentes de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="estaumentaccid" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de frustración, de no haber hecho lo que se quería en la vida</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estsentfrustra" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Cansancio, tedio o desgano</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estcansancio" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Disminución del rendimiento en el trabajo o poca creatividad</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estdismrendimie" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Deseo de no asistir al trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estdeseonotrab" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Bajo compromiso o poco interés con lo que se hace</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estpocointeres" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Dificultad para tomar decisiones</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estdifdecisiones" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Deseo de cambiar de empleo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estcambioempleo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de soledad o miedo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="estsentisoledad" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">Sentimiento de irritabilidad, actitudes y pensamientos negativos</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="estsentinegativo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>    <label for="float-input" style="font-size: 15px;">Sentimiento de angustia, preocupación o tristeza</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estsetangpretris" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Consumo de drogas para aliviar la tensión o los nervios</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estconsdrogas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Sentimientos de que "no vale nada", o "no sirve para nada"</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estsentinosirve" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Consumo de bebidas alcohólicas o café o cigarrillo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="estconsucigarri" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de que está perdiendo la razón</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estperdirazon" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">Comportamientos rígidos, obstinación o terquedad</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estcomprigido" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>   <label for="float-input" style="font-size: 15px;">Sensación de no poder manejar los problemas de la vida</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a12" formControlName="estsensproblem" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <br>
+            <div style="text-align: center;">
+                <b><label for="" >
+                    RECUERDE QUE AL GUARDAR EL FORMULARIO TOTAL DE REGISTRO NO PODRA HACER MODIFICACIONES EL EL MISMO.
+                </label></b>
+            </div>
+
+            <br>
+            <div style="text-align:center">
+                <button style="height:30px;width:120px" class="ui-button-rounded ui-button-warning" title="Atras" pRipple pButton type="button" label="Atras" class="ui-button-rounded" icon="pi pi-caret-left" (click)="volver()"></button>&nbsp;
+                <button style="height:30px;width:320px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar Todo El Formulario De Registro" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid" (click)="salir()"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['FinalFormularios']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+
+    <!--     <pre>{{userform.value | json}}</pre> -->
+
+</form>

@@ -291,11 +291,11 @@ a {
 
 .layout-wrapper .layout-topbar #topbar-profile-menu-button span {
     vertical-align: middle;
-    font-size: 14px;
+    font-size: 17px;
     line-height: 21px;
     text-align: left;
     margin-right: 10px;
-    color: #ffffff;
+    color: #faf5f5;
 }
 
 .layout-wrapper .layout-topbar #topbar-profile-menu-button i {
@@ -783,7 +783,7 @@ a {
 }
 
 .layout-wrapper.layout-menu-light .layout-sidebar .layout-menu li ul {
-    background-color: #efefef;
+    background-color: #fdfdfd;
 }
 
 .layout-wrapper.layout-menu-light .layout-sidebar .layout-menu li ul li a.active-menuitem-routerlink span {
@@ -2353,6 +2353,13 @@ body .layout-wrapper .layout-main .layout-content {
 .login-body .login-image {
     height: 100%;
     background: url("../../layout/images/bg-image-login.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.login-body .login-imagen {
+    height: 100%;
+    background: url("https://gelainbienestarlaboral.com/GELAIN/img/agradecimiento-2-1.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }

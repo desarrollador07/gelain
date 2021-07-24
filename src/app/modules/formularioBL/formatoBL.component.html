@@ -1,0 +1,1208 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="CUESTIONARIO INTRALABORAL FORMA B">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+            <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
+                </div>
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/intralaboral_B.png" alt="" width="100%" height="100%">
+                </div>
+                <div class="ui-g-3" style="text-align: center;">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
+                </div>
+            </div>
+
+
+
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las condiciones ambientales del(los) sitio(s) o lugar(es) donde habitualmente realiza su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">El ruido en el lugar donde trabajo es molesto</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="inbruido" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">En el lugar donde trabajo hace mucho frío</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="inbfrio" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">En el lugar donde trabajo hace mucho calor</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="inbcalor" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">El aire en el lugar donde trabajo es fresco y agradable</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="inbairefresco" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">La luz del sitio donde trabajo es agradable</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="inbluz" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">El espacio donde trabajo es cómodo</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="inbcomodo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo me preocupa estar expuesto a sustancias químicas que afecten mi salud</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="inbsustanquimicas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige hacer mucho esfuerzo físico</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a11" formControlName="inbesfuerzofisico" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Los equipos o herramientas con los que trabajo son cómodos</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown  [options]="a1" formControlName="inbequiposcomodos" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo me preocupa estar expuesto amicrobios, animales o plantas que afecten mi salud</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbanimalesplantas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me preocupa accidentarme en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbpreoaccidente" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">El lugar donde trabajo es limpio y ordenado</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inblugarlimpio" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Para responder a las siguientes preguntas piense en la cantidad de trabajo que usted tiene a cargo.</b></legend>
+
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Por la cantidad de trabajo que tengo debo quedarme tiempo adicional</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbtiempoadicional" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me alcanza el tiempo de trabajo para tener al día mis deberes</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbalcanzatiempo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Por la cantidad de trabajo que tengo debo trabajar sin parar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbtrabajasinparar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con el esfuerzo mental que le exige su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige hacer mucho esfuerzo mental</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbesfuerzomental" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige estar muy concentrado</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbexigeconcentrado" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige memorizar mucha información</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbexigememoria" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo tengo que hacer cálculos matemáticos</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbhacercalculos" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo requiere que me fije en pequeños detalles</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbpqnosdetalles" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las responsabilidades y actividades que usted debe hacer en su trabajo.</b></legend>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Trabajo en horario de noche</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbtrabajonoche" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo es posible tomar pausas para descansar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbtomarpausas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige laborar en días de descanso, festivos o fines de semana</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbtrabajodiadesca" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo puedo tomar fines de semana o días de descanso al mes</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbfinsemdesc" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Cuando estoy en casa sigo pensando en el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbencasapiensotra" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Discuto con mi familia o amigos por causa de mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbdiscutofamilia" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Debo atender asuntos de trabajo cuando estoy en casa</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbasuntosencasa" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Por mi trabajo el tiempo que paso con mi familia y amigos es muy poco</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbpocotiempofami" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con las decisiones y el control que le permite su
+                    trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo puedo hacer cosas nuevas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbhacercosasnuevas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me permite desarrollar mis habilidades</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbpermitehabilidad" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me permite aplicar mis conocimientos</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbpermiteconocimi" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me permite aprender nuevas cosas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbpermiteaprender" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo tomar pausas cuando las necesito</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbpausasnecesito" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo decidir cuánto trabajo hago en el día</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbtrabajodiario" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo decidir la velocidad a la que trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbdecivelocidad" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo cambiar el orden de las actividades en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbcambiarordenact" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo parar un momento mi trabajo para atender algún asunto personal</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbatenderasunpers" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con cualquier tipo de cambio que ocurra en su
+                    trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente los cambios que ocurren en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbexplicancambios" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo dar sugerencias sobre los cambios que ocurren en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbpuedodarsugeren" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Cuando se presentan cambios en mi trabajo se tienen en cuenta mis ideas y sugerencias</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbencuentamisideas" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con la información que la empresa le ha dado 
+                    sobre su trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me informan con claridad cuáles son mis funciones</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbclaridadfunciones" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me informan cuáles son las decisiones que puedo tomar en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbdecisionesatomar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente los resultados que debo lograr en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbresultadoslograr" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente los objetivos de mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbexplicanobjetivos" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me informan claramente con quien puedo resolver los asuntos de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbinfquienresolver" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con la formación y capacitación que la empresa le facilita para hacer su trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">La empresa me permite asistir a capacitaciones relacionadas con mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbasiscapacitacion" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Recibo capacitación útil para hacer mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbrecibocapacitaci" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Recibo capacitación que me ayuda a hacer mejor mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbrecibocapaciayuda" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con el o los jefes con quien tenga más contacto.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe ayuda a organizar mejor el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeayudaorganiz" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe tiene en cuenta mis puntos de vista y opiniones</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefemispuntosvist" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me anima para hacer mejor mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeanima" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe distribuye las tareas de forma que me facilita el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefedistribuye" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me comunica a tiempo la información relacionada con el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefecomunica" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">La orientación que me da mi jefe me ayuda a hacer mejor el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeorienracion" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me ayuda a progresar en el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeayudaprogres" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me ayuda a sentirme bien en el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeayudasentime" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe ayuda a solucionar los problemas que se presentan en el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefesolucionar" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me trata con respeto</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjeferespeto" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Siento que puedo confiar en mi jefe</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeconfio" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me escucha cuando tengo problemas de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeescucha" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me brinda su apoyo cuando lo necesito</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbjefeapoyo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas indagan sobre las relaciones con otras personas y el apoyo entre las
+                    personas de su trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me agrada el ambiente de mi grupo de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbagradaambiente" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi grupo de trabajo me tratan de forma respetuosa</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbgruporespeto" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Siento que puedo confiar en mis compañeros de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbconfiocompaneros" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me siento a gusto con mis compañeros de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbagustocompaneros" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi grupo de trabajo algunas personas me maltratan</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a11" formControlName="inbgrupomaltrata" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Entre compañeros solucionamos los problemas de forma respetuosa</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbsolucionacompa" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi grupo de trabajo es muy unido</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbgrupounido" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Cuando tenemos que realizar trabajo de grupo los compañeros colaboran</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbtrabajogrupo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Es fácil poner de acuerdo al grupo para hacer el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbgrupodeacuerdo" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mis compañeros de trabajo me ayudan cuando tengo dificultades</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbgrupoayuda" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo las personas nos apoyamos unos a otros</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbapoyounootros" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Algunos compañeros de trabajo me escuchan cuando tengo problemas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown  [options]="a1" formControlName="inbescuchanproble" [showClear]="true"></p-dropdown>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con la información que usted recibe sobre su rendimiento en el trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me informan sobre lo que hago bien en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                <p-dropdown  [options]="a1" formControlName="inbinfhagobien" [showClear]="true"></p-dropdown>
+                            </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me informan sobre lo que debo mejorar en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                <p-dropdown  [options]="a1" formControlName="inbinfmejorar" [showClear]="true"></p-dropdown>
+                            </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">La información que recibo sobre mi rendimiento en el trabajo es clara</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                <p-dropdown  [options]="a1" formControlName="inbinfrendimiento" [showClear]="true"></p-dropdown>
+                            </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">La forma como evalúan mi trabajo en la empresa me ayuda a mejorar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                <p-dropdown  [options]="a1" formControlName="inbevaluantrabajo" [showClear]="true"></p-dropdown>
+                            </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Me informan a tiempo sobre lo que debo mejorar en el trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                <p-dropdown  [options]="a1" formControlName="inbinfatiempomejora" [showClear]="true"></p-dropdown>
+                            </span>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con la satisfacción, reconocimiento y la seguridad que le ofrece su trabajo.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En la empresa me pagan a tiempo mi salario</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbemppaganatiempo" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">El pago que recibo es el que me ofreció la empresa</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbpagoofrecido" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">El pago que recibo es el que merezco por el trabajo que realizo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbpagomerezco" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo tengo posibilidades de progresar</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbposibprogresar" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Las personas que hacen bien el trabajo pueden progresar en la empresa</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbhacerbienprog" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">La empresa se preocupa por el bienestar de los trabajadores</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbempbienestartrab" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo en la empresa es estable</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbtrabajoestable" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">El trabajo que hago me hace sentir bien</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbtrabsentirbien" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Siento orgullo de trabajar en esta empresa</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbsientoorgullo" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Hablo bien de la empresa con otras personas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                    <p-dropdown  [options]="a1" formControlName="inbhablobienempres" [showClear]="true"></p-dropdown>
+                                </span>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend><b>Las siguientes preguntas están relacionadas con la atención a clientes y usuarios.</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo debo brindar servicio a clientes o usuarios: </label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a2" formControlName="inbatencionausuarios" [showClear]="true" (ngModelChange)="vlaidar()"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-6">
+                        <b style="color: firebrick; font-size: 15px;">Si su respuesta fue SI por favor responda las siguientes preguntas. Si su respuesta fue NO pase a</b>
+                        <b style="color: firebrick; font-size: 15px;"> las preguntas de la siguiente seccion.</b>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset *ngIf="vart">
+                <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios muy enojados</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbusuenojados" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios muy preocupados</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbusupreocupados" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios muy tristes</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbusutristes" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender personas muy enfermas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbusuenfermos" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender personas muy necesitadas de ayuda</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbusuneceayuda" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios que me maltratan</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbusumemaltratan" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender situaciones de violencia</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbsituaviolencia" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender situaciones muy tristes o dolorosas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a11" formControlName="inbexigedolorosas" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">Puedo expresar tristeza o enojo frente a las personas que atiendo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+    <p-dropdown  [options]="a1" formControlName="inbexpretristeza" [showClear]="true"></p-dropdown>
+                </span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <br>
+            <div style="text-align:center">
+                <button style="height:30px;width:120px" class="ui-button-rounded ui-button-warning" title="Atras" pRipple pButton type="button" label="Atras" class="ui-button-rounded" icon="pi pi-caret-left" (click)="volver()"></button>&nbsp;
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/empleado']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+
+    <!--     <pre>{{userform.value | json}}</pre> -->
+
+</form>
