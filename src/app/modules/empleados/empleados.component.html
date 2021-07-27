@@ -52,6 +52,9 @@
                     <th class="descarto" pSortableColumn=" nomempresa" pResizableColumn>Empresa
 
                     </th>
+                    <th class="descarto" pSortableColumn="emddepartamento" pResizableColumn>Estado
+
+                    </th>
                     <th [ngStyle]="{'width': '10%'}">
 
                     </th>
@@ -67,6 +70,7 @@
                     <td style="text-align:left" class="descarto">{{prueba.emdciudad | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.emdtelefono}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.nomempresa | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{prueba.emdactivo | uppercase}}</td>
                     <td style="text-align:right">
                         <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/addempleado/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                         <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>

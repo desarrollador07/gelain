@@ -84,7 +84,7 @@ bandera:boolean=false;
       emdtiposalario: ['', Validators.required],
       emdusuarioreg: [this.nombre],
       emdipreg: ['127.0.0.1'],
-      emdactivo:['1'],
+      emdactivo:['P'],
     });
 
 
