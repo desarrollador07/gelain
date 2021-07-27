@@ -76,37 +76,37 @@ export class ExtralaboralComponent implements OnInit {
     this.userform = this.fb.group({
       extid:[''],
       extidempleado:[Number(this.idl)],
-      extfaciltransporte:[''],
-      extvariostransporte:[''],
-      extmuchotiemviaje:[''],
-      exttranscomodo:[''],
-      extzonasegura:[''],
-      extzonadelincuencia:[''],
-      extfacilcmedico:[''],
-      extbuenasvias:[''],
-      extcercatransporte:[''],
-      extcondicvivienda:[''],
-      extagualuz:[''],
-      extpermdescanzar:[''],
-      extviviendacomoda:[''],
-      exttiemporecreo:[''],
-      exttiempodescanzo:[''],
-      exttiempopersonal:[''],
-      exttiempofamilia:[''],
-      extbuenacomunica:[''],
-      extrelacionamigos:[''],
-      extconversoperson:[''],
-      extamigosescuchan:[''],
-      extapoyofamiliar:[''],
-      exthabloconperso:[''],
-      extproblemfamiliar:[''],
-      extrelacionfamiliar:[''],
-      extquitanenergia:[''],
-      extresolveamistosa:[''],
-      extafectrelacionestra:[''],
-      extdineroalcanza:[''],
-      extpresupuesfamilia:[''],
-      extdeudashogar:[''],
+      extfaciltransporte:['', Validators.required],
+      extvariostransporte:['', Validators.required],
+      extmuchotiemviaje:['', Validators.required],
+      exttranscomodo:['', Validators.required],
+      extzonasegura:['', Validators.required],
+      extzonadelincuencia:['', Validators.required],
+      extfacilcmedico:['', Validators.required],
+      extbuenasvias:['', Validators.required],
+      extcercatransporte:['', Validators.required],
+      extcondicvivienda:['', Validators.required],
+      extagualuz:['', Validators.required],
+      extpermdescanzar:['', Validators.required],
+      extviviendacomoda:['', Validators.required],
+      exttiemporecreo:['', Validators.required],
+      exttiempodescanzo:['', Validators.required],
+      exttiempopersonal:['', Validators.required],
+      exttiempofamilia:['', Validators.required],
+      extbuenacomunica:['', Validators.required],
+      extrelacionamigos:['', Validators.required],
+      extconversoperson:['', Validators.required],
+      extamigosescuchan:['', Validators.required],
+      extapoyofamiliar:['', Validators.required],
+      exthabloconperso:['', Validators.required],
+      extproblemfamiliar:['', Validators.required],
+      extrelacionfamiliar:['', Validators.required],
+      extquitanenergia:['', Validators.required],
+      extresolveamistosa:['', Validators.required],
+      extafectrelacionestra:['', Validators.required],
+      extdineroalcanza:['', Validators.required],
+      extpresupuesfamilia:['', Validators.required],
+      extdeudashogar:['', Validators.required],
       extfechareg:[''],
       extfechamod:[''],
       extusuarioreg:[''] 
@@ -114,7 +114,7 @@ export class ExtralaboralComponent implements OnInit {
     })
 
     this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: 'NR' });
+    this.a1.push({ label: 'Seleccione...', value: '' });
     this.a1.push({ label: 'Siempre', value: '0' });
     this.a1.push({ label: 'Casi Siempre', value: '1' });
     this.a1.push({ label: 'Algunas Veces', value: '2' });
@@ -122,7 +122,7 @@ export class ExtralaboralComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: 'NR' });
+    this.a11.push({ label: 'Seleccione...', value: '' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -172,6 +172,100 @@ export class ExtralaboralComponent implements OnInit {
     } 
   };
 
+
+  get extfaciltransporte() {
+    return this.userform.get('extfaciltransporte').invalid && this.userform.get('extfaciltransporte').touched
+  }
+  get extvariostransporte() {
+    return this.userform.get('extvariostransporte').invalid && this.userform.get('extvariostransporte').touched
+  }
+  get extmuchotiemviaje() {
+    return this.userform.get('extmuchotiemviaje').invalid && this.userform.get('extmuchotiemviaje').touched
+  }
+  get exttranscomodo() {
+    return this.userform.get('exttranscomodo').invalid && this.userform.get('exttranscomodo').touched
+  }
+  get extzonasegura() {
+    return this.userform.get('extzonasegura').invalid && this.userform.get('extzonasegura').touched
+  }
+  get extzonadelincuencia() {
+    return this.userform.get('extzonadelincuencia').invalid && this.userform.get('extzonadelincuencia').touched
+  }
+  get extfacilcmedico() {
+    return this.userform.get('extfacilcmedico').invalid && this.userform.get('extfacilcmedico').touched
+  }
+  get extbuenasvias() {
+    return this.userform.get('extbuenasvias').invalid && this.userform.get('extbuenasvias').touched
+  }
+  get extcercatransporte() {
+    return this.userform.get('extcercatransporte').invalid && this.userform.get('extcercatransporte').touched
+  }
+  get extcondicvivienda() {
+    return this.userform.get('extcondicvivienda').invalid && this.userform.get('extcondicvivienda').touched
+  }
+  get extagualuz() {
+    return this.userform.get('extagualuz').invalid && this.userform.get('extagualuz').touched
+  }
+  get extpermdescanzar() {
+    return this.userform.get('extpermdescanzar').invalid && this.userform.get('extpermdescanzar').touched
+  }
+  get extviviendacomoda() {
+    return this.userform.get('extviviendacomoda').invalid && this.userform.get('extviviendacomoda').touched
+  }
+  get exttiemporecreo() {
+    return this.userform.get('exttiemporecreo').invalid && this.userform.get('exttiemporecreo').touched
+  }
+  get exttiempodescanzo() {
+    return this.userform.get('exttiempodescanzo').invalid && this.userform.get('exttiempodescanzo').touched
+  }
+  get exttiempopersonal() {
+    return this.userform.get('exttiempopersonal').invalid && this.userform.get('exttiempopersonal').touched
+  }
+  get exttiempofamilia() {
+    return this.userform.get('exttiempofamilia').invalid && this.userform.get('exttiempofamilia').touched
+  }
+  get extbuenacomunica() {
+    return this.userform.get('extbuenacomunica').invalid && this.userform.get('extbuenacomunica').touched
+  }
+  get extrelacionamigos() {
+    return this.userform.get('extrelacionamigos').invalid && this.userform.get('extrelacionamigos').touched
+  }
+  get extconversoperson() {
+    return this.userform.get('extconversoperson').invalid && this.userform.get('extconversoperson').touched
+  }
+  get extamigosescuchan() {
+    return this.userform.get('extamigosescuchan').invalid && this.userform.get('extamigosescuchan').touched
+  }
+  get extapoyofamiliar() {
+    return this.userform.get('extapoyofamiliar').invalid && this.userform.get('extapoyofamiliar').touched
+  }
+  get exthabloconperso() {
+    return this.userform.get('exthabloconperso').invalid && this.userform.get('exthabloconperso').touched
+  }
+  get extproblemfamiliar() {
+    return this.userform.get('extproblemfamiliar').invalid && this.userform.get('extproblemfamiliar').touched
+  }
+  get extrelacionfamiliar() {
+    return this.userform.get('extrelacionfamiliar').invalid && this.userform.get('extrelacionfamiliar').touched
+  }
+  get extquitanenergia() {
+    return this.userform.get('extquitanenergia').invalid && this.userform.get('extquitanenergia').touched
+  }
+  get extresolveamistosa() {
+    return this.userform.get('extresolveamistosa').invalid && this.userform.get('extresolveamistosa').touched
+  }
+  get extafectrelacionestra() {
+    return this.userform.get('extafectrelacionestra').invalid && this.userform.get('extafectrelacionestra').touched
+  }
+  get extdineroalcanza() {
+    return this.userform.get('extdineroalcanza').invalid && this.userform.get('extdineroalcanza').touched
+  }
+  get extpresupuesfamilia() {
+    return this.userform.get('extpresupuesfamilia').invalid && this.userform.get('extpresupuesfamilia').touched
+  }
+  get extdeudashogar() {
+    return this.userform.get('extdeudashogar').invalid && this.userform.get('extdeudashogar').touched
+  }
 
 
 

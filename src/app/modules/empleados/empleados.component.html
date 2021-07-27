@@ -29,10 +29,10 @@
             <ng-template pTemplate="header">
                 <tr>
 
-                    <th pSortableColumn="emdcedula" pResizableColumn>Cedula
+                    <th pSortableColumn="emdcedula" pResizableColumn [ngStyle]="{'width': '10%'}">Cedula
 
                     </th>
-                    <th pSortableColumn="emdnombres" pResizableColumn>Nombre
+                    <th pSortableColumn="emdnombres" pResizableColumn [ngStyle]="{'width': '30%'}">Nombre
 
                     </th>
 
@@ -40,9 +40,9 @@
 
                     </th> -->
 
-                    <th class="descarto" pSortableColumn="emddepartamento" pResizableColumn>Departamento
+                    <!-- <th class="descarto" pSortableColumn="emddepartamento" pResizableColumn>Departamento
 
-                    </th>
+                    </th> -->
                     <th class="descarto" pSortableColumn="emdciudad" pResizableColumn>Ciudad
 
                     </th>
@@ -52,7 +52,7 @@
                     <th class="descarto" pSortableColumn=" nomempresa" pResizableColumn>Empresa
 
                     </th>
-                    <th>
+                    <th [ngStyle]="{'width': '10%'}">
 
                     </th>
                 </tr>
@@ -63,7 +63,7 @@
                     <td style="text-align:left">{{prueba.emdcedula}}</td>
                     <td style="text-align:left">{{prueba.emdnombres | uppercase}} {{prueba.emdapellidos | uppercase}}</td>
                     <!--  <td style="text-align:center" class="descarto">{{prueba.emdapellidos}}</td> -->
-                    <td style="text-align:left" class="descarto">{{prueba.emddepartamento | uppercase}}</td>
+                    <!-- <td style="text-align:left" class="descarto">{{prueba.emddepartamento | uppercase}}</td> -->
                     <td style="text-align:left" class="descarto">{{prueba.emdciudad | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.emdtelefono}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.nomempresa | uppercase}}</td>

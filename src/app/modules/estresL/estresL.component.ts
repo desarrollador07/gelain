@@ -66,37 +66,37 @@ export class EstresLComponent implements OnInit {
     this.userform = this.fb.group({
       estid:[''],
       estidempleado:[Number(this.idl)],
-      estdolorcuello:[''],
-      estprobgastrico:[''],
-      estprobrespira:[''],
-      estdolorcabeza:[''],
-      esttrastsueno:[''],
-      estpalpitacion:[''],
-      estcamapetito:[''],
-      estprobgenital:[''],
-      estdiffamiliar:[''],
-      estdifquieto:[''],
-      estdifpersonas:[''],
-      estsensaislami:[''],
-      estsobrecarga:[''],
-      estdifconcentrar:[''],
-      estaumentaccid:[''],
-      estsentfrustra:[''],
-      estcansancio:[''],
-      estdismrendimie:[''],
-      estdeseonotrab:[''],
-      estpocointeres:[''],
-      estdifdecisiones:[''],
-      estcambioempleo:[''],
-      estsentisoledad:[''],
-      estsentinegativo:[''],
-      estsetangpretris:[''],
-      estconsdrogas:[''],
-      estsentinosirve:[''],
-      estconsucigarri:[''],
-      estperdirazon:[''],
-      estcomprigido:[''],
-      estsensproblem:[''],
+      estdolorcuello:['', Validators.required],
+      estprobgastrico:['', Validators.required],
+      estprobrespira:['', Validators.required],
+      estdolorcabeza:['', Validators.required],
+      esttrastsueno:['', Validators.required],
+      estpalpitacion:['', Validators.required],
+      estcamapetito:['', Validators.required],
+      estprobgenital:['', Validators.required],
+      estdiffamiliar:['', Validators.required],
+      estdifquieto:['', Validators.required],
+      estdifpersonas:['', Validators.required],
+      estsensaislami:['', Validators.required],
+      estsobrecarga:['', Validators.required],
+      estdifconcentrar:['', Validators.required],
+      estaumentaccid:['', Validators.required],
+      estsentfrustra:['', Validators.required],
+      estcansancio:['', Validators.required],
+      estdismrendimie:['', Validators.required],
+      estdeseonotrab:['', Validators.required],
+      estpocointeres:['', Validators.required],
+      estdifdecisiones:['', Validators.required],
+      estcambioempleo:['', Validators.required],
+      estsentisoledad:['', Validators.required],
+      estsentinegativo:['', Validators.required],
+      estsetangpretris:['', Validators.required],
+      estconsdrogas:['', Validators.required],
+      estsentinosirve:['', Validators.required],
+      estconsucigarri:['', Validators.required],
+      estperdirazon:['', Validators.required],
+      estcomprigido:['', Validators.required],
+      estsensproblem:['', Validators.required],
 /*       estfechareg:[''],
       estfechamod:[''], */
       estusuarioreg:['']
@@ -104,7 +104,7 @@ export class EstresLComponent implements OnInit {
     })
 
     this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: 'NR' });
+    this.a1.push({ label: 'Seleccione...', value: '' });
     this.a1.push({ label: 'Siempre', value: '1' });
     this.a1.push({ label: 'Casi Siempre', value: '2' });
     this.a1.push({ label: 'Algunas Veces', value: '3' });
@@ -112,14 +112,14 @@ export class EstresLComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '5' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: 'NR' });
+    this.a11.push({ label: 'Seleccione...', value: '' });
     this.a11.push({ label: 'Siempre', value: '6' });
     this.a11.push({ label: 'Casi Siempre', value: '4' });
     this.a11.push({ label: 'A Veces', value: '2' });
     this.a11.push({ label: 'Nunca', value: '0' });
 
     this.a12 = [];
-    this.a12.push({ label: 'Seleccione...', value: 'NR' });
+    this.a12.push({ label: 'Seleccione...', value: '' });
     this.a12.push({ label: 'Siempre', value: '3' });
     this.a12.push({ label: 'Casi Siempre', value: '2' });
     this.a12.push({ label: 'A Veces', value: '1' });
@@ -164,6 +164,100 @@ export class EstresLComponent implements OnInit {
       })
     } 
   };
+
+  get estdolorcuello() {
+    return this.userform.get('estdolorcuello').invalid && this.userform.get('estdolorcuello').touched
+  }
+  get estprobgastrico() {
+    return this.userform.get('estprobgastrico').invalid && this.userform.get('estprobgastrico').touched
+  }
+  get estprobrespira() {
+    return this.userform.get('estprobrespira').invalid && this.userform.get('estprobrespira').touched
+  }
+  get estdolorcabeza() {
+    return this.userform.get('estdolorcabeza').invalid && this.userform.get('estdolorcabeza').touched
+  }
+  get esttrastsueno() {
+    return this.userform.get('esttrastsueno').invalid && this.userform.get('esttrastsueno').touched
+  }
+  get estpalpitacion() {
+    return this.userform.get('estpalpitacion').invalid && this.userform.get('estpalpitacion').touched
+  }
+  get estcamapetito() {
+    return this.userform.get('estcamapetito').invalid && this.userform.get('estcamapetito').touched
+  }
+  get estprobgenital() {
+    return this.userform.get('estprobgenital').invalid && this.userform.get('estprobgenital').touched
+  }
+  get estdiffamiliar() {
+    return this.userform.get('estdiffamiliar').invalid && this.userform.get('estdiffamiliar').touched
+  }
+  get estdifquieto() {
+    return this.userform.get('estdifquieto').invalid && this.userform.get('estdifquieto').touched
+  }
+  get estdifpersonas() {
+    return this.userform.get('estdifpersonas').invalid && this.userform.get('estdifpersonas').touched
+  }
+  get estsensaislami() {
+    return this.userform.get('estsensaislami').invalid && this.userform.get('estsensaislami').touched
+  }
+  get estsobrecarga() {
+    return this.userform.get('estsobrecarga').invalid && this.userform.get('estsobrecarga').touched
+  }
+  get estdifconcentrar() {
+    return this.userform.get('estdifconcentrar').invalid && this.userform.get('estdifconcentrar').touched
+  }
+  get estaumentaccid() {
+    return this.userform.get('estaumentaccid').invalid && this.userform.get('estaumentaccid').touched
+  }
+  get estsentfrustra() {
+    return this.userform.get('estsentfrustra').invalid && this.userform.get('estsentfrustra').touched
+  }
+  get estcansancio() {
+    return this.userform.get('estcansancio').invalid && this.userform.get('estcansancio').touched
+  }
+  get estdismrendimie() {
+    return this.userform.get('estdismrendimie').invalid && this.userform.get('estdismrendimie').touched
+  }
+  get estdeseonotrab() {
+    return this.userform.get('estdeseonotrab').invalid && this.userform.get('estdeseonotrab').touched
+  }
+  get estpocointeres() {
+    return this.userform.get('estpocointeres').invalid && this.userform.get('estpocointeres').touched
+  }
+  get estdifdecisiones() {
+    return this.userform.get('estdifdecisiones').invalid && this.userform.get('estdifdecisiones').touched
+  }
+  get estcambioempleo() {
+    return this.userform.get('estcambioempleo').invalid && this.userform.get('estcambioempleo').touched
+  }
+  get estsentisoledad() {
+    return this.userform.get('estsentisoledad').invalid && this.userform.get('estsentisoledad').touched
+  }
+  get estsentinegativo() {
+    return this.userform.get('estsentinegativo').invalid && this.userform.get('estsentinegativo').touched
+  }
+  get estsetangpretris() {
+    return this.userform.get('estsetangpretris').invalid && this.userform.get('estsetangpretris').touched
+  }
+  get estconsdrogas() {
+    return this.userform.get('estconsdrogas').invalid && this.userform.get('estconsdrogas').touched
+  }
+  get estsentinosirve() {
+    return this.userform.get('estsentinosirve').invalid && this.userform.get('estsentinosirve').touched
+  }
+  get estconsucigarri() {
+    return this.userform.get('estconsucigarri').invalid && this.userform.get('estconsucigarri').touched
+  }
+  get estperdirazon() {
+    return this.userform.get('estperdirazon').invalid && this.userform.get('estperdirazon').touched
+  }
+  get estcomprigido() {
+    return this.userform.get('estcomprigido').invalid && this.userform.get('estcomprigido').touched
+  }
+  get estsensproblem() {
+    return this.userform.get('estsensproblem').invalid && this.userform.get('estsensproblem').touched
+  }
 
 
 

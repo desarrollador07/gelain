@@ -118,7 +118,6 @@ bandera:boolean=false;
     this.sexo.push({ label: 'Sexo', value: ''});
     this.sexo.push({ label: 'Masculino', value: 'M' });
     this.sexo.push({ label: 'Femenino', value: 'F' });
-    this.sexo.push({ label: 'No Responde', value: 'NR' });
 
     this.civil = [];
     this.civil.push({ label: 'Estado Civil', value: '' });
@@ -129,7 +128,6 @@ bandera:boolean=false;
     this.civil.push({ label: 'Divorciado(a)', value: '5' });
     this.civil.push({ label: 'Viudo(a)', value: '6' });
     this.civil.push({ label: 'Sacerdote/Monja', value:' 7' });
-    this.civil.push({ label: 'No Responde', value: 'NR' });
 
     this.estudio = [];
     this.estudio.push({ label: 'Ultimos niveles de estudio', value: '' });
@@ -145,7 +143,6 @@ bandera:boolean=false;
     this.estudio.push({ label: 'Carrera militar / policia', value:'10' });
     this.estudio.push({ label: 'Post-grado incompleto', value:'11' });
     this.estudio.push({ label: 'Post-grado completo', value:'12' });
-    this.estudio.push({ label: 'No Responde', value: 'NR' });
 
     this.estrato = [];
     this.estrato.push({ label: 'Estrato de su vivienda', value: '' });
@@ -157,14 +154,12 @@ bandera:boolean=false;
     this.estrato.push({ label: '6', value: '6' });
     this.estrato.push({ label: 'Finca', value:'7' });
     this.estrato.push({ label: 'No se', value:'8' });
-    this.estrato.push({ label: 'No Responde', value: 'NR' });
 
     this.tipovivi = [];
     this.tipovivi.push({ label: 'Tipo de Vivienda', value: '' });
     this.tipovivi.push({ label: 'Propia', value: '1' });
     this.tipovivi.push({ label: 'En arriendo', value: '2' });
     this.tipovivi.push({ label: 'Familiar', value: '3' });
-    this.tipovivi.push({ label: 'No Responde', value: 'NR' });
 
     this.cargo = [];
     this.cargo.push({ label: 'Tipo de Cargo', value: '' });
@@ -172,7 +167,6 @@ bandera:boolean=false;
     this.cargo.push({ label: 'Profesional - analista - técnico - tecnólogo - Manejo de dinero - Información confidencial - Salud y seguridad de otras personas', value: '2' });
     this.cargo.push({ label: 'Auxiliar - asistente administrativo - asistente técnico', value: '3' });
     this.cargo.push({ label: 'Operario, operador, ayudante, servicios generales', value: '4' });
-    this.cargo.push({ label: 'No Responde', value: 'NR' });
 
     this.tContrato = [];
     this.tContrato.push({ label: 'Tipo de Contrato', value: '' });
@@ -182,14 +176,12 @@ bandera:boolean=false;
     this.tContrato.push({ label: 'Cooperado (cooperativa)', value: '4' });
     this.tContrato.push({ label: 'Prestacion de servicios', value: '5' });
     this.tContrato.push({ label: 'No se', value: '6' });
-    this.tContrato.push({ label: 'No Responde', value: 'NR' });
 
     this.tsalario = [];
     this.tsalario.push({ label: 'Tipo de salario', value: '' });
     this.tsalario.push({ label: 'Fijo', value: '1' });
     this.tsalario.push({ label: 'Una parte fija y otra variable', value: '2' });
     this.tsalario.push({ label: 'Todo variable', value: '3' });
-    this.tsalario.push({ label: 'No Responde', value: 'NR' });
 
 
 

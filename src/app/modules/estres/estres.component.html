@@ -36,356 +36,387 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Dolores en el cuello y espalda o tensión muscular</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">1) Dolores en el cuello y espalda o tensión muscular</label></b>
                     </div>
 
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="estdolorcuello" [showClear]="true"></p-dropdown>
+                             <p-dropdown [class.is-invalid]="estdolorcuello"  [options]="a1" formControlName="estdolorcuello" [showClear]="true"></p-dropdown>
                         </span>
-                    </div>
-                </div>
-
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
-                        <b><label for="float-input" style="font-size: 15px;">Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon</label></b>
-                    </div>
-
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="estprobgastrico" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
-                        <b><label for="float-input" style="font-size: 15px;">Problemas respiratorios</label></b>
-                    </div>
-
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="estprobrespira" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
-                        <b><label for="float-input" style="font-size: 15px;">Dolor de cabeza</label></b>
-                    </div>
-
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="estdolorcabeza" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
-                        <b><label for="float-input" style="font-size: 15px;">Transtornos del sueño como somnolencia durante el día o desvelo en la noche</label></b>
-                    </div>
-
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="esttrastsueno" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
-                        <b> <label for="float-input" style="font-size: 15px;">Palpitaciones en el pecho o problemas cardíacos</label></b>
-                    </div>
-
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="estpalpitacion" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Cambios fuertes en el apetito</label></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a12" formControlName="estcamapetito" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-                        <b> <label for="float-input" style="font-size: 15px;">Problemas relacionados con la función de los organos genitales (impotencia, frigidez)</label></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a12" formControlName="estprobgenital" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Dificultades en las relaciones familiares</label></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="estdiffamiliar" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-                        <b> <label for="float-input" style="font-size: 15px;">Dificultad para permanecer quieto o dificultad para iniciar actividades</label></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estdifquieto" [showClear]="true"></p-dropdown>
-                        </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Dificultad en las relaciones con otras personas</label></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estdifpersonas" [showClear]="true"></p-dropdown>
-                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdolorcuello"></p-message>
                     </div>
                 </div>
 
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Sensación de asilamiento o desinterés</label></b>
+
+                        <b><label for="float-input" style="font-size: 15px;">2) Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="estprobgastrico"  [options]="a1" formControlName="estprobgastrico" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estprobgastrico"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">3) Problemas respiratorios</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="estprobrespira"  [options]="a1" formControlName="estprobrespira" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estprobrespira"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">4) Dolor de cabeza</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="estdolorcabeza"  [options]="a11" formControlName="estdolorcabeza" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdolorcabeza"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b><label for="float-input" style="font-size: 15px;">5) Transtornos del sueño como somnolencia durante el día o desvelo en la noche</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="esttrastsueno"  [options]="a11" formControlName="esttrastsueno" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="esttrastsueno"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+
+                        <b> <label for="float-input" style="font-size: 15px;">6) Palpitaciones en el pecho o problemas cardíacos</label></b>
+                    </div>
+
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="estpalpitacion"  [options]="a11" formControlName="estpalpitacion" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estpalpitacion"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;">7) Cambios fuertes en el apetito</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estsensaislami" [showClear]="true"></p-dropdown>
+                             <p-dropdown [class.is-invalid]="estcamapetito"  [options]="a12" formControlName="estcamapetito" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estcamapetito"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">8) Problemas relacionados con la función de los organos genitales (impotencia, frigidez)</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="estprobgenital"  [options]="a12" formControlName="estprobgenital" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estprobgenital"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">9) Dificultades en las relaciones familiares</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                             <p-dropdown [class.is-invalid]="estdiffamiliar"  [options]="a1" formControlName="estdiffamiliar" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdiffamiliar"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b> <label for="float-input" style="font-size: 15px;">10) Dificultad para permanecer quieto o dificultad para iniciar actividades</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+             <p-dropdown [class.is-invalid]="estdifquieto"  [options]="a11" formControlName="estdifquieto" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdifquieto"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">11) Dificultad en las relaciones con otras personas</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+             <p-dropdown [class.is-invalid]="estdifpersonas"  [options]="a11" formControlName="estdifpersonas" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdifpersonas"></p-message>
                     </div>
                 </div>
 
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de sobrecarga de trabajo</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">12) Sensación de asilamiento o desinterés</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="estsobrecarga" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsensaislami"  [options]="a12" formControlName="estsensaislami" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsensaislami"></p-message>
+                    </div>
+                </div>
+
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b>  <label for="float-input" style="font-size: 15px;">13) Sentimiento de sobrecarga de trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+             <p-dropdown [class.is-invalid]="estsobrecarga"  [options]="a1" formControlName="estsobrecarga" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsobrecarga"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b> <label for="float-input" style="font-size: 15px;">Dificultad para concentrarse, olvidos frecuentes</label></b>
+                        <b> <label for="float-input" style="font-size: 15px;">14) Dificultad para concentrarse, olvidos frecuentes</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="estdifconcentrar" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estdifconcentrar"  [options]="a1" formControlName="estdifconcentrar" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdifconcentrar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b> <label for="float-input" style="font-size: 15px;">Aumento en el número de accidentes de trabajo</label></b>
+                        <b> <label for="float-input" style="font-size: 15px;">15) Aumento en el número de accidentes de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="estaumentaccid" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estaumentaccid"  [options]="a1" formControlName="estaumentaccid" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estaumentaccid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de frustración, de no haber hecho lo que se quería en la vida</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">16) Sentimiento de frustración, de no haber hecho lo que se quería en la vida</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estsentfrustra" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsentfrustra"  [options]="a11" formControlName="estsentfrustra" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsentfrustra"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Cansancio, tedio o desgano</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">17) Cansancio, tedio o desgano</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estcansancio" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estcansancio"  [options]="a11" formControlName="estcansancio" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estcansancio"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Disminución del rendimiento en el trabajo o poca creatividad</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">18) Disminución del rendimiento en el trabajo o poca creatividad</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estdismrendimie" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estdismrendimie"  [options]="a11" formControlName="estdismrendimie" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdismrendimie"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Deseo de no asistir al trabajo</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">19) Deseo de no asistir al trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estdeseonotrab" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estdeseonotrab"  [options]="a11" formControlName="estdeseonotrab" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdeseonotrab"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Bajo compromiso o poco interés con lo que se hace</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">20) Bajo compromiso o poco interés con lo que se hace</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estpocointeres" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estpocointeres"  [options]="a12" formControlName="estpocointeres" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estpocointeres"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Dificultad para tomar decisiones</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">21) Dificultad para tomar decisiones</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estdifdecisiones" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estdifdecisiones"  [options]="a12" formControlName="estdifdecisiones" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estdifdecisiones"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Deseo de cambiar de empleo</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">22) Deseo de cambiar de empleo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estcambioempleo" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estcambioempleo"  [options]="a12" formControlName="estcambioempleo" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estcambioempleo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de soledad o miedo</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">23) Sentimiento de soledad o miedo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="estsentisoledad" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsentisoledad"  [options]="a1" formControlName="estsentisoledad" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsentisoledad"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b> <label for="float-input" style="font-size: 15px;">Sentimiento de irritabilidad, actitudes y pensamientos negativos</label></b>
+                        <b> <label for="float-input" style="font-size: 15px;">24) Sentimiento de irritabilidad, actitudes y pensamientos negativos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="estsentinegativo" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsentinegativo"  [options]="a1" formControlName="estsentinegativo" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsentinegativo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>    <label for="float-input" style="font-size: 15px;">Sentimiento de angustia, preocupación o tristeza</label></b>
+                        <b>    <label for="float-input" style="font-size: 15px;">25) Sentimiento de angustia, preocupación o tristeza</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estsetangpretris" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsetangpretris"  [options]="a11" formControlName="estsetangpretris" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsetangpretris"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Consumo de drogas para aliviar la tensión o los nervios</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">26) Consumo de drogas para aliviar la tensión o los nervios</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estconsdrogas" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estconsdrogas"  [options]="a11" formControlName="estconsdrogas" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estconsdrogas"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Sentimientos de que "no vale nada", o "no sirve para nada"</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">27) Sentimientos de que "no vale nada", o "no sirve para nada"</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estsentinosirve" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsentinosirve"  [options]="a11" formControlName="estsentinosirve" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsentinosirve"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Consumo de bebidas alcohólicas o café o cigarrillo</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">28) Consumo de bebidas alcohólicas o café o cigarrillo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="estconsucigarri" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estconsucigarri"  [options]="a11" formControlName="estconsucigarri" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estconsucigarri"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Sentimiento de que está perdiendo la razón</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">29) Sentimiento de que está perdiendo la razón</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estperdirazon" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estperdirazon"  [options]="a12" formControlName="estperdirazon" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estperdirazon"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">Comportamientos rígidos, obstinación o terquedad</label></b>
+                        <b>  <label for="float-input" style="font-size: 15px;">30) Comportamientos rígidos, obstinación o terquedad</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estcomprigido" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estcomprigido"  [options]="a12" formControlName="estcomprigido" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estcomprigido"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b>   <label for="float-input" style="font-size: 15px;">Sensación de no poder manejar los problemas de la vida</label></b>
+                        <b>   <label for="float-input" style="font-size: 15px;">31) Sensación de no poder manejar los problemas de la vida</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a12" formControlName="estsensproblem" [showClear]="true"></p-dropdown>
+             <p-dropdown [class.is-invalid]="estsensproblem"  [options]="a12" formControlName="estsensproblem" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="estsensproblem"></p-message>
                     </div>
                 </div>
             </fieldset>

@@ -36,13 +36,14 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">El ruido en el lugar donde trabajo es molesto</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) El ruido en el lugar donde trabajo es molesto</label></b>
                     </div>
 
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="inaruido" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inaruido"  [options]="a11" formControlName="inaruido" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaruido"></p-message>
                     </div>
                 </div>
 
@@ -50,132 +51,143 @@
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
 
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En el lugar donde trabajo hace mucho frío</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) En el lugar donde trabajo hace mucho frío</label></b>
                     </div>
 
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="inafrio" [showClear]="true"></p-dropdown>
+                            <p-dropdown  [class.is-invalid]="inafrio"  [options]="a11" formControlName="inafrio" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inafrio"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
 
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En el lugar donde trabajo hace mucho calor</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) En el lugar donde trabajo hace mucho calor</label></b>
                     </div>
 
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="inacalor" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inacalor"  [options]="a11" formControlName="inacalor" [showClear]="true"></p-dropdown>
                         </span>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">El aire en el lugar donde trabajo es fresco y agradable</label></b>
-                    </div>
-
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="inaairefresco" [showClear]="true"></p-dropdown>
-                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inacalor"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
 
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">La luz del sitio donde trabajo es agradable</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) El aire en el lugar donde trabajo es fresco y agradable</label></b>
                     </div>
 
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="inaluz" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inaairefresco"  [options]="a1" formControlName="inaairefresco" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaairefresco"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
 
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">El espacio donde trabajo es cómodo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) La luz del sitio donde trabajo es agradable</label></b>
                     </div>
 
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="inacomodo" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inaluz"  [options]="a1" formControlName="inaluz" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaluz"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo me preocupa estar expuesto a sustancias químicas que afecten mi salud</label></b>
+
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) El espacio donde trabajo es cómodo</label></b>
                     </div>
+
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="inasustanquimicas" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inacomodo"  [options]="a1" formControlName="inacomodo" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inacomodo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo me exige hacer mucho esfuerzo físico</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) En mi trabajo me preocupa estar expuesto a sustancias químicas que afecten mi salud</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a11" formControlName="inaesfuerzofisico" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inasustanquimicas"  [options]="a11" formControlName="inasustanquimicas" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inasustanquimicas"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Los equipos o herramientas con los que trabajo son cómodos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) Mi trabajo me exige hacer mucho esfuerzo físico</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="a1" formControlName="inaequiposcomodos" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inaesfuerzofisico"  [options]="a11" formControlName="inaesfuerzofisico" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaesfuerzofisico"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo me preocupa estar expuesto amicrobios, animales o plantas que afecten mi salud</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) Los equipos o herramientas con los que trabajo son cómodos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaanimalesplantas" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="inaequiposcomodos"  [options]="a1" formControlName="inaequiposcomodos" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaequiposcomodos"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Me preocupa accidentarme en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) En mi trabajo me preocupa estar expuesto amicrobios, animales o plantas que afecten mi salud</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inapreoaccidente" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaanimalesplantas"  [options]="a11" formControlName="inaanimalesplantas" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaanimalesplantas"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) Me preocupa accidentarme en mi trabajo</label></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+            <p-dropdown [class.is-invalid]="inapreoaccidente"  [options]="a11" formControlName="inapreoaccidente" [showClear]="true"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapreoaccidente"></p-message>
                     </div>
                 </div>
 
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">El lugar donde trabajo es limpio y ordenado</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) El lugar donde trabajo es limpio y ordenado</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inalugarlimpio" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inalugarlimpio"  [options]="a1" formControlName="inalugarlimpio" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inalugarlimpio"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -187,34 +199,37 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Por la cantidad de trabajo que tengo debo quedarme tiempo adicional</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) Por la cantidad de trabajo que tengo debo quedarme tiempo adicional</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inatiempoadicional" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inatiempoadicional"  [options]="a11" formControlName="inatiempoadicional" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatiempoadicional"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Me alcanza el tiempo de trabajo para tener al día mis deberes</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) Me alcanza el tiempo de trabajo para tener al día mis deberes</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inaalcanzatiempo" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaalcanzatiempo"  [options]="a1" formControlName="inaalcanzatiempo" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaalcanzatiempo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Por la cantidad de trabajo que tengo debo trabajar sin parar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) Por la cantidad de trabajo que tengo debo trabajar sin parar</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inatrabajasinparar" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inatrabajasinparar"  [options]="a11" formControlName="inatrabajasinparar" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabajasinparar"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -225,67 +240,73 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo me exige hacer mucho esfuerzo mental</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) Mi trabajo me exige hacer mucho esfuerzo mental</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaesfuerzomental" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaesfuerzomental"  [options]="a11" formControlName="inaesfuerzomental" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaesfuerzomental"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo me exige estar muy concentrado</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) Mi trabajo me exige estar muy concentrado</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaexigeconcentrado" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaexigeconcentrado"  [options]="a11" formControlName="inaexigeconcentrado" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaexigeconcentrado"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo me exige memorizar mucha información</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;"> 18) Mi trabajo me exige memorizar mucha información</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaexigememoria" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaexigememoria"  [options]="a11" formControlName="inaexigememoria" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaexigememoria"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo tengo que tomar decisiones difíciles muy rápido</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) En mi trabajo tengo que tomar decisiones difíciles muy rápido</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inadesiciondificiles" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inadesiciondificiles"  [options]="a11" formControlName="inadesiciondificiles" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inadesiciondificiles"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo me exige atender a muchos asuntos al mismo tiempo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20) Mi trabajo me exige atender a muchos asuntos al mismo tiempo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaexigeasuntos" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaexigeasuntos"  [options]="a11" formControlName="inaexigeasuntos" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaexigeasuntos"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo requiere que me fije en pequeños detalles</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21) Mi trabajo requiere que me fije en pequeños detalles</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inapqnosdetalles" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapqnosdetalles"  [options]="a11" formControlName="inapqnosdetalles" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapqnosdetalles"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -296,100 +317,109 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo respondo por cosas de mucho valor</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22) En mi trabajo respondo por cosas de mucho valor</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaresponcosasvalor" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaresponcosasvalor"  [options]="a11" formControlName="inaresponcosasvalor" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaresponcosasvalor"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo respondo por dinero de la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">23) En mi trabajo respondo por dinero de la empresa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inarespondinero" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inarespondinero"  [options]="a11" formControlName="inarespondinero" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inarespondinero"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Como parte de mis funciones debo responder por la seguridad de otros por la seguridad de otros</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">24) Como parte de mis funciones debo responder por la seguridad de otros por la seguridad de otros</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inareponderotros" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inareponderotros"  [options]="a11" formControlName="inareponderotros" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inareponderotros"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;" style="font-size: 15px;">Respondo ante mi jefe por los resultados de toda mi área de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;" style="font-size: 15px;">25) Respondo ante mi jefe por los resultados de toda mi área de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaresponarea" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaresponarea"  [options]="a11" formControlName="inaresponarea" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaresponarea"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi trabajo me exige cuidar la salud de otras personas personas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">26) Mi trabajo me exige cuidar la salud de otras personas personas</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inareponsalud" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inareponsalud"  [options]="a11" formControlName="inareponsalud" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inareponsalud"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En el trabajo me dan órdenes contradictorias</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">27) En el trabajo me dan órdenes contradictorias</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaordecontradic" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaordecontradic"  [options]="a11" formControlName="inaordecontradic" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaordecontradic"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo me piden hacer cosas innecesarias innecesarias</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">28) En mi trabajo me piden hacer cosas innecesarias innecesarias</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inahacerinnecesaria" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inahacerinnecesaria"  [options]="a11" formControlName="inahacerinnecesaria" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inahacerinnecesaria"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">En mi trabajo se presentan situaciones en las que debo pasar por alto normas o procedimientos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">29) En mi trabajo se presentan situaciones en las que debo pasar por alto normas o procedimientos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inapasarnormas" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapasarnormas"  [options]="a11" formControlName="inapasarnormas" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapasarnormas"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo tengo que hacer cosas que se podrían hacer de una forma más práctica</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">30) En mi trabajo tengo que hacer cosas que se podrían hacer de una forma más práctica</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inamaspracticas" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inamaspracticas"  [options]="a11" formControlName="inamaspracticas" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inamaspracticas"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -399,89 +429,97 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Trabajo en horario de noche</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">31) Trabajo en horario de noche</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inatrabajodenoche" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inatrabajodenoche"  [options]="a11" formControlName="inatrabajodenoche" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabajodenoche"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo es posible tomar pausas para descansar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">32) En mi trabajo es posible tomar pausas para descansar</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inapausas" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapausas"  [options]="a1" formControlName="inapausas" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapausas"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige laborar en días de descanso, festivos o fines de semana</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">33) Mi trabajo me exige laborar en días de descanso, festivos o fines de semana</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inatrabajodiadesca" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inatrabajodiadesca"  [options]="a11" formControlName="inatrabajodiadesca" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabajodiadesca"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo puedo tomar fines de semana o días de descanso al mes"duda"</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">34) En mi trabajo puedo tomar fines de semana o días de descanso al mes"duda"</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inafinsemdesc" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inafinsemdesc"  [options]="a1" formControlName="inafinsemdesc" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inafinsemdesc"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Cuando estoy en casa sigo pensando en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">35) Cuando estoy en casa sigo pensando en el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaencasapiensotra" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaencasapiensotra"  [options]="a11" formControlName="inaencasapiensotra" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaencasapiensotra"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Discuto con mi familia o amigos por causa de mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">36) Discuto con mi familia o amigos por causa de mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inadiscutofamilia" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inadiscutofamilia"  [options]="a11" formControlName="inadiscutofamilia" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inadiscutofamilia"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Debo atender asuntos de trabajo cuando estoy en casa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">37) Debo atender asuntos de trabajo cuando estoy en casa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inaasuntosencasa" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaasuntosencasa"  [options]="a11" formControlName="inaasuntosencasa" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaasuntosencasa"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Por mi trabajo el tiempo que paso con mi familia y amigos es muy poco</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">38) Por mi trabajo el tiempo que paso con mi familia y amigos es muy poco</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a11" formControlName="inapocotiempofami" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapocotiempofami"  [options]="a11" formControlName="inapocotiempofami" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapocotiempofami"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -491,100 +529,109 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me permite desarrollar mis habilidades</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">39) Mi trabajo me permite desarrollar mis habilidades</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inapermitehabilidad" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapermitehabilidad"  [options]="a1" formControlName="inapermitehabilidad" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapermitehabilidad"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me permite aplicar mis conocimientos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">40) Mi trabajo me permite aplicar mis conocimientos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inapermiteconocimi" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapermiteconocimi"  [options]="a1" formControlName="inapermiteconocimi" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapermiteconocimi"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me permite aprender nuevas cosas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">41) Mi trabajo me permite aprender nuevas cosas</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inapermiteaprender" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapermiteaprender"  [options]="a1" formControlName="inapermiteaprender" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapermiteaprender"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me asignan el trabajo teniendo en cuenta mis capacidades.</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">42) Me asignan el trabajo teniendo en cuenta mis capacidades.</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inamiscapacidades" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inamiscapacidades"  [options]="a1" formControlName="inamiscapacidades" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inamiscapacidades"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Puedo tomar pausas cuando las necesito</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">43) Puedo tomar pausas cuando las necesito</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inapausasnecesito" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inapausasnecesito"  [options]="a1" formControlName="inapausasnecesito" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapausasnecesito"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Puedo decidir cuánto trabajo hago en el día</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">44) Puedo decidir cuánto trabajo hago en el día</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inatrabajodiario" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inatrabajodiario"  [options]="a1" formControlName="inatrabajodiario" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabajodiario"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Puedo decidir la velocidad a la que trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">45) Puedo decidir la velocidad a la que trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inadecivelocidad" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inadecivelocidad"  [options]="a1" formControlName="inadecivelocidad" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inadecivelocidad"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Puedo cambiar el orden de las actividades en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">46) Puedo cambiar el orden de las actividades en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inacambiarordenact" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inacambiarordenact"  [options]="a1" formControlName="inacambiarordenact" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inacambiarordenact"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Puedo parar un momento mi trabajo para atender algún asunto personal</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">47) Puedo parar un momento mi trabajo para atender algún asunto personal</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-            <p-dropdown  [options]="a1" formControlName="inaatenderasunpers" [showClear]="true"></p-dropdown>
+            <p-dropdown [class.is-invalid]="inaatenderasunpers"  [options]="a1" formControlName="inaatenderasunpers" [showClear]="true"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaatenderasunpers"></p-message>
                     </div>
                 </div>
 
@@ -596,56 +643,61 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Los cambios en mi trabajo han sido beneficiosos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">48) Los cambios en mi trabajo han sido beneficiosos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inacambiosbeneficio" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inacambiosbeneficio"  [options]="a1" formControlName="inacambiosbeneficio" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inacambiosbeneficio"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente los cambios que ocurren en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">49) Me explican claramente los cambios que ocurren en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaexplicancambios" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaexplicancambios"  [options]="a1" formControlName="inaexplicancambios" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaexplicancambios"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Puedo dar sugerencias sobre los cambios que ocurren en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">50) Puedo dar sugerencias sobre los cambios que ocurren en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inapuedodarsugeren" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inapuedodarsugeren"  [options]="a1" formControlName="inapuedodarsugeren" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapuedodarsugeren"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Cuando se presentan cambios en mi trabajo se tienen en cuenta mis ideas y sugerencias</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">51) Cuando se presentan cambios en mi trabajo se tienen en cuenta mis ideas y sugerencias</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaencuentamisideas" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaencuentamisideas"  [options]="a1" formControlName="inaencuentamisideas" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaencuentamisideas"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Los cambios que se presentan en mi trabajo dificultan mi labor</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">52) Los cambios que se presentan en mi trabajo dificultan mi labor</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a11" formControlName="inacambiosdificultan" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inacambiosdificultan"  [options]="a11" formControlName="inacambiosdificultan" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inacambiosdificultan"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -656,78 +708,85 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan con claridad cuáles son mis funciones</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">53) Me informan con claridad cuáles son mis funciones</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaclaridadfunciones" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaclaridadfunciones"  [options]="a1" formControlName="inaclaridadfunciones" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaclaridadfunciones"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan cuáles son las decisiones que puedo tomar en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">54) Me informan cuáles son las decisiones que puedo tomar en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inadecisionesatomar" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inadecisionesatomar"  [options]="a1" formControlName="inadecisionesatomar" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente los resultados que debo lograr en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">55) Me explican claramente los resultados que debo lograr en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaresultadoslograr" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaresultadoslograr"  [options]="a1" formControlName="inaresultadoslograr" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaresultadoslograr"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente el efecto de mi trabajo en la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">56) Me explican claramente el efecto de mi trabajo en la empresa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaefectoenempresa" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaefectoenempresa"  [options]="a1" formControlName="inaefectoenempresa" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaefectoenempresa"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me explican claramente los objetivos de mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">57) Me explican claramente los objetivos de mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaexplicanobjetivos" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaexplicanobjetivos"  [options]="a1" formControlName="inaexplicanobjetivos" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaexplicanobjetivos"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan claramente quien me puede orientar para hacer mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">58) Me informan claramente quien me puede orientar para hacer mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaorientaciontraba" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaorientaciontraba"  [options]="a1" formControlName="inaorientaciontraba" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaorientaciontraba"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan claramente con quien puedo resolver los asuntos de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">59) Me informan claramente con quien puedo resolver los asuntos de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaresolverasuntos" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaresolverasuntos"  [options]="a1" formControlName="inaresolverasuntos" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaresolverasuntos"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -737,34 +796,37 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">La empresa me permite asistir a capacitaciones relacionadas con mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">60) La empresa me permite asistir a capacitaciones relacionadas con mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inaasiscapacitacion" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inaasiscapacitacion"  [options]="a1" formControlName="inaasiscapacitacion" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaasiscapacitacion"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Recibo capacitación útil para hacer mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">61) Recibo capacitación útil para hacer mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inarecibocapacitaci" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inarecibocapacitaci"  [options]="a1" formControlName="inarecibocapacitaci" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inarecibocapacitaci"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Recibo capacitación que me ayuda a hacer mejor mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">62) Recibo capacitación que me ayuda a hacer mejor mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inarecibocapaciayuda" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inarecibocapaciayuda"  [options]="a1" formControlName="inarecibocapaciayuda" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inarecibocapaciayuda"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -774,144 +836,157 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me da instrucciones claras</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">63) Mi jefe me da instrucciones claras</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeintrucciones" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeintrucciones"  [options]="a1" formControlName="inajefeintrucciones" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeintrucciones"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe ayuda a organizar mejor el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">64) Mi jefe ayuda a organizar mejor el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeayudaorganiz" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeayudaorganiz"  [options]="a1" formControlName="inajefeayudaorganiz" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeayudaorganiz"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe tiene en cuenta mis puntos de vista y opiniones</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">65) Mi jefe tiene en cuenta mis puntos de vista y opiniones</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefemispuntosvist" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefemispuntosvist"  [options]="a1" formControlName="inajefemispuntosvist" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefemispuntosvist"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me anima para hacer mejor mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">66) Mi jefe me anima para hacer mejor mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeanima" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeanima"  [options]="a1" formControlName="inajefeanima" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeanima"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe distribuye las tareas de forma que me facilita el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">67) Mi jefe distribuye las tareas de forma que me facilita el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefedistribuye" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefedistribuye"  [options]="a1" formControlName="inajefedistribuye" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefedistribuye"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me comunica a tiempo la información relacionada con el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">68) Mi jefe me comunica a tiempo la información relacionada con el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefecomunica" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefecomunica"  [options]="a1" formControlName="inajefecomunica" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefecomunica"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">La orientación que me da mi jefe me ayuda a hacer mejor el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">69) La orientación que me da mi jefe me ayuda a hacer mejor el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeorienracion" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeorienracion"  [options]="a1" formControlName="inajefeorienracion" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeorienracion"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me ayuda a progresar en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">70) Mi jefe me ayuda a progresar en el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeayudaprogres" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeayudaprogres"  [options]="a1" formControlName="inajefeayudaprogres" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeayudaprogres"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me ayuda a sentirme bien en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">71) Mi jefe me ayuda a sentirme bien en el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeayudasentime" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeayudasentime"  [options]="a1" formControlName="inajefeayudasentime" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeayudasentime"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe ayuda a solucionar los problemas que se presentan en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">72) Mi jefe ayuda a solucionar los problemas que se presentan en el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefesolucionar" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefesolucionar"  [options]="a1" formControlName="inajefesolucionar" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefesolucionar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Siento que puedo confiar en mi jefe</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">73) Siento que puedo confiar en mi jefe</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeconfio" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeconfio"  [options]="a1" formControlName="inajefeconfio" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeconfio"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me escucha cuando tengo problemas de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">74) Mi jefe me escucha cuando tengo problemas de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeescucha" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeescucha"  [options]="a1" formControlName="inajefeescucha" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeescucha"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi jefe me brinda su apoyo cuando lo necesito</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">75) Mi jefe me brinda su apoyo cuando lo necesito</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-        <p-dropdown  [options]="a1" formControlName="inajefeapoyo" [showClear]="true"></p-dropdown>
+         <p-dropdown [class.is-invalid]="inajefeapoyo"  [options]="a1" formControlName="inajefeapoyo" [showClear]="true"></p-dropdown>
                     </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inajefeapoyo"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -922,155 +997,169 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me agrada el ambiente de mi grupo de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">76) Me agrada el ambiente de mi grupo de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaagradaambiente" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaagradaambiente"  [options]="a1" formControlName="inaagradaambiente" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaagradaambiente"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi grupo de trabajo me tratan de forma respetuosa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">77) En mi grupo de trabajo me tratan de forma respetuosa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inagruporespeto" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inagruporespeto"  [options]="a1" formControlName="inagruporespeto" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inagruporespeto"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Siento que puedo confiar en mis compañeros de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">78) Siento que puedo confiar en mis compañeros de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaconfiocompaneros" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaconfiocompaneros"  [options]="a1" formControlName="inaconfiocompaneros" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaconfiocompaneros"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me siento a gusto con mis compañeros de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">79) Me siento a gusto con mis compañeros de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaagustocompaneros" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaagustocompaneros"  [options]="a1" formControlName="inaagustocompaneros" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaagustocompaneros"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi grupo de trabajo algunas personas me maltratan</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">80) En mi grupo de trabajo algunas personas me maltratan</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a11" formControlName="inagrupomaltrata" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inagrupomaltrata"  [options]="a11" formControlName="inagrupomaltrata" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inagrupomaltrata"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Entre compañeros solucionamos los problemas de forma respetuosa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">81) Entre compañeros solucionamos los problemas de forma respetuosa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inasolucionacompa" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inasolucionacompa"  [options]="a1" formControlName="inasolucionacompa" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inasolucionacompa"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Hay integración en mi grupo de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">82) Hay integración en mi grupo de trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaintegraciongrp" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaintegraciongrp"  [options]="a1" formControlName="inaintegraciongrp" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaintegraciongrp"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi grupo de trabajo es muy unido</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">83) Mi grupo de trabajo es muy unido</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inagrupounido" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inagrupounido"  [options]="a1" formControlName="inagrupounido" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inagrupounido"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Las personas en mi trabajo me hacen sentir parte del grupo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">84) Las personas en mi trabajo me hacen sentir parte del grupo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inasentirpartegrupo" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inasentirpartegrupo"  [options]="a1" formControlName="inasentirpartegrupo" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inasentirpartegrupo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Cuando tenemos que realizar trabajo de grupo los compañeros colaboran</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">85) Cuando tenemos que realizar trabajo de grupo los compañeros colaboran</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inatrabajogrupo" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inatrabajogrupo"  [options]="a1" formControlName="inatrabajogrupo" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabajogrupo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Es fácil poner de acuerdo al grupo para hacer el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">86) Es fácil poner de acuerdo al grupo para hacer el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inagrupodeacuerdo" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inagrupodeacuerdo"  [options]="a1" formControlName="inagrupodeacuerdo" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inagrupodeacuerdo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mis compañeros de trabajo me ayudan cuando tengo dificultades</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">87) Mis compañeros de trabajo me ayudan cuando tengo dificultades</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inagrupoayuda" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inagrupoayuda"  [options]="a1" formControlName="inagrupoayuda" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inagrupoayuda"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo las personas nos apoyamos unos a otros</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">88) En mi trabajo las personas nos apoyamos unos a otros</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaapoyounootros" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaapoyounootros"  [options]="a1" formControlName="inaapoyounootros" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaapoyounootros"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Algunos compañeros de trabajo me escuchan cuando tengo problemas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">89) Algunos compañeros de trabajo me escuchan cuando tengo problemas</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaescuchanproble" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaescuchanproble"  [options]="a1" formControlName="inaescuchanproble" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaescuchanproble"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1080,56 +1169,61 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan sobre lo que hago bien en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">90) Me informan sobre lo que hago bien en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inainfhagobien" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inainfhagobien"  [options]="a1" formControlName="inainfhagobien" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inainfhagobien"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan sobre lo que debo mejorar en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">91) Me informan sobre lo que debo mejorar en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inainfmejorar" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inainfmejorar"  [options]="a1" formControlName="inainfmejorar" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inainfmejorar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">La información que recibo sobre mi rendimiento en el trabajo es clara</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">92) La información que recibo sobre mi rendimiento en el trabajo es clara</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inainfrendimiento" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inainfrendimiento"  [options]="a1" formControlName="inainfrendimiento" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inainfrendimiento"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">La forma como evalúan mi trabajo en la empresa me ayuda a mejorar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">93) La forma como evalúan mi trabajo en la empresa me ayuda a mejorar</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaevaluantrabajo" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaevaluantrabajo"  [options]="a1" formControlName="inaevaluantrabajo" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaevaluantrabajo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Me informan a tiempo sobre lo que debo mejorar en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">94) Me informan a tiempo sobre lo que debo mejorar en el trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inainfatiempomejora" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inainfatiempomejora"  [options]="a1" formControlName="inainfatiempomejora" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inainfatiempomejora"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1139,122 +1233,133 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En la empresa confían en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">95) En la empresa confían en mi trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaempconfiantrab" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaempconfiantrab"  [options]="a1" formControlName="inaempconfiantrab" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaempconfiantrab"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En la empresa me pagan a tiempo mi salario</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">96) En la empresa me pagan a tiempo mi salario</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaemppaganatiempo" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaemppaganatiempo"  [options]="a1" formControlName="inaemppaganatiempo" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaemppaganatiempo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">El pago que recibo es el que me ofreció la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">97) El pago que recibo es el que me ofreció la empresa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inapagoofrecido" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inapagoofrecido"  [options]="a1" formControlName="inapagoofrecido" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapagoofrecido"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">El pago que recibo es el que merezco por el trabajo que realizo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">98) El pago que recibo es el que merezco por el trabajo que realizo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inapagomerezco" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inapagomerezco"  [options]="a1" formControlName="inapagomerezco" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inapagomerezco"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo tengo posibilidades de progresar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">99) En mi trabajo tengo posibilidades de progresar</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaposibprogresar" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaposibprogresar"  [options]="a1" formControlName="inaposibprogresar" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaposibprogresar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Las personas que hacen bien el trabajo pueden progresar en la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">100) Las personas que hacen bien el trabajo pueden progresar en la empresa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inahacerbienprog" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inahacerbienprog"  [options]="a1" formControlName="inahacerbienprog" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inahacerbienprog"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">La empresa se preocupa por el bienestar de los trabajadores</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">101) La empresa se preocupa por el bienestar de los trabajadores</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inaempbienestartrab" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inaempbienestartrab"  [options]="a1" formControlName="inaempbienestartrab" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaempbienestartrab"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo en la empresa es estable</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">102) Mi trabajo en la empresa es estable</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inatrabajoestable" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inatrabajoestable"  [options]="a1" formControlName="inatrabajoestable" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabajoestable"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">El trabajo que hago me hace sentir bien</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">103) El trabajo que hago me hace sentir bien</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inatrabsentirbien" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inatrabsentirbien"  [options]="a1" formControlName="inatrabsentirbien" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inatrabsentirbien"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Siento orgullo de trabajar en esta empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">104) Siento orgullo de trabajar en esta empresa</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inasientoorgullo" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inasientoorgullo"  [options]="a1" formControlName="inasientoorgullo" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inasientoorgullo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Hablo bien de la empresa con otras personas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">105) Hablo bien de la empresa con otras personas</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-    <p-dropdown  [options]="a1" formControlName="inahablobienempres" [showClear]="true"></p-dropdown>
+     <p-dropdown [class.is-invalid]="inahablobienempres"  [options]="a1" formControlName="inahablobienempres" [showClear]="true"></p-dropdown>
                 </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inahablobienempres"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1286,7 +1391,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios muy enojados</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">106) Atiendo clientes o usuarios muy enojados</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1297,7 +1402,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios muy preocupados</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">107) Atiendo clientes o usuarios muy preocupados</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1308,7 +1413,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios muy tristes</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">108) Atiendo clientes o usuarios muy tristes</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1319,7 +1424,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender personas muy enfermas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">109) Mi trabajo me exige atender personas muy enfermas</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1330,7 +1435,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender personas muy necesitadas de ayuda</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">110) Mi trabajo me exige atender personas muy necesitadas de ayuda</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1341,7 +1446,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Atiendo clientes o usuarios que me maltratan</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">111) Atiendo clientes o usuarios que me maltratan</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1352,7 +1457,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Para hacer mi trabajo debo demostrar sentimientos distintos a los míos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">112) Para hacer mi trabajo debo demostrar sentimientos distintos a los míos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1363,7 +1468,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender situaciones de violencia</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">113) Mi trabajo me exige atender situaciones de violencia</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1374,7 +1479,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Mi trabajo me exige atender situaciones muy tristes o dolorosas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">114) Mi trabajo me exige atender situaciones muy tristes o dolorosas</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1411,7 +1516,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que comunican tarde los asuntos de trabajo </label></b>
+                        <b><label for="float-input" style="font-size: 15px;">115) Tengo colaboradores que comunican tarde los asuntos de trabajo </label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1422,7 +1527,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que tienen comportamientos irrespetuosos </label></b>
+                        <b><label for="float-input" style="font-size: 15px;">116) Tengo colaboradores que tienen comportamientos irrespetuosos </label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1433,7 +1538,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que dificultan la organización del trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">117) Tengo colaboradores que dificultan la organización del trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1444,7 +1549,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que guardan silencio cuando les piden opiniones</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">118) Tengo colaboradores que guardan silencio cuando les piden opiniones</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1456,7 +1561,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que dificultan el logro de los resultados del trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">119) Tengo colaboradores que dificultan el logro de los resultados del trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1468,7 +1573,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que expresan de forma irrespetuosa sus desacuerdos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">120) Tengo colaboradores que expresan de forma irrespetuosa sus desacuerdos</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1479,7 +1584,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que cooperan poco cuando se necesita</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">121) Tengo colaboradores que cooperan poco cuando se necesita</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1490,7 +1595,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que me preocupan por su desempeño</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">122) Tengo colaboradores que me preocupan por su desempeño</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -1501,7 +1606,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;">Tengo colaboradores que ignoran las sugerencias para mejorar su trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">123) Tengo colaboradores que ignoran las sugerencias para mejorar su trabajo</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">

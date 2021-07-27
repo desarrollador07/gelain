@@ -73,112 +73,113 @@ export class FormatoALComponent implements OnInit {
     this.userform = this.fb.group({
       inaid: [''],
       inaidempleado: [Number(this.idl)],
-      inaruido: [''],
-      inafrio: [''],
-      inacalor: [''],
-      inaairefresco: [''],
-      inaluz: [''],
-      inacomodo: [''],
-      inasustanquimicas: [''],
-      inaesfuerzofisico: [''],
-      inaequiposcomodos: [''],
-      inaanimalesplantas: [''],
-      inapreoaccidente: [''],
-      inalugarlimpio: [''],
-      inatiempoadicional: [''],
-      inaalcanzatiempo: [''],
-      inatrabajasinparar: [''],
-      inaesfuerzomental: [''],
-      inaexigeconcentrado: [''],
-      inaexigememoria: [''],
-       inadesiciondificiles: [''],
-      inaexigeasuntos: [''],
-      inapqnosdetalles: [''],
-      inaresponcosasvalor: [''],
-      inarespondinero: [''],
-      inareponderotros: [''],
-      inaresponarea: [''],
-      inareponsalud: [''],
-      inaordecontradic: [''],
-      inahacerinnecesaria: [''],
-      inapasarnormas: [''],
-      inamaspracticas: [''],
-      inatrabajodenoche: [''],
-      inapausas: [''],
-      inatrabajodiadesca: [''],
-      inafinsemdesc:[''],
-      inaencasapiensotra: [''],
-      inadiscutofamilia: [''],
-      inaasuntosencasa: [''],
-      inapocotiempofami: [''],
-      inapermitehabilidad: [''],
-      inapermiteconocimi: [''],
-      inapermiteaprender: [''],
-      inamiscapacidades: [''],
-      inapausasnecesito: [''],
-      inatrabajodiario: [''],
-      inadecivelocidad: [''],
-      inacambiarordenact: [''],
-      inaatenderasunpers: [''], 
+      inaruido: ['', Validators.required],
+      inafrio: ['', Validators.required],
+      inacalor: ['', Validators.required],
+      inaairefresco: ['', Validators.required],
+      inaluz: ['', Validators.required],
+      inacomodo: ['', Validators.required],
+      inasustanquimicas: ['', Validators.required],
+      inaesfuerzofisico: ['', Validators.required],
+      inaequiposcomodos: ['', Validators.required],
+      inaanimalesplantas: ['', Validators.required],
+      inapreoaccidente: ['', Validators.required],
+      inalugarlimpio: ['', Validators.required],
+      inatiempoadicional: ['', Validators.required],
+      inaalcanzatiempo: ['', Validators.required],
+      inatrabajasinparar: ['', Validators.required],
+      inaesfuerzomental: ['', Validators.required],
+      inaexigeconcentrado: ['', Validators.required],
+      inaexigememoria: ['', Validators.required],
+       inadesiciondificiles: ['', Validators.required],
+      inaexigeasuntos: ['', Validators.required],
+      inapqnosdetalles: ['', Validators.required],
+      inaresponcosasvalor: ['', Validators.required],
+      inarespondinero: ['', Validators.required],
+      inareponderotros: ['', Validators.required],
+      inaresponarea: ['', Validators.required],
+      inareponsalud: ['', Validators.required],
+      inaordecontradic: ['', Validators.required],
+      inahacerinnecesaria: ['', Validators.required],
+      inapasarnormas: ['', Validators.required],
+      inamaspracticas: ['', Validators.required],
+      inatrabajodenoche: ['', Validators.required],
+      inapausas: ['', Validators.required],
+      inatrabajodiadesca: ['', Validators.required],
+      inafinsemdesc:['', Validators.required],
+      inaencasapiensotra: ['', Validators.required],
+      inadiscutofamilia: ['', Validators.required],
+      inaasuntosencasa: ['', Validators.required],
+      inapocotiempofami: ['', Validators.required],
+      inapermitehabilidad: ['', Validators.required],
+      inapermiteconocimi: ['', Validators.required],
+      inapermiteaprender: ['', Validators.required],
+      inamiscapacidades: ['', Validators.required],
+      inapausasnecesito: ['', Validators.required],
+      inatrabajodiario: ['', Validators.required],
+      inadecivelocidad: ['', Validators.required],
+      inacambiarordenact: ['', Validators.required],
+      inaatenderasunpers: ['', Validators.required],  
 
-      inacambiosbeneficio: [''],
-      inaexplicancambios: [''],
-      inapuedodarsugeren: [''],
-      inaencuentamisideas: [''],
-      inacambiosdificultan: [''],
-      inaclaridadfunciones: [''],
-      inadecisionesatomar: [''],
-      inaresultadoslograr: [''],
-      inaefectoenempresa: [''],
-      inaexplicanobjetivos: [''],
-      inaorientaciontraba: [''],
-      inaresolverasuntos: [''],
-      inaasiscapacitacion: [''],
-      inarecibocapacitaci: [''],
-      inarecibocapaciayuda: [''],
-      inajefeintrucciones: [''],
-      inajefeayudaorganiz: [''],
-      inajefemispuntosvist: [''],
-      inajefeanima: [''],
-      inajefedistribuye: [''],
-      inajefecomunica: [''],
-      inajefeorienracion: [''],
-      inajefeayudaprogres: [''],
-      inajefeayudasentime: [''],
-      inajefesolucionar: [''],
-      inajefeconfio: [''],
-      inajefeescucha: [''],
-      inajefeapoyo: [''],
-      inaagradaambiente: [''],
-      inagruporespeto: [''],
-      inaconfiocompaneros: [''],
-      inaagustocompaneros: [''],
-      inagrupomaltrata: [''],
-      inasolucionacompa: [''],
-      inaintegraciongrp: [''],
-      inagrupounido: [''],
-      inasentirpartegrupo: [''],
-      inatrabajogrupo: [''],
-      inagrupodeacuerdo: [''],
-      inagrupoayuda: [''],
-      inaapoyounootros: [''],
-      inaescuchanproble: [''],
-      inainfhagobien: [''],
-      inainfmejorar: [''],
-      inainfrendimiento: [''],
-      inaevaluantrabajo: [''],
-      inainfatiempomejora: [''],
-      inaempconfiantrab: [''],
-      inaemppaganatiempo: [''],
-      inapagoofrecido: [''],
-      inapagomerezco: [''],
-      inaposibprogresar: [''],
-      inahacerbienprog: [''],
-      inaempbienestartrab: [''],
-      inatrabajoestable: [''],
-      inatrabsentirbien: [''],
-      inasientoorgullo: [''],
-      inahablobienempres: [''],
+      inacambiosbeneficio: ['', Validators.required],
+      inaexplicancambios: ['', Validators.required],
+      inapuedodarsugeren: ['', Validators.required],
+      inaencuentamisideas: ['', Validators.required],
+      inacambiosdificultan: ['', Validators.required],
+      inaclaridadfunciones: ['', Validators.required],
+      inadecisionesatomar: ['', Validators.required],
+      inaresultadoslograr: ['', Validators.required],
+      inaefectoenempresa: ['', Validators.required],
+      inaexplicanobjetivos: ['', Validators.required],
+      inaorientaciontraba: ['', Validators.required],
+      inaresolverasuntos: ['', Validators.required],
+      inaasiscapacitacion: ['', Validators.required],
+      inarecibocapacitaci: ['', Validators.required],
+      inarecibocapaciayuda: ['', Validators.required],
+      inajefeintrucciones: ['', Validators.required],
+      inajefeayudaorganiz: ['', Validators.required],
+      inajefemispuntosvist: ['', Validators.required],
+      inajefeanima: ['', Validators.required],
+      inajefedistribuye: ['', Validators.required],
+      inajefecomunica: ['', Validators.required],
+      inajefeorienracion: ['', Validators.required],
+      inajefeayudaprogres: ['', Validators.required],
+      inajefeayudasentime: ['', Validators.required],
+      inajefesolucionar: ['', Validators.required],
+      inajefeconfio: ['', Validators.required],
+      inajefeescucha: ['', Validators.required],
+      inajefeapoyo: ['', Validators.required],
+      inaagradaambiente: ['', Validators.required],
+      inagruporespeto: ['', Validators.required],
+      inaconfiocompaneros: ['', Validators.required],
+      inaagustocompaneros: ['', Validators.required],
+      inagrupomaltrata: ['', Validators.required],
+      inasolucionacompa: ['', Validators.required],
+      inaintegraciongrp: ['', Validators.required],
+      inagrupounido: ['', Validators.required],
+      inasentirpartegrupo: ['', Validators.required],
+      inatrabajogrupo: ['', Validators.required],
+      inagrupodeacuerdo: ['', Validators.required],
+      inagrupoayuda: ['', Validators.required],
+      inaapoyounootros: ['', Validators.required],
+      inaescuchanproble: ['', Validators.required],
+      inainfhagobien: ['', Validators.required],
+      inainfmejorar: ['', Validators.required],
+      inainfrendimiento: ['', Validators.required],
+      inaevaluantrabajo: ['', Validators.required],
+      inainfatiempomejora: ['', Validators.required],
+      inaempconfiantrab: ['', Validators.required],
+      inaemppaganatiempo: ['', Validators.required],
+      inapagoofrecido: ['', Validators.required],
+      inapagomerezco: ['', Validators.required],
+      inaposibprogresar: ['', Validators.required],
+      inahacerbienprog: ['', Validators.required],
+      inaempbienestartrab: ['', Validators.required],
+      inatrabajoestable: ['', Validators.required],
+      inatrabsentirbien: ['', Validators.required],
+      inasientoorgullo: ['', Validators.required],
+      inahablobienempres: ['', Validators.required],
+
       inaatencionausuarios : [''],
       inausuenojados: [''],
       inausupreocupados: [''],
@@ -209,7 +210,7 @@ export class FormatoALComponent implements OnInit {
 
 
     this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: 'NR' });
+    this.a1.push({ label: 'Seleccione...', value: '' });
     this.a1.push({ label: 'Siempre', value: '0' });
     this.a1.push({ label: 'Casi Siempre', value: '1' });
     this.a1.push({ label: 'Algunas Veces', value: '2' });
@@ -217,7 +218,7 @@ export class FormatoALComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: 'NR' });
+    this.a11.push({ label: 'Seleccione...', value: '' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -374,6 +375,323 @@ export class FormatoALComponent implements OnInit {
       })
     } 
   };
+
+  get inaruido() {
+    return this.userform.get('inaruido').invalid && this.userform.get('inaruido').touched
+  }
+  get inafrio() {
+    return this.userform.get('inafrio').invalid && this.userform.get('inafrio').touched
+  }
+  get inacalor() {
+    return this.userform.get('inacalor').invalid && this.userform.get('inacalor').touched
+  }
+  get inaairefresco() {
+    return this.userform.get('inaairefresco').invalid && this.userform.get('inaairefresco').touched
+  }
+  get inaluz() {
+    return this.userform.get('inaluz').invalid && this.userform.get('inaluz').touched
+  }
+  get inacomodo() {
+    return this.userform.get('inacomodo').invalid && this.userform.get('inacomodo').touched
+  }
+  get inasustanquimicas() {
+    return this.userform.get('inasustanquimicas').invalid && this.userform.get('inasustanquimicas').touched
+  }
+  get inaesfuerzofisico() {
+    return this.userform.get('inaesfuerzofisico').invalid && this.userform.get('inaesfuerzofisico').touched
+  }
+  get inaequiposcomodos() {
+    return this.userform.get('inaequiposcomodos').invalid && this.userform.get('inaequiposcomodos').touched
+  }
+  get inaanimalesplantas() {
+    return this.userform.get('inaanimalesplantas').invalid && this.userform.get('inaanimalesplantas').touched
+  }
+  get inapreoaccidente() {
+    return this.userform.get('inapreoaccidente').invalid && this.userform.get('inapreoaccidente').touched
+  }
+  get inalugarlimpio() {
+    return this.userform.get('inalugarlimpio').invalid && this.userform.get('inalugarlimpio').touched
+  }
+  get inatiempoadicional() {
+    return this.userform.get('inatiempoadicional').invalid && this.userform.get('inatiempoadicional').touched
+  }
+  get inaalcanzatiempo() {
+    return this.userform.get('inaalcanzatiempo').invalid && this.userform.get('inaalcanzatiempo').touched
+  }
+  get inatrabajasinparar() {
+    return this.userform.get('inatrabajasinparar').invalid && this.userform.get('inatrabajasinparar').touched
+  }
+  get inaesfuerzomental() {
+    return this.userform.get('inaesfuerzomental').invalid && this.userform.get('inaesfuerzomental').touched
+  }
+  get inaexigeconcentrado() {
+    return this.userform.get('inaexigeconcentrado').invalid && this.userform.get('inaexigeconcentrado').touched
+  }
+  get inaexigememoria() {
+    return this.userform.get('inaexigememoria').invalid && this.userform.get('inaexigememoria').touched
+  }
+
+  get inadesiciondificiles() {
+    return this.userform.get('inadesiciondificiles').invalid && this.userform.get('inadesiciondificiles').touched
+  }
+  get inaexigeasuntos() {
+    return this.userform.get('inaexigeasuntos').invalid && this.userform.get('inaexigeasuntos').touched
+  }
+  get inapqnosdetalles() {
+    return this.userform.get('inapqnosdetalles').invalid && this.userform.get('inapqnosdetalles').touched
+  }
+  get inaresponcosasvalor() {
+    return this.userform.get('inaresponcosasvalor').invalid && this.userform.get('inaresponcosasvalor').touched
+  }
+  get inarespondinero() {
+    return this.userform.get('inarespondinero').invalid && this.userform.get('inarespondinero').touched
+  }
+  get inareponderotros() {
+    return this.userform.get('inareponderotros').invalid && this.userform.get('inareponderotros').touched
+  }
+  get inaresponarea() {
+    return this.userform.get('inaresponarea').invalid && this.userform.get('inaresponarea').touched
+  }
+  get inareponsalud() {
+    return this.userform.get('inareponsalud').invalid && this.userform.get('inareponsalud').touched
+  }
+  get inaordecontradic() {
+    return this.userform.get('inaordecontradic').invalid && this.userform.get('inaordecontradic').touched
+  }
+  get inahacerinnecesaria() {
+    return this.userform.get('inahacerinnecesaria').invalid && this.userform.get('inahacerinnecesaria').touched
+  }
+  get inapasarnormas() {
+    return this.userform.get('inapasarnormas').invalid && this.userform.get('inapasarnormas').touched
+  }
+  get inamaspracticas() {
+    return this.userform.get('inamaspracticas').invalid && this.userform.get('inamaspracticas').touched
+  }
+  get inatrabajodenoche() {
+    return this.userform.get('inatrabajodenoche').invalid && this.userform.get('inatrabajodenoche').touched
+  }
+  get inapausas() {
+    return this.userform.get('inapausas').invalid && this.userform.get('inapausas').touched
+  }
+  get inatrabajodiadesca() {
+    return this.userform.get('inatrabajodiadesca').invalid && this.userform.get('inatrabajodiadesca').touched
+  }
+  get inafinsemdesc() {
+    return this.userform.get('inafinsemdesc').invalid && this.userform.get('inafinsemdesc').touched
+  }
+  get inaencasapiensotra() {
+    return this.userform.get('inaencasapiensotra').invalid && this.userform.get('inaencasapiensotra').touched
+  }
+  get inadiscutofamilia() {
+    return this.userform.get('inadiscutofamilia').invalid && this.userform.get('inadiscutofamilia').touched
+  }
+  get inaasuntosencasa() {
+    return this.userform.get('inaasuntosencasa').invalid && this.userform.get('inaasuntosencasa').touched
+  }
+  get inapocotiempofami() {
+    return this.userform.get('inapocotiempofami').invalid && this.userform.get('inapocotiempofami').touched
+  }
+  get inapermitehabilidad() {
+    return this.userform.get('inapermitehabilidad').invalid && this.userform.get('inapermitehabilidad').touched
+  }
+  get inapermiteconocimi() {
+    return this.userform.get('inapermiteconocimi').invalid && this.userform.get('inapermiteconocimi').touched
+  }
+  get inapermiteaprender() {
+    return this.userform.get('inapermiteaprender').invalid && this.userform.get('inapermiteaprender').touched
+  }
+  get inamiscapacidades() {
+    return this.userform.get('inamiscapacidades').invalid && this.userform.get('inamiscapacidades').touched
+  }
+  get inapausasnecesito() {
+    return this.userform.get('inapausasnecesito').invalid && this.userform.get('inapausasnecesito').touched
+  }
+  get inatrabajodiario() {
+    return this.userform.get('inatrabajodiario').invalid && this.userform.get('inatrabajodiario').touched
+  }
+  get inadecivelocidad() {
+    return this.userform.get('inadecivelocidad').invalid && this.userform.get('inadecivelocidad').touched
+  }
+  get inacambiarordenact() {
+    return this.userform.get('inacambiarordenact').invalid && this.userform.get('inacambiarordenact').touched
+  }
+  get inaatenderasunpers() {
+    return this.userform.get('inaatenderasunpers').invalid && this.userform.get('inaatenderasunpers').touched
+  }
+  get inacambiosbeneficio() {
+    return this.userform.get('inacambiosbeneficio').invalid && this.userform.get('inacambiosbeneficio').touched
+  }
+  get inaexplicancambios() {
+    return this.userform.get('inaexplicancambios').invalid && this.userform.get('inaexplicancambios').touched
+  }
+  get inapuedodarsugeren() {
+    return this.userform.get('inapuedodarsugeren').invalid && this.userform.get('inapuedodarsugeren').touched
+  }
+  get inaencuentamisideas() {
+    return this.userform.get('inaencuentamisideas').invalid && this.userform.get('inaencuentamisideas').touched
+  }
+  get inacambiosdificultan() {
+    return this.userform.get('inacambiosdificultan').invalid && this.userform.get('inacambiosdificultan').touched
+  }
+  get inaclaridadfunciones() {
+    return this.userform.get('inaclaridadfunciones').invalid && this.userform.get('inaclaridadfunciones').touched
+  }
+  get inadecisionesatomar() {
+    return this.userform.get('inadecisionesatomar').invalid && this.userform.get('inadecisionesatomar').touched
+  }
+  get inaresultadoslograr() {
+    return this.userform.get('inaresultadoslograr').invalid && this.userform.get('inaresultadoslograr').touched
+  }
+  get inaefectoenempresa() {
+    return this.userform.get('inaefectoenempresa').invalid && this.userform.get('inaefectoenempresa').touched
+  }
+  get inaexplicanobjetivos() {
+    return this.userform.get('inaexplicanobjetivos').invalid && this.userform.get('inaexplicanobjetivos').touched
+  }
+  get inaorientaciontraba() {
+    return this.userform.get('inaorientaciontraba').invalid && this.userform.get('inaorientaciontraba').touched
+  }
+  get inaresolverasuntos() {
+    return this.userform.get('inaresolverasuntos').invalid && this.userform.get('inaresolverasuntos').touched
+  }
+  get inaasiscapacitacion() {
+    return this.userform.get('inaasiscapacitacion').invalid && this.userform.get('inaasiscapacitacion').touched
+  }
+  get inarecibocapacitaci() {
+    return this.userform.get('inarecibocapacitaci').invalid && this.userform.get('inarecibocapacitaci').touched
+  }
+  get inarecibocapaciayuda() {
+    return this.userform.get('inarecibocapaciayuda').invalid && this.userform.get('inarecibocapaciayuda').touched
+  }
+  get inajefeintrucciones() {
+    return this.userform.get('inajefeintrucciones').invalid && this.userform.get('inajefeintrucciones').touched
+  }
+  get inajefeayudaorganiz() {
+    return this.userform.get('inajefeayudaorganiz').invalid && this.userform.get('inajefeayudaorganiz').touched
+  }
+  get inajefemispuntosvist() {
+    return this.userform.get('inajefemispuntosvist').invalid && this.userform.get('inajefemispuntosvist').touched
+  }
+  get inajefeanima() {
+    return this.userform.get('inajefeanima').invalid && this.userform.get('inajefeanima').touched
+  }
+  get inajefedistribuye() {
+    return this.userform.get('inajefedistribuye').invalid && this.userform.get('inajefedistribuye').touched
+  }
+  get inajefecomunica() {
+    return this.userform.get('inajefecomunica').invalid && this.userform.get('inajefecomunica').touched
+  }
+  get inajefeorienracion() {
+    return this.userform.get('inajefeorienracion').invalid && this.userform.get('inajefeorienracion').touched
+  }
+  get inajefeayudaprogres() {
+    return this.userform.get('inajefeayudaprogres').invalid && this.userform.get('inajefeayudaprogres').touched
+  }
+  get inajefeayudasentime() {
+    return this.userform.get('inajefeayudasentime').invalid && this.userform.get('inajefeayudasentime').touched
+  }
+  get inajefesolucionar() {
+    return this.userform.get('inajefesolucionar').invalid && this.userform.get('inajefesolucionar').touched
+  }
+  get inajefeconfio() {
+    return this.userform.get('inajefeconfio').invalid && this.userform.get('inajefeconfio').touched
+  }
+  get inajefeescucha() {
+    return this.userform.get('inajefeescucha').invalid && this.userform.get('inajefeescucha').touched
+  }
+  get inajefeapoyo() {
+    return this.userform.get('inajefeapoyo').invalid && this.userform.get('inajefeapoyo').touched
+  }
+  get inaagradaambiente() {
+    return this.userform.get('inaagradaambiente').invalid && this.userform.get('inaagradaambiente').touched
+  }
+  get inagruporespeto() {
+    return this.userform.get('inagruporespeto').invalid && this.userform.get('inagruporespeto').touched
+  }
+  get inaconfiocompaneros() {
+    return this.userform.get('inaconfiocompaneros').invalid && this.userform.get('inaconfiocompaneros').touched
+  }
+  get inaagustocompaneros() {
+    return this.userform.get('inaagustocompaneros').invalid && this.userform.get('inaagustocompaneros').touched
+  }
+  get inagrupomaltrata() {
+    return this.userform.get('inagrupomaltrata').invalid && this.userform.get('inagrupomaltrata').touched
+  }
+  get inasolucionacompa() {
+    return this.userform.get('inasolucionacompa').invalid && this.userform.get('inasolucionacompa').touched
+  }
+  get inaintegraciongrp() {
+    return this.userform.get('inaintegraciongrp').invalid && this.userform.get('inaintegraciongrp').touched
+  }
+  get inagrupounido() {
+    return this.userform.get('inagrupounido').invalid && this.userform.get('inagrupounido').touched
+  }
+  get inasentirpartegrupo() {
+    return this.userform.get('inasentirpartegrupo').invalid && this.userform.get('inasentirpartegrupo').touched
+  }
+  get inatrabajogrupo() {
+    return this.userform.get('inatrabajogrupo').invalid && this.userform.get('inatrabajogrupo').touched
+  }
+  get inagrupodeacuerdo() {
+    return this.userform.get('inagrupodeacuerdo').invalid && this.userform.get('inagrupodeacuerdo').touched
+  }
+  get inagrupoayuda() {
+    return this.userform.get('inagrupoayuda').invalid && this.userform.get('inagrupoayuda').touched
+  }
+  get inaapoyounootros() {
+    return this.userform.get('inaapoyounootros').invalid && this.userform.get('inaapoyounootros').touched
+  }
+  get inaescuchanproble() {
+    return this.userform.get('inaescuchanproble').invalid && this.userform.get('inaescuchanproble').touched
+  }
+  get inainfhagobien() {
+    return this.userform.get('inainfhagobien').invalid && this.userform.get('inainfhagobien').touched
+  }
+  get inainfmejorar() {
+    return this.userform.get('inainfmejorar').invalid && this.userform.get('inainfmejorar').touched
+  }
+  get inainfrendimiento() {
+    return this.userform.get('inainfrendimiento').invalid && this.userform.get('inainfrendimiento').touched
+  }
+  get inaevaluantrabajo() {
+    return this.userform.get('inaevaluantrabajo').invalid && this.userform.get('inaevaluantrabajo').touched
+  }
+  get inainfatiempomejora() {
+    return this.userform.get('inainfatiempomejora').invalid && this.userform.get('inainfatiempomejora').touched
+  }
+  get inaempconfiantrab() {
+    return this.userform.get('inaempconfiantrab').invalid && this.userform.get('inaempconfiantrab').touched
+  }
+  get inaemppaganatiempo() {
+    return this.userform.get('inaemppaganatiempo').invalid && this.userform.get('inaemppaganatiempo').touched
+  }
+  get inapagoofrecido() {
+    return this.userform.get('inapagoofrecido').invalid && this.userform.get('inapagoofrecido').touched
+  }
+  get inapagomerezco() {
+    return this.userform.get('inapagomerezco').invalid && this.userform.get('inapagomerezco').touched
+  }
+  get inaposibprogresar() {
+    return this.userform.get('inaposibprogresar').invalid && this.userform.get('inaposibprogresar').touched
+  }
+  get inahacerbienprog() {
+    return this.userform.get('inahacerbienprog').invalid && this.userform.get('inahacerbienprog').touched
+  }
+  get inaempbienestartrab() {
+    return this.userform.get('inaempbienestartrab').invalid && this.userform.get('inaempbienestartrab').touched
+  }
+  get inatrabajoestable() {
+    return this.userform.get('inatrabajoestable').invalid && this.userform.get('inatrabajoestable').touched
+  }
+  get inatrabsentirbien() {
+    return this.userform.get('inatrabsentirbien').invalid && this.userform.get('inatrabsentirbien').touched
+  }
+  get inasientoorgullo() {
+    return this.userform.get('inasientoorgullo').invalid && this.userform.get('inasientoorgullo').touched
+  }
+  get inahablobienempres() {
+    return this.userform.get('inahablobienempres').invalid && this.userform.get('inahablobienempres').touched
+  }
 
 
 
