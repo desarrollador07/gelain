@@ -20,6 +20,7 @@ export class PruebaService {
   Url4 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteEmpleados';
   Url5 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getid';
   Url6  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpleadosReportes';
+  Url7  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/updateEstado';
 
   Url1p  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpresa';
   Url2p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createEmpresa';
@@ -106,6 +107,10 @@ export class PruebaService {
   }
   buscarByEmpleadosRepor(id:number){
     return this.http.get(this.Url6+ "/" + id);
+  }
+
+  updateEstado(id:number){
+    return this.http.get(this.Url7+ "/" + id);
   }
 
 

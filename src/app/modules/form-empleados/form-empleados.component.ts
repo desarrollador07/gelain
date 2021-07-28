@@ -111,6 +111,7 @@ bandera:boolean=false;
     this.estado.push({ label: 'Estado', value: '' });
     this.estado.push({ label: 'Activo', value: '1' });
     this.estado.push({ label: 'Inactivo', value: '0' });
+    this.estado.push({ label: 'Pendiente', value: 'P' });
 
 
 

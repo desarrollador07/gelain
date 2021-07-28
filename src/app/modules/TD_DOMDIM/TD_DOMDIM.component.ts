@@ -93,9 +93,13 @@ export class TD_DOMDIMComponent implements OnInit {
   rojo:any;
   amarillo:any;
   verde:any;
+  viche:any;
+  naranja:any;
   r:any;
   a:any;
   v:any;
+  vb:any;
+  n:any;
 
   info1:any [] = [];
   info2:any [] = [];
@@ -166,34 +170,44 @@ export class TD_DOMDIMComponent implements OnInit {
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.liderazgo2.push(this.rojo,this.amarillo,this.verde,this.Total);
-        console.log('pos 0',this.liderazgo2);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        console.log('pos v',this.v);
+        console.log('pos vb',this.vb);
+        this.liderazgo2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+       
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.relaciones2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.relaciones2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 1',this.relaciones2);
         break;
       case 2:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.retroalimentacion2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.retroalimentacion2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 2',this.retroalimentacion2);
         break;
       case 3:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.rela_colaboradores2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.rela_colaboradores2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 3',this.rela_colaboradores2);
         break;
       default:
@@ -216,7 +230,7 @@ export class TD_DOMDIMComponent implements OnInit {
         { brand: 'Riesgo medio', liderazgo: this.liderazgo[2], relaciones: this.relaciones[2], retroalimentacion: this.retroalimentacion[2], rela_colaboradores: this.rela_colaboradores[2],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo alto', liderazgo: this.liderazgo[3], relaciones: this.relaciones[3], retroalimentacion: this.retroalimentacion[3], rela_colaboradores: this.rela_colaboradores[3],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo muy alto', liderazgo: this.liderazgo[4], relaciones: this.relaciones[4], retroalimentacion: this.retroalimentacion[4], rela_colaboradores: this.rela_colaboradores[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL', liderazgo: this.liderazgo2[3], relaciones: this.relaciones2[3], retroalimentacion: this.retroalimentacion2[3], rela_colaboradores: this.rela_colaboradores2[3],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL', liderazgo: this.liderazgo2[5], relaciones: this.relaciones2[5], retroalimentacion: this.retroalimentacion2[5], rela_colaboradores: this.rela_colaboradores2[5],TotalDominio:this.sinRiesgo },
     ];
       
     
@@ -245,42 +259,52 @@ export class TD_DOMDIMComponent implements OnInit {
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.claridad2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.claridad2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 0',this.liderazgo2);
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.capacitacion2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.capacitacion2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 1',this.relaciones2);
         break;
       case 2:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.manejo2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.manejo2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 2',this.retroalimentacion2);
         break;
       case 3:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.oportunidades2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.oportunidades2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 3',this.rela_colaboradores2);
         break;
         case 4:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.control2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.control2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         console.log('pos 3',this.rela_colaboradores2);
         break;
       default:
@@ -301,7 +325,7 @@ export class TD_DOMDIMComponent implements OnInit {
         { brand: 'Riesgo medio', claridad: this.claridad[2], capacitacion: this.capacitacion[2], oportunidades: this.oportunidades[2], manejo: this.manejo[2],control: this.control[2],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo alto', claridad: this.claridad[3], capacitacion: this.capacitacion[3], oportunidades: this.oportunidades[3], manejo: this.manejo[3],control: this.control[3],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo muy alto', claridad: this.claridad[4], capacitacion: this.capacitacion[4], oportunidades: this.oportunidades[4], manejo: this.manejo[4],control: this.control[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL', claridad: this.claridad2[3], capacitacion: this.capacitacion2[3], oportunidades: this.oportunidades2[3], manejo: this.manejo2[3],control: this.manejo2[3],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL', claridad: this.claridad2[5], capacitacion: this.capacitacion2[5], oportunidades: this.oportunidades2[5], manejo: this.manejo2[5],control: this.manejo2[5],TotalDominio:this.sinRiesgo },
     ];
  
   }
@@ -329,65 +353,81 @@ export class TD_DOMDIMComponent implements OnInit {
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.demandas_ambientales2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.demandas_ambientales2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.reponsabilidad2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.reponsabilidad2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
       case 2:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.consistencia_rol2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.consistencia_rol2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
       case 3:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.demandas_emocionales2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.demandas_emocionales2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 4:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.demandas_jornada2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.demandas_jornada2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 5:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.influ_extralaboral2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.influ_extralaboral2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 6:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.demandas_cuantitativas2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.demandas_cuantitativas2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 7:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.demandas_mental2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.demandas_mental2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
       default:
@@ -413,7 +453,7 @@ export class TD_DOMDIMComponent implements OnInit {
         { brand: 'Riesgo alto',                      demandas_ambientales: this.demandas_ambientales[3], reponsabilidad: this.reponsabilidad[3], consistencia_rol: this.consistencia_rol[3], demandas_emocionales: this.demandas_emocionales[3], demandas_jornada: this.demandas_jornada[3],influ_extralaboral: this.influ_extralaboral[3],demandas_cuantitativas: this.demandas_cuantitativas[3],demandas_mental: this.demandas_mental[3],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo muy alto',                  demandas_ambientales: this.demandas_ambientales[4], reponsabilidad: this.reponsabilidad[4], consistencia_rol: this.consistencia_rol[4], demandas_emocionales: this.demandas_emocionales[4], demandas_jornada: this.demandas_jornada[4],influ_extralaboral: this.influ_extralaboral[4],demandas_cuantitativas: this.demandas_cuantitativas[4],demandas_mental: this.demandas_mental[4],TotalDominio:this.sinRiesgo },
         { brand: 'No evaluado',                      demandas_ambientales:'0', reponsabilidad:this.demandas_ambientales2[3] - this.reponsabilidad2[3], consistencia_rol:this.demandas_ambientales2[3] - this.consistencia_rol2[3], demandas_emocionales:'0', demandas_jornada: '0',influ_extralaboral: '0',demandas_cuantitativas: '0',demandas_mental: '0',TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL',                            demandas_ambientales: this.demandas_ambientales2[3],reponsabilidad: this.demandas_ambientales2[3],consistencia_rol: this.demandas_ambientales2[3],demandas_emocionales: this.demandas_emocionales2[3],demandas_jornada: this.demandas_jornada2[3],influ_extralaboral: this.influ_extralaboral2[3],demandas_cuantitativas: this.demandas_cuantitativas2[3],demandas_mental: this.demandas_mental2[3],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL',                            demandas_ambientales: this.demandas_ambientales2[5],reponsabilidad: this.demandas_ambientales2[5],consistencia_rol: this.demandas_ambientales2[5],demandas_emocionales: this.demandas_emocionales2[5],demandas_jornada: this.demandas_jornada2[5],influ_extralaboral: this.influ_extralaboral2[5],demandas_cuantitativas: this.demandas_cuantitativas2[5],demandas_mental: this.demandas_mental2[5],TotalDominio:this.sinRiesgo },
     ];
   }
 
@@ -439,20 +479,21 @@ export class TD_DOMDIMComponent implements OnInit {
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.r = (((this.rojo *100)/this.Total).toFixed(1));
-        this.a = (((this.amarillo *100)/this.Total).toFixed(1));
-        this.v = (((this.verde *100)/this.Total).toFixed(1));
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.recompensas_trabajo2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.recompensas_trabajo2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.reconocimiento2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.reconocimiento2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         break;
       default:
         break;
@@ -470,7 +511,7 @@ export class TD_DOMDIMComponent implements OnInit {
         { brand: 'Riesgo medio',                     recompensas_trabajo: this.recompensas_trabajo[2], reconocimiento: this.reconocimiento[2],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo alto',                      recompensas_trabajo: this.recompensas_trabajo[3], reconocimiento: this.reconocimiento[3],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo muy alto',                  recompensas_trabajo: this.recompensas_trabajo[4], reconocimiento: this.reconocimiento[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL',                            recompensas_trabajo: this.recompensas_trabajo2[3],reconocimiento: this.reconocimiento2[3],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL',                            recompensas_trabajo: this.recompensas_trabajo2[5],reconocimiento: this.reconocimiento2[5],TotalDominio:this.sinRiesgo },
     ];
       
     
@@ -497,57 +538,71 @@ export class TD_DOMDIMComponent implements OnInit {
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.tiempo_fuera2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.tiempo_fuera2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.relaciones_familiares2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.relaciones_familiares2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
       case 2:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.com_relaciones_interperson2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.com_relaciones_interperson2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
       case 3:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.situacion_economica2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.situacion_economica2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 4:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.caract_vivienda2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.caract_vivienda2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 5:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.influencia_extralaboral2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.influencia_extralaboral2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
         case 6:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
-        this.rojo =  data[0] + data[1];
-        this.amarillo = data[2];
-        this.verde =  data[3]+ data[4];
-        this.desplaz_vivienda2.push(this.rojo,this.amarillo,this.verde,this.Total);
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.desplaz_vivienda2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
       default:
@@ -571,8 +626,15 @@ export class TD_DOMDIMComponent implements OnInit {
         { brand: 'Riesgo medio',                     tiempo_fuera: this.tiempo_fuera[2], relaciones_familiares: this.relaciones_familiares[2], com_relaciones_interperson: this.com_relaciones_interperson[2], situacion_economica: this.situacion_economica[2], caract_vivienda: this.caract_vivienda[2],influencia_extralaboral: this.influencia_extralaboral[2],desplaz_vivienda: this.desplaz_vivienda[2],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo alto',                      tiempo_fuera: this.tiempo_fuera[3], relaciones_familiares: this.relaciones_familiares[3], com_relaciones_interperson: this.com_relaciones_interperson[3], situacion_economica: this.situacion_economica[3], caract_vivienda: this.caract_vivienda[3],influencia_extralaboral: this.influencia_extralaboral[3],desplaz_vivienda: this.desplaz_vivienda[3],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo muy alto',                  tiempo_fuera: this.tiempo_fuera[4], relaciones_familiares: this.relaciones_familiares[4], com_relaciones_interperson: this.com_relaciones_interperson[4], situacion_economica: this.situacion_economica[4], caract_vivienda: this.caract_vivienda[4],influencia_extralaboral: this.influencia_extralaboral[4],desplaz_vivienda: this.desplaz_vivienda[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL',                            tiempo_fuera: this.tiempo_fuera2[3],relaciones_familiares: this.relaciones_familiares2[3],com_relaciones_interperson: this.com_relaciones_interperson2[3],situacion_economica: this.situacion_economica2[3],caract_vivienda: this.caract_vivienda2[3],influencia_extralaboral: this.influencia_extralaboral2[3],desplaz_vivienda: this.desplaz_vivienda2[3],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL',                            tiempo_fuera: this.tiempo_fuera2[5],relaciones_familiares: this.relaciones_familiares2[5],com_relaciones_interperson: this.com_relaciones_interperson2[5],situacion_economica: this.situacion_economica2[5],caract_vivienda: this.caract_vivienda2[5],influencia_extralaboral: this.influencia_extralaboral2[5],desplaz_vivienda: this.desplaz_vivienda2[5],TotalDominio:this.sinRiesgo },
     ];
+  }
+
+  notes = {
+    icon: { background:'#eee', border: { color: '#999', dashType: 'solid', width: 1 }, size: undefined, type: 'sqaure' },
+    label: { color: '#000', position: 'inside', rotation: 0 },
+    position: 'top',
+    line: { color: '#999', dashType: 'dash', length: 10, width: 1 }
   }
 
 

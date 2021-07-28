@@ -319,6 +319,9 @@ export class EstresComponent implements OnInit {
         .subscribe((data=>{
           console.log(data);
           localStorage.setItem('estresEs',JSON.stringify(data));
+          this.pruebaservices.updateEstado(this.idl).subscribe((data=>{
+            console.log('modificado',data);
+          }))
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
           this.router.navigate(['/main/empleado']);
