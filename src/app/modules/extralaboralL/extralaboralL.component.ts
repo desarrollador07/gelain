@@ -37,42 +37,10 @@ export class ExtralaboralLComponent implements OnInit {
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));  
-                this.forrr =JSON.parse(localStorage.getItem('Extra'));
-                this.forrrEx =JSON.parse(localStorage.getItem('ExtraE'));
-                console.log("ExtraE",this.forrrEx);
-                console.log("Extra",this.forrr);
-                
-            if (this.forrr !== null) {
-              console.log("ina");
-              
-              this.localPrueba = this.forrr[0];
-            }if (this.forrrEx !== null) {
-              console.log("inb");
-              this.forrr = [];
-              this.localPrueba = this.forrrEx;
-            }
-            if(this.forrr == null && this.forrrEx == null){
-              console.log("inc");
-              
-              this.localPrueba = null;
-            }
-            console.log("lo",this.localPrueba);
+
   }
 
-  ngOnInit() {
-
-/*     this.forrr =JSON.parse(localStorage.getItem('Extra'));
-
-
-    if (this.forrr !== null) {
-      this.localPrueba = this.forrr[0];
-    }else{
-      this.localPrueba = null;
-    } */
-
-
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-
+ async ngOnInit() {
 
 
     this.userform = this.fb.group({
@@ -115,6 +83,17 @@ export class ExtralaboralLComponent implements OnInit {
 
     })
 
+    
+    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    console.log(this.idl);
+    
+    await this.pruebaservices.buscarExtra((this.idl)).toPromise().then((data:any)=>{
+        console.log('buscando data:',data);
+        this.localPrueba = data[0];
+        console.log('localDataaaa',this.localPrueba);
+        
+      })
+
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });
     this.a1.push({ label: 'Siempre', value: '1' });
@@ -135,7 +114,7 @@ export class ExtralaboralLComponent implements OnInit {
 
      if(this.localPrueba !==null){
       this.userform.patchValue({
-        /* extidempleado:this.idl, */
+        extidempleado:this.localPrueba.extidempleado,
         extfaciltransporte:this.localPrueba.extfaciltransporte,
         extvariostransporte:this.localPrueba.extvariostransporte,
         extmuchotiemviaje:this.localPrueba.extmuchotiemviaje,
@@ -276,68 +255,18 @@ export class ExtralaboralLComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){
       if(this.localPrueba !== null){
-        
-        if(this.forrr.length !== 0 || this.forrr !== null){
           console.log("voy a actualizar");
           this.idd = this.localPrueba.extid; 
           this.pruebaservices.updateExtra(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-
-
-            this.pruebaservices.buscarExtra(this.localPrueba.extidempleado)
-        .subscribe((data:any)=>{
-
-          localStorage.setItem('Extra',JSON.stringify(data));
-        })
-            
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
-            this.router.navigate(["EstresL"]);
+            setTimeout(() => {
+              this.router.navigate(["EstresL"]);
+            }, 1000);
+
           })
-        }
-        if (this.forrrEx !== null) {
-          console.log("voy a actualizar");
-          this.idd = this.localPrueba.extid; 
-          this.pruebaservices.updateExtra(this.userform.value,this.idd)
-          .subscribe((data: any) =>{
 
-
-            this.pruebaservices.buscarExtra(this.localPrueba.extidempleado)
-        .subscribe((data:any)=>{
-
-          localStorage.setItem('Extra',JSON.stringify(data));
-          localStorage.removeItem('ExtraE');
-
-        })
-            
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-            this.userform.reset();
-            this.router.navigate(["EstresL"]);
-          })
-        }
-  /*       else{
-          console.log("voy a crear");
-          this.pruebaservices.createExtra(this.userform.value)
-          .subscribe((data:any)=>{
-            localStorage.setItem('ExtraE',JSON.stringify(data));
-            
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-            this.userform.reset();
-            this.router.navigate(['/main/addEstres/crear']);
-            
-          })
-        } */
-      }else{
-        console.log("voy a crear");
-        this.pruebaservices.createExtra(this.userform.value)
-        .subscribe((data:any)=>{
-          localStorage.setItem('ExtraE',JSON.stringify(data));
-          
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(['EstresL']);
-          
-        })
       }
       
     }else{

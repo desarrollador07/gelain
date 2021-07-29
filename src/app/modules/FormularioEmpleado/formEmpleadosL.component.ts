@@ -37,6 +37,10 @@ export class FormEmpleadosLComponent implements OnInit {
   localPrueba: Empleado = {};
 /*   localArea: Area = {}; */
   userform: FormGroup;
+  userformFormaA: FormGroup;
+  userformFormaB: FormGroup;
+  userformExtra: FormGroup;
+  userformEstres: FormGroup;
   es: any;
   id: number;
   idd: any;
@@ -58,9 +62,6 @@ bandera:boolean=false;
 
   async ngOnInit() {
 
-
-    
-   
     this.calendarEspañol();
     this.userform = this.fb.group({
       emdid:[''],
@@ -91,8 +92,325 @@ bandera:boolean=false;
       emdtiposalario: ['', Validators.required],
       emdusuarioreg: ['UsuarioWEb'],
       emdipreg: ['127.0.0.1'],
-      emdactivo:['1'],
+      emdactivo:['P'],
     });
+
+    this.userformFormaA = this.fb.group({
+      inaid: [''],
+      inaidempleado: [''],
+      inaruido: [''],
+      inafrio: [''],
+      inacalor: [''],
+      inaairefresco: [''],
+      inaluz: [''],
+      inacomodo: [''],
+      inasustanquimicas: [''],
+      inaesfuerzofisico: [''],
+      inaequiposcomodos: [''],
+      inaanimalesplantas: [''],
+      inapreoaccidente: [''],
+      inalugarlimpio: [''],
+      inatiempoadicional: [''],
+      inaalcanzatiempo: [''],
+      inatrabajasinparar: [''],
+      inaesfuerzomental: [''],
+      inaexigeconcentrado: [''],
+      inaexigememoria: [''],
+       inadesiciondificiles: [''],
+      inaexigeasuntos: [''],
+      inapqnosdetalles: [''],
+      inaresponcosasvalor: [''],
+      inarespondinero: [''],
+      inareponderotros: [''],
+      inaresponarea: [''],
+      inareponsalud: [''],
+      inaordecontradic: [''],
+      inahacerinnecesaria: [''],
+      inapasarnormas: [''],
+      inamaspracticas: [''],
+      inatrabajodenoche: [''],
+      inapausas: [''],
+      inatrabajodiadesca: [''],
+      inafinsemdesc:[''],
+      inaencasapiensotra: [''],
+      inadiscutofamilia: [''],
+      inaasuntosencasa: [''],
+      inapocotiempofami: [''],
+      inapermitehabilidad: [''],
+      inapermiteconocimi: [''],
+      inapermiteaprender: [''],
+      inamiscapacidades: [''],
+      inapausasnecesito: [''],
+      inatrabajodiario: [''],
+      inadecivelocidad: [''],
+      inacambiarordenact: [''],
+      inaatenderasunpers: [''], 
+
+      inacambiosbeneficio: [''],
+      inaexplicancambios: [''],
+      inapuedodarsugeren: [''],
+      inaencuentamisideas: [''],
+      inacambiosdificultan: [''],
+      inaclaridadfunciones: [''],
+      inadecisionesatomar: [''],
+      inaresultadoslograr: [''],
+      inaefectoenempresa: [''],
+      inaexplicanobjetivos: [''],
+      inaorientaciontraba: [''],
+      inaresolverasuntos: [''],
+      inaasiscapacitacion: [''],
+      inarecibocapacitaci: [''],
+      inarecibocapaciayuda: [''],
+      inajefeintrucciones: [''],
+      inajefeayudaorganiz: [''],
+      inajefemispuntosvist: [''],
+      inajefeanima: [''],
+      inajefedistribuye: [''],
+      inajefecomunica: [''],
+      inajefeorienracion: [''],
+      inajefeayudaprogres: [''],
+      inajefeayudasentime: [''],
+      inajefesolucionar: [''],
+      inajefeconfio: [''],
+      inajefeescucha: [''],
+      inajefeapoyo: [''],
+      inaagradaambiente: [''],
+      inagruporespeto: [''],
+      inaconfiocompaneros: [''],
+      inaagustocompaneros: [''],
+      inagrupomaltrata: [''],
+      inasolucionacompa: [''],
+      inaintegraciongrp: [''],
+      inagrupounido: [''],
+      inasentirpartegrupo: [''],
+      inatrabajogrupo: [''],
+      inagrupodeacuerdo: [''],
+      inagrupoayuda: [''],
+      inaapoyounootros: [''],
+      inaescuchanproble: [''],
+      inainfhagobien: [''],
+      inainfmejorar: [''],
+      inainfrendimiento: [''],
+      inaevaluantrabajo: [''],
+      inainfatiempomejora: [''],
+      inaempconfiantrab: [''],
+      inaemppaganatiempo: [''],
+      inapagoofrecido: [''],
+      inapagomerezco: [''],
+      inaposibprogresar: [''],
+      inahacerbienprog: [''],
+      inaempbienestartrab: [''],
+      inatrabajoestable: [''],
+      inatrabsentirbien: [''],
+      inasientoorgullo: [''],
+      inahablobienempres: [''],
+
+      inaatencionausuarios : [''],
+      inausuenojados: [''],
+      inausupreocupados: [''],
+      inausutristes: [''],
+      inausuenfermos: [''],
+      inausuneceayuda: [''],
+      inausumemaltratan: [''],
+      inaususentimidistin: [''],
+      inasituaviolencia: [''],
+      inaexigedolorosas: [''],
+      inasoyjefe : [''],
+      inacomuntarde: [''],
+      inairrespetuosos: [''],
+      inadificorganiza: [''],
+      inaguardansilencio: [''],
+      inadificlogro: [''],
+      inainforirrespet: [''],
+      inapocacooperacio: [''],
+      inapocodesempeno: [''],
+      inacolabignoran: ['']
+
+    })
+
+    this.userformFormaB = this.fb.group({
+      inbid: [''],
+      inbidempleado: [''],
+      inbruido :[''],
+      inbfrio :[''],
+      inbcalor :[''],
+      inbairefresco :[''],
+      inbluz :[''],
+      inbcomodo :[''],
+      inbsustanquimicas :[''],
+      inbesfuerzofisico :[''],
+      inbequiposcomodos :[''],
+      inbanimalesplantas :[''],
+      inbpreoaccidente :[''],
+      inblugarlimpio :[''],
+      inbtiempoadicional :[''],
+      inbalcanzatiempo :[''],
+      inbtrabajasinparar :[''],
+      inbesfuerzomental :[''],
+      inbexigeconcentrado :[''],
+      inbexigememoria :[''],
+      inbhacercalculos :[''],
+      inbpqnosdetalles :[''],
+      inbtrabajonoche :[''],
+      inbtomarpausas :[''],
+      inbtrabajodiadesca :[''],
+      inbfinsemdesc :[''],
+      inbencasapiensotra :[''],
+      inbdiscutofamilia :[''],
+      inbasuntosencasa :[''],
+      inbpocotiempofami :[''],
+      inbhacercosasnuevas :[''],
+      inbpermitehabilidad :[''],
+      inbpermiteconocimi :[''],
+      inbpermiteaprender :[''],
+      inbpausasnecesito :[''],
+      inbtrabajodiario :[''],
+      inbdecivelocidad :[''],
+      inbcambiarordenact :[''],
+      inbatenderasunpers :[''],
+      inbexplicancambios :[''],
+      inbpuedodarsugeren :[''],
+      inbencuentamisideas :[''],
+      inbclaridadfunciones :[''],
+      inbdecisionesatomar :[''],
+      inbresultadoslograr :[''],
+      inbexplicanobjetivos :[''],
+      inbinfquienresolver :[''],
+      inbasiscapacitacion :[''],
+      inbrecibocapacitaci :[''],
+      inbrecibocapaciayuda :[''],
+      inbjefeayudaorganiz :[''],
+      inbjefemispuntosvist :[''],
+      inbjefeanima :[''],
+      inbjefedistribuye :[''],
+      inbjefecomunica :[''],
+      inbjefeorienracion :[''],
+      inbjefeayudaprogres :[''],
+      inbjefeayudasentime :[''],
+      inbjefesolucionar :[''],
+      inbjeferespeto :[''],
+      inbjefeconfio :[''],
+      inbjefeescucha :[''],
+      inbjefeapoyo :[''],
+      inbagradaambiente :[''],
+      inbgruporespeto :[''],
+      inbconfiocompaneros :[''],
+      inbagustocompaneros :[''],
+      inbgrupomaltrata :[''],
+      inbsolucionacompa :[''],
+      inbgrupounido :[''],
+      inbtrabajogrupo :[''],
+      inbgrupodeacuerdo :[''],
+      inbgrupoayuda :[''],
+      inbapoyounootros :[''],
+      inbescuchanproble :[''],
+      inbinfhagobien :[''],
+      inbinfmejorar :[''],
+      inbinfrendimiento :[''],
+      inbevaluantrabajo :[''],
+      inbinfatiempomejora :[''],
+      inbemppaganatiempo :[''],
+      inbpagoofrecido :[''],
+      inbpagomerezco :[''],
+      inbposibprogresar :[''],
+      inbhacerbienprog :[''],
+      inbempbienestartrab :[''],
+      inbtrabajoestable :[''],
+      inbtrabsentirbien :[''],
+      inbsientoorgullo :[''],
+      inbhablobienempres :[''],
+
+      inbatencionausuarios :[''],
+      inbusuenojados :[''],
+      inbusupreocupados :[''],
+      inbusutristes :[''],
+      inbusuenfermos :[''],
+      inbusuneceayuda :[''],
+      inbusumemaltratan :[''],
+      inbsituaviolencia :[''],
+      inbexigedolorosas :[''],
+      inbexpretristeza :[''] 
+
+    })
+
+    this.userformExtra = this.fb.group({
+      extid:[''],
+      extidempleado:[''],
+      extfaciltransporte:[''],
+      extvariostransporte:[''],
+      extmuchotiemviaje:[''],
+      exttranscomodo:[''],
+      extzonasegura:[''],
+      extzonadelincuencia:[''],
+      extfacilcmedico:[''],
+      extbuenasvias:[''],
+      extcercatransporte:[''],
+      extcondicvivienda:[''],
+      extagualuz:[''],
+      extpermdescanzar:[''],
+      extviviendacomoda:[''],
+      exttiemporecreo:[''],
+      exttiempodescanzo:[''],
+      exttiempopersonal:[''],
+      exttiempofamilia:[''],
+      extbuenacomunica:[''],
+      extrelacionamigos:[''],
+      extconversoperson:[''],
+      extamigosescuchan:[''],
+      extapoyofamiliar:[''],
+      exthabloconperso:[''],
+      extproblemfamiliar:[''],
+      extrelacionfamiliar:[''],
+      extquitanenergia:[''],
+      extresolveamistosa:[''],
+      extafectrelacionestra:[''],
+      extdineroalcanza:[''],
+      extpresupuesfamilia:[''],
+      extdeudashogar:[''],
+      extfechareg:[''],
+      extfechamod:[''],
+      extusuarioreg:[''] 
+
+    })
+
+    this.userformEstres = this.fb.group({
+      estid:[''],
+      estidempleado:[''],
+      estdolorcuello:[''],
+      estprobgastrico:[''],
+      estprobrespira:[''],
+      estdolorcabeza:[''],
+      esttrastsueno:[''],
+      estpalpitacion:[''],
+      estcamapetito:[''],
+      estprobgenital:[''],
+      estdiffamiliar:[''],
+      estdifquieto:[''],
+      estdifpersonas:[''],
+      estsensaislami:[''],
+      estsobrecarga:[''],
+      estdifconcentrar:[''],
+      estaumentaccid:[''],
+      estsentfrustra:[''],
+      estcansancio:[''],
+      estdismrendimie:[''],
+      estdeseonotrab:[''],
+      estpocointeres:[''],
+      estdifdecisiones:[''],
+      estcambioempleo:[''],
+      estsentisoledad:[''],
+      estsentinegativo:[''],
+      estsetangpretris:[''],
+      estconsdrogas:[''],
+      estsentinosirve:[''],
+      estconsucigarri:[''],
+      estperdirazon:[''],
+      estcomprigido:[''],
+      estsensproblem:[''],
+      estusuarioreg:['']
+
+    })
+
 
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
     console.log('f',this.localPrueba);
@@ -106,6 +424,7 @@ bandera:boolean=false;
     this.estado.push({ label: 'Estado', value: '' });
     this.estado.push({ label: 'Activo', value: '1' });
     this.estado.push({ label: 'Inactivo', value: '0' });
+    this.estado.push({ label: 'Pendiente', value: 'P' });
 
 
 
@@ -113,7 +432,7 @@ bandera:boolean=false;
     this.sexo.push({ label: 'Sexo', value: ''});
     this.sexo.push({ label: 'Masculino', value: 'M' });
     this.sexo.push({ label: 'Femenino', value: 'F' });
-    this.sexo.push({ label: 'No Responde', value: 'NR' });
+
 
     this.civil = [];
     this.civil.push({ label: 'Estado Civil', value: '' });
@@ -124,7 +443,7 @@ bandera:boolean=false;
     this.civil.push({ label: 'Divorciado(a)', value: '5' });
     this.civil.push({ label: 'Viudo(a)', value: '6' });
     this.civil.push({ label: 'Sacerdote/Monja', value:' 7' });
-    this.civil.push({ label: 'No Responde', value: 'NR' });
+
 
     this.estudio = [];
     this.estudio.push({ label: 'Ultimos niveles de estudio', value: '' });
@@ -140,7 +459,7 @@ bandera:boolean=false;
     this.estudio.push({ label: 'Carrera militar / policia', value:'10' });
     this.estudio.push({ label: 'Post-grado incompleto', value:'11' });
     this.estudio.push({ label: 'Post-grado completo', value:'12' });
-    this.estudio.push({ label: 'No Responde', value: 'NR' });
+
 
     this.estrato = [];
     this.estrato.push({ label: 'Estrato de su vivienda', value: '' });
@@ -152,14 +471,14 @@ bandera:boolean=false;
     this.estrato.push({ label: '6', value: '6' });
     this.estrato.push({ label: 'Finca', value:'7' });
     this.estrato.push({ label: 'No se', value:'8' });
-    this.estrato.push({ label: 'No Responde', value: 'NR' });
+
 
     this.tipovivi = [];
     this.tipovivi.push({ label: 'Tipo de Vivienda', value: '' });
     this.tipovivi.push({ label: 'Propia', value: '1' });
     this.tipovivi.push({ label: 'En arriendo', value: '2' });
     this.tipovivi.push({ label: 'Familiar', value: '3' });
-    this.tipovivi.push({ label: 'No Responde', value: 'NR' });
+
 
     this.cargo = [];
     this.cargo.push({ label: 'Tipo de Cargo', value: '' });
@@ -167,7 +486,7 @@ bandera:boolean=false;
     this.cargo.push({ label: 'Profesional - analista - técnico - tecnólogo - Manejo de dinero - Información confidencial - Salud y seguridad de otras personas', value: '2' });
     this.cargo.push({ label: 'Auxiliar - asistente administrativo - asistente técnico', value: '3' });
     this.cargo.push({ label: 'Operario, operador, ayudante, servicios generales', value: '4' });
-    this.cargo.push({ label: 'No Responde', value: 'NR' });
+ 
 
     this.tContrato = [];
     this.tContrato.push({ label: 'Tipo de Contrato', value: '' });
@@ -177,14 +496,14 @@ bandera:boolean=false;
     this.tContrato.push({ label: 'Cooperado (cooperativa)', value: '4' });
     this.tContrato.push({ label: 'Prestacion de servicios', value: '5' });
     this.tContrato.push({ label: 'No se', value: '6' });
-    this.tContrato.push({ label: 'No Responde', value: 'NR' });
+  
 
     this.tsalario = [];
     this.tsalario.push({ label: 'Tipo de salario', value: '' });
     this.tsalario.push({ label: 'Fijo', value: '1' });
     this.tsalario.push({ label: 'Una parte fija y otra variable', value: '2' });
     this.tsalario.push({ label: 'Todo variable', value: '3' });
-    this.tsalario.push({ label: 'No Responde', value: 'NR' });
+  
 
 
 
@@ -350,6 +669,29 @@ bandera:boolean=false;
           console.log("tipo cargo",data.emdtipodecargo);
           localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
           localStorage.setItem('prueba',JSON.stringify(data));
+          this.userformExtra.value.extidempleado = data.emdid;
+          this.userformEstres.value.estidempleado = data.emdid;
+          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+            this.userformFormaA.value.inaidempleado = data.emdid;
+            this.userformFormaA.value.inaatencionausuarios = 2;
+            this.userformFormaA.value.inasoyjefe = 2;
+            this.pruebaservices.createFormatoA(this.userformFormaA.value)
+        .subscribe((data:any)=>{
+        })
+          }else{
+            this.userformFormaB.value.inbidempleado = data.emdid;
+            this.userformFormaB.value.inbatencionausuarios = 2;
+            this.pruebaservices.createFormatoB(this.userformFormaB.value)
+            .subscribe((data:any)=>{
+            })
+          }
+          this.pruebaservices.createExtra(this.userformExtra.value)
+          .subscribe((data:any)=>{
+          })
+          this.pruebaservices.createEstres(this.userformEstres.value)
+          .subscribe((data:any)=>{
+            console.log(data);
+          })
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {

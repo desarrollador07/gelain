@@ -20,8 +20,6 @@ import { Empleado } from '../../models/empleado.mdel';
   styleUrls: ['./formatoA.component.css'],
 })
 export class FormatoAComponent implements OnInit {
-  forrr:any[]=[];
-  forrrA:FormatoA;
   localPrueba: FormatoA = {};
   userform: FormGroup;
   es: any;
@@ -39,35 +37,12 @@ export class FormatoAComponent implements OnInit {
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
-                this.forrr =JSON.parse(localStorage.getItem('ForA'));
-                this.forrrA =JSON.parse(localStorage.getItem('ForAA'));
-                console.log("forAA",this.forrrA);
-                console.log("forA",this.forrr);
-                
-            if (this.forrr !== null) {
-              console.log("ina");
-              
-              this.localPrueba = this.forrr[0];
-            }if (this.forrrA !== null) {
-              console.log("inb");
-              this.forrr = [];
-              this.localPrueba = this.forrrA;
-            }
-            if(this.forrr == null && this.forrrA == null){
-              console.log("inc");
-              
-              this.localPrueba = null;
-            }
-            console.log("lo",this.localPrueba);
 
-                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
-  ngOnInit() {
-
+ async ngOnInit() {
     this.vart=false;
     this.vart2=false;
-
 
     this.userform = this.fb.group({
       inaid: [''],
@@ -202,7 +177,13 @@ export class FormatoAComponent implements OnInit {
 
     })
     
-
+    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    await  this.pruebaservices.buscarByFa(this.idl).toPromise().then((data:any)=>{
+        console.log('buscando data:',data);
+        this.localPrueba = data[0];
+        console.log('localDataaaa',this.localPrueba);
+        
+      })
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });
@@ -239,7 +220,7 @@ export class FormatoAComponent implements OnInit {
        }else{
         this.vart2=false;
        }
-      this.userform.patchValue({
+        this.userform.patchValue({
         inaidempleado:this.localPrueba.inaidempleado,
         inaruido:this.localPrueba.inaruido,
         inafrio:this.localPrueba.inafrio,
@@ -687,74 +668,21 @@ export class FormatoAComponent implements OnInit {
   get inahablobienempres() {
     return this.userform.get('inahablobienempres').invalid && this.userform.get('inahablobienempres').touched
   }
-  
-  
-
-
-
 
  onSubmit(){
      if(this.userform.valid){       
       if(this.localPrueba !== null){
-        if(this.forrr.length !== 0  || this.forrr !== null){     
-        console.log("voy a actualizar");
-        this.idd = this.localPrueba.inaid;
-        this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          this.pruebaservices.buscarByFa(this.localPrueba.inaidempleado)
-        .subscribe((data:any)=>{
-          localStorage.setItem('ForA',JSON.stringify(data));
-        })
-
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          console.log("idd",this.idd);
-          
-
-          this.router.navigate(["/main/addExtralaboral/editar"]);
-        })
-        }if (this.forrrA !== null) {
-          console.log("voy a actualizarA");
+          console.log("voy a actualizar");
           this.idd = this.localPrueba.inaid;
           this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-            this.pruebaservices.buscarByFa(this.localPrueba.inaidempleado)
-          .subscribe((data:any)=>{
-            localStorage.setItem('ForA',JSON.stringify(data));
-            localStorage.removeItem('ForAA');
-          })
-  
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
             console.log("idd",this.idd);
-            
-  
-            this.router.navigate(["/main/addExtralaboral/editar"]);
+            setTimeout(() => {
+              this.router.navigate(["/main/addExtralaboral/editar"]);
+            }, 1000);
           })
-        }
-        
-/*         else{
-          console.log("voy a crearA");
-          this.pruebaservices.createFormatoA(this.userform.value)
-          .subscribe((data:any)=>{
-            localStorage.setItem('ForAA',JSON.stringify(data));
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-            this.userform.reset();
-            this.router.navigate(["/main/addExtralaboral/crear"]);
-            
-          })
-        } */
-
-      }else{
-        console.log("voy a crear");
-        this.pruebaservices.createFormatoA(this.userform.value)
-        .subscribe((data:any)=>{
-          localStorage.setItem('ForAA',JSON.stringify(data));
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(["/main/addExtralaboral/crear"]);
-          
-        })
       }
       
     }else{
@@ -781,5 +709,4 @@ export class FormatoAComponent implements OnInit {
         this.vart2 = false;
       }
     }
-
 }
