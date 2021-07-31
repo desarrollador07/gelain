@@ -3,16 +3,71 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
 import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
+import { IntlService } from "@progress/kendo-angular-intl";
+import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 import {ChartModule} from 'primeng/chart';
 import { style } from '@angular/animations';
+import { saveAs } from "@progress/kendo-file-saver";
+import { geometry, fit, exportPDF, Group } from '@progress/kendo-drawing';
+
+
+
+const products = [
+  {
+    ProductID: 1,
+    ProductName: "Chai",
+    UnitPrice: 18.0,
+    Discontinued: true,
+    code: "C1",
+  },
+  {
+    ProductID: 2,
+    ProductName: "Chang",
+    UnitPrice: 19.0,
+    Discontinued: false,
+    code: "C2",
+  }]
+
+
+//   this.sales = [
+//     { brand: 'Sin riesgo o riesgo despreciable', liderazgo: this.liderazgo[0], relaciones: this.relaciones[0], retroalimentacion: this.retroalimentacion[0], rela_colaboradores: this.rela_colaboradores[0],TotalDominio:'0' },
+//     { brand: 'Riesgo bajo', liderazgo: this.liderazgo[1], relaciones: this.relaciones[1], retroalimentacion: this.retroalimentacion[1], rela_colaboradores: this.rela_colaboradores[1] ,TotalDominio:this.sinRiesgo},
+//     { brand: 'Riesgo medio', liderazgo: this.liderazgo[2], relaciones: this.relaciones[2], retroalimentacion: this.retroalimentacion[2], rela_colaboradores: this.rela_colaboradores[2],TotalDominio:this.sinRiesgo },
+//     { brand: 'Riesgo alto', liderazgo: this.liderazgo[3], relaciones: this.relaciones[3], retroalimentacion: this.retroalimentacion[3], rela_colaboradores: this.rela_colaboradores[3],TotalDominio:this.sinRiesgo },
+//     { brand: 'Riesgo muy alto', liderazgo: this.liderazgo[4], relaciones: this.relaciones[4], retroalimentacion: this.retroalimentacion[4], rela_colaboradores: this.rela_colaboradores[4],TotalDominio:this.sinRiesgo },
+//     { brand: 'TOTAL', liderazgo: this.liderazgo2[5], relaciones: this.relaciones2[5], retroalimentacion: this.retroalimentacion2[5], rela_colaboradores: this.rela_colaboradores2[5],TotalDominio:this.sinRiesgo },
+// ];
+
+
+
+
+
 @Component({
   selector: 'app-empleados',
   templateUrl: './TD_DOMDIM.component.html',
+  styles: [
+    `
+      .k-pdf-export p {
+        border: 2px dashed #aaa;
+        padding: 10px;
+      }
+
+      kendo-pdf-export {
+        font-family: "DejaVu Sans", "Arial", sans-serif;
+        font-size: 12px;
+      }
+    `,
+  ],
+  
   styleUrls: ['./TD_DOMDIM.component.css']
 })
 export class TD_DOMDIMComponent implements OnInit {
+  
+
   idEmpresa:any;
   idtemporal:any;
+  usuario:any;
+  nEmpresa:any;
   prueba: Empleado;
 
   pruebas: Empleado[] = [];
@@ -22,9 +77,12 @@ export class TD_DOMDIMComponent implements OnInit {
   sales3: any[]= [];
   sales4: any[]= [];
   sales5: any[]= [];
+  sales6: any[]= [];
+  sales7: any[]= [];
+  sales8: any[]= [];
 
   columns: any[];
-
+  dataDona: any[];
   data: any;
   liderazgo:any[]= [];
   relaciones:any[]= [];
@@ -88,7 +146,28 @@ export class TD_DOMDIMComponent implements OnInit {
   influencia_extralaboral2:any[] = [];
   desplaz_vivienda2:any[] = [];
 
+  FISIOLOGICAS :any[] = [];
+  COMPORTAMIENTO_SOCIAL :any[] = [];
+  INTEL_LABORA :any[] = [];
+  PSICOEMOCIONALES :any[] = [];
+
+  FISIOLOGICAS2 :any[] = [];
+  COMPORTAMIENTO_SOCIAL2 :any[] = [];
+  INTEL_LABORA2 :any[] = [];
+  PSICOEMOCIONALES2 :any[] = [];
+
+total_intralaboral :any[] = [];
+total_extralaboral :any[] = [];
+total_general :any[] = [];
+
+total_intralaboral2 :any[] = [];
+total_extralaboral2 :any[] = [];
+total_general2 :any[] = [];
+
+
   sinRiesgo:any;
+  sinRiesgoex:any[] = [];
+  sinRiesgo2ex:any[] = [];
   Total:any;
   rojo:any;
   amarillo:any;
@@ -105,6 +184,7 @@ export class TD_DOMDIMComponent implements OnInit {
   info2:any [] = [];
   infopreF:any[] = [];
   infoF:any[] = [];
+  donadata :any[] = [];
   tam:any;
 
   info11:any [] = [];
@@ -131,22 +211,64 @@ export class TD_DOMDIMComponent implements OnInit {
   infoF4:any[] = [];
   tam4:any;
 
+  info15:any [] = [];
+  info25:any [] = [];
+  infopreF5:any[] = [];
+  infoF5:any[] = [];
+  tam5:any;
+
+  Sin_riesgo_o_riesgo_despreciable :any;
+  Riesgo_bajo:any;
+  Riesgo_medio:any;
+  Riesgo_alto :any;
+  Riesgo_muy_alto:any;
+  Sin_riesgo_o_riesgo_despreciableD :any;
+  Riesgo_bajoD:any;
+  Riesgo_medioD:any;
+  Riesgo_altoD :any;
+  Riesgo_muy_altoD:any;
+  total :any;
+
+  options2: any;
+
+  fechaActual :Date;
+  fecha :any;
+
+
+  
+
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
-              private _messageService: MessageService) {
+              private _messageService: MessageService,
+               private intl: IntlService) {
+                
                 this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
+                this.usuario = localStorage.getItem("user");
+                this.nEmpresa = localStorage.getItem("nombreEmpresa");
                 this.idtemporal = 0;
+
+                
+
+
+                
                 
    }
 
   async ngOnInit() {
+    this.fechaActual = new Date();
+    this.fecha=String(this.fechaActual);
     this.fnBuscarCatalogos();
       this.fnBuscarCatalogosControl();
     this.fnBuscarCatalogosDemandas();
     this.fnBuscarCatalogosRecompensas();
     this.fnBuscarCatalogosPsicoExtra();
+    this.fnBuscarCatalogosPsicoEstresDetalles();
+    this.fnBuscarCatalogosTotal();
+    this.metodo();
   }
-
+  public labelContent(args: LegendLabelsContentArgs): string {
+    return `${args.dataItem.category} : ${args.dataItem.value}`;
+}
   public fnBuscarCatalogos(): void {
     this.pruebaServices.getLiderazgoRA(this.idEmpresa).toPromise().then((data:any)=>{
       this.info1 = data;
@@ -605,6 +727,11 @@ export class TD_DOMDIMComponent implements OnInit {
         this.desplaz_vivienda2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
+        case 7:
+          this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+          this.sinRiesgo2ex.push(this.Total);
+  
+          break;
       default:
         break;
     }
@@ -619,15 +746,215 @@ export class TD_DOMDIMComponent implements OnInit {
       this.caract_vivienda = data[4];
       this.influencia_extralaboral = data[5];
       this.desplaz_vivienda = data[6];
-      this.sinRiesgo = 0;
+      this.sinRiesgoex = data[7];
       this.sales5 = [
-        { brand: 'Sin riesgo o riesgo despreciable', tiempo_fuera: this.tiempo_fuera[0], relaciones_familiares: this.relaciones_familiares[0], com_relaciones_interperson: this.com_relaciones_interperson[0], situacion_economica: this.situacion_economica[0], caract_vivienda: this.caract_vivienda[0],influencia_extralaboral: this.influencia_extralaboral[0],desplaz_vivienda: this.desplaz_vivienda[0],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo bajo',                      tiempo_fuera: this.tiempo_fuera[1], relaciones_familiares: this.relaciones_familiares[1], com_relaciones_interperson: this.com_relaciones_interperson[1], situacion_economica: this.situacion_economica[1], caract_vivienda: this.caract_vivienda[1],influencia_extralaboral: this.influencia_extralaboral[1],desplaz_vivienda: this.desplaz_vivienda[1],TotalDominio:this.sinRiesgo},
-        { brand: 'Riesgo medio',                     tiempo_fuera: this.tiempo_fuera[2], relaciones_familiares: this.relaciones_familiares[2], com_relaciones_interperson: this.com_relaciones_interperson[2], situacion_economica: this.situacion_economica[2], caract_vivienda: this.caract_vivienda[2],influencia_extralaboral: this.influencia_extralaboral[2],desplaz_vivienda: this.desplaz_vivienda[2],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo alto',                      tiempo_fuera: this.tiempo_fuera[3], relaciones_familiares: this.relaciones_familiares[3], com_relaciones_interperson: this.com_relaciones_interperson[3], situacion_economica: this.situacion_economica[3], caract_vivienda: this.caract_vivienda[3],influencia_extralaboral: this.influencia_extralaboral[3],desplaz_vivienda: this.desplaz_vivienda[3],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo muy alto',                  tiempo_fuera: this.tiempo_fuera[4], relaciones_familiares: this.relaciones_familiares[4], com_relaciones_interperson: this.com_relaciones_interperson[4], situacion_economica: this.situacion_economica[4], caract_vivienda: this.caract_vivienda[4],influencia_extralaboral: this.influencia_extralaboral[4],desplaz_vivienda: this.desplaz_vivienda[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL',                            tiempo_fuera: this.tiempo_fuera2[5],relaciones_familiares: this.relaciones_familiares2[5],com_relaciones_interperson: this.com_relaciones_interperson2[5],situacion_economica: this.situacion_economica2[5],caract_vivienda: this.caract_vivienda2[5],influencia_extralaboral: this.influencia_extralaboral2[5],desplaz_vivienda: this.desplaz_vivienda2[5],TotalDominio:this.sinRiesgo },
+        { brand: 'Sin riesgo o riesgo despreciable', tiempo_fuera: this.tiempo_fuera[0], relaciones_familiares: this.relaciones_familiares[0], com_relaciones_interperson: this.com_relaciones_interperson[0], situacion_economica: this.situacion_economica[0], caract_vivienda: this.caract_vivienda[0],influencia_extralaboral: this.influencia_extralaboral[0],desplaz_vivienda: this.desplaz_vivienda[0],TotalDominio:this.sinRiesgoex[0] },
+        { brand: 'Riesgo bajo',                      tiempo_fuera: this.tiempo_fuera[1], relaciones_familiares: this.relaciones_familiares[1], com_relaciones_interperson: this.com_relaciones_interperson[1], situacion_economica: this.situacion_economica[1], caract_vivienda: this.caract_vivienda[1],influencia_extralaboral: this.influencia_extralaboral[1],desplaz_vivienda: this.desplaz_vivienda[1],TotalDominio:this.sinRiesgoex[1]},
+        { brand: 'Riesgo medio',                     tiempo_fuera: this.tiempo_fuera[2], relaciones_familiares: this.relaciones_familiares[2], com_relaciones_interperson: this.com_relaciones_interperson[2], situacion_economica: this.situacion_economica[2], caract_vivienda: this.caract_vivienda[2],influencia_extralaboral: this.influencia_extralaboral[2],desplaz_vivienda: this.desplaz_vivienda[2],TotalDominio:this.sinRiesgoex[2] },
+        { brand: 'Riesgo alto',                      tiempo_fuera: this.tiempo_fuera[3], relaciones_familiares: this.relaciones_familiares[3], com_relaciones_interperson: this.com_relaciones_interperson[3], situacion_economica: this.situacion_economica[3], caract_vivienda: this.caract_vivienda[3],influencia_extralaboral: this.influencia_extralaboral[3],desplaz_vivienda: this.desplaz_vivienda[3],TotalDominio:this.sinRiesgoex[3] },
+        { brand: 'Riesgo muy alto',                  tiempo_fuera: this.tiempo_fuera[4], relaciones_familiares: this.relaciones_familiares[4], com_relaciones_interperson: this.com_relaciones_interperson[4], situacion_economica: this.situacion_economica[4], caract_vivienda: this.caract_vivienda[4],influencia_extralaboral: this.influencia_extralaboral[4],desplaz_vivienda: this.desplaz_vivienda[4],TotalDominio:this.sinRiesgoex[4] },
+        { brand: 'TOTAL',                            tiempo_fuera: this.tiempo_fuera2[5],relaciones_familiares: this.relaciones_familiares2[5],com_relaciones_interperson: this.com_relaciones_interperson2[5],situacion_economica: this.situacion_economica2[5],caract_vivienda: this.caract_vivienda2[5],influencia_extralaboral: this.influencia_extralaboral2[5],desplaz_vivienda: this.desplaz_vivienda2[5],TotalDominio:this.sinRiesgo2ex[0] },
     ];
+  }
+
+  
+
+  public fnBuscarCatalogosPsicoEstresDetalles(): void {
+    this.pruebaServices.getESTRES_DETALLES(this.idEmpresa).toPromise().then((data:any)=>{
+      this.info14 = data;
+  
+      
+        for (let j = 0; j < this.info14.length; j++) {
+          this.fnAsisgnarDatosFiltrosESTRES_DETALLES(this.info14[j],j);
+        }
+          this.ESTRES_DETALLES(this.info14);
+    })
+  
+
+  }
+
+  public fnAsisgnarDatosFiltrosESTRES_DETALLES(data, tamaño:number): void {
+    switch (tamaño) {
+      case 0:
+        this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.FISIOLOGICAS2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+        break;
+      case 1:
+        this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.COMPORTAMIENTO_SOCIAL2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+
+        break;
+      case 2:
+        this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.INTEL_LABORA2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+
+        break;
+        case 3:
+          this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+          this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+          this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+          this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+          this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+          this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+          this.PSICOEMOCIONALES2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+
+        break;
+      default:
+        break;
+    }
+  }
+
+  ESTRES_DETALLES(data){
+    
+      this.FISIOLOGICAS  = data[0];
+      this.COMPORTAMIENTO_SOCIAL = data[1];
+      this.INTEL_LABORA = data[2];
+      this.	PSICOEMOCIONALES = data[3];
+      this.sinRiesgo = 0;
+      this.sales6 = [
+        { brand: 'Sin riesgo o riesgo despreciable', FISIOLOGICAS: this.FISIOLOGICAS[0], COMPORTAMIENTO_SOCIAL: this.COMPORTAMIENTO_SOCIAL[0], INTEL_LABORA: this.INTEL_LABORA[0], PSICOEMOCIONALES: this.PSICOEMOCIONALES[0], TotalDominio:this.sinRiesgo },
+        { brand: 'Riesgo bajo',                      FISIOLOGICAS: this.FISIOLOGICAS[1], COMPORTAMIENTO_SOCIAL: this.COMPORTAMIENTO_SOCIAL[1], INTEL_LABORA: this.INTEL_LABORA[1], PSICOEMOCIONALES: this.PSICOEMOCIONALES[1], TotalDominio:this.sinRiesgo },
+        { brand: 'Riesgo medio',                     FISIOLOGICAS: this.FISIOLOGICAS[2], COMPORTAMIENTO_SOCIAL: this.COMPORTAMIENTO_SOCIAL[2], INTEL_LABORA: this.INTEL_LABORA[2], PSICOEMOCIONALES: this.PSICOEMOCIONALES[2], TotalDominio:this.sinRiesgo },
+        { brand: 'Riesgo alto',                      FISIOLOGICAS: this.FISIOLOGICAS[3], COMPORTAMIENTO_SOCIAL: this.COMPORTAMIENTO_SOCIAL[3], INTEL_LABORA: this.INTEL_LABORA[3], PSICOEMOCIONALES: this.PSICOEMOCIONALES[3], TotalDominio:this.sinRiesgo },
+        { brand: 'Riesgo muy alto',                  FISIOLOGICAS: this.FISIOLOGICAS[4], COMPORTAMIENTO_SOCIAL: this.COMPORTAMIENTO_SOCIAL[4], INTEL_LABORA: this.INTEL_LABORA[4], PSICOEMOCIONALES: this.PSICOEMOCIONALES[4], TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL',                            FISIOLOGICAS: this.FISIOLOGICAS2[5],COMPORTAMIENTO_SOCIAL: this.COMPORTAMIENTO_SOCIAL2[5],INTEL_LABORA: this.INTEL_LABORA2[5],PSICOEMOCIONALES: this.PSICOEMOCIONALES2[5],TotalDominio:this.sinRiesgo },
+    ];
+  }
+
+  public fnBuscarCatalogosTotal(): void {
+    this.pruebaServices.getTotalGeneral(this.idEmpresa).toPromise().then((data:any)=>{
+      this.info15 = data;
+  
+      
+        for (let j = 0; j < this.info15.length; j++) {
+          this.fnAsisgnarDatosFiltrosTotalGeneral(this.info15[j],j);
+        }
+          this.TotalGeneral(this.info15);
+    })
+  
+
+  }
+
+  public fnAsisgnarDatosFiltrosTotalGeneral(data, tamaño:number): void {
+    switch (tamaño) {
+      case 0:
+        this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.total_intralaboral2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+        break;
+      case 1:
+        this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.total_extralaboral2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+
+        break;
+      case 2:
+        this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+        this.v = Number((((data[0] *100)/this.Total)).toFixed(1));
+        this.vb = Number((((data[1] *100)/this.Total)).toFixed(1));
+        this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
+        this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
+        this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
+        this.total_general2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+
+        break;
+      default:
+        break;
+    }
+  }
+
+  TotalGeneral(data){
+    
+      this.total_intralaboral  = data[0];
+      this.total_extralaboral = data[1];
+      this.total_general = data[2];
+      this.sales8 = [
+        { brand: 'Sin riesgo o riesgo despreciable', total_intralaboral: this.total_intralaboral[0], total_extralaboral: this.total_extralaboral[0], total_general: this.total_general[0] },
+        { brand: 'Riesgo bajo',                      total_intralaboral: this.total_intralaboral[1], total_extralaboral: this.total_extralaboral[1], total_general: this.total_general[1] },
+        { brand: 'Riesgo medio',                     total_intralaboral: this.total_intralaboral[2], total_extralaboral: this.total_extralaboral[2], total_general: this.total_general[2] },
+        { brand: 'Riesgo alto',                      total_intralaboral: this.total_intralaboral[3], total_extralaboral: this.total_extralaboral[3], total_general: this.total_general[3] },
+        { brand: 'Riesgo muy alto',                  total_intralaboral: this.total_intralaboral[4], total_extralaboral: this.total_extralaboral[4], total_general: this.total_general[4] },
+        { brand: 'TOTAL',                            total_intralaboral: this.total_intralaboral2[5],total_extralaboral: this.total_extralaboral2[5],total_general: this.total_general2[5] },
+    ];
+  }
+
+  metodo(){
+    this.pruebaServices.getESTRESTOTAL(this.idEmpresa).subscribe((data) => {
+      console.log("donaDATA",data);
+      this.donadata = data[0]
+      this.total = this.donadata[0] + this.donadata[1] + this.donadata[2] + this.donadata[3] + this.donadata[4];
+      this.Sin_riesgo_o_riesgo_despreciable = this.donadata[0];
+      this.Riesgo_bajo =this.donadata[1];
+      this.Riesgo_medio =this.donadata[2];
+      this.Riesgo_alto =this.donadata[3];
+      this.Riesgo_muy_alto = this.donadata[4];
+      
+
+      this.sales7 = [
+        { brand: 'Sin riesgo o riesgo despreciable', TOTAL_ESTRES: this.Sin_riesgo_o_riesgo_despreciable },
+        { brand: 'Riesgo bajo',                      TOTAL_ESTRES: this.Riesgo_bajo },
+        { brand: 'Riesgo medio',                     TOTAL_ESTRES: this.Riesgo_medio },
+        { brand: 'Riesgo alto',                      TOTAL_ESTRES: this.Riesgo_alto },
+        { brand: 'Riesgo muy alto',                  TOTAL_ESTRES: this.Riesgo_muy_alto },
+        { brand: 'TOTAL',                            TOTAL_ESTRES: this.total },
+    ];
+
+    this.Sin_riesgo_o_riesgo_despreciableD = Number((((this.donadata[0] *100)/this.total)).toFixed(1));
+    this.Riesgo_bajoD =Number((((this.donadata[1] *100)/this.total)));
+    this.Riesgo_medioD =Number((((this.donadata[2] *100)/this.total)));
+    this.Riesgo_altoD =((this.donadata[3] *100)/this.total);
+    this.Riesgo_muy_altoD = Number((((this.donadata[4] *100)/this.total)));
+
+
+      console.log("S",this.Sin_riesgo_o_riesgo_despreciableD);
+      console.log("B", this.Riesgo_bajoD);
+      console.log("M",this.Riesgo_medioD);
+      console.log("A",this.Riesgo_altoD);
+      console.log("mA",this.Riesgo_muy_altoD);
+      console.log("T",this.total);
+      this.dataDona = [{ category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))},
+      { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD ))  },
+      { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD ))  },
+      { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD ))  },
+      { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))   },
+      { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)) }];
+
+      this.options2 = {
+          title: {
+              display: true,
+              // text: "Facturación Mensual",
+              fontSize: 16,
+          },
+          legend: {
+              position: "bottom",
+          },
+      };
+         
+
+    });      
   }
 
   notes = {

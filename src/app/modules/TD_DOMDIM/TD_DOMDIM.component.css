@@ -39,3 +39,22 @@ cardd {
     background-color: rgb(136, 56, 152) !important;
     color: #ffffff !important;
 }
+
+*>>>.k-grid th {
+    padding: 8px 12px;
+    border-width: 0 0 1px 1px;
+    white-space: normal;
+}
+
+*>>>.chart-wrap {
+    text-align: center;
+}
+
+*>>>.chart {
+    display: inline-block;
+}
+
+*>>>.kendo-pdf-export {
+    font-family: "DejaVu Sans", "Arial", sans-serif;
+    font-size: 12px;
+}

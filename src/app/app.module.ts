@@ -100,6 +100,18 @@ import { BreadcrumbService } from './breadcrumb.service';
 import { MainComponent } from './layout/main/main.component';
 import { LoginModule} from './modules/login/login.module';
 import { EmpleadosComponent } from './modules/empleados/empleados.component';
+import { PDFExportModule } from '@progress/kendo-angular-pdf-export';
+
+
+
+
+import { ChartsModule } from "@progress/kendo-angular-charts";
+import { InputsModule } from "@progress/kendo-angular-inputs";
+
+
+
+import "hammerjs";
+
 
 
 @NgModule({
@@ -175,6 +187,10 @@ import { EmpleadosComponent } from './modules/empleados/empleados.component';
         TreeTableModule,
         VirtualScrollerModule,
         LoginModule,
+        PDFExportModule,
+        ChartsModule,
+        InputsModule,
+       
 
 
     ],
@@ -201,6 +217,8 @@ import { EmpleadosComponent } from './modules/empleados/empleados.component';
         FileDemoComponent,
         DocumentationComponent,
         MainComponent,
+      
+        
         
 
 

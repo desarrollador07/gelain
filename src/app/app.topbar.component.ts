@@ -57,6 +57,7 @@ export class AppTopBarComponent {
         this.empresita = this.empresas[i];
         if (this.empresita.empnombre == arg.target.value) {
            localStorage.setItem("nameEmpresaEmp",this.empresita.empid.toString())
+           localStorage.setItem("nombreEmpresa",this.empresita.empnombre)
           this.router.navigate(["main/dashboard"]) 
           this.emCopm.actualizarData(this.empresita.empid);
         }

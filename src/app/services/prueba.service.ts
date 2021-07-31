@@ -79,6 +79,12 @@ export class PruebaService {
 
   UrlPSICOSOCIAL_EXTRALABORAL = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/PSICOSOCIAL_EXTRALABORAL';
 
+  UrlESTRES_DETALLES = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ESTRES_DETALLES';
+
+  UrlESTRES = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ESTRES';
+
+  UrlTotalGeneral = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/TotalGeneral';
+
   constructor(private http: HttpClient) {
   }
 
@@ -272,6 +278,17 @@ export class PruebaService {
     return this.http.get(this.UrlPSICOSOCIAL_EXTRALABORAL+ "/" + id);
   }
 
+  getESTRES_DETALLES(id:number){
+    return this.http.get(this.UrlESTRES_DETALLES+ "/" + id);
+  }
+
+  getESTRESTOTAL(id:number){
+    return this.http.get(this.UrlESTRES+ "/" + id);
+  }
+
+  getTotalGeneral(id:number){
+    return this.http.get(this.UrlTotalGeneral+ "/" + id);
+  }
 
   
 /*  getIPAddress()  
