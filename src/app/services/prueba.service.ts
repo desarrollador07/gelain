@@ -291,6 +291,9 @@ export class PruebaService {
   }
 
   
+
+
+  
 /*  getIPAddress()  
   {  
     return this.http.get("http://api.ipify.org/?format=json");  

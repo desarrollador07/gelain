@@ -40,31 +40,9 @@ export class FormatoALComponent implements OnInit {
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));  
-                this.forrr =JSON.parse(localStorage.getItem('ForA'));
-                this.forrrA =JSON.parse(localStorage.getItem('ForAA'));
-                console.log("forAA",this.forrrA);
-                console.log("forA",this.forrr);
-                
-            if (this.forrr !== null) {
-              console.log("ina");
-              
-              this.localPrueba = this.forrr[0];
-            }if (this.forrrA !== null) {
-              console.log("inb");
-              this.forrr = [];
-              this.localPrueba = this.forrrA;
-            }
-            if(this.forrr == null && this.forrrA == null){
-              console.log("inc");
-              
-              this.localPrueba = null;
-            }
-            console.log("lo",this.localPrueba);
-
-                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
-  ngOnInit() {
+ async ngOnInit() {
 
     this.vart=false;
     this.vart2=false;
@@ -204,7 +182,13 @@ export class FormatoALComponent implements OnInit {
     })
     
 
-  
+    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    await  this.pruebaservices.buscarByFa(this.idl).toPromise().then((data:any)=>{
+        console.log('buscando data:',data);
+        this.localPrueba = data[0];
+        console.log('localDataaaa',this.localPrueba);
+        
+      })
 
 
 
@@ -700,65 +684,17 @@ export class FormatoALComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){       
       if(this.localPrueba !== null){
-        if(this.forrr.length !== 0  || this.forrr !== null){     
-        console.log("voy a actualizar");
-        this.idd = this.localPrueba.inaid;
-        this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          this.pruebaservices.buscarByFa(this.localPrueba.inaidempleado)
-        .subscribe((data:any)=>{
-          localStorage.setItem('ForA',JSON.stringify(data));
-        })
-
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          console.log("idd",this.idd);
-          
-
-          this.router.navigate(["/ExtralaboralL"]);
-        })
-        }if (this.forrrA !== null) {
           console.log("voy a actualizarA");
           this.idd = this.localPrueba.inaid;
           this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-            this.pruebaservices.buscarByFa(this.localPrueba.inaidempleado)
-          .subscribe((data:any)=>{
-            localStorage.setItem('ForA',JSON.stringify(data));
-            localStorage.removeItem('ForAA');
-          })
-  
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
             console.log("idd",this.idd);
-            
-  
-            this.router.navigate(["/ExtralaboralL"]);
+            setTimeout(() => {
+              this.router.navigate(["/ExtralaboralL"]);
+            }, 1000); 
           })
-        }
-        
-/*         else{
-          console.log("voy a crearA");
-          this.pruebaservices.createFormatoA(this.userform.value)
-          .subscribe((data:any)=>{
-            localStorage.setItem('ForAA',JSON.stringify(data));
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-            this.userform.reset();
-            this.router.navigate(["/main/addExtralaboral/crear"]);
-            
-          })
-        } */
-
-      }else{
-        console.log("voy a crear");
-        this.pruebaservices.createFormatoA(this.userform.value)
-        .subscribe((data:any)=>{
-          localStorage.setItem('ForAA',JSON.stringify(data));
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(["/ExtralaboralL"]);
-          
-        })
       }
       
     }else{

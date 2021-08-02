@@ -66,8 +66,8 @@ export class TD_DOMDIMComponent implements OnInit {
 
   idEmpresa:any;
   idtemporal:any;
-  usuario:any;
   nEmpresa:any;
+  usuario:any;
   prueba: Empleado;
 
   pruebas: Empleado[] = [];
