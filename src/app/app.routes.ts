@@ -181,6 +181,14 @@ export const routes: Routes = [
                     ),
             },
 
+            {
+                path: "ReporteDetallado",
+                loadChildren: () =>
+                    import("./modules/reporDetallado/ReporteDetallado.module").then(
+                        (m) => m.ReporteDetalladoModule
+                    ),
+            },
+
 
             
         ]

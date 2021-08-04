@@ -111,6 +111,14 @@ import { InputsModule } from "@progress/kendo-angular-inputs";
 
 
 import "hammerjs";
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
+import { LabelModule } from '@progress/kendo-angular-label';
+
+
+
+
 
 
 
@@ -190,6 +198,10 @@ import "hammerjs";
         PDFExportModule,
         ChartsModule,
         InputsModule,
+        DropDownsModule,
+        DateInputsModule,
+        ExcelExportModule,
+        LabelModule,
        
 
 

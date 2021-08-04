@@ -19,13 +19,20 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf paperSize="A4" margin="1cm" [scale]="0.5">
-
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -112,12 +119,11 @@
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 666px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 510px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
+
         </div>
     </kendo-pdf-export>
 
@@ -129,12 +135,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -235,12 +249,10 @@
 
 
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 580px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
         </div>
     </kendo-pdf-export>
 
@@ -257,12 +269,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf3 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -374,12 +394,10 @@
 
 
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 550px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
         </div>
     </kendo-pdf-export>
 
@@ -395,12 +413,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -486,12 +512,10 @@
 
 
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 570px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
         </div>
     </kendo-pdf-export>
 
@@ -505,12 +529,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -590,12 +622,10 @@
 
 
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 580px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
         </div>
     </kendo-pdf-export>
 
@@ -608,12 +638,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -685,12 +723,10 @@
 
 
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 580px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
         </div>
     </kendo-pdf-export>
 
@@ -702,12 +738,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf7 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -743,11 +787,8 @@
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
-            </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -762,12 +803,20 @@
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
 
-        <div style="font-size: 30px;" class="header"><b>{{nEmpresa}}</b></div>
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
 
 
-        <div style="font-size: 20px;">
+        <div style="font-size: 20px; text-align: center;">
 
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
 
@@ -835,12 +884,10 @@
 
 
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 580px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 480px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-            <div style=" font-size: 17px; text-align: left; padding-top: 12px;">
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
+
         </div>
     </kendo-pdf-export>
 
@@ -853,12 +900,9 @@
 
 <!-- -----------------------------------------------VISUAL--------------------------------------------->
 
-
 <!-- -----------------------------------RIESGO PSICOSOCIAL INTRALABORAL 1--------------------------------------------->
 <fieldset>
     <legend><b>LIDERAZGO Y RELACIONES SOCIALES</b></legend>
-
-    <!-- -----------------------------------CONTROL SOBRE EL TRABAJO-  2-------------------------------------------->
     <br>
     <div>
         <p-panel header="LIDERAZGO Y RELACIONES SOCIALES">
@@ -868,7 +912,111 @@
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf2.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf.saveAs(text1)">
+                    <!-- <button class="k-button" (click)="pdf.saveAs('LIDERAZGO_Y_RELACIONES_SOCIALES_'+fechaActual+'.pdf')"> -->
+                  Genarar Reporte
+                </button>
+                </div>
+                <br>
+
+                <div>
+                    <kendo-grid [data]="sales">
+                        <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
+                        <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
+                            <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
+                            <ng-template let-column let-columnIndex="columnIndex">
+                                <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
+                                {{ column.field }}({{ columnIndex }})
+                            </ng-template>
+                        </kendo-grid-column>
+                        <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
+                            <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)" [locked]="false">
+                                <ng-template let-column let-columnIndex="columnIndex">
+                                    {{ column.field }}({{ columnIndex }})
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)" [locked]="false">
+                                <ng-template let-column let-columnIndex="columnIndex">
+                                    {{ column.field }}({{ columnIndex }})
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)" [locked]="false">
+                                <ng-template let-column let-columnIndex="columnIndex">
+                                    {{ column.field }}({{ columnIndex }})
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)" [locked]="false">
+                                <ng-template let-column let-columnIndex="columnIndex">
+                                    {{ column.field }}({{ columnIndex }})
+                                </ng-template>
+                            </kendo-grid-column>
+                            <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="100" [locked]="false">
+                                <ng-template let-column let-columnIndex="columnIndex">
+                                    {{ column.field }}({{ columnIndex }})
+                                </ng-template>
+                            </kendo-grid-column>
+                        </kendo-grid-column-group>
+                    </kendo-grid>
+                </div>
+
+                <br>
+                <br>
+
+                <div>
+                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" color="#1E830A" noteTextField="notes" [notes]="notes" [stack]="{ type: '100%' }" [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[liderazgo2[3],  relaciones2[3], retroalimentacion2[3],rela_colaboradores2[3]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+
+                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[liderazgo2[4],  relaciones2[4], retroalimentacion2[4],rela_colaboradores2[4]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+
+                    </kendo-chart>
+
+                </div>
+
+
+            </div>
+
+
+        </p-panel>
+
+    </div>
+    <br>
+
+    <!-- -----------------------------------CONTROL SOBRE EL TRABAJO-  2-------------------------------------------->
+    <br>
+    <div>
+        <p-panel header="CONTROL SOBRE EL TRABAJO">
+
+
+
+            <div>
+
+                <div class="example-config">
+                    <button class="k-button" (click)="pdf2.saveAs(text2)">
                   Genarar Reporte
                 </button>
                 </div>
@@ -978,7 +1126,7 @@
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf3.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf3.saveAs(text3)">
                   Genarar Reporte
                 </button>
                 </div>
@@ -1102,7 +1250,7 @@
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf4.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf4.saveAs(text4)">
                   Genarar Reporte
                 </button>
                 </div>
@@ -1201,14 +1349,14 @@
     <!-- -----------------------------------RIESGO PSICOSOCIAL  EXTRALABORAL 5--------------------------------------------->
     <br>
     <div>
-        <p-panel header="RIESGO PSICOSOCIAL  EXTRALABORAL">
+        <p-panel header="RIESGO PSICOSOCIAL EXTRALABORAL">
 
 
 
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf5.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf5.saveAs(text5)">
                       Genarar Reporte
                     </button>
                 </div>
@@ -1305,7 +1453,7 @@
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf7.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf7.saveAs(text6)">
                       Genarar Reporte
                     </button>
                 </div>
@@ -1376,7 +1524,7 @@
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf6.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf6.saveAs(text7)">
                       Genarar Reporte
                     </button>
                 </div>
@@ -1469,7 +1617,7 @@
             <div>
 
                 <div class="example-config">
-                    <button class="k-button" (click)="pdf8.saveAs('off-screen.pdf')">
+                    <button class="k-button" (click)="pdf8.saveAs(text8)">
                       Genarar Reporte
                     </button>
                 </div>

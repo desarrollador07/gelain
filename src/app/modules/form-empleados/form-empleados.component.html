@@ -271,7 +271,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="emdActivo"  [options]="estado" formControlName="emdactivo" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="emdActivo"  [options]="estado" formControlName="emdactivo" [showClear]="true" disabled="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdActivo"></p-message>
                     </div>

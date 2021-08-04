@@ -220,6 +220,17 @@
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#326DDF", endColorstr="#214B9C", gradientType="1");
 }
 
+.overview-box .overview-subinfo .progressbar .progress.users {
+    background-color: #326DDF;
+    background-image: -webkit-gradient(linear, left top, right top, from(#326DDF), to(#b3cf10));
+    background-image: -webkit-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: -moz-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: -ms-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: -o-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: linear-gradient(to right, #326DDF, #b3cf10);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#326DDF", endColorstr="#214B9C", gradientType="1");
+}
+
 .overview-box .overview-subinfo span {
     color: #585858;
     width: auto;
@@ -259,13 +270,13 @@
 }
 
 .overview-box.users {
-    background-color: #E02364;
-    background-image: -webkit-gradient(linear, left top, right top, from(#E02364), to(#A22650));
-    background-image: -webkit-linear-gradient(to right, #E02364, #A22650);
-    background-image: -moz-linear-gradient(to right, #E02364, #A22650);
-    background-image: -ms-linear-gradient(to right, #E02364, #A22650);
-    background-image: -o-linear-gradient(to right, #E02364, #A22650);
-    background-image: linear-gradient(to right, #E02364, #A22650);
+    background-color: #326DDF;
+    background-image: -webkit-gradient(linear, left top, right top, from(#326DDF), to(#b3cf10));
+    background-image: -webkit-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: -moz-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: -ms-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: -o-linear-gradient(to right, #326DDF, #b3cf10);
+    background-image: linear-gradient(to right, #326DDF, #b3cf10);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#E02364", endColorstr="#A22650", gradientType="1");
 }
 

@@ -85,6 +85,10 @@ export class PruebaService {
 
   UrlTotalGeneral = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/TotalGeneral';
 
+  UrlReporExcelDetallado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ReporteExcelDetallado';
+
+  UrlDatosPersonales = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DatosFooter';
+
   constructor(private http: HttpClient) {
   }
 
@@ -288,6 +292,14 @@ export class PruebaService {
 
   getTotalGeneral(id:number){
     return this.http.get(this.UrlTotalGeneral+ "/" + id);
+  }
+
+  getReporteExcelDetallado(id:number){
+    return this.http.get(this.UrlReporExcelDetallado+ "/" + id);
+  }
+
+  getDatosEmpresaGelain(){
+    return this.http.get(this.UrlDatosPersonales);
   }
 
   

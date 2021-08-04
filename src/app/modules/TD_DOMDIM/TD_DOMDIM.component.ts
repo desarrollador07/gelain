@@ -11,37 +11,6 @@ import { saveAs } from "@progress/kendo-file-saver";
 import { geometry, fit, exportPDF, Group } from '@progress/kendo-drawing';
 
 
-
-const products = [
-  {
-    ProductID: 1,
-    ProductName: "Chai",
-    UnitPrice: 18.0,
-    Discontinued: true,
-    code: "C1",
-  },
-  {
-    ProductID: 2,
-    ProductName: "Chang",
-    UnitPrice: 19.0,
-    Discontinued: false,
-    code: "C2",
-  }]
-
-
-//   this.sales = [
-//     { brand: 'Sin riesgo o riesgo despreciable', liderazgo: this.liderazgo[0], relaciones: this.relaciones[0], retroalimentacion: this.retroalimentacion[0], rela_colaboradores: this.rela_colaboradores[0],TotalDominio:'0' },
-//     { brand: 'Riesgo bajo', liderazgo: this.liderazgo[1], relaciones: this.relaciones[1], retroalimentacion: this.retroalimentacion[1], rela_colaboradores: this.rela_colaboradores[1] ,TotalDominio:this.sinRiesgo},
-//     { brand: 'Riesgo medio', liderazgo: this.liderazgo[2], relaciones: this.relaciones[2], retroalimentacion: this.retroalimentacion[2], rela_colaboradores: this.rela_colaboradores[2],TotalDominio:this.sinRiesgo },
-//     { brand: 'Riesgo alto', liderazgo: this.liderazgo[3], relaciones: this.relaciones[3], retroalimentacion: this.retroalimentacion[3], rela_colaboradores: this.rela_colaboradores[3],TotalDominio:this.sinRiesgo },
-//     { brand: 'Riesgo muy alto', liderazgo: this.liderazgo[4], relaciones: this.relaciones[4], retroalimentacion: this.retroalimentacion[4], rela_colaboradores: this.rela_colaboradores[4],TotalDominio:this.sinRiesgo },
-//     { brand: 'TOTAL', liderazgo: this.liderazgo2[5], relaciones: this.relaciones2[5], retroalimentacion: this.retroalimentacion2[5], rela_colaboradores: this.rela_colaboradores2[5],TotalDominio:this.sinRiesgo },
-// ];
-
-
-
-
-
 @Component({
   selector: 'app-empleados',
   templateUrl: './TD_DOMDIM.component.html',
@@ -234,8 +203,27 @@ total_general2 :any[] = [];
   fechaActual :Date;
   fecha :any;
 
+  nombreGelain:any;
+  nitGelain:any;
+  correoGelain:any;
+  telefono:any;
+  correo:any;
+  redGelain:any;
+  anho :any;
+  mes :any;
+  dia :any;
+  hora:any;
+  min:any;
 
-  
+  text1:any;
+  text2:any;
+  text3:any;
+  text4:any;
+  text5:any;
+  text6:any;
+  text7:any;
+  text8:any;
+
 
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
@@ -256,7 +244,25 @@ total_general2 :any[] = [];
 
   async ngOnInit() {
     this.fechaActual = new Date();
-    this.fecha=String(this.fechaActual);
+    this.anho = this.fechaActual.getFullYear();
+    this.mes = this.fechaActual.getMonth();
+    this.dia = this.fechaActual.getDay();
+    this.hora = this.fechaActual.getHours();
+    this.min = this.fechaActual.getMinutes();
+    this.fecha= this.anho +"-"+this.mes +"-"+this.dia+" "+this.hora+":"+this.min;
+
+    this.text1 = "LIDERAZGO_Y_RELACIONES_SOCIALES_"+this.fecha;
+    this.text2 = "CONTROL_SOBRE_EL_TRABAJO_"+this.fecha;
+    this.text3 = "DEMANDAS_DEL_TRABAJO_"+this.fecha;
+    this.text4 = "RECOMPENSAS_"+this.fecha;
+    this.text5 = "RIESGO_PSICOSOCIAL_EXTRALABORAL_"+this.fecha;
+    this.text6 = "Estres_"+this.fecha;
+    this.text7 = "ESTRES_DETALLES_"+this.fecha;
+    this.text8 = "TOTALES_GENERALES_"+this.fecha;
+    console.log("fecha",this.fecha);
+    console.log("hora",this.hora);
+
+    
     this.fnBuscarCatalogos();
       this.fnBuscarCatalogosControl();
     this.fnBuscarCatalogosDemandas();
@@ -265,6 +271,7 @@ total_general2 :any[] = [];
     this.fnBuscarCatalogosPsicoEstresDetalles();
     this.fnBuscarCatalogosTotal();
     this.metodo();
+    this.datosGelain();
   }
   public labelContent(args: LegendLabelsContentArgs): string {
     return `${args.dataItem.category} : ${args.dataItem.value}`;
@@ -278,7 +285,6 @@ total_general2 :any[] = [];
          for (let i = 0; i < this.tam; i++) {
           this.infopreF[i] = this.info1[i].map( (item, ix) => item + this.info2[i][ix] );
         } 
-        console.log('result',this.infopreF);
         for (let j = 0; j < this.infopreF.length; j++) {
           this.fnAsisgnarDatosFiltros(this.infopreF[j],j);
         }
@@ -297,8 +303,6 @@ total_general2 :any[] = [];
         this.a = Number((((data[2] *100)/this.Total)).toFixed(1));
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
-        console.log('pos v',this.v);
-        console.log('pos vb',this.vb);
         this.liderazgo2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
        
         break;
@@ -310,7 +314,6 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.relaciones2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 1',this.relaciones2);
         break;
       case 2:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -320,7 +323,6 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.retroalimentacion2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 2',this.retroalimentacion2);
         break;
       case 3:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -330,7 +332,6 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.rela_colaboradores2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 3',this.rela_colaboradores2);
         break;
       default:
         break;
@@ -339,8 +340,6 @@ total_general2 :any[] = [];
 
   liderasgoYRelacionesSociales(data){
 
-     
-      console.log('resulttabla',data);
       this.liderazgo = data[0];
       this.relaciones = data[1];
       this.retroalimentacion = data[2];
@@ -367,7 +366,6 @@ total_general2 :any[] = [];
          for (let i = 0; i < this.tam1; i++) {
           this.infopreF1[i] = this.info11[i].map( (item, ix) => item + this.info21[i][ix] );
         } 
-        console.log('result',this.infopreF1);
         for (let j = 0; j < this.infopreF1.length; j++) {
           this.fnAsisgnarDatosFiltrosControl(this.infopreF1[j],j);
         }
@@ -387,7 +385,6 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.claridad2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 0',this.liderazgo2);
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -397,7 +394,6 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.capacitacion2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 1',this.relaciones2);
         break;
       case 2:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -407,7 +403,7 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.manejo2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 2',this.retroalimentacion2);
+
         break;
       case 3:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -417,7 +413,7 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.oportunidades2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 3',this.rela_colaboradores2);
+
         break;
         case 4:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -427,7 +423,7 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.control2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
-        console.log('pos 3',this.rela_colaboradores2);
+
         break;
       default:
         break;
@@ -461,7 +457,7 @@ total_general2 :any[] = [];
          for (let i = 0; i < this.tam3; i++) {
           this.infopreF3[i] = this.info13[i].map( (item, ix) => item + this.info23[i][ix] );
         } 
-        console.log('result',this.infopreF3);
+
         for (let j = 0; j < this.infopreF3.length; j++) {
           this.fnAsisgnarDatosFiltrosDemandas(this.infopreF3[j],j);
         }
@@ -558,7 +554,7 @@ total_general2 :any[] = [];
   }
 
   Demandas(data){
-    console.log('resulttablaDemanada',data);
+
       this.demandas_ambientales = data[0];
       this.reponsabilidad = data[1];
       this.consistencia_rol = data[2];
@@ -574,7 +570,7 @@ total_general2 :any[] = [];
         { brand: 'Riesgo medio',                     demandas_ambientales: this.demandas_ambientales[2], reponsabilidad: this.reponsabilidad[2], consistencia_rol: this.consistencia_rol[2], demandas_emocionales: this.demandas_emocionales[2], demandas_jornada: this.demandas_jornada[2],influ_extralaboral: this.influ_extralaboral[2],demandas_cuantitativas: this.demandas_cuantitativas[2],demandas_mental: this.demandas_mental[2],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo alto',                      demandas_ambientales: this.demandas_ambientales[3], reponsabilidad: this.reponsabilidad[3], consistencia_rol: this.consistencia_rol[3], demandas_emocionales: this.demandas_emocionales[3], demandas_jornada: this.demandas_jornada[3],influ_extralaboral: this.influ_extralaboral[3],demandas_cuantitativas: this.demandas_cuantitativas[3],demandas_mental: this.demandas_mental[3],TotalDominio:this.sinRiesgo },
         { brand: 'Riesgo muy alto',                  demandas_ambientales: this.demandas_ambientales[4], reponsabilidad: this.reponsabilidad[4], consistencia_rol: this.consistencia_rol[4], demandas_emocionales: this.demandas_emocionales[4], demandas_jornada: this.demandas_jornada[4],influ_extralaboral: this.influ_extralaboral[4],demandas_cuantitativas: this.demandas_cuantitativas[4],demandas_mental: this.demandas_mental[4],TotalDominio:this.sinRiesgo },
-        { brand: 'No evaluado',                      demandas_ambientales:'0', reponsabilidad:this.demandas_ambientales2[3] - this.reponsabilidad2[3], consistencia_rol:this.demandas_ambientales2[3] - this.consistencia_rol2[3], demandas_emocionales:'0', demandas_jornada: '0',influ_extralaboral: '0',demandas_cuantitativas: '0',demandas_mental: '0',TotalDominio:this.sinRiesgo },
+        { brand: 'No evaluado',                      demandas_ambientales:'0', reponsabilidad:this.demandas_ambientales2[5] -this.reponsabilidad2[5], consistencia_rol:this.demandas_ambientales2[5] - this.consistencia_rol2[5], demandas_emocionales:'0', demandas_jornada: '0',influ_extralaboral: '0',demandas_cuantitativas: '0',demandas_mental: '0',TotalDominio:this.sinRiesgo },
         { brand: 'TOTAL',                            demandas_ambientales: this.demandas_ambientales2[5],reponsabilidad: this.demandas_ambientales2[5],consistencia_rol: this.demandas_ambientales2[5],demandas_emocionales: this.demandas_emocionales2[5],demandas_jornada: this.demandas_jornada2[5],influ_extralaboral: this.influ_extralaboral2[5],demandas_cuantitativas: this.demandas_cuantitativas2[5],demandas_mental: this.demandas_mental2[5],TotalDominio:this.sinRiesgo },
     ];
   }
@@ -588,7 +584,7 @@ total_general2 :any[] = [];
         for (let i = 0; i < this.tam2; i++) {
           this.infopreF2[i] = this.info12[i].map( (item, ix) => item + this.info22[i][ix] );
         } 
-        console.log('result',this.infopreF2);
+ 
         for (let j = 0; j < this.infopreF2.length; j++) {
           this.fnAsisgnarDatosFiltrosRecompensas(this.infopreF2[j],j);
         }
@@ -623,7 +619,7 @@ total_general2 :any[] = [];
   }
 
   Recompensas(data){
-    console.log('resulttablarec',data);
+ 
       this.recompensas_trabajo = data[0];
       this.reconocimiento = data[1];
       this.sinRiesgo = 0;
@@ -645,7 +641,6 @@ total_general2 :any[] = [];
   public fnBuscarCatalogosPsicoExtra(): void {
     this.pruebaServices.getPSICOSOCIAL_EXTRALABORAL(this.idEmpresa).toPromise().then((data:any)=>{
       this.info14 = data;
-      console.log('wwww',this.info14);
       
         for (let j = 0; j < this.info14.length; j++) {
           this.fnAsisgnarDatosFiltrosPsicoExtra(this.info14[j],j);
@@ -738,7 +733,7 @@ total_general2 :any[] = [];
   }
 
   PsicoExtra(data){
-    console.log('resulttablaDemanada',data);
+  
       this.tiempo_fuera  = data[0];
       this.relaciones_familiares = data[1];
       this.com_relaciones_interperson = data[2];
@@ -903,7 +898,7 @@ total_general2 :any[] = [];
 
   metodo(){
     this.pruebaServices.getESTRESTOTAL(this.idEmpresa).subscribe((data) => {
-      console.log("donaDATA",data);
+ 
       this.donadata = data[0]
       this.total = this.donadata[0] + this.donadata[1] + this.donadata[2] + this.donadata[3] + this.donadata[4];
       this.Sin_riesgo_o_riesgo_despreciable = this.donadata[0];
@@ -928,13 +923,6 @@ total_general2 :any[] = [];
     this.Riesgo_altoD =((this.donadata[3] *100)/this.total);
     this.Riesgo_muy_altoD = Number((((this.donadata[4] *100)/this.total)));
 
-
-      console.log("S",this.Sin_riesgo_o_riesgo_despreciableD);
-      console.log("B", this.Riesgo_bajoD);
-      console.log("M",this.Riesgo_medioD);
-      console.log("A",this.Riesgo_altoD);
-      console.log("mA",this.Riesgo_muy_altoD);
-      console.log("T",this.total);
       this.dataDona = [{ category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))},
       { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD ))  },
       { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD ))  },
@@ -955,6 +943,17 @@ total_general2 :any[] = [];
          
 
     });      
+  }
+
+  datosGelain(){
+    this.pruebaServices.getDatosEmpresaGelain().subscribe((data:any)=>{
+      this.nombreGelain = data.nombre;
+      this.nitGelain= data.nit;
+      this.correoGelain= data.correo;
+      this.telefono= data.telefono;
+      this.redGelain= data.instagram;
+
+    })
   }
 
   notes = {

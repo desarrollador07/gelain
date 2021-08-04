@@ -26,7 +26,7 @@
         <p-table #dt [value]="pruebas" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="caption">
                 <div class="ui-helper-clearfix" style="text-align: left">
-                    <button type="button" pButton icon="pi pi-file-excel" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+                    <button type="button" pButton icon="pi pi-download" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
                     <!--  <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning"></button> -->
                 </div>
             </ng-template>
@@ -85,7 +85,7 @@
         </div> -->
     </p-panel>
 
-    <img src="{{image}}" />
+
 
 
 

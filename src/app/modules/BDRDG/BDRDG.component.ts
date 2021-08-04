@@ -177,8 +177,6 @@ export class BDRDGComponent implements OnInit {
           var year = fecha.getFullYear();
           car.emdfecnacidoRepor = year;
           pruebass.push(car);
-          var image = new Image();
-          image.src = "https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg"; 
          
       }
   arreglado = pruebass.map( item => { 
@@ -207,7 +205,7 @@ export class BDRDGComponent implements OnInit {
       'TIPO DE CONTRATO: 17': item.emdtipocontrato,
       'HORAS DE TRABAJO: 18': item.emdhorasdia,
       'USUARIO QUE REGISTRO': item.emdusuarioreg,
-      'IMagen': image,
+
               }; 
   });
   console.log('ver',arreglado);
