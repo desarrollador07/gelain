@@ -172,7 +172,9 @@ export class BDRDGComponent implements OnInit {
           console.log(this.nombre);
           
       }) */
-          car.emdnombres = car.emdnombres.toString()+" "+car.emdapellidos.toString();
+          car.emdnombres = car.emdnombres.toUpperCase()+" "+car.emdapellidos.toUpperCase();
+          console.log("car.emdnombres",car.emdnombres);
+          
           fecha = new Date(car.emdfecnacido);
           var year = fecha.getFullYear();
           car.emdfecnacidoRepor = year;

@@ -31,14 +31,278 @@ export class FormatoBComponent implements OnInit {
   activeIndex: number = 1;
   vart : boolean;
   forrrB:FormatoB;
+  datosEmpleado:any;
+  cedula:any;
+  nombre:any;
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
- 
+                this.datosEmpleado = localStorage.getItem("IdEmpleado");
+                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
  async ngOnInit() {
+   
+  this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
+    this.cedula = data[0].emdcedula;
+    this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
+    console.log("cedula",this.cedula);
+    console.log("nombre",this.nombre);
+    
+  })
     this.vart=false;
 
+    this.getFormulario();
+
+    await  this.pruebaservices.buscarByFb(this.idl).toPromise().then((data:any)=>{
+        console.log('buscando data:',data);
+        this.localPrueba = data[0];
+        console.log('localDataaaa',this.localPrueba);
+        
+      })
+
+      this.getFormulario();
+
+    this.a1 = [];
+    this.a1.push({ label: 'Seleccione...', value: '' });
+    this.a1.push({ label: 'Siempre', value: '0' });
+    this.a1.push({ label: 'Casi Siempre', value: '1' });
+    this.a1.push({ label: 'Algunas Veces', value: '2' });
+    this.a1.push({ label: 'Casi nunca', value: '3' });
+    this.a1.push({ label: 'Nunca', value: '4' });
+
+    this.a11 = [];
+    this.a11.push({ label: 'Seleccione...', value: '' });
+    this.a11.push({ label: 'Siempre', value: '4' });
+    this.a11.push({ label: 'Casi Siempre', value: '3' });
+    this.a11.push({ label: 'Algunas Veces', value: '2' });
+    this.a11.push({ label: 'Casi nunca', value: '1' });
+    this.a11.push({ label: 'Nunca', value: '0' });
+
+    this.a2 = [];
+    this.a2.push({ label: 'Seleccione...', value: '' });
+    this.a2.push({ label: 'Si', value: '1' });
+    this.a2.push({ label: 'No', value: '2' });
+
+
+
+     if(this.localPrueba !==null){
+      if (this.localPrueba.inbatencionausuarios == "1") {
+        this.vart=true;
+       }else{
+        this.vart=false;
+       }
+
+       if (this.vart = true) {
+        this.userform.patchValue({
+          inbidempleado:this.localPrueba.inbidempleado,
+          inbruido:this.localPrueba.inbruido,
+          inbfrio:this.localPrueba.inbfrio,
+          inbcalor:this.localPrueba.inbcalor,
+          inbairefresco:this.localPrueba.inbairefresco,
+          inbluz:this.localPrueba.inbluz,
+          inbcomodo:this.localPrueba.inbcomodo,
+          inbsustanquimicas:this.localPrueba.inbsustanquimicas,
+          inbesfuerzofisico:this.localPrueba.inbesfuerzofisico,
+          inbequiposcomodos:this.localPrueba.inbequiposcomodos,
+          inbanimalesplantas:this.localPrueba.inbanimalesplantas,
+          inbpreoaccidente:this.localPrueba.inbpreoaccidente,
+          inblugarlimpio:this.localPrueba.inblugarlimpio,
+          inbtiempoadicional:this.localPrueba.inbtiempoadicional,
+          inbalcanzatiempo:this.localPrueba.inbalcanzatiempo,
+          inbtrabajasinparar:this.localPrueba.inbtrabajasinparar,
+          inbesfuerzomental:this.localPrueba.inbesfuerzomental,
+          inbexigeconcentrado:this.localPrueba.inbexigeconcentrado,
+          inbexigememoria:this.localPrueba.inbexigememoria,
+          inbhacercalculos:this.localPrueba.inbhacercalculos,
+          inbpqnosdetalles:this.localPrueba.inbpqnosdetalles,
+          inbtrabajonoche:this.localPrueba.inbtrabajonoche,
+          inbtomarpausas:this.localPrueba.inbtomarpausas,
+          inbtrabajodiadesca:this.localPrueba.inbtrabajodiadesca,
+          inbfinsemdesc:this.localPrueba.inbfinsemdesc,
+          inbencasapiensotra:this.localPrueba.inbencasapiensotra,
+          inbdiscutofamilia:this.localPrueba.inbdiscutofamilia,
+          inbasuntosencasa:this.localPrueba.inbasuntosencasa,
+          inbpocotiempofami:this.localPrueba.inbpocotiempofami,
+          inbhacercosasnuevas:this.localPrueba.inbhacercosasnuevas,
+          inbpermitehabilidad:this.localPrueba.inbpermitehabilidad,
+          inbpermiteconocimi:this.localPrueba.inbpermiteconocimi,
+          inbpermiteaprender:this.localPrueba.inbpermiteaprender,
+          inbpausasnecesito:this.localPrueba.inbpausasnecesito,
+          inbtrabajodiario:this.localPrueba.inbtrabajodiario,
+          inbdecivelocidad:this.localPrueba.inbdecivelocidad,
+          inbcambiarordenact:this.localPrueba.inbcambiarordenact,
+          inbatenderasunpers:this.localPrueba.inbatenderasunpers,
+          inbexplicancambios:this.localPrueba.inbexplicancambios,
+          inbpuedodarsugeren:this.localPrueba.inbpuedodarsugeren,
+          inbencuentamisideas:this.localPrueba.inbencuentamisideas,
+          inbclaridadfunciones:this.localPrueba.inbclaridadfunciones,
+          inbdecisionesatomar:this.localPrueba.inbdecisionesatomar,
+          inbresultadoslograr:this.localPrueba.inbresultadoslograr,
+          inbexplicanobjetivos:this.localPrueba.inbexplicanobjetivos,
+          inbinfquienresolver:this.localPrueba.inbinfquienresolver,
+          inbasiscapacitacion:this.localPrueba.inbasiscapacitacion,
+          inbrecibocapacitaci:this.localPrueba.inbrecibocapacitaci,
+          inbrecibocapaciayuda:this.localPrueba.inbrecibocapaciayuda,
+          inbjefeayudaorganiz:this.localPrueba.inbjefeayudaorganiz,
+          inbjefemispuntosvist:this.localPrueba.inbjefemispuntosvist,
+          inbjefeanima:this.localPrueba.inbjefeanima,
+          inbjefedistribuye:this.localPrueba.inbjefedistribuye,
+          inbjefecomunica:this.localPrueba.inbjefecomunica,
+          inbjefeorienracion:this.localPrueba.inbjefeorienracion,
+          inbjefeayudaprogres:this.localPrueba.inbjefeayudaprogres,
+          inbjefeayudasentime:this.localPrueba.inbjefeayudasentime,
+          inbjefesolucionar:this.localPrueba.inbjefesolucionar,
+          inbjeferespeto:this.localPrueba.inbjeferespeto,
+          inbjefeconfio:this.localPrueba.inbjefeconfio,
+          inbjefeescucha:this.localPrueba.inbjefeescucha,
+          inbjefeapoyo:this.localPrueba.inbjefeapoyo,
+          inbagradaambiente:this.localPrueba.inbagradaambiente,
+          inbgruporespeto:this.localPrueba.inbgruporespeto,
+          inbconfiocompaneros:this.localPrueba.inbconfiocompaneros,
+          inbagustocompaneros:this.localPrueba.inbagustocompaneros,
+          inbgrupomaltrata:this.localPrueba.inbgrupomaltrata,
+          inbsolucionacompa:this.localPrueba.inbsolucionacompa,
+          inbgrupounido:this.localPrueba.inbgrupounido,
+          inbtrabajogrupo:this.localPrueba.inbtrabajogrupo,
+          inbgrupodeacuerdo:this.localPrueba.inbgrupodeacuerdo,
+          inbgrupoayuda:this.localPrueba.inbgrupoayuda,
+          inbapoyounootros:this.localPrueba.inbapoyounootros,
+          inbescuchanproble:this.localPrueba.inbescuchanproble,
+          inbinfhagobien:this.localPrueba.inbinfhagobien,
+          inbinfmejorar:this.localPrueba.inbinfmejorar,
+          inbinfrendimiento:this.localPrueba.inbinfrendimiento,
+          inbevaluantrabajo:this.localPrueba.inbevaluantrabajo,
+          inbinfatiempomejora:this.localPrueba.inbinfatiempomejora,
+          inbemppaganatiempo:this.localPrueba.inbemppaganatiempo,
+          inbpagoofrecido:this.localPrueba.inbpagoofrecido,
+          inbpagomerezco:this.localPrueba.inbpagomerezco,
+          inbposibprogresar:this.localPrueba.inbposibprogresar,
+          inbhacerbienprog:this.localPrueba.inbhacerbienprog,
+          inbempbienestartrab:this.localPrueba.inbempbienestartrab,
+          inbtrabajoestable:this.localPrueba.inbtrabajoestable,
+          inbtrabsentirbien:this.localPrueba.inbtrabsentirbien,
+          inbsientoorgullo:this.localPrueba.inbsientoorgullo,
+          inbhablobienempres:this.localPrueba.inbhablobienempres,
+          inbatencionausuarios:this.localPrueba.inbatencionausuarios,
+          inbusuenojados:this.localPrueba.inbusuenojados,
+          inbusupreocupados:this.localPrueba.inbusupreocupados,
+          inbusutristes:this.localPrueba.inbusutristes,
+          inbusuenfermos:this.localPrueba.inbusuenfermos,
+          inbusuneceayuda:this.localPrueba.inbusuneceayuda,
+          inbusumemaltratan:this.localPrueba.inbusumemaltratan,
+          inbsituaviolencia:this.localPrueba.inbsituaviolencia,
+          inbexigedolorosas:this.localPrueba.inbexigedolorosas,
+          inbexpretristeza:this.localPrueba.inbexpretristeza,  
+        })
+       }else{
+        this.userform.patchValue({
+          inbidempleado:this.localPrueba.inbidempleado,
+          inbruido:this.localPrueba.inbruido,
+          inbfrio:this.localPrueba.inbfrio,
+          inbcalor:this.localPrueba.inbcalor,
+          inbairefresco:this.localPrueba.inbairefresco,
+          inbluz:this.localPrueba.inbluz,
+          inbcomodo:this.localPrueba.inbcomodo,
+          inbsustanquimicas:this.localPrueba.inbsustanquimicas,
+          inbesfuerzofisico:this.localPrueba.inbesfuerzofisico,
+          inbequiposcomodos:this.localPrueba.inbequiposcomodos,
+          inbanimalesplantas:this.localPrueba.inbanimalesplantas,
+          inbpreoaccidente:this.localPrueba.inbpreoaccidente,
+          inblugarlimpio:this.localPrueba.inblugarlimpio,
+          inbtiempoadicional:this.localPrueba.inbtiempoadicional,
+          inbalcanzatiempo:this.localPrueba.inbalcanzatiempo,
+          inbtrabajasinparar:this.localPrueba.inbtrabajasinparar,
+          inbesfuerzomental:this.localPrueba.inbesfuerzomental,
+          inbexigeconcentrado:this.localPrueba.inbexigeconcentrado,
+          inbexigememoria:this.localPrueba.inbexigememoria,
+          inbhacercalculos:this.localPrueba.inbhacercalculos,
+          inbpqnosdetalles:this.localPrueba.inbpqnosdetalles,
+          inbtrabajonoche:this.localPrueba.inbtrabajonoche,
+          inbtomarpausas:this.localPrueba.inbtomarpausas,
+          inbtrabajodiadesca:this.localPrueba.inbtrabajodiadesca,
+          inbfinsemdesc:this.localPrueba.inbfinsemdesc,
+          inbencasapiensotra:this.localPrueba.inbencasapiensotra,
+          inbdiscutofamilia:this.localPrueba.inbdiscutofamilia,
+          inbasuntosencasa:this.localPrueba.inbasuntosencasa,
+          inbpocotiempofami:this.localPrueba.inbpocotiempofami,
+          inbhacercosasnuevas:this.localPrueba.inbhacercosasnuevas,
+          inbpermitehabilidad:this.localPrueba.inbpermitehabilidad,
+          inbpermiteconocimi:this.localPrueba.inbpermiteconocimi,
+          inbpermiteaprender:this.localPrueba.inbpermiteaprender,
+          inbpausasnecesito:this.localPrueba.inbpausasnecesito,
+          inbtrabajodiario:this.localPrueba.inbtrabajodiario,
+          inbdecivelocidad:this.localPrueba.inbdecivelocidad,
+          inbcambiarordenact:this.localPrueba.inbcambiarordenact,
+          inbatenderasunpers:this.localPrueba.inbatenderasunpers,
+          inbexplicancambios:this.localPrueba.inbexplicancambios,
+          inbpuedodarsugeren:this.localPrueba.inbpuedodarsugeren,
+          inbencuentamisideas:this.localPrueba.inbencuentamisideas,
+          inbclaridadfunciones:this.localPrueba.inbclaridadfunciones,
+          inbdecisionesatomar:this.localPrueba.inbdecisionesatomar,
+          inbresultadoslograr:this.localPrueba.inbresultadoslograr,
+          inbexplicanobjetivos:this.localPrueba.inbexplicanobjetivos,
+          inbinfquienresolver:this.localPrueba.inbinfquienresolver,
+          inbasiscapacitacion:this.localPrueba.inbasiscapacitacion,
+          inbrecibocapacitaci:this.localPrueba.inbrecibocapacitaci,
+          inbrecibocapaciayuda:this.localPrueba.inbrecibocapaciayuda,
+          inbjefeayudaorganiz:this.localPrueba.inbjefeayudaorganiz,
+          inbjefemispuntosvist:this.localPrueba.inbjefemispuntosvist,
+          inbjefeanima:this.localPrueba.inbjefeanima,
+          inbjefedistribuye:this.localPrueba.inbjefedistribuye,
+          inbjefecomunica:this.localPrueba.inbjefecomunica,
+          inbjefeorienracion:this.localPrueba.inbjefeorienracion,
+          inbjefeayudaprogres:this.localPrueba.inbjefeayudaprogres,
+          inbjefeayudasentime:this.localPrueba.inbjefeayudasentime,
+          inbjefesolucionar:this.localPrueba.inbjefesolucionar,
+          inbjeferespeto:this.localPrueba.inbjeferespeto,
+          inbjefeconfio:this.localPrueba.inbjefeconfio,
+          inbjefeescucha:this.localPrueba.inbjefeescucha,
+          inbjefeapoyo:this.localPrueba.inbjefeapoyo,
+          inbagradaambiente:this.localPrueba.inbagradaambiente,
+          inbgruporespeto:this.localPrueba.inbgruporespeto,
+          inbconfiocompaneros:this.localPrueba.inbconfiocompaneros,
+          inbagustocompaneros:this.localPrueba.inbagustocompaneros,
+          inbgrupomaltrata:this.localPrueba.inbgrupomaltrata,
+          inbsolucionacompa:this.localPrueba.inbsolucionacompa,
+          inbgrupounido:this.localPrueba.inbgrupounido,
+          inbtrabajogrupo:this.localPrueba.inbtrabajogrupo,
+          inbgrupodeacuerdo:this.localPrueba.inbgrupodeacuerdo,
+          inbgrupoayuda:this.localPrueba.inbgrupoayuda,
+          inbapoyounootros:this.localPrueba.inbapoyounootros,
+          inbescuchanproble:this.localPrueba.inbescuchanproble,
+          inbinfhagobien:this.localPrueba.inbinfhagobien,
+          inbinfmejorar:this.localPrueba.inbinfmejorar,
+          inbinfrendimiento:this.localPrueba.inbinfrendimiento,
+          inbevaluantrabajo:this.localPrueba.inbevaluantrabajo,
+          inbinfatiempomejora:this.localPrueba.inbinfatiempomejora,
+          inbemppaganatiempo:this.localPrueba.inbemppaganatiempo,
+          inbpagoofrecido:this.localPrueba.inbpagoofrecido,
+          inbpagomerezco:this.localPrueba.inbpagomerezco,
+          inbposibprogresar:this.localPrueba.inbposibprogresar,
+          inbhacerbienprog:this.localPrueba.inbhacerbienprog,
+          inbempbienestartrab:this.localPrueba.inbempbienestartrab,
+          inbtrabajoestable:this.localPrueba.inbtrabajoestable,
+          inbtrabsentirbien:this.localPrueba.inbtrabsentirbien,
+          inbsientoorgullo:this.localPrueba.inbsientoorgullo,
+          inbhablobienempres:this.localPrueba.inbhablobienempres,
+          inbatencionausuarios:this.localPrueba.inbatencionausuarios,
+
+          inbusuenojados:0,
+          inbusupreocupados:0,
+          inbusutristes:0,
+          inbusuenfermos:0,
+          inbusuneceayuda:0,
+          inbusumemaltratan:0,
+          inbsituaviolencia:0,
+          inbexigedolorosas:0,
+          inbexpretristeza:4,  
+        })
+
+       }
+    } 
+  };
+
+  getFormulario(){
     this.userform = this.fb.group({
       inbid: [''],
       inbidempleado: [Number(this.idl)],
@@ -143,147 +407,7 @@ export class FormatoBComponent implements OnInit {
       inbexpretristeza :[''] 
 
     })
-
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    await  this.pruebaservices.buscarByFb(this.idl).toPromise().then((data:any)=>{
-        console.log('buscando data:',data);
-        this.localPrueba = data[0];
-        console.log('localDataaaa',this.localPrueba);
-        
-      })
-
-    this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: '' });
-    this.a1.push({ label: 'Siempre', value: '0' });
-    this.a1.push({ label: 'Casi Siempre', value: '1' });
-    this.a1.push({ label: 'Algunas Veces', value: '2' });
-    this.a1.push({ label: 'Casi nunca', value: '3' });
-    this.a1.push({ label: 'Nunca', value: '4' });
-
-    this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: '' });
-    this.a11.push({ label: 'Siempre', value: '4' });
-    this.a11.push({ label: 'Casi Siempre', value: '3' });
-    this.a11.push({ label: 'Algunas Veces', value: '2' });
-    this.a11.push({ label: 'Casi nunca', value: '1' });
-    this.a11.push({ label: 'Nunca', value: '0' });
-
-    this.a2 = [];
-    this.a2.push({ label: 'Seleccione...', value: '' });
-    this.a2.push({ label: 'Si', value: '1' });
-    this.a2.push({ label: 'No', value: '2' });
-
-
-
-     if(this.localPrueba !==null){
-      if (this.localPrueba.inbatencionausuarios == "1") {
-        this.vart=true;
-       }else{
-        this.vart=false;
-       }
-      this.userform.patchValue({
-        inbidempleado:this.localPrueba.inbidempleado,
-        inbruido:this.localPrueba.inbruido,
-        inbfrio:this.localPrueba.inbfrio,
-        inbcalor:this.localPrueba.inbcalor,
-        inbairefresco:this.localPrueba.inbairefresco,
-        inbluz:this.localPrueba.inbluz,
-        inbcomodo:this.localPrueba.inbcomodo,
-        inbsustanquimicas:this.localPrueba.inbsustanquimicas,
-        inbesfuerzofisico:this.localPrueba.inbesfuerzofisico,
-        inbequiposcomodos:this.localPrueba.inbequiposcomodos,
-        inbanimalesplantas:this.localPrueba.inbanimalesplantas,
-        inbpreoaccidente:this.localPrueba.inbpreoaccidente,
-        inblugarlimpio:this.localPrueba.inblugarlimpio,
-        inbtiempoadicional:this.localPrueba.inbtiempoadicional,
-        inbalcanzatiempo:this.localPrueba.inbalcanzatiempo,
-        inbtrabajasinparar:this.localPrueba.inbtrabajasinparar,
-        inbesfuerzomental:this.localPrueba.inbesfuerzomental,
-        inbexigeconcentrado:this.localPrueba.inbexigeconcentrado,
-        inbexigememoria:this.localPrueba.inbexigememoria,
-        inbhacercalculos:this.localPrueba.inbhacercalculos,
-        inbpqnosdetalles:this.localPrueba.inbpqnosdetalles,
-        inbtrabajonoche:this.localPrueba.inbtrabajonoche,
-        inbtomarpausas:this.localPrueba.inbtomarpausas,
-        inbtrabajodiadesca:this.localPrueba.inbtrabajodiadesca,
-        inbfinsemdesc:this.localPrueba.inbfinsemdesc,
-        inbencasapiensotra:this.localPrueba.inbencasapiensotra,
-        inbdiscutofamilia:this.localPrueba.inbdiscutofamilia,
-        inbasuntosencasa:this.localPrueba.inbasuntosencasa,
-        inbpocotiempofami:this.localPrueba.inbpocotiempofami,
-        inbhacercosasnuevas:this.localPrueba.inbhacercosasnuevas,
-        inbpermitehabilidad:this.localPrueba.inbpermitehabilidad,
-        inbpermiteconocimi:this.localPrueba.inbpermiteconocimi,
-        inbpermiteaprender:this.localPrueba.inbpermiteaprender,
-        inbpausasnecesito:this.localPrueba.inbpausasnecesito,
-        inbtrabajodiario:this.localPrueba.inbtrabajodiario,
-        inbdecivelocidad:this.localPrueba.inbdecivelocidad,
-        inbcambiarordenact:this.localPrueba.inbcambiarordenact,
-        inbatenderasunpers:this.localPrueba.inbatenderasunpers,
-        inbexplicancambios:this.localPrueba.inbexplicancambios,
-        inbpuedodarsugeren:this.localPrueba.inbpuedodarsugeren,
-        inbencuentamisideas:this.localPrueba.inbencuentamisideas,
-        inbclaridadfunciones:this.localPrueba.inbclaridadfunciones,
-        inbdecisionesatomar:this.localPrueba.inbdecisionesatomar,
-        inbresultadoslograr:this.localPrueba.inbresultadoslograr,
-        inbexplicanobjetivos:this.localPrueba.inbexplicanobjetivos,
-        inbinfquienresolver:this.localPrueba.inbinfquienresolver,
-        inbasiscapacitacion:this.localPrueba.inbasiscapacitacion,
-        inbrecibocapacitaci:this.localPrueba.inbrecibocapacitaci,
-        inbrecibocapaciayuda:this.localPrueba.inbrecibocapaciayuda,
-        inbjefeayudaorganiz:this.localPrueba.inbjefeayudaorganiz,
-        inbjefemispuntosvist:this.localPrueba.inbjefemispuntosvist,
-        inbjefeanima:this.localPrueba.inbjefeanima,
-        inbjefedistribuye:this.localPrueba.inbjefedistribuye,
-        inbjefecomunica:this.localPrueba.inbjefecomunica,
-        inbjefeorienracion:this.localPrueba.inbjefeorienracion,
-        inbjefeayudaprogres:this.localPrueba.inbjefeayudaprogres,
-        inbjefeayudasentime:this.localPrueba.inbjefeayudasentime,
-        inbjefesolucionar:this.localPrueba.inbjefesolucionar,
-        inbjeferespeto:this.localPrueba.inbjeferespeto,
-        inbjefeconfio:this.localPrueba.inbjefeconfio,
-        inbjefeescucha:this.localPrueba.inbjefeescucha,
-        inbjefeapoyo:this.localPrueba.inbjefeapoyo,
-        inbagradaambiente:this.localPrueba.inbagradaambiente,
-        inbgruporespeto:this.localPrueba.inbgruporespeto,
-        inbconfiocompaneros:this.localPrueba.inbconfiocompaneros,
-        inbagustocompaneros:this.localPrueba.inbagustocompaneros,
-        inbgrupomaltrata:this.localPrueba.inbgrupomaltrata,
-        inbsolucionacompa:this.localPrueba.inbsolucionacompa,
-        inbgrupounido:this.localPrueba.inbgrupounido,
-        inbtrabajogrupo:this.localPrueba.inbtrabajogrupo,
-        inbgrupodeacuerdo:this.localPrueba.inbgrupodeacuerdo,
-        inbgrupoayuda:this.localPrueba.inbgrupoayuda,
-        inbapoyounootros:this.localPrueba.inbapoyounootros,
-        inbescuchanproble:this.localPrueba.inbescuchanproble,
-        inbinfhagobien:this.localPrueba.inbinfhagobien,
-        inbinfmejorar:this.localPrueba.inbinfmejorar,
-        inbinfrendimiento:this.localPrueba.inbinfrendimiento,
-        inbevaluantrabajo:this.localPrueba.inbevaluantrabajo,
-        inbinfatiempomejora:this.localPrueba.inbinfatiempomejora,
-        inbemppaganatiempo:this.localPrueba.inbemppaganatiempo,
-        inbpagoofrecido:this.localPrueba.inbpagoofrecido,
-        inbpagomerezco:this.localPrueba.inbpagomerezco,
-        inbposibprogresar:this.localPrueba.inbposibprogresar,
-        inbhacerbienprog:this.localPrueba.inbhacerbienprog,
-        inbempbienestartrab:this.localPrueba.inbempbienestartrab,
-        inbtrabajoestable:this.localPrueba.inbtrabajoestable,
-        inbtrabsentirbien:this.localPrueba.inbtrabsentirbien,
-        inbsientoorgullo:this.localPrueba.inbsientoorgullo,
-        inbhablobienempres:this.localPrueba.inbhablobienempres,
-        inbatencionausuarios:this.localPrueba.inbatencionausuarios,
-        inbusuenojados:this.localPrueba.inbusuenojados,
-        inbusupreocupados:this.localPrueba.inbusupreocupados,
-        inbusutristes:this.localPrueba.inbusutristes,
-        inbusuenfermos:this.localPrueba.inbusuenfermos,
-        inbusuneceayuda:this.localPrueba.inbusuneceayuda,
-        inbusumemaltratan:this.localPrueba.inbusumemaltratan,
-        inbsituaviolencia:this.localPrueba.inbsituaviolencia,
-        inbexigedolorosas:this.localPrueba.inbexigedolorosas,
-        inbexpretristeza:this.localPrueba.inbexpretristeza,  
-      })
-    } 
-  };
+  }
 
   get inbruido() {
     return this.userform.get('inbruido').invalid && this.userform.get('inbruido').touched

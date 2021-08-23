@@ -137,6 +137,14 @@ total_general2 :any[] = [];
   sinRiesgo:any;
   sinRiesgoex:any[] = [];
   sinRiesgo2ex:any[] = [];
+  sinRiesgoli:any[] = [];
+  sinRiesgo2li:any[] = [];
+  sinRiesgo2co:any[] = [];
+  sinRiesgoCo:any[] = [];
+  sinRiesgodem:any[] = [];
+  sinRiesgo2dem:any[] = [];
+  sinRiesgore:any[] = [];
+  sinRiesgo2re:any[] = [];
   Total:any;
   rojo:any;
   amarillo:any;
@@ -279,8 +287,11 @@ total_general2 :any[] = [];
   public fnBuscarCatalogos(): void {
     this.pruebaServices.getLiderazgoRA(this.idEmpresa).toPromise().then((data:any)=>{
       this.info1 = data;
+      console.log('info1',this.info1);
+      
       this.pruebaServices.getLiderazgoRB(this.idEmpresa).toPromise().then((data:any)=>{
         this.info2 = data;
+        console.log('info2',this.info2);
         this.tam = data.length;
          for (let i = 0; i < this.tam; i++) {
           this.infopreF[i] = this.info1[i].map( (item, ix) => item + this.info2[i][ix] );
@@ -289,6 +300,7 @@ total_general2 :any[] = [];
           this.fnAsisgnarDatosFiltros(this.infopreF[j],j);
         }
         this.liderasgoYRelacionesSociales(this.infopreF);
+        console.log('info2',this.infopreF);
       })
     })
 
@@ -333,6 +345,10 @@ total_general2 :any[] = [];
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.rela_colaboradores2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         break;
+        case 4:
+          this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+          this.sinRiesgo2li.push(this.Total);
+          break;
       default:
         break;
     }
@@ -340,18 +356,20 @@ total_general2 :any[] = [];
 
   liderasgoYRelacionesSociales(data){
 
+    
       this.liderazgo = data[0];
       this.relaciones = data[1];
       this.retroalimentacion = data[2];
       this.rela_colaboradores = data[3];
-      this.sinRiesgo = 0;
+      this.sinRiesgoli = data[4];
       this.sales = [
-        { brand: 'Sin riesgo o riesgo despreciable', liderazgo: this.liderazgo[0], relaciones: this.relaciones[0], retroalimentacion: this.retroalimentacion[0], rela_colaboradores: this.rela_colaboradores[0],TotalDominio:'0' },
-        { brand: 'Riesgo bajo', liderazgo: this.liderazgo[1], relaciones: this.relaciones[1], retroalimentacion: this.retroalimentacion[1], rela_colaboradores: this.rela_colaboradores[1] ,TotalDominio:this.sinRiesgo},
-        { brand: 'Riesgo medio', liderazgo: this.liderazgo[2], relaciones: this.relaciones[2], retroalimentacion: this.retroalimentacion[2], rela_colaboradores: this.rela_colaboradores[2],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo alto', liderazgo: this.liderazgo[3], relaciones: this.relaciones[3], retroalimentacion: this.retroalimentacion[3], rela_colaboradores: this.rela_colaboradores[3],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo muy alto', liderazgo: this.liderazgo[4], relaciones: this.relaciones[4], retroalimentacion: this.retroalimentacion[4], rela_colaboradores: this.rela_colaboradores[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL', liderazgo: this.liderazgo2[5], relaciones: this.relaciones2[5], retroalimentacion: this.retroalimentacion2[5], rela_colaboradores: this.rela_colaboradores2[5],TotalDominio:this.sinRiesgo },
+        { brand: 'Sin riesgo o riesgo despreciable', liderazgo: this.liderazgo[0], relaciones: this.relaciones[0], retroalimentacion: this.retroalimentacion[0], rela_colaboradores: this.rela_colaboradores[0],TotalDominio:this.sinRiesgoli[0] },
+        { brand: 'Riesgo bajo', liderazgo: this.liderazgo[1], relaciones: this.relaciones[1], retroalimentacion: this.retroalimentacion[1], rela_colaboradores: this.rela_colaboradores[1] ,TotalDominio:this.sinRiesgoli[1]},
+        { brand: 'Riesgo medio', liderazgo: this.liderazgo[2], relaciones: this.relaciones[2], retroalimentacion: this.retroalimentacion[2], rela_colaboradores: this.rela_colaboradores[2],TotalDominio:this.sinRiesgoli[2] },
+        { brand: 'Riesgo alto', liderazgo: this.liderazgo[3], relaciones: this.relaciones[3], retroalimentacion: this.retroalimentacion[3], rela_colaboradores: this.rela_colaboradores[3],TotalDominio:this.sinRiesgoli[3] },
+        { brand: 'Riesgo muy alto', liderazgo: this.liderazgo[4], relaciones: this.relaciones[4], retroalimentacion: this.retroalimentacion[4], rela_colaboradores: this.rela_colaboradores[4],TotalDominio:this.sinRiesgoli[4] },
+        { brand: 'No evaluado',liderazgo:'0', relaciones:'0', retroalimentacion:'0', rela_colaboradores:this.liderazgo2[5]-this.rela_colaboradores2[5],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL', liderazgo: this.liderazgo2[5], relaciones: this.relaciones2[5], retroalimentacion: this.retroalimentacion2[5], rela_colaboradores: this.retroalimentacion2[5],TotalDominio:this.sinRiesgo2li[0] },
     ];
       
     
@@ -360,8 +378,10 @@ total_general2 :any[] = [];
   public fnBuscarCatalogosControl(): void {
     this.pruebaServices.getcontrolSobreRol(this.idEmpresa).toPromise().then((data:any)=>{
       this.info11 = data;
+      
       this.pruebaServices.getcontrolSobreRolB(this.idEmpresa).toPromise().then((data:any)=>{
         this.info21 = data;
+
         this.tam1 = data.length;
          for (let i = 0; i < this.tam1; i++) {
           this.infopreF1[i] = this.info11[i].map( (item, ix) => item + this.info21[i][ix] );
@@ -425,6 +445,10 @@ total_general2 :any[] = [];
         this.control2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
+        case 5:
+          this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+          this.sinRiesgo2co.push(this.Total);
+          break;
       default:
         break;
     }
@@ -436,14 +460,14 @@ total_general2 :any[] = [];
       this.oportunidades = data[3];
       this.manejo = data[2];
       this.control = data[4];
-      this.sinRiesgo = 0;
+      this.sinRiesgoCo = data[5];
       this.sales2 = [
-        { brand: 'Sin riesgo o riesgo despreciable', claridad: this.claridad[0], capacitacion: this.capacitacion[0], oportunidades: this.oportunidades[0], manejo: this.manejo[0], control: this.control[0],TotalDominio:'0' },
-        { brand: 'Riesgo bajo', claridad: this.claridad[1], capacitacion: this.capacitacion[1], oportunidades: this.oportunidades[1], manejo: this.manejo[1] ,control: this.control[1],TotalDominio:this.sinRiesgo},
-        { brand: 'Riesgo medio', claridad: this.claridad[2], capacitacion: this.capacitacion[2], oportunidades: this.oportunidades[2], manejo: this.manejo[2],control: this.control[2],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo alto', claridad: this.claridad[3], capacitacion: this.capacitacion[3], oportunidades: this.oportunidades[3], manejo: this.manejo[3],control: this.control[3],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo muy alto', claridad: this.claridad[4], capacitacion: this.capacitacion[4], oportunidades: this.oportunidades[4], manejo: this.manejo[4],control: this.control[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL', claridad: this.claridad2[5], capacitacion: this.capacitacion2[5], oportunidades: this.oportunidades2[5], manejo: this.manejo2[5],control: this.manejo2[5],TotalDominio:this.sinRiesgo },
+        { brand: 'Sin riesgo o riesgo despreciable', claridad: this.claridad[0], capacitacion: this.capacitacion[0], oportunidades: this.oportunidades[0], manejo: this.manejo[0], control: this.control[0],TotalDominio:this.sinRiesgoCo[0] },
+        { brand: 'Riesgo bajo', claridad: this.claridad[1], capacitacion: this.capacitacion[1], oportunidades: this.oportunidades[1], manejo: this.manejo[1] ,control: this.control[1],TotalDominio:this.sinRiesgoCo[1]},
+        { brand: 'Riesgo medio', claridad: this.claridad[2], capacitacion: this.capacitacion[2], oportunidades: this.oportunidades[2], manejo: this.manejo[2],control: this.control[2],TotalDominio:this.sinRiesgoCo[2] },
+        { brand: 'Riesgo alto', claridad: this.claridad[3], capacitacion: this.capacitacion[3], oportunidades: this.oportunidades[3], manejo: this.manejo[3],control: this.control[3],TotalDominio:this.sinRiesgoCo[3] },
+        { brand: 'Riesgo muy alto', claridad: this.claridad[4], capacitacion: this.capacitacion[4], oportunidades: this.oportunidades[4], manejo: this.manejo[4],control: this.control[4],TotalDominio:this.sinRiesgoCo[4]},
+        { brand: 'TOTAL', claridad: this.claridad2[5], capacitacion: this.capacitacion2[5], oportunidades: this.oportunidades2[5], manejo: this.manejo2[5],control: this.manejo2[5],TotalDominio:this.sinRiesgo2co[0] },
     ];
  
   }
@@ -451,8 +475,10 @@ total_general2 :any[] = [];
   public fnBuscarCatalogosDemandas(): void {
     this.pruebaServices.getDemandasTrabajo(this.idEmpresa).toPromise().then((data:any)=>{
       this.info13 = data;
+      
       this.pruebaServices.getDemandasTrabajoB(this.idEmpresa).toPromise().then((data:any)=>{
         this.info23 = data;
+       
         this.tam3 = data.length;
          for (let i = 0; i < this.tam3; i++) {
           this.infopreF3[i] = this.info13[i].map( (item, ix) => item + this.info23[i][ix] );
@@ -548,6 +574,10 @@ total_general2 :any[] = [];
         this.demandas_mental2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
 
         break;
+        case 8:
+          this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+          this.sinRiesgo2dem.push(this.Total);
+          break;
       default:
         break;
     }
@@ -563,23 +593,25 @@ total_general2 :any[] = [];
       this.influ_extralaboral = data[5];
       this.demandas_cuantitativas = data[6];
       this.demandas_mental= data[7];
-      this.sinRiesgo = 0;
+      this.sinRiesgodem = data[8];
       this.sales3 = [
-        { brand: 'Sin riesgo o riesgo despreciable', demandas_ambientales: this.demandas_ambientales[0], reponsabilidad: this.reponsabilidad[0], consistencia_rol: this.consistencia_rol[0], demandas_emocionales: this.demandas_emocionales[0], demandas_jornada: this.demandas_jornada[0],influ_extralaboral: this.influ_extralaboral[0],demandas_cuantitativas: this.demandas_cuantitativas[0],demandas_mental: this.demandas_mental[0],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo bajo',                      demandas_ambientales: this.demandas_ambientales[1], reponsabilidad: this.reponsabilidad[1], consistencia_rol: this.consistencia_rol[1], demandas_emocionales: this.demandas_emocionales[1], demandas_jornada: this.demandas_jornada[1],influ_extralaboral: this.influ_extralaboral[1],demandas_cuantitativas: this.demandas_cuantitativas[1],demandas_mental: this.demandas_mental[1],TotalDominio:this.sinRiesgo},
-        { brand: 'Riesgo medio',                     demandas_ambientales: this.demandas_ambientales[2], reponsabilidad: this.reponsabilidad[2], consistencia_rol: this.consistencia_rol[2], demandas_emocionales: this.demandas_emocionales[2], demandas_jornada: this.demandas_jornada[2],influ_extralaboral: this.influ_extralaboral[2],demandas_cuantitativas: this.demandas_cuantitativas[2],demandas_mental: this.demandas_mental[2],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo alto',                      demandas_ambientales: this.demandas_ambientales[3], reponsabilidad: this.reponsabilidad[3], consistencia_rol: this.consistencia_rol[3], demandas_emocionales: this.demandas_emocionales[3], demandas_jornada: this.demandas_jornada[3],influ_extralaboral: this.influ_extralaboral[3],demandas_cuantitativas: this.demandas_cuantitativas[3],demandas_mental: this.demandas_mental[3],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo muy alto',                  demandas_ambientales: this.demandas_ambientales[4], reponsabilidad: this.reponsabilidad[4], consistencia_rol: this.consistencia_rol[4], demandas_emocionales: this.demandas_emocionales[4], demandas_jornada: this.demandas_jornada[4],influ_extralaboral: this.influ_extralaboral[4],demandas_cuantitativas: this.demandas_cuantitativas[4],demandas_mental: this.demandas_mental[4],TotalDominio:this.sinRiesgo },
+        { brand: 'Sin riesgo o riesgo despreciable', demandas_ambientales: this.demandas_ambientales[0], reponsabilidad: this.reponsabilidad[0], consistencia_rol: this.consistencia_rol[0], demandas_emocionales: this.demandas_emocionales[0], demandas_jornada: this.demandas_jornada[0],influ_extralaboral: this.influ_extralaboral[0],demandas_cuantitativas: this.demandas_cuantitativas[0],demandas_mental: this.demandas_mental[0],TotalDominio:this.sinRiesgodem[0] },
+        { brand: 'Riesgo bajo',                      demandas_ambientales: this.demandas_ambientales[1], reponsabilidad: this.reponsabilidad[1], consistencia_rol: this.consistencia_rol[1], demandas_emocionales: this.demandas_emocionales[1], demandas_jornada: this.demandas_jornada[1],influ_extralaboral: this.influ_extralaboral[1],demandas_cuantitativas: this.demandas_cuantitativas[1],demandas_mental: this.demandas_mental[1],TotalDominio:this.sinRiesgodem[1]},
+        { brand: 'Riesgo medio',                     demandas_ambientales: this.demandas_ambientales[2], reponsabilidad: this.reponsabilidad[2], consistencia_rol: this.consistencia_rol[2], demandas_emocionales: this.demandas_emocionales[2], demandas_jornada: this.demandas_jornada[2],influ_extralaboral: this.influ_extralaboral[2],demandas_cuantitativas: this.demandas_cuantitativas[2],demandas_mental: this.demandas_mental[2],TotalDominio:this.sinRiesgodem[2] },
+        { brand: 'Riesgo alto',                      demandas_ambientales: this.demandas_ambientales[3], reponsabilidad: this.reponsabilidad[3], consistencia_rol: this.consistencia_rol[3], demandas_emocionales: this.demandas_emocionales[3], demandas_jornada: this.demandas_jornada[3],influ_extralaboral: this.influ_extralaboral[3],demandas_cuantitativas: this.demandas_cuantitativas[3],demandas_mental: this.demandas_mental[3],TotalDominio:this.sinRiesgodem[3] },
+        { brand: 'Riesgo muy alto',                  demandas_ambientales: this.demandas_ambientales[4], reponsabilidad: this.reponsabilidad[4], consistencia_rol: this.consistencia_rol[4], demandas_emocionales: this.demandas_emocionales[4], demandas_jornada: this.demandas_jornada[4],influ_extralaboral: this.influ_extralaboral[4],demandas_cuantitativas: this.demandas_cuantitativas[4],demandas_mental: this.demandas_mental[4],TotalDominio:this.sinRiesgodem[4] },
         { brand: 'No evaluado',                      demandas_ambientales:'0', reponsabilidad:this.demandas_ambientales2[5] -this.reponsabilidad2[5], consistencia_rol:this.demandas_ambientales2[5] - this.consistencia_rol2[5], demandas_emocionales:'0', demandas_jornada: '0',influ_extralaboral: '0',demandas_cuantitativas: '0',demandas_mental: '0',TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL',                            demandas_ambientales: this.demandas_ambientales2[5],reponsabilidad: this.demandas_ambientales2[5],consistencia_rol: this.demandas_ambientales2[5],demandas_emocionales: this.demandas_emocionales2[5],demandas_jornada: this.demandas_jornada2[5],influ_extralaboral: this.influ_extralaboral2[5],demandas_cuantitativas: this.demandas_cuantitativas2[5],demandas_mental: this.demandas_mental2[5],TotalDominio:this.sinRiesgo },
+        { brand: 'TOTAL',                            demandas_ambientales: this.demandas_ambientales2[5],reponsabilidad: this.demandas_ambientales2[5],consistencia_rol: this.demandas_ambientales2[5],demandas_emocionales: this.demandas_emocionales2[5],demandas_jornada: this.demandas_jornada2[5],influ_extralaboral: this.influ_extralaboral2[5],demandas_cuantitativas: this.demandas_cuantitativas2[5],demandas_mental: this.demandas_mental2[5],TotalDominio:this.sinRiesgo2dem[0] },
     ];
   }
 
   public fnBuscarCatalogosRecompensas(): void {
     this.pruebaServices.getRecompensas(this.idEmpresa).toPromise().then((data:any)=>{
       this.info12 = data;
+      
       this.pruebaServices.getRecompensasB(this.idEmpresa).toPromise().then((data:any)=>{
         this.info22 = data;
+       
         this.tam2 = data.length;
         for (let i = 0; i < this.tam2; i++) {
           this.infopreF2[i] = this.info12[i].map( (item, ix) => item + this.info22[i][ix] );
@@ -613,6 +645,10 @@ total_general2 :any[] = [];
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.reconocimiento2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
         break;
+        case 2:
+          this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
+          this.sinRiesgo2re.push(this.Total);
+          break;
       default:
         break;
     }
@@ -622,14 +658,14 @@ total_general2 :any[] = [];
  
       this.recompensas_trabajo = data[0];
       this.reconocimiento = data[1];
-      this.sinRiesgo = 0;
+      this.sinRiesgore = data[2];
       this.sales4 = [
-        { brand: 'Sin riesgo o riesgo despreciable', recompensas_trabajo: this.recompensas_trabajo[0], reconocimiento: this.reconocimiento[0],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo bajo',                      recompensas_trabajo: this.recompensas_trabajo[1], reconocimiento: this.reconocimiento[1],TotalDominio:this.sinRiesgo},
-        { brand: 'Riesgo medio',                     recompensas_trabajo: this.recompensas_trabajo[2], reconocimiento: this.reconocimiento[2],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo alto',                      recompensas_trabajo: this.recompensas_trabajo[3], reconocimiento: this.reconocimiento[3],TotalDominio:this.sinRiesgo },
-        { brand: 'Riesgo muy alto',                  recompensas_trabajo: this.recompensas_trabajo[4], reconocimiento: this.reconocimiento[4],TotalDominio:this.sinRiesgo },
-        { brand: 'TOTAL',                            recompensas_trabajo: this.recompensas_trabajo2[5],reconocimiento: this.reconocimiento2[5],TotalDominio:this.sinRiesgo },
+        { brand: 'Sin riesgo o riesgo despreciable', recompensas_trabajo: this.recompensas_trabajo[0], reconocimiento: this.reconocimiento[0],TotalDominio:this.sinRiesgore[0] },
+        { brand: 'Riesgo bajo',                      recompensas_trabajo: this.recompensas_trabajo[1], reconocimiento: this.reconocimiento[1],TotalDominio:this.sinRiesgore[1]},
+        { brand: 'Riesgo medio',                     recompensas_trabajo: this.recompensas_trabajo[2], reconocimiento: this.reconocimiento[2],TotalDominio:this.sinRiesgore[2] },
+        { brand: 'Riesgo alto',                      recompensas_trabajo: this.recompensas_trabajo[3], reconocimiento: this.reconocimiento[3],TotalDominio:this.sinRiesgore[3] },
+        { brand: 'Riesgo muy alto',                  recompensas_trabajo: this.recompensas_trabajo[4], reconocimiento: this.reconocimiento[4],TotalDominio:this.sinRiesgore[4] },
+        { brand: 'TOTAL',                            recompensas_trabajo: this.recompensas_trabajo2[5],reconocimiento: this.reconocimiento2[5],TotalDominio:this.sinRiesgo2re[0] },
     ];
       
     

@@ -20,14 +20,15 @@
 
 
 <div class="card">
-
+    <!-- <form [formGroup]="userform" (ngSubmit)="buscarReportes()"> -->
     <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
     <p-panel header="REPORTE DETALLADO POR EMPLEADO">
-        <p-table #dt [value]="pruebas" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+        <p-table #dt [value]="pruebas" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos','emdciudad']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="caption">
                 <div class="ui-helper-clearfix" style="text-align: left">
                     <button type="button" pButton icon="pi pi-download" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
-                    <!--  <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning"></button> -->
+                    <!-- <input formControlName="ciudades" (ngModelChange)="buscarReportes()" type="text" pInputText style="text-transform: uppercase;"> -->
+                    <!-- <button type="button" pButton icon="pi pi-file-pdf" iconPos="left" label="PDF" (click)="exportPdf()" class="ui-button-warning"></button> -->
                 </div>
             </ng-template>
 
@@ -40,6 +41,12 @@
                     <th pSortableColumn="emdnombres" pResizableColumn>Nombre
 
                     </th>
+                    <th pSortableColumn="emdciudad" pResizableColumn>Ciudad
+
+                    </th>
+                    <th pSortableColumn="emdciudad" pResizableColumn>Area
+
+                    </th>
 
                 </tr>
             </ng-template>
@@ -47,7 +54,9 @@
                 <tr>
 
                     <td style="text-align:left">{{prueba.emdcedula}}</td>
-                    <td style="text-align:left">{{prueba.emdnombres}}</td>
+                    <td style="text-align:left">{{prueba.emdnombres}} {{prueba.emdapellidos}}</td>
+                    <td style="text-align:left">{{prueba.emdciudad}}</td>
+                    <td style="text-align:left">{{prueba.arenombre}}</td>
 
 
                 </tr>
@@ -63,7 +72,8 @@
 
         </div> -->
     </p-panel>
-
+    <pre>{{userform.value | json}}</pre>
+    <!-- </form> -->
 
 
 

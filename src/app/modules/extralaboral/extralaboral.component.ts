@@ -32,13 +32,24 @@ export class ExtralaboralComponent implements OnInit {
   activeIndex: number = 1;
   forrr:Extralaboral;
   forrrEx:Extralaboral;
+  datosEmpleado:any;
+  cedula:any;
+  nombre:any;
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
-
+                this.datosEmpleado = localStorage.getItem("IdEmpleado");
   }
 
   async ngOnInit() {
+
+    this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
+      this.cedula = data[0].emdcedula;
+      this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
+      console.log("cedula",this.cedula);
+      console.log("nombre",this.nombre);
+      
+    })
 
     this.userform = this.fb.group({
       extid:[''],

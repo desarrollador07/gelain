@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
@@ -7,6 +7,9 @@ import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
 import { ReporteDetallado } from '../../models/reporteDetallado';
+import { Workbook } from 'exceljs';
+import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+
 
 @Component({
   selector: 'app-empleados',
@@ -14,33 +17,73 @@ import { ReporteDetallado } from '../../models/reporteDetallado';
   styleUrls: ['./ReporteDetallado.component.css']
 })
 export class ReporteDetalladoComponent implements OnInit {
+  userform: FormGroup;
   idEmpresa:any;
   idtemporal:any;
   prueba: ReporteDetallado;
-
+  ciudades: any[] = [];
   pruebas: ReporteDetallado[] = [];
 repor:ReporteDetallado[] = [];
+ciudad: SelectItem[] = [];
+arrayCiudades: any[] = [];
 
  
   
 
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
-              private _messageService: MessageService) {
+              private _messageService: MessageService,
+              private fb: FormBuilder
+              ) {
                 this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
                 this.idtemporal = 0;    
    }
 
   async ngOnInit() {
 
-    await this.pruebaServices
+    this.userform = this.fb.group({
+      ciudades:[''],
+    })
+    //await this.getCiudades();
+    await this.buscarReportes();
+
+  
+
+  }
+
+  
+
+  getCiudades(){
+     this.pruebaServices
+    .getCiudadReporte(this.idEmpresa).toPromise().then((data: any)=>{
+console.log("data",data);
+
+      data.map(x=>{
+        this.ciudad.push({
+          label:x.ciudad,
+          value: x.ciudad
+        }) 
+      })
+      })
+  }
+
+  buscarReportes(){
+    console.log('ver',this.userform.value.ciudades);
+
+
+    this.pruebaServices
     .getReporteExcelDetallado(this.idEmpresa).toPromise().then((data: any)=>{
       this.pruebas = [...data];
       console.log("reportes", this.pruebas);
-      
-
     }) 
 
+  /*   this.pruebaServices
+    .getReporteExcelDetallado(this.idEmpresa,this.userform.value.ciudades).toPromise().then((data: any)=>{
+      this.pruebas = [...data];
+      console.log("reportes", this.pruebas);
+    })  */
+
+    
   }
 
 
@@ -88,16 +131,32 @@ repor:ReporteDetallado[] = [];
         return {
           'CEDULA': item.emdcedula,
           'NOMBRE': item.emdnombres,
-          
+          'CIUDAD':item.emdciudad,
+          'TOTAL LIDERAZGO':item.Resintr_total_liderazgo_rela,
           'LIDERAZGO': item.Resintr_lider_liderazgo,
           'RELACIONES': item.Resintr_lider_relaciones,
           'RETROALIMENTACION': item.Resintr_lider_retroalimenta,
           'COLABORA': item.Resintr_lider_rela_colabora,
-          'ROL': item.Resintr_lider_ctrl_rol,
-          'CAPACITA': item.Resintr_lider_ctrl_capacita,
-          'OPORTUNIDADES': item.Resintr_lider_ctrl_oportunidades,
-          'PARTICIPACION': item.Resintr_lider_ctrl_participacion,
-          'CONTROL': item.Resintr_lider_ctrl_control,
+          'TOTAL LIDERAZGO VALOR':item.intr_total_liderazgo_rela_val,
+          'LIDERAZGO VALOR': item.intr_lider_liderazgo_val,
+          'RELACIONES VALOR':item.intr_lider_relaciones_val,
+          'RETROALIMENTACION VALOR': item.intr_lider_retroalimenta_val,
+          'COLABORA VALOR': item.intr_lider_rela_colabora_val,
+
+          'CONTROL TRABAJO':item.Resintr_total_ctrl,
+          'ROL': item.Resintr_ctrl_rol,
+          'CAPACITA': item.Resintr_ctrl_capacita,
+          'OPORTUNIDADES': item.Resintr_ctrl_oportunidades,
+          'PARTICIPACION': item.Resintr_ctrl_cambio,
+          'AUTONOMIA': item.Resintr_ctrl_autonomia,
+          'CONTROL TABAJO VALOR':item.intr_total_ctrl_val,
+          'ROL VALOR':item.intr_ctrl_rol_val,
+          'CAPACITA VALOR':item.intr_ctrl_capacita_val,
+          'OPORTUNIDADES VALOR': item.intr_ctrl_oportunidades_val,
+          'PARTICIPACION VALOR':item.intr_ctrl_cambio_val,
+          'AUTONOMIA VALOR':item.intr_ctrl_autonomia_val,
+
+          'DEMANDAS':item.Resintr_total_deman,
           'AMBIENTE':  item.Resintr_deman_ambiental,
           'RESPONSABLE':  item.Resintr_deman_responsa,
           'CONSISTENCIA':  item.Resintr_deman_consistencia,
@@ -106,9 +165,24 @@ repor:ReporteDetallado[] = [];
           'INFLUENCIA': item.Resintr_deman_influencia,
           'CUANTITATIVA': item.Resintr_deman_cuantitativas,
           'MENTAL': item.Resintr_deman_carmental,
-          'RECONOCIMIENTO': item.Resintr_recom_reconocimiento,
-          'RECOMPENSAS': item.Resintr_recom_recompensas,
+          'TOTAL DEMANDAS':item.intr_total_deman_val,
+          'AMBIENTE VALOR':item.intr_deman_ambientales_val,
+          'RESPONSABLE VALOR':item.intr_deman_responsa_val,
+          'CONSISTENCIA VALOR':item.intr_deman_consistencia_val,
+          'EMOCIONALES VALOR':item.intr_deman_emocionales_val,
+          'JORNADA VALOR':item.intr_deman_jornada_val,
+          'INFLUENCIA VALOR':item.intr_deman_influencia_val,
+          'CUANTITATIVA VALOR':item.intr_deman_cuantitativas_val,
+          'MENTAL VALOR':item.intr_deman_carmental_val,
 
+          'RECOMPENSAS':item.Resintr_total_recompensas,
+          'RECONOCIMIENTO': item.Resintr_recom_reconocimiento,
+          'RECOMPENSAS DERIVADAS': item.Resintr_recom_recompensas,
+          'RECOMPENSAS VALOR':item.intr_total_recompensas_val,
+          'RECONOCIMIENTO VALOR':item.intr_recom_reconocimiento_val,
+          'RECOMPENSAS DERIVADAS VALOR':item.intr_recom_recompensas_val,
+
+          'EXTRALABORAL':item.Resextralab_total,
           'TIEMPOF':  item.Resextralab_tiempof,
           'RELACION FAMILIA':  item.Resextralab_relafami,
           'COMUNICACION':  item.Resextralab_comunicacion,
@@ -116,13 +190,33 @@ repor:ReporteDetallado[] = [];
           'VIVIENDA': item.Resextralab_carvivienda,
           'INFLUENCIAENT': item.Resextralab_influenciaent,
           'DESPLAZAMIENTO': item.Resextralab_desplazamiento,
+          'EXTRALABORAL VALOR':item.extralab_total_val,
+          'TIEMPOF VALOR':item.extralab_tiempof_val,
+          'RELACION FAMILIA VALOR':item.extralab_relafami_val,
+          'COMUNICACION VALOR':item.extralab_comunicacion_val,
+          'SITUACION ECONOMICA VALOR':item.extralab_situacion_econo_val,
+          'VIVIENDA VALOR':item.extralab_carvivienda_val,
+          'INFLUENCIAENT VALOR':item.extralab_influenciaent_val,
+          'DESPLAZAMIENTO VALOR':item.extralab_desplazamiento_val,
 
+          'ESTRES':item.Resestres_total,
           'FISIOLO': item.Resestres_fisiolo,
-          'CORPORAL': item.Resestres_comporta,
+          'CORPORAL': item.Resestres_comportamiento,
           'INTELECTUAL': item.Resestres_intelectuales,
           'PSICOEMOCIONAL': item.Resestres_psicoemocionales,
-    
-                  }; 
+          'ESTRES VALOR':item.estres_total_val,
+          'FISIOLO VALOR':item.estres_fisiolo_val,
+          'CORPORAL VALOR':item.estres_comportamiento_val,
+          'INTELECTUAL VALOR':item.estres_intelectuales_val,
+          'PSICOEMOCIONAL VALOR':item.psicoemocionales_val,
+
+          'TOTAL GENERAL':item.total_general,
+          'INTRALABORAL FIN':item.Restotal_intralaboral_fin,
+          'EXTRALABORAL FIN':item.Restotal_extralaboral_fin,
+          'TOTAL GENERAL VALOR':item.total_general_val,
+          'INTRALABORAL FIN VALOR':item.total_intralaboral_fin_val,
+          'EXTRALABORAL FIN VALOR':item.total_extralaboral_fin_val,
+          }; 
       });
       console.log('pruebass',pruebass);
       return arreglado;

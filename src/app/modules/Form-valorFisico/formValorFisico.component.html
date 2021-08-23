@@ -1,0 +1,283 @@
+<p-toast></p-toast>
+<p-toast position="top-left" key="tl"></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+
+
+<p-toast></p-toast>
+<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+    <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+
+            <div class="ui-g">
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
+                </div>
+                <div class="ui-g-3">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Datos_Generales.png" alt="" width="100%" height="100%">
+                </div>
+                <div class="ui-g-3" style="text-align: center;">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
+                </div>
+                <div class="ui-g-3">
+                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
+                </div>
+            </div>
+
+
+
+            <fieldset>
+                <legend><b>Ficha De Valoración De La Condición Física</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Cedula</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input   [class.is-invalid]="vafidnombre"  formControlName="vafidnombre" type="text" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidnombre"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]="vafidempresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="vafidempresa" [showClear]="true" placeholder="Empresas">
+                            </p-dropdown>
+                            
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidempresa"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- <input  [class.is-invalid]="vafidarea"  formControlName="vafidarea" type="text" pInputText style="text-transform: uppercase;"> --> 
+                            <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas">
+                            </p-dropdown>
+                           
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="vafsede"  formControlName="vafsede" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Sede</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafsede"></p-message>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>EVALUACIÓN COMPOSICIÓN CORPORAL</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  style="width: 50%;"  [class.is-invalid]="vafpeso"  formControlName="vafpeso" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Peso</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafpeso"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 50%;" [class.is-invalid]="vaftalla"  formControlName="vaftalla" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; "> Talla</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftalla"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 50%;"  [class.is-invalid]="vafimc"  formControlName="vafimc" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; ">IMC</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafimc"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 60%;"  [class.is-invalid]="vafperimetro"  formControlName="vafperimetro" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; ">Perimetro abdominal</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafperimetro"></p-message>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>EVALUACIÓN CARDIORESPIRATORIA</b></legend>
+                <b><p>Test de Ruffier: Resistencia aeróbica de corta duración y capacidad de recuperación cardiaca.</p></b>
+                <b><p>Formula: (Mujeres 20 rep en 30” Hombres 30 rep en 45”) </p></b>
+                <b><p>I: ((P0+P1+P2)-200) /10</p></b>
+                <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input   [class.is-invalid]="vafp0"  formControlName="vafp0" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">P0</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafp0"></p-message>
+                    </div>
+                    <div class="ui-g-1">
+                        <b><p>X60</p></b>
+                    </div>
+                    <div class="ui-g-8">
+                        <b><p>Sí I= 0 rendimiento cardiovascular (CV) excelente (propio de atletas)</p></b>
+                        <b><p>Sí I= 0,1 y 5 rendimiento cardiovascular (CV) bueno.</p></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input [class.is-invalid]="vafp1"  formControlName="vafp1" type="number" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">P1</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafp1"></p-message>
+                    </div>
+                    <div class="ui-g-1">
+                        <b><p>X60</p></b>
+                    </div>
+                    <div class="ui-g-8">
+                        <b><p>Sí I= 5,1 Y 10 rendimientos cardiovascular (CV) medio.</p></b>
+                        <b><p>Sí I= 10,1 y 15 rendimiento cardiovascular (CV) insuficiente.</p></b>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="vafp2"  formControlName="vafp2" type="number" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">P2</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafp2"></p-message>
+                    </div>
+                    <div class="ui-g-1">
+                        <b><p>X60</p></b>
+                    </div>
+                    <div class="ui-g-8">
+                        <b><p>Sí I= 15,1 y 20 rendimiento cardiovascular (CV) malo (requiere evaluación médica)</p></b>
+                    </div>
+                </div>
+
+
+
+
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>EVALUACIÓN MUSCULAR</b></legend>
+                <!--  <b><p>Test abdominal</p></b> -->
+                <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 90%;" [class.is-invalid]="vaftestbiering"  formControlName="vaftestbiering" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Test modificado de Biering-Sorensen</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestbiering"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 80%;" [class.is-invalid]="vaftestpuenteder"  formControlName="vaftestpuenteder" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; ">Test de puente lateral derecho</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestpuenteder"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 80%;" [class.is-invalid]="vaftestpuenteizq"  formControlName="vaftestpuenteizq" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; ">Test de puente lateral izquierdo</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestpuenteizq"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="vaftestresistronco"  formControlName="vaftestresistronco" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Test de resistencia de flexores del tronco</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestresistronco"></p-message>
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>EVALUACIÓN DE FLEXIBILIDAD</b></legend>
+                <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 90%;"  [class.is-invalid]="vaftestflextronco"  formControlName="vaftestflextronco" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Test de flexión del tronco</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestflextronco"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 80%;" [class.is-invalid]="vaftestmovhombder"  formControlName="vaftestmovhombder" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; ">Movilidad del hombro derecho</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovhombder"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input style="width: 80%;"  [class.is-invalid]="vaftestmovhombizq"  formControlName="vaftestmovhombizq" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; ">Movilidad del hombro izquierdo</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovhombizq"></p-message>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input   [class.is-invalid]="vaftestmovartichomb"  formControlName="vaftestmovartichomb" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Arco de movilidad articular ambos hombros</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovartichomb"></p-message>
+                    </div>
+                </div>
+
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>OBSERVACIONES</b></legend>
+                <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-4">
+                        <span class="ui-float-label">
+                            <!-- <input   [class.is-invalid]="vafobservaciones"  formControlName="vafobservaciones" type="text" pInputText> --> 
+                            <textarea style="width: 300%;" rows="5" cols="930" [class.is-invalid]="vafobservaciones"  formControlName="vafobservaciones" pInputTextarea></textarea>
+                            <label for="float-input" style="font-size: 15px; "></label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafobservaciones"></p-message>
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+
+
+
+
+
+            <br>
+            <div style="text-align:center">
+
+                <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/ValorFisico']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+
+        </div>
+
+    </p-panel>
+    <!-- <pre>{{nummax}}</pre> -->
+    <pre>{{userform.value | json}}</pre>
+    <!--     <pre>{{userformFormaA.value | json}}</pre> -->
+
+</form>

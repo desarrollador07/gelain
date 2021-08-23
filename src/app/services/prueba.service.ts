@@ -8,7 +8,9 @@ import { Estres } from '../models/estres.nodel';
 import { Extralaboral } from '../models/extralaboral.model';
 import { FormatoB } from '../models/formatoB.model';
 import { User } from '../models/user';
+
 import { Observable } from 'rxjs';
+import { ValorFisico } from '../models/valorFisico.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -59,6 +61,12 @@ export class PruebaService {
   Url4ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteextra';
   Url5ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideExtra';
 
+  Url1vf  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allvalorFisico';
+  Url2vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createValorFisico';
+  Url3vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateValorFisico';
+  Url4vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteValorFisico';
+  Url5vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getidempValor';
+
   UrlLogin = 'https://gelainbienestarlaboral.com/GELAIN/lv2/public/api/auth/signin';
 
   UrlliderazgoRA = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/liderazgoRelacionesA';
@@ -87,7 +95,11 @@ export class PruebaService {
 
   UrlReporExcelDetallado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ReporteExcelDetallado';
 
+  UrlCiudadReporte = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/CiudadReporte';
+
   UrlDatosPersonales = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DatosFooter';
+
+  UrlDatosEmpleado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getidEmp';
 
   constructor(private http: HttpClient) {
   }
@@ -246,6 +258,27 @@ export class PruebaService {
     return this.http.get(this.Url5ex + "/" + id);
   }
 
+  //-----------------------------------------------------------
+  getvalorFisico(){
+    return this.http.get(this.Url1vf);
+  }
+
+  deletevalorFisico(prueba: ValorFisico){
+    return this.http.delete<Extralaboral>(this.Url4vf+"/"+prueba.vafid);
+  }
+
+  createvalorFisico(prueba: ValorFisico){
+    return this.http.post<ValorFisico>(this.Url2vf,prueba);
+  }
+
+  updatevalorFisico(prueba: ValorFisico,id:String){
+    return this.http.put<ValorFisico>(this.Url3vf + "/" + id,prueba);
+  }
+
+  getvalorFisicoId(id:number){
+    return this.http.get(this.Url5vf+ "/" + id);
+  }
+//------------------------------------------------------------
   getLiderazgoRA(id:number){
     return this.http.get(this.UrlliderazgoRA+ "/" + id);
   }
@@ -297,9 +330,20 @@ export class PruebaService {
   getReporteExcelDetallado(id:number){
     return this.http.get(this.UrlReporExcelDetallado+ "/" + id);
   }
+/*   getReporteExcelDetallado(id:number,nom:string){
+    return this.http.get(this.UrlReporExcelDetallado+ "/" + id+"/"+nom);
+  } */
+
+  getCiudadReporte(id:number){
+    return this.http.get(this.UrlCiudadReporte+ "/" + id);
+  }
 
   getDatosEmpresaGelain(){
     return this.http.get(this.UrlDatosPersonales);
+  }
+
+  getEmpleadoId(id:string){
+    return this.http.get(this.UrlDatosEmpleado+ "/" + id);
   }
 
   
