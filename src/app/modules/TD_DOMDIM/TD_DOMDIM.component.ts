@@ -241,13 +241,7 @@ total_general2 :any[] = [];
                 this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
                 this.usuario = localStorage.getItem("user");
                 this.nEmpresa = localStorage.getItem("nombreEmpresa");
-                this.idtemporal = 0;
-
-                
-
-
-                
-                
+                this.idtemporal = 0;           
    }
 
   async ngOnInit() {
@@ -272,7 +266,7 @@ total_general2 :any[] = [];
 
     
     this.fnBuscarCatalogos();
-      this.fnBuscarCatalogosControl();
+    this.fnBuscarCatalogosControl();
     this.fnBuscarCatalogosDemandas();
     this.fnBuscarCatalogosRecompensas();
     this.fnBuscarCatalogosPsicoExtra();
@@ -280,6 +274,8 @@ total_general2 :any[] = [];
     this.fnBuscarCatalogosTotal();
     this.metodo();
     this.datosGelain();
+    /*Consulta reporte áreas */
+    await this.fnConsultarReporteAreas();
   }
   public labelContent(args: LegendLabelsContentArgs): string {
     return `${args.dataItem.category} : ${args.dataItem.value}`;
@@ -997,6 +993,15 @@ total_general2 :any[] = [];
     label: { color: '#000', position: 'inside', rotation: 0 },
     position: 'top',
     line: { color: '#999', dashType: 'dash', length: 10, width: 1 }
+  }
+
+  /*Consulta reportes áreas */
+  async fnConsultarReporteAreas(){
+
+    await this.pruebaServices.getReporteAreas().toPromise().then(res => {
+      console.log("Areas Reporte",res);
+      
+    });
   }
 
 

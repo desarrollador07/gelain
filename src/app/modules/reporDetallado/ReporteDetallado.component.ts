@@ -92,7 +92,6 @@ export class ReporteDetalladoComponent implements OnInit {
           'CEDULA': item.emdcedula,
           'NOMBRE': item.emdnombres,
           'CIUDAD':item.emdciudad,
-          /*Inicio Nuevos Campos 23-08-2021*/
           'SEXO':item.emdsexo,
           'FECHA NACIMIENTO':item.emdfecnacido,
           'CARGO':item.emdcargo,
@@ -102,7 +101,6 @@ export class ReporteDetalladoComponent implements OnInit {
           'ZONA':item.emdzona,
           'AREA':item.arenombre,
           'TIPO FORMATO':item.formato,
-          /*Fin Nuevos  Campos 23-08-2021*/
           'TOTAL LIDERAZGO':item.Resintr_total_liderazgo_rela,
           'LIDERAZGO': item.Resintr_lider_liderazgo,
           'RELACIONES': item.Resintr_lider_relaciones,
@@ -187,7 +185,8 @@ export class ReporteDetalladoComponent implements OnInit {
           'TOTAL GENERAL VALOR':item.total_general_val,
           'INTRALABORAL FIN VALOR':item.total_intralaboral_fin_val,
           'EXTRALABORAL FIN VALOR':item.total_extralaboral_fin_val,
-          }; 
+          'FECHA DE MODICACIÓN':item.emdfechamod
+        }; 
       });
 
       return dataReporte;

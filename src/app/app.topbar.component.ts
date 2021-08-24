@@ -6,6 +6,7 @@ import { Empresa } from './models/empresa.model';
 import { PruebaService } from './services/prueba.service';
 import { Empleado } from './models/empleado.mdel';
 import { EmpleadosComponent } from './modules/empleados/empleados.component';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-topbar',
@@ -15,8 +16,8 @@ import { EmpleadosComponent } from './modules/empleados/empleados.component';
 export class AppTopBarComponent {
   idEmpresa:any;
   empresita:Empresa;
- 
   nombre:string;
+  empSelect:any;
   empresa: SelectItem[] = [];
   empresas: Empresa[] = [];
   a2: SelectItem[];
@@ -26,12 +27,16 @@ export class AppTopBarComponent {
   imagen3:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr03.jpg";
   imagenDefecto:any = "assets/layout/images/avatar.png"
   imagenfin:any;
+  edform: FormGroup;
 
-    constructor(public app: AppComponent,private router: Router,private pruebaServices:PruebaService,public emCopm: EmpleadosComponent) {
+    constructor(public app: AppComponent,
+                private router: Router,
+                private pruebaServices:PruebaService,
+                public emCopm: EmpleadosComponent,
+                private fb: FormBuilder,) {
+
       this.nombre = localStorage.getItem("user");
-      console.log(this.nombre);
-      this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
-      console.log("mi empresa:",this.idEmpresa);
+      this.idEmpresa = Number(localStorage.getItem("nameEmpresaEmp"));
        if (localStorage.getItem("user")==="LINA") {
         this.imagenfin = this.imagen1;
       } else if (localStorage.getItem("user")==="JENNIFER") {
@@ -42,17 +47,33 @@ export class AppTopBarComponent {
         this.imagenfin = this.imagenDefecto;
       }
     }
-   async ngOnInit() {
 
+  async ngOnInit() {
+
+    // this.edform = this.fb.group({
+    //   idempresa:['']
+    // });
+
+    //  this.empSelect = this.idEmpresa;
+     
     await this.ValorData();
+    
+  }
 
+    buscarActualizarData(arg:any){
+      // console.log('entro', this.empSelect);
 
-
-    }
-
-    buscarActualizarData(arg){
-      console.log("empresa " + arg.target.value);
-      console.log("empleados:",this.empresas);
+      // if (this.empSelect !== undefined) {
+      //   for (let i = 0; i < this.empresas.length; i++) {
+      //     this.empresita = this.empresas[i];
+      //     if (this.empresita.empid === this.empSelect) {
+      //        localStorage.setItem("nameEmpresaEmp",this.empresita.empid.toString())
+      //        localStorage.setItem("nombreEmpresa",this.empresita.empnombre)
+      //       this.router.navigate(["main/dashboard"]) 
+      //       this.emCopm.actualizarData(this.empresita.empid);
+      //     }
+      //   }
+      // }
       for (let i = 0; i < this.empresas.length; i++) {
         this.empresita = this.empresas[i];
         if (this.empresita.empnombre == arg.target.value) {
@@ -63,10 +84,7 @@ export class AppTopBarComponent {
         }
       }
       
-      
     }
-
-
 
     salir(){
       localStorage.clear();
@@ -74,24 +92,17 @@ export class AppTopBarComponent {
     }
 
     async ValorData(){
-       this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+
+      await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
         this.empresas = data;
         this.empresas.map(x=>{
           this.empresa.push({
             label:x.empnombre,
-            value: x.empid,
-            
-            
-          }) 
-        })
-        console.log(this.empresa);
-      })
+            value: x.empid
+          }); 
+        });
+      });
+
     }
 
-    DataEmpleado(arg){
-    
-
-       
-    }
-    
 }

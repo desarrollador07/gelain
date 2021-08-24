@@ -471,6 +471,7 @@ body .ui-dropdown .ui-dropdown-trigger {
     text-align: center;
     padding: 0;
     color: #333333;
+    border-radius: 10px;
 }
 
 body .ui-dropdown:not(.ui-state-disabled).ui-state-focus {

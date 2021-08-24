@@ -1,47 +1,42 @@
 <div class="layout-topbar">
-
-
-
     <div class="search-input">
         <img src="https://gelainbienestarlaboral.com/GELAIN/img/logotoobar.png" style="width: 92%; height: 137%;padding-bottom: 3%;" alt="logo-GELAIN" routerLink="/main/dashboard">
     </div>
-
-
-
     <a href="/#/main/dashboard" class="logo-container">
         <span style="font-size: 2em;color: aliceblue;">GELAIN Gestión Laboral Integral</span>
     </a>
-
-
-
     <a id="topbar-profile-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
-        <span>{{nombre | uppercase}}</span>
+        <span style="font-size: 17px;color: aliceblue;">{{nombre | uppercase}}</span>
         <img src="{{imagenfin}}" alt="ecuador-layout" class='imgRedonda' />
         <i class="fa fa-sort-desc"></i>
     </a>
 
-    <!--     <a id="topbar-profile-menu-button">
-        <span class="ui-float-label">
-            <p-dropdown  [options]="empresa" [showClear]="true" (change)="buscarActualizarData()" placeholder="Empresas"></p-dropdown>
-                        </span>
-
+    <!-- <a id="topbar-profile-menu-button">
+        <span>
+            <form [formGroup]="edform">
+                <p-dropdown [options]="empresa" (onChange)="buscarActualizarData()" formControlName="idempresa" placeholder="Seleccione una empresa">
+                    <ng-template let-empresa>
+                        <div class="ui-helper-clearfix" style="height: 25px;">
+                            <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
+                        </div>
+                    </ng-template>
+                </p-dropdown>
+            </form>
+            
+        </span>
     </a> -->
+
     <a id="topbar-profile-menu-button">
         <span class="ui-float-label">
+            
             <select name="country1" (change)="buscarActualizarData($event)" class="ui-corner-all" >
-                <option [ngValue]="null" >Seleccione Empresa</option>
-                <option *ngFor="let country of empresas" [ngValue]="country.empid">{{country.empnombre}}</option>
-              </select>
-                        </span>
-
+                <option [ngValue]="null" >Seleccione una empresa</option>
+                <option *ngFor="let country of empresas"  [ngValue]="country.empid">{{country.empnombre}}</option>
+            </select>
+        </span>
     </a>
-
     <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
-
-
-
         <li>
-
             <a href="#" (click)="app.onTopbarSubItemClick($event)">
                 <i class="fa fa-fw fa-user"></i>
                 <span class="topbar-item-name" (click)="salir()">Cerrar sesión</span>

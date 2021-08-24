@@ -21,7 +21,7 @@ export class PruebaComponent implements OnInit {
 
   activeItem: MenuItem;
 
-  constructor(private pruebaServices:PruebaService,private router: Router,
+  constructor(private pruebaServices:PruebaService,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService) {
 
@@ -70,11 +70,9 @@ export class PruebaComponent implements OnInit {
       }
 
       indexData(){
-        this.pruebaServices
-        .getEmpresa().subscribe((data: any)=>{
+        this.pruebaServices.getEmpresa().subscribe((data: any)=>{
           this.pruebas = data;
-          console.log('los datos son: ',this.pruebas);
-        })
+        });
       }
   
 

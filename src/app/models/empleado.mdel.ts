@@ -4,6 +4,7 @@ export interface Empleado{
     emdnombres?: string,
     emdapellidos?: string,
     emdsexo?:string,
+    emdzona?:string,
     emdfecnacido?: Date,
     emdestcivil?: string,
     emdnivelestudio?: string,

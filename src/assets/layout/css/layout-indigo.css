@@ -291,11 +291,11 @@ a {
 
 .layout-wrapper .layout-topbar #topbar-profile-menu-button span {
     vertical-align: middle;
-    font-size: 17px;
+    font-size: 12px;
     line-height: 21px;
     text-align: left;
     margin-right: 10px;
-    color: #faf5f5;
+    color: black;
 }
 
 .layout-wrapper .layout-topbar #topbar-profile-menu-button i {

@@ -89,6 +89,7 @@ bandera:boolean=false;
       emdusuarioreg: [this.nombre],
       emdipreg: ['127.0.0.1'],
       emdactivo:['P'],
+      emdzona:['',Validators.required]
     });
 
     this.userformFormaA = this.fb.group({
@@ -541,7 +542,8 @@ bandera:boolean=false;
         emdusuarioreg:this.localPrueba.emdusuarioreg,
         emdipreg:this.localPrueba.emdipreg,
         emdactivo:this.localPrueba.emdactivo,
-      })
+        emdzona:this.localPrueba.emdzona
+      });
     } 
   
 
@@ -643,6 +645,10 @@ bandera:boolean=false;
 
   get emdActivo() {
     return this.userform.get('emdactivo').invalid && this.userform.get('emdactivo').touched
+  }
+
+  get emdZona() {
+    return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
   }
 
 

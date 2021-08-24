@@ -275,10 +275,16 @@
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdActivo"></p-message>
                     </div>
-
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdZona"   formControlName="emdzona" type="text"   pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Zonas</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido,Debe ser entero" *ngIf="emdZona"></p-message>
+                    </div>
                 </div>
 
-                <br>
 
             </fieldset>
 

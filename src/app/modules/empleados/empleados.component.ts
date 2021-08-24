@@ -15,41 +15,31 @@ export class EmpleadosComponent implements OnInit {
   idEmpresa:any;
   idtemporal:any;
   prueba: Empleado;
-
   pruebas: Empleado[] = [];
-
   pruebas2: Empleado[] = [];
-
   items1: MenuItem[];
-
   items2: MenuItem[];
-
   activeItem: MenuItem;
-
   empresas: Empresa[] = [];
-
   nomempresa:String;
-
   area: SelectItem[] = [];
   areas: Area[] = [];
 
   public  async actualizarData(id:any){
       
-    this.pruebaServices
-   .buscarByEmpleados(id).toPromise().then((data: any)=>{
-     console.log("verificando",data);
-     this.pruebas = [...data];
+   await this.pruebaServices.buscarByEmpleados(id).toPromise().then((data: any)=>{
+
+     this.pruebas = data;
      this.pruebas.map(res=>{
        this.empresas.map(x=>{
-       if (res.emdempresa === x.empid) {
-         res.nomempresa = x.empnombre;
-       }
-       })
-     })
-     console.log("estas son:",this.pruebas);
-     
-   }) 
-}
+          if (res.emdempresa === x.empid) {
+            res.nomempresa = x.empnombre;
+          }
+       });
+     });
+  
+   }); 
+  }
 
 
   constructor(private pruebaServices:PruebaService,private router: Router,
@@ -62,31 +52,25 @@ export class EmpleadosComponent implements OnInit {
 
   async ngOnInit() {
     this.pruebas2 = this.pruebas;
-  console.log("ongi",this.pruebas2);
-  
-  
-    console.log("tempo",this.idtemporal);
-    
 
     await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
-      console.log(data);
       this.empresas = data;
-    })
+    });
 
-    await this.pruebaServices
-    .buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
-      console.log("verificando",data);
-      this.pruebas = [...data];
+    await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
+
+      this.pruebas = data;
+      console.log('Get empleados',this.pruebas);
+      
       this.pruebas.map(res=>{
         this.empresas.map(x=>{
-        if (res.emdempresa === x.empid) {
-          res.nomempresa = x.empnombre;
-        }
-        })
-      })
-      console.log("estas son:",this.pruebas);
-      
-    }) 
+          if (res.emdempresa === x.empid) {
+            res.nomempresa = x.empnombre;
+          }
+        });
+      });
+
+    });
 
 
     this.items1 = [
@@ -100,40 +84,37 @@ export class EmpleadosComponent implements OnInit {
 
   ngOnChanges() {
     this.pruebas;
-  console.log("ongi",this.pruebas);
+
   }
   
 
   deletePrueba(prueba: Empleado) {
 
     this._confirmationServices.confirm({
-      message: '¿Seguro que desea eliminar este elemento?',
+      message: '¿Seguro que desea eliminar este registro?',
       header:'confirmacion',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        this.pruebaServices.deletePrueba(prueba)
-        .toPromise().then(data => {
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
-          this.pruebaServices
-    .buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
-      console.log("verificando",data);
-      this.pruebas = [...data];
-      this.pruebas.map(res=>{
-        this.empresas.map(x=>{
-        if (res.emdempresa === x.empid) {
-          res.nomempresa = x.empnombre;
-        }
-        })
-      })
-      console.log("estas son:",this.pruebas);
-      
-    })
+
+        this.pruebaServices.deletePrueba(prueba).toPromise().then(data => {
+              this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000})
+              this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
+
+                this.pruebas = [...data];
+                this.pruebas.map(res=>{
+                  this.empresas.map(x=>{
+                    if (res.emdempresa === x.empid) {
+                      res.nomempresa = x.empnombre;
+                    }
+                  });
+                });               
+              });
         });
       }
     });
         
 
-      }
+  }
 
       editPrueba(cpruebas:Empleado){
         localStorage.setItem('prueba',JSON.stringify(cpruebas));
@@ -174,34 +155,33 @@ export class EmpleadosComponent implements OnInit {
       buscarArea(cpruebas:Empleado){
         this.area =[];
         this.pruebaServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
-          console.log(data);
+   
           this.areas = data;
           this.areas.map(x=>{
             this.area.push({
               label:x.arenombre,
               value: x.areid
-            })
-          })
-        })
+            });
+          });
+        });
       }
 
-      indexData(){
-         this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
-          console.log(data);
-          this.empresas = data;
-        })
+    indexData(){
+
+      this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+        this.empresas = data;
+      });
     
-         this.pruebaServices
-        .getPrueba().toPromise().then((data: any)=>{
-          this.pruebas = [...data];
+      this.pruebaServices.getPrueba().toPromise().then((data: any)=>{
+          this.pruebas = data;
           this.pruebas.map(res=>{
             this.empresas.map(x=>{
-            if (res.emdempresa === x.empid) {
-              res.nomempresa = x.empnombre;
-            }
-            })
-          })
-      })
+              if (res.emdempresa === x.empid) {
+                res.nomempresa = x.empnombre;
+              }
+            });
+          });
+      });
     }
 
 
