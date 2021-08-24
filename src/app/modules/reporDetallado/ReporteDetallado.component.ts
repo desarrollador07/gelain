@@ -1,14 +1,7 @@
-import { Component, OnInit, SystemJsNgModuleLoader } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Empleado } from '../../models/empleado.mdel';
+import { Component, OnInit} from '@angular/core';
 import { PruebaService } from '../../services/prueba.service';
-import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
-import {MenuItem} from 'primeng/api';
-import { Empresa } from 'src/app/models/empresa.model';
-import { Area } from '../../models/area.model';
 import { ReporteDetallado } from '../../models/reporteDetallado';
-import { Workbook } from 'exceljs';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+import { MessageService } from 'primeng/primeng';
 
 
 @Component({
@@ -17,90 +10,56 @@ import {Validators,FormGroup,FormBuilder} from '@angular/forms';
   styleUrls: ['./ReporteDetallado.component.css']
 })
 export class ReporteDetalladoComponent implements OnInit {
-  userform: FormGroup;
-  idEmpresa:any;
-  idtemporal:any;
-  prueba: ReporteDetallado;
-  ciudades: any[] = [];
-  pruebas: ReporteDetallado[] = [];
-repor:ReporteDetallado[] = [];
-ciudad: SelectItem[] = [];
-arrayCiudades: any[] = [];
 
- 
-  
+  idEmpresa:number;
+  idtemporal:number = 0;
+  rdEmpleado: ReporteDetallado[] = [];/*Reporte detallado por Empleado */
+  buscarData:string;
+  selectReporte: any;
+  rdSelect = [
+    {label:'Seleccione Una Opción', value:null},
+    {label:'Cédula', value:1},
+    {label:'Nombre', value:2},
+    {label:'Ciudad', value:3},
+    {label:'Área', value:4},
+    {label:'Zona', value:5},
+    {label:'Todos los registros', value:6}
+  ];
+  cols = [
+    { field: 'emdcedula', header: 'Cédula' },
+    { field: 'emdnombres', header: 'Nombre' },
+    { field: 'emdciudad', header: 'Ciudad' },
+    { field: 'arenombre', header: 'Área' },
+    { field: 'emdzona', header: 'Zona' }
+  ];
 
-  constructor(private pruebaServices:PruebaService,private router: Router,
-              private _confirmationServices: ConfirmationService,
+  constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
-              private fb: FormBuilder
               ) {
-                this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
-                this.idtemporal = 0;    
+                this.idEmpresa = Number(localStorage.getItem("nameEmpresaEmp"));   
    }
 
   async ngOnInit() {
 
-    this.userform = this.fb.group({
-      ciudades:[''],
-    })
-    //await this.getCiudades();
-    await this.buscarReportes();
-
-  
+    /*Consulta de reportes por empleado */
+    await this.consultarReportes();
 
   }
 
-  
+  async consultarReportes(){
 
-  getCiudades(){
-     this.pruebaServices
-    .getCiudadReporte(this.idEmpresa).toPromise().then((data: any)=>{
-console.log("data",data);
-
-      data.map(x=>{
-        this.ciudad.push({
-          label:x.ciudad,
-          value: x.ciudad
-        }) 
-      })
-      })
-  }
-
-  buscarReportes(){
-    console.log('ver',this.userform.value.ciudades);
-
-
-    this.pruebaServices
+    await this.pruebaServices
     .getReporteExcelDetallado(this.idEmpresa).toPromise().then((data: any)=>{
-      this.pruebas = [...data];
-      console.log("reportes", this.pruebas);
-    }) 
+      console.log(data);
+      
+      this.rdEmpleado = data;
+    });
 
-  /*   this.pruebaServices
-    .getReporteExcelDetallado(this.idEmpresa,this.userform.value.ciudades).toPromise().then((data: any)=>{
-      this.pruebas = [...data];
-      console.log("reportes", this.pruebas);
-    })  */
-
-    
   }
 
-
-
-    exportPdf() {
-      import("jspdf").then(jsPDF => {
-          import("jspdf-autotable").then(x => {
-              const doc = new jsPDF.default();
-              //doc.autoTable(this.columns, this.pruebas);
-              doc.save('empleados.pdf');
-          })
-      })
-  }
-  
   exportExcel() {
       import("xlsx").then(xlsx => {
-          const worksheet = xlsx.utils.json_to_sheet(this.getCars());
+          const worksheet = xlsx.utils.json_to_sheet(this.reporteDetalladoEmpleado());
           const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
           const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
           this.saveAsExcelFile(excelBuffer, "EMPLEADOS");
@@ -118,20 +77,32 @@ console.log("data",data);
       });
   }
 
-  getCars() {
-      let pruebass = [];
-      let arreglado :any;
-      console.log("aa",this.pruebas);
-      
-      for(let car of this.pruebas) {
-          car.emdnombres = car.emdnombres.toString()+" "+car.emdapellidos.toString();
-          pruebass.push(car);
+  reporteDetalladoEmpleado() {
+      let rDETemp = [];
+      let dataReporte :any;
+
+      for(let rDE of this.rdEmpleado) {
+          rDE.emdnombres = rDE.emdnombres.toString()+" "+rDE.emdapellidos.toString();
+          rDETemp.push(rDE);
       }
-      arreglado = pruebass.map( item => { 
+      
+      dataReporte = rDETemp.map( item => { 
+        /*TODO: Falta asignar campo fecha de registro en la exportación, Novedad: Campo no creado en la tabla */
         return {
           'CEDULA': item.emdcedula,
           'NOMBRE': item.emdnombres,
           'CIUDAD':item.emdciudad,
+          /*Inicio Nuevos Campos 23-08-2021*/
+          'SEXO':item.emdsexo,
+          'FECHA NACIMIENTO':item.emdfecnacido,
+          'CARGO':item.emdcargo,
+          'PROFESION':item.emdprofesion,
+          'TELEFONO':item.emdtelefono,
+          'CORREO':item.emdemail,
+          'ZONA':item.emdzona,
+          'AREA':item.arenombre,
+          'TIPO FORMATO':item.formato,
+          /*Fin Nuevos  Campos 23-08-2021*/
           'TOTAL LIDERAZGO':item.Resintr_total_liderazgo_rela,
           'LIDERAZGO': item.Resintr_lider_liderazgo,
           'RELACIONES': item.Resintr_lider_relaciones,
@@ -218,9 +189,45 @@ console.log("data",data);
           'EXTRALABORAL FIN VALOR':item.total_extralaboral_fin_val,
           }; 
       });
-      console.log('pruebass',pruebass);
-      return arreglado;
- 
+
+      return dataReporte;
+  }
+
+  async buscador(){
+
+      if (this.selectReporte === null || this.selectReporte === undefined) {
+          this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Debe seleccionar el tipo dato a buscar', life: 3000 });
+        return;
+      }
+
+      if (this.selectReporte === 6) {
+        this.rdEmpleado = [];
+        this.buscarData = '';
+        await this.consultarReportes();
+        return;
+      }
+
+      if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '') {
+        const data = this.buscarData.trim();
+        await this.pruebaServices.getBuscardorData(this.idEmpresa,data,this.selectReporte).toPromise().then((res:any) => {
+            
+            if (res !== null) {
+              this.rdEmpleado = [];
+              this.rdEmpleado = res;
+            }
+
+            if (res.length === 0) {
+              this._messageService.add({ severity: 'info', summary: 'Sin Resultados', detail: 'No se encontraron resultados para el tipo de busqueda', life: 3000 });
+            }
+            
+        },err => console.log(err));
+      }
+     
+
+      
+      
+
+      
   }
 
 

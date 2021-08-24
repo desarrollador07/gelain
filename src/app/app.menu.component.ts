@@ -34,7 +34,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                 label: 'Reportes', icon: 'fa fa-fw fa-book',routerLink: ['Reportes'],
             },
             {
-                label: 'Valoracion C.Fisica', icon: 'fa fa-fw fa-book',routerLink: ['ValorFisico'],
+                label: 'Valoración C.Física', icon: 'fa fa-fw fa-book',routerLink: ['ValorFisico'],
             },
            
             

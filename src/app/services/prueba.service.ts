@@ -101,6 +101,8 @@ export class PruebaService {
 
   UrlDatosEmpleado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getidEmp';
 
+  UrlDatoBuscado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/buscarReportesDetallados'
+
   constructor(private http: HttpClient) {
   }
 
@@ -346,8 +348,10 @@ export class PruebaService {
     return this.http.get(this.UrlDatosEmpleado+ "/" + id);
   }
 
-  
-
+  /* SERVICIOS NUEVOS 23-08-2021 MODULO: REPORTE DETALLADO POR EMPLEADO */
+  getBuscardorData(idEmpresa:number,  valorBuscado:string, tipo:number){
+    return  this.http.get(this.UrlDatoBuscado + `/${idEmpresa}/${valorBuscado}/${tipo}`);
+  }
 
   
 /*  getIPAddress()  
