@@ -93,6 +93,9 @@ bandera:boolean=false;
       emdusuarioreg: ['UsuarioWEb'],
       emdipreg: ['127.0.0.1'],
       emdactivo:['P'],
+      emdzona:['',Validators.required],
+      emdtraciudad:['',Validators.required],
+      emdtradepartamento:['',Validators.required]
     });
 
     this.userformFormaA = this.fb.group({
@@ -413,7 +416,6 @@ bandera:boolean=false;
 
 
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
-    console.log('f',this.localPrueba);
 
     await this.buscarEmpresa();
     await this.buscarArea();
@@ -538,6 +540,9 @@ bandera:boolean=false;
         emdusuarioreg:this.localPrueba.emdusuarioreg,
         emdipreg:this.localPrueba.emdipreg,
         emdactivo:this.localPrueba.emdactivo,
+        emdzona: this.localPrueba.emdzona,
+        emdtraciudad: this.localPrueba.emdtraciudad,
+        emdtradepartamento: this.localPrueba.emdtradepartamento
       })
     } 
   
@@ -638,12 +643,23 @@ bandera:boolean=false;
     return this.userform.get('emdactivo').invalid && this.userform.get('emdactivo').touched
   }
 
+  get emdZona() {
+    return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
+  }
+
+  get emdTraCiudad() {
+    return this.userform.get('emdtraciudad').invalid && this.userform.get('emdtraciudad').touched
+  }
+
+  get emdTraDepartamento() {
+    return this.userform.get('emdtradepartamento').invalid && this.userform.get('emdtradepartamento').touched
+  }
 
 
  onSubmit(){
     if(this.userform.valid){
       if(this.localPrueba !== null){
-        console.log("voy a actualizar");
+
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
         this.idd = this.localPrueba.emdid;
@@ -660,7 +676,6 @@ bandera:boolean=false;
           }
         })
       }else{
-        console.log("voy a crear");
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
         this.pruebaservices.createPrueba(this.userform.value)
@@ -714,7 +729,7 @@ bandera:boolean=false;
   }
 
   async buscarArea(){
-    console.log("verficando");
+
     
     this.area =[];
     if (this.localPrueba !== null) {
@@ -731,6 +746,14 @@ bandera:boolean=false;
         emdarea: this.localPrueba.emdarea
       });
     }else{
+      this.empresas.map(res => {
+        if (res.empid === this.idem) {
+          this.userform.patchValue({
+            emdtraciudad:res.empciudad,
+            emdtradepartamento: res.empdepartamento
+          });
+        }
+      });
       this.pruebaservices.buscarByArea(this.idem).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
@@ -776,17 +799,25 @@ bandera:boolean=false;
 }
 
   async buscarEmpresa(){
-    this.pruebaservices.getEmpresaId(this.idem).toPromise().then((data:any)=>{
-      console.log("empresa",data);
+
+    await this.pruebaservices.getEmpresaId(this.idem).toPromise().then((data:any)=>{
       this.empresas = data;
       this.empresas.map(x=>{
         this.empresa.push({
           label:x.empnombre,
           value:x.empid
-        })
-      })
-      
-    }) 
+        });
+      });
+    }); 
+    this.empresas.map(res => {
+      if (res.empid === this.idem) {
+        this.userform.patchValue({
+          emdempresa:this.idem,
+          emdtraciudad:res.empciudad,
+          emdtradepartamento: res.empdepartamento
+        });
+      }
+    });
   }
 
 

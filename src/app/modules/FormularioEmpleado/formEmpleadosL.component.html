@@ -234,6 +234,31 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiposalario"></p-message>
                     </div>
                 </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdTraCiudad"   formControlName="emdtraciudad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Ciudad</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraCiudad"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdTraDepartamento"   formControlName="emdtradepartamento" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Departamento</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraDepartamento"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdZona"   formControlName="emdzona" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Sedes</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdZona"></p-message>
+                    </div>
+                </div>
 
 
                 <b><p>NOTA: Si lleva menos de un año coloque (-1). Si no responde coloque cero (0) en los siguientes campos : </p></b>

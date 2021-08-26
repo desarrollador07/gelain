@@ -33,60 +33,40 @@
 
             <ng-template pTemplate="header">
                 <tr>
-
                     <th pSortableColumn="emdcedula" pResizableColumn>Cedula
-
+                        <p-sortIcon field="emdcedula"></p-sortIcon>
                     </th>
                     <th pSortableColumn="emdnombres" pResizableColumn>Nombre
-
+                        <p-sortIcon field="emdnombres"></p-sortIcon>
                     </th>
-
-                    <!--                     <th class="descarto" pSortableColumn="emdapellidos" pResizableColumn>Apellido
-
-                    </th> -->
-
                     <th class="descarto" pSortableColumn="emddepartamento" pResizableColumn>Departamento
-
+                        <p-sortIcon field="emddepartamento"></p-sortIcon>
                     </th>
                     <th class="descarto" pSortableColumn="emdciudad" pResizableColumn>Ciudad
-
+                        <p-sortIcon field="emdciudad"></p-sortIcon>
                     </th>
                     <th class="descarto" pSortableColumn="emdfecnacidoRepor" pResizableColumn>Año de nacimiento
-
+                        <p-sortIcon field="emdfecnacidoRepor"></p-sortIcon>
                     </th>
-                    <th class="descarto" pSortableColumn=" nomempresa" pResizableColumn>Empresa
-
+                    <th class="descarto">Empresa
                     </th>
-
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-prueba let-i="rowIndex">
                 <tr>
-
                     <td style="text-align:left">{{prueba.emdcedula}}</td>
                     <td style="text-align:left">{{prueba.emdnombres | uppercase}} {{prueba.emdapellidos | uppercase}}</td>
-                    <!--  <td style="text-align:center" class="descarto">{{prueba.emdapellidos}}</td> -->
                     <td style="text-align:left" class="descarto">{{prueba.emddepartamento | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.emdciudad | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.emdfecnacido}}</td>
                     <td style="text-align:left" class="descarto">{{prueba.nomempresa | uppercase}}</td>
-
                 </tr>
             </ng-template>
-
-
-
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    En total hay {{pruebas ? pruebas.length : 0 }} registros.
+                </div>
+            </ng-template>
         </p-table>
-
-        <!--         <br>
-        <div style="text-align:center">
-            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/addempleado/crear" (click)="newcPrueba()" label="Agregar"></button>
-
-        </div> -->
     </p-panel>
-
-
-
-
-
 </div>

@@ -22,15 +22,15 @@ export class ReporteDetalladoComponent implements OnInit {
     {label:'Nombre', value:2},
     {label:'Ciudad', value:3},
     {label:'Área', value:4},
-    {label:'Zona', value:5},
+    {label:'Sede', value:5},
     {label:'Todos los registros', value:6}
   ];
   cols = [
     { field: 'emdcedula', header: 'Cédula' },
     { field: 'emdnombres', header: 'Nombre' },
-    { field: 'emdciudad', header: 'Ciudad' },
+    { field: 'emdtraciudad', header: 'Ciudad' },
     { field: 'arenombre', header: 'Área' },
-    { field: 'emdzona', header: 'Zona' }
+    { field: 'emdzona', header: 'Sede' }
   ];
 
   constructor(private pruebaServices:PruebaService,
@@ -50,8 +50,7 @@ export class ReporteDetalladoComponent implements OnInit {
 
     await this.pruebaServices
     .getReporteExcelDetallado(this.idEmpresa).toPromise().then((data: any)=>{
-      console.log(data);
-      
+
       this.rdEmpleado = data;
     });
 
@@ -91,14 +90,14 @@ export class ReporteDetalladoComponent implements OnInit {
         return {
           'CEDULA': item.emdcedula,
           'NOMBRE': item.emdnombres,
-          'CIUDAD':item.emdciudad,
+          'CIUDAD':item.emdtraciudad,
           'SEXO':item.emdsexo,
           'FECHA NACIMIENTO':item.emdfecnacido,
           'CARGO':item.emdcargo,
           'PROFESION':item.emdprofesion,
           'TELEFONO':item.emdtelefono,
           'CORREO':item.emdemail,
-          'ZONA':item.emdzona,
+          'SEDES':item.emdzona,
           'AREA':item.arenombre,
           'TIPO FORMATO':item.formato,
           'TOTAL LIDERAZGO':item.Resintr_total_liderazgo_rela,

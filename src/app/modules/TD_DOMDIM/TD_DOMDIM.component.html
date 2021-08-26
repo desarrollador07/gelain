@@ -465,10 +465,6 @@
                     </kendo-grid-column>
                 </kendo-grid-column-group>
             </kendo-grid>
-
-
-
-
         </div>
         <br>
         <br>
@@ -506,19 +502,12 @@
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
-
-
-
-
-
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
         </div>
     </kendo-pdf-export>
-
 </div>
 
 
@@ -540,14 +529,9 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
@@ -573,10 +557,6 @@
                 <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO">
                 </kendo-grid-column>
             </kendo-grid>
-
-
-
-
         </div>
         <br>
         <br>
@@ -587,7 +567,6 @@
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
                     </kendo-chart-category-axis-item>
@@ -613,14 +592,7 @@
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-
                 </kendo-chart-series>
-
-
-
-
-
-
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
@@ -674,12 +646,7 @@
                 </kendo-grid-column>
                 <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES">
                 </kendo-grid-column>
-
             </kendo-grid>
-
-
-
-
         </div>
         <br>
         <br>
@@ -690,8 +657,6 @@
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
-
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                     </kendo-chart-category-axis-item>
@@ -718,18 +683,12 @@
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
-
-
-
-
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
         </div>
     </kendo-pdf-export>
-
 </div>
 
 
@@ -749,20 +708,14 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
-
             <kendo-grid [data]="sales7">
                 <kendo-grid-column field="brand" title="Nivel de riesgo">
                 </kendo-grid-column>
@@ -770,8 +723,6 @@
                 </kendo-grid-column>
 
             </kendo-grid>
-
-
         </div>
         <br>
         <br>
@@ -792,17 +743,12 @@
             </div>
         </div>
     </kendo-pdf-export>
-
 </div>
-
-
 
 <!-- -----------------------------------Totales Generales 8--------------------------------------------->
 
-
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
-
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
@@ -814,44 +760,33 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
-
             <kendo-grid [data]="sales8">
                 <kendo-grid-column field="brand" title="Nivel de riesgo">
                 </kendo-grid-column>
-                <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL">
+                <kendo-grid-column field="" title="TOTAL INTRALABORAL (Q1)">
                 </kendo-grid-column>
-                <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL">
+                <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL (Q2)">
                 </kendo-grid-column>
-                <kendo-grid-column field="total_general" title="TOTAL GENERAL">
+                <kendo-grid-column field="total_general" title="TOTAL GENERAL (Q3)">
                 </kendo-grid-column>
-
             </kendo-grid>
-
-
         </div>
         <br>
         <br>
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
                     </kendo-chart-category-axis-item>
@@ -878,24 +813,14 @@
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
-
-
-
-
-
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 480px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
         </div>
     </kendo-pdf-export>
 
 </div>
-
-
-
-
 
 
 <!-- -----------------------------------------------VISUAL--------------------------------------------->
@@ -906,19 +831,14 @@
     <br>
     <div>
         <p-panel header="LIDERAZGO Y RELACIONES SOCIALES">
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf.saveAs(text1)">
                     <!-- <button class="k-button" (click)="pdf.saveAs('LIDERAZGO_Y_RELACIONES_SOCIALES_'+fechaActual+'.pdf')"> -->
-                  Genarar Reporte
+                  Generar Reporte
                 </button>
                 </div>
                 <br>
-
                 <div>
                     <kendo-grid [data]="sales">
                         <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
@@ -958,10 +878,8 @@
                         </kendo-grid-column-group>
                     </kendo-grid>
                 </div>
-
                 <br>
                 <br>
-
                 <div>
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                         <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
@@ -992,17 +910,10 @@
                                 </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
-
                     </kendo-chart>
-
                 </div>
-
-
             </div>
-
-
         </p-panel>
-
     </div>
     <br>
 
@@ -1010,20 +921,14 @@
     <br>
     <div>
         <p-panel header="CONTROL SOBRE EL TRABAJO">
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf2.saveAs(text2)">
-                  Genarar Reporte
+                  Generar Reporte
                 </button>
                 </div>
                 <br>
-
                 <div>
-
                     <kendo-grid [data]="sales2">
                         <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
@@ -1066,17 +971,12 @@
                             </kendo-grid-column>
                         </kendo-grid-column-group>
                     </kendo-grid>
-
-
                 </div>
-
                 <br>
                 <br>
-
                 <div>
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                         <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
                             </kendo-chart-category-axis-item>
@@ -1104,37 +1004,23 @@
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
-
                 </div>
-
-
             </div>
-
-
         </p-panel>
-
     </div>
     <br>
     <!-- -----------------------------------DEMANDAS DEL TRABAJO  3--------------------------------------------->
 
     <div>
         <p-panel header="DEMANDAS DEL TRABAJO">
-
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf3.saveAs(text3)">
-                  Genarar Reporte
-                </button>
+                        Generar Reporte
+                    </button>
                 </div>
                 <br>
-
                 <div>
-
-
                     <kendo-grid [data]="sales3">
                         <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
@@ -1192,13 +1078,9 @@
                             </kendo-grid-column>
                         </kendo-grid-column-group>
                     </kendo-grid>
-
-
                 </div>
-
                 <br>
                 <br>
-
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                         <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
@@ -1229,36 +1111,22 @@
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
-
                 </div>
-
-
             </div>
-
         </p-panel>
-
-
     </div>
-
     <br>
     <!-- -----------------------------------RECOMPENSAS 4--------------------------------------------->
     <div>
         <p-panel header="RECOMPENSAS">
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf4.saveAs(text4)">
-                  Genarar Reporte
-                </button>
+                        Generar Reporte
+                    </button>
                 </div>
                 <br>
-
                 <div>
-
-
                     <kendo-grid [data]="sales4">
                         <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
@@ -1286,13 +1154,9 @@
                             </kendo-grid-column>
                         </kendo-grid-column-group>
                     </kendo-grid>
-
-
                 </div>
-
                 <br>
                 <br>
-
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                         <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
@@ -1324,20 +1188,10 @@
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
-
                 </div>
-
-
             </div>
-
-
         </p-panel>
-
     </div>
-
-
-
-
 
 
 
@@ -1350,21 +1204,14 @@
     <br>
     <div>
         <p-panel header="RIESGO PSICOSOCIAL EXTRALABORAL">
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf5.saveAs(text5)">
-                      Genarar Reporte
+                      Generar Reporte
                     </button>
                 </div>
                 <br>
-
                 <div>
-
-
                     <kendo-grid [data]="sales5">
                         <kendo-grid-column field="brand" title="Nivel de riesgo">
                         </kendo-grid-column>
@@ -1385,13 +1232,9 @@
                         <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO">
                         </kendo-grid-column>
                     </kendo-grid>
-
-
                 </div>
-
                 <br>
                 <br>
-
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                         <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
@@ -1420,24 +1263,13 @@
                                 <kendo-chart-series-item-labels position="center">
                                 </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
-
                         </kendo-chart-series>
                     </kendo-chart>
-
                 </div>
-
-
             </div>
-
-
         </p-panel>
     </div>
     <br>
-
-
-
-
-
 
 
 </fieldset>
@@ -1447,65 +1279,38 @@
     <!-- -----------------------------------Estres 7--------------------------------------------->
     <div class="ui-g">
         <p-panel header="Estres">
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf7.saveAs(text6)">
-                      Genarar Reporte
+                      Generar Reporte
                     </button>
                 </div>
                 <br>
-
                 <div>
-
-
                     <kendo-grid [data]="sales7">
                         <kendo-grid-column field="brand" title="Nivel de riesgo">
                         </kendo-grid-column>
                         <kendo-grid-column field="TOTAL_ESTRES" title="TOTAL ESTRES">
                         </kendo-grid-column>
-
                     </kendo-grid>
-
-
                 </div>
-
                 <br>
                 <br>
-
                 <div style="text-align: center;">
                     <kendo-chart>
                         <!-- <kendo-chart style="width: 80%; height: 180px; text-align: center;"> -->
-
-
                         <kendo-chart-legend position="bottom"></kendo-chart-legend>
                         <kendo-chart-series>
                             <kendo-chart-series-item type="pie" [data]="dataDona" field="value" categoryField="category" [labels]="{ visible: true, content: labelContent }">
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
-
-
                     <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
-
-
                 </div>
-
-
             </div>
-
-
-
         </p-panel>
     </div>
     <br>
-
-
-
 
 
 
@@ -1517,45 +1322,31 @@
     <!-- -----------------------------------Estres Detalles 6--------------------------------------------->
     <div class="ui-g">
         <p-panel header="ESTRES DETALLES">
-
-
-
-
             <div>
-
                 <div class="example-config">
                     <button class="k-button" (click)="pdf6.saveAs(text7)">
-                      Genarar Reporte
+                      Generar Reporte
                     </button>
                 </div>
                 <br>
-
                 <div>
-
-
                     <kendo-grid [data]="sales6">
                         <kendo-grid-column field="brand" title="Nivel de riesgo">
                         </kendo-grid-column>
-                        <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS">
+                        <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS (Q1)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL">
+                        <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL (Q2)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="INTEL_LABORA" title="INTEL_LABORA">
+                        <kendo-grid-column field="INTEL_LABORA" title="INTEL_LABORA (Q3)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES">
+                        <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES (Q4)">
                         </kendo-grid-column>
-
                     </kendo-grid>
-
-
                 </div>
-
                 <br>
                 <br>
-
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                             </kendo-chart-category-axis-item>
@@ -1595,13 +1386,10 @@
         </p-panel>
     </div>
     <br>
-
-
-
-
-
 </fieldset>
 <br>
+
+
 <fieldset>
     <legend><b><h4>TOTALES GENERALES</h4></b></legend>
 
@@ -1612,7 +1400,7 @@
             <div>
                 <div class="example-config">
                     <button class="k-button" (click)="pdf8.saveAs(text8)">
-                      Genarar Reporte
+                      Generar Reporte
                     </button>
                 </div>
                 <br>
@@ -1620,11 +1408,11 @@
                     <kendo-grid [data]="sales8">
                         <kendo-grid-column field="brand" title="Nivel de riesgo">
                         </kendo-grid-column>
-                        <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL">
+                        <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL (Q1)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL">
+                        <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL (Q2)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="total_general" title="TOTAL GENERAL">
+                        <kendo-grid-column field="total_general" title="TOTAL GENERAL (Q3)">
                         </kendo-grid-column>
                     </kendo-grid>
                 </div>
@@ -1665,64 +1453,58 @@
     </div>
 </fieldset>
 <br>
-<!-- <fieldset>
-    <legend><b><h4>REPORTE ÁREAS</h4></b></legend> -->
-<!-- -----------------------------------REPORTE ÁREAS--------------------------------------------->
-<!-- <div class="ui-g">
+<fieldset>
+    <legend><b><h4>REPORTE ÁREAS</h4></b></legend>
+    <!-- -----------------------------------REPORTE ÁREAS--------------------------------------------->
+    <div class="ui-g">
         <p-panel header="REPORTE ÁREAS">
             <div>
-                <div class="example-config">
+                <!-- <div class="example-config">
                     <button class="k-button" (click)="pdf8.saveAs(text8)">
-                      Genarar Reporte
+                      Generar Reporte
                     </button>
-                </div>
+                </div> -->
                 <br>
                 <div>
-                    <kendo-grid [data]="sales8">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo">
+                    <kendo-grid [data]="sales9">
+                        <kendo-grid-column field="nombreArea" title="Áreas">
                         </kendo-grid-column>
-                        <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL">
+                        <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable">
                         </kendo-grid-column>
-                        <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL">
+                        <kendo-grid-column field="categorias.cat2" title="Riego bajo">
                         </kendo-grid-column>
-                        <kendo-grid-column field="total_general" title="TOTAL GENERAL">
+                        <kendo-grid-column field="categorias.cat3" title="Riego medio">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat4" title="Riesgo alto">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat5" title="Riesgo muy alto">
                         </kendo-grid-column>
                     </kendo-grid>
                 </div>
                 <br>
                 <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                <!-- <div style="text-align: center;">
+                    <kendo-chart>
                         <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
+                            <kendo-chart-category-axis-item [categories]="['1','2','3','4','5','6','7','8','9','10']">
                             </kendo-chart-category-axis-item>
                         </kendo-chart-category-axis>
                         <kendo-chart-series>
-                            <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
+                            <kendo-chart-series-item type="bar" [gap]="2" [spacing]="0.25" [data]="[100, 123, 234, 200, 123,1,2,3,4,5,8]">
                             </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#97C015" type="bar" [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
+                            <kendo-chart-series-item type="bar" [data]="[120, 67, 231, 196, 123,1,2,3,4,5,8]">
                             </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#F0F012" type="bar" [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
+                            <kendo-chart-series-item type="bar" [data]="[45, 124, 189, 143, 123,1,2,3,4,5,8]">
                             </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#F07712" type="bar" [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
+                            <kendo-chart-series-item type="bar" [data]="[87, 154, 210, 215, 123,1,2,3,4,5,8]">
                             </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#FC0202" type="bar" [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
+                            <kendo-chart-series-item type="bar" [data]="[87, 154, 210, 215, 123,1,2,3,4,5,8]">
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
-                </div>
+                </div> -->
             </div>
         </p-panel>
     </div>
 </fieldset>
-<br> -->
+<br>

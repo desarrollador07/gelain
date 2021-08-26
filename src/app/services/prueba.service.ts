@@ -355,8 +355,8 @@ export class PruebaService {
     return  this.http.get(this.UrlDatoBuscado + `/${idEmpresa}/${valorBuscado}/${tipo}`);
   }
 
-  getReporteAreas(){
-    return this.http.get(this.UrlReporteArea);
+  getReporteAreas(idEmpresa:number){
+    return this.http.get(this.UrlReporteArea+`/${idEmpresa}`);
   }
 
   

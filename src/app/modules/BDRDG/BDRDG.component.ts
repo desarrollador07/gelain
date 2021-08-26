@@ -1,14 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
-import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
+import { SelectItem} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
-import * as FileSaver from 'file-saver';
-import { autoTable } from 'jspdf-autotable'; 
-import { async } from 'rxjs/internal/scheduler/async';
+
 @Component({
   selector: 'app-empleados',
   templateUrl: './BDRDG.component.html',
@@ -40,9 +37,7 @@ export class BDRDGComponent implements OnInit {
    image = new Image();
   
 
-  constructor(private pruebaServices:PruebaService,private router: Router,
-              private _confirmationServices: ConfirmationService,
-              private _messageService: MessageService) {
+  constructor(private pruebaServices:PruebaService) {
                 this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
                 this.idtemporal = 0;
                 this.image.src = "https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg";      
@@ -56,25 +51,10 @@ export class BDRDGComponent implements OnInit {
       this.empresas = data;
     })
 
-/*     await this.pruebaServices
-    .buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
-      console.log("verificando",data);
-      this.pruebas = [...data];
-      this.pruebas.map(res=>{
-        this.empresas.map(x=>{
-        if (res.emdempresa === x.empid) {
-          res.nomempresa = x.empnombre;
-        }
-        })
-      })
-      console.log("estas son:",this.pruebas);
-      
-    })  */
-
     await this.pruebaServices
     .buscarByEmpleadosRepor(this.idEmpresa).toPromise().then((data: any)=>{
      
-      this.pruebas = [...data];
+      this.pruebas = data;
       this.pruebas.map(res=>{
         this.empresas.map(x=>{
         if (res.emdempresa === x.empid) {
@@ -82,11 +62,12 @@ export class BDRDGComponent implements OnInit {
           res.ciudadEmpresa = x.empciudad;
           res.DepartamentoEmpresa = x.empdepartamento;
         }
-        })
-      })
-    }) 
+        });
+      });
+    }); 
 
-
+    console.log('data', this.pruebas);
+    
 
 
   }
@@ -96,7 +77,6 @@ export class BDRDGComponent implements OnInit {
       buscarArea(cpruebas:Empleado){
         this.area =[];
         this.pruebaServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
-          console.log(data);
           this.areas = data;
           this.areas.map(x=>{
             this.area.push({
@@ -109,7 +89,6 @@ export class BDRDGComponent implements OnInit {
 
       indexData(){
          this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
-          console.log(data);
           this.empresas = data;
         })
     

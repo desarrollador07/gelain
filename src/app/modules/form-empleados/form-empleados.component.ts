@@ -89,7 +89,9 @@ bandera:boolean=false;
       emdusuarioreg: [this.nombre],
       emdipreg: ['127.0.0.1'],
       emdactivo:['P'],
-      emdzona:['',Validators.required]
+      emdzona:['',Validators.required],
+      emdtraciudad:['',Validators.required],
+      emdtradepartamento:['',Validators.required]
     });
 
     this.userformFormaA = this.fb.group({
@@ -414,15 +416,16 @@ bandera:boolean=false;
 
 
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
-    console.log('f',this.localPrueba);
+ 
 
 /*     this.localArea =JSON.parse(localStorage.getItem('Areas'));
     console.log('Are',this.localArea); */
 
     await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
-      console.log(data);
-      
+
       this.empresas = data;
+      console.log('empresas',this.empresas);
+      
       this.empresas.map(x=>{
         this.empresa.push({
           label:x.empnombre,
@@ -542,7 +545,9 @@ bandera:boolean=false;
         emdusuarioreg:this.localPrueba.emdusuarioreg,
         emdipreg:this.localPrueba.emdipreg,
         emdactivo:this.localPrueba.emdactivo,
-        emdzona:this.localPrueba.emdzona
+        emdzona:this.localPrueba.emdzona,
+        emdtraciudad:this.localPrueba.emdtraciudad,
+        emdtradepartamento: this.localPrueba.emdtradepartamento
       });
     } 
   
@@ -651,6 +656,13 @@ bandera:boolean=false;
     return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
   }
 
+  get emdTraCiudad() {
+    return this.userform.get('emdtraciudad').invalid && this.userform.get('emdtraciudad').touched
+  }
+
+  get emdTraDepartamento() {
+    return this.userform.get('emdtradepartamento').invalid && this.userform.get('emdtradepartamento').touched
+  }
 
 
  onSubmit(){
@@ -732,8 +744,7 @@ bandera:boolean=false;
   }
 
   async buscarArea(){
-    console.log("verficando");
-    
+
     this.area =[];
     if (this.localPrueba !== null) {
      await this.pruebaservices.buscarByArea(this.localPrueba.emdempresa).toPromise().then((data:any)=>{
@@ -749,6 +760,14 @@ bandera:boolean=false;
         emdarea: this.localPrueba.emdarea
       });
     }else{
+      this.empresas.map(res => {
+        if (res.empid === this.userform.value.emdempresa) {
+          this.userform.patchValue({
+            emdtraciudad:res.empciudad,
+            emdtradepartamento: res.empdepartamento
+          });
+        }
+      });
       this.pruebaservices.buscarByArea(this.userform.value.emdempresa).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
@@ -759,6 +778,8 @@ bandera:boolean=false;
         });
       });
     }
+
+
   }
 
   numeromax(){

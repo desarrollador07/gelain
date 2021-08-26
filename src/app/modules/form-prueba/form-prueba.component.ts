@@ -53,11 +53,11 @@ export class FormPruebaComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    localStorage.removeItem('IdEmpleado');
     let today = new Date();
     this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
-    //this.linkformulario="http://localhost:4200/#/FormularioEmpleado/"+this.localIDEmp;
-    this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng/#/FormularioEmpleado/"+this.localIDEmp;
+    this.linkformulario="http://localhost:4200/#/FormularioEmpleado/"+this.localIDEmp;
+    // this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng/#/FormularioEmpleado/"+this.localIDEmp;
     //this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng2/#/FormularioEmpleado/"+this.localIDEmp;
     
     this.indexData();

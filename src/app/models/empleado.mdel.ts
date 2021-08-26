@@ -34,4 +34,7 @@ export interface Empleado{
     emdactivo?:string
     emdfecnacidoRepor?: Number,
     areaNom?: string,
+    emdtraciudad?:string,
+    emdtradepartamento?:string
+
 }
