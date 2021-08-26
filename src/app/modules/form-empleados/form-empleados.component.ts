@@ -35,7 +35,6 @@ export class FormEmpleadosComponent implements OnInit {
   area: SelectItem[] = [];
   areas: Area[] = [];
   localPrueba: Empleado = {};
-/*   localArea: Area = {}; */
   userform: FormGroup;
   userformFormaA: FormGroup;
   userformFormaB: FormGroup;
@@ -58,7 +57,330 @@ bandera:boolean=false;
 
   async ngOnInit() {
    
-    this.calendarEspañol();
+    /*Formulario información principal del empleado*/
+    this.form1User();
+    /*Formulario Forma A */
+    this.formFormaA();
+    /*Formulario Forma B */
+    this.formFormaB();
+    /*Formulario Extra */
+    this.formExtra();
+    /*Formulario Estres */
+    this.formEstres();
+
+    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
+ 
+    /*Consultar empresas */
+    await this.consultarEmpresas();
+    /*Carga los seleccionables */
+    this.cargaSelect();
+
+   
+     if(this.localPrueba !==null){
+      
+      this.userform.patchValue({
+        /* emdid:this.localPrueba.emdid, */
+        emdcedula:this.localPrueba.emdcedula,
+        emdnombres:this.localPrueba.emdnombres,
+        emdapellidos:this.localPrueba.emdapellidos,
+        emdsexo:this.localPrueba.emdsexo,
+        emdfecnacido:this.localPrueba.emdfecnacido,
+        emdestcivil:this.localPrueba.emdestcivil,
+        emdnivelestudio:this.localPrueba.emdnivelestudio,
+        emdprofesion:this.localPrueba.emdprofesion,
+        emddepartamento:this.localPrueba.emddepartamento,
+        emdciudad:this.localPrueba.emdciudad,
+        emddireccion:this.localPrueba.emddireccion,
+        emdtelefono:this.localPrueba.emdtelefono,
+        emdemail:this.localPrueba.emdemail,
+        emdestracto:this.localPrueba.emdestracto,
+        emdtipovivienda:this.localPrueba.emdtipovivienda,
+        emdpersdepen:this.localPrueba.emdpersdepen,
+        emdempresa:this.localPrueba.emdempresa,
+        emdtiempolab:this.localPrueba.emdtiempolab,
+        emdcargo:this.localPrueba.emdcargo,
+        emdtipodecargo:this.localPrueba.emdtipodecargo,
+        emdtiemcargo:this.localPrueba.emdtiemcargo,
+        emdtipocontrato:this.localPrueba.emdtipocontrato,
+        emdhorasdia:this.localPrueba.emdhorasdia,
+        emdtiposalario:this.localPrueba.emdtiposalario,
+        emdusuarioreg:this.localPrueba.emdusuarioreg,
+        emdipreg:this.localPrueba.emdipreg,
+        emdactivo:this.localPrueba.emdactivo,
+        emdzona:this.localPrueba.emdzona,
+        emdtraciudad:this.localPrueba.emdtraciudad,
+        emdtradepartamento: this.localPrueba.emdtradepartamento
+      });
+    } 
+  
+
+
+  }
+
+  /*Apartado de Validaciones */
+  get emdCedula() {
+    return this.userform.get('emdcedula').invalid && this.userform.get('emdcedula').touched
+  }
+
+  get emdNombres() {
+    return this.userform.get('emdnombres').invalid && this.userform.get('emdnombres').touched
+  }
+  get emdApellidos() {
+    return this.userform.get('emdapellidos').invalid && this.userform.get('emdapellidos').touched
+  }
+  get emdSexo() {
+    return this.userform.get('emdsexo').invalid && this.userform.get('emdsexo').touched
+  }
+  get emdFecnacido() {
+    return this.userform.get('emdfecnacido').invalid && this.userform.get('emdfecnacido').touched
+  }
+  get emdEstcivil() {
+    return this.userform.get('emdestcivil').invalid && this.userform.get('emdestcivil').touched
+  }
+  get emdNivelestudio() {
+    return this.userform.get('emdnivelestudio').invalid && this.userform.get('emdnivelestudio').touched
+  }
+  get emdProfesion() {
+    return this.userform.get('emdprofesion').invalid && this.userform.get('emdprofesion').touched
+  }
+  get emDepartamento() {
+    return this.userform.get('emddepartamento').invalid && this.userform.get('emddepartamento').touched
+  }
+  get emdCiudad() {
+    return this.userform.get('emdciudad').invalid && this.userform.get('emdciudad').touched
+  }
+  get emdDireccion() {
+    return this.userform.get('emddireccion').invalid && this.userform.get('emddireccion').touched
+  }
+  get emdTelefono() {
+    return this.userform.get('emdtelefono').invalid && this.userform.get('emdtelefono').touched
+  }
+  get emdTelefonomin() {
+    return this.userform.get('emdtelefono').hasError('minlength') 
+  }
+  get emdTelefonomax() {
+    return this.userform.get('emdtelefono').hasError('maxlength') 
+  }
+  get emdEmail() {
+    return this.userform.get('emdemail').invalid && this.userform.get('emdemail').touched
+  }
+  get emdEstracto() {
+    return this.userform.get('emdestracto').invalid && this.userform.get('emdestracto').touched
+  }
+  get emdTipovivienda() {
+    return this.userform.get('emdtipovivienda').invalid && this.userform.get('emdtipovivienda').touched
+  }
+  get emdPersdepen() {
+    return this.userform.get('emdpersdepen').invalid && this.userform.get('emdpersdepen').touched
+  }
+  get emdEmpresa() {
+    return this.userform.get('emdempresa').invalid && this.userform.get('emdempresa').touched
+  }
+  get emdTiempolab() {
+    return this.userform.get('emdtiempolab').invalid && this.userform.get('emdtiempolab').touched
+  }
+  get emdCargo() {
+    return this.userform.get('emdcargo').invalid && this.userform.get('emdcargo').touched
+  }
+  get emdTipodecargo() {
+    return this.userform.get('emdtipodecargo').invalid && this.userform.get('emdtipodecargo').touched
+  }
+  get emdTiemcargo() {
+    return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
+  }
+  get emdTiemcargomax() {
+    return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
+  }
+  get emdArea() {
+    return this.userform.get('emdarea').invalid && this.userform.get('emdarea').touched
+  }
+  get emdTipocontrato() {
+    return this.userform.get('emdtipocontrato').invalid && this.userform.get('emdtipocontrato').touched
+  }
+  get emdHorasdia() {
+    return this.userform.get('emdhorasdia').invalid && this.userform.get('emdhorasdia').touched
+  }
+  get emdTiposalario() {
+    return this.userform.get('emdtiposalario').invalid && this.userform.get('emdtiposalario').touched
+  }
+  get emdUsuarioreg() {
+    return this.userform.get('emdusuarioreg').invalid && this.userform.get('emdusuarioreg').touched
+  }
+  get emdIpreg() {
+    return this.userform.get('emdipreg').invalid && this.userform.get('emdipreg').touched
+  }
+
+  get emdActivo() {
+    return this.userform.get('emdactivo').invalid && this.userform.get('emdactivo').touched
+  }
+
+  get emdZona() {
+    return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
+  }
+
+  get emdTraCiudad() {
+    return this.userform.get('emdtraciudad').invalid && this.userform.get('emdtraciudad').touched
+  }
+
+  get emdTraDepartamento() {
+    return this.userform.get('emdtradepartamento').invalid && this.userform.get('emdtradepartamento').touched
+  }
+
+
+ onSubmit(){
+    if(this.userform.valid){
+      
+      if(this.localPrueba !== null){
+        /*Edición*/
+        let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
+        this.userform.value.emdfecnacido = date;
+        this.idd = this.localPrueba.emdid;
+        this.pruebaservices.updatePrueba(this.userform.value,this.idd).subscribe((data: any) =>{
+
+          localStorage.setItem('prueba',JSON.stringify(data));
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+          this.userform.reset();
+          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+            this.router.navigate(["/main/addFormatoA/editar"]);
+          }else{
+            this.router.navigate(["/main/addFormatoB/crear"]);
+          }
+        });
+
+      }else{
+        /*Creación*/
+        let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
+        this.userform.value.emdfecnacido = date;
+        this.pruebaservices.createPrueba(this.userform.value).subscribe((data=>{
+
+          localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
+          localStorage.setItem('prueba',JSON.stringify(data));
+          this.userformExtra.value.extidempleado = data.emdid;
+          this.userformEstres.value.estidempleado = data.emdid;
+          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+            this.userformFormaA.value.inaidempleado = data.emdid;
+            this.userformFormaA.value.inaatencionausuarios = 2;
+            this.userformFormaA.value.inasoyjefe = 2;
+            this.pruebaservices.createFormatoA(this.userformFormaA.value)
+        .subscribe((data:any)=>{
+        })
+          }else{
+            this.userformFormaB.value.inbidempleado = data.emdid;
+            this.userformFormaB.value.inbatencionausuarios = 2;
+            this.pruebaservices.createFormatoB(this.userformFormaB.value)
+            .subscribe((data:any)=>{
+            })
+          }
+       this.pruebaservices.createExtra(this.userformExtra.value)
+        .subscribe((data:any)=>{
+        })
+        this.pruebaservices.createEstres(this.userformEstres.value)
+        .subscribe((data:any)=>{
+
+        })
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro creado', life: 3000})
+          this.userform.reset();
+          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+
+            setTimeout(() => {
+              this.router.navigate(["/main/addFormatoA/crear"]);
+            }, 1000);
+          }else{
+            setTimeout(() => {
+              this.router.navigate(["/main/addFormatoB/crear"]);
+            }, 1000);
+           
+          }
+          
+          
+        }))
+      }
+      
+    }else{
+      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
+      this.userform.reset();
+      this.router.navigate(["/main/addFormatoA/crear"]);
+      
+    }
+  }
+
+  async buscarArea(){
+
+    this.area =[];
+    if (this.localPrueba !== null) {
+     await this.pruebaservices.buscarByArea(this.localPrueba.emdempresa).toPromise().then((data:any)=>{
+        this.areas = data;
+        this.areas.map(x=>{    
+          this.area.push({
+            label:x.arenombre,
+            value: x.areid
+          });
+        });
+      });
+      this.userform.patchValue({
+        emdarea: this.localPrueba.emdarea
+      });
+    }else{
+      this.empresas.map(res => {
+        if (res.empid === this.userform.value.emdempresa) {
+          this.userform.patchValue({
+            emdtraciudad:res.empciudad,
+            emdtradepartamento: res.empdepartamento
+          });
+        }
+      });
+      await this.pruebaservices.buscarByArea(this.userform.value.emdempresa).toPromise().then((data:any)=>{
+        this.areas = data;
+        this.areas.map(x=>{
+          this.area.push({
+            label:x.arenombre,
+            value: x.areid
+          });
+        });
+      });
+    }
+
+
+  }
+
+  async consultarEmpresas(){
+
+    await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
+
+      this.empresas = data;
+
+      this.empresas.map(x=>{
+        this.empresa.push({
+          label:x.empnombre,
+          value: x.empid
+        }); 
+      });
+    });
+  }
+
+  numeromax(){
+    if(this.localPrueba !==null){
+      this.nummaxpre = Number(this.localPrueba.emdtiempolab);
+      this.nummax = this.userform.value.emdtiempolab;
+      
+    }else{
+      this.nummax = this.userform.value.emdtiempolab;
+     
+    }
+  }
+
+  validaciontiempos(){
+
+      if (this.userform.value.emdtiemcargo > this.userform.value.emdtiempolab) {
+        this.bandera = true;
+      }else{
+        this.bandera = false;
+      }
+  
+  }
+
+  /*Formulario 1  datos principales */
+  form1User(){
     this.userform = this.fb.group({
       emdid:[''],
       emdcedula: ['', Validators.required],
@@ -93,7 +415,9 @@ bandera:boolean=false;
       emdtraciudad:['',Validators.required],
       emdtradepartamento:['',Validators.required]
     });
-
+  }
+  /*Formulario Formato A */
+  formFormaA(){
     this.userformFormaA = this.fb.group({
       inaid: [''],
       inaidempleado: [''],
@@ -225,8 +549,10 @@ bandera:boolean=false;
       inapocodesempeno: [''],
       inacolabignoran: ['']
 
-    })
-
+    });
+  }
+  /*Formulario Formato B */
+  formFormaB(){
     this.userformFormaB = this.fb.group({
       inbid: [''],
       inbidempleado: [''],
@@ -330,8 +656,10 @@ bandera:boolean=false;
       inbexigedolorosas :[''],
       inbexpretristeza :[''] 
 
-    })
-
+    });
+  }
+  /*Formulario Extra */
+  formExtra(){
     this.userformExtra = this.fb.group({
       extid:[''],
       extidempleado:[''],
@@ -370,8 +698,10 @@ bandera:boolean=false;
       extfechamod:[''],
       extusuarioreg:[''] 
 
-    })
-
+    });
+  }
+  /*Formulario Estres*/
+  formEstres(){
     this.userformEstres = this.fb.group({
       estid:[''],
       estidempleado:[''],
@@ -408,40 +738,16 @@ bandera:boolean=false;
       estsensproblem:[''],
       estusuarioreg:['']
 
-    })
+    });
+  }
 
-
-
-
-
-
-    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
- 
-
-/*     this.localArea =JSON.parse(localStorage.getItem('Areas'));
-    console.log('Are',this.localArea); */
-
-    await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
-
-      this.empresas = data;
-      console.log('empresas',this.empresas);
-      
-      this.empresas.map(x=>{
-        this.empresa.push({
-          label:x.empnombre,
-          value: x.empid
-        }) 
-      })
-    })
-
+  cargaSelect(){
 
     this.estado = [];
     this.estado.push({ label: 'Estado', value: '' });
     this.estado.push({ label: 'Activo', value: '1' });
     this.estado.push({ label: 'Inactivo', value: '0' });
     this.estado.push({ label: 'Pendiente', value: 'P' });
-
-
 
     this.sexo = [];
     this.sexo.push({ label: 'Sexo', value: ''});
@@ -465,11 +771,11 @@ bandera:boolean=false;
     this.estudio.push({ label: 'Primaria completa', value: '3' });
     this.estudio.push({ label: 'Bachillerato incompleto', value: '4' });
     this.estudio.push({ label: 'Bachillerato completo', value: '5' });
-    this.estudio.push({ label: 'Tecnico - tecnologo incompleto', value: '6' });
-    this.estudio.push({ label: 'Tecnico - tecnologo completo', value:'7' });
+    this.estudio.push({ label: 'Tecnico - Tecnólogo incompleto', value: '6' });
+    this.estudio.push({ label: 'Tecnico - Tecnólogo completo', value:'7' });
     this.estudio.push({ label: 'Profesional incompleto', value:'8' });
     this.estudio.push({ label: 'Profesional completo', value:'9' });
-    this.estudio.push({ label: 'Carrera militar / policia', value:'10' });
+    this.estudio.push({ label: 'Carrera militar / Policia', value:'10' });
     this.estudio.push({ label: 'Post-grado incompleto', value:'11' });
     this.estudio.push({ label: 'Post-grado completo', value:'12' });
 
@@ -492,9 +798,9 @@ bandera:boolean=false;
 
     this.cargo = [];
     this.cargo.push({ label: 'Tipo de Cargo', value: '' });
-    this.cargo.push({ label: 'Jefatura - tiene personal a cargo', value: '1' });
+    this.cargo.push({ label: 'Jefatura - Tiene personal a cargo', value: '1' });
     this.cargo.push({ label: 'Manejo de dinero - Información confidencial - Salud y seguridad de otras personas', value: '2' });
-    this.cargo.push({ label: 'Auxiliar - asistente administrativo - asistente técnico', value: '3' });
+    this.cargo.push({ label: 'Auxiliar - Asistente administrativo - Asistente técnico', value: '3' });
     this.cargo.push({ label: 'Operario, operador, ayudante, servicios generales', value: '4' });
 
     this.tContrato = [];
@@ -511,323 +817,5 @@ bandera:boolean=false;
     this.tsalario.push({ label: 'Fijo', value: '1' });
     this.tsalario.push({ label: 'Una parte fija y otra variable', value: '2' });
     this.tsalario.push({ label: 'Todo variable', value: '3' });
-
-
-
-     if(this.localPrueba !==null){
-      
-      this.userform.patchValue({
-        /* emdid:this.localPrueba.emdid, */
-        emdcedula:this.localPrueba.emdcedula,
-        emdnombres:this.localPrueba.emdnombres,
-        emdapellidos:this.localPrueba.emdapellidos,
-        emdsexo:this.localPrueba.emdsexo,
-        emdfecnacido:this.localPrueba.emdfecnacido,
-        emdestcivil:this.localPrueba.emdestcivil,
-        emdnivelestudio:this.localPrueba.emdnivelestudio,
-        emdprofesion:this.localPrueba.emdprofesion,
-        emddepartamento:this.localPrueba.emddepartamento,
-        emdciudad:this.localPrueba.emdciudad,
-        emddireccion:this.localPrueba.emddireccion,
-        emdtelefono:this.localPrueba.emdtelefono,
-        emdemail:this.localPrueba.emdemail,
-        emdestracto:this.localPrueba.emdestracto,
-        emdtipovivienda:this.localPrueba.emdtipovivienda,
-        emdpersdepen:this.localPrueba.emdpersdepen,
-        emdempresa:this.localPrueba.emdempresa,
-        emdtiempolab:this.localPrueba.emdtiempolab,
-        emdcargo:this.localPrueba.emdcargo,
-        emdtipodecargo:this.localPrueba.emdtipodecargo,
-        emdtiemcargo:this.localPrueba.emdtiemcargo,
-        emdtipocontrato:this.localPrueba.emdtipocontrato,
-        emdhorasdia:this.localPrueba.emdhorasdia,
-        emdtiposalario:this.localPrueba.emdtiposalario,
-        emdusuarioreg:this.localPrueba.emdusuarioreg,
-        emdipreg:this.localPrueba.emdipreg,
-        emdactivo:this.localPrueba.emdactivo,
-        emdzona:this.localPrueba.emdzona,
-        emdtraciudad:this.localPrueba.emdtraciudad,
-        emdtradepartamento: this.localPrueba.emdtradepartamento
-      });
-    } 
-  
-
-
   }
-
-
-  get emdCedula() {
-    return this.userform.get('emdcedula').invalid && this.userform.get('emdcedula').touched
-  }
-
-  get emdNombres() {
-    return this.userform.get('emdnombres').invalid && this.userform.get('emdnombres').touched
-  }
-  get emdApellidos() {
-    return this.userform.get('emdapellidos').invalid && this.userform.get('emdapellidos').touched
-  }
-  get emdSexo() {
-    return this.userform.get('emdsexo').invalid && this.userform.get('emdsexo').touched
-  }
-  get emdFecnacido() {
-    return this.userform.get('emdfecnacido').invalid && this.userform.get('emdfecnacido').touched
-  }
-  get emdEstcivil() {
-    return this.userform.get('emdestcivil').invalid && this.userform.get('emdestcivil').touched
-  }
-  get emdNivelestudio() {
-    return this.userform.get('emdnivelestudio').invalid && this.userform.get('emdnivelestudio').touched
-  }
-  get emdProfesion() {
-    return this.userform.get('emdprofesion').invalid && this.userform.get('emdprofesion').touched
-  }
-  get emDepartamento() {
-    return this.userform.get('emddepartamento').invalid && this.userform.get('emddepartamento').touched
-  }
-  get emdCiudad() {
-    return this.userform.get('emdciudad').invalid && this.userform.get('emdciudad').touched
-  }
-  get emdDireccion() {
-    return this.userform.get('emddireccion').invalid && this.userform.get('emddireccion').touched
-  }
-  get emdTelefono() {
-    return this.userform.get('emdtelefono').invalid && this.userform.get('emdtelefono').touched
-  }
-  get emdTelefonomin() {
-    return this.userform.get('emdtelefono').hasError('minlength') 
-  }
-  get emdTelefonomax() {
-    return this.userform.get('emdtelefono').hasError('maxlength') 
-  }
-  get emdEmail() {
-    return this.userform.get('emdemail').invalid && this.userform.get('emdemail').touched
-  }
-  get emdEstracto() {
-    return this.userform.get('emdestracto').invalid && this.userform.get('emdestracto').touched
-  }
-  get emdTipovivienda() {
-    return this.userform.get('emdtipovivienda').invalid && this.userform.get('emdtipovivienda').touched
-  }
-  get emdPersdepen() {
-    return this.userform.get('emdpersdepen').invalid && this.userform.get('emdpersdepen').touched
-  }
-  get emdEmpresa() {
-    return this.userform.get('emdempresa').invalid && this.userform.get('emdempresa').touched
-  }
-  get emdTiempolab() {
-    return this.userform.get('emdtiempolab').invalid && this.userform.get('emdtiempolab').touched
-  }
-  get emdCargo() {
-    return this.userform.get('emdcargo').invalid && this.userform.get('emdcargo').touched
-  }
-  get emdTipodecargo() {
-    return this.userform.get('emdtipodecargo').invalid && this.userform.get('emdtipodecargo').touched
-  }
-  get emdTiemcargo() {
-    return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
-  }
-  get emdTiemcargomax() {
-    return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
-  }
-  get emdArea() {
-    return this.userform.get('emdarea').invalid && this.userform.get('emdarea').touched
-  }
-  get emdTipocontrato() {
-    return this.userform.get('emdtipocontrato').invalid && this.userform.get('emdtipocontrato').touched
-  }
-  get emdHorasdia() {
-    return this.userform.get('emdhorasdia').invalid && this.userform.get('emdhorasdia').touched
-  }
-  get emdTiposalario() {
-    return this.userform.get('emdtiposalario').invalid && this.userform.get('emdtiposalario').touched
-  }
-  get emdUsuarioreg() {
-    return this.userform.get('emdusuarioreg').invalid && this.userform.get('emdusuarioreg').touched
-  }
-  get emdIpreg() {
-    return this.userform.get('emdipreg').invalid && this.userform.get('emdipreg').touched
-  }
-
-  get emdActivo() {
-    return this.userform.get('emdactivo').invalid && this.userform.get('emdactivo').touched
-  }
-
-  get emdZona() {
-    return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
-  }
-
-  get emdTraCiudad() {
-    return this.userform.get('emdtraciudad').invalid && this.userform.get('emdtraciudad').touched
-  }
-
-  get emdTraDepartamento() {
-    return this.userform.get('emdtradepartamento').invalid && this.userform.get('emdtradepartamento').touched
-  }
-
-
- onSubmit(){
-    if(this.userform.valid){
-      if(this.localPrueba !== null){
-        console.log("voy a actualizar");
-        let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
-        this.userform.value.emdfecnacido = date;
-        this.idd = this.localPrueba.emdid;
-        this.pruebaservices.updatePrueba(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          console.log(data);
-          localStorage.setItem('prueba',JSON.stringify(data));
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
-            this.router.navigate(["/main/addFormatoA/editar"]);
-          }else{
-            this.router.navigate(["/main/addFormatoB/crear"]);
-          }
-        })
-      }else{
-        console.log("voy a crear");
-        let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
-        this.userform.value.emdfecnacido = date;
-        this.pruebaservices.createPrueba(this.userform.value)
-        .subscribe((data=>{
-          console.log(data);
-          console.log("tipo cargo",data.emdtipodecargo);
-          localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
-          localStorage.setItem('prueba',JSON.stringify(data));
-          this.userformExtra.value.extidempleado = data.emdid;
-          this.userformEstres.value.estidempleado = data.emdid;
-          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
-            this.userformFormaA.value.inaidempleado = data.emdid;
-            this.userformFormaA.value.inaatencionausuarios = 2;
-            this.userformFormaA.value.inasoyjefe = 2;
-            this.pruebaservices.createFormatoA(this.userformFormaA.value)
-        .subscribe((data:any)=>{
-        })
-          }else{
-            this.userformFormaB.value.inbidempleado = data.emdid;
-            this.userformFormaB.value.inbatencionausuarios = 2;
-            this.pruebaservices.createFormatoB(this.userformFormaB.value)
-            .subscribe((data:any)=>{
-            })
-          }
-       this.pruebaservices.createExtra(this.userformExtra.value)
-        .subscribe((data:any)=>{
-        })
-        this.pruebaservices.createEstres(this.userformEstres.value)
-        .subscribe((data:any)=>{
-          console.log(data);
-        })
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-          this.userform.reset();
-          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
-            console.log("ingreso");
-            setTimeout(() => {
-              this.router.navigate(["/main/addFormatoA/crear"]);
-            }, 1000);
-          }else{
-            setTimeout(() => {
-              this.router.navigate(["/main/addFormatoB/crear"]);
-            }, 1000);
-           
-          }
-          
-          
-        }))
-      }
-      
-    }else{
-      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
-      this.userform.reset();
-      this.router.navigate(["/main/addFormatoA/crear"]);
-      
-    }
-  }
-
-  async buscarArea(){
-
-    this.area =[];
-    if (this.localPrueba !== null) {
-     await this.pruebaservices.buscarByArea(this.localPrueba.emdempresa).toPromise().then((data:any)=>{
-        this.areas = data;
-        this.areas.map(x=>{    
-          this.area.push({
-            label:x.arenombre,
-            value: x.areid
-          });
-        });
-      });
-      this.userform.patchValue({
-        emdarea: this.localPrueba.emdarea
-      });
-    }else{
-      this.empresas.map(res => {
-        if (res.empid === this.userform.value.emdempresa) {
-          this.userform.patchValue({
-            emdtraciudad:res.empciudad,
-            emdtradepartamento: res.empdepartamento
-          });
-        }
-      });
-      this.pruebaservices.buscarByArea(this.userform.value.emdempresa).toPromise().then((data:any)=>{
-        this.areas = data;
-        this.areas.map(x=>{
-          this.area.push({
-            label:x.arenombre,
-            value: x.areid
-          });
-        });
-      });
-    }
-
-
-  }
-
-  numeromax(){
-    if(this.localPrueba !==null){
-      this.nummaxpre = Number(this.localPrueba.emdtiempolab);
-      this.nummax = this.userform.value.emdtiempolab;
-      
-    }else{
-      this.nummax = this.userform.value.emdtiempolab;
-     
-    }
-  }
-  validaciontiempos(){
-      if (this.userform.value.emdtiemcargo > this.userform.value.emdtiempolab) {
-        //this.userform.value.emdtiemcargo = null;
-        this.bandera = true;
-
-      }else{
-        this.bandera = false;
-      }
-  
-  }
-
-/*   validaciontiemposnegativos(){
-    if (this.userform.value.emdtiemcargo < -1) {
-      //this.userform.value.emdtiemcargo = null;
-      this.bandera2 = true;
-
-    }else{
-      this.bandera2 = false;
-    }
-
-} */
-  calendarEspañol(){
-    this.es = {
-        firstDayOfWeek: 1,
-        dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
-        dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
-        dayNamesMin: ["Do","Lu","Ma","Mi","Ju","Vi","Sa"],
-        monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
-        monthNamesShort: [ "Ene", "Feb", "Mar", "Abr", "May", "Jun","Jul", "Ago", "Sep", "Oct", "Nov", "Dic" ],
-        today: 'Hoy',
-        clear: 'Borrar',
-        dateFormat: 'yy-mm-dd',
-        weekHeader: 'SM'
-    };
-}
-
-
-
 }

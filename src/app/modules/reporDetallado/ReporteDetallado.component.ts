@@ -50,7 +50,6 @@ export class ReporteDetalladoComponent implements OnInit {
 
     await this.pruebaServices
     .getReporteExcelDetallado(this.idEmpresa).toPromise().then((data: any)=>{
-
       this.rdEmpleado = data;
     });
 
@@ -191,20 +190,21 @@ export class ReporteDetalladoComponent implements OnInit {
       return dataReporte;
   }
 
+  /*Función de la busqueda avanzada */
   async buscador(){
-
+      /*Validación del desplegable que nos identifica si en una busqueda no eligen el tipo de busqueda */
       if (this.selectReporte === null || this.selectReporte === undefined) {
           this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Debe seleccionar el tipo dato a buscar', life: 3000 });
         return;
       }
-
+      /*Validación del desplegable  que  permite traer todos los datos */
       if (this.selectReporte === 6) {
         this.rdEmpleado = [];
         this.buscarData = '';
         await this.consultarReportes();
         return;
       }
-
+      /*Valida que el input  tenga data para buscar */
       if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '') {
         const data = this.buscarData.trim();
         await this.pruebaServices.getBuscardorData(this.idEmpresa,data,this.selectReporte).toPromise().then((res:any) => {

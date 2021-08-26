@@ -16,7 +16,6 @@ export class EmpleadosComponent implements OnInit {
   idtemporal:any;
   prueba: Empleado;
   pruebas: Empleado[] = [];
-  pruebas2: Empleado[] = [];
   items1: MenuItem[];
   items2: MenuItem[];
   activeItem: MenuItem;
@@ -51,69 +50,40 @@ export class EmpleadosComponent implements OnInit {
    }
 
   async ngOnInit() {
-    this.pruebas2 = this.pruebas;
 
-    await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
-      this.empresas = data;
-    });
-
-    await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
-
-      this.pruebas = data;
-      console.log('Get empleados',this.pruebas);
-      
-      this.pruebas.map(res=>{
-        this.empresas.map(x=>{
-          if (res.emdempresa === x.empid) {
-            res.nomempresa = x.empnombre;
-          }
-        });
-      });
-
-    });
-
+    /*Consulta Empresas */
+    await this.consultaEmpresas();
+    /*Consulta de Empleados */
+    await this.consultaEmpleados();
 
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
       {label: 'Areas', icon: 'fa fa-fw fa-book'},
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
-  ];
+    ];
 
 
   }
 
-  ngOnChanges() {
-    this.pruebas;
-
-  }
   
-
   deletePrueba(prueba: Empleado) {
 
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar este registro?',
-      header:'confirmacion',
+      header:'Eliminar',
       icon:'pi pi-exclamation-triangle',
-      accept:() => {
+      accept:async() => {
 
-        this.pruebaServices.deletePrueba(prueba).toPromise().then(data => {
-              this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000})
-              this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: any)=>{
+        await this.pruebaServices.deletePrueba(prueba).toPromise().then(data => {
 
-                this.pruebas = [...data];
-                this.pruebas.map(res=>{
-                  this.empresas.map(x=>{
-                    if (res.emdempresa === x.empid) {
-                      res.nomempresa = x.empnombre;
-                    }
-                  });
-                });               
-              });
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000});
+          this.pruebas = this.pruebas.filter(r => r !== prueba);
+  
         });
+
       }
     });
         
-
   }
 
       editPrueba(cpruebas:Empleado){
@@ -152,39 +122,27 @@ export class EmpleadosComponent implements OnInit {
         localStorage.removeItem('estresEs');
       }
 
-      buscarArea(cpruebas:Empleado){
-        this.area =[];
-        this.pruebaServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
-   
-          this.areas = data;
-          this.areas.map(x=>{
-            this.area.push({
-              label:x.arenombre,
-              value: x.areid
-            });
+
+    async consultaEmpleados(){
+
+      await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
+        this.pruebas = data;
+        this.pruebas.map(res=>{
+          this.empresas.map(x=>{
+            if (res.emdempresa === x.empid) {
+              res.nomempresa = x.empnombre;
+            }
           });
         });
-      }
-
-    indexData(){
-
-      this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
-        this.empresas = data;
-      });
-    
-      this.pruebaServices.getPrueba().toPromise().then((data: any)=>{
-          this.pruebas = data;
-          this.pruebas.map(res=>{
-            this.empresas.map(x=>{
-              if (res.emdempresa === x.empid) {
-                res.nomempresa = x.empnombre;
-              }
-            });
-          });
+  
       });
     }
 
-
+    async consultaEmpresas(){
+      await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+        this.empresas = data;
+      });
+    }
 
 
 }

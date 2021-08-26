@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Empleado } from '../models/empleado.mdel';
 import { Empresa } from '../models/empresa.model';
 import { Area } from '../models/area.model';
@@ -8,9 +8,9 @@ import { Estres } from '../models/estres.nodel';
 import { Extralaboral } from '../models/extralaboral.model';
 import { FormatoB } from '../models/formatoB.model';
 import { User } from '../models/user';
-
-import { Observable } from 'rxjs';
 import { ValorFisico } from '../models/valorFisico.model';
+
+
 @Injectable({
   providedIn: 'root'
 })
