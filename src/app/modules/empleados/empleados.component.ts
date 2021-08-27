@@ -6,6 +6,7 @@ import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',
@@ -111,18 +112,6 @@ export class EmpleadosComponent implements OnInit {
         })
       }
     
-      newcPrueba(){
-        localStorage.removeItem('prueba');
-        localStorage.removeItem('IdEmpleado');
-        localStorage.removeItem('ForA');
-        localStorage.removeItem('ForAA');
-        localStorage.removeItem('ForB');
-        localStorage.removeItem('Extra');
-        localStorage.removeItem('estres');
-        localStorage.removeItem('estresEs');
-      }
-
-
     async consultaEmpleados(){
 
       await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
@@ -142,6 +131,32 @@ export class EmpleadosComponent implements OnInit {
       await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
         this.empresas = data;
       });
+    }
+
+    confirmationForm(){
+      
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, Acepto los terminos!',
+        cancelButtonText:'Cancelar'
+      }).then((result) => {
+    
+        this.router.navigate(["/main/addempleado/crear"]);
+          localStorage.removeItem('prueba');
+          localStorage.removeItem('IdEmpleado');
+          localStorage.removeItem('ForA');
+          localStorage.removeItem('ForAA');
+          localStorage.removeItem('ForB');
+          localStorage.removeItem('Extra');
+          localStorage.removeItem('estres');
+          localStorage.removeItem('estresEs');
+      })
+
     }
 
 
