@@ -196,11 +196,27 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- <input  [class.is-invalid]="emdArea"   formControlName="emdarea" type="text" pInputText> -->
-                            <p-dropdown [class.is-invalid]="emdArea" [options]="area" formControlName="emdarea" [showClear]="true" placeholder="Areas">
-                            </p-dropdown>
+                            <input  [class.is-invalid]="emdTraCiudad"   formControlName="emdtraciudad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Ciudad</label>
                         </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdArea"></p-message>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraCiudad"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdTraDepartamento"   formControlName="emdtradepartamento" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Departamento</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraDepartamento"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="emdZona"   formControlName="emdzona" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Sede</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdZona"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -210,14 +226,21 @@
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdCargo"></p-message>
                     </div>
-                </div>
-
-                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="emdTipodecargo" [options]="cargo" formControlName="emdtipodecargo" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTipodecargo"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]="emdArea" [options]="area" formControlName="emdarea" [showClear]="true" placeholder="Areas">
+                            </p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdArea"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -232,31 +255,6 @@
                             <p-dropdown [class.is-invalid]="emdTiposalario"  [options]="tsalario" formControlName="emdtiposalario" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiposalario"></p-message>
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdTraCiudad"   formControlName="emdtraciudad" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Ciudad</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraCiudad"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdTraDepartamento"   formControlName="emdtradepartamento" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Departamento</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraDepartamento"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdZona"   formControlName="emdzona" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Sedes</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdZona"></p-message>
                     </div>
                 </div>
 
