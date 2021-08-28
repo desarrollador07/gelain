@@ -49,7 +49,7 @@ export class TD_DOMDIMComponent implements OnInit {
   sales6: any[]= [];
   sales7: any[]= [];
   sales8: any[]= [];
-  sales9: any[] = [];/*Data de la tabla de Reporte Áreas con los datos procesados */
+  
 
   columns: any[];
   dataDona: any[];
@@ -233,8 +233,7 @@ total_general2 :any[] = [];
   text7:any;
   text8:any;
 
-  dataAreas:any [] = [];/*Arreglo data Áreas */
-  tempGraficaArea:string [] = [];
+ 
 
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
@@ -277,8 +276,7 @@ total_general2 :any[] = [];
     this.fnBuscarCatalogosTotal();
     this.metodo();
     this.datosGelain();
-    /*Consulta reporte áreas */
-    await this.fnConsultarReporteAreas();
+    
   }
   public labelContent(args: LegendLabelsContentArgs): string {
     return `${args.dataItem.category} : ${args.dataItem.value}`;
@@ -1000,88 +998,6 @@ total_general2 :any[] = [];
     line: { color: '#999', dashType: 'dash', length: 10, width: 1 }
   }
 
-  /*Consulta reportes áreas */
-  async fnConsultarReporteAreas(){
-      var nombreArea:string;
-      var contador1:number = 0;
-      var contador2:number = 0;
-      var contador3:number = 0;
-      var contador4:number = 0;
-      var contador5:number = 0;
-      var obj = {};
-
-    await this.pruebaServices.getReporteAreas(this.idEmpresa).toPromise().then((res:any) => {
-
-      this.dataAreas = res;
-      
-      this.dataAreas.map(datai => {
-        nombreArea = datai.arenombre;
-        this.dataAreas.map(dataj => {
-          
-          if (nombreArea === dataj.arenombre) {
-            const categoria:number = Number(dataj.total_general);
-            /*Categorias 1: Sin riego, 2: Riego bajo, 3: Riego medio, 4: Riego Alto, 5: Riego muy alto */
-            switch (categoria) {
-              case 1:
-                contador1 += 1;
-                break;
-              case 2:
-                contador2 += 1;
-                break;
-              case 3:
-                contador3 += 1;
-                break;
-              case 4:
-                contador4 += 1;
-                break;
-              case 5:
-                contador5 += 1;
-                break;      
-              default:
-                break;
-            }
-           
-          } 
-        });
-        obj = {
-          nombreArea,
-          categorias: {
-            cat1:contador1,
-            cat2:contador2,
-            cat3:contador3,
-            cat4:contador4,
-            cat5:contador5
-          } 
-        }
-        this.sales9.push(obj);
-        contador1 = 0;
-        contador2 = 0;
-        contador3 = 0;
-        contador4 = 0;
-        contador5 = 0;
-      });
-         
-    });
-    
-    /*Proceso que permite eliminar todos los conceptos repetidos según su id de concepto */
-    var hash = {};
-    this.sales9 = this.sales9.filter(function(current) {
-      var exists = !hash[current.nombreArea];
-      hash[current.nombreArea] = true;
-      return exists;
-    });
-    var contador:number = 0;
-    this.sales9.map( res => {
-      contador += 1;
-      this.tempGraficaArea.push('Q'+contador);
-      // this.tempGraficaArea.push(res.nombreArea);
-    });
-
-    console.log('tempGraficaArea', this.tempGraficaArea);
-    
-    console.log('sales9',this.sales9);
-    
-  }
-
+  
 
 }

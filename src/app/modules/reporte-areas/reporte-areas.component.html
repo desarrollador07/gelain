@@ -1,0 +1,35 @@
+<fieldset>
+    <legend><b><h4>REPORTE ÁREAS</h4></b></legend>
+    <!-- -----------------------------------REPORTE ÁREAS--------------------------------------------->
+    <div class="ui-g">
+        <p-panel header="REPORTE ÁREAS">
+            <div>
+                <!-- <div class="example-config">
+                  <button class="k-button" (click)="pdf8.saveAs(text8)">
+                    Generar Reporte
+                  </button>
+              </div> -->
+                <br>
+                <div>
+                    <kendo-grid [data]="sales9">
+                        <kendo-grid-column field="nombreArea" title="Áreas">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable (Q1)">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat2" title="Riego bajo (Q2)">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat3" title="Riego medio (Q3)">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat4" title="Riesgo alto (Q4)">
+                        </kendo-grid-column>
+                        <kendo-grid-column field="categorias.cat5" title="Riesgo muy alto (Q5)">
+                        </kendo-grid-column>
+                    </kendo-grid>
+                </div>
+                <br>
+                <br>
+                <p-chart type="horizontalBar" [data]="data"></p-chart>
+            </div>
+        </p-panel>
+    </div>
+</fieldset>

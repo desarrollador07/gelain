@@ -4,6 +4,7 @@ import { MainComponent } from './layout/main/main.component';
 import { LoginComponent } from '../app/modules/login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { TerminosCondicionesComponent } from './modules/terminos-condiciones/terminos-condiciones.component';
+import { ReporteAreasComponent } from './modules/reporte-areas/reporte-areas.component';
 
 
 export const routes: Routes = [
@@ -150,7 +151,10 @@ export const routes: Routes = [
                         (m) => m.ReportesModule
                     ),
             },
-
+            {
+                path: "reporte-areas",
+                component:ReporteAreasComponent
+            },
             {
                 path: "BDRDG",
                 loadChildren: () =>

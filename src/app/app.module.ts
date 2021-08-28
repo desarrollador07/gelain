@@ -111,6 +111,9 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { TerminosCondicionesComponent } from './modules/terminos-condiciones/terminos-condiciones.component';
+import { ReporteAreasComponent } from './modules/reporte-areas/reporte-areas.component';
+import { IntlModule } from '@progress/kendo-angular-intl';
+import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
 
 
 
@@ -187,7 +190,6 @@ import { TerminosCondicionesComponent } from './modules/terminos-condiciones/ter
         TreeTableModule,
         VirtualScrollerModule,
         LoginModule,
-        PDFExportModule,
         ChartsModule,
         InputsModule,
         DropDownsModule,
@@ -195,6 +197,12 @@ import { TerminosCondicionesComponent } from './modules/terminos-condiciones/ter
         ExcelExportModule,
         LabelModule,
         ReactiveFormsModule,
+        PDFExportModule,
+        IntlModule,
+        PDFModule,
+        ExcelModule,
+        GridModule
+
        
 
 
@@ -223,6 +231,7 @@ import { TerminosCondicionesComponent } from './modules/terminos-condiciones/ter
         DocumentationComponent,
         MainComponent,
         TerminosCondicionesComponent,
+        ReporteAreasComponent,
       
         
         

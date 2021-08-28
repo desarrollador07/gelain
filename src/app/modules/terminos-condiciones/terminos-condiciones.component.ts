@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TerminosCondicionesComponent implements OnInit {
   id: number;
+  checked:boolean = false;
   constructor(private route: ActivatedRoute,
               private _router: Router) { 
     this.id = Number(this.route.snapshot.paramMap.get("id")); 
@@ -20,6 +21,6 @@ export class TerminosCondicionesComponent implements OnInit {
   }
 
   cancelarRegistro(){
-  
+    window.open('https://www.google.com','_self');
   }
 }

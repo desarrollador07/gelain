@@ -14,12 +14,24 @@
                     <h2 style="font-weight:normal; text-align: center;">
                         Dando cumplimento a Ley 1581 de 2012 Nivel Nacional “Por la cual se dictan disposiciones generales para la protección de datos personales, autorizo a <strong>GESTIÓN LABORAL INTEGRAL DEL VALLE S.A.S.</strong> con número de <strong>NIT: 901372313-4</strong>                        a realizar el registro de mi información personal y almacenar el contenido de mis resultados obtenidos”.<br><br> También acepto y doy fe de la información registrada en este formulario como la veracidad de los datos solicitados.
                     </h2>
+                    <br>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-3"></div>
+                        <div class="ui-grid-col-1" style="text-align: right;">
+                            <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
+                        </div>
+                        <div class="ui-grid-col-5" style="margin-left: 5px;">
+                            <label><strong>Aceptar términos y condiciones</strong></label>
+                        </div>
+                        <div class="ui-grid-col-2"></div>
+                    </div>
+
                 </div>
                 <p-footer>
                     <div class="ui-grid-row">
                         <div class="ui-grid-col-3"></div>
                         <div class="ui-grid-col-6">
-                            <button pButton type="button" icon="pi pi-check" label="Aceptar" class="ui-button-success" (click)="ingForm()" style="width: 150px;;margin-right: .25em"></button>
+                            <button pButton type="button" [disabled]="!checked" icon="pi pi-check" label="Aceptar" class="ui-button-success" (click)="ingForm()" style="width: 150px;;margin-right: .25em"></button>
                             <button pButton type="button" icon="pi pi-times" label="Cancelar" class="ui-button-danger" (click)="cancelarRegistro()" style="width: 150px;;margin-right: .25em"></button>
                         </div>
                         <div class="ui-grid-col-3"></div>

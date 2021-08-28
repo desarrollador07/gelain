@@ -821,7 +821,9 @@ bandera:boolean=false;
     });
   }
 
-
+  cancelar(){
+    window.open('https://www.google.com','_self');
+  }
 
   calendarEspañol(){
     this.es = {

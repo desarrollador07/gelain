@@ -1,0 +1,19 @@
+fieldset {
+    font-family: sans-serif;
+    border: 2px solid #3275b3;
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    /* width: 58em; */
+    width: auto;
+}
+
+fieldset legend {
+    background: #3275b3;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px white;
+    margin-left: 20px;
+}
