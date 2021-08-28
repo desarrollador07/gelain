@@ -134,29 +134,15 @@ export class EmpleadosComponent implements OnInit {
     }
 
     confirmationForm(){
-      
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, Acepto los terminos!',
-        cancelButtonText:'Cancelar'
-      }).then((result) => {
-    
-        this.router.navigate(["/main/addempleado/crear"]);
-          localStorage.removeItem('prueba');
-          localStorage.removeItem('IdEmpleado');
-          localStorage.removeItem('ForA');
-          localStorage.removeItem('ForAA');
-          localStorage.removeItem('ForB');
-          localStorage.removeItem('Extra');
-          localStorage.removeItem('estres');
-          localStorage.removeItem('estresEs');
-      })
-
+      localStorage.removeItem('prueba');
+      localStorage.removeItem('IdEmpleado');
+      localStorage.removeItem('ForA');
+      localStorage.removeItem('ForAA');
+      localStorage.removeItem('ForB');
+      localStorage.removeItem('Extra');
+      localStorage.removeItem('estres');
+      localStorage.removeItem('estresEs');
+      this.router.navigate(["/main/addempleado/crear"]);
     }
 
 
