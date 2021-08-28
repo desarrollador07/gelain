@@ -110,6 +110,7 @@ import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { ExcelExportModule } from '@progress/kendo-angular-excel-export';
 import { LabelModule } from '@progress/kendo-angular-label';
+import { TerminosCondicionesComponent } from './modules/terminos-condiciones/terminos-condiciones.component';
 
 
 
@@ -221,6 +222,7 @@ import { LabelModule } from '@progress/kendo-angular-label';
         FileDemoComponent,
         DocumentationComponent,
         MainComponent,
+        TerminosCondicionesComponent,
       
         
         

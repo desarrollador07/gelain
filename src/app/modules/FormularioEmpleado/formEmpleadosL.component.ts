@@ -12,6 +12,7 @@ import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
 import { style } from '@angular/animations';
+import Swal from 'sweetalert2';
 
 
 

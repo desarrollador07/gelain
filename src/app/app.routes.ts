@@ -1,28 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { DashboardDemoComponent } from './demo/view/dashboarddemo.component';
-import { SampleDemoComponent } from './demo/view/sampledemo.component';
-import { FormsDemoComponent } from './demo/view/formsdemo.component';
-import { DataDemoComponent } from './demo/view/datademo.component';
-import { PanelsDemoComponent } from './demo/view/panelsdemo.component';
-import { OverlaysDemoComponent } from './demo/view/overlaysdemo.component';
-import { MenusDemoComponent } from './demo/view/menusdemo.component';
-import { MessagesDemoComponent } from './demo/view/messagesdemo.component';
-import { MiscDemoComponent } from './demo/view/miscdemo.component';
-import { EmptyDemoComponent } from './demo/view/emptydemo.component';
-import { ChartsDemoComponent } from './demo/view/chartsdemo.component';
-import { FileDemoComponent } from './demo/view/filedemo.component';
-import { DocumentationComponent } from './demo/view/documentation.component';
 import { MainComponent } from './layout/main/main.component';
 import { LoginComponent } from '../app/modules/login/login.component';
-import { FormatoBModule } from './modules/formatoB/formatoB.module';
 import { AuthGuard } from './guard/auth.guard';
-import { TD_DOMDIMModule } from './modules/TD_DOMDIM/TD_DOMDIM.module';
-import { FormEmpleadosLComponent } from './modules/FormularioEmpleado/formEmpleadosL.component';
-import { FormatoALComponent } from './modules/formularioAL/formatoAL.component';
-import { ExtralaboralLComponent } from './modules/extralaboralL/extralaboralL.component';
-import { EstresLComponent } from './modules/estresL/estresL.component';
-import { FinalFormularioComponent } from './modules/finalFormulario/finalFormulario.component';
+import { TerminosCondicionesComponent } from './modules/terminos-condiciones/terminos-condiciones.component';
+
 
 export const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
@@ -30,7 +12,11 @@ export const routes: Routes = [
         path: "login",
         component:LoginComponent
     },
-     {
+    {
+        path: "terminos-condiciones/:id",
+        component:TerminosCondicionesComponent
+    },
+    {
         path: "FormularioEmpleado",
         loadChildren: () =>
             import("./modules/FormularioEmpleado/formEmpleadoL.module").then(
