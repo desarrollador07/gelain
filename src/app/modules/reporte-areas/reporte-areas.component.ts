@@ -16,7 +16,7 @@ export class ReporteAreasComponent implements OnInit {
   data: any;
   
   constructor(private pruebaServices:PruebaService) { 
-    this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
+    this.idEmpresa = localStorage.getItem("idEmpresa");
   }
 
   async ngOnInit() {

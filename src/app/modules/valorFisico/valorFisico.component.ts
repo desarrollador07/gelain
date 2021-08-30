@@ -20,7 +20,7 @@ export class ValorfisicoComponent implements OnInit {
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe,
               private _confirmationServices: ConfirmationService) {
-               this.idEmpres = localStorage.getItem('nameEmpresaEmp');   
+               this.idEmpres = localStorage.getItem('idEmpresa');   
   }
 
   async ngOnInit() {

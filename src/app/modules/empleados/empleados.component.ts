@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
 import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
-import Swal from 'sweetalert2';
+import { AppState } from 'src/app/app.reducer';
+import { Store } from '@ngrx/store';
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',
@@ -25,27 +26,12 @@ export class EmpleadosComponent implements OnInit {
   area: SelectItem[] = [];
   areas: Area[] = [];
 
-  public  async actualizarData(id:any){
-      
-   await this.pruebaServices.buscarByEmpleados(id).toPromise().then((data: any)=>{
-
-     this.pruebas = data;
-     this.pruebas.map(res=>{
-       this.empresas.map(x=>{
-          if (res.emdempresa === x.empid) {
-            res.nomempresa = x.empnombre;
-          }
-       });
-     });
-  
-   }); 
-  }
-
 
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
-              private _messageService: MessageService) {
-                this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
+              private _messageService: MessageService,
+              private store: Store<AppState>) {
+                this.idEmpresa = localStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
                 
    }
@@ -54,9 +40,15 @@ export class EmpleadosComponent implements OnInit {
 
     /*Consulta Empresas */
     await this.consultaEmpresas();
-    /*Consulta de Empleados */
-    await this.consultaEmpleados();
+    
+    // this.store.select('empresas').subscribe(res=>{
 
+    // });
+      /*Consulta de Empleados */
+     await this.consultaEmpleados();
+
+     
+   
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
       {label: 'Areas', icon: 'fa fa-fw fa-book'},
@@ -67,7 +59,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   
-  deletePrueba(prueba: Empleado) {
+  deletePrueba(empleado: Empleado) {
 
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar este registro?',
@@ -75,10 +67,10 @@ export class EmpleadosComponent implements OnInit {
       icon:'pi pi-exclamation-triangle',
       accept:async() => {
 
-        await this.pruebaServices.deletePrueba(prueba).toPromise().then(data => {
+        await this.pruebaServices.deletePrueba(empleado).toPromise().then(data => {
 
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000});
-          this.pruebas = this.pruebas.filter(r => r !== prueba);
+          this.pruebas = this.pruebas.filter(r => r !== empleado);
   
         });
 
@@ -114,17 +106,17 @@ export class EmpleadosComponent implements OnInit {
     
     async consultaEmpleados(){
 
-      await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
-        this.pruebas = data;
-        this.pruebas.map(res=>{
-          this.empresas.map(x=>{
-            if (res.emdempresa === x.empid) {
-              res.nomempresa = x.empnombre;
-            }
+        await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
+          this.pruebas = data;
+          this.pruebas.map(res=>{
+            this.empresas.map(x=>{
+              if (res.emdempresa === x.empid) {
+                res.nomempresa = x.empnombre;
+              }
+            });
           });
         });
-  
-      });
+
     }
 
     async consultaEmpresas(){

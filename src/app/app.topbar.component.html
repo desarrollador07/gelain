@@ -11,22 +11,19 @@
         <i class="fa fa-sort-desc"></i>
     </a>
 
-    <!-- <a id="topbar-profile-menu-button">
-        <span>
-            <form [formGroup]="edform">
-                <p-dropdown [options]="empresa" (onChange)="buscarActualizarData()" formControlName="idempresa" placeholder="Seleccione una empresa">
-                    <ng-template let-empresa>
-                        <div class="ui-helper-clearfix" style="height: 25px;">
-                            <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
-                        </div>
-                    </ng-template>
-                </p-dropdown>
-            </form>
-            
-        </span>
-    </a> -->
-
     <a id="topbar-profile-menu-button">
+        <span>
+            <p-dropdown [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa">
+                <ng-template let-empresa>
+                    <div class="ui-helper-clearfix" style="height: 25px;">
+                        <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
+                    </div>
+                </ng-template>
+            </p-dropdown>
+        </span>
+    </a>
+
+    <!-- <a id="topbar-profile-menu-button">
         <span class="ui-float-label">
             
             <select name="country1" (change)="buscarActualizarData($event)" class="ui-corner-all" >
@@ -34,7 +31,7 @@
                 <option *ngFor="let country of empresas"  [ngValue]="country.empid">{{country.empnombre}}</option>
             </select>
         </span>
-    </a>
+    </a> -->
     <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
         <li>
             <a href="#" (click)="app.onTopbarSubItemClick($event)">

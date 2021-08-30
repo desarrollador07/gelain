@@ -240,7 +240,7 @@ total_general2 :any[] = [];
               private _messageService: MessageService,
                private intl: IntlService) {
                 
-                this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
+                this.idEmpresa = localStorage.getItem("idEmpresa");
                 this.usuario = localStorage.getItem("user");
                 this.nEmpresa = localStorage.getItem("nombreEmpresa");
                 this.idtemporal = 0;           

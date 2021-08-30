@@ -1,24 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Prueba } from '../../models/prueba.model';
 import { PruebaService } from '../../services/prueba.service';
-import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
+import { ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
+
 @Component({
   selector: 'app-prueba',
   templateUrl: './prueba.component.html',
   styleUrls: ['./prueba.component.css']
 })
 export class PruebaComponent implements OnInit {
-  prueba: Empresa;
 
-  pruebas: Empresa[] = [];
-
+  empresas: Empresa[] = [];
   items1: MenuItem[];
-
   items2: MenuItem[];
-
   activeItem: MenuItem;
 
   constructor(private pruebaServices:PruebaService,
@@ -39,15 +34,16 @@ export class PruebaComponent implements OnInit {
 
   }
 
-   deletePrueba(prueba: Empresa) {
+   deleteEmpresa(emp: Empresa) {
 
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar este elemento?',
       header:'confirmacion',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        this.pruebaServices.deleteEmpresa(prueba)
+        this.pruebaServices.deleteEmpresa(emp)
         .toPromise().then(data => {
+
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
           this.indexData();
         });
@@ -57,10 +53,10 @@ export class PruebaComponent implements OnInit {
 
       } 
 
-      editPrueba(cpruebas:Empresa){
-        localStorage.setItem('prueba',JSON.stringify(cpruebas));
-        localStorage.setItem('Idempres',JSON.stringify(cpruebas.empid));
-        localStorage.setItem('pruebaArea',JSON.stringify(cpruebas));
+      editEmpresa(emp:Empresa){
+        localStorage.setItem('prueba',JSON.stringify(emp));
+        localStorage.setItem('Idempres',JSON.stringify(emp.empid));
+        localStorage.setItem('pruebaArea',JSON.stringify(emp));
         
       }
     
@@ -70,9 +66,11 @@ export class PruebaComponent implements OnInit {
       }
 
       indexData(){
+
         this.pruebaServices.getEmpresa().subscribe((data: any)=>{
-          this.pruebas = data;
+          this.empresas = data;
         });
+
       }
   
 

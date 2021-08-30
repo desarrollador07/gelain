@@ -1,12 +1,13 @@
 import { Component, OnInit } from "@angular/core";
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Router, RouterLink } from "@angular/router";
+import { FormGroup, FormBuilder } from "@angular/forms";
+import { Router } from "@angular/router";
 
 import { ConfirmationService, MessageService } from "primeng/api";
-import { routes } from '../../app.routes';
 import { PruebaService } from '../../services/prueba.service';
-import { async } from '@angular/core/testing';
 import { User } from '../../models/user';
+import { Store } from "@ngrx/store";
+import { AppState } from "src/app/app.reducer";
+import * as empresasActions from "../../store/actions/empresa.actions";
 
 
 
@@ -29,11 +30,7 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private messageService: MessageService,
-        private confirmationService: ConfirmationService,
-        private pruebaservices: PruebaService,
-
- 
-
+        private pruebaservices: PruebaService
     ) {
         this.crearFormulario();
     }
@@ -70,7 +67,7 @@ export class LoginComponent implements OnInit {
 
     ingresar() {
         this.pruebaservices.logIn(this.loginForm.value).then(async(resp: any)=>{
-
+            
             if (resp.Autherror == "Unauthorized") {
                 this.messageService.add({
                     severity: "error",
@@ -87,6 +84,7 @@ export class LoginComponent implements OnInit {
                     console.log("userN",this.usuarioR.name);
                     localStorage.setItem("token",resp.access_token);
                     localStorage.setItem("user",this.usuarioR.name);
+                    
                     this.router.navigate(["/main/dashboard"]);
                 }
                 else {
@@ -98,9 +96,7 @@ export class LoginComponent implements OnInit {
                     });
                 }
             }
-
-
-            
+ 
         }
         );
     

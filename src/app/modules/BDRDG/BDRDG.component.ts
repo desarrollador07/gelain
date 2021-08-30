@@ -38,7 +38,7 @@ export class BDRDGComponent implements OnInit {
   
 
   constructor(private pruebaServices:PruebaService) {
-                this.idEmpresa = localStorage.getItem("nameEmpresaEmp");
+                this.idEmpresa = localStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
                 this.image.src = "https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg";      
    }

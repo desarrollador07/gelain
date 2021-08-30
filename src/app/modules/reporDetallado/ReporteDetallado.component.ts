@@ -36,7 +36,7 @@ export class ReporteDetalladoComponent implements OnInit {
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
               ) {
-                this.idEmpresa = Number(localStorage.getItem("nameEmpresaEmp"));   
+                this.idEmpresa = Number(localStorage.getItem("idEmpresa"));   
    }
 
   async ngOnInit() {

@@ -25,6 +25,8 @@
     "@fullcalendar/daygrid": "4.0.1",
     "@fullcalendar/interaction": "4.0.2",
     "@fullcalendar/timegrid": "4.0.1",
+    "@ngrx/store": "^8.6.1",
+    "@ngrx/store-devtools": "^12.4.0",
     "@progress/kendo-angular-buttons": "^6.2.0",
     "@progress/kendo-angular-charts": "^5.2.1",
     "@progress/kendo-angular-common": "^2.0.0",

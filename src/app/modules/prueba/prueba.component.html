@@ -18,7 +18,7 @@
 
 <div class="card">
     <p-panel header="Empresas">
-        <p-table #dt [value]="pruebas" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+        <p-table #dt [value]="empresas" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="header">
                 <tr>
                     <th pSortableColumn="empnit" pResizableColumn>Nit
@@ -42,29 +42,29 @@
                     <th [ngStyle]="{'width': '8%'}"></th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-columns let-prueba let-i="rowIndex">
+            <ng-template pTemplate="body" let-columns let-emp let-i="rowIndex">
                 <tr>
-                    <td style="text-align:left">{{prueba.empnit}}</td>
-                    <td style="text-align:left">{{prueba.empnombre | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.emprepresentante | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.empdepartamento | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.empciudad | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.emptelefono}}</td>
+                    <td style="text-align:left">{{emp.empnit}}</td>
+                    <td style="text-align:left">{{emp.empnombre | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{emp.emprepresentante | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{emp.empdepartamento | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{emp.empciudad | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{emp.emptelefono}}</td>
                     <td style="text-align:center">
-                        <button pButton pRipple icon="pi pi-pencil" class="tooltip" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/prueba/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="tooltip" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>
+                        <button pButton pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editEmpresa(emp)" routerLink="/main/prueba/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deleteEmpresa(emp)" class="p-button-rounded p-button-warning"></button>
                     </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
                 <div class="p-d-flex p-ai-center p-jc-between">
-                    En total hay {{pruebas ? pruebas.length : 0 }} registros.
+                    En total hay {{empresas ? empresas.length : 0 }} registros.
                 </div>
             </ng-template>
         </p-table>
         <br>
         <div style="text-align:center">
-            <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/prueba/crear" (click)="newcPrueba()" label="Agregar"></button>
+            <button type="button" pButton icon="fa fa-plus" title="Agregar prueba" pRipple routerLink="/main/prueba/crear" (click)="newcPrueba()" label="Agregar"></button>
 
         </div>
     </p-panel>

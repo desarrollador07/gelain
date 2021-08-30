@@ -114,6 +114,9 @@ import { TerminosCondicionesComponent } from './modules/terminos-condiciones/ter
 import { ReporteAreasComponent } from './modules/reporte-areas/reporte-areas.component';
 import { IntlModule } from '@progress/kendo-angular-intl';
 import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid';
+import { StoreModule } from '@ngrx/store';
+import { appReducers } from "./app.reducer";
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
@@ -201,7 +204,12 @@ import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid
         IntlModule,
         PDFModule,
         ExcelModule,
-        GridModule
+        GridModule,
+        StoreModule.forRoot(appReducers),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: true,
+        }),
 
        
 
@@ -232,9 +240,7 @@ import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid
         MainComponent,
         TerminosCondicionesComponent,
         ReporteAreasComponent,
-      
-        
-        
+  
 
 
     ],
