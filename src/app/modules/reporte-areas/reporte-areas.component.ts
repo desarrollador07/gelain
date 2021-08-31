@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
 import { PruebaService } from 'src/app/services/prueba.service';
 
 @Component({
@@ -15,17 +17,28 @@ export class ReporteAreasComponent implements OnInit {
   idEmpresa:any;
   data: any;
   
-  constructor(private pruebaServices:PruebaService) { 
+  constructor(private pruebaServices:PruebaService,
+              private store: Store<AppState>) { 
     this.idEmpresa = localStorage.getItem("idEmpresa");
   }
 
   async ngOnInit() {
-    /*Consulta reporte áreas */
-    await this.fnConsultarReporteAreas();
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa.empid === undefined) {
+        id = this.idEmpresa;
+      }else{
+        id = res.empresa.empid;
+      }
+      this.limpiarData();
+      /*Consulta reporte áreas */
+      await this.fnConsultarReporteAreas(id);
+    });
+    
   }
 
   /*Consulta reportes áreas */
-  async fnConsultarReporteAreas(){
+  async fnConsultarReporteAreas(id:number){
     var nombreArea:string;
     var contador1:number = 0;
     var contador2:number = 0;
@@ -36,7 +49,7 @@ export class ReporteAreasComponent implements OnInit {
     var obj1 = {};
     var dataCat:any [] = [];
     
-  await this.pruebaServices.getReporteAreas(this.idEmpresa).toPromise().then((res:any) => {
+  await this.pruebaServices.getReporteAreas(id).toPromise().then((res:any) => {
 
     this.dataAreas = res;
     
@@ -124,6 +137,12 @@ export class ReporteAreasComponent implements OnInit {
       datasets: dataCat
     }
 
+  }
+
+  limpiarData(){
+    this.dataAreas = [];
+    this.sales9 = [];
+    this.data = [];
   }
 
   generarLetra(){

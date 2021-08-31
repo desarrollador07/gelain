@@ -5,6 +5,8 @@ import { SelectItem} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
+import { AppState } from 'src/app/app.reducer';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-empleados',
@@ -37,7 +39,8 @@ export class BDRDGComponent implements OnInit {
    image = new Image();
   
 
-  constructor(private pruebaServices:PruebaService) {
+  constructor(private pruebaServices:PruebaService,
+              private store: Store<AppState>) {
                 this.idEmpresa = localStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
                 this.image.src = "https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg";      
@@ -47,31 +50,39 @@ export class BDRDGComponent implements OnInit {
     this.pruebas2 = this.pruebas;
 
     await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
-     
       this.empresas = data;
-    })
-
-    await this.pruebaServices
-    .buscarByEmpleadosRepor(this.idEmpresa).toPromise().then((data: any)=>{
-     
-      this.pruebas = data;
-      this.pruebas.map(res=>{
-        this.empresas.map(x=>{
-        if (res.emdempresa === x.empid) {
-          res.nomempresa = x.empnombre;
-          res.ciudadEmpresa = x.empciudad;
-          res.DepartamentoEmpresa = x.empdepartamento;
-        }
-        });
-      });
-    }); 
-
-    console.log('data', this.pruebas);
+    });
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa.empid === undefined) {
+        id = this.idEmpresa;
+      }else{
+        id = res.empresa.empid;
+      }
+     await this.consultaEmpleados(id);
+    });
     
-
-
+   
   }
 
+  async consultaEmpleados(id:number){
+
+      await this.pruebaServices
+      .buscarByEmpleadosRepor(id).toPromise().then((data: any)=>{
+       
+        this.pruebas = data;
+        this.pruebas.map(res=>{
+          this.empresas.map(x=>{
+          if (res.emdempresa === x.empid) {
+            res.nomempresa = x.empnombre;
+            res.ciudadEmpresa = x.empciudad;
+            res.DepartamentoEmpresa = x.empdepartamento;
+          }
+          });
+        });
+      }); 
+
+  }
 
 
       buscarArea(cpruebas:Empleado){

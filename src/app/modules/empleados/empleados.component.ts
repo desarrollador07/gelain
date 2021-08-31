@@ -41,11 +41,17 @@ export class EmpleadosComponent implements OnInit {
     /*Consulta Empresas */
     await this.consultaEmpresas();
     
-    // this.store.select('empresas').subscribe(res=>{
-
-    // });
-      /*Consulta de Empleados */
-     await this.consultaEmpleados();
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa.empid === undefined) {
+        id = this.idEmpresa;
+      }else{
+        id = res.empresa.empid;
+      }
+       /*Consulta de Empleados */
+     await this.consultaEmpleados(id);
+    });
+     
 
      
    
@@ -104,9 +110,9 @@ export class EmpleadosComponent implements OnInit {
         })
       }
     
-    async consultaEmpleados(){
+    async consultaEmpleados(id:number){
 
-        await this.pruebaServices.buscarByEmpleados(this.idEmpresa).toPromise().then((data: Empleado[])=>{
+        await this.pruebaServices.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
           this.pruebas = data;
           this.pruebas.map(res=>{
             this.empresas.map(x=>{

@@ -1,14 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
-import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
-import { IntlService } from "@progress/kendo-angular-intl";
 import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
-import {ChartModule} from 'primeng/chart';
-import { style } from '@angular/animations';
-import { saveAs } from "@progress/kendo-file-saver";
-import { geometry, fit, exportPDF, Group } from '@progress/kendo-drawing';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app.reducer';
 
 
 @Component({
@@ -37,18 +32,15 @@ export class TD_DOMDIMComponent implements OnInit {
   idtemporal:any;
   nEmpresa:any;
   usuario:any;
-  prueba: Empleado;
 
-  pruebas: Empleado[] = [];
-
-  sales: any[]= [];
-  sales2: any[]= [];
-  sales3: any[]= [];
-  sales4: any[]= [];
-  sales5: any[]= [];
-  sales6: any[]= [];
-  sales7: any[]= [];
-  sales8: any[]= [];
+  sales: any[] = [];
+  sales2: any[] = [];
+  sales3: any[] = [];
+  sales4: any[] = [];
+  sales5: any[] = [];
+  sales6: any[] = [];
+  sales7: any[] = [];
+  sales8: any[] = [];
   
 
   columns: any[];
@@ -235,12 +227,10 @@ total_general2 :any[] = [];
 
  
 
-  constructor(private pruebaServices:PruebaService,private router: Router,
-              private _confirmationServices: ConfirmationService,
-              private _messageService: MessageService,
-               private intl: IntlService) {
+  constructor(private pruebaServices:PruebaService,
+              private store: Store<AppState>) {
                 
-                this.idEmpresa = localStorage.getItem("idEmpresa");
+                this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
                 this.usuario = localStorage.getItem("user");
                 this.nEmpresa = localStorage.getItem("nombreEmpresa");
                 this.idtemporal = 0;           
@@ -263,32 +253,40 @@ total_general2 :any[] = [];
     this.text6 = "Estres_"+this.fecha;
     this.text7 = "ESTRES_DETALLES_"+this.fecha;
     this.text8 = "TOTALES_GENERALES_"+this.fecha;
-    console.log("fecha",this.fecha);
-    console.log("hora",this.hora);
+  
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa.empid === undefined) {
+        id = this.idEmpresa;
+      }else{
+        id = res.empresa.empid;
+      }
+      this.limpiarData();
+     await this.fnBuscarCatalogos(id);
+     await this.fnBuscarCatalogosControl(id);
+     await this.fnBuscarCatalogosDemandas(id);
+     await this.fnBuscarCatalogosRecompensas(id);
+     await this.fnBuscarCatalogosPsicoExtra(id);
+     await this.fnBuscarCatalogosPsicoEstresDetalles(id);
+     await this.fnBuscarCatalogosTotal(id);
+     await this.metodo(id);
+    });
 
     
-    this.fnBuscarCatalogos();
-    this.fnBuscarCatalogosControl();
-    this.fnBuscarCatalogosDemandas();
-    this.fnBuscarCatalogosRecompensas();
-    this.fnBuscarCatalogosPsicoExtra();
-    this.fnBuscarCatalogosPsicoEstresDetalles();
-    this.fnBuscarCatalogosTotal();
-    this.metodo();
     this.datosGelain();
     
   }
   public labelContent(args: LegendLabelsContentArgs): string {
     return `${args.dataItem.category} : ${args.dataItem.value}`;
 }
-  public fnBuscarCatalogos(): void {
-    this.pruebaServices.getLiderazgoRA(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogos(id:number){
+
+    await this.pruebaServices.getLiderazgoRA(id).toPromise().then(async(data:any)=>{
       this.info1 = data;
-      console.log('info1',this.info1);
       
-      this.pruebaServices.getLiderazgoRB(this.idEmpresa).toPromise().then((data:any)=>{
+      await this.pruebaServices.getLiderazgoRB(id).toPromise().then((data:any)=>{
         this.info2 = data;
-        console.log('info2',this.info2);
+
         this.tam = data.length;
          for (let i = 0; i < this.tam; i++) {
           this.infopreF[i] = this.info1[i].map( (item, ix) => item + this.info2[i][ix] );
@@ -297,9 +295,8 @@ total_general2 :any[] = [];
           this.fnAsisgnarDatosFiltros(this.infopreF[j],j);
         }
         this.liderasgoYRelacionesSociales(this.infopreF);
-        console.log('info2',this.infopreF);
-      })
-    })
+      });
+    });
 
   }
 
@@ -372,11 +369,12 @@ total_general2 :any[] = [];
     
   }
 
-  public fnBuscarCatalogosControl(): void {
-    this.pruebaServices.getcontrolSobreRol(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogosControl(id:number) {
+
+   await this.pruebaServices.getcontrolSobreRol(id).toPromise().then(async(data:any)=>{
       this.info11 = data;
       
-      this.pruebaServices.getcontrolSobreRolB(this.idEmpresa).toPromise().then((data:any)=>{
+     await this.pruebaServices.getcontrolSobreRolB(id).toPromise().then((data:any)=>{
         this.info21 = data;
 
         this.tam1 = data.length;
@@ -387,8 +385,8 @@ total_general2 :any[] = [];
           this.fnAsisgnarDatosFiltrosControl(this.infopreF1[j],j);
         }
         this.controlSobreRol(this.infopreF1);
-      }) 
-    })
+      }); 
+    });
 
   }
 
@@ -469,11 +467,12 @@ total_general2 :any[] = [];
  
   }
 
-  public fnBuscarCatalogosDemandas(): void {
-    this.pruebaServices.getDemandasTrabajo(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogosDemandas(id:number){
+
+   await this.pruebaServices.getDemandasTrabajo(id).toPromise().then(async (data:any)=>{
       this.info13 = data;
       
-      this.pruebaServices.getDemandasTrabajoB(this.idEmpresa).toPromise().then((data:any)=>{
+    await this.pruebaServices.getDemandasTrabajoB(id).toPromise().then((data:any)=>{
         this.info23 = data;
        
         this.tam3 = data.length;
@@ -602,24 +601,25 @@ total_general2 :any[] = [];
     ];
   }
 
-  public fnBuscarCatalogosRecompensas(): void {
-    this.pruebaServices.getRecompensas(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogosRecompensas(id:number){
+    
+    await this.pruebaServices.getRecompensas(id).toPromise().then(async(data:any)=>{
       this.info12 = data;
       
-      this.pruebaServices.getRecompensasB(this.idEmpresa).toPromise().then((data:any)=>{
-        this.info22 = data;
-       
-        this.tam2 = data.length;
-        for (let i = 0; i < this.tam2; i++) {
-          this.infopreF2[i] = this.info12[i].map( (item, ix) => item + this.info22[i][ix] );
-        } 
- 
-        for (let j = 0; j < this.infopreF2.length; j++) {
-          this.fnAsisgnarDatosFiltrosRecompensas(this.infopreF2[j],j);
-        }
-        this.Recompensas(this.infopreF2);
-    })
-  })
+      await this.pruebaServices.getRecompensasB(id).toPromise().then((data:any)=>{
+          this.info22 = data;
+        
+          this.tam2 = data.length;
+          for (let i = 0; i < this.tam2; i++) {
+            this.infopreF2[i] = this.info12[i].map( (item, ix) => item + this.info22[i][ix] );
+          } 
+  
+          for (let j = 0; j < this.infopreF2.length; j++) {
+            this.fnAsisgnarDatosFiltrosRecompensas(this.infopreF2[j],j);
+          }
+          this.Recompensas(this.infopreF2);
+      });
+    });
   }
 
   public fnAsisgnarDatosFiltrosRecompensas(data, tamaño:number): void {
@@ -671,16 +671,16 @@ total_general2 :any[] = [];
 
 
 
-  public fnBuscarCatalogosPsicoExtra(): void {
-    this.pruebaServices.getPSICOSOCIAL_EXTRALABORAL(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogosPsicoExtra(id:number) {
+    
+    await  this.pruebaServices.getPSICOSOCIAL_EXTRALABORAL(id).toPromise().then((data:any)=>{
       this.info14 = data;
       
         for (let j = 0; j < this.info14.length; j++) {
           this.fnAsisgnarDatosFiltrosPsicoExtra(this.info14[j],j);
         }
           this.PsicoExtra(this.info14);
-    })
-  
+    });
 
   }
 
@@ -787,21 +787,20 @@ total_general2 :any[] = [];
 
   
 
-  public fnBuscarCatalogosPsicoEstresDetalles(): void {
-    this.pruebaServices.getESTRES_DETALLES(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogosPsicoEstresDetalles(id:number){
+    
+    await this.pruebaServices.getESTRES_DETALLES(id).toPromise().then((data:any)=>{
       this.info14 = data;
   
-      
         for (let j = 0; j < this.info14.length; j++) {
           this.fnAsisgnarDatosFiltrosESTRES_DETALLES(this.info14[j],j);
         }
           this.ESTRES_DETALLES(this.info14);
-    })
-  
+    });
 
   }
 
-  public fnAsisgnarDatosFiltrosESTRES_DETALLES(data, tamaño:number): void {
+  public fnAsisgnarDatosFiltrosESTRES_DETALLES(data, tamaño:number){
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -864,20 +863,18 @@ total_general2 :any[] = [];
     ];
   }
 
-  public fnBuscarCatalogosTotal(): void {
-    this.pruebaServices.getTotalGeneral(this.idEmpresa).toPromise().then((data:any)=>{
+  public async fnBuscarCatalogosTotal(id:number){
+    
+    await this.pruebaServices.getTotalGeneral(id).toPromise().then((data:any)=>{
       this.info15 = data;
-      console.log(" Data total",data);
-      
-      
+
         for (let j = 0; j < this.info15.length; j++) {
           this.fnAsisgnarDatosFiltrosTotalGeneral(this.info15[j],j);
         }
         
           this.TotalGeneral(this.info15);
-    })
+    });
   
-
   }
 
   public fnAsisgnarDatosFiltrosTotalGeneral(data, tamaño:number): void {
@@ -931,8 +928,9 @@ total_general2 :any[] = [];
     ];
   }
 
-  metodo(){
-    this.pruebaServices.getESTRESTOTAL(this.idEmpresa).subscribe((data) => {
+  async metodo(id:number){
+    
+    await this.pruebaServices.getESTRESTOTAL(id).toPromise().then((data) => {
  
       this.donadata = data[0]
       this.total = this.donadata[0] + this.donadata[1] + this.donadata[2] + this.donadata[3] + this.donadata[4];
@@ -998,6 +996,138 @@ total_general2 :any[] = [];
     line: { color: '#999', dashType: 'dash', length: 10, width: 1 }
   }
 
+  limpiarData(){
+    this.sales = [];
+    this.sales2 = [];
+    this.sales3 = [];
+    this.sales4 = [];
+    this.sales5 = [];
+    this.sales6 = [];
+    this.sales7 = [];
+    this.sales8 = [];
+    
+    this.liderazgo = [];
+    this.relaciones = [];
+    this.retroalimentacion = [];
+    this.rela_colaboradores = [];
+    this.liderazgo2 = [];
+    this.relaciones2 =[];
+    this.retroalimentacion2 = [];
+    this.rela_colaboradores2 = [];
+
+    this.claridad = [];
+    this.capacitacion = [];
+    this.oportunidades = [];
+    this.manejo = [];
+    this.control = [];
+
+    this.claridad2 = [];
+    this.capacitacion2 = [];
+    this.oportunidades2 = [];
+    this.manejo2 = [];
+    this.control2 = [];
+
+    this.demandas_ambientales = [];
+    this.reponsabilidad = [];
+    this.consistencia_rol = [];
+    this.demandas_emocionales = [];
+    this.demandas_jornada = [];
+    this.influ_extralaboral = [];
+    this.demandas_cuantitativas = [];
+    this.demandas_mental = [];
+
+    this.demandas_ambientales2 = [];
+    this.reponsabilidad2 = [];
+    this.consistencia_rol2 = [];
+    this.demandas_emocionales2 = [];
+    this.demandas_jornada2 = [];
+    this.influ_extralaboral2 = [];
+    this.demandas_cuantitativas2 = [];
+    this.demandas_mental2 = [];
+
+    this.recompensas_trabajo = [];
+    this.reconocimiento = [];
+
+    this.recompensas_trabajo2  = [];
+    this.reconocimiento2  = [];
+
+    this.tiempo_fuera  = [];
+    this.relaciones_familiares = [];
+    this.com_relaciones_interperson = [];
+    this.situacion_economica = [];
+    this.caract_vivienda = [];
+    this.influencia_extralaboral = [];
+    this.desplaz_vivienda = [];
+
+    this.tiempo_fuera2  = [];
+    this.relaciones_familiares2 = [];
+    this.com_relaciones_interperson2 = [];
+    this.situacion_economica2 = [];
+    this.caract_vivienda2 = [];
+    this.influencia_extralaboral2 = [];
+    this.desplaz_vivienda2 = [];
+
+    this.FISIOLOGICAS  = [];
+    this.COMPORTAMIENTO_SOCIAL  = [];
+    this.INTEL_LABORA  = [];
+    this.PSICOEMOCIONALES  = [];
+
+    this.FISIOLOGICAS2  = [];
+    this.COMPORTAMIENTO_SOCIAL2  = [];
+    this.INTEL_LABORA2  = [];
+    this.PSICOEMOCIONALES2  = [];
+
+    this.total_intralaboral  = [];
+    this.total_extralaboral  = [];
+    this.total_general  = [];
+
+    this.total_intralaboral2  = [];
+    this.total_extralaboral2  = [];
+    this.total_general2  = [];
+
+    this.sinRiesgoex = [];
+    this.sinRiesgo2ex = [];
+    this.sinRiesgoli = [];
+    this.sinRiesgo2li = [];
+    this.sinRiesgo2co = [];
+    this.sinRiesgoCo = [];
+    this.sinRiesgodem = [];
+    this.sinRiesgo2dem = [];
+    this.sinRiesgore = [];
+    this.sinRiesgo2re = [];
+    this.info1 = [];
+    this.info2 = [];
+    this.infopreF = [];
+    this.infoF = [];
+    this.donadata = [];
+
+    this.info11 = [];
+    this.info21 = [];
+    this.infopreF1 = [];
+    this.infoF1 = [];
+
+    this.info12 = [];
+    this.info22 = [];
+    this.infopreF2 = [];
+    this.infoF2 = [];
+
+    this.info13 = [];
+    this.info23 = [];
+    this.infopreF3 = [];
+    this.infoF3 = [];
+
+    this.info14 = [];
+    this.info24 = [];
+    this.infopreF4 = [];
+    this.infoF4 = [];
+
+    this.info15 = [];
+    this.info25 = [];
+    this.infopreF5 = [];
+    this.infoF5 = [];
+    this.columns = [];
+    this.dataDona= [];
+  }
   
 
 }

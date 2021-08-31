@@ -4,9 +4,6 @@ import { SelectItem } from 'primeng/primeng';
 import { AppComponent} from './app.component';
 import { Empresa } from './models/empresa.model';
 import { PruebaService } from './services/prueba.service';
-import { Empleado } from './models/empleado.mdel';
-import { EmpleadosComponent } from './modules/empleados/empleados.component';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { AppState } from './app.reducer';
 import { Store } from '@ngrx/store';
 import * as empresasActions from "./store/actions/empresa.actions";
@@ -61,7 +58,7 @@ export class AppTopBarComponent {
       let select = this.empresa.find(el => el.value == this.empresaSelect);
       localStorage.setItem("nombreEmpresa",select.label);
       localStorage.setItem('idEmpresa', this.empresaSelect);
-      this.router.navigate(["main/dashboard"]);
+      // this.router.navigate(["main/dashboard"]);
 
     }
 
@@ -89,6 +86,7 @@ export class AppTopBarComponent {
       if (this.idEmpresa !== 0) {
         this.empresaSelect = this.idEmpresa;
       }
+      this.store.dispatch(empresasActions.selectEmpresa({ id: this.empresaSelect }));
     }
 
 }

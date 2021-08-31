@@ -16,7 +16,12 @@ export function hydrationMetaReducer (
             }
         }
         const nextState = reducer(state, action);
-        return nextState;
-        
+        const bandera = localStorage.getItem("idEmpresa");
+        if (bandera === "0") {
+            localStorage.removeItem("state");
+        } else {
+            localStorage.setItem("state", JSON.stringify(nextState));
+            return nextState;
+        } 
     };
 };

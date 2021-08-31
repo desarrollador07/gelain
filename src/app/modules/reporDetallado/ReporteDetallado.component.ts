@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { PruebaService } from '../../services/prueba.service';
 import { ReporteDetallado } from '../../models/reporteDetallado';
 import { MessageService } from 'primeng/primeng';
+import { AppState } from 'src/app/app.reducer';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -35,21 +37,31 @@ export class ReporteDetalladoComponent implements OnInit {
 
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
+              private store: Store<AppState>
               ) {
                 this.idEmpresa = Number(localStorage.getItem("idEmpresa"));   
    }
 
   async ngOnInit() {
-
-    /*Consulta de reportes por empleado */
-    await this.consultarReportes();
+  
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa.empid === undefined) {
+        id = this.idEmpresa;
+      }else{
+        id = res.empresa.empid;
+      }
+      /*Consulta de reportes por empleado */
+      await this.consultarReportes(id);
+    });
+    
 
   }
 
-  async consultarReportes(){
+  async consultarReportes(id:number){
 
     await this.pruebaServices
-    .getReporteExcelDetallado(this.idEmpresa).toPromise().then((data: any)=>{
+    .getReporteExcelDetallado(id).toPromise().then((data: any)=>{
       this.rdEmpleado = data;
     });
 
@@ -201,7 +213,7 @@ export class ReporteDetalladoComponent implements OnInit {
       if (this.selectReporte === 6) {
         this.rdEmpleado = [];
         this.buscarData = '';
-        await this.consultarReportes();
+        await this.consultarReportes(this.idEmpresa);
         return;
       }
       /*Valida que el input  tenga data para buscar */

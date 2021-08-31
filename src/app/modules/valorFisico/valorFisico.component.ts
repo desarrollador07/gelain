@@ -6,6 +6,8 @@ import { ActivatedRoute } from "@angular/router";
 import {MessageService, ConfirmationService} from 'primeng/api';
 import { Router } from '@angular/router';
 import { ValorFisico } from '../../models/valorFisico.model';
+import { AppState } from 'src/app/app.reducer';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -15,16 +17,26 @@ import { ValorFisico } from '../../models/valorFisico.model';
 })
 export class ValorfisicoComponent implements OnInit {
   pruebas: ValorFisico[] = [];
-  idEmpres:any;
+  idEmpresa:any;
 
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe,
-              private _confirmationServices: ConfirmationService) {
-               this.idEmpres = localStorage.getItem('idEmpresa');   
+  constructor(private pruebaservices: PruebaService,
+              private _messageService: MessageService,
+              private _confirmationServices: ConfirmationService,
+              private store: Store<AppState>) {
+               this.idEmpresa = localStorage.getItem('idEmpresa');   
   }
 
   async ngOnInit() {
-      this.indexData();
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa.empid === undefined) {
+        id = this.idEmpresa;
+      }else{
+        id = res.empresa.empid;
+      }
+      this.indexData(id);
+    });
+      
   }
 
   deletePrueba(prueba: ValorFisico) {
@@ -36,7 +48,7 @@ export class ValorfisicoComponent implements OnInit {
         this.pruebaservices.deletevalorFisico(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
-          this.indexData();
+          this.indexData(this.idEmpresa);
         });
       }
     });
@@ -58,9 +70,8 @@ export class ValorfisicoComponent implements OnInit {
         localStorage.removeItem('estresEs');
       }
 
-      indexData(){
-        this.pruebaservices.getvalorFisicoId(this.idEmpres).subscribe((data:any)=>{
-          console.log('valoresFisicos',data);
+      indexData(id:number){
+        this.pruebaservices.getvalorFisicoId(id).subscribe((data:any)=>{
           this.pruebas = [...data];
         })
       }

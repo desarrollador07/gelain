@@ -28,7 +28,7 @@ const _empresaReducer = createReducer(
     })),
     on(empresasAction.selectEmpresa, (state, { id }) => ({
         ...state,
-        empresa: state.list.find(el => el.id == id)
+        empresa: state.list.find(el => el.empid == id)
     })),
     on(empresasAction.deleteEmpresa, (state, { id }) => ({
         ...state,
