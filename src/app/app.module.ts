@@ -120,6 +120,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -239,7 +240,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         DocumentationComponent,
         MainComponent,
         TerminosCondicionesComponent,
-        ReporteAreasComponent,
+        ReporteAreasComponent
   
 
 

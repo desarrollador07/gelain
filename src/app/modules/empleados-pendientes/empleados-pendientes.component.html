@@ -1,0 +1,66 @@
+<div id="search-wrapper">
+    <input type="search" id="search" pInputText placeholder="Filtrar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+    <i class="pi pi-search"></i>
+</div>
+<br><br><br>
+<div class="card">
+    <p-panel header="Empleados Pendientes">
+        <p-table #dt [columns]="cols" [frozenColumns]="frozenCols" [value]="epData" [scrollable]="true" frozenWidth="200px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos','emdempresa','empnombre']" [rows]="10"
+            [paginator]="true" [rowHover]="true">
+            <ng-template pTemplate="colgroup" let-columns>
+                <colgroup>
+                    <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
+                </colgroup>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns" style="height: 40.2px;">
+                        <div *ngIf="col.field === 'total_intralaboral'|| col.field === 'total_extralaboral' || col.field === 'total_estres' else elseBlock">
+                            <div *ngIf="col.field === 'total_intralaboral'" style="text-align: center;">
+                                <div *ngIf="rowData[col.field] === 1 else elseIntralaboral">
+                                    <img src="assets/layout/images/check.png" alt="Logo" width="20px" height="20px" />
+                                </div>
+                                <ng-template #elseIntralaboral>
+                                    <img src="assets/layout/images/cancel.png" alt="Logo" width="20px" height="20px" />
+                                </ng-template>
+                            </div>
+                            <div *ngIf="col.field === 'total_extralaboral'" style="text-align: center;">
+                                <div *ngIf="rowData[col.field] === 1 else elseExtralaboral">
+                                    <img src="assets/layout/images/check.png" alt="Logo" width="20px" height="20px" />
+                                </div>
+                                <ng-template #elseExtralaboral>
+                                    <img src="assets/layout/images/cancel.png" alt="Logo" width="20px" height="20px" />
+                                </ng-template>
+                            </div>
+                            <div *ngIf="col.field === 'total_estres'" style="text-align: center;">
+                                <div *ngIf="rowData[col.field] === 1 else elseEstres">
+                                    <img src="assets/layout/images/check.png" alt="Logo" width="20px" height="20px" />
+                                </div>
+                                <ng-template #elseEstres>
+                                    <img src="assets/layout/images/cancel.png" alt="Logo" width="20px" height="20px" />
+                                </ng-template>
+                            </div>
+                        </div>
+                        <ng-template #elseBlock>
+                            {{rowData[col.field]}}
+                        </ng-template>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    En total hay {{epData ? epData.length : 0 }} registros.
+                </div>
+            </ng-template>
+        </p-table>
+    </p-panel>
+
+</div>

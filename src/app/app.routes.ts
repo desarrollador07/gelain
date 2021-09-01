@@ -66,7 +66,20 @@ export const routes: Routes = [
         component:MainComponent,
         canActivate: [AuthGuard],
         children:[
-
+            {
+                path: "empleados-pendientes",
+                loadChildren: () =>
+                import('./modules/empleados-pendientes/empleados-pendientes.module').then(
+                    (m) => m.EmpleadosPendientesModule
+                ),
+            },
+            {
+                path: "usuarios",
+                loadChildren: () =>
+                import('./modules/usuarios/usuarios.module').then(
+                    (m) => m.UsuariosModule
+                ),
+            },
             {
                 path: "listarEmpresa",
                 loadChildren: () =>

@@ -105,6 +105,8 @@ export class PruebaService {
 
   UrlReporteArea = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ReporteArea';
 
+  UrlAllReporteDetallado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/buscarReportesGenerales';
+
   constructor(private http: HttpClient) {
   }
 
@@ -357,6 +359,10 @@ export class PruebaService {
 
   getReporteAreas(idEmpresa:number){
     return this.http.get(this.UrlReporteArea+`/${idEmpresa}`);
+  }
+
+  getAllReporteDetallado(){
+    return this.http.get(this.UrlAllReporteDetallado);
   }
 
   

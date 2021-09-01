@@ -29,12 +29,12 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                     {
                         label:'Empleados Pendientes',
                         icon:'pi fa-fw pi-angle-right',
-                        // routerLink: ["conceptos"]  
+                        routerLink: ["empleados-pendientes"]  
                     },
                     {
                         label:'Usuarios',
                         icon:'pi fa-fw pi-angle-right',
-                        // routerLink: ["conceptos"]  
+                        routerLink: ["usuarios"]  
                     },
 
                 ] 
@@ -167,9 +167,10 @@ export class AppSubMenuComponent {
 
         // prevent hash change
         if (item.items || (!item.url && !item.routerLink)) {
-            setTimeout(() => {
-                this.appMenu.layoutMenuScrollerViewChild.moveBar();
-            }, 450);
+            
+            // setTimeout(() => {
+            //     this.appMenu.layoutMenuScrollerViewChild.moveBar();
+            // }, 450);
             event.preventDefault();
         }
 

@@ -25,7 +25,8 @@ export class ReporteDetalladoComponent implements OnInit {
     {label:'Ciudad', value:3},
     {label:'Área', value:4},
     {label:'Sede', value:5},
-    {label:'Todos los registros', value:6}
+    {label:'Reporte General', value:6},
+    {label:'Reporte Global', value:7}
   ];
   cols = [
     { field: 'emdcedula', header: 'Cédula' },
@@ -201,6 +202,13 @@ export class ReporteDetalladoComponent implements OnInit {
       return dataReporte;
   }
 
+  async consultaAll(){
+    await this.pruebaServices
+    .getAllReporteDetallado().toPromise().then((data: any)=>{
+      this.rdEmpleado = data;
+    });
+  }
+
   /*Función de la busqueda avanzada */
   async buscador(){
       /*Validación del desplegable que nos identifica si en una busqueda no eligen el tipo de busqueda */
@@ -214,6 +222,10 @@ export class ReporteDetalladoComponent implements OnInit {
         this.buscarData = '';
         await this.consultarReportes(this.idEmpresa);
         return;
+      }
+      if (this.selectReporte === 7) {
+        this.rdEmpleado = [];
+        await this.consultaAll();
       }
       /*Valida que el input  tenga data para buscar */
       if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '') {
