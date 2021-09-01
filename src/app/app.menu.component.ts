@@ -22,10 +22,25 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
     ngOnInit() {
         this.model = [
             { label: 'Menu', icon: 'fa fa-fw fa-file-code-o', routerLink: ['dashboard']},
+            { 
+                label: 'Sistema', 
+                icon: 'pi fa-fw pi-list',
+                items:[
+                    {
+                        label:'Empleados Pendientes',
+                        icon:'pi fa-fw pi-angle-right',
+                        // routerLink: ["conceptos"]  
+                    },
+                    {
+                        label:'Usuarios',
+                        icon:'pi fa-fw pi-angle-right',
+                        // routerLink: ["conceptos"]  
+                    },
+
+                ] 
+                
+            },
             { label: 'Empresas', icon: 'fa fa-fw fa-home', routerLink: ['listarEmpresa']},
-            /* {
-                label: 'Area', icon: 'fa fa-fw fa-book',routerLink: ['area'],
-            }, */
             {
                 label: 'Empleados', icon: 'fa fa-fw fa-user',routerLink: ['empleado'],
 

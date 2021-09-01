@@ -22,7 +22,7 @@
 <div class="card">
 
     <p-panel header="Empleados">
-        <p-table #dt [value]="pruebas" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa']" [resizableColumns]="true" [rows]="10" [paginator]="true"
+        <p-table #dt [value]="empleadoData" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa']" [resizableColumns]="true" [rows]="10" [paginator]="true"
             [rowHover]="true">
             <ng-template pTemplate="header">
                 <tr>
@@ -48,23 +48,23 @@
                     </th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-prueba let-i="rowIndex">
+            <ng-template pTemplate="body" let-empleado let-i="rowIndex">
                 <tr>
-                    <td style="text-align:left">{{prueba.emdcedula}}</td>
-                    <td style="text-align:left">{{prueba.emdnombres | uppercase}} {{prueba.emdapellidos | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.emdtraciudad | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.emdtelefono}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.nomempresa | uppercase}}</td>
-                    <td style="text-align:left" class="descarto">{{prueba.emdactivo | uppercase}}</td>
+                    <td style="text-align:left">{{empleado.emdcedula}}</td>
+                    <td style="text-align:left">{{empleado.emdnombres | uppercase}} {{empleado.emdapellidos | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{empleado.emdtraciudad | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{empleado.emdtelefono}}</td>
+                    <td style="text-align:left" class="descarto">{{empleado.nomempresa | uppercase}}</td>
+                    <td style="text-align:left" class="descarto">{{empleado.emdactivo | uppercase}}</td>
                     <td style="text-align:center">
-                        <button pButton pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(prueba)" routerLink="/main/addempleado/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deletePrueba(prueba)" class="p-button-rounded p-button-warning"></button>
+                        <button pButton pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(empleado)" routerLink="/main/addempleado/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deletePrueba(empleado)" class="p-button-rounded p-button-warning"></button>
                     </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
                 <div class="p-d-flex p-ai-center p-jc-between">
-                    En total hay {{pruebas ? pruebas.length : 0 }} registros.
+                    En total hay {{empleadoData ? empleadoData.length : 0 }} registros.
                 </div>
             </ng-template>
         </p-table>

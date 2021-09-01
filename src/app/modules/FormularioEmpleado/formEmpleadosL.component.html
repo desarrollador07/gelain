@@ -188,7 +188,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="emdEmpresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="emdempresa" [showClear]="true" placeholder="Empresas">
+                            <p-dropdown [class.is-invalid]="emdEmpresa"  [options]="empresa"  formControlName="emdempresa" [showClear]="true" placeholder="Empresas">
                             </p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdEmpresa"></p-message>

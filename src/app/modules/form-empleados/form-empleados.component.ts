@@ -40,19 +40,21 @@ export class FormEmpleadosComponent implements OnInit {
   userformFormaB: FormGroup;
   userformExtra: FormGroup;
   userformEstres: FormGroup;
+  tempEmpresa:Empresa = {};
   es: any;
   id: number;
   idd: any;
   idem:string = "10";
   nombre:any;
-nummax:number = 0;
-nummaxpre:number = 0;
-bandera:boolean=false;
+  nummax:number = 0;
+  nummaxpre:number = 0;
+  bandera:boolean=false;
+  idEmpresa:number;
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
     this.nombre = localStorage.getItem("user");
-    
+    this.idEmpresa = Number(localStorage.getItem('idEmpresa'));
   }
 
   async ngOnInit() {
@@ -110,6 +112,13 @@ bandera:boolean=false;
         emdzona:this.localPrueba.emdzona,
         emdtraciudad:this.localPrueba.emdtraciudad,
         emdtradepartamento: this.localPrueba.emdtradepartamento
+      });
+    }else{
+      this.tempEmpresa = this.empresas.find(element => element.empid === this.idEmpresa);
+      this.userform.patchValue({
+        emdempresa: this.idEmpresa,
+        emdtraciudad: this.tempEmpresa.empdepartamento,
+        emdtradepartamento: this.tempEmpresa.empdepartamento
       });
     } 
   
@@ -304,11 +313,11 @@ bandera:boolean=false;
     }
   }
 
-  async buscarArea(){
-
+  async buscarArea(id:number){
+ 
     this.area =[];
     if (this.localPrueba !== null) {
-     await this.pruebaservices.buscarByArea(this.localPrueba.emdempresa).toPromise().then((data:any)=>{
+     await this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{    
           this.area.push({
@@ -329,7 +338,7 @@ bandera:boolean=false;
           });
         }
       });
-      await this.pruebaservices.buscarByArea(this.userform.value.emdempresa).toPromise().then((data:any)=>{
+      await this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
           this.area.push({
@@ -337,6 +346,12 @@ bandera:boolean=false;
             value: x.areid
           });
         });
+
+        if (this.areas.length === 1) {
+          this.userform.patchValue({
+            emdarea:this.areas[0].areid
+          });
+        }
       });
     }
 

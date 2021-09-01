@@ -55,7 +55,6 @@ export class ReporteDetalladoComponent implements OnInit {
       await this.consultarReportes(id);
     });
     
-
   }
 
   async consultarReportes(id:number){

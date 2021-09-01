@@ -30,7 +30,7 @@ export class PruebaComponent implements OnInit {
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
       {label: 'Areas', icon: 'fa fa-fw fa-book'},
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
-  ];
+    ];
 
   }
 

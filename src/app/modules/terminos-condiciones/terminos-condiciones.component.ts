@@ -3,7 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-terminos-condiciones',
-  templateUrl: './terminos-condiciones.component.html'
+  templateUrl: './terminos-condiciones.component.html',
+  styleUrls: ['./terminos-condiciones.component.css']
 })
 export class TerminosCondicionesComponent implements OnInit {
   id: number;

@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
-import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
+import { ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
-import { Area } from '../../models/area.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 @Component({
@@ -14,25 +13,17 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./empleados.component.css']
 })
 export class EmpleadosComponent implements OnInit {
-  idEmpresa:any;
-  idtemporal:any;
-  prueba: Empleado;
-  pruebas: Empleado[] = [];
-  items1: MenuItem[];
-  items2: MenuItem[];
-  activeItem: MenuItem;
-  empresas: Empresa[] = [];
-  nomempresa:String;
-  area: SelectItem[] = [];
-  areas: Area[] = [];
 
+  idEmpresa:any;
+  empleadoData: Empleado[] = [];
+  items1: MenuItem[];
+  empresas: Empresa[] = [];
 
   constructor(private pruebaServices:PruebaService,private router: Router,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService,
               private store: Store<AppState>) {
                 this.idEmpresa = localStorage.getItem("idEmpresa");
-                this.idtemporal = 0;
                 
    }
 
@@ -52,15 +43,11 @@ export class EmpleadosComponent implements OnInit {
      await this.consultaEmpleados(id);
     });
      
-
-     
-   
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
       {label: 'Areas', icon: 'fa fa-fw fa-book'},
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
     ];
-
 
   }
 
@@ -76,7 +63,7 @@ export class EmpleadosComponent implements OnInit {
         await this.pruebaServices.deletePrueba(empleado).toPromise().then(data => {
 
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000});
-          this.pruebas = this.pruebas.filter(r => r !== empleado);
+          this.empleadoData = this.empleadoData.filter(r => r !== empleado);
   
         });
 
@@ -111,18 +98,16 @@ export class EmpleadosComponent implements OnInit {
       }
     
     async consultaEmpleados(id:number){
-
-        await this.pruebaServices.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
-          this.pruebas = data;
-          this.pruebas.map(res=>{
-            this.empresas.map(x=>{
-              if (res.emdempresa === x.empid) {
-                res.nomempresa = x.empnombre;
-              }
-            });
+      await this.pruebaServices.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
+        this.empleadoData = data;
+        this.empleadoData.map(res=>{
+          this.empresas.map(x=>{
+            if (res.emdempresa === x.empid) {
+              res.nomempresa = x.empnombre;
+            }
           });
         });
-
+      });
     }
 
     async consultaEmpresas(){

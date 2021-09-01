@@ -13,7 +13,7 @@
 
     <a id="topbar-profile-menu-button">
         <span>
-            <p-dropdown [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa">
+            <p-dropdown [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa" >
                 <ng-template let-empresa>
                     <div class="ui-helper-clearfix" style="height: 25px;">
                         <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
