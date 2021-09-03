@@ -5,6 +5,7 @@ import { LoginComponent } from '../app/modules/login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { TerminosCondicionesComponent } from './modules/terminos-condiciones/terminos-condiciones.component';
 import { ReporteAreasComponent } from './modules/reporte-areas/reporte-areas.component';
+import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,10 @@ export const routes: Routes = [
     {
         path: "terminos-condiciones/:id",
         component:TerminosCondicionesComponent
+    },
+    {
+        path: "consentimiento-vf/:id",
+        component:TerminosCondicionesVfComponent
     },
     {
         path: "FormularioEmpleado",

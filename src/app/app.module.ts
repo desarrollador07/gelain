@@ -117,6 +117,8 @@ import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from "./app.reducer";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ScrollPanelModule } from 'primeng/primeng';
+import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 
 
 
@@ -211,7 +213,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
             maxAge: 25,
             logOnly: true,
         }),
-
+        ScrollPanelModule
        
 
 
@@ -240,7 +242,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         DocumentationComponent,
         MainComponent,
         TerminosCondicionesComponent,
-        ReporteAreasComponent
+        ReporteAreasComponent,
+        TerminosCondicionesVfComponent
   
 
 

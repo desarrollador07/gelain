@@ -107,9 +107,10 @@ body .ui-inputtext:enabled:focus:not(.ui-state-error) {
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
 }
 
-body .ui-inputtext.ng-dirty {
+
+/* body .ui-inputtext.ng-dirty {
     border-color: #a80000;
-}
+} */
 
 body .ui-chkbox {
     display: inline-block;

@@ -15,9 +15,6 @@ export class EmpleadosPendientesComponent implements OnInit {
   idEmpresa:number;
   cols = [
     { field: 'emdnombres', header: 'Nombres', width: '300px'},
-    { field: 'emdapellidos', header: 'Apellidos', width: '300px' },
-    { field: 'emdempresa', header: 'ID Empresa', width: '140px' },
-    { field: 'empnombre', header: 'Nombre Empresa', width: '300px' },
     { field: 'formato', header: 'Formato', width: '120px' },
     { field: 'emdactivo', header: 'Estado', width: '120px' },
     { field: 'total_intralaboral', header: 'Intralaboral', width: '135px' },
@@ -25,7 +22,7 @@ export class EmpleadosPendientesComponent implements OnInit {
     { field: 'total_estres', header: 'Estres', width: '135px' }
   ];
   frozenCols = [
-    { field: 'emdcedula', header: 'Cédula', width: '200px' }
+    { field: 'emdcedula', header: 'Cédula', width: '150px' }
   ];
   constructor(private epService: EmpleadosPendientesService,
               private store: Store<AppState>) { 
@@ -33,24 +30,25 @@ export class EmpleadosPendientesComponent implements OnInit {
   }
 
   async ngOnInit() {
-
+    
     this.store.select('empresas').subscribe(async res=>{
-      var id:number;
-      if (res.empresa.empid === undefined) {
-        id = this.idEmpresa;
-      }else{
+      var id: number;
+      if (res.empresa !== undefined) {
         id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
-      /*Consulta Empleados Pendientes */
-      await this.consultaEmpleadosPendientes(id);
+      if (id !== undefined && id !== null) {
+        await this.consultaEmpleadosPendientes(id);
+      }
     });
 
+   
   }
 
   async consultaEmpleadosPendientes(id:number){
     this.epService.getEmpleadosPendientes(id).toPromise().then((res:EmpleadoPendienteModel[]) => {
       this.epData = res;
-      console.log(res);
       this.makeRowsSameHeight();
     });
   }

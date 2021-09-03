@@ -1,11 +1,8 @@
 <div id="search-wrapper">
-    <input type="text" id="search" pInputText placeholder="Buscar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+    <input type="search" id="search" pInputText placeholder="Filtrar" (input)="dt.filterGlobal($event.target.value, 'contains')">
     <i class="pi pi-search"></i>
 </div>
 <br><br><br>
-
-
-
 
 <p-toast></p-toast>
 <p-toast position="top-left" key="tl"></p-toast>
@@ -15,9 +12,6 @@
         <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
     </p-footer>
 </p-confirmDialog>
-
-
-
 
 <div class="card">
 

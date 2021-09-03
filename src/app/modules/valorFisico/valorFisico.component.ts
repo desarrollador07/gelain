@@ -29,12 +29,15 @@ export class ValorfisicoComponent implements OnInit {
   async ngOnInit() {
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
-      if (res.empresa.empid === undefined) {
-        id = this.idEmpresa;
-      }else{
+      if (res.empresa !== undefined) {
         id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
-      this.indexData(id);
+      if (id !== undefined && id !== null) {
+        await this.indexData(id);
+      }
+     
     });
       
   }
@@ -48,7 +51,7 @@ export class ValorfisicoComponent implements OnInit {
         this.pruebaservices.deletevalorFisico(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
-          this.indexData(this.idEmpresa);
+          this.pruebas = this.pruebas.filter(r => r !== prueba);
         });
       }
     });
@@ -70,11 +73,11 @@ export class ValorfisicoComponent implements OnInit {
         localStorage.removeItem('estresEs');
       }
 
-      indexData(id:number){
-        this.pruebaservices.getvalorFisicoId(id).subscribe((data:any)=>{
-          this.pruebas = [...data];
-        })
-      }
+    async indexData(id:number){
+      await this.pruebaservices.getvalorFisicoId(id).toPromise().then((data:any)=>{
+        this.pruebas = data;
+      });
+    }
 
 
 

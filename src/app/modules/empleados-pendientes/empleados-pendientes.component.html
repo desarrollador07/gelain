@@ -5,8 +5,7 @@
 <br><br><br>
 <div class="card">
     <p-panel header="Empleados Pendientes">
-        <p-table #dt [columns]="cols" [frozenColumns]="frozenCols" [value]="epData" [scrollable]="true" frozenWidth="200px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos','emdempresa','empnombre']" [rows]="10"
-            [paginator]="true" [rowHover]="true">
+        <p-table #dt [columns]="cols" [frozenColumns]="frozenCols" [value]="epData" [scrollable]="true" frozenWidth="150px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos']" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
@@ -23,7 +22,7 @@
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns" style="height: 40.2px;">
-                        <div *ngIf="col.field === 'total_intralaboral'|| col.field === 'total_extralaboral' || col.field === 'total_estres' else elseBlock">
+                        <div *ngIf="col.field === 'total_intralaboral'|| col.field === 'total_extralaboral' || col.field === 'total_estres' || col.field === 'emdnombres' else elseBlock">
                             <div *ngIf="col.field === 'total_intralaboral'" style="text-align: center;">
                                 <div *ngIf="rowData[col.field] === 1 else elseIntralaboral">
                                     <img src="assets/layout/images/check.png" alt="Logo" width="20px" height="20px" />
@@ -47,6 +46,9 @@
                                 <ng-template #elseEstres>
                                     <img src="assets/layout/images/cancel.png" alt="Logo" width="20px" height="20px" />
                                 </ng-template>
+                            </div>
+                            <div *ngIf="col.field === 'emdnombres'">
+                                {{rowData[col.field] | uppercase}} {{rowData.emdapellidos | uppercase}}
                             </div>
                         </div>
                         <ng-template #elseBlock>

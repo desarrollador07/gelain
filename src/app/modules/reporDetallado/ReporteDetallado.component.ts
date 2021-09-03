@@ -47,13 +47,15 @@ export class ReporteDetalladoComponent implements OnInit {
   
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
-      if (res.empresa.empid === undefined) {
-        id = this.idEmpresa;
-      }else{
+      if (res.empresa !== undefined) {
         id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
+      if (id !== undefined && id !== null) {
       /*Consulta de reportes por empleado */
       await this.consultarReportes(id);
+      }
     });
     
   }

@@ -1,0 +1,43 @@
+<form [formGroup]="userform" (ngSubmit)="onSubmit()" class="footer">
+    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px;">
+        <div class="ui-grid-row">
+            <div class="ui-grid-col-6">
+                <fieldset>
+                    <legend><b>Usuarios</b></legend>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-4" style="text-align: right;margin-top: 5px;margin-right: 4px;">
+                            <label>Nombre Usuario</label><label style="color: red;"><strong>*</strong></label>:
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <input class="form-control" formControlName="name" pInputText type="text" placeholder="Nombre Usuario">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="margin-top: 10px;">
+                        <div class="ui-grid-col-4" style="text-align: right;margin-top: 5px;margin-right: 4px;">
+                            <label>Correo</label><label style="color: red;"><strong>*</strong></label>:
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <input class="form-control" formControlName="email" pInputText type="text" placeholder="Correo">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="margin-top: 10px;">
+                        <div class="ui-grid-col-4" style="text-align: right;margin-top: 5px;margin-right: 4px;">
+                            <label>Contraseña</label><label style="color: red;"><strong>*</strong></label>:
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <input class="form-control" formControlName="password" pInputText type="text" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <div class="ui-grid-row" style="margin-top: 10px;">
+                        <div class="ui-grid-col-4" style="text-align: right;margin-top: 5px;margin-right: 4px;">
+                            <label>Confirmar Contraseña</label><label style="color: red;"><strong>*</strong></label>:
+                        </div>
+                        <div class="ui-grid-col-4">
+                            <input class="form-control" formControlName="password_confirmation" pInputText type="text" placeholder="Confirmar Contraseña">
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</form>

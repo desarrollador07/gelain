@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+
 import { MenuItem, ScrollPanel } from 'primeng/primeng';
 import { AppComponent } from './app.component';
 
@@ -58,19 +57,29 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-      /*   setTimeout(() => { this.layoutMenuScrollerViewChild.moveBar(); }, 100); */
+        setTimeout(() => {
+            this.layoutMenuScrollerViewChild.moveBar();
+        }, 100);
     }
 
     changeTheme(theme: string, scheme: string) {
-        const layoutLink: HTMLLinkElement = document.getElementById('layout-css') as HTMLLinkElement;
-        layoutLink.href = 'assets/layout/css/layout-' + theme + '.css';
+        const layoutLink: HTMLLinkElement = document.getElementById(
+            "layout-css"
+        ) as HTMLLinkElement;
+        layoutLink.href = "assets/layout/css/layout-" + theme + ".css";
 
-        const themeLink: HTMLLinkElement = document.getElementById('theme-css') as HTMLLinkElement;
-        themeLink.href = 'assets/theme/' + theme + '/theme-' + scheme + '.css';
+        const themeLink: HTMLLinkElement = document.getElementById(
+            "theme-css"
+        ) as HTMLLinkElement;
+        themeLink.href = "assets/theme/" + theme + "/theme-" + scheme + ".css";
     }
 
     onMenuClick(event) {
-        
+        if (!this.app.isHorizontal()) {
+            setTimeout(() => {
+                this.layoutMenuScrollerViewChild.moveBar();
+            }, 450);
+        }
 
         this.app.onMenuClick(event);
     }
@@ -78,61 +87,128 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
 
 @Component({
     /* tslint:disable:component-selector */
-    selector: '[app-submenu]',
+    selector: "[app-submenu]",
     /* tslint:enable:component-selector */
     template: `
-        <ng-template ngFor let-child let-i="index" [ngForOf]="(root ? item : item.items)">
-            <li [ngClass]="{'active-menuitem': isActive(i)}" [class]="child.badgeStyleClass" *ngIf="child.visible === false ? false : true">
-                <a [href]="child.url||'#'" (click)="itemClick($event,child,i)" (mouseenter)="onMouseEnter(i)"
-                   *ngIf="!child.routerLink" [ngClass]="child.styleClass"
-                   [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target">
+        <ng-template
+            ngFor
+            let-child
+            let-i="index"
+            [ngForOf]="root ? item : item.items"
+        >
+            <li
+                [ngClass]="{ 'active-menuitem': isActive(i) }"
+                [class]="child.badgeStyleClass"
+                *ngIf="child.visible === false ? false : true"
+            >
+                <a
+                    [href]="child.url || '#'"
+                    (click)="itemClick($event, child, i)"
+                    (mouseenter)="onMouseEnter(i)"
+                    *ngIf="!child.routerLink"
+                    [ngClass]="child.styleClass"
+                    [attr.tabindex]="!visible ? '-1' : null"
+                    [attr.target]="child.target"
+                >
                     <i [ngClass]="child.icon"></i>
-                    <span>{{child.label}}</span>
-                    <i class="fa fa-fw fa-angle-down layout-menuitem-toggler" *ngIf="child.items"></i>
-                    <span class="menuitem-badge" *ngIf="child.badge">{{child.badge}}</span>
+                    <span>{{ child.label }}</span>
+                    <i
+                        class="fa fa-fw fa-angle-down layout-menuitem-toggler"
+                        *ngIf="child.items"
+                    ></i>
+                    <span class="menuitem-badge" *ngIf="child.badge">{{
+                        child.badge
+                    }}</span>
                 </a>
 
-                <a (click)="itemClick($event,child,i)" (mouseenter)="onMouseEnter(i)" *ngIf="child.routerLink"
-                   [routerLink]="child.routerLink" routerLinkActive="active-menuitem-routerlink" [fragment]="child.fragment"
-                   [routerLinkActiveOptions]="{exact: true}" [attr.tabindex]="!visible ? '-1' : null" [attr.target]="child.target">
+                <a
+                    (click)="itemClick($event, child, i)"
+                    (mouseenter)="onMouseEnter(i)"
+                    *ngIf="child.routerLink"
+                    [routerLink]="child.routerLink"
+                    routerLinkActive="active-menuitem-routerlink"
+                    [fragment]="child.fragment"
+                    [routerLinkActiveOptions]="{ exact: true }"
+                    [attr.tabindex]="!visible ? '-1' : null"
+                    [attr.target]="child.target"
+                >
                     <i [ngClass]="child.icon"></i>
-                    <span>{{child.label}}</span>
-                    <i class="fa fa-fw fa-angle-down layout-menuitem-toggler" *ngIf="child.items"></i>
-                    <span class="menuitem-badge" *ngIf="child.badge">{{child.badge}}</span>
+                    <span>{{ child.label }}</span>
+                    <i
+                        class="fa fa-fw fa-angle-down layout-menuitem-toggler"
+                        *ngIf="child.items"
+                    ></i>
+                    <span class="menuitem-badge" *ngIf="child.badge">{{
+                        child.badge
+                    }}</span>
                 </a>
                 <div class="layout-menu-tooltip">
                     <div class="layout-menu-tooltip-arrow"></div>
-                    <div class="layout-menu-tooltip-text">{{child.label}}</div>
+                    <div class="layout-menu-tooltip-text">
+                        {{ child.label }}
+                    </div>
                 </div>
-                <ul app-submenu [item]="child" *ngIf="child.items" [visible]="isActive(i)" [reset]="reset" [parentActive]="isActive(i)"
-                    [@children]="(app.isSlim()||app.isHorizontal())&&root ? isActive(i) ?
-                    'visible' : 'hidden' : isActive(i) ? 'visibleAnimated' : 'hiddenAnimated'"></ul>
+                <ul
+                    app-submenu
+                    [item]="child"
+                    *ngIf="child.items"
+                    [visible]="isActive(i)"
+                    [reset]="reset"
+                    [parentActive]="isActive(i)"
+                    [@children]="
+                        (app.isSlim() || app.isHorizontal()) && root
+                            ? isActive(i)
+                                ? 'visible'
+                                : 'hidden'
+                            : isActive(i)
+                            ? 'visibleAnimated'
+                            : 'hiddenAnimated'
+                    "
+                ></ul>
             </li>
         </ng-template>
     `,
     animations: [
-        trigger('children', [
-            state('hiddenAnimated', style({
-                height: '0px'
-            })),
-            state('visibleAnimated', style({
-                height: '*'
-            })),
-            state('visible', style({
-                height: '*',
-                'z-index': 100
-            })),
-            state('hidden', style({
-                height: '0px',
-                'z-index': '*'
-            })),
-            transition('visibleAnimated => hiddenAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)')),
-            transition('hiddenAnimated => visibleAnimated', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
-        ])
-    ]
+        trigger("children", [
+            state(
+                "hiddenAnimated",
+                style({
+                    height: "0px",
+                })
+            ),
+            state(
+                "visibleAnimated",
+                style({
+                    height: "*",
+                })
+            ),
+            state(
+                "visible",
+                style({
+                    height: "*",
+                    "z-index": 100,
+                })
+            ),
+            state(
+                "hidden",
+                style({
+                    height: "0px",
+                    "z-index": "*",
+                })
+            ),
+            transition(
+                "visibleAnimated => hiddenAnimated",
+                animate("400ms cubic-bezier(0.86, 0, 0.07, 1)")
+            ),
+            transition(
+                "hiddenAnimated => visibleAnimated",
+                animate("400ms cubic-bezier(0.86, 0, 0.07, 1)")
+            ),
+        ]),
+    ],
 })
-export class AppSubMenuComponent {
 
+export class AppSubMenuComponent {
     @Input() item: MenuItem;
 
     @Input() root: boolean;
@@ -158,7 +234,7 @@ export class AppSubMenuComponent {
         }
 
         // activate current item and deactivate active sibling if any
-        this.activeIndex = (this.activeIndex === index) ? null : index;
+        this.activeIndex = this.activeIndex === index ? null : index;
 
         // execute command
         if (item.command) {
@@ -167,10 +243,9 @@ export class AppSubMenuComponent {
 
         // prevent hash change
         if (item.items || (!item.url && !item.routerLink)) {
-            
-            // setTimeout(() => {
-            //     this.appMenu.layoutMenuScrollerViewChild.moveBar();
-            // }, 450);
+            setTimeout(() => {
+                this.appMenu.layoutMenuScrollerViewChild.moveBar();
+            }, 450);
             event.preventDefault();
         }
 
@@ -189,8 +264,14 @@ export class AppSubMenuComponent {
     }
 
     onMouseEnter(index: number) {
-        if (this.root && this.app.menuHoverActive && (this.app.isHorizontal() || this.app.isSlim())
-            && !this.app.isMobile() && !this.app.isTablet()) {
+        
+        if (
+            this.root &&
+            this.app.menuHoverActive &&
+            (this.app.isHorizontal() || this.app.isSlim()) &&
+            !this.app.isMobile() &&
+            !this.app.isTablet()
+        ) {
             this.activeIndex = index;
         }
     }
@@ -223,3 +304,4 @@ export class AppSubMenuComponent {
         }
     }
 }
+

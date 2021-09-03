@@ -34,13 +34,16 @@ export class EmpleadosComponent implements OnInit {
     
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
-      if (res.empresa.empid === undefined) {
-        id = this.idEmpresa;
-      }else{
+      if (res.empresa !== undefined) {
         id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
-       /*Consulta de Empleados */
-     await this.consultaEmpleados(id);
+      if (id !== undefined && id !== null) {
+          /*Consulta de Empleados */
+        await this.consultaEmpleados(id);
+      }
+     
     });
      
     this.items1 = [

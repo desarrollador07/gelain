@@ -25,14 +25,16 @@ export class ReporteAreasComponent implements OnInit {
   async ngOnInit() {
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
-      if (res.empresa.empid === undefined) {
-        id = this.idEmpresa;
-      }else{
+      if (res.empresa !== undefined) {
         id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
       this.limpiarData();
+      if (id !== undefined && id !== null) {
       /*Consulta reporte áreas */
       await this.fnConsultarReporteAreas(id);
+      }
     });
     
   }

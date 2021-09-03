@@ -41,8 +41,8 @@
                     <td style="text-align:left">{{user.created_at}}</td>
                     <td style="text-align:left">{{user.updated_at}}</td>
                     <!-- <td style="text-align:center">
-                        <button pButton pRipple icon="pi pi-pencil" title="Editar" pRipple class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton pRipple icon="pi pi-trash" title="Eliminar" pRipple class="p-button-rounded p-button-warning"></button>
+                        <button pButton pRipple icon="pi pi-pencil" title="Editar" (click)="editarUser(user)" pRipple class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple icon="pi pi-trash" title="Eliminar" (click)="deleteUser(user)" pRipple class="p-button-rounded p-button-warning"></button>
                     </td> -->
                 </tr>
             </ng-template>
@@ -52,9 +52,9 @@
                 </div>
             </ng-template>
         </p-table>
-        <!-- <br>
-        <div style="text-align:center">
-            <button type="button" pButton icon="fa fa-plus" label="Agregar"></button>
+        <br>
+        <!-- <div style="text-align:center">
+            <button type="button" pButton title="Agregar" (click)="agregarForm()" icon="fa fa-plus" label="Agregar"></button>
         </div> -->
     </p-panel>
 

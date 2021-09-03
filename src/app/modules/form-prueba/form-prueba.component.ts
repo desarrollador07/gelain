@@ -45,6 +45,7 @@ export class FormPruebaComponent implements OnInit {
   area:any[];
   bandera:Boolean;
   linkformulario:any;
+  linkformulario2:any;
  
   constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService,private _activatedRoute: ActivatedRoute,private _confirmationServices: ConfirmationService) { 
@@ -59,7 +60,9 @@ export class FormPruebaComponent implements OnInit {
     this.linkformulario = "http://localhost:4200/#/terminos-condiciones/"+this.localIDEmp;
     // this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng/#/terminos-condiciones/"+this.localIDEmp;
     //this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng2/#/terminos-condiciones/"+this.localIDEmp;
-    
+    this.linkformulario2 = "http://localhost:4200/#/consentimiento-vf/"+this.localIDEmp;
+    // this.linkformulario2="https://gelainbienestarlaboral.com/GELAIN/ng/#/consentimiento-vf/"+this.localIDEmp;
+    //this.linkformulario2="https://gelainbienestarlaboral.com/GELAIN/ng2/#/consentimiento-vf/"+this.localIDEmp;
     this.indexData();
 
     this.items1 = [

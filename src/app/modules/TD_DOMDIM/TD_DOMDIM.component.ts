@@ -256,20 +256,24 @@ total_general2 :any[] = [];
   
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
-      if (res.empresa.empid === undefined) {
-        id = this.idEmpresa;
-      }else{
+      if (res.empresa !== undefined) {
         id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
       this.limpiarData();
-     await this.fnBuscarCatalogos(id);
-     await this.fnBuscarCatalogosControl(id);
-     await this.fnBuscarCatalogosDemandas(id);
-     await this.fnBuscarCatalogosRecompensas(id);
-     await this.fnBuscarCatalogosPsicoExtra(id);
-     await this.fnBuscarCatalogosPsicoEstresDetalles(id);
-     await this.fnBuscarCatalogosTotal(id);
-     await this.metodo(id);
+
+      if (id !== undefined && id !== null) {
+        await this.fnBuscarCatalogos(id);
+        await this.fnBuscarCatalogosControl(id);
+        await this.fnBuscarCatalogosDemandas(id);
+        await this.fnBuscarCatalogosRecompensas(id);
+        await this.fnBuscarCatalogosPsicoExtra(id);
+        await this.fnBuscarCatalogosPsicoEstresDetalles(id);
+        await this.fnBuscarCatalogosTotal(id);
+        await this.metodo(id);
+      }
+     
     });
 
     

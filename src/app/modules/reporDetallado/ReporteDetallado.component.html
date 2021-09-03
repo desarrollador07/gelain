@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="ui-grid-col-1">
-                            <button type="button" pButton icon="pi pi-download" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-top: 5px;" class="ui-button-success"></button>
+                            <button type="button" [disabled]="rdEmpleado.length === 0" pButton icon="pi pi-download" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-top: 5px;" class="ui-button-success"></button>
                         </div>
                     </div>
                 </div>

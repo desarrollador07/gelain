@@ -6,12 +6,17 @@ import { Injectable } from '@angular/core';
 })
 export class UsuariosService {
 
-  Url = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/allUsers';
+  url = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/allUsers';
+  url2 = `https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteUser/`;
+  
 
   constructor(private http: HttpClient) { }
 
   getUsuarios(){
-    return this.http.get(this.Url);
+    return this.http.get(this.url);
   }
 
+  deleteUsuarios(id:number){
+    return this.http.get(this.url2 + `${id}`);
+  }
 }

@@ -11,9 +11,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
 import { DataViewModule } from 'primeng/dataview';
 import { ToastModule } from 'primeng/toast';
+import { FormUsuariosComponent } from '../form-usuarios/form-usuarios.component';
 
 @NgModule({
-  declarations: [UsuariosComponent],
+  declarations: [
+    UsuariosComponent,
+    FormUsuariosComponent],
   imports: [
     CommonModule,
     UsuariosRoutingModule,

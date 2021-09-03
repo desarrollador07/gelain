@@ -66,7 +66,6 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empDireccion"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -85,10 +84,19 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empActiva"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-3" *ngIf="bandera">
                         <span class="ui-float-label">
-                            <input  type="text"  style="width : 140%; heigth : 1%" value="{{linkformulario}}" pInputText> 
-                            <label for="float-input"  style="font-size: 13px; font-weight: bold;">link para formularios</label>
+                            <input  type="text"  style="width : 140%;" value="{{linkformulario}}" pInputText> 
+                            <label for="float-input"  style="font-size: 13px; font-weight: bold;">Link para formularios</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-8"></div>
+                    <div class="ui-g-3" *ngIf="bandera">
+                        <span class="ui-float-label">
+                            <input  type="text"  style="width : 140%;" value="{{linkformulario2}}" pInputText> 
+                            <label for="float-input"  style="font-size: 13px; font-weight: bold;">Link valoración física</label>
                         </span>
                     </div>
                 </div>
@@ -119,7 +127,7 @@
                 <legend><b>NOMBRE DEL AREAS</b></legend>
                 <div class="ui-g-12 ui-md-6 ui-lg-4">
                     <span class="ui-float-label">
-                        <input   style="width : 60%; heigth : 1%"  formControlName="arenombre" type="text" pInputText> 
+                        <input   style="width : 60%;"  formControlName="arenombre" type="text" pInputText> 
                         <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
                     </span>
 

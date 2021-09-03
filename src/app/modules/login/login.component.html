@@ -2,28 +2,28 @@
 <p-toast position="top-center" key="tl"></p-toast>
 <div class="login-body">
     <div class="login-image">
-        <div class="login-panel">
+        <div class="login-panel" style="border-radius: 10px;">
             <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="Logo" />
             <!-- <div class="log">Gelain</div> -->
-            <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginform">
+            <form [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginform">
                 <div class="ui-g-12">
-
                     <div class="input-wrapper">
                         <input type="text" formControlName="email" placeholder="Usuario" class="ui-inputtext ui-widget">
-
                     </div>
                 </div>
                 <div class="ui-g-12">
                     <div class="input-wrapper">
                         <input type="password" formControlName="password" placeholder="Contraseña" class="ui-inputtext ui-widget">
-
                     </div>
                 </div>
-                <div class="checkbox-container">
-
-                    <button type="submit" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                                <span class="ui-button-text ui-c">Login</span>
-                            </button>
+                <div class="ui-grid-row">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-10">
+                        <div class="checkbox-container">
+                            <button pButton type="submit" style="border-radius: 10px;" label="Iniciar Sesión"></button>
+                        </div>
+                    </div>
+                    <div class="ui-g-1"></div>
                 </div>
 
                 <div class="separator"></div>

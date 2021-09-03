@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { UsuariosModel } from 'src/app/models/usuarios.model';
 import { UsuariosService } from '../../services/usuarios.service';
 
@@ -10,7 +12,10 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class UsuariosComponent implements OnInit {
 
   usuariosData: UsuariosModel [] = [];
-  constructor(private usuariosService: UsuariosService) { }
+  constructor(private usuariosService: UsuariosService,
+              private router: Router,
+              private _confirmationService: ConfirmationService,
+              private _messageService: MessageService) { }
 
   async ngOnInit() {
 
@@ -24,4 +29,36 @@ export class UsuariosComponent implements OnInit {
       this.usuariosData = res;
     });
   }
+
+  deleteUser(user:UsuariosModel){
+    
+    this._confirmationService.confirm({
+
+      message: '¿Seguro que deseas eliminar este registro?',
+      header: 'Eliminar registro',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        
+        this.usuariosService.deleteUsuarios(user.id).toPromise().then( res => {
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000});
+          this.usuariosData = this.usuariosData.filter(r => r !== user);
+        },err => {
+          console.log(err);
+        });
+        
+      }
+    });
+  }
+
+  editarUser(userForm:UsuariosModel){
+    localStorage.setItem('userForm',JSON.stringify(userForm));
+  }
+
+  agregarForm(){
+    localStorage.removeItem('userForm');
+    this.router.navigateByUrl("/main/usuarios/form-usuarios");
+  }
+
+
+  
 }

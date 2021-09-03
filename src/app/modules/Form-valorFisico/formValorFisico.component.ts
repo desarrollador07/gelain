@@ -3,15 +3,11 @@ import {Validators,FormGroup,FormBuilder} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empleado } from '../../models/empleado.mdel';
-import {MessageService, ConfirmationService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
-import { style } from '@angular/animations';
 import { ValorFisico } from '../../models/valorFisico.model';
 
 
@@ -28,9 +24,15 @@ export class FormValorFisicoComponent implements OnInit {
   area: SelectItem[] = [];
   areas: Area[] = [];
   localPrueba: ValorFisico = {};
+  sexo: SelectItem[] = [];
+  selectvafc1:SelectItem[] = [];
   idd: any;
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe) { 
+  
+  constructor(private pruebaservices: PruebaService,
+              private fb: FormBuilder,
+              private router: Router,
+              private _messageService: MessageService,
+              private datepipe: DatePipe) { 
 
     
   }
@@ -38,18 +40,16 @@ export class FormValorFisicoComponent implements OnInit {
   async ngOnInit() {
     this.localPrueba =JSON.parse(localStorage.getItem('valorFisico'));
     this.formulario();
-
+    this.selectData();
     await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
-      console.log(data);
-      
       this.empresas = data;
       this.empresas.map(x=>{
         this.empresa.push({
           label:x.empnombre,
           value: x.empid
-        }) 
-      })
-    })
+        }); 
+      });
+    });
 
 
     if(this.localPrueba !==null){
@@ -150,6 +150,14 @@ export class FormValorFisicoComponent implements OnInit {
   formulario(){
     this.userform = this.fb.group({
       vafid:[''],
+      vafcargo:['',Validators.required],
+      vafsexo:['',Validators.required],
+      vaffecha:['',Validators.required],
+      vaftelefono:['',Validators.required],
+      vafciudad:['',Validators.required],
+      vafedad:['',Validators.required],
+      vafc1:['',Validators.required],
+
       vafidempresa: ['', Validators.required],
       vafidarea: ['', Validators.required],
       vafidnombre: ['', Validators.required],
@@ -218,6 +226,14 @@ export class FormValorFisicoComponent implements OnInit {
       });
   }
   
+  selectData(){
+    this.sexo.push({ label: 'Sexo', value: ''});
+    this.sexo.push({ label: 'Masculino', value: 'M' });
+    this.sexo.push({ label: 'Femenino', value: 'F' });
 
+    this.selectvafc1.push({ label: 'Seleccione una opción', value: ''});
+    this.selectvafc1.push({ label: 'SI', value: '1' });
+    this.selectvafc1.push({ label: 'NO', value: '0' });
+  }
 
 }

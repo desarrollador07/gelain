@@ -1,0 +1,95 @@
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-1"></div>
+        <div class="ui-grid-col-10">
+            <p-panel>
+                <p-header>
+                    <div class="ui-helper-clearfix">
+                        <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:2px">CONSENTIMIENTO INFORMADO</span>
+                    </div>
+                </p-header>
+                <div style="padding: 15px;">
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <h3 style="font-weight:bold; text-align:center;font-size:larger;">
+                                <label style="font-size: large;"> GELAIN</label><br>Gestión Laboral Integral<br>Programa de Hábitos y Estilos de Vida Saludable
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <h3 style="font-weight:bold; text-align:center;font-size:larger;">
+                                Formato de Consentimiento Informado Para La Valoración De Los Componentes De La Condición Física y Condiciones de Salud
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <h3 style="font-weight:normal; text-align:justify;">
+                                La medición de los componentes de la condición física y la encuesta de las condiciones de salud, nos permite identificar aspectos importantes para la creación de planes de acción de acuerdo a las características del personal de la empresa. Es por ello,
+                                que la información que usted suministre será usada exclusivamente para fines de prevención y control de accidentes y enfermedades laborales, como también promoción de hábitos y estilos de vida saludable.
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <h3 class="pa-h3">
+                                Al aceptar y participar, se compromete a brindar información veraz, que garantice la calidad de los datos recolectados en la encuesta de Condiciones de Salud, donde se detallan aspectos relacionados con sus hábitos de vida, antecedentes familiares y estados
+                                de salud actual.
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12">
+                            <h3 class="pa-h3">
+                                Para la medición de los componentes de la condición física se evaluará mediante pruebas ajustadas a sus características y serán aplicadas por profesionales idóneos. Estas pruebas están relacionadas con la medición de:
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-1" style="width: 50px;"></div>
+                        <div class="ui-grid-col-11">
+                            <h3 class="pa2-h3">Composición corporal (Peso, Talla, IMC, % de grasa).</h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-1" style="width: 50px;"></div>
+                        <div class="ui-grid-col-11">
+                            <h3 class="pa2-h3">Condición cardiorrespiratoria.</h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-1" style="width: 50px;"></div>
+                        <div class="ui-grid-col-11">
+                            <h3 class="pa2-h3">Condición muscular.</h3>
+                        </div>
+                    </div>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-1" style="width: 50px;"></div>
+                        <div class="ui-grid-col-11">
+                            <h3 class="pa-h3">Condición de la flexibilidad.</h3>
+                        </div>
+                    </div>
+
+                    <br>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12" style="text-align: center;">
+                            <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>&nbsp;<label>Acepto que la participación en este proceso es <strong>Voluntaria.</strong></label>
+                        </div>
+                    </div>
+                </div>
+                <p-footer>
+                    <div class="ui-grid-row">
+                        <div class="ui-grid-col-12" style="text-align: center;">
+                            <button pButton type="button" [disabled]="!checked" icon="pi pi-check" label="Aceptar" class="ui-button-success" (click)="ingForm()" style="width: 150px;;margin-right: .25em"></button>
+                            <button pButton type="button" icon="pi pi-times" label="No Acepto" class="ui-button-danger" (click)="cancelarRegistro()" style="width: 150px;;margin-right: .25em"></button>
+                        </div>
+                    </div>
+                </p-footer>
+            </p-panel>
+        </div>
+        <div class="ui-grid-col-1"></div>
+    </div>
+</div>

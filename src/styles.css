@@ -49,3 +49,22 @@ input {
 button {
     border-radius: 10px;
 }
+
+fieldset {
+    font-family: sans-serif;
+    border: 2px solid #2162b0;
+    background: white;
+    border-radius: 5px;
+    padding: 15px;
+    width: auto;
+}
+
+fieldset legend {
+    background: #2162b0;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 5px white;
+    margin-left: 20px;
+}
