@@ -10,7 +10,6 @@ import { AppState } from "src/app/app.reducer";
 import * as empresasActions from "../../store/actions/empresa.actions";
 
 
-
 @Component({
     selector: "app-login",
     templateUrl: "./login.component.html",
@@ -37,13 +36,6 @@ export class LoginComponent implements OnInit {
 
     async ngOnInit() {
         
-
-        //  await this.configService.getEmisores()
-        //  .toPromise().then((data: Emisor[]) =>{
-        //    this.emisores = [...data];
-        //    console.log(this.emisores);
-        //    localStorage.setItem('id_emisor', this.emisores[0].id.toString());
-        //  })
     }
 
     crearFormulario() {
@@ -52,12 +44,7 @@ export class LoginComponent implements OnInit {
             password: [],
         });
     }
-    // get usuarioInvalid() {
-    //   return (
-    //     this.loginForm.get("user").invalid &&
-    //     this.loginForm.get("user").touched
-    //   );
-    // }
+ 
     get passwordInvalid() {
         return (
             this.loginForm.get("pwd").invalid &&
@@ -78,10 +65,7 @@ export class LoginComponent implements OnInit {
             }else{
 
                 if (resp.access_token !== null ) {
-                    console.log(resp);
                     this.usuarioR = resp.user;
-                    console.log("user",this.usuarioR);
-                    console.log("userN",this.usuarioR.name);
                     localStorage.setItem("token",resp.access_token);
                     localStorage.setItem("user",this.usuarioR.name);
                     
