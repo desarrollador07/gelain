@@ -19,7 +19,7 @@ export class TerminosCondicionesVfComponent implements OnInit {
   }
 
   ingForm(){
-    // this._router.navigate([`FormularioEmpleado/${this.id}`])
+    this._router.navigate([`exform-vf/${this.id}`])
   }
 
   cancelarRegistro(){

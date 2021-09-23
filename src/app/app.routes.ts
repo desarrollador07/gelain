@@ -23,6 +23,13 @@ export const routes: Routes = [
         component:TerminosCondicionesVfComponent
     },
     {
+        path: "exform-vf",
+        loadChildren: () =>
+            import("./modules/exform-vf/exform-vf.module").then(
+                (m) => m.ExformVfModule
+            ),
+    }, 
+    {
         path: "FormularioEmpleado",
         loadChildren: () =>
             import("./modules/FormularioEmpleado/formEmpleadoL.module").then(

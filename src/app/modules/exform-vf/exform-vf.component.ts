@@ -1,49 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
-import { ActivatedRoute } from "@angular/router";
-import { MessageService } from 'primeng/api';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { SelectItem } from 'primeng/api';
-import { Empresa } from '../../models/empresa.model';
-import { Area } from '../../models/area.model';
-import { ValorFisico } from '../../models/valorFisico.model';
-
-
+import { SelectItem, MessageService } from 'primeng/api';
+import { Area } from 'src/app/models/area.model';
+import { Empresa } from 'src/app/models/empresa.model';
+import { PruebaService } from 'src/app/services/prueba.service';
 
 @Component({
-  selector: 'app-form-prueba',
-  templateUrl: './formValorFisico.component.html',
-  styleUrls: ['./formValorFisico.component.css']
+  selector: 'app-exform-vf',
+  templateUrl: './exform-vf.component.html',
+  styleUrls: ['./exform-vf.component.css']
 })
-export class FormValorFisicoComponent implements OnInit {
+export class ExformVfComponent implements OnInit {
+
   userform: FormGroup;
   empresa: SelectItem[] = [];
   empresas: Empresa[] = [];
   area: SelectItem[] = [];
   areas: Area[] = [];
-  localPrueba: ValorFisico = {};
   sexo: SelectItem[] = [];
-  selectvafc1:SelectItem[] = [];
-  idd: any;
-  idEmpresa:number;
- 
+  selectvafc1: SelectItem[] = [];
   
   constructor(private pruebaservices: PruebaService,
               private fb: FormBuilder,
               private router: Router,
-              private _messageService: MessageService,
-              private datepipe: DatePipe) { 
-                this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
+              private _messageService: MessageService) { 
+
     
   }
 
   async ngOnInit() {
-    this.localPrueba = JSON.parse(localStorage.getItem('valorFisico'));
+
     this.formulario();
     this.selectData();
-    await this.buscarArea(this.idEmpresa);
     await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
       this.empresas = data;
       this.empresas.map(x=>{
@@ -54,32 +43,6 @@ export class FormValorFisicoComponent implements OnInit {
       });
     });
 
-    if(this.localPrueba !== null){
-      
-      this.userform.patchValue({
-        vafidempresa:this.localPrueba.vafidempresa,
-        vafidarea:this.localPrueba.vafidarea,
-        vafidnombre:this.localPrueba.vafidnombre,
-        vafsede:this.localPrueba.vafsede,
-        vafpeso:this.localPrueba.vafpeso,
-        vaftalla:this.localPrueba.vaftalla,
-        vafimc:this.localPrueba.vafimc,
-        vafperimetro:this.localPrueba.vafperimetro,
-        vafp0:this.localPrueba.vafp0,
-        vafp1:this.localPrueba.vafp1,
-        vafp2:this.localPrueba.vafp2,
-        vaftestbiering:this.localPrueba.vaftestbiering,
-        vaftestpuenteder:this.localPrueba.vaftestpuenteder,
-        vaftestpuenteizq:this.localPrueba.vaftestpuenteizq,
-        vaftestresistronco:this.localPrueba.vaftestresistronco,
-        vaftestflextronco:this.localPrueba.vaftestflextronco,
-        vaftestmovhombder:this.localPrueba.vaftestmovhombder,
-        vaftestmovhombizq:this.localPrueba.vaftestmovhombizq,
-        vaftestmovartichomb:this.localPrueba.vaftestmovartichomb,
-        vafobservaciones:this.localPrueba.vafobservaciones,
-        vafcedula:this.localPrueba.vafcedula,
-      });
-    } 
   }
 
   get vafidempresa() {
@@ -146,7 +109,6 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafcedula').invalid && this.userform.get('vafcedula').touched
   }
 
-  
 
   formulario(){
     this.userform = this.fb.group({
@@ -187,31 +149,23 @@ export class FormValorFisicoComponent implements OnInit {
 
  onSubmit(){
   if(this.userform.valid){
-    if(this.localPrueba !== null){
-      this.idd = this.localPrueba.vafid;
-      this.pruebaservices.updatevalorFisico(this.userform.value,this.idd).subscribe((data:any)=>{
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(["/main/ValorFisico"]);
-      });
-    }else{
       this.pruebaservices.createvalorFisico(this.userform.value).subscribe((data:any)=>{
-        this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+        console.log(data);
+        this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha guardado exitosamente', life: 3000})
         this.userform.reset();
-        this.router.navigate(["/main/ValorFisico"]);
+        // this.router.navigate(["/main/ValorFisico"]);
       });
-    }
   }else{
     this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
       this.userform.reset();
-      this.router.navigate(["/main/ValorFisico"]);
+      // this.router.navigate(["/main/ValorFisico"]);
   }
 
   }
 
-  async buscarArea(id:number){
+  async buscarArea(){
     this.area =[];
-      this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
+      this.pruebaservices.buscarByArea(this.userform.value.vafidempresa).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
           this.area.push({

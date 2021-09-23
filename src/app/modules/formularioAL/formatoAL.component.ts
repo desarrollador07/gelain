@@ -184,11 +184,8 @@ export class FormatoALComponent implements OnInit {
 
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
     await  this.pruebaservices.buscarByFa(this.idl).toPromise().then((data:any)=>{
-        console.log('buscando data:',data);
-        this.localPrueba = data[0];
-        console.log('localDataaaa',this.localPrueba);
-        
-      })
+        this.localPrueba = data[0]; 
+    });
 
 
 
@@ -684,17 +681,14 @@ export class FormatoALComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){       
       if(this.localPrueba !== null){
-          console.log("voy a actualizarA");
           this.idd = this.localPrueba.inaid;
-          this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
-          .subscribe((data: any) =>{
+          this.pruebaservices.updateFormatoA(this.userform.value,this.idd).subscribe((data: any) =>{
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
-            console.log("idd",this.idd);
             setTimeout(() => {
               this.router.navigate(["/ExtralaboralL"]);
             }, 1000); 
-          })
+          });
       }
       
     }else{

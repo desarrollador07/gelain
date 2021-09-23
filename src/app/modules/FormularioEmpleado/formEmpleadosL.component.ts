@@ -216,8 +216,8 @@ export class FormEmpleadosLComponent implements OnInit {
       // }else{
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        this.pruebaservices.createPrueba(this.userform.value)
-        .subscribe(data=>{
+        this.pruebaservices.createPrueba(this.userform.value).subscribe(data =>{
+
           localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
           localStorage.setItem('prueba',JSON.stringify(data));
           this.userformExtra.value.extidempleado = data.emdid;
@@ -226,23 +226,14 @@ export class FormEmpleadosLComponent implements OnInit {
             this.userformFormaA.value.inaidempleado = data.emdid;
             this.userformFormaA.value.inaatencionausuarios = 2;
             this.userformFormaA.value.inasoyjefe = 2;
-            this.pruebaservices.createFormatoA(this.userformFormaA.value)
-        .subscribe((data:any)=>{
-        })
+            this.pruebaservices.createFormatoA(this.userformFormaA.value).subscribe((data:any)=>{});
           }else{
             this.userformFormaB.value.inbidempleado = data.emdid;
             this.userformFormaB.value.inbatencionausuarios = 2;
-            this.pruebaservices.createFormatoB(this.userformFormaB.value)
-            .subscribe((data:any)=>{
-            })
+            this.pruebaservices.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
           }
-          this.pruebaservices.createExtra(this.userformExtra.value)
-          .subscribe((data:any)=>{
-          })
-          this.pruebaservices.createEstres(this.userformEstres.value)
-          .subscribe((data:any)=>{
-
-          })
+          this.pruebaservices.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
+          this.pruebaservices.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
@@ -251,7 +242,7 @@ export class FormEmpleadosLComponent implements OnInit {
             this.router.navigate(["/FormularioBL/"+this.idem]);
           }
           
-        })
+        });
       // }
       
     }else{
