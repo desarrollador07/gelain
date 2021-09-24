@@ -83,22 +83,18 @@ export class EmpleadosComponent implements OnInit {
         localStorage.setItem('IdEmpleado',JSON.stringify(cpruebas.emdid));
         this.pruebaServices.buscarByFa(cpruebas.emdid)
         .subscribe((data:any)=>{
-          console.log("forA",data);
           localStorage.setItem('ForA',JSON.stringify(data));
         })
         this.pruebaServices.buscarExtra(cpruebas.emdid)
         .subscribe((data:any)=>{
-          console.log("Extra",data);
           localStorage.setItem('Extra',JSON.stringify(data));
         })
         this.pruebaServices.buscarByEstres(cpruebas.emdid)
         .subscribe((data:any)=>{
-          console.log("estres",data);
           localStorage.setItem('estres',JSON.stringify(data));
         })
         this.pruebaServices.buscarByFb(cpruebas.emdid)
         .subscribe((data:any)=>{
-          console.log("forB",data);
           localStorage.setItem('ForB',JSON.stringify(data));
         })
       }

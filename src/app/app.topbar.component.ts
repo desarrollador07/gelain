@@ -31,7 +31,6 @@ export class AppTopBarComponent {
     constructor(public app: AppComponent,
                 private router: Router,
                 private store: Store<AppState>,
-                private pruebaservices: PruebaService,
                 private empresaServices: EmpresaService) {
 
       this.nombre = localStorage.getItem("user");
