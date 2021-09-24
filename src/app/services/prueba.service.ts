@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Empleado } from '../models/empleado.mdel';
-import { Empresa } from '../models/empresa.model';
 import { Area } from '../models/area.model';
 import { FormatoA } from '../models/formatoAmodel';
 import { Estres } from '../models/estres.nodel';
 import { Extralaboral } from '../models/extralaboral.model';
 import { FormatoB } from '../models/formatoB.model';
 import { User } from '../models/user';
-import { ValorFisico } from '../models/valorFisico.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -16,96 +15,86 @@ import { ValorFisico } from '../models/valorFisico.model';
 })
 export class PruebaService {
 
-  Url1  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpleados';
-  Url2 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createEmpleados';
-  Url3 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateEmpleados';
-  Url4 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteEmpleados';
-  Url5 = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getid';
-  Url6  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpleadosReportes';
-  Url7  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/updateEstado';
+  apiUrl:string = environment.urlGlobal;
+  Url1 = `${this.apiUrl}/lv/public/allEmpleados`;
+  Url2 = `${this.apiUrl}/lv/public/createEmpleados`;
+  Url3 = `${this.apiUrl}/lv/public/updateEmpleados`;
+  Url4 = `${this.apiUrl}/lv/public/deleteEmpleados`;
+  Url5 = `${this.apiUrl}/lv/public/getid`;
+  Url6 = `${this.apiUrl}/lv/public/allEmpleadosReportes`;
+  Url7 = `${this.apiUrl}/lv/public/updateEstado`;
 
-  Url1p  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpresa';
-  Url2p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createEmpresa';
-  Url3p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateEmpresa';
-  Url4p = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteEmpresa';
-  Url5p  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/getnobEmpresa';
+  Url1pa = `${this.apiUrl}/lv/public/allArea`;
+  Url2pa = `${this.apiUrl}/lv/public/createArea`;
+  Url3pa = `${this.apiUrl}/lv/public/updateArea`;
+  Url4pa = `${this.apiUrl}/lv/public/deleteArea`;
+  Url5pa = `${this.apiUrl}/lv/public/getideArea`;
+  Url6pa = `${this.apiUrl}/lv/public/getideAreaUnica`;
 
-  Url1pa  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allArea';
-  Url2pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createArea';
-  Url3pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateArea';
-  Url4pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteArea';
-  Url5pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideArea';
-  Url6pa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideAreaUnica';
+  Url1fa = `${this.apiUrl}/lv/public/allformatoA`;
+  Url2fa = `${this.apiUrl}/lv/public/createformatoA`;
+  Url3fa = `${this.apiUrl}/lv/public/updateformatoA`;
+  Url4fa = `${this.apiUrl}/lv/public/deleteformatoA`;
+  Url5fa = `${this.apiUrl}/lv/public/getideForA`;
 
-  Url1fa  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allformatoA';
-  Url2fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createformatoA';
-  Url3fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateformatoA';
-  Url4fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteformatoA';
-  Url5fa = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideForA';
+  Url1fb = `${this.apiUrl}/lv/public/allformatoB`;
+  Url2fb = `${this.apiUrl}/lv/public/createformatoB`;
+  Url3fb = `${this.apiUrl}/lv/public/updateformatoB`;
+  Url4fb = `${this.apiUrl}/lv/public/deleteformatoB`;
+  Url5fb = `${this.apiUrl}/lv/public/getideForB`;
 
-  Url1fb  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allformatoB';
-  Url2fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createformatoB';
-  Url3fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateformatoB';
-  Url4fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteformatoB';
-  Url5fb = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideForB';
+  Url1es = `${this.apiUrl}/lv/public/allestres`;
+  Url2es = `${this.apiUrl}/lv/public/createestres`;
+  Url3es = `${this.apiUrl}/lv/public/updateestres`;
+  Url4es = `${this.apiUrl}/lv/public/deleteestres`;
+  Url5es = `${this.apiUrl}/lv/public/getideEstres`;
 
-  Url1es  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allestres';
-  Url2es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createestres';
-  Url3es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateestres';
-  Url4es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteestres';
-  Url5es = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideEstres';
+  Url1ex = `${this.apiUrl}/lv/public/allextra`;
+  Url2ex = `${this.apiUrl}/lv/public/createextra`;
+  Url3ex = `${this.apiUrl}/lv/public/updateextra`;
+  Url4ex = `${this.apiUrl}/lv/public/deleteextra`;
+  Url5ex = `${this.apiUrl}/lv/public/getideExtra`;
 
-  Url1ex  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allextra';
-  Url2ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createextra';
-  Url3ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateextra';
-  Url4ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteextra';
-  Url5ex = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getideExtra';
 
-  Url1vf  ='https://gelainbienestarlaboral.com/GELAIN/lv/public/allvalorFisico';
-  Url2vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/createValorFisico';
-  Url3vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/updateValorFisico';
-  Url4vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/deleteValorFisico';
-  Url5vf = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getidempValor';
+  UrlLogin = `${this.apiUrl}/lv2/public/api/auth/signin`;
 
-  UrlLogin = 'https://gelainbienestarlaboral.com/GELAIN/lv2/public/api/auth/signin';
+  UrlliderazgoRA = `${this.apiUrl}/lv/public/liderazgoRelacionesA`;
 
-  UrlliderazgoRA = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/liderazgoRelacionesA';
+  UrlcontrolSobreRol = `${this.apiUrl}/lv/public/controlSobreRol`;
 
-  UrlcontrolSobreRol = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/controlSobreRol';
+  UrlDemandasTrabajo= `${this.apiUrl}/lv/public/DemandasTrabajo`;
 
-  UrlDemandasTrabajo= 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DemandasTrabajo';
+  Urlrecompensas = `${this.apiUrl}/lv/public/recompensas`;
 
-  Urlrecompensas = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/recompensas';
+  UrlliderazgoRB = `${this.apiUrl}/lv/public/liderazgoRelacionesB`;
 
-  UrlliderazgoRB = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/liderazgoRelacionesB';
+  UrlcontrolSobreRolB = `${this.apiUrl}/lv/public/controlSobreRolB`;
 
-  UrlcontrolSobreRolB = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/controlSobreRolB';
+  UrlDemandasTrabajoB= `${this.apiUrl}/lv/public/DemandasTrabajoB`;
 
-  UrlDemandasTrabajoB= 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DemandasTrabajoB';
+  UrlrecompensasB = `${this.apiUrl}/lv/public/recompensasB`;
 
-  UrlrecompensasB = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/recompensasB';
+  UrlPSICOSOCIAL_EXTRALABORAL = `${this.apiUrl}/lv/public/PSICOSOCIAL_EXTRALABORAL`;
 
-  UrlPSICOSOCIAL_EXTRALABORAL = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/PSICOSOCIAL_EXTRALABORAL';
+  UrlESTRES_DETALLES = `${this.apiUrl}/lv/public/ESTRES_DETALLES`;
 
-  UrlESTRES_DETALLES = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ESTRES_DETALLES';
+  UrlESTRES = `${this.apiUrl}/lv/public/ESTRES`;
 
-  UrlESTRES = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ESTRES';
+  UrlTotalGeneral = `${this.apiUrl}/lv/public/TotalGeneral`;
 
-  UrlTotalGeneral = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/TotalGeneral';
+  UrlReporExcelDetallado = `${this.apiUrl}/lv/public/ReporteExcelDetallado`;
 
-  UrlReporExcelDetallado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ReporteExcelDetallado';
+  UrlCiudadReporte = `${this.apiUrl}/lv/public/CiudadReporte`;
 
-  UrlCiudadReporte = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/CiudadReporte';
+  UrlDatosPersonales = `${this.apiUrl}/lv/public/DatosFooter`;
 
-  UrlDatosPersonales = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/DatosFooter';
+  UrlDatosEmpleado = `${this.apiUrl}/lv/public/getidEmp`;
 
-  UrlDatosEmpleado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/getidEmp';
+  UrlDatoBuscado = `${this.apiUrl}/lv/public/buscarReportesDetallados`;
 
-  UrlDatoBuscado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/buscarReportesDetallados';
+  UrlReporteArea = `${this.apiUrl}/lv/public/ReporteArea`;
 
-  UrlReporteArea = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/ReporteArea';
-
-  UrlAllReporteDetallado = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/buscarReportesGenerales';
+  UrlAllReporteDetallado = `${this.apiUrl}/lv/public/buscarReportesGenerales`;
 
   constructor(private http: HttpClient) {
   }
@@ -140,28 +129,6 @@ export class PruebaService {
   updateEstado(id:number){
     return this.http.get(this.Url7+ "/" + id);
   }
-
-
-  getEmpresa(){
-    return this.http.get(this.Url1p);
-  }
-
-  deleteEmpresa(prueba: Empresa){
-    return this.http.delete<Empresa>(this.Url4p+"/"+prueba.empid);
-  }
-
-  createEmpresa(prueba: Empresa){
-    return this.http.post<Empresa>(this.Url2p,prueba);
-  }
-
-  updateEmpresa(prueba: Empresa,id:String){
-    return this.http.put<Empresa>(this.Url3p + "/" + id,prueba);
-  }
-
-  getEmpresaId(id:number){
-    return this.http.get(this.Url5p + "/" + id);
-  }
-
 
   getArea(){
     return this.http.get(this.Url1pa);
@@ -264,27 +231,6 @@ export class PruebaService {
     return this.http.get(this.Url5ex + "/" + id);
   }
 
-  //-----------------------------------------------------------
-  getvalorFisico(){
-    return this.http.get(this.Url1vf);
-  }
-
-  deletevalorFisico(prueba: ValorFisico){
-    return this.http.delete<Extralaboral>(this.Url4vf+"/"+prueba.vafid);
-  }
-
-  createvalorFisico(prueba: ValorFisico){
-    return this.http.post<ValorFisico>(this.Url2vf,prueba);
-  }
-
-  updatevalorFisico(prueba: ValorFisico,id:String){
-    return this.http.put<ValorFisico>(this.Url3vf + "/" + id,prueba);
-  }
-
-  getvalorFisicoId(id:number){
-    return this.http.get(this.Url5vf+ "/" + id);
-  }
-//------------------------------------------------------------
   getLiderazgoRA(id:number){
     return this.http.get(this.UrlliderazgoRA+ "/" + id);
   }

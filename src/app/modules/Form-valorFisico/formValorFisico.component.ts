@@ -9,6 +9,8 @@ import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
 import { ValorFisico } from '../../models/valorFisico.model';
+import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 
 
@@ -31,6 +33,8 @@ export class FormValorFisicoComponent implements OnInit {
  
   
   constructor(private pruebaservices: PruebaService,
+              private empresaServices: EmpresaService,
+              private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
               private router: Router,
               private _messageService: MessageService,
@@ -43,8 +47,7 @@ export class FormValorFisicoComponent implements OnInit {
     this.localPrueba = JSON.parse(localStorage.getItem('valorFisico'));
     this.formulario();
     this.selectData();
-    await this.buscarArea(this.idEmpresa);
-    await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
+    await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
       this.empresas = data;
       this.empresas.map(x=>{
         this.empresa.push({
@@ -189,13 +192,13 @@ export class FormValorFisicoComponent implements OnInit {
   if(this.userform.valid){
     if(this.localPrueba !== null){
       this.idd = this.localPrueba.vafid;
-      this.pruebaservices.updatevalorFisico(this.userform.value,this.idd).subscribe((data:any)=>{
+      this.vfService.updatevalorFisico(this.userform.value,this.idd).subscribe((data:any)=>{
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
           this.router.navigate(["/main/ValorFisico"]);
       });
     }else{
-      this.pruebaservices.createvalorFisico(this.userform.value).subscribe((data:any)=>{
+      this.vfService.createvalorFisico(this.userform.value).subscribe((data:any)=>{
         this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
         this.userform.reset();
         this.router.navigate(["/main/ValorFisico"]);
@@ -209,7 +212,8 @@ export class FormValorFisicoComponent implements OnInit {
 
   }
 
-  async buscarArea(id:number){
+  async buscarArea(){
+    const id = this.userform.value.vafidempresa;
     this.area =[];
       this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
         this.areas = data;

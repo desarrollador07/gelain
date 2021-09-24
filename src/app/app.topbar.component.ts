@@ -7,6 +7,7 @@ import { PruebaService } from './services/prueba.service';
 import { AppState } from './app.reducer';
 import { Store } from '@ngrx/store';
 import * as empresasActions from "./store/actions/empresa.actions";
+import { EmpresaService } from './services/empresa.service';
 
 @Component({
   selector: 'app-topbar',
@@ -30,7 +31,8 @@ export class AppTopBarComponent {
     constructor(public app: AppComponent,
                 private router: Router,
                 private store: Store<AppState>,
-                private pruebaservices: PruebaService) {
+                private pruebaservices: PruebaService,
+                private empresaServices: EmpresaService) {
 
       this.nombre = localStorage.getItem("user");
       this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
@@ -69,7 +71,7 @@ export class AppTopBarComponent {
 
    async consultaEmpresas(){
       this.empresa = [];
-      await this.pruebaservices.getEmpresa().toPromise().then((data:any) => {
+      await this.empresaServices.getEmpresa().toPromise().then((data:any) => {
 
         this.empresas = data;
         this.empresas.map(x =>{

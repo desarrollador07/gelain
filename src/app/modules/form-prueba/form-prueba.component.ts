@@ -10,6 +10,7 @@ import {MenuItem} from 'primeng/api';
 import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Area } from '../../models/area.model';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 
 @Component({
@@ -39,7 +40,7 @@ export class FormPruebaComponent implements OnInit {
   id: number;
   idd: any;
   estado: SelectItem[];
-    areas: Area = {};
+  areas: Area = {};
   values2: string[] = [];
   values1: string[] = [];
   area:any[];
@@ -47,8 +48,14 @@ export class FormPruebaComponent implements OnInit {
   linkformulario:any;
   linkformulario2:any;
  
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService,private _activatedRoute: ActivatedRoute,private _confirmationServices: ConfirmationService) { 
+  constructor(private pruebaservices: PruebaService,
+              private empresaServices: EmpresaService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService,
+              private _activatedRoute: ActivatedRoute,
+              private _confirmationServices: ConfirmationService) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
     //console.log(this.id);
   }
@@ -175,28 +182,22 @@ export class FormPruebaComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){
       if(this.localPrueba !== null){
-        console.log("voy a actualizar");
+
         this.idd = this.localPrueba.empid;
-        this.pruebaservices.updateEmpresa(this.userform.value,this.idd)
+        this.empresaServices.updateEmpresa(this.userform.value,this.idd)
         .subscribe((data: any) =>{
          //this.buscarArea2();
-          console.log(data);
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
           this.router.navigate(["/main/listarEmpresa"]);
         })
       }else{
-        console.log("voy a crear");
         
-        this.pruebaservices.createEmpresa(this.userform.value)
+        this.empresaServices.createEmpresa(this.userform.value)
         .subscribe((data=>{
-          console.log(data);
           localStorage.setItem('Idempres',JSON.stringify(data.empid));
-          console.log("ide",data.empid);
-          
-          
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})        
-        }))
+        }));
       }
       
     }else{
@@ -211,9 +212,7 @@ export class FormPruebaComponent implements OnInit {
     this.localIDEmp2 =JSON.parse(localStorage.getItem('Idempres'));
     this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
     if(this.userformArea.valid){
-        console.log("voy a crear");
-        console.log("localId2",this.localIDEmp2);
-        
+
         this.userformArea.value.areempresa = this.localIDEmp2;
         this.pruebaservices.createArea(this.userformArea.value)
         .subscribe((data=>{
@@ -222,7 +221,7 @@ export class FormPruebaComponent implements OnInit {
           this.userformArea.reset();
           this.indexData();
           
-        }))
+        }));
       
       
     }else{
@@ -238,8 +237,7 @@ export class FormPruebaComponent implements OnInit {
   async buscarArea(){
     this.area =[];
     if (this.localPrueba !== null) {
-     await this.pruebaservices.buscarByArea(this.localPrueba.empid).toPromise().then((data:any)=>{
-        console.log("buscar editar",data);
+      await this.pruebaservices.buscarByArea(this.localPrueba.empid).toPromise().then((data:any)=>{
         this.area = data;
         for (let i = 0; i < this.area.length; i++) {  
           this.values2.push(this.area[i].arenombre);
@@ -287,9 +285,8 @@ export class FormPruebaComponent implements OnInit {
   indexData(){
     this.pruebaservices
     .buscarByArea(this.localIDEmp).subscribe((data: any)=>{
-      this.pruebas = [...data];
-      console.log('los datos son: ',this.pruebas);
-    })
+      this.pruebas = data;
+    });
   }
 
 

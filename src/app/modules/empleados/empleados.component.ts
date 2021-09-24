@@ -7,6 +7,7 @@ import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+import { EmpresaService } from 'src/app/services/empresa.service';
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',
@@ -19,7 +20,9 @@ export class EmpleadosComponent implements OnInit {
   items1: MenuItem[];
   empresas: Empresa[] = [];
 
-  constructor(private pruebaServices:PruebaService,private router: Router,
+  constructor(private pruebaServices:PruebaService,
+              private empresaServices:EmpresaService,
+              private router: Router,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService,
               private store: Store<AppState>) {
@@ -114,7 +117,7 @@ export class EmpleadosComponent implements OnInit {
     }
 
     async consultaEmpresas(){
-      await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+      await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
         this.empresas = data;
       });
     }

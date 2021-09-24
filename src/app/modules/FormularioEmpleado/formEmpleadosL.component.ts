@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 
 
@@ -45,11 +46,15 @@ export class FormEmpleadosLComponent implements OnInit {
   nummax:number = 0;
   nummaxpre:number = 0;
   bandera:boolean=false;
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe) {  
+  constructor(private pruebaservices: PruebaService,
+              private empresaServices: EmpresaService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService,
+              private datepipe: DatePipe) {  
 
     this.idem = Number(this.route.snapshot.paramMap.get("id"));
-
   }
 
   async ngOnInit() {
@@ -302,7 +307,7 @@ export class FormEmpleadosLComponent implements OnInit {
 
   async consultarEmpresa(){
 
-    await this.pruebaservices.getEmpresaId(this.idem).toPromise().then((data:any)=>{
+    await this.empresaServices.getEmpresaId(this.idem).toPromise().then((data:any)=>{
       this.empresas = data;
       this.empresas.map(x=>{
         this.empresa.push({

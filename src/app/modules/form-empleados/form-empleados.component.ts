@@ -12,6 +12,7 @@ import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
 import { style } from '@angular/animations';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 
 
@@ -50,8 +51,13 @@ export class FormEmpleadosComponent implements OnInit {
   nummaxpre:number = 0;
   bandera:boolean=false;
   idEmpresa:number;
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService,private datepipe: DatePipe) { 
+  constructor(private pruebaservices: PruebaService,
+              private empresaServices: EmpresaService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService,
+              private datepipe: DatePipe) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
     this.nombre = localStorage.getItem("user");
     this.idEmpresa = Number(localStorage.getItem('idEmpresa'));
@@ -360,7 +366,7 @@ export class FormEmpleadosComponent implements OnInit {
 
   async consultarEmpresas(){
 
-    await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
+    await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
 
       this.empresas = data;
 

@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmpleadosPendientesService {
-
-  Url = 'https://gelainbienestarlaboral.com/GELAIN/lv/public/allEmpleadosPendientes/';
+  
+  apiUrl:string = environment.urlGlobal;
+  Url = `${this.apiUrl}/lv/public/allEmpleadosPendientes/`;
 
   constructor(private http: HttpClient) { }
 

@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { ValorFisico } from '../../models/valorFisico.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class ValorfisicoComponent implements OnInit {
   pruebas: ValorFisico[] = [];
   idEmpresa:any;
 
-  constructor(private pruebaservices: PruebaService,
+  constructor(private vfService: ValoracionFisicaService,
               private _messageService: MessageService,
               private _confirmationServices: ConfirmationService,
               private store: Store<AppState>) {
@@ -48,7 +49,7 @@ export class ValorfisicoComponent implements OnInit {
       header:'confirmacion',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        this.pruebaservices.deletevalorFisico(prueba)
+        this.vfService.deletevalorFisico(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
           this.pruebas = this.pruebas.filter(r => r !== prueba);
@@ -74,7 +75,7 @@ export class ValorfisicoComponent implements OnInit {
       }
 
     async indexData(id:number){
-      await this.pruebaservices.getvalorFisicoId(id).toPromise().then((data:any)=>{
+      await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
         this.pruebas = data;
       });
     }

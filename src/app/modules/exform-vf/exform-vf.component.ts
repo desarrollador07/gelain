@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 import { SelectItem, MessageService } from 'primeng/api';
 import { Area } from 'src/app/models/area.model';
 import { Empresa } from 'src/app/models/empresa.model';
+import { EmpresaService } from 'src/app/services/empresa.service';
 import { PruebaService } from 'src/app/services/prueba.service';
+import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 
 @Component({
   selector: 'app-exform-vf',
@@ -22,6 +24,8 @@ export class ExformVfComponent implements OnInit {
   selectvafc1: SelectItem[] = [];
   
   constructor(private pruebaservices: PruebaService,
+              private empresaServices: EmpresaService,
+              private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
               private router: Router,
               private _messageService: MessageService) { 
@@ -33,7 +37,7 @@ export class ExformVfComponent implements OnInit {
 
     this.formulario();
     this.selectData();
-    await this.pruebaservices.getEmpresa().toPromise().then((data:any)=>{
+    await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
       this.empresas = data;
       this.empresas.map(x=>{
         this.empresa.push({
@@ -149,7 +153,7 @@ export class ExformVfComponent implements OnInit {
 
  onSubmit(){
   if(this.userform.valid){
-      this.pruebaservices.createvalorFisico(this.userform.value).subscribe((data:any)=>{
+      this.vfService.createvalorFisico(this.userform.value).subscribe((data:any)=>{
         console.log(data);
         this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha guardado exitosamente', life: 3000})
         this.userform.reset();

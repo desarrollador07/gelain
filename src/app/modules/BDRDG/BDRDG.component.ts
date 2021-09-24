@@ -7,6 +7,7 @@ import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({
   selector: 'app-empleados',
@@ -40,6 +41,7 @@ export class BDRDGComponent implements OnInit {
   
 
   constructor(private pruebaServices:PruebaService,
+              private empresaServices:EmpresaService,
               private store: Store<AppState>) {
                 this.idEmpresa = localStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
@@ -49,7 +51,7 @@ export class BDRDGComponent implements OnInit {
   async ngOnInit() {
     this.pruebas2 = this.pruebas;
 
-    await this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+    await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
       this.empresas = data;
     });
     this.store.select('empresas').subscribe(async res=>{
@@ -102,7 +104,7 @@ export class BDRDGComponent implements OnInit {
       }
 
       indexData(){
-         this.pruebaServices.getEmpresa().toPromise().then((data:any)=>{
+         this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
           this.empresas = data;
         })
     

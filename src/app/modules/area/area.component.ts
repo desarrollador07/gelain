@@ -13,13 +13,9 @@ export class AreaComponent implements OnInit {
 
   localIDEmp: number;
   prueba: Area;
-
   pruebas: Area[] = [];
-
   items1: MenuItem[];
-
   items2: MenuItem[];
-
   activeItem: MenuItem;
 
   constructor(private pruebaServices:PruebaService,private router: Router,
@@ -43,13 +39,13 @@ export class AreaComponent implements OnInit {
   deletePrueba(prueba: Area) {
 
     this._confirmationServices.confirm({
-      message: '¿Seguro que desea eliminar este elemento?',
-      header:'confirmacion',
+      message: '¿Seguro que desea eliminar este registro?',
+      header:'Confirmación',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
         this.pruebaServices.deleteArea(prueba)
         .toPromise().then(data => {
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro eliminado', life: 3000})
           this.indexData();
         });
       }
@@ -70,8 +66,7 @@ export class AreaComponent implements OnInit {
         this.pruebaServices
         .buscarByArea(this.localIDEmp).subscribe((data: any)=>{
           this.pruebas = [...data];
-          console.log('los datos son: ',this.pruebas);
-        })
+        });
       }
   
 

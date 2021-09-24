@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { PruebaService } from '../../services/prueba.service';
 import { ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
+import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({
   selector: 'app-prueba',
@@ -16,7 +16,7 @@ export class PruebaComponent implements OnInit {
   items2: MenuItem[];
   activeItem: MenuItem;
 
-  constructor(private pruebaServices:PruebaService,
+  constructor(private empresaServices:EmpresaService,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService) {
 
@@ -37,14 +37,14 @@ export class PruebaComponent implements OnInit {
    deleteEmpresa(emp: Empresa) {
 
     this._confirmationServices.confirm({
-      message: '¿Seguro que desea eliminar este elemento?',
-      header:'confirmacion',
+      message: '¿Seguro que desea eliminar este registro?',
+      header:'Confirmación',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        this.pruebaServices.deleteEmpresa(emp)
+        this.empresaServices.deleteEmpresa(emp)
         .toPromise().then(data => {
 
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro eliminado', life: 3000})
           this.indexData();
         });
       }
@@ -67,7 +67,7 @@ export class PruebaComponent implements OnInit {
 
       indexData(){
 
-        this.pruebaServices.getEmpresa().subscribe((data: any)=>{
+        this.empresaServices.getEmpresa().subscribe((data: any)=>{
           this.empresas = data;
         });
 

@@ -19,7 +19,8 @@ import { Estres } from '../../models/estres.nodel';
 })
 export class FinalFormularioComponent implements OnInit {
 
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
+  constructor(private pruebaservices: PruebaService,
+              private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
 
   }
