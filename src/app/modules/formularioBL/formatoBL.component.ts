@@ -10,6 +10,7 @@ import {MenuItem} from 'primeng/api';
 import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { FormatoB } from '../../models/formatoB.model';
+import { FormatoBService } from 'src/app/services/formato-b.service';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class FormatoBLComponent implements OnInit {
   vart : boolean;
   forrrB:FormatoB;
   idem:number = 0;
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
+  constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id")); 
                 this.forrr =JSON.parse(localStorage.getItem('ForB'));
@@ -577,9 +578,9 @@ export class FormatoBLComponent implements OnInit {
                  
        console.log("voy a actualizar");
        this.idd = this.localPrueba.inbid;
-       this.pruebaservices.updateFormatoB(this.userform.value,this.idd)
+       this.formatoBService.updateFormatoB(this.userform.value,this.idd)
        .subscribe((data: any) =>{
-         this.pruebaservices.buscarByFb(this.localPrueba.inbidempleado)
+         this.formatoBService.buscarByFb(this.localPrueba.inbidempleado)
          .subscribe((data:any)=>{
            localStorage.setItem('ForB',JSON.stringify(data));
          })
@@ -594,9 +595,9 @@ export class FormatoBLComponent implements OnInit {
        if (this.forrrB !== null) {
         console.log("voy a actualizarA");
         this.idd = this.localPrueba.inbid;
-        this.pruebaservices.updateFormatoB(this.userform.value,this.idd)
+        this.formatoBService.updateFormatoB(this.userform.value,this.idd)
         .subscribe((data: any) =>{
-          this.pruebaservices.buscarByFb(this.localPrueba.inbidempleado)
+          this.formatoBService.buscarByFb(this.localPrueba.inbidempleado)
         .subscribe((data:any)=>{
           localStorage.setItem('ForB',JSON.stringify(data));
           localStorage.removeItem('ForBB');
@@ -624,15 +625,14 @@ export class FormatoBLComponent implements OnInit {
        } */
 
      }else{
-       console.log("voy a crear");
-       this.pruebaservices.createFormatoB(this.userform.value)
+       this.formatoBService.createFormatoB(this.userform.value)
        .subscribe((data=>{
         localStorage.setItem('ForBB',JSON.stringify(data));
          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
          this.userform.reset();
          this.router.navigate(["/ExtralaboralL"]);
          
-       }))
+       }));
      }
      
    }else{

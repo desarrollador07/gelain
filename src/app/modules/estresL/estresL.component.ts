@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
 import {MessageService, ConfirmationService} from 'primeng/api';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Estres } from '../../models/estres.nodel';
 import { EmpleadosService } from 'src/app/services/empleados.service';
+import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 
 
 @Component({
@@ -31,8 +28,9 @@ export class EstresLComponent implements OnInit {
   activeIndex: number = 1;
   forrr:any[]=[];
   forrrEs:Estres;
-  constructor(private pruebaservices: PruebaService,
+  constructor(
               private empleadosService: EmpleadosService,
+              private formatoEstresService: FormatoEstresService,
               private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
@@ -83,12 +81,9 @@ export class EstresLComponent implements OnInit {
     })
 
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    await  this.pruebaservices.buscarByEstres(this.idl).toPromise().then((data:any)=>{
-        console.log('buscando data:',data);
+    await  this.formatoEstresService.buscarByEstres(this.idl).toPromise().then((data:any)=>{
         this.localPrueba = data[0];
-        console.log('localDataaaa',this.localPrueba);
-        
-      })
+    });
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });
@@ -254,7 +249,7 @@ export class EstresLComponent implements OnInit {
      if(this.userform.valid){
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.estid;
-          this.pruebaservices.updateEstres(this.userform.value,this.idd)
+          this.formatoEstresService.updateEstres(this.userform.value,this.idd)
           .subscribe((data: any) =>{
             this.empleadosService.updateEstado(this.idl).subscribe((data=>{
 

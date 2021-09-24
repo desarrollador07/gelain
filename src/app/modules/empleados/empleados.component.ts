@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Empleado } from '../../models/empleado.mdel';
-import { PruebaService } from '../../services/prueba.service';
 import { ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
@@ -10,6 +9,9 @@ import { Store } from '@ngrx/store';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoAService } from 'src/app/services/formato-a.service';
+import { FormatoBService } from 'src/app/services/formato-b.service';
+import { FormatoEstresService } from 'src/app/services/formato-estres.service';
+import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',
@@ -22,9 +24,12 @@ export class EmpleadosComponent implements OnInit {
   items1: MenuItem[];
   empresas: Empresa[] = [];
 
-  constructor(private pruebaServices:PruebaService,
+  constructor(
               private empleadosService: EmpleadosService,
               private formatoAService: FormatoAService,
+              private formatoBService: FormatoBService,
+              private formatoEstresService: FormatoEstresService,
+              private formatoExtraService: FormatoExtraService,
               private empresaServices:EmpresaService,
               private router: Router,
               private _confirmationServices: ConfirmationService,
@@ -89,15 +94,15 @@ export class EmpleadosComponent implements OnInit {
         .subscribe((data:any)=>{
           localStorage.setItem('ForA',JSON.stringify(data));
         })
-        this.pruebaServices.buscarExtra(cpruebas.emdid)
+        this.formatoExtraService.buscarExtra(cpruebas.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('Extra',JSON.stringify(data));
         })
-        this.pruebaServices.buscarByEstres(cpruebas.emdid)
+        this.formatoEstresService.buscarByEstres(cpruebas.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('estres',JSON.stringify(data));
         })
-        this.pruebaServices.buscarByFb(cpruebas.emdid)
+        this.formatoBService.buscarByFb(cpruebas.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('ForB',JSON.stringify(data));
         })

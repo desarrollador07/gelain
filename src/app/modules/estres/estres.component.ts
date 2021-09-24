@@ -11,6 +11,7 @@ import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Estres } from '../../models/estres.nodel';
 import { EmpleadosService } from '../../services/empleados.service';
+import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 
 
 @Component({
@@ -36,6 +37,7 @@ export class EstresComponent implements OnInit {
   nombre:any;
   constructor(private pruebaservices: PruebaService,
               private empleadosService: EmpleadosService,
+              private formatoEstresService: FormatoEstresService,
               private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
@@ -95,12 +97,9 @@ export class EstresComponent implements OnInit {
     })
 
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    await  this.pruebaservices.buscarByEstres(this.idl).toPromise().then((data:any)=>{
-        console.log('buscando data:',data);
-        this.localPrueba = data[0];
-        console.log('localDataaaa',this.localPrueba);
-        
-      })
+    await  this.formatoEstresService.buscarByEstres(this.idl).toPromise().then((data:any)=>{
+        this.localPrueba = data[0]; 
+    });
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });
@@ -266,7 +265,7 @@ export class EstresComponent implements OnInit {
      if(this.userform.valid){
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.estid;
-          this.pruebaservices.updateEstres(this.userform.value,this.idd).subscribe((data: any) =>{
+          this.formatoEstresService.updateEstres(this.userform.value,this.idd).subscribe((data: any) =>{
             this.empleadosService.updateEstado(this.idl).subscribe((data=>{
 
             }));

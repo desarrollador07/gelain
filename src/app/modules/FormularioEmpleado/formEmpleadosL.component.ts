@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
 import { Empleado } from '../../models/empleado.mdel';
 import { MessageService } from 'primeng/api';
@@ -13,6 +12,9 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoAService } from 'src/app/services/formato-a.service';
+import { FormatoBService } from 'src/app/services/formato-b.service';
+import { FormatoEstresService } from 'src/app/services/formato-estres.service';
+import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 
 
 
@@ -49,10 +51,13 @@ export class FormEmpleadosLComponent implements OnInit {
   nummax:number = 0;
   nummaxpre:number = 0;
   bandera:boolean=false;
-  constructor(private pruebaservices: PruebaService,
+  constructor(
               private empresaServices: EmpresaService,
               private areasServices: AreasService,
               private formatoAService: FormatoAService,
+              private formatoBService: FormatoBService,
+              private formatoEstresService: FormatoEstresService,
+              private formatoExtraService: FormatoExtraService,
               private empleadosService: EmpleadosService,
               private fb: FormBuilder,
               private router: Router,
@@ -241,10 +246,10 @@ export class FormEmpleadosLComponent implements OnInit {
           }else{
             this.userformFormaB.value.inbidempleado = data.emdid;
             this.userformFormaB.value.inbatencionausuarios = 2;
-            this.pruebaservices.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
+            this.formatoBService.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
           }
-          this.pruebaservices.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
-          this.pruebaservices.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
+          this.formatoExtraService.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
+          this.formatoEstresService.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {

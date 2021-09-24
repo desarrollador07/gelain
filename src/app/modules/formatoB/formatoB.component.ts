@@ -10,6 +10,7 @@ import {MenuItem} from 'primeng/api';
 import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { FormatoB } from '../../models/formatoB.model';
+import { FormatoBService } from 'src/app/services/formato-b.service';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class FormatoBComponent implements OnInit {
   datosEmpleado:any;
   cedula:any;
   nombre:any;
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
+  constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
                 this.datosEmpleado = localStorage.getItem("IdEmpleado");
                 this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
@@ -53,7 +54,7 @@ export class FormatoBComponent implements OnInit {
 
     this.getFormulario();
 
-    await  this.pruebaservices.buscarByFb(this.idl).toPromise().then((data:any)=>{
+    await  this.formatoBService.buscarByFb(this.idl).toPromise().then((data:any)=>{
         console.log('buscando data:',data);
         this.localPrueba = data[0];
         console.log('localDataaaa',this.localPrueba);
@@ -682,15 +683,12 @@ export class FormatoBComponent implements OnInit {
     if(this.userform.valid){       
      if(this.localPrueba !== null){
  
-        console.log("voy a actualizarA");
         this.idd = this.localPrueba.inbid;
-        this.pruebaservices.updateFormatoB(this.userform.value,this.idd)
+        this.formatoBService.updateFormatoB(this.userform.value,this.idd)
         .subscribe((data: any) =>{
-         
-
+        
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
-          console.log("idd",this.idd);
           
         setTimeout(() => {
           this.router.navigate(["/main/addExtralaboral/editar"]);

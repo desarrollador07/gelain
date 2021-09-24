@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
 import { Empleado } from '../../models/empleado.mdel';
-import {MessageService, ConfirmationService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
-import { style } from '@angular/animations';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoAService } from 'src/app/services/formato-a.service';
+import { FormatoBService } from 'src/app/services/formato-b.service';
+import { FormatoEstresService } from 'src/app/services/formato-estres.service';
+import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 
 
 
@@ -57,7 +57,10 @@ export class FormEmpleadosComponent implements OnInit {
   constructor(private pruebaservices: PruebaService,
               private empresaServices: EmpresaService,
               private formatoAService: FormatoAService,
+              private formatoBService: FormatoBService,
               private empleadosService: EmpleadosService,
+              private formatoEstresService: FormatoEstresService,
+              private formatoExtraService: FormatoExtraService,
               private areasServices: AreasService,
               private fb: FormBuilder,
               private router: Router,
@@ -288,14 +291,14 @@ export class FormEmpleadosComponent implements OnInit {
           }else{
             this.userformFormaB.value.inbidempleado = data.emdid;
             this.userformFormaB.value.inbatencionausuarios = 2;
-            this.pruebaservices.createFormatoB(this.userformFormaB.value)
+            this.formatoBService.createFormatoB(this.userformFormaB.value)
             .subscribe((data:any)=>{
             })
           }
-       this.pruebaservices.createExtra(this.userformExtra.value)
+       this.formatoExtraService.createExtra(this.userformExtra.value)
         .subscribe((data:any)=>{
         })
-        this.pruebaservices.createEstres(this.userformEstres.value)
+        this.formatoEstresService.createEstres(this.userformEstres.value)
         .subscribe((data:any)=>{
 
         })

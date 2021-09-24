@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
-import {MessageService, ConfirmationService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
+import { MenuItem } from 'primeng/api';
 import { SelectItem } from 'primeng/api';
-import { Estres } from '../../models/estres.nodel';
 import { Extralaboral } from 'src/app/models/extralaboral.model';
 import { Empleado } from '../../models/empleado.mdel';
+import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 
 
 @Component({
@@ -34,8 +30,12 @@ export class ExtralaboralLComponent implements OnInit {
   forrrEx:Extralaboral;
   idem:number = 0;
  
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) {  
+  constructor(
+              private formatoExtraService: FormatoExtraService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));  
 
   }
@@ -87,12 +87,9 @@ export class ExtralaboralLComponent implements OnInit {
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
     console.log(this.idl);
     
-    await this.pruebaservices.buscarExtra((this.idl)).toPromise().then((data:any)=>{
-        console.log('buscando data:',data);
+    await this.formatoExtraService.buscarExtra((this.idl)).toPromise().then((data:any)=>{
         this.localPrueba = data[0];
-        console.log('localDataaaa',this.localPrueba);
-        
-      })
+    });
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });
@@ -255,9 +252,9 @@ export class ExtralaboralLComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){
       if(this.localPrueba !== null){
-          console.log("voy a actualizar");
+
           this.idd = this.localPrueba.extid; 
-          this.pruebaservices.updateExtra(this.userform.value,this.idd)
+          this.formatoExtraService.updateExtra(this.userform.value,this.idd)
           .subscribe((data: any) =>{
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
