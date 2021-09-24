@@ -1,17 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
-import {MessageService, ConfirmationService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
+import { MenuItem } from 'primeng/api';
 import { SelectItem } from 'primeng/api';
 import { FormatoA } from '../../models/formatoAmodel';
-import { async } from '@angular/core/testing';
-import { Empleado } from '../../models/empleado.mdel';
+import { FormatoAService } from 'src/app/services/formato-a.service';
 
 
 @Component({
@@ -37,8 +32,12 @@ export class FormatoALComponent implements OnInit {
   formuA:FormatoA;
   idem:number = 0;
  
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) {
+  constructor(
+              private formatoAService: FormatoAService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService) {
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));  
   }
 
@@ -183,7 +182,7 @@ export class FormatoALComponent implements OnInit {
     
 
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    await  this.pruebaservices.buscarByFa(this.idl).toPromise().then((data:any)=>{
+    await  this.formatoAService.buscarByFa(this.idl).toPromise().then((data:any)=>{
         this.localPrueba = data[0]; 
     });
 
@@ -682,7 +681,7 @@ export class FormatoALComponent implements OnInit {
      if(this.userform.valid){       
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.inaid;
-          this.pruebaservices.updateFormatoA(this.userform.value,this.idd).subscribe((data: any) =>{
+          this.formatoAService.updateFormatoA(this.userform.value,this.idd).subscribe((data: any) =>{
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
             setTimeout(() => {

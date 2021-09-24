@@ -8,6 +8,8 @@ import { Empresa } from 'src/app/models/empresa.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { EmpleadosService } from 'src/app/services/empleados.service';
+import { FormatoAService } from 'src/app/services/formato-a.service';
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',
@@ -21,6 +23,8 @@ export class EmpleadosComponent implements OnInit {
   empresas: Empresa[] = [];
 
   constructor(private pruebaServices:PruebaService,
+              private empleadosService: EmpleadosService,
+              private formatoAService: FormatoAService,
               private empresaServices:EmpresaService,
               private router: Router,
               private _confirmationServices: ConfirmationService,
@@ -66,7 +70,7 @@ export class EmpleadosComponent implements OnInit {
       icon:'pi pi-exclamation-triangle',
       accept:async() => {
 
-        await this.pruebaServices.deletePrueba(empleado).toPromise().then(data => {
+        await this.empleadosService.deletePrueba(empleado).toPromise().then(data => {
 
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000});
           this.empleadoData = this.empleadoData.filter(r => r !== empleado);
@@ -81,7 +85,7 @@ export class EmpleadosComponent implements OnInit {
       editPrueba(cpruebas:Empleado){
         localStorage.setItem('prueba',JSON.stringify(cpruebas));
         localStorage.setItem('IdEmpleado',JSON.stringify(cpruebas.emdid));
-        this.pruebaServices.buscarByFa(cpruebas.emdid)
+        this.formatoAService.buscarByFa(cpruebas.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('ForA',JSON.stringify(data));
         })
@@ -100,7 +104,7 @@ export class EmpleadosComponent implements OnInit {
       }
     
     async consultaEmpleados(id:number){
-      await this.pruebaServices.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
+      await this.empleadosService.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
         this.empleadoData = data;
         this.empleadoData.map(res=>{
           this.empresas.map(x=>{

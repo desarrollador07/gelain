@@ -5,9 +5,7 @@ import { Router } from "@angular/router";
 import { ConfirmationService, MessageService } from "primeng/api";
 import { PruebaService } from '../../services/prueba.service';
 import { User } from '../../models/user';
-import { Store } from "@ngrx/store";
-import { AppState } from "src/app/app.reducer";
-import * as empresasActions from "../../store/actions/empresa.actions";
+
 
 
 @Component({

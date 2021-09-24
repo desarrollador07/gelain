@@ -11,6 +11,7 @@ import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Area } from '../../models/area.model';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { AreasService } from 'src/app/services/areas.service';
 
 
 @Component({
@@ -19,23 +20,18 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./form-prueba.component.css']
 })
 export class FormPruebaComponent implements OnInit {
+  
   localIDEmp: number;
   localIDEmp2: number;
   prueba: Area;
-
   pruebas: Area[] = [];
-
   items1: MenuItem[];
-
   items2: MenuItem[];
-
   activeItem: MenuItem;
-
   userformArea: FormGroup;
   localPrueba: Empresa = {};
   localPruebaA: Area = {};
   userform: FormGroup;
-
   es: any;
   id: number;
   idd: any;
@@ -48,8 +44,9 @@ export class FormPruebaComponent implements OnInit {
   linkformulario:any;
   linkformulario2:any;
  
-  constructor(private pruebaservices: PruebaService,
+  constructor(
               private empresaServices: EmpresaService,
+              private areasServices: AreasService,
               private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
@@ -70,18 +67,20 @@ export class FormPruebaComponent implements OnInit {
     this.linkformulario2 = "http://localhost:4200/#/consentimiento-vf/"+this.localIDEmp;
     // this.linkformulario2="https://gelainbienestarlaboral.com/GELAIN/ng/#/consentimiento-vf/"+this.localIDEmp;
     //this.linkformulario2="https://gelainbienestarlaboral.com/GELAIN/ng2/#/consentimiento-vf/"+this.localIDEmp;
-    this.indexData();
-
+    
+    if(this.localIDEmp !== null){
+      this.indexData();
+    }
+    
     this.items1 = [
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
       {label: 'Areas', icon: 'fa fa-fw fa-book'},
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
-  ];
+    ];
 
     this.localPruebaA =JSON.parse(localStorage.getItem('pruebaArea'));
     this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
     //console.log('f',this.localPrueba);
-
 
     this.userform = this.fb.group({
       empid:[''],
@@ -95,8 +94,7 @@ export class FormPruebaComponent implements OnInit {
       empactiva: ['', Validators.required],
       empfechaini: [''],
       //emparea:['', Validators.required],
-
-    })
+    });
 
     this.userformArea = this.fb.group({
       areid:[''],
@@ -104,8 +102,7 @@ export class FormPruebaComponent implements OnInit {
       arenombre: ['', Validators.required],
       arefechaini: [today],
       areactivo: ['1'],
-
-  })
+    });
 
   if(this.localPrueba !==null){
     this.userformArea.patchValue({
@@ -113,7 +110,7 @@ export class FormPruebaComponent implements OnInit {
       arenombre:this.localPruebaA.arenombre,
       arefechaini:this.localPruebaA.arefechaini,
       areactivo:this.localPruebaA.areactivo,
-    })
+    });
   }
 
     this.estado = [];
@@ -136,7 +133,7 @@ export class FormPruebaComponent implements OnInit {
         empactiva:this.localPrueba.empactiva,
         empfechaini:this.localPrueba.empfechaini,
         //emparea:this.localPrueba.emparea
-      })
+      });
     }
   }
 
@@ -214,7 +211,7 @@ export class FormPruebaComponent implements OnInit {
     if(this.userformArea.valid){
 
         this.userformArea.value.areempresa = this.localIDEmp2;
-        this.pruebaservices.createArea(this.userformArea.value)
+        this.areasServices.createArea(this.userformArea.value)
         .subscribe((data=>{
           console.log(data);
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
@@ -237,7 +234,7 @@ export class FormPruebaComponent implements OnInit {
   async buscarArea(){
     this.area =[];
     if (this.localPrueba !== null) {
-      await this.pruebaservices.buscarByArea(this.localPrueba.empid).toPromise().then((data:any)=>{
+      await this.areasServices.buscarByArea(this.localPrueba.empid).toPromise().then((data:any)=>{
         this.area = data;
         for (let i = 0; i < this.area.length; i++) {  
           this.values2.push(this.area[i].arenombre);
@@ -256,7 +253,7 @@ export class FormPruebaComponent implements OnInit {
       header:'confirmacion',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        this.pruebaservices.deleteArea(prueba)
+        this.areasServices.deleteArea(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
           this.indexData();
@@ -283,8 +280,7 @@ export class FormPruebaComponent implements OnInit {
   }
 
   indexData(){
-    this.pruebaservices
-    .buscarByArea(this.localIDEmp).subscribe((data: any)=>{
+    this.areasServices.buscarByArea(this.localIDEmp).subscribe((data: any)=>{
       this.pruebas = data;
     });
   }

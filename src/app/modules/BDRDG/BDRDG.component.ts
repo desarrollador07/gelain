@@ -8,6 +8,8 @@ import { Area } from '../../models/area.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { AreasService } from 'src/app/services/areas.service';
+import { EmpleadosService } from 'src/app/services/empleados.service';
 
 @Component({
   selector: 'app-empleados',
@@ -40,8 +42,10 @@ export class BDRDGComponent implements OnInit {
    image = new Image();
   
 
-  constructor(private pruebaServices:PruebaService,
+  constructor(
+              private empleadosService: EmpleadosService,
               private empresaServices:EmpresaService,
+              private areasServices:AreasService,
               private store: Store<AppState>) {
                 this.idEmpresa = localStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
@@ -72,7 +76,7 @@ export class BDRDGComponent implements OnInit {
 
   async consultaEmpleados(id:number){
 
-      await this.pruebaServices
+      await this.empleadosService
       .buscarByEmpleadosRepor(id).toPromise().then((data: any)=>{
        
         this.pruebas = data;
@@ -92,25 +96,24 @@ export class BDRDGComponent implements OnInit {
 
       buscarArea(cpruebas:Empleado){
         this.area =[];
-        this.pruebaServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
+        this.areasServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
           this.areas = data;
           this.areas.map(x=>{
             this.area.push({
               label:x.arenombre,
               value: x.areid
-            })
-          })
-        })
+            });
+          });
+        });
       }
 
       indexData(){
          this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
           this.empresas = data;
-        })
+        });
     
-         this.pruebaServices
-        .getPrueba().toPromise().then((data: any)=>{
-          this.pruebas = [...data];
+         this.empleadosService.getPrueba().toPromise().then((data: any)=>{
+          this.pruebas = data;
           this.pruebas.map(res=>{
             this.empresas.map(x=>{
             if (res.emdempresa === x.empid) {
@@ -118,9 +121,9 @@ export class BDRDGComponent implements OnInit {
               res.ciudadEmpresa = x.empciudad;
               res.DepartamentoEmpresa = x.empdepartamento;
             }
-            })
-          })
-      })
+            });
+          });
+      });
     }
 
 

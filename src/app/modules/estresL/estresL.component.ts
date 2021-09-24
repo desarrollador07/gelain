@@ -10,6 +10,7 @@ import {MenuItem} from 'primeng/api';
 import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { Estres } from '../../models/estres.nodel';
+import { EmpleadosService } from 'src/app/services/empleados.service';
 
 
 @Component({
@@ -30,8 +31,12 @@ export class EstresLComponent implements OnInit {
   activeIndex: number = 1;
   forrr:any[]=[];
   forrrEs:Estres;
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) {  
+  constructor(private pruebaservices: PruebaService,
+              private empleadosService: EmpleadosService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService) {  
 
   }
 
@@ -248,14 +253,13 @@ export class EstresLComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){
       if(this.localPrueba !== null){
-          console.log("voy a actualizar");
           this.idd = this.localPrueba.estid;
           this.pruebaservices.updateEstres(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-            this.pruebaservices.updateEstado(this.idl).subscribe((data=>{
-              console.log('modificado',data);
-            }))
-            console.log(data);
+            this.empleadosService.updateEstado(this.idl).subscribe((data=>{
+
+            }));
+
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['FinalFormularios']);

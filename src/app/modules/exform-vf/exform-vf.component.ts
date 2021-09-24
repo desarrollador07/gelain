@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { SelectItem, MessageService } from 'primeng/api';
 import { Area } from 'src/app/models/area.model';
 import { Empresa } from 'src/app/models/empresa.model';
+import { AreasService } from 'src/app/services/areas.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
-import { PruebaService } from 'src/app/services/prueba.service';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 
 @Component({
@@ -23,8 +23,9 @@ export class ExformVfComponent implements OnInit {
   sexo: SelectItem[] = [];
   selectvafc1: SelectItem[] = [];
   
-  constructor(private pruebaservices: PruebaService,
+  constructor(
               private empresaServices: EmpresaService,
+              private areasServices: AreasService,
               private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
               private router: Router,
@@ -169,7 +170,7 @@ export class ExformVfComponent implements OnInit {
 
   async buscarArea(){
     this.area =[];
-      this.pruebaservices.buscarByArea(this.userform.value.vafidempresa).toPromise().then((data:any)=>{
+      this.areasServices.buscarByArea(this.userform.value.vafidempresa).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
           this.area.push({

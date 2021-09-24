@@ -4,6 +4,7 @@ import { Area } from '../../models/area.model';
 import { PruebaService } from '../../services/prueba.service';
 import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
 import {MenuItem} from 'primeng/api';
+import { AreasService } from 'src/app/services/areas.service';
 @Component({
   selector: 'app-empleados',
   templateUrl: './area.component.html',
@@ -18,7 +19,8 @@ export class AreaComponent implements OnInit {
   items2: MenuItem[];
   activeItem: MenuItem;
 
-  constructor(private pruebaServices:PruebaService,private router: Router,
+  constructor(private areasServices:AreasService,
+              private router: Router,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService) {
 
@@ -43,8 +45,7 @@ export class AreaComponent implements OnInit {
       header:'Confirmación',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        this.pruebaServices.deleteArea(prueba)
-        .toPromise().then(data => {
+        this.areasServices.deleteArea(prueba).toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro eliminado', life: 3000})
           this.indexData();
         });
@@ -63,9 +64,8 @@ export class AreaComponent implements OnInit {
       }
 
       indexData(){
-        this.pruebaServices
-        .buscarByArea(this.localIDEmp).subscribe((data: any)=>{
-          this.pruebas = [...data];
+        this.areasServices.buscarByArea(this.localIDEmp).subscribe((data: any)=>{
+          this.pruebas = data;
         });
       }
   

@@ -3,15 +3,13 @@ import {Validators,FormGroup,FormBuilder} from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
 import {MessageService, ConfirmationService} from 'primeng/api';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
 import { SelectItem } from 'primeng/api';
 import { FormatoA } from '../../models/formatoAmodel';
-import { async } from '@angular/core/testing';
-import { Empleado } from '../../models/empleado.mdel';
+import { FormatoAService } from 'src/app/services/formato-a.service';
+
 
 
 @Component({
@@ -38,8 +36,12 @@ export class FormatoAComponent implements OnInit {
   nombre:any;
 
  
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) {
+  constructor(private pruebaservices: PruebaService,
+              private formatoAService: FormatoAService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService) {
                 this.datosEmpleado = localStorage.getItem("IdEmpleado");
                 this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
 
@@ -50,16 +52,11 @@ export class FormatoAComponent implements OnInit {
     this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
       this.cedula = data[0].emdcedula;
       this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
-      console.log("cedula",this.cedula);
-      console.log("nombre",this.nombre);
-      
-    })
+    });
     this.getFormulario();
-   await this.pruebaservices.buscarByFa(this.idl).toPromise().then((data:any)=>{
+    await this.formatoAService.buscarByFa(this.idl).toPromise().then((data:any)=>{
       this.localPrueba = data[0];
-      console.log("los datos",this.localPrueba);
-     
-    })
+    });
      this.getFormulario();
     
     this.a1 = [];
@@ -546,17 +543,15 @@ getFormulario(){
  onSubmit(){
      if(this.userform.valid){       
       if(this.localPrueba !== null){
-          console.log("voy a actualizar");
           this.idd = this.localPrueba.inaid;
-          this.pruebaservices.updateFormatoA(this.userform.value,this.idd)
+          this.formatoAService.updateFormatoA(this.userform.value,this.idd)
           .subscribe((data: any) =>{
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
             this.userform.reset();
-            console.log("idd",this.idd);
             setTimeout(() => {
               this.router.navigate(["/main/addExtralaboral/editar"]);
             }, 1000);
-          })
+          });
       }
       
     }else{

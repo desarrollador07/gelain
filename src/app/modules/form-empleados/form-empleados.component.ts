@@ -13,6 +13,9 @@ import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
 import { style } from '@angular/animations';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { AreasService } from 'src/app/services/areas.service';
+import { EmpleadosService } from 'src/app/services/empleados.service';
+import { FormatoAService } from 'src/app/services/formato-a.service';
 
 
 
@@ -53,6 +56,9 @@ export class FormEmpleadosComponent implements OnInit {
   idEmpresa:number;
   constructor(private pruebaservices: PruebaService,
               private empresaServices: EmpresaService,
+              private formatoAService: FormatoAService,
+              private empleadosService: EmpleadosService,
+              private areasServices: AreasService,
               private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
@@ -250,7 +256,7 @@ export class FormEmpleadosComponent implements OnInit {
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
         this.idd = this.localPrueba.emdid;
-        this.pruebaservices.updatePrueba(this.userform.value,this.idd).subscribe((data: any) =>{
+        this.empleadosService.updatePrueba(this.userform.value,this.idd).subscribe((data: any) =>{
 
           localStorage.setItem('prueba',JSON.stringify(data));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
@@ -266,7 +272,7 @@ export class FormEmpleadosComponent implements OnInit {
         /*Creación*/
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        this.pruebaservices.createPrueba(this.userform.value).subscribe((data=>{
+        this.empleadosService.createPrueba(this.userform.value).subscribe((data=>{
 
           localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
           localStorage.setItem('prueba',JSON.stringify(data));
@@ -276,7 +282,7 @@ export class FormEmpleadosComponent implements OnInit {
             this.userformFormaA.value.inaidempleado = data.emdid;
             this.userformFormaA.value.inaatencionausuarios = 2;
             this.userformFormaA.value.inasoyjefe = 2;
-            this.pruebaservices.createFormatoA(this.userformFormaA.value)
+            this.formatoAService.createFormatoA(this.userformFormaA.value)
         .subscribe((data:any)=>{
         })
           }else{
@@ -323,7 +329,7 @@ export class FormEmpleadosComponent implements OnInit {
  
     this.area =[];
     if (this.localPrueba !== null) {
-     await this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
+     await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{    
           this.area.push({
@@ -344,7 +350,7 @@ export class FormEmpleadosComponent implements OnInit {
           });
         }
       });
-      await this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
+      await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
           this.area.push({

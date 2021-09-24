@@ -11,6 +11,7 @@ import { Area } from '../../models/area.model';
 import { ValorFisico } from '../../models/valorFisico.model';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
+import { AreasService } from 'src/app/services/areas.service';
 
 
 
@@ -32,7 +33,7 @@ export class FormValorFisicoComponent implements OnInit {
   idEmpresa:number;
  
   
-  constructor(private pruebaservices: PruebaService,
+  constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
               private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
@@ -215,7 +216,7 @@ export class FormValorFisicoComponent implements OnInit {
   async buscarArea(){
     const id = this.userform.value.vafidempresa;
     this.area =[];
-      this.pruebaservices.buscarByArea(id).toPromise().then((data:any)=>{
+      this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
         this.areas = data;
         this.areas.map(x=>{
           this.area.push({

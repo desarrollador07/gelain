@@ -46,10 +46,7 @@ export class ExtralaboralComponent implements OnInit {
     this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
       this.cedula = data[0].emdcedula;
       this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
-      console.log("cedula",this.cedula);
-      console.log("nombre",this.nombre);
-      
-    })
+    });
 
     this.userform = this.fb.group({
       extid:[''],

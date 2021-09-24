@@ -9,7 +9,6 @@ import { BreadcrumbService } from '../../breadcrumb.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { style } from '@angular/animations';
 
 
 

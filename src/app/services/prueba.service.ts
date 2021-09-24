@@ -16,26 +16,6 @@ import { environment } from 'src/environments/environment';
 export class PruebaService {
 
   apiUrl:string = environment.urlGlobal;
-  Url1 = `${this.apiUrl}/lv/public/allEmpleados`;
-  Url2 = `${this.apiUrl}/lv/public/createEmpleados`;
-  Url3 = `${this.apiUrl}/lv/public/updateEmpleados`;
-  Url4 = `${this.apiUrl}/lv/public/deleteEmpleados`;
-  Url5 = `${this.apiUrl}/lv/public/getid`;
-  Url6 = `${this.apiUrl}/lv/public/allEmpleadosReportes`;
-  Url7 = `${this.apiUrl}/lv/public/updateEstado`;
-
-  Url1pa = `${this.apiUrl}/lv/public/allArea`;
-  Url2pa = `${this.apiUrl}/lv/public/createArea`;
-  Url3pa = `${this.apiUrl}/lv/public/updateArea`;
-  Url4pa = `${this.apiUrl}/lv/public/deleteArea`;
-  Url5pa = `${this.apiUrl}/lv/public/getideArea`;
-  Url6pa = `${this.apiUrl}/lv/public/getideAreaUnica`;
-
-  Url1fa = `${this.apiUrl}/lv/public/allformatoA`;
-  Url2fa = `${this.apiUrl}/lv/public/createformatoA`;
-  Url3fa = `${this.apiUrl}/lv/public/updateformatoA`;
-  Url4fa = `${this.apiUrl}/lv/public/deleteformatoA`;
-  Url5fa = `${this.apiUrl}/lv/public/getideForA`;
 
   Url1fb = `${this.apiUrl}/lv/public/allformatoB`;
   Url2fb = `${this.apiUrl}/lv/public/createformatoB`;
@@ -103,77 +83,6 @@ export class PruebaService {
     return this.http.post(this.UrlLogin, user).toPromise();
   }
 
-  getPrueba(){
-    return this.http.get(this.Url1);
-  }
-
-  deletePrueba(prueba: Empleado){
-    return this.http.delete<Empleado>(this.Url4+"/"+prueba.emdid);
-  }
-
-  createPrueba(prueba: Empleado){
-    return this.http.post<Empleado>(this.Url2,prueba);
-  }
-
-  updatePrueba(prueba: Empleado,id:String){
-    return this.http.put<Empleado>(this.Url3 + "/" + id,prueba);
-  }
-
-  buscarByEmpleados(id:number){
-    return this.http.get(this.Url5 + "/" + id);
-  }
-  buscarByEmpleadosRepor(id:number){
-    return this.http.get(this.Url6+ "/" + id);
-  }
-
-  updateEstado(id:number){
-    return this.http.get(this.Url7+ "/" + id);
-  }
-
-  getArea(){
-    return this.http.get(this.Url1pa);
-  }
-
-  deleteArea(prueba: Area){
-    return this.http.delete<Area>(this.Url4pa+"/"+prueba.areid);
-  }
-
-  createArea(prueba: Area){
-    return this.http.post<Area>(this.Url2pa,prueba);
-  }
-
-  updateArea(prueba: Area,id:number){
-    return this.http.put<Area>(this.Url3pa + "/" + id,prueba);
-  }
-
- buscarByArea(id:number){
-    return this.http.get(this.Url5pa + "/" + id);
-  }
-
-  buscarByAreaExpecifica(idE:number,id:number){
-    return this.http.get(this.Url6pa + "/" + idE+"/"+id);
-  }
-
-  getFormatoA(){
-    return this.http.get(this.Url1fa);
-  }
-
-  deleteFormatoA(prueba: FormatoA){
-    return this.http.delete<FormatoA>(this.Url4fa+"/"+prueba.inaid);
-  }
-
-  createFormatoA(prueba: FormatoA){
-    return this.http.post<FormatoA>(this.Url2fa,prueba);
-  }
-
-  updateFormatoA(prueba: FormatoA,id:String){
-    return this.http.put<FormatoA>(this.Url3fa + "/" + id,prueba);
-  }
-  buscarByFa(id:number){
-    return this.http.get(this.Url5fa + "/" + id);
-  }
-
-  
   getFormatoB(){
     return this.http.get(this.Url1fb);
   }

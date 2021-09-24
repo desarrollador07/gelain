@@ -8,6 +8,7 @@ import {MessageService, ConfirmationService} from 'primeng/api';
 import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 import { routes } from '../../app.routes';
+import { AreasService } from 'src/app/services/areas.service';
 
 
 @Component({
@@ -25,8 +26,12 @@ export class FormAreaComponent implements OnInit {
  
 
  
-  constructor(private pruebaservices: PruebaService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) { 
+  constructor(
+              private areasServices: AreasService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
     console.log(this.id);
   }
@@ -60,26 +65,20 @@ export class FormAreaComponent implements OnInit {
  onSubmit(){
      if(this.userform.valid){
       if(this.localPrueba !== null){
-        console.log("voy a actualizar");
         this.idd = this.localPrueba.areid;
-        this.pruebaservices.updateArea(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          console.log(data);
+        this.areasServices.updateArea(this.userform.value,this.idd).subscribe((data: any) =>{
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
           this.router.navigate(["/main/listarEmpresa"]);
-        })
+        });
       }else{
-        console.log("voy a crear");
         this.userform.value.areempresa = this.localIDEmp;
-        this.pruebaservices.createArea(this.userform.value)
-        .subscribe((data=>{
-          console.log(data);
+        this.areasServices.createArea(this.userform.value).subscribe((data=>{
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
           this.userform.reset();
           this.router.navigate(["/main/listarEmpresa"]);
           
-        }))
+        }));
       }
       
     }else{
