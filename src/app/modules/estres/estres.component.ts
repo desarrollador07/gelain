@@ -43,88 +43,21 @@ export class EstresComponent implements OnInit {
               private route: ActivatedRoute,
               private _messageService: MessageService) {  
                 this.datosEmpleado = localStorage.getItem("IdEmpleado");
+                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
- async ngOnInit() {
+  async ngOnInit() {
 
-  this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
-    this.cedula = data[0].emdcedula;
-    this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
-    console.log("cedula",this.cedula);
-    console.log("nombre",this.nombre);
-    
-  })
+    /*Consulta Empleado por Id */
+    this.consultaEmpledoId();
+    /*Formulario */
+    this.form();
+    /*Consulta Estres */
+    await this.consultaEstres();
+    /*Consulta seleccionables */
+    this.select();
 
-
-    this.userform = this.fb.group({
-      estid:[''],
-      estidempleado:[Number(this.idl)],
-      estdolorcuello:['', Validators.required],
-      estprobgastrico:['', Validators.required],
-      estprobrespira:['', Validators.required],
-      estdolorcabeza:['', Validators.required],
-      esttrastsueno:['', Validators.required],
-      estpalpitacion:['', Validators.required],
-      estcamapetito:['', Validators.required],
-      estprobgenital:['', Validators.required],
-      estdiffamiliar:['', Validators.required],
-      estdifquieto:['', Validators.required],
-      estdifpersonas:['', Validators.required],
-      estsensaislami:['', Validators.required],
-      estsobrecarga:['', Validators.required],
-      estdifconcentrar:['', Validators.required],
-      estaumentaccid:['', Validators.required],
-      estsentfrustra:['', Validators.required],
-      estcansancio:['', Validators.required],
-      estdismrendimie:['', Validators.required],
-      estdeseonotrab:['', Validators.required],
-      estpocointeres:['', Validators.required],
-      estdifdecisiones:['', Validators.required],
-      estcambioempleo:['', Validators.required],
-      estsentisoledad:['', Validators.required],
-      estsentinegativo:['', Validators.required],
-      estsetangpretris:['', Validators.required],
-      estconsdrogas:['', Validators.required],
-      estsentinosirve:['', Validators.required],
-      estconsucigarri:['', Validators.required],
-      estperdirazon:['', Validators.required],
-      estcomprigido:['', Validators.required],
-      estsensproblem:['', Validators.required],
-/*       estfechareg:[''],
-      estfechamod:[''], */
-      estusuarioreg:['']
-
-    })
-
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    await  this.formatoEstresService.buscarByEstres(this.idl).toPromise().then((data:any)=>{
-        this.localPrueba = data[0]; 
-    });
-
-    this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: '' });
-    this.a1.push({ label: 'Siempre', value: '9' });
-    this.a1.push({ label: 'Casi Siempre', value: '6' });
-    this.a1.push({ label: 'A Veces', value: '3' });
-    this.a1.push({ label: 'Nunca', value: '0' });
-
-    this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: '' });
-    this.a11.push({ label: 'Siempre', value: '6' });
-    this.a11.push({ label: 'Casi Siempre', value: '4' });
-    this.a11.push({ label: 'A Veces', value: '2' });
-    this.a11.push({ label: 'Nunca', value: '0' });
-
-    this.a12 = [];
-    this.a12.push({ label: 'Seleccione...', value: '' });
-    this.a12.push({ label: 'Siempre', value: '3' });
-    this.a12.push({ label: 'Casi Siempre', value: '2' });
-    this.a12.push({ label: 'A Veces', value: '1' });
-    this.a12.push({ label: 'Nunca', value: '0' });
-
-
-
-     if(this.localPrueba !==null){
+    if(this.localPrueba !==null){
       this.userform.patchValue({
         estidempleado:this.localPrueba.estidempleado,
         estdolorcuello:this.localPrueba.estdolorcuello,
@@ -159,7 +92,7 @@ export class EstresComponent implements OnInit {
         estcomprigido:this.localPrueba.estcomprigido,
         estsensproblem:this.localPrueba.estsensproblem,
         estusuarioreg:this.localPrueba.estusuarioreg
-      })
+      });
     } 
   };
 
@@ -281,6 +214,85 @@ export class EstresComponent implements OnInit {
       this.router.navigate(['/main/empleado']);
       
     } 
+  }
+
+  form(){
+    this.userform = this.fb.group({
+      estid:[''],
+      estidempleado:[Number(this.idl)],
+      estdolorcuello:['', Validators.required],
+      estprobgastrico:['', Validators.required],
+      estprobrespira:['', Validators.required],
+      estdolorcabeza:['', Validators.required],
+      esttrastsueno:['', Validators.required],
+      estpalpitacion:['', Validators.required],
+      estcamapetito:['', Validators.required],
+      estprobgenital:['', Validators.required],
+      estdiffamiliar:['', Validators.required],
+      estdifquieto:['', Validators.required],
+      estdifpersonas:['', Validators.required],
+      estsensaislami:['', Validators.required],
+      estsobrecarga:['', Validators.required],
+      estdifconcentrar:['', Validators.required],
+      estaumentaccid:['', Validators.required],
+      estsentfrustra:['', Validators.required],
+      estcansancio:['', Validators.required],
+      estdismrendimie:['', Validators.required],
+      estdeseonotrab:['', Validators.required],
+      estpocointeres:['', Validators.required],
+      estdifdecisiones:['', Validators.required],
+      estcambioempleo:['', Validators.required],
+      estsentisoledad:['', Validators.required],
+      estsentinegativo:['', Validators.required],
+      estsetangpretris:['', Validators.required],
+      estconsdrogas:['', Validators.required],
+      estsentinosirve:['', Validators.required],
+      estconsucigarri:['', Validators.required],
+      estperdirazon:['', Validators.required],
+      estcomprigido:['', Validators.required],
+      estsensproblem:['', Validators.required],
+      /*       estfechareg:[''],
+      estfechamod:[''], */
+      estusuarioreg:['']
+
+    });
+
+  }
+
+  select(){
+    this.a1 = [];
+    this.a1.push({ label: 'Seleccione...', value: '' });
+    this.a1.push({ label: 'Siempre', value: '9' });
+    this.a1.push({ label: 'Casi Siempre', value: '6' });
+    this.a1.push({ label: 'A Veces', value: '3' });
+    this.a1.push({ label: 'Nunca', value: '0' });
+
+    this.a11 = [];
+    this.a11.push({ label: 'Seleccione...', value: '' });
+    this.a11.push({ label: 'Siempre', value: '6' });
+    this.a11.push({ label: 'Casi Siempre', value: '4' });
+    this.a11.push({ label: 'A Veces', value: '2' });
+    this.a11.push({ label: 'Nunca', value: '0' });
+
+    this.a12 = [];
+    this.a12.push({ label: 'Seleccione...', value: '' });
+    this.a12.push({ label: 'Siempre', value: '3' });
+    this.a12.push({ label: 'Casi Siempre', value: '2' });
+    this.a12.push({ label: 'A Veces', value: '1' });
+    this.a12.push({ label: 'Nunca', value: '0' });
+  }
+
+  async consultaEstres(){
+    await  this.formatoEstresService.buscarByEstres(this.idl).toPromise().then((data:any)=>{
+      this.localPrueba = data[0]; 
+    });
+  }
+
+  consultaEmpledoId(){
+    this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
+      this.cedula = data[0].emdcedula;
+      this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
+    });
   }
 
   salir(){

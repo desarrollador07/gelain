@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Empleado } from '../../models/empleado.mdel';
 import { PruebaService } from '../../services/prueba.service';
 import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 import { Store } from '@ngrx/store';

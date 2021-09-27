@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { CurrencyPipe, DeprecatedCurrencyPipe } from "@angular/common";
+import { Component, OnInit } from "@angular/core";
 import { SelectItem } from 'primeng/api';
 import { CarService } from '../../demo/service/carservice';
 import { EventService } from '../../demo/service/eventservice';
@@ -9,7 +8,6 @@ import { BreadcrumbService } from '../../breadcrumb.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-
 
 
 @Component({

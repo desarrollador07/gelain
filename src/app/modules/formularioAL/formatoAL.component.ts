@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';

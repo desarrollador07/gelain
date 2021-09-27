@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
-import {MessageService, ConfirmationService} from 'primeng/api';
+import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
+import { MenuItem} from 'primeng/api';
 import { SelectItem } from 'primeng/api';
 import { FormatoB } from '../../models/formatoB.model';
 import { FormatoBService } from 'src/app/services/formato-b.service';

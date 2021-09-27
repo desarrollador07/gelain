@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/primeng';
 import { AppComponent} from './app.component';
 import { Empresa } from './models/empresa.model';
-import { PruebaService } from './services/prueba.service';
 import { AppState } from './app.reducer';
 import { Store } from '@ngrx/store';
 import * as empresasActions from "./store/actions/empresa.actions";

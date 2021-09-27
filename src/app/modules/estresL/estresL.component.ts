@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { ActivatedRoute } from "@angular/router";
-import {MessageService, ConfirmationService} from 'primeng/api';
+import { Validators,FormGroup,FormBuilder } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
+import { MenuItem} from 'primeng/api';
 import { SelectItem } from 'primeng/api';
 import { Estres } from '../../models/estres.nodel';
 import { EmpleadosService } from 'src/app/services/empleados.service';
@@ -33,7 +32,6 @@ export class EstresLComponent implements OnInit {
               private formatoEstresService: FormatoEstresService,
               private fb: FormBuilder,
               private router: Router,
-              private route: ActivatedRoute,
               private _messageService: MessageService) {  
 
   }

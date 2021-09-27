@@ -1,10 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
-import { ActivatedRoute } from "@angular/router";
-import {MessageService, ConfirmationService} from 'primeng/api';
-import { Router } from '@angular/router';
+import { MessageService, ConfirmationService } from 'primeng/api';
 import { ValorFisico } from '../../models/valorFisico.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';

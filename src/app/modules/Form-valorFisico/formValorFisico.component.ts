@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Validators,FormGroup,FormBuilder} from '@angular/forms';
+import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
-import { ActivatedRoute } from "@angular/router";
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 import { SelectItem } from 'primeng/api';

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Area } from '../../models/area.model';
-import { PruebaService } from '../../services/prueba.service';
-import { SelectItem,ConfirmationService,MessageService} from 'primeng/api';
-import {MenuItem} from 'primeng/api';
+import { ConfirmationService,MessageService } from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 import { AreasService } from 'src/app/services/areas.service';
 @Component({
   selector: 'app-empleados',
@@ -20,7 +19,6 @@ export class AreaComponent implements OnInit {
   activeItem: MenuItem;
 
   constructor(private areasServices:AreasService,
-              private router: Router,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService) {
 

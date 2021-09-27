@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Empleado } from '../../models/empleado.mdel';
-import { PruebaService } from '../../services/prueba.service';
-import { SelectItem} from 'primeng/api';
-import {MenuItem} from 'primeng/api';
+import { SelectItem } from 'primeng/api';
+import { MenuItem} from 'primeng/api';
 import { Empresa } from 'src/app/models/empresa.model';
 import { Area } from '../../models/area.model';
 import { AppState } from 'src/app/app.reducer';
@@ -20,19 +19,12 @@ export class BDRDGComponent implements OnInit {
   idEmpresa:any;
   idtemporal:any;
   prueba: Empleado;
-
   pruebas: Empleado[] = [];
-
   pruebas2: Empleado[] = [];
-
   items1: MenuItem[];
-
   items2: MenuItem[];
-
   activeItem: MenuItem;
-
   empresas: Empresa[] = [];
-
   nomempresa:String;
   areaExp:Area;
   area: SelectItem[] = [];
@@ -207,10 +199,7 @@ export class BDRDGComponent implements OnInit {
       'USUARIO QUE REGISTRO': item.emdusuarioreg,
 
               }; 
-  });
-  console.log('ver',arreglado);
-
-      
+  });  
       return arreglado;
   }
 
