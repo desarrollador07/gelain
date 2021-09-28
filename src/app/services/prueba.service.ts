@@ -90,7 +90,7 @@ export class PruebaService {
   getReporteExcelDetallado(id:number){
     return this.http.get(this.UrlReporExcelDetallado+ "/" + id);
   }
-/*   getReporteExcelDetallado(id:number,nom:string){
+  /*   getReporteExcelDetallado(id:number,nom:string){
     return this.http.get(this.UrlReporExcelDetallado+ "/" + id+"/"+nom);
   } */
 

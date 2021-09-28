@@ -28,10 +28,8 @@
                 </div>
             </div>
 
-
-
             <fieldset>
-                <legend><b>FICHA DE VALORACIÓN DE LA CONDICIÓN FÍSICA</b></legend>
+                <legend><b>Ficha De Valoración De La Condición Física</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -51,53 +49,59 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="vafidempresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="vafidempresa" [showClear]="true" placeholder="Empresas"></p-dropdown>  
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidempresa"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas"></p-dropdown>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafsede"  formControlName="vafsede" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Sede</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafsede"></p-message>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCargo" -->
-                            <input formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCargo"></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
                             <!-- [class.is-invalid]="emdSexo"   -->
                             <p-dropdown  [options]="sexo" formControlName="vafsexo"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdSexo"></p-message> -->
                     </div>
+
+                    <div class="ui-g-1"></div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- [class.is-invalid]="emdCiudad"  -->
+                            <input     formControlName="vafedad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Edad</label>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                    </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdFecnacido" -->
-                            <input formControlName="vaffecha" type="text" pInputText> 
-                            <label style="font-size: 15px; ">Fecha (DD-MM-AAAA)</label>
+                            <!-- [class.is-invalid]="emdCiudad"  -->
+                            <input     formControlName="vafgs" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Grupo Sanguineo</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdFecnacido"></p-message> -->
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- [class.is-invalid]="emdCiudad"  -->
+                            <input     formControlName="vafgs" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">RH</label>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- [class.is-invalid]="emdCiudad"  -->
+                            <input formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Ciudad</label>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- [class.is-invalid]="emdCiudad"  -->
+                            <input    formControlName="vafemail" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Correo</label>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -114,23 +118,47 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input     formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Ciudad</label>
+                            <p-dropdown [class.is-invalid]="vafidempresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="vafidempresa" [showClear]="true" placeholder="Empresas"></p-dropdown>  
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidempresa"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input     formControlName="vafedad" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Edad</label>
+                            <!-- [class.is-invalid]="emdCargo" -->
+                            <input formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCargo"></p-message> -->
                     </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="vafsede"  formControlName="vafsede" type="text" pInputText style="text-transform: uppercase;"> 
+                            <label for="float-input" style="font-size: 15px; ">Sede</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafsede"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
                 </div>
-
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- [class.is-invalid]="emdFecnacido" -->
+                            <input formControlName="vaffecha" type="text" pInputText> 
+                            <label style="font-size: 15px; ">Fecha (DD-MM-AAAA)</label>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdFecnacido"></p-message> -->
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
             </fieldset>
             <br>
             <fieldset>
@@ -295,19 +323,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1)¿ Siente que está pasado de peso, obeso o pesa más de lo que debería?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown   [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2)¿ Tiene presión arterial alta o hipertensión?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Tiene presión arterial alta o hipertensión?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -319,7 +335,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3)¿ Le han diagnosticado azúcar en la sangre o diabetes?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Le han diagnosticado azúcar en la sangre o diabetes?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -331,7 +347,19 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4)¿ Tiene alto el colesterol, los triglicéridos o ambos?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Tiene alto el colesterol, los triglicéridos o ambos?</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc14" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -343,7 +371,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5)¿ Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -355,7 +383,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6)¿ Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -367,7 +395,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7)¿ Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Sufre o ha sufrido de trastornos depresivos?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -379,7 +407,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8)¿ Sufre o ha sufrido de trastornos depresivos?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -391,7 +419,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9)¿ Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Ha tenido epilepsia o ataques de convulsiones?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -403,7 +431,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10)¿ Ha tenido epilepsia o ataques de convulsiones?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Ha tenido fracturas, luxaciones, hernias  o esguinces?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -415,7 +443,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11)¿ Ha tenido fracturas, luxaciones, hernias  o esguinces?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -427,7 +455,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12)¿ Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -439,7 +467,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13)¿ Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -451,7 +479,31 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14)¿ Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Ha tenido que ser intervenido quirurgicamente?</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Especifique el motivo de la cirugía :</label></b>
+                    </div>
+                    <div class="ui-g-5">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="vaftestmovhombizq"  maxlength="256" formControlName="vaftestmovhombizq" type="text" pInputText >
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Le han diagnosticado cancer?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -463,7 +515,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15)¿ Ha presentado o presenta actualmente problemas alergicos?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Tiene problemas de coagulación de la sangre?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -475,7 +527,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15 a)¿ Qué tipo de alergía presenta?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -487,7 +539,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16)¿ Ha tenido que ser intervenido quirurgicamente?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Usa corrección visual?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -499,7 +551,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16 a) Especifique el motivo de la cirugía</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Consume algún medicamento bajo formula medica?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -511,91 +563,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17)¿ Ha estado hospitalizado?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17 a) Especifique el motivo de la hospitalización</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18)¿ Le han diagnosticado cancer?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19)¿ Tiene problemas de coagulación de la sangre?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20)¿ Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21)¿ Usa corrección visual?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22)¿ Consume algún medicamento bajo formula medica?</label></b>
-                    </div>
-                    <div class="ui-g-2">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
-                        </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
-                    </div>
-                </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22 a) Si la respuesta anterior es afirmativa. Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Si la respuesta anterior es afirmativa. Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -613,118 +581,158 @@
                     <div class="ui-g-3" style="font-weight: bold;text-align: center; font-size: large;">ENFERMEDAD</div>
                     <div class="ui-g-4" style="font-weight: bold;text-align: center;font-size: large">FAMILIAR QUIEN?</div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input">CANCER</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{cancerSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="cancerSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input">HIPERTENSION ARTERIAL</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{haSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="haSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input" >ASMA</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{asmaSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="asmaSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input" >CARDIOPATIAS</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{cardioSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="cardioSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input" >DIABETES</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{diabetesSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="diabetesSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input" >ALERGIAS</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{alergiaSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="alergiaSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input" >ARTRITIS</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{artritisSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="artritisSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
                         <b><label for="float-input" >ENFERMEDADES MENTALES</label></b>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                        <p><b>Familiares Seleccionados:</b> {{emSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="emSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                    </div>
+                    <div class="ui-g-2" style="margin-top: 18px;">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                        <b><label for="float-input">ENFERMEDADES RENALES</label></b>
+                    </div>
+                    <div class="ui-g-4">
+                        <p><b>Familiares Seleccionados:</b> {{erSelect}}</p>
+                        <p-multiSelect [options]="arrFamSelect" [(ngModel)]="erSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafc1" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                    </div>
+                    <div class="ui-g-2" style="margin-top: 18px;">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>SOLO PARA MUJERES MAYORES DE 40 AÑOS</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez, una mamografía?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -735,15 +743,432 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 5px;">
-                        <b><label for="float-input">ENFERMEDADES RENALES</label></b>
-                    </div>
-                    <div class="ui-g-4">
-                        <input formControlName="vaftestflextronco" type="text" pInputText>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Si la respuesta anterior es afirmativa. Indique la fecha de la última mamografía?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>SOLO PARA HOMBRES MAYORES DE 40 AÑOS</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez,  el examen de prostata?</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Si la respuesta anterior es afirmativa. Se ha realizado el examen de prostata en los últimos 12 meses?</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>DISCAPACIDAD</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia?</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Especifique cuál :</label></b>
+                    </div>
+                    <div class="ui-g-5">
+                        <span class="ui-float-label">
+                            <input  [class.is-invalid]="vaftestmovhombizq"  maxlength="256" formControlName="vaftestmovhombizq" type="text" pInputText >
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <h1>TEST DE AUTOEVALUCIÓN SOBRE ESTILOS DE VIDA: "FANTASTICO"</h1>
+            <h3>Contesta el cuestionario recordando tu vida en el último mes</h3>
+            <fieldset>
+                <legend>
+                    <h1>F <b style="font-size:small;">FAMILIA Y AMIGOS</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo con quién hablar de las cosas que son importantes para mi:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo doy y recibo cariño:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>A <b style="font-size:small;">ACTIVIDAD FÍSICA</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo realizo actividad física (Caminar, subir escalas, trabajo en la casa, hacer el jardín):</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido):</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc3" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>N <b style="font-size:small;">NUTRICIÓN</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi alimentación es balanceada (*):</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">A menudo consumo mucha azúcar o sal o comida chatarra o con mucha grasa:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc4" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Estoy pasado/ a de mi peso ideal  en </label></b>
+                        <input style="width: 10%;" [class.is-invalid]="vaftestmovhombizq" maxlength="3" formControlName="vaftestmovhombizq" type="text" pInputText>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc5" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>T <b style="font-size:small;">TABACO</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo fumo cigarrillos:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc6" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Generalmente fumo 
+                            <input style="width: 10%;" [class.is-invalid]="vaftestmovhombizq" maxlength="3" formControlName="vaftestmovhombizq" type="text" pInputText> cigarrillos por día:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc7" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>A <b style="font-size:small;">ALCOHOL</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi número promedio de tragos (**) por semana es de:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc8" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Bebo más de cuatro tragos en una misma ocasión:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc9" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Manejo el auto despúes de beber alcohol:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc10" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>S <b style="font-size:small;">SUEÑO Y ESTRÉS</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Duermo bien y me siento descansado/a:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento capaz de manejar el estrés o la tensión en mi vida:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me relajo y disfruto mi tiempo libre:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>T <b style="font-size:small;">TIPO DE PERSONALIDAD</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Parece que ando acelerado/a:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc11" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Me siento enojado/a o agresivo/a:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc11" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>I <b style="font-size:small;">INTROSPECCIÓN</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo soy un pensador positivo u optimista:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento tenso/a o apretado/a :</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc11" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento deprimido/a o triste :</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc11" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>C <b style="font-size:small;">CONDUCCIÓN TRABAJO</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Uso siempre el cinturón de seguridad:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento satisfecho/a con mi trabajo o mis actividades:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend>
+                    <h1>O <b style="font-size:small;">OTRAS DROGAS</b></h1>
+                </legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc9" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Uso excesivamente los remedios que me indican o los que puedo comprar sin receta:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc9" formControlName="vafc1" [showClear]="true"></p-dropdown>
+                        </span>
+                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Bebo café, té o bebidas cola que tienen cafeína:</label></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc13" formControlName="vafc1" [showClear]="true"></p-dropdown>
                         </span>
                         <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
@@ -763,8 +1188,6 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafobservaciones"></p-message>
                     </div>
                 </div>
-
-
             </fieldset>
             <br>
             <div style="text-align:center">

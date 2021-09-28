@@ -27,6 +27,29 @@ export class FormValorFisicoComponent implements OnInit {
   localPrueba: ValorFisico = {};
   sexo: SelectItem[] = [];
   selectvafc1:SelectItem[] = [];
+  selectvafc2:SelectItem[] = [];
+  selectvafc3:SelectItem[] = [];
+  selectvafc4:SelectItem[] = [];
+  selectvafc5:SelectItem[] = [];
+  selectvafc6:SelectItem[] = [];
+  selectvafc7:SelectItem[] = [];
+  selectvafc8:SelectItem[] = [];
+  selectvafc9:SelectItem[] = [];
+  selectvafc10:SelectItem[] = [];
+  selectvafc11:SelectItem[] = [];
+  selectvafc12:SelectItem[] = [];
+  selectvafc13:SelectItem[] = [];
+  selectvafc14:SelectItem[] = [];
+  cancerSelect: string[] = [];
+  haSelect: string[] = [];
+  asmaSelect: string[] = [];
+  cardioSelect: string[] = [];
+  diabetesSelect: string[] = [];
+  alergiaSelect: string[] = [];
+  artritisSelect: string[] = [];
+  emSelect: string[] = [];
+  erSelect: string[] = [];
+  arrFamSelect: SelectItem[];
   idd: any;
   idEmpresa:number;
  
@@ -36,8 +59,7 @@ export class FormValorFisicoComponent implements OnInit {
               private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
               private router: Router,
-              private _messageService: MessageService,
-              private datepipe: DatePipe) { 
+              private _messageService: MessageService) { 
                 this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
     
   }
@@ -56,6 +78,15 @@ export class FormValorFisicoComponent implements OnInit {
       });
     });
 
+    this.arrFamSelect = [
+      { label: "Mamá", value: "Mamá" },
+      { label: "Papá", value: "Papá" },
+      { label: "Tíos", value: "Tíos" },
+      { label: "Abuelos", value: "Abuelos" },
+      { label: "Primos", value: "Primos" },
+      { label: "Hermanos", value: "Hermanos" }
+    ];
+    
     if(this.localPrueba !== null){
       
       this.userform.patchValue({
@@ -148,8 +179,6 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafcedula').invalid && this.userform.get('vafcedula').touched
   }
 
-  
-
   formulario(){
     this.userform = this.fb.group({
       vafid:[''],
@@ -160,6 +189,8 @@ export class FormValorFisicoComponent implements OnInit {
       vafciudad:['',Validators.required],
       vafedad:['',Validators.required],
       vafc1:['',Validators.required],
+      vafgs:['',Validators.required],
+      vafemail: ['',Validators.required],
 
       vafidempresa: ['', Validators.required],
       vafidarea: ['', Validators.required],
@@ -230,9 +261,80 @@ export class FormValorFisicoComponent implements OnInit {
     this.sexo.push({ label: 'Masculino', value: 'M' });
     this.sexo.push({ label: 'Femenino', value: 'F' });
 
-    this.selectvafc1.push({ label: 'Seleccione una opción', value: ''});
-    this.selectvafc1.push({ label: 'SI', value: '1' });
-    this.selectvafc1.push({ label: 'NO', value: '0' });
-  }
+    this.selectvafc1.push({ label: 'Seleccione una opción', value: ''},
+                          { label: 'No.', value: '0' },
+                          { label: 'Si.', value: '1' });
 
+    this.selectvafc2.push({ label: 'Seleccione una opción', value: ''},
+                          { label: 'Casi siempre.', value: '2' },
+                          { label: 'A veces.', value: '1' },
+                          { label: 'Casi nunca.', value: '0' });
+
+    this.selectvafc3.push({ label: 'Seleccione una opción', value: ''},
+                          { label: '4 o más veces por semana.', value: '2' },
+                          { label: '1 a 3 veces por semana.', value: '1' },
+                          { label: 'Menos de 1 vez por semana.', value: '0' });
+                        
+   this.selectvafc4.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Ninguna de estas.', value: '2' },
+                          { label: 'Algunas de estas.', value: '1' },
+                          { label: 'Todas estas.', value: '0' }); 
+
+   this.selectvafc5.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Normal o hasta 4 kilos de más.', value: '2' },
+                          { label: '5 a 8 kilos  de más.', value: '1' },
+                          { label: 'Más de 8 kilos.', value: '0' });
+
+  this.selectvafc6.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'No en los últimos 5 años.', value: '2' },
+                          { label: 'No en el último año.', value: '1' },
+                          { label: 'He fumado en este año.', value: '0' });
+
+  this.selectvafc7.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Ninguno.', value: '2' },
+                          { label: '0 a 10.', value: '1' },
+                          { label: 'Más de 10.', value: '0' });
+
+                          this.selectvafc5.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Normal o hasta 4 kilos de más.', value: '2' },
+                          { label: '5 a 8 kilos  de más.', value: '1' },
+                          { label: 'Más de 8 kilos.', value: '0' });
+
+  this.selectvafc8.push( { label: 'Seleccione una opción', value: ''},
+                          { label: '0 a 7 tragos.', value: '2' },
+                          { label: '8 a 12 tragos.', value: '1' },
+                          { label: 'Más de 12 tragos.', value: '0' });
+
+  this.selectvafc9.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Nunca.', value: '2' },
+                          { label: 'Ocasionalmente.', value: '1' },
+                          { label: 'A menudo.', value: '0' });
+  
+
+  this.selectvafc10.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Nunca.', value: '2' },
+                          { label: 'Solo  rara vez.', value: '1' },
+                          { label: 'A menudo.', value: '0' });
+
+  this.selectvafc11.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Casi nunca.', value: '2' },
+                          { label: 'Algunas veces.', value: '1' },
+                          { label: 'A menudo.', value: '0' });
+
+  this.selectvafc12.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Siempre.', value: '2' },
+                          { label: 'A veces.', value: '1' },
+                          { label: 'A menudo.', value: '0' });
+
+  this.selectvafc13.push( { label: 'Seleccione una opción', value: ''},
+                          { label: 'Menos de 3 por día.', value: '2' },
+                          { label: '3 a 6 por día.', value: '1' },
+                          { label: 'Más de 6 por día.', value: '0' });
+
+  
+  this.selectvafc14.push({ label: 'Seleccione una opción', value: ''},
+                          { label: 'No.', value: '0' },
+                          { label: 'Si.', value: '1' },
+                          { label: 'No Sabe.', value: '2' });
+  }
 }
