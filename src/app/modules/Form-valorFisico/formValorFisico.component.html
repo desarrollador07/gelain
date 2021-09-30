@@ -49,10 +49,9 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdSexo"   -->
-                            <p-dropdown  [options]="sexo" formControlName="vafsexo"></p-dropdown>
+                            <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" formControlName="vafsexo"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdSexo"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafSexoValid"></p-message>
                     </div>
 
                     <div class="ui-g-1"></div>
@@ -60,59 +59,51 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input     formControlName="vafedad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="vafEdadValid"   formControlName="vafedad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Edad</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input formControlName="vafgruposanguineo" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input [class.is-invalid]="vafGrupoSanguineoValid" formControlName="vafgruposanguineo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Grupo Sanguineo</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafGrupoSanguineoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input     formControlName="vafrh" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="vafRHValid"   formControlName="vafrh" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">RH</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafRHValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="vafCiudadValid"  formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ciudad</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafCiudadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCiudad"  -->
-                            <input    formControlName="vafcorreo" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="vafCorreoValid"  formControlName="vafcorreo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Correo</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafCorreoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
-                        <!-- [class.is-invalid]="emdTelefono" -->
                         <span class="ui-float-label">
-                            <input      formControlName="vaftelefono" type="text" pInputText> 
+                            <input  [class.is-invalid]="vafTelefonoValid"  formControlName="vaftelefono" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Telefono</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdTelefono"></p-message>
-                        <p-message severity="error" text="la cantidad minima son 7 caracteres" *ngIf="emdTelefonomin"></p-message>
-                        <p-message severity="error" text="la cantidad maxima son 10 caracteres" *ngIf="emdTelefonomax"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafTelefonoValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -125,11 +116,10 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdCargo" -->
-                            <input formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input [class.is-invalid]="vafCargoValid" formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdCargo"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafCargoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -151,11 +141,10 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- [class.is-invalid]="emdFecnacido" -->
-                            <input formControlName="vaffecha" type="text" pInputText> 
+                            <input [class.is-invalid]="vafFechaValid" formControlName="vaffecha" type="text" pInputText> 
                             <label style="font-size: 15px; ">Fecha (DD-MM-AAAA)</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf="emdFecnacido"></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafFechaValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                 </div>
@@ -327,9 +316,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs01" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs01Valid"  [options]="selectvafc1" formControlName="vafcs01" ></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs01Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -339,9 +328,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs02" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs02Valid"  [options]="selectvafc1" formControlName="vafcs02"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs02Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -351,9 +340,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc14" formControlName="vafcs03" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs03Valid"  [options]="selectvafc14" formControlName="vafcs03"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs03Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -363,9 +352,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs04" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs04Valid"  [options]="selectvafc1" formControlName="vafcs04" ></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs04Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -375,9 +364,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs05" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs05Valid"  [options]="selectvafc1" formControlName="vafcs05"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs05Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -387,9 +376,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs06" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs06Valid"  [options]="selectvafc1" formControlName="vafcs06"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs06Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -399,9 +388,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs07" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs07Valid"  [options]="selectvafc1" formControlName="vafcs07"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs07Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -411,9 +400,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs08" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs08Valid"  [options]="selectvafc1" formControlName="vafcs08"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs08Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -423,9 +412,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs09" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs09Valid"  [options]="selectvafc1" formControlName="vafcs09"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs09Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -435,9 +424,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs10" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs10Valid"  [options]="selectvafc1" formControlName="vafcs10"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs10Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -447,9 +436,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs11" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs11Valid"  [options]="selectvafc1" formControlName="vafcs11"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs11Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -459,9 +448,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs12" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs12Valid"  [options]="selectvafc1" formControlName="vafcs12"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs12Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -471,9 +460,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs13" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs13Valid"  [options]="selectvafc1" formControlName="vafcs13"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs13Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -483,21 +472,20 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs14" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs14Valid"  [options]="selectvafc1" formControlName="vafcs14"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs14Valid"></p-message>
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs14 === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14 a) Especifique el motivo de la cirugía :</label></b>
                     </div>
                     <div class="ui-g-5">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vaftestmovhombizq"  maxlength="256" formControlName="vafcs15" type="text" pInputText >
+                            <input  maxlength="256" formControlName="vafcs15" type="text" pInputText >
                         </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -507,9 +495,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs16" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs16Valid"  [options]="selectvafc1" formControlName="vafcs16"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs16Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -519,9 +507,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs17" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs17Valid"  [options]="selectvafc1" formControlName="vafcs17"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs17Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -531,9 +519,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs18" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs18Valid"  [options]="selectvafc1" formControlName="vafcs18"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs18Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -543,9 +531,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs19" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs19Valid"  [options]="selectvafc1" formControlName="vafcs19"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs19Valid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -555,21 +543,20 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcs20" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcs20Valid"  [options]="selectvafc1" formControlName="vafcs20"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs20Valid"></p-message>
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
+                <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs20 === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-5">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19 a) Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vaftestmovhombizq"  maxlength="256" formControlName="vafcs21" type="text" pInputText >
+                            <input   maxlength="256" formControlName="vafcs21" type="text" pInputText >
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
             </fieldset>
@@ -592,9 +579,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcancer_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcancer_opcValid"  [options]="selectvafc1" formControlName="vafcancer_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcancer_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -608,9 +595,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafhiper_arte_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafhiper_arte_opcValid"  [options]="selectvafc1" formControlName="vafhiper_arte_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafhiper_arte_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -624,9 +611,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafasma_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafasma_opcValid"  [options]="selectvafc1" formControlName="vafasma_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafasma_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -640,9 +627,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafcardio_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafcardio_opcValid"  [options]="selectvafc1" formControlName="vafcardio_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafcardio_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -656,9 +643,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafdiabet_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafdiabet_opcValid"  [options]="selectvafc1" formControlName="vafdiabet_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafdiabet_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -672,9 +659,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafalergia_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafalergia_opcValid"  [options]="selectvafc1" formControlName="vafalergia_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafalergia_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -688,9 +675,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafartritis_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafartritis_opcValid"  [options]="selectvafc1" formControlName="vafartritis_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafartritis_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -704,9 +691,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafem_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafem_opcValid"  [options]="selectvafc1" formControlName="vafem_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafem_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g">
@@ -720,9 +707,9 @@
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafer_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafer_opcValid"  [options]="selectvafc1" formControlName="vafer_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafer_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -736,9 +723,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafmujer40_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafmujer40_opcValid"  [options]="selectvafc1" formControlName="vafmujer40_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafmujer40_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafmujer40_opc === 1">
@@ -748,10 +735,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]=""  formControlName="vafmujer40_var" type="text" pInputText >
+                            <input  formControlName="vafmujer40_var" type="text" pInputText >
                             <label style="font-size: 15px; ">Fecha (DD-MM-AAAA)</label>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
             </fieldset>
@@ -765,9 +751,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafhombre40_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafhombre40_opcValid"  [options]="selectvafc1" formControlName="vafhombre40_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafhombre40_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafhombre40_opc === 1">
@@ -777,9 +763,8 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafhombre40_var" [showClear]="true"></p-dropdown>
+                            <p-dropdown  [options]="selectvafc1" formControlName="vafhombre40_var" ></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
             </fieldset>
@@ -793,9 +778,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc1" formControlName="vafdiscapacidad_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vafdiscapacidad_opcValid"  [options]="selectvafc1" formControlName="vafdiscapacidad_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafdiscapacidad_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafdiscapacidad_opc === 1">
@@ -805,9 +790,8 @@
                     </div>
                     <div class="ui-g-5">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vaftestmovhombizq"  maxlength="256" formControlName="vafdiscapacidad_var" type="text" pInputText >
+                            <input   maxlength="256" formControlName="vafdiscapacidad_var" type="text" pInputText >
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
                     </div>
                 </div>
             </fieldset>
@@ -825,9 +809,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaFamiliaTF()" [options]="selectvafc2" formControlName="vaf_familiap01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_familiap01_opcValid"  (ngModelChange)="fnSumatoriaFamiliaTF()" [options]="selectvafc2" formControlName="vaf_familiap01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_familiap01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -843,9 +827,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  [options]="selectvafc2" (ngModelChange)="fnSumatoriaFamiliaTF()" formControlName="vaf_familiap02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_familiap02_opcValid"  [options]="selectvafc2" (ngModelChange)="fnSumatoriaFamiliaTF()" formControlName="vaf_familiap02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_familiap02_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -861,9 +845,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaActividadTF()" [options]="selectvafc2" formControlName="vaf_actifisip01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_actifisip01_opcValid" (ngModelChange)="fnSumatoriaActividadTF()" [options]="selectvafc2" formControlName="vaf_actifisip01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_actifisip01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -879,9 +863,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaActividadTF()" [options]="selectvafc3" formControlName="vaf_actifisip02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_actifisip02_opcValid"  (ngModelChange)="fnSumatoriaActividadTF()" [options]="selectvafc3" formControlName="vaf_actifisip02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_actifisip02_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -897,9 +881,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaNutricionTF()"  [options]="selectvafc2" formControlName="vaf_nutricionp01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_nutricionp01_opcValid" (ngModelChange)="fnSumatoriaNutricionTF()"  [options]="selectvafc2" formControlName="vaf_nutricionp01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_nutricionp01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -915,9 +899,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaNutricionTF()" [options]="selectvafc4" formControlName="vaf_nutricionp02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_nutricionp02_opcValid" (ngModelChange)="fnSumatoriaNutricionTF()" [options]="selectvafc4" formControlName="vaf_nutricionp02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_nutricionp02_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -928,9 +912,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaNutricionTF()"  [options]="selectvafc5" formControlName="vaf_nutricionp03_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_nutricionp03_opcValid" (ngModelChange)="fnSumatoriaNutricionTF()"  [options]="selectvafc5" formControlName="vaf_nutricionp03_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_nutricionp03_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -946,9 +930,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaTabacoTF()"  [options]="selectvafc6" formControlName="vaf_tabacop01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_tabacop01_opcValid" (ngModelChange)="fnSumatoriaTabacoTF()"  [options]="selectvafc6" formControlName="vaf_tabacop01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_tabacop01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -965,9 +949,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaTabacoTF()" [options]="selectvafc7" formControlName="vaf_tabacop02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_tabacop02_opcValid"  (ngModelChange)="fnSumatoriaTabacoTF()" [options]="selectvafc7" formControlName="vaf_tabacop02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_tabacop02_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -983,9 +967,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaAlcoholTF()" [options]="selectvafc8" formControlName="vaf_alcoholp01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_alcoholp01_opcValid" (ngModelChange)="fnSumatoriaAlcoholTF()" [options]="selectvafc8" formControlName="vaf_alcoholp01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_alcoholp01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -1001,9 +985,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaAlcoholTF()"  [options]="selectvafc9" formControlName="vaf_alcoholp02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_alcoholp02_opcValid" (ngModelChange)="fnSumatoriaAlcoholTF()"  [options]="selectvafc9" formControlName="vaf_alcoholp02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_alcoholp02_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -1013,9 +997,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaAlcoholTF()" [options]="selectvafc10" formControlName="vaf_alcoholp03_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_alcoholp03_opcValid"  (ngModelChange)="fnSumatoriaAlcoholTF()" [options]="selectvafc10" formControlName="vaf_alcoholp03_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_alcoholp03_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1031,9 +1015,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaSuenoTF()" [options]="selectvafc2" formControlName="vaf_suenop01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_suenop01_opcValid"  (ngModelChange)="fnSumatoriaSuenoTF()" [options]="selectvafc2" formControlName="vaf_suenop01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_suenop01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -1049,9 +1033,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaSuenoTF()"  [options]="selectvafc2" formControlName="vaf_suenop02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_suenop02_opcValid" (ngModelChange)="fnSumatoriaSuenoTF()"  [options]="selectvafc2" formControlName="vaf_suenop02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_suenop02_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -1061,9 +1045,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaSuenoTF()" [options]="selectvafc2" formControlName="vaf_suenop03_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_suenop03_opcValid"  (ngModelChange)="fnSumatoriaSuenoTF()" [options]="selectvafc2" formControlName="vaf_suenop03_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_suenop03_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1079,9 +1063,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaTipoTF()"  [options]="selectvafc11" formControlName="vaf_tipop01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_tipop01_opcValid" (ngModelChange)="fnSumatoriaTipoTF()"  [options]="selectvafc11" formControlName="vaf_tipop01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_tipop01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -1097,9 +1081,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaTipoTF()" [options]="selectvafc11" formControlName="vaf_tipop02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_tipop02_opcValid"  (ngModelChange)="fnSumatoriaTipoTF()" [options]="selectvafc11" formControlName="vaf_tipop02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_tipop02_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1115,9 +1099,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaIntrospeTF()"  [options]="selectvafc2" formControlName="vaf_introspep01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_introspep01_opcValid" (ngModelChange)="fnSumatoriaIntrospeTF()"  [options]="selectvafc2" formControlName="vaf_introspep01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_introspep01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -1133,9 +1117,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaIntrospeTF()" [options]="selectvafc11" formControlName="vaf_introspep02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_introspep02_opcValid"  (ngModelChange)="fnSumatoriaIntrospeTF()" [options]="selectvafc11" formControlName="vaf_introspep02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_introspep02_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -1145,9 +1129,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaIntrospeTF()"  [options]="selectvafc11" formControlName="vaf_introspep03_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_introspep03_opcValid" (ngModelChange)="fnSumatoriaIntrospeTF()"  [options]="selectvafc11" formControlName="vaf_introspep03_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_introspep03_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1163,9 +1147,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaConduccionTF()" [options]="selectvafc2" formControlName="vaf_condup01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_condup01_opcValid"  (ngModelChange)="fnSumatoriaConduccionTF()" [options]="selectvafc2" formControlName="vaf_condup01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_condup01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -1181,9 +1165,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaConduccionTF()"  [options]="selectvafc2" formControlName="vaf_condup02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_condup02_opcValid" (ngModelChange)="fnSumatoriaConduccionTF()"  [options]="selectvafc2" formControlName="vaf_condup02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_condup02_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1199,9 +1183,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaOtrasDTF()"  [options]="selectvafc9" formControlName="vaf_otrasdp01_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_otrasdp01_opcValid" (ngModelChange)="fnSumatoriaOtrasDTF()"  [options]="selectvafc9" formControlName="vaf_otrasdp01_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_otrasdp01_opcValid"></p-message>
                     </div>
                     <div class="ui-g-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
@@ -1217,9 +1201,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="" (ngModelChange)="fnSumatoriaOtrasDTF()"  [options]="selectvafc9" formControlName="vaf_otrasdp02_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_otrasdp02_opcValid" (ngModelChange)="fnSumatoriaOtrasDTF()"  [options]="selectvafc9" formControlName="vaf_otrasdp02_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_otrasdp02_opcValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -1229,9 +1213,9 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]=""  (ngModelChange)="fnSumatoriaOtrasDTF()" [options]="selectvafc13" formControlName="vaf_otrasdp03_opc" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="vaf_otrasdp03_opcValid"  (ngModelChange)="fnSumatoriaOtrasDTF()" [options]="selectvafc13" formControlName="vaf_otrasdp03_opc"></p-dropdown>
                         </span>
-                        <!-- <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message> -->
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_otrasdp03_opcValid"></p-message>
                     </div>
                 </div>
             </fieldset>
@@ -1241,7 +1225,7 @@
                     <h2>Resultado del cuestionario:</h2>
                 </div>
                 <div class="ui-g-1">
-                    <input style="width: 90%; font-size: xx-large;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_fantastico_total" type="number" pInputText>
+                    <input style="font-size: xx-large;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_fantastico_total" type="number" pInputText>
                 </div>
             </div>
 

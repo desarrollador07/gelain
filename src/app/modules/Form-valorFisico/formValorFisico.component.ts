@@ -207,7 +207,7 @@ export class FormValorFisicoComponent implements OnInit {
       });
     } 
   }
-
+  /*Apartado de Validaciones */
   get vafidempresa() {
     return this.userform.get('vafidempresa').invalid && this.userform.get('vafidempresa').touched
   }
@@ -272,6 +272,265 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafcedula').invalid && this.userform.get('vafcedula').touched
   }
 
+  get vafSexoValid() {
+    return this.userform.get('vafsexo').invalid && this.userform.get('vafsexo').touched
+  }
+
+  get vafGrupoSanguineoValid() {
+    return this.userform.get('vafgruposanguineo').invalid && this.userform.get('vafgruposanguineo').touched
+  }
+
+  get vafRHValid() {
+    return this.userform.get('vafrh').invalid && this.userform.get('vafrh').touched
+  }
+
+  get vafTelefonoValid() {
+    return this.userform.get('vaftelefono').invalid && this.userform.get('vaftelefono').touched
+  }
+
+  get vafCiudadValid() {
+    return this.userform.get('vafciudad').invalid && this.userform.get('vafciudad').touched
+  }
+
+  get vafEdadValid() {
+    return this.userform.get('vafedad').invalid && this.userform.get('vafedad').touched
+  }
+
+  get vafCorreoValid() {
+    return this.userform.get('vafcorreo').invalid && this.userform.get('vafcorreo').touched
+  }
+
+  get vafFechaValid() {
+    return this.userform.get('vaffecha').invalid && this.userform.get('vaffecha').touched
+  }
+
+  get vafCargoValid() {
+    return this.userform.get('vafcargo').invalid && this.userform.get('vafcargo').touched
+  }
+
+  get vafcs01Valid() {
+    return this.userform.get('vafcs01').invalid && this.userform.get('vafcs01').touched
+  }
+
+  get vafcs02Valid() {
+    return this.userform.get('vafcs02').invalid && this.userform.get('vafcs02').touched
+  }
+
+  get vafcs03Valid() {
+    return this.userform.get('vafcs03').invalid && this.userform.get('vafcs03').touched
+  }
+
+  get vafcs04Valid() {
+    return this.userform.get('vafcs04').invalid && this.userform.get('vafcs04').touched
+  }
+
+  get vafcs05Valid() {
+    return this.userform.get('vafcs05').invalid && this.userform.get('vafcs05').touched
+  }
+
+  get vafcs06Valid() {
+    return this.userform.get('vafcs06').invalid && this.userform.get('vafcs06').touched
+  }
+
+  get vafcs07Valid() {
+    return this.userform.get('vafcs07').invalid && this.userform.get('vafcs07').touched
+  }
+
+  get vafcs08Valid() {
+    return this.userform.get('vafcs08').invalid && this.userform.get('vafcs08').touched
+  }
+
+  get vafcs09Valid() {
+    return this.userform.get('vafcs09').invalid && this.userform.get('vafcs09').touched
+  }
+
+  get vafcs10Valid() {
+    return this.userform.get('vafcs10').invalid && this.userform.get('vafcs10').touched
+  }
+
+  get vafcs11Valid() {
+    return this.userform.get('vafcs11').invalid && this.userform.get('vafcs11').touched
+  }
+
+  get vafcs12Valid() {
+    return this.userform.get('vafcs12').invalid && this.userform.get('vafcs12').touched
+  }
+
+  get vafcs13Valid() {
+    return this.userform.get('vafcs13').invalid && this.userform.get('vafcs13').touched
+  }
+
+  get vafcs14Valid() {
+    return this.userform.get('vafcs14').invalid && this.userform.get('vafcs14').touched
+  }
+
+  get vafcs16Valid() {
+    return this.userform.get('vafcs16').invalid && this.userform.get('vafcs16').touched
+  }
+
+  get vafcs17Valid() {
+    return this.userform.get('vafcs17').invalid && this.userform.get('vafcs17').touched
+  }
+
+  get vafcs18Valid() {
+    return this.userform.get('vafcs18').invalid && this.userform.get('vafcs18').touched
+  }
+
+  get vafcs19Valid() {
+    return this.userform.get('vafcs19').invalid && this.userform.get('vafcs19').touched
+  }
+
+  get vafcs20Valid() {
+    return this.userform.get('vafcs20').invalid && this.userform.get('vafcs20').touched
+  }
+
+  get vafcancer_opcValid() {
+    return this.userform.get('vafcancer_opc').invalid && this.userform.get('vafcancer_opc').touched
+  }
+
+  get vafhiper_arte_opcValid() {
+    return this.userform.get('vafhiper_arte_opc').invalid && this.userform.get('vafhiper_arte_opc').touched
+  }
+
+  get vafasma_opcValid() {
+    return this.userform.get('vafasma_opc').invalid && this.userform.get('vafasma_opc').touched
+  }
+
+  get vafcardio_opcValid() {
+    return this.userform.get('vafcardio_opc').invalid && this.userform.get('vafcardio_opc').touched
+  }
+
+  get vafdiabet_opcValid() {
+    return this.userform.get('vafdiabet_opc').invalid && this.userform.get('vafdiabet_opc').touched
+  }
+
+  get vafalergia_opcValid() {
+    return this.userform.get('vafalergia_opc').invalid && this.userform.get('vafalergia_opc').touched
+  }
+
+  get vafartritis_opcValid() {
+    return this.userform.get('vafartritis_opc').invalid && this.userform.get('vafartritis_opc').touched
+  }
+
+  get vafem_opcValid() {
+    return this.userform.get('vafem_opc').invalid && this.userform.get('vafem_opc').touched
+  }
+
+  get vafer_opcValid() {
+    return this.userform.get('vafer_opc').invalid && this.userform.get('vafer_opc').touched
+  }
+
+  get vafmujer40_opcValid() {
+    return this.userform.get('vafmujer40_opc').invalid && this.userform.get('vafmujer40_opc').touched
+  }
+
+  get vafhombre40_opcValid() {
+    return this.userform.get('vafhombre40_opc').invalid && this.userform.get('vafhombre40_opc').touched
+  }
+
+  get vafdiscapacidad_opcValid() {
+    return this.userform.get('vafdiscapacidad_opc').invalid && this.userform.get('vafdiscapacidad_opc').touched
+  }
+
+  get vaf_familiap01_opcValid() {
+    return this.userform.get('vaf_familiap01_opc').invalid && this.userform.get('vaf_familiap01_opc').touched
+  }
+
+  get vaf_familiap02_opcValid() {
+    return this.userform.get('vaf_familiap02_opc').invalid && this.userform.get('vaf_familiap02_opc').touched
+  }
+
+  get vaf_actifisip01_opcValid() {
+    return this.userform.get('vaf_actifisip01_opc').invalid && this.userform.get('vaf_actifisip01_opc').touched
+  }
+
+  get vaf_actifisip02_opcValid() {
+    return this.userform.get('vaf_actifisip02_opc').invalid && this.userform.get('vaf_actifisip02_opc').touched
+  }
+
+  get vaf_nutricionp01_opcValid() {
+    return this.userform.get('vaf_nutricionp01_opc').invalid && this.userform.get('vaf_nutricionp01_opc').touched
+  }
+
+  get vaf_nutricionp02_opcValid() {
+    return this.userform.get('vaf_nutricionp02_opc').invalid && this.userform.get('vaf_nutricionp02_opc').touched
+  }
+
+  get vaf_nutricionp03_opcValid() {
+    return this.userform.get('vaf_nutricionp03_opc').invalid && this.userform.get('vaf_nutricionp03_opc').touched
+  }
+
+  get vaf_tabacop01_opcValid() {
+    return this.userform.get('vaf_tabacop01_opc').invalid && this.userform.get('vaf_tabacop01_opc').touched
+  }
+
+  get vaf_tabacop02_opcValid() {
+    return this.userform.get('vaf_tabacop02_opc').invalid && this.userform.get('vaf_tabacop02_opc').touched
+  }
+
+  get vaf_alcoholp01_opcValid() {
+    return this.userform.get('vaf_alcoholp01_opc').invalid && this.userform.get('vaf_alcoholp01_opc').touched
+  }
+
+  get vaf_alcoholp02_opcValid() {
+    return this.userform.get('vaf_alcoholp02_opc').invalid && this.userform.get('vaf_alcoholp02_opc').touched
+  }
+
+  get vaf_alcoholp03_opcValid() {
+    return this.userform.get('vaf_alcoholp03_opc').invalid && this.userform.get('vaf_alcoholp03_opc').touched
+  }
+
+  get vaf_suenop01_opcValid() {
+    return this.userform.get('vaf_suenop01_opc').invalid && this.userform.get('vaf_suenop01_opc').touched
+  }
+
+  get vaf_suenop02_opcValid() {
+    return this.userform.get('vaf_suenop02_opc').invalid && this.userform.get('vaf_suenop02_opc').touched
+  }
+
+  get vaf_suenop03_opcValid() {
+    return this.userform.get('vaf_suenop03_opc').invalid && this.userform.get('vaf_suenop03_opc').touched
+  }
+
+  get vaf_tipop01_opcValid() {
+    return this.userform.get('vaf_tipop01_opc').invalid && this.userform.get('vaf_tipop01_opc').touched
+  }
+
+  get vaf_tipop02_opcValid() {
+    return this.userform.get('vaf_tipop02_opc').invalid && this.userform.get('vaf_tipop02_opc').touched
+  }
+
+  get vaf_introspep01_opcValid() {
+    return this.userform.get('vaf_introspep01_opc').invalid && this.userform.get('vaf_introspep01_opc').touched
+  }
+
+  get vaf_introspep02_opcValid() {
+    return this.userform.get('vaf_introspep02_opc').invalid && this.userform.get('vaf_introspep02_opc').touched
+  }
+
+  get vaf_introspep03_opcValid() {
+    return this.userform.get('vaf_introspep03_opc').invalid && this.userform.get('vaf_introspep03_opc').touched
+  }
+
+  get vaf_condup01_opcValid() {
+    return this.userform.get('vaf_condup01_opc').invalid && this.userform.get('vaf_condup01_opc').touched
+  }
+
+  get vaf_condup02_opcValid() {
+    return this.userform.get('vaf_condup02_opc').invalid && this.userform.get('vaf_condup02_opc').touched
+  }
+
+  get vaf_otrasdp01_opcValid() {
+    return this.userform.get('vaf_otrasdp01_opc').invalid && this.userform.get('vaf_otrasdp01_opc').touched
+  }
+
+  get vaf_otrasdp02_opcValid() {
+    return this.userform.get('vaf_otrasdp02_opc').invalid && this.userform.get('vaf_otrasdp02_opc').touched
+  }
+
+  get vaf_otrasdp03_opcValid() {
+    return this.userform.get('vaf_otrasdp03_opc').invalid && this.userform.get('vaf_otrasdp03_opc').touched
+  }
 
   formulario(){
     this.userform = this.fb.group({
@@ -303,7 +562,7 @@ export class FormValorFisicoComponent implements OnInit {
       vaftelefono: ['', Validators.required],
       vafciudad: ['', Validators.required],
       vafedad: ['', Validators.required],
-      vafcorreo: ['', Validators.required],
+      vafcorreo: ['', [ Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$')]],
       vafcargo: ['', Validators.required],
       vaffecha: ['', Validators.required],
       vafcs01: ['', Validators.required],
@@ -395,39 +654,39 @@ export class FormValorFisicoComponent implements OnInit {
   validCS(){
     this.tempValorF = this.userform.value;
     
-    if (this.tempValorF.vafcancer_opc === 1) {
+    if (this.tempValorF.vafcancer_opc === 1 &&  this.tempValorF.vafcancer_var !== '') {
       this.tempValorF.vafcancer_var = this.tempValorF.vafcancer_var.join(';'); 
     }
 
-    if (this.tempValorF.vafhiper_arte_opc === 1){
+    if (this.tempValorF.vafhiper_arte_opc === 1 && this.tempValorF.vafhiper_arte_var !== ''){
       this.tempValorF.vafhiper_arte_var = this.tempValorF.vafhiper_arte_var.join(';'); 
     }
     
-    if (this.tempValorF.vafasma_opc === 1){
+    if (this.tempValorF.vafasma_opc === 1 && this.tempValorF.vafasma_var !== ''){
       this.tempValorF.vafasma_var = this.tempValorF.vafasma_var.join(';'); 
     }
     
-    if (this.tempValorF.vafcardio_opc === 1){
+    if (this.tempValorF.vafcardio_opc === 1 && this.tempValorF.vafcardio_var !== ''){
       this.tempValorF.vafcardio_var = this.tempValorF.vafcardio_var.join(';'); 
     }
 
-    if (this.tempValorF.vafdiabet_opc === 1){
+    if (this.tempValorF.vafdiabet_opc === 1 && this.tempValorF.vafdiabet_var !== ''){
       this.tempValorF.vafdiabet_var = this.tempValorF.vafdiabet_var.join(';'); 
     }
 
-    if (this.tempValorF.vafalergia_opc === 1){
+    if (this.tempValorF.vafalergia_opc === 1 && this.tempValorF.vafalergia_var !== ''){
       this.tempValorF.vafalergia_var = this.tempValorF.vafalergia_var.join(';'); 
     }
 
-    if (this.tempValorF.vafartritis_opc === 1){
+    if (this.tempValorF.vafartritis_opc === 1 && this.tempValorF.vafartritis_var !== ''){
       this.tempValorF.vafartritis_var = this.tempValorF.vafartritis_var.join(';'); 
     }
 
-    if (this.tempValorF.vafem_opc === 1){
+    if (this.tempValorF.vafem_opc === 1 && this.tempValorF.vafem_var !== ''){
       this.tempValorF.vafem_var = this.tempValorF.vafem_var.join(';'); 
     }
 
-    if (this.tempValorF.vafer_opc === 1){
+    if (this.tempValorF.vafer_opc === 1 && this.tempValorF.vafer_var !== ''){
       this.tempValorF.vafer_var = this.tempValorF.vafer_var.join(';'); 
     }
 
