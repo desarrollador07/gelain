@@ -53,6 +53,7 @@ export class FormValorFisicoComponent implements OnInit {
   erSelect: string[] = [];
   arrFamSelect: SelectItem[];
   idd: any;
+  respEstado:string;
 
   
   constructor(private areasServices: AreasService,
@@ -73,6 +74,8 @@ export class FormValorFisicoComponent implements OnInit {
     
     
     if(this.localPrueba !== null){
+
+      this.validEstado(this.localPrueba.vaf_fantastico_total);
 
       if(this.localPrueba.vafcancer_var === '.'){
         this.localPrueba.vafcancer_var = '';
@@ -903,6 +906,8 @@ export class FormValorFisicoComponent implements OnInit {
 
   fnSumatoriaTotal(){
     var total:number = 0;
+    var value:number = 0;
+    // this.respEstado = '';
     this.userform.value.vaf_fantastico_total = 0;
  
     if (this.userform.value.vaf_familia_num !== '' &&
@@ -937,9 +942,29 @@ export class FormValorFisicoComponent implements OnInit {
       this.userform.patchValue({
         vaf_fantastico_total: total
       });
+      value = this.userform.value.vaf_fantastico_total;
+      this.validEstado(value);
     }
   }
 
+  validEstado(value:number){
+
+    if( value > 0  && value <= 46){
+      this.respEstado = '"Estas en zona de peligro"';
+    }
+    if( value > 47 && value <= 72){
+      this.respEstado = '"Algo bajo, podrías mejorar"';
+    }
+    if( value > 73 && value <= 84){
+      this.respEstado = '"Adecuado, estas bien"';
+    }
+    if( value > 85 && value <= 102){
+      this.respEstado = '"Buen trabajo, estas en el camino correcto"';
+    }
+    if( value > 103 && value <= 100){
+      this.respEstado = '"Felicitaciones, tienes un estilo de vida fantástico"';
+    }
+  }
 
   async consultarEmpresas(){
     await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{

@@ -13,21 +13,14 @@
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
 
-            <div class="ui-g">
-                <div class="ui-g-3">
+            <div class="ui-g" style="text-align: center;">
+                <div class="ui-g-3" style="margin-top: 30px;">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
                 </div>
-                <div class="ui-g-3">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Datos_Generales.png" alt="" width="100%" height="100%">
-                </div>
-                <div class="ui-g-3" style="text-align: center;">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
-                </div>
-                <div class="ui-g-3">
-                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
+                <div class="ui-g-5">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/ValoracionFisica.png" alt="" width="800px" height="230px">
                 </div>
             </div>
-
             <fieldset>
                 <legend><b>Ficha De Valoración De La Condición Física</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -53,13 +46,12 @@
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafSexoValid"></p-message>
                     </div>
-
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafEdadValid"   formControlName="vafedad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="vafEdadValid"   formControlName="vafedad" type="number" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Edad</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
@@ -795,11 +787,21 @@
                     </div>
                 </div>
             </fieldset>
+            <br><br>
+            <hr>
+            <div class="ui-g">
+                <div class="ui-g-12" style="text-align: center;">
+                    <h1 style="margin-bottom: 0px;">TEST DE AUTOEVALUCIÓN SOBRE ESTILOS DE VIDA: "FANTASTICO"</h1>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12" style="text-align: center;">
+                    <h2 style="margin-top: 0px;">Contesta el cuestionario recordando tu vida en el último mes</h2>
+                </div>
+            </div>
             <br>
-            <h1>TEST DE AUTOEVALUCIÓN SOBRE ESTILOS DE VIDA: "FANTASTICO"</h1>
-            <h3>Contesta el cuestionario recordando tu vida en el último mes</h3>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>F <b style="font-size:small;">FAMILIA Y AMIGOS</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -834,8 +836,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>A <b style="font-size:small;">ACTIVIDAD FÍSICA</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -870,8 +872,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>N <b style="font-size:small;">NUTRICIÓN</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -919,8 +921,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>T <b style="font-size:small;">TABACO</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -956,8 +958,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>A <b style="font-size:small;">ALCOHOL</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -1004,8 +1006,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>S <b style="font-size:small;">SUEÑO Y ESTRÉS</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -1052,8 +1054,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>T <b style="font-size:small;">TIPO DE PERSONALIDAD</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -1088,8 +1090,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>I <b style="font-size:small;">INTROSPECCIÓN</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -1136,8 +1138,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>C <b style="font-size:small;">CONDUCCIÓN TRABAJO</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -1172,8 +1174,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;">
                     <h1>O <b style="font-size:small;">OTRAS DROGAS</b></h1>
                 </legend>
                 <div class="ui-g">
@@ -1220,15 +1222,20 @@
                 </div>
             </fieldset>
             <br>
-            <div class="ui-g">
-                <div class="ui-g-3" style="text-align: right;">
-                    <h2>Resultado del cuestionario:</h2>
+            <fieldset style="border: 2px solid #39b021;">
+                <legend style="background: #39b021;"><b>RESULTADO DEL CUESTIONARIO TEST "FANTASTICO"</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-4" style="text-align: right;margin-top: 10px;">
+                        <h1 style="color: #16520a;">TOTAL:</h1>
+                    </div>
+                    <div class="ui-g-2">
+                        <input style="font-size:50px;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_fantastico_total" type="number" pInputText>
+                    </div>
+                    <div class="ui-g-3" style="margin-top: 10px; text-align: center;">
+                        <h2>{{respEstado}}</h2>
+                    </div>
                 </div>
-                <div class="ui-g-1">
-                    <input style="font-size: xx-large;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_fantastico_total" type="number" pInputText>
-                </div>
-            </div>
-
+            </fieldset>
             <br>
             <fieldset>
                 <legend><b>OBSERVACIONES</b></legend>
