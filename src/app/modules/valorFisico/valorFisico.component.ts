@@ -51,7 +51,7 @@ export class ValorfisicoComponent implements OnInit {
         });
       }
     });
-      }
+  }
 
       editPrueba(cpruebas:ValorFisico){
         localStorage.setItem('valorFisico',JSON.stringify(cpruebas));

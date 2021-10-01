@@ -32,6 +32,7 @@ export class ReporteDetalladoComponent implements OnInit {
     { field: 'emdcedula', header: 'Cédula' },
     { field: 'emdnombres', header: 'Nombre' },
     { field: 'emdtraciudad', header: 'Ciudad' },
+    { field: 'emdtelefono', header: 'Telefono' },
     { field: 'arenombre', header: 'Área' },
     { field: 'emdzona', header: 'Sede' }
   ];
