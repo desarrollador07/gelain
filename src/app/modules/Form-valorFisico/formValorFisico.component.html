@@ -34,7 +34,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Cedula</label>
+                            <label for="float-input" style="font-size: 15px; ">Cedula  <label style="color: red;" *ngIf="cedulaMarca"><strong>*</strong></label></label>      
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
@@ -763,7 +763,7 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="selectvafc1" formControlName="vafhombre40_var" ></p-dropdown>
+                            <p-dropdown  [options]="selectvafc0" formControlName="vafhombre40_var" ></p-dropdown>
                         </span>
                     </div>
                 </div>
@@ -1246,13 +1246,11 @@
             </fieldset>
             <br>
             <div style="text-align:center">
-
                 <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
-                <button style="height:30px;width:120px" title="prueba" pRipple pButton type="button" (click)="validCS()" label="prueba" class="ui-button-rounded" icon="pi pi-check"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple [routerLink]="['/main/ValorFisico']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
         </div>
-        <pre>
+        <!-- <pre>
             Estado del formulario: {{userform.valid}}
             <br>
             Status: {{userform.status}}
@@ -1261,7 +1259,7 @@
             <code>
                 {{userform.value | json}}
             </code>
-        </pre>
+        </pre> -->
     </p-panel>
 
 </form>
