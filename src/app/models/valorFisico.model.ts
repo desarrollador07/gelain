@@ -110,5 +110,7 @@ export interface ValorFisico{
     vaf_introspe_num?:number,
     vaf_condu_num?:number,
     vaf_otrasd_num?:number,
-    vaf_fantastico_total?:number
+    vaf_fantastico_total?:number,
+    vafAF_p01?:number,
+    vafAF_p02?:number
 }

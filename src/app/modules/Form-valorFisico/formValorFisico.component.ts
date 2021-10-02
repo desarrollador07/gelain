@@ -143,7 +143,6 @@ export class FormValorFisicoComponent implements OnInit {
         vaftestflextronco:this.localPrueba.vaftestflextronco,
         vaftestmovhombder:this.localPrueba.vaftestmovhombder,
         vaftestmovhombizq:this.localPrueba.vaftestmovhombizq,
-        vaftestmovartichomb:this.localPrueba.vaftestmovartichomb,
         vafcedula:this.localPrueba.vafcedula,
         vafsexo: this.localPrueba.vafsexo,
         vafgruposanguineo: this.localPrueba.vafgruposanguineo,
@@ -235,7 +234,10 @@ export class FormValorFisicoComponent implements OnInit {
         vaf_introspe_num: this.localPrueba.vaf_introspe_num,
         vaf_condu_num: this.localPrueba.vaf_condu_num,
         vaf_otrasd_num: this.localPrueba.vaf_otrasd_num,
-        vaf_fantastico_total: this.localPrueba.vaf_fantastico_total
+        vaf_fantastico_total: this.localPrueba.vaf_fantastico_total,
+        vafAF_p01: this.localPrueba.vafAF_p01,
+        vafAF_p02: this.localPrueba.vafAF_p02,
+
       });
     } 
     
@@ -295,17 +297,7 @@ export class FormValorFisicoComponent implements OnInit {
   get vaftestmovhombizq() {
     return this.userform.get('vaftestmovhombizq').invalid && this.userform.get('vaftestmovhombizq').touched
   }
-  get vaftestmovartichomb() {
-    return this.userform.get('vaftestmovartichomb').invalid && this.userform.get('vaftestmovartichomb').touched
-  }
-  get vafobservaciones() {
-    return this.userform.get('vafobservaciones').invalid && this.userform.get('vafobservaciones').touched
-  }
-
-  get cedulaMarca(){
-    return  this.userform.get('vafcedula').untouched && this.userform.get('vafcedula').pristine || this.userform.get('vafcedula').invalid
-  }
-
+ 
   get vafcedula() {
     return this.userform.get('vafcedula').invalid && this.userform.get('vafcedula').touched
   }
@@ -628,6 +620,14 @@ export class FormValorFisicoComponent implements OnInit {
            this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob;
   }
 
+  get vafAF_p01Valid() {
+    return this.userform.get('vafAF_p01').invalid && this.userform.get('vafAF_p01').dirty
+  }
+
+  get vafAF_p02Valid() {
+    return this.userform.get('vafAF_p02').invalid && this.userform.get('vafAF_p02').dirty
+  }
+
   formulario(){
     this.userform = this.fb.group({
       vafid:[''],
@@ -649,7 +649,6 @@ export class FormValorFisicoComponent implements OnInit {
       vaftestflextronco: ['', Validators.required],
       vaftestmovhombder: ['', Validators.required],
       vaftestmovhombizq: ['',  Validators.required],
-      vaftestmovartichomb: ['', Validators.required],
       vafcedula: ['', Validators.required],
       vafsexo: ['', Validators.required],
       vafgruposanguineo: ['', Validators.required],
@@ -741,7 +740,9 @@ export class FormValorFisicoComponent implements OnInit {
       vaf_introspe_num: [''],
       vaf_condu_num: [''],
       vaf_otrasd_num: [''],
-      vaf_fantastico_total: ['']
+      vaf_fantastico_total: [''],
+      vafAF_p01: ['', Validators.required],
+      vafAF_p02: ['', Validators.required]
     });
   }
 

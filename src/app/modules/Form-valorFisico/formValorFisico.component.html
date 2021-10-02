@@ -27,7 +27,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Cedula  <label style="color: red;" *ngIf="cedulaMarca"><strong>*</strong></label></label>      
+                            <label for="float-input" style="font-size: 15px; ">Cedula</label>      
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
@@ -232,7 +232,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input style="width: 90%;" [class.is-invalid]="vaftestbiering"  formControlName="vaftestbiering" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Test modificado de Biering-Sorensen</label>
+                            <label for="float-input" style="font-size: 15px; ">Test de maxima cantidad de abdominales</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestbiering"></p-message>
                     </div>
@@ -253,7 +253,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestresistronco"  formControlName="vaftestresistronco" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Test de resistencia de flexores del tronco</label>
+                            <label for="float-input" style="font-size: 15px; ">Test de puente prono</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestresistronco"></p-message>
                     </div>
@@ -285,13 +285,6 @@
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovhombizq"></p-message>
                     </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input   [class.is-invalid]="vaftestmovartichomb"  formControlName="vaftestmovartichomb" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Arco de movilidad articular ambos hombros</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovartichomb"></p-message>
-                    </div>
                 </div>
             </fieldset>
             <br>
@@ -300,7 +293,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) ¿Tiene presión arterial alta o hipertensión?</label></b>
+                        <b><label  style="font-size: 15px;">1) ¿Tiene presión arterial alta o hipertensión?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -312,7 +305,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) ¿Le han diagnosticado azúcar en la sangre o diabetes?</label></b>
+                        <b><label   style="font-size: 15px;">2) ¿Le han diagnosticado azúcar en la sangre o diabetes?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -324,7 +317,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) ¿Tiene alto el colesterol, los triglicéridos o ambos?</label></b>
+                        <b><label   style="font-size: 15px;">3) ¿Tiene alto el colesterol, los triglicéridos o ambos?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -336,7 +329,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) ¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)?</label></b>
+                        <b><label   style="font-size: 15px;">4) ¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -348,7 +341,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) ¿Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis?</label></b>
+                        <b><label  style="font-size: 15px;">5) ¿Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -360,7 +353,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) ¿Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas?</label></b>
+                        <b><label   style="font-size: 15px;">6) ¿Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -372,7 +365,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) ¿Sufre o ha sufrido de trastornos depresivos?</label></b>
+                        <b><label  style="font-size: 15px;">7) ¿Sufre o ha sufrido de trastornos depresivos?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -384,7 +377,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) ¿Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames?</label></b>
+                        <b><label   style="font-size: 15px;">8) ¿Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -396,7 +389,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) ¿Ha tenido epilepsia o ataques de convulsiones?</label></b>
+                        <b><label   style="font-size: 15px;">9) ¿Ha tenido epilepsia o ataques de convulsiones?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -408,7 +401,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) ¿Ha tenido fracturas, luxaciones, hernias  o esguinces?</label></b>
+                        <b><label   style="font-size: 15px;">10) ¿Ha tenido fracturas, luxaciones, hernias  o esguinces?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -420,7 +413,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo?</label></b>
+                        <b><label  style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -432,7 +425,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) ¿Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño?</label></b>
+                        <b><label   style="font-size: 15px;">12) ¿Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -444,7 +437,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) ¿Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)?</label></b>
+                        <b><label   style="font-size: 15px;">13) ¿Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -456,7 +449,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirurgicamente?</label></b>
+                        <b><label   style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirurgicamente?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -468,7 +461,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs14 === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14 a) Especifique el motivo de la cirugía :</label></b>
+                        <b><label   style="font-size: 15px;">14 a) Especifique el motivo de la cirugía :</label></b>
                     </div>
                     <div class="ui-g-5">
                         <span class="ui-float-label">
@@ -480,7 +473,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) ¿Le han diagnosticado cancer?</label></b>
+                        <b><label  style="font-size: 15px;">15) ¿Le han diagnosticado cancer?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -492,7 +485,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) ¿Tiene problemas de coagulación de la sangre?</label></b>
+                        <b><label   style="font-size: 15px;">16) ¿Tiene problemas de coagulación de la sangre?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -504,7 +497,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) ¿Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa?</label></b>
+                        <b><label   style="font-size: 15px;">17) ¿Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -516,7 +509,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18) ¿Usa corrección visual?</label></b>
+                        <b><label   style="font-size: 15px;">18) ¿Usa corrección visual?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -528,7 +521,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) ¿Consume algún medicamento bajo formula medica?</label></b>
+                        <b><label  style="font-size: 15px;">19) ¿Consume algún medicamento bajo formula medica?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -540,7 +533,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs20 === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-5">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19 a) Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
+                        <b><label   style="font-size: 15px;">19 a) Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -561,7 +554,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input">CANCER</label></b>
+                        <b><label >CANCER</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafcancer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcancer_var}}</p>
@@ -578,7 +571,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input">HIPERTENSION ARTERIAL</label></b>
+                        <b><label >HIPERTENSION ARTERIAL</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafhiper_arte_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafhiper_arte_var}}</p>
@@ -595,7 +588,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input" >ASMA</label></b>
+                        <b><label  >ASMA</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafasma_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafasma_var}}</p>
@@ -612,7 +605,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input" >CARDIOPATIAS</label></b>
+                        <b><label  >CARDIOPATIAS</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafcardio_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcardio_var}}</p>
@@ -629,7 +622,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input" >DIABETES</label></b>
+                        <b><label  >DIABETES</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafdiabet_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafdiabet_var}}</p>
@@ -646,7 +639,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input" >ALERGIAS</label></b>
+                        <b><label  >ALERGIAS</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafalergia_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafalergia_var}}</p>
@@ -663,7 +656,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input" >ARTRITIS</label></b>
+                        <b><label  >ARTRITIS</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafartritis_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafartritis_var}}</p>
@@ -680,7 +673,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input" >ENFERMEDADES MENTALES</label></b>
+                        <b><label  >ENFERMEDADES MENTALES</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafem_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafem_var}}</p>
@@ -697,7 +690,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
-                        <b><label for="float-input">ENFERMEDADES RENALES</label></b>
+                        <b><label >ENFERMEDADES RENALES</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafer_var}}</p>
@@ -711,6 +704,30 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafer_opcValid"></p-message>
                     </div>
                 </div>
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6" style="margin-top: 20px;">
+                        <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Padre, o Hermano antes de los 55 años de edad?</label></b>
+                    </div>
+                    <div class="ui-g-2" style="margin-top: 18px;">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]="vafAF_p01Valid"  [options]="selectvafc1" formControlName="vafAF_p01"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafAF_p01Valid"></p-message>
+                    </div>
+                </div>
+                <div class="ui-g">
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-6" style="margin-top: 20px;">
+                        <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Madre, o Hermana antes de los 65 años de edad?</label></b>
+                    </div>
+                    <div class="ui-g-2" style="margin-top: 18px;">
+                        <span class="ui-float-label">
+                            <p-dropdown [class.is-invalid]="vafAF_p02Valid"  [options]="selectvafc1" formControlName="vafAF_p02"></p-dropdown>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafAF_p02Valid"></p-message>
+                    </div>
+                </div>
             </fieldset>
             <br>
             <fieldset>
@@ -718,7 +735,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez, una mamografía?</label></b>
+                        <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez, una mamografía?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -730,7 +747,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafmujer40_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Se ha realizado el examen de mamografía en los últimos 12 meses?</label></b>
+                        <b><label  style="font-size: 15px;">¿Se ha realizado el examen de mamografía en los últimos 12 meses?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -746,7 +763,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez,  el examen de prostata?</label></b>
+                        <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez,  el examen de prostata?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -758,7 +775,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafhombre40_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Se ha realizado el examen de prostata en los últimos 12 meses?</label></b>
+                        <b><label  style="font-size: 15px;">¿Se ha realizado el examen de prostata en los últimos 12 meses?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -774,7 +791,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia?</label></b>
+                        <b><label   style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -786,7 +803,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafdiscapacidad_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Especifique cuál :</label></b>
+                        <b><label   style="font-size: 15px;">Especifique cuál :</label></b>
                     </div>
                     <div class="ui-g-5">
                         <span class="ui-float-label">
@@ -816,7 +833,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Tengo con quién hablar de las cosas que son importantes para mi:</label></b>
+                        <b><label   style="font-size: 15px;">Tengo con quién hablar de las cosas que son importantes para mi:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -834,7 +851,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo doy y recibo cariño:</label></b>
+                        <b><label  style="font-size: 15px;">Yo doy y recibo cariño:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -852,7 +869,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo realizo actividad física (Caminar, subir escalas, trabajo en la casa, hacer el jardín):</label></b>
+                        <b><label  style="font-size: 15px;">Yo realizo actividad física (Caminar, subir escalas, trabajo en la casa, hacer el jardín):</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -870,7 +887,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido):</label></b>
+                        <b><label  style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido):</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -888,7 +905,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi alimentación es balanceada (*):</label></b>
+                        <b><label   style="font-size: 15px;">Mi alimentación es balanceada (*):</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -906,7 +923,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">A menudo consumo mucha azúcar o sal o comida chatarra o con mucha grasa:</label></b>
+                        <b><label   style="font-size: 15px;">A menudo consumo mucha azúcar o sal o comida chatarra o con mucha grasa:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -918,7 +935,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Estoy pasado/ a de mi peso ideal  en </label></b>
+                        <b><label  style="font-size: 15px;">Estoy pasado/ a de mi peso ideal  en </label></b>
                         <input style="width: 10%;" maxlength="3" formControlName="vaf_nutricionp03_var" type="text" pInputText>
                     </div>
                     <div class="ui-g-2">
@@ -937,7 +954,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo fumo cigarrillos:</label></b>
+                        <b><label style="font-size: 15px;">Yo fumo cigarrillos:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -955,7 +972,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Generalmente fumo 
+                        <b><label  style="font-size: 15px;">Generalmente fumo 
                             <input style="width: 10%;" [class.is-invalid]="vaftestmovhombizq" maxlength="3" formControlName="vaf_tabacop02_var" type="text" pInputText> cigarrillos por día:</label></b>
                     </div>
                     <div class="ui-g-2">
@@ -974,7 +991,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Mi número promedio de tragos (**) por semana es de:</label></b>
+                        <b><label   style="font-size: 15px;">Mi número promedio de tragos (**) por semana es de:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -992,7 +1009,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Bebo más de cuatro tragos en una misma ocasión:</label></b>
+                        <b><label   style="font-size: 15px;">Bebo más de cuatro tragos en una misma ocasión:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1004,7 +1021,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Manejo el auto despúes de beber alcohol:</label></b>
+                        <b><label   style="font-size: 15px;">Manejo el auto despúes de beber alcohol:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1022,7 +1039,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Duermo bien y me siento descansado/a:</label></b>
+                        <b><label   style="font-size: 15px;">Duermo bien y me siento descansado/a:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1040,7 +1057,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento capaz de manejar el estrés o la tensión en mi vida:</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento capaz de manejar el estrés o la tensión en mi vida:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1052,7 +1069,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me relajo y disfruto mi tiempo libre:</label></b>
+                        <b><label   style="font-size: 15px;">Yo me relajo y disfruto mi tiempo libre:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1070,7 +1087,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Parece que ando acelerado/a:</label></b>
+                        <b><label   style="font-size: 15px;">Parece que ando acelerado/a:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1088,7 +1105,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Me siento enojado/a o agresivo/a:</label></b>
+                        <b><label   style="font-size: 15px;">Me siento enojado/a o agresivo/a:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1106,7 +1123,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo soy un pensador positivo u optimista:</label></b>
+                        <b><label   style="font-size: 15px;">Yo soy un pensador positivo u optimista:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1124,7 +1141,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento tenso/a o apretado/a :</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento tenso/a o apretado/a :</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1136,7 +1153,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento deprimido/a o triste :</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento deprimido/a o triste :</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1154,7 +1171,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Uso siempre el cinturón de seguridad:</label></b>
+                        <b><label   style="font-size: 15px;">Uso siempre el cinturón de seguridad:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1172,7 +1189,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Yo me siento satisfecho/a con mi trabajo o mis actividades:</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento satisfecho/a con mi trabajo o mis actividades:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1190,7 +1207,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base:</label></b>
+                        <b><label   style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1208,7 +1225,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Uso excesivamente los remedios que me indican o los que puedo comprar sin receta:</label></b>
+                        <b><label   style="font-size: 15px;">Uso excesivamente los remedios que me indican o los que puedo comprar sin receta:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
@@ -1220,7 +1237,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Bebo café, té o bebidas cola que tienen cafeína:</label></b>
+                        <b><label   style="font-size: 15px;">Bebo café, té o bebidas cola que tienen cafeína:</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
