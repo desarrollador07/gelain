@@ -51,10 +51,19 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafEdadValid"   formControlName="vafedad" type="number" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="vafEdadValid" formControlName="vafedad" type="number" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Edad</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <!-- <input [class.is-invalid]="vafFechaValid" formControlName="vaffecha" type="text" pInputText>  -->
+                            <p-calendar [showIcon]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="vaffecha" [locale]="es" dateFormat="yy-mm-dd"></p-calendar>
+                            <label style="font-size: 15px;">Fecha Nacimiento (YYYY-MM-DD)</label>
+                        </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafFechaValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -65,13 +74,6 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafGrupoSanguineoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafRHValid"   formControlName="vafrh" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">RH</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafRHValid"></p-message>
-                    </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
@@ -131,13 +133,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input [class.is-invalid]="vafFechaValid" formControlName="vaffecha" type="text" pInputText> 
-                            <label style="font-size: 15px; ">Fecha (DD-MM-AAAA)</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafFechaValid"></p-message>
-                    </div>
+
                     <div class="ui-g-1"></div>
                 </div>
             </fieldset>
@@ -476,7 +472,8 @@
                     </div>
                     <div class="ui-g-5">
                         <span class="ui-float-label">
-                            <input  maxlength="256" formControlName="vafcs15" type="text" pInputText >
+                            <input  [class.is-invalid]="vafcs15Valid" maxlength="256" formControlName="vafcs15" type="text" pInputText >
+                            <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs15Valid"></p-message>
                         </span>
                     </div>
                 </div>
@@ -547,7 +544,8 @@
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   maxlength="256" formControlName="vafcs21" type="text" pInputText >
+                            <input  [class.is-invalid]="vafcs21Valid"  maxlength="256" formControlName="vafcs21" type="text" pInputText >
+                            <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs21Valid"></p-message>
                         </span>
                     </div>
                 </div>
@@ -567,7 +565,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafcancer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcancer_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafcancer_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="cancerValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafcancer_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="cancerValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -583,7 +582,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafhiper_arte_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafhiper_arte_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafhiper_arte_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="hiper_arteValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafhiper_arte_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="hiper_arteValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -599,7 +599,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafasma_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafasma_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafasma_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="asmaValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafasma_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="asmaValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -615,7 +616,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafcardio_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcardio_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafcardio_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="cardioValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafcardio_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="cardioValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -631,7 +633,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafdiabet_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafdiabet_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafdiabet_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="diabetValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafdiabet_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="diabetValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -647,7 +650,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafalergia_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafalergia_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafalergia_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="alergiaValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafalergia_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="alergiaValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -663,7 +667,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafartritis_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafartritis_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafartritis_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="artritisValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafartritis_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="artritisValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -679,7 +684,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafem_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafem_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafem_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="emValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafem_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="emValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -695,7 +701,8 @@
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafer_var}}</p>
-                        <p-multiSelect [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafer_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-multiSelect [class.is-invalid]="erValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafer_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="erValidAprob"></p-message>
                     </div>
                     <div class="ui-g-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -723,12 +730,12 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafmujer40_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-6">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Indique la fecha de la última mamografía?</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">¿Se ha realizado el examen de mamografía en los últimos 12 meses?</label></b>
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <input  formControlName="vafmujer40_var" type="text" pInputText >
-                            <label style="font-size: 15px; ">Fecha (DD-MM-AAAA)</label>
+                            <p-dropdown  [class.is-invalid]="mujer40ValidAprob" [options]="selectvafc0" formControlName="vafmujer40_var" ></p-dropdown>
+                            <p-message severity="error" text="Este campo es requerido" *ngIf="mujer40ValidAprob"></p-message>
                         </span>
                     </div>
                 </div>
@@ -755,7 +762,8 @@
                     </div>
                     <div class="ui-g-2">
                         <span class="ui-float-label">
-                            <p-dropdown  [options]="selectvafc0" formControlName="vafhombre40_var" ></p-dropdown>
+                            <p-dropdown  [class.is-invalid]="hombre40ValidAprob" [options]="selectvafc0" formControlName="vafhombre40_var" ></p-dropdown>
+                            <p-message severity="error" text="Este campo es requerido" *ngIf="hombre40ValidAprob"></p-message>
                         </span>
                     </div>
                 </div>
@@ -782,7 +790,8 @@
                     </div>
                     <div class="ui-g-5">
                         <span class="ui-float-label">
-                            <input   maxlength="256" formControlName="vafdiscapacidad_var" type="text" pInputText >
+                            <input  [class.is-invalid]="discapacidadValidAprob"  maxlength="256" formControlName="vafdiscapacidad_var" type="text" pInputText>
+                            <p-message severity="error" text="Este campo es requerido" *ngIf="discapacidadValidAprob"></p-message>
                         </span>
                     </div>
                 </div>
@@ -1223,7 +1232,7 @@
             </fieldset>
             <br>
             <fieldset style="border: 2px solid #39b021;">
-                <legend style="background: #39b021;"><b>RESULTADO DEL CUESTIONARIO TEST "FANTASTICO"</b></legend>
+                <legend style="background: #39b021;font-size: medium;"><b>RESULTADO DEL CUESTIONARIO TEST "FANTASTICO"</b></legend>
                 <div class="ui-g">
                     <div class="ui-g-4" style="text-align: right;margin-top: 10px;">
                         <h1 style="color: #16520a;">TOTAL:</h1>
@@ -1237,23 +1246,8 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
-                <legend><b>OBSERVACIONES</b></legend>
-                <br>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-4">
-                        <span class="ui-float-label">
-                            <!-- <input   [class.is-invalid]="vafobservaciones"  formControlName="vafobservaciones" type="text" pInputText> --> 
-                            <textarea style="width: 300%;" rows="5" cols="930" [class.is-invalid]="vafobservaciones"  formControlName="vafobservaciones" pInputTextarea></textarea>
-                            <label for="float-input" style="font-size: 15px; "></label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafobservaciones"></p-message>
-                    </div>
-                </div>
-            </fieldset>
-            <br>
             <div style="text-align:center">
-                <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
+                <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="aprobForm"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple [routerLink]="['/main/ValorFisico']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
         </div>

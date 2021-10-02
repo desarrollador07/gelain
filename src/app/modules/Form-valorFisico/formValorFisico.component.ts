@@ -12,7 +12,6 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 
 
-
 @Component({
   selector: 'app-form-prueba',
   templateUrl: './formValorFisico.component.html',
@@ -54,14 +53,15 @@ export class FormValorFisicoComponent implements OnInit {
   arrFamSelect: SelectItem[];
   idd: any;
   respEstado:string;
-
+  es: any;
   
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
               private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
               private router: Router,
-              private _messageService: MessageService) { 
+              private _messageService: MessageService,
+              private datepipe: DatePipe) { 
     
   }
 
@@ -123,7 +123,8 @@ export class FormValorFisicoComponent implements OnInit {
         this.localPrueba.vafer_var = this.localPrueba.vafer_var.split(';');
       }
 
-       
+      var dateTemp = this.datepipe.transform(this.localPrueba.vaffecha, 'yyyy-MM-dd');
+      var date = new Date(dateTemp);
       this.userform.patchValue({
         vafidempresa:this.localPrueba.vafidempresa,
         vafidnombre:this.localPrueba.vafidnombre,
@@ -143,17 +144,15 @@ export class FormValorFisicoComponent implements OnInit {
         vaftestmovhombder:this.localPrueba.vaftestmovhombder,
         vaftestmovhombizq:this.localPrueba.vaftestmovhombizq,
         vaftestmovartichomb:this.localPrueba.vaftestmovartichomb,
-        vafobservaciones:this.localPrueba.vafobservaciones,
         vafcedula:this.localPrueba.vafcedula,
         vafsexo: this.localPrueba.vafsexo,
         vafgruposanguineo: this.localPrueba.vafgruposanguineo,
-        vafrh: this.localPrueba.vafrh,
         vaftelefono: this.localPrueba.vaftelefono,
         vafciudad: this.localPrueba.vafciudad,
         vafedad: this.localPrueba.vafedad,
         vafcorreo: this.localPrueba.vafcorreo,
         vafcargo: this.localPrueba.vafcargo,
-        vaffecha: this.localPrueba.vaffecha,
+        vaffecha: date,
         vafcs01: this.localPrueba.vafcs01,
         vafcs02: this.localPrueba.vafcs02,
         vafcs03: this.localPrueba.vafcs03,
@@ -319,10 +318,6 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafgruposanguineo').invalid && this.userform.get('vafgruposanguineo').touched
   }
 
-  get vafRHValid() {
-    return this.userform.get('vafrh').invalid && this.userform.get('vafrh').touched
-  }
-
   get vafTelefonoValid() {
     return this.userform.get('vaftelefono').invalid && this.userform.get('vaftelefono').touched
   }
@@ -340,7 +335,7 @@ export class FormValorFisicoComponent implements OnInit {
   }
 
   get vafFechaValid() {
-    return this.userform.get('vaffecha').invalid && this.userform.get('vaffecha').touched
+    return this.userform.get('vaffecha').invalid && this.userform.get('vaffecha').dirty
   }
 
   get vafCargoValid() {
@@ -571,6 +566,68 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vaf_otrasdp03_opc').invalid && this.userform.get('vaf_otrasdp03_opc').dirty
   }
 
+  get vafcs15Valid(){
+    return this.userform.get('vafcs14').value === 1 && this.userform.get('vafcs15').value.length <= 1
+  }
+
+  get vafcs21Valid(){
+    return this.userform.get('vafcs20').value === 1 && this.userform.get('vafcs21').value.length <= 1
+  }
+
+  get cancerValidAprob(){
+    return this.userform.get('vafcancer_opc').value === 1 && this.userform.get('vafcancer_var').value.length <= 0
+  }
+
+  get hiper_arteValidAprob(){
+    return this.userform.get('vafhiper_arte_opc').value === 1 && this.userform.get('vafhiper_arte_var').value.length <= 0
+  }
+
+  get asmaValidAprob(){
+    return this.userform.get('vafasma_opc').value === 1 && this.userform.get('vafasma_var').value.length <= 0
+  }
+
+  get cardioValidAprob(){
+    return this.userform.get('vafcardio_opc').value === 1 && this.userform.get('vafcardio_var').value.length <= 0
+  }
+
+  get diabetValidAprob(){
+    return this.userform.get('vafdiabet_opc').value === 1 && this.userform.get('vafdiabet_var').value.length <= 0
+  }
+
+  get alergiaValidAprob(){
+    return this.userform.get('vafalergia_opc').value === 1 && this.userform.get('vafalergia_var').value.length <= 0
+  }
+
+  get artritisValidAprob(){
+    return this.userform.get('vafartritis_opc').value === 1 && this.userform.get('vafartritis_var').value.length <= 0
+  }
+
+  get emValidAprob(){
+    return this.userform.get('vafem_opc').value === 1 && this.userform.get('vafem_var').value.length <= 0
+  }
+
+  get erValidAprob(){
+    return this.userform.get('vafer_opc').value === 1 && this.userform.get('vafer_var').value.length <= 0
+  }
+
+  get mujer40ValidAprob(){
+    return this.userform.get('vafmujer40_opc').value === 1 && this.userform.get('vafmujer40_var').value === '.'
+  }
+
+  get hombre40ValidAprob(){
+    return this.userform.get('vafhombre40_opc').value === 1 && this.userform.get('vafhombre40_var').value === '.'
+  }
+
+  get discapacidadValidAprob(){
+    return this.userform.get('vafdiscapacidad_opc').value === 1 && this.userform.get('vafdiscapacidad_var').value.length <= 1
+  }
+
+  get aprobForm (){
+    return this.userform.invalid || this.vafcs15Valid || this.vafcs21Valid || this.cancerValidAprob || this.hiper_arteValidAprob || 
+           this.asmaValidAprob || this.cardioValidAprob || this.diabetValidAprob || this.alergiaValidAprob || this.artritisValidAprob || 
+           this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob;
+  }
+
   formulario(){
     this.userform = this.fb.group({
       vafid:[''],
@@ -593,11 +650,9 @@ export class FormValorFisicoComponent implements OnInit {
       vaftestmovhombder: ['', Validators.required],
       vaftestmovhombizq: ['',  Validators.required],
       vaftestmovartichomb: ['', Validators.required],
-      vafobservaciones: ['.'],
       vafcedula: ['', Validators.required],
       vafsexo: ['', Validators.required],
       vafgruposanguineo: ['', Validators.required],
-      vafrh: ['', Validators.required],
       vaftelefono: ['', Validators.required],
       vafciudad: ['', Validators.required],
       vafedad: ['', Validators.required],
@@ -907,7 +962,6 @@ export class FormValorFisicoComponent implements OnInit {
   fnSumatoriaTotal(){
     var total:number = 0;
     var value:number = 0;
-    // this.respEstado = '';
     this.userform.value.vaf_fantastico_total = 0;
  
     if (this.userform.value.vaf_familia_num !== '' &&
@@ -958,12 +1012,10 @@ export class FormValorFisicoComponent implements OnInit {
     if( value > 73 && value <= 84){
       this.respEstado = '"Adecuado, estas bien"';
     }
-    if( value > 85 && value <= 102){
+    if( value > 85 && value <= 100){
       this.respEstado = '"Buen trabajo, estas en el camino correcto"';
     }
-    if( value > 103 && value <= 100){
-      this.respEstado = '"Felicitaciones, tienes un estilo de vida fantástico"';
-    }
+
   }
 
   async consultarEmpresas(){
@@ -1005,6 +1057,17 @@ export class FormValorFisicoComponent implements OnInit {
   }
   
   selectData(){
+    this.es = {
+      firstDayOfWeek: 1,
+      dayNames: [ "Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado" ],
+      dayNamesShort: [ "Dom","Lun","Mar","Mié","Jue","Vie","Sáb" ],
+      dayNamesMin: [ "D","L","M","X","J","V","S" ],
+      monthNames: [ "Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre" ],
+      monthNamesShort: [ "Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic" ],
+      today: 'Hoy',
+      clear: 'Borrar'
+    }
+
     this.arrFamSelect = [
       { label: "Mamá", value: "Mamá" },
       { label: "Papá", value: "Papá" },

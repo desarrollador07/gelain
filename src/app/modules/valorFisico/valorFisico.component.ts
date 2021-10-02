@@ -41,12 +41,12 @@ export class ValorfisicoComponent implements OnInit {
   deletePrueba(prueba: ValorFisico) {
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar este elemento?',
-      header:'confirmacion',
+      header:'Confirmación',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
         this.vfService.deletevalorFisico(prueba)
         .toPromise().then(data => {
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000})
           this.pruebas = this.pruebas.filter(r => r !== prueba);
         });
       }
