@@ -1260,6 +1260,9 @@
                     <div class="ui-g-3" style="margin-top: 10px; text-align: center;">
                         <h2>{{respEstado}}</h2>
                     </div>
+                    <div *ngIf="imgValid" class="ui-g-3" style="margin-top: 10px; text-align: center;">
+                        <img [src]='imagenIcon' alt="" width="110" height="110">
+                    </div>
                 </div>
             </fieldset>
             <br>

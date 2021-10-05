@@ -54,6 +54,8 @@ export class FormValorFisicoComponent implements OnInit {
   idd: any;
   respEstado:string;
   es: any;
+  imagenIcon:string = '';
+  imgValid:boolean = false;
   
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
@@ -1003,18 +1005,22 @@ export class FormValorFisicoComponent implements OnInit {
   }
 
   validEstado(value:number){
-
+    this.imgValid = true;
     if( value > 0  && value <= 46){
       this.respEstado = '"Estas en zona de peligro"';
+      this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/malo.png';
     }
     if( value > 47 && value <= 72){
       this.respEstado = '"Algo bajo, podrías mejorar"';
+      this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/medio_insuf.png';
     }
     if( value > 73 && value <= 84){
       this.respEstado = '"Adecuado, estas bien"';
+      this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/Bueno.png';
     }
     if( value > 85 && value <= 100){
       this.respEstado = '"Buen trabajo, estas en el camino correcto"';
+      this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/Excelente.png';
     }
 
   }
