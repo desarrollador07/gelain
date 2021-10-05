@@ -18,6 +18,7 @@ export class ReporteDetalladoComponent implements OnInit {
   rdEmpleado: ReporteDetallado[] = [];/*Reporte detallado por Empleado */
   buscarData:string;
   selectReporte: any;
+  loading:boolean = true;
   rdSelect = [
     {label:'Seleccione Una Opción', value:null},
     {label:'Cédula', value:1},
@@ -66,6 +67,11 @@ export class ReporteDetalladoComponent implements OnInit {
     await this.pruebaServices
     .getReporteExcelDetallado(id).toPromise().then((data: any)=>{
       this.rdEmpleado = data;
+      if (this.rdEmpleado.length > 0) {
+        this.loading = false;
+      }else{
+        this.loading = false;
+      }
     });
 
   }
@@ -209,15 +215,22 @@ export class ReporteDetalladoComponent implements OnInit {
     await this.pruebaServices
     .getAllReporteDetallado().toPromise().then((data: any)=>{
       this.rdEmpleado = data;
+      if (this.rdEmpleado.length > 0) {
+        this.loading = false;
+      }else{
+        this.loading = false;
+      }
     });
   }
 
   /*Función de la busqueda avanzada */
   async buscador(){
+    this.loading = true;
       /*Validación del desplegable que nos identifica si en una busqueda no eligen el tipo de busqueda */
       if (this.selectReporte === null || this.selectReporte === undefined) {
           this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Debe seleccionar el tipo dato a buscar', life: 3000 });
-        return;
+          this.loading = false;
+          return;
       }
       /*Validación del desplegable  que  permite traer todos los datos */
       if (this.selectReporte === 6) {
@@ -243,15 +256,16 @@ export class ReporteDetalladoComponent implements OnInit {
             if (res.length === 0) {
               this._messageService.add({ severity: 'info', summary: 'Sin Resultados', detail: 'No se encontraron resultados para el tipo de busqueda', life: 3000 });
             }
+
+            if (res.length > 0) {
+              this.loading = false;
+            }else{
+              this.loading = false;
+            }
             
         },err => console.log(err));
       }
      
-
-      
-      
-
-      
   }
 
 

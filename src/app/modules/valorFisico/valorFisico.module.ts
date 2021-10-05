@@ -4,29 +4,29 @@ import { ValorfisicoComponent } from './valorFisico.component';
 import { valorFisicoRoutingModule } from './valorFisico-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {CalendarModule} from 'primeng/calendar';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 import { RouterModule } from '@angular/router';
-import { DatePipe, CurrencyPipe} from '@angular/common';
-import {FieldsetModule} from 'primeng/fieldset';
-import {ProgressBarModule} from 'primeng/progressbar';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import {TableModule} from 'primeng/table';
-import {ButtonModule} from 'primeng/button';
-import {ToastModule} from 'primeng/toast';
-import {DropdownModule} from 'primeng/dropdown';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
-import { MessageService} from 'primeng/api';
-import {InputTextModule} from 'primeng/inputtext';
-import {InputTextareaModule } from 'primeng/primeng';
-import {  PanelModule } from 'primeng/panel';
-import {DataViewModule} from 'primeng/dataview';
+import { DatePipe, CurrencyPipe } from '@angular/common';
+import { FieldsetModule } from 'primeng/fieldset';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
+import { CardModule, InputTextareaModule } from 'primeng/primeng';
+import { PanelModule } from 'primeng/panel';
+import { DataViewModule } from 'primeng/dataview';
 import { DialogModule } from 'primeng/primeng';
-import {RadioButtonModule} from 'primeng/radiobutton';
-import {TabMenuModule} from 'primeng/tabmenu';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TabMenuModule } from 'primeng/tabmenu';
 
 
 
@@ -45,6 +45,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
     ProgressBarModule,
     ProgressSpinnerModule,
     ToastModule,
+    CardModule,
     MessageModule,
     MessagesModule,
     ConfirmDialogModule,

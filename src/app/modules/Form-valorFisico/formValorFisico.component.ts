@@ -817,30 +817,36 @@ export class FormValorFisicoComponent implements OnInit {
         this.idd = this.localPrueba.vafid;
         this.vfService.updatevalorFisico(this.tempValorF,this.idd).toPromise().then((data:any)=>{
           if(data){
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha actualizado exitosamente', life: 4000});
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha actualizado exitosamente', life: 5000});
           }else{
-            this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al actualizar el registro', life: 4000});
+            this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al actualizar el registro', life: 5000});
           }
-          this.userform.reset();
-          this.router.navigate(["/main/ValorFisico"]);
+          setTimeout(() => {
+            this.limpiarForm();
+          }, 500);
         });
       }else{
         await this.vfService.createvalorFisico(this.tempValorF).toPromise().then((data:any)=>{
           if(data){
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha creado exitosamente', life: 4000});
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha creado exitosamente', life: 5000});
           }else{
-            this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al crear el registro', life: 4000});
+            this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al crear el registro', life: 5000});
           }
-          this.userform.reset();
-          this.router.navigate(["/main/ValorFisico"]);
+          setTimeout(() => {
+            this.limpiarForm();
+          }, 500);
         });
       }
     }else{
       this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000});
-        this.userform.reset();
-        this.router.navigate(["/main/ValorFisico"]);
+      this.limpiarForm();
     }
 
+  }
+
+  limpiarForm(){
+    this.userform.reset();
+    this.router.navigate(["/main/ValorFisico"]);
   }
 
   fnSumatoriaFamiliaTF(){

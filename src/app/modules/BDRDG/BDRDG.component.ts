@@ -32,6 +32,7 @@ export class BDRDGComponent implements OnInit {
   columns: any[];
   nombre:any;
    image = new Image();
+  loading:boolean = true;
   
 
   constructor(
@@ -81,6 +82,11 @@ export class BDRDGComponent implements OnInit {
           }
           });
         });
+        if (this.pruebas.length > 0) {
+          this.loading = false;
+        }else{
+          this.loading = false;
+        }
       }); 
 
   }

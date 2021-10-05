@@ -12,6 +12,11 @@
         <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
     </p-footer>
 </p-confirmDialog>
+<div class="ui-g" *ngIf="loading">
+    <div class="ui-g-12" style="text-align: center;">
+        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    </div>
+</div>
 <div class="card">
     <p-panel header="Empresas">
         <p-table #dt [value]="empresas" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">

@@ -1,14 +1,4 @@
-<p-toast></p-toast>
-<p-toast position="top-left" key="tl"></p-toast>
-<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
-    <p-footer>
-        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
-        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
-    </p-footer>
-</p-confirmDialog>
-
-
-<p-toast></p-toast>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
@@ -59,7 +49,6 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <!-- <input [class.is-invalid]="vafFechaValid" formControlName="vaffecha" type="text" pInputText>  -->
                             <p-calendar [showIcon]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="vaffecha" [locale]="es" dateFormat="yy-mm-dd"></p-calendar>
                             <label style="font-size: 15px;">Fecha Nacimiento (YYYY-MM-DD)</label>
                         </span>

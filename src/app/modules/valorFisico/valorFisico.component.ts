@@ -12,8 +12,9 @@ import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.serv
   styleUrls: ['./valorFisico.component.css']
 })
 export class ValorfisicoComponent implements OnInit {
-  pruebas: ValorFisico[] = [];
+  vfData: ValorFisico[] = [];
   idEmpresa:any;
+  loading:boolean = true;
 
   constructor(private vfService: ValoracionFisicaService,
               private _messageService: MessageService,
@@ -47,14 +48,14 @@ export class ValorfisicoComponent implements OnInit {
         this.vfService.deletevalorFisico(prueba)
         .toPromise().then(data => {
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000})
-          this.pruebas = this.pruebas.filter(r => r !== prueba);
+          this.vfData = this.vfData.filter(r => r !== prueba);
         });
       }
     });
   }
 
-      editPrueba(cpruebas:ValorFisico){
-        localStorage.setItem('valorFisico',JSON.stringify(cpruebas));
+      editPrueba(vfData:ValorFisico){
+        localStorage.setItem('valorFisico',JSON.stringify(vfData));
       }
     
       newcPrueba(){
@@ -71,7 +72,13 @@ export class ValorfisicoComponent implements OnInit {
 
     async indexData(id:number){
       await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
-        this.pruebas = data;
+        this.vfData = data;
+
+        if (this.vfData.length > 0) {
+          this.loading = false;
+        }else{
+          this.loading = false;
+        }
       });
     }
 

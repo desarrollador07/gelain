@@ -23,6 +23,7 @@ export class EmpleadosComponent implements OnInit {
   empleadoData: Empleado[] = [];
   items1: MenuItem[];
   empresas: Empresa[] = [];
+  loading:boolean = true;
 
   constructor(
               private empleadosService: EmpleadosService,
@@ -118,6 +119,11 @@ export class EmpleadosComponent implements OnInit {
             }
           });
         });
+        if (this.empleadoData.length > 0) {
+          this.loading = false;
+        }else{
+          this.loading = false;
+        }
       });
     }
 

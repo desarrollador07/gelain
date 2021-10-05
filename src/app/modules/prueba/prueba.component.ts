@@ -15,6 +15,7 @@ export class PruebaComponent implements OnInit {
   items1: MenuItem[];
   items2: MenuItem[];
   activeItem: MenuItem;
+  loading:boolean = true;
 
   constructor(private empresaServices:EmpresaService,
               private _confirmationServices: ConfirmationService,
@@ -69,6 +70,11 @@ export class PruebaComponent implements OnInit {
 
         this.empresaServices.getEmpresa().subscribe((data: any)=>{
           this.empresas = data;
+          if (this.empresas.length > 0) {
+            this.loading = false;
+          }else{
+            this.loading = false;
+          }
         });
 
       }
