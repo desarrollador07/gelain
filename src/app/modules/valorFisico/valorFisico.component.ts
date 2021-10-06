@@ -12,9 +12,12 @@ import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.serv
   styleUrls: ['./valorFisico.component.css']
 })
 export class ValorfisicoComponent implements OnInit {
+
   vfData: ValorFisico[] = [];
   idEmpresa:any;
   loading:boolean = true;
+  cols:any[];
+  frozenCols: any[];
 
   constructor(private vfService: ValoracionFisicaService,
               private _messageService: MessageService,
@@ -24,6 +27,7 @@ export class ValorfisicoComponent implements OnInit {
   }
 
   async ngOnInit() {
+
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
       if (res.empresa !== undefined) {
@@ -36,7 +40,25 @@ export class ValorfisicoComponent implements OnInit {
       }
      
     });
+
+    this.frozenCols = [
+      { field: 'vafcedula', header: 'Cédula', width: '180px' }
+    ];
+
+    this.cols = [
       
+      { field: 'vafidnombre', header: 'Nombre', width: '350px' },
+      { field: 'vafciudad', header: 'Ciudad', width: '200px' },
+      { field: 'vafcorreo', header: 'Correo', width: '300px' },
+      { field: 'vafcargo', header: 'Cargo', width: '300px' },
+      { field: 'vaftelefono', header: 'Telefono', width: '180px' },
+      { field: 'vafsede', header: 'Sede', width: '200px' },
+      { field: 'vafpeso', header: 'Peso', width: '100px' },
+      { field: 'vaftalla', header: 'Talla', width: '100px' },
+      { field: 'vafimc', header: 'Ind Masa Corp', width: '160px' },
+      { field: 'vafperimetro', header: 'Perimetro', width: '125px' }
+    ];
+
   }
 
   deletePrueba(prueba: ValorFisico) {
@@ -73,7 +95,8 @@ export class ValorfisicoComponent implements OnInit {
     async indexData(id:number){
       await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
         this.vfData = data;
-
+        console.log('data', this.vfData);
+        
         if (this.vfData.length > 0) {
           this.loading = false;
         }else{
