@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
-import { FieldsetModule, DropdownModule, PanelModule, InputTextModule, MultiSelectModule } from 'primeng/primeng';
+import { FieldsetModule, DropdownModule, PanelModule, InputTextModule, MultiSelectModule, CalendarModule } from 'primeng/primeng';
 import { ToastModule } from 'primeng/toast';
 import { ExformVfRoutingModule } from './exform-vf-routing.module';
 import { ExformVfComponent } from './exform-vf.component';
@@ -23,6 +23,7 @@ import { ExformVfComponent } from './exform-vf.component';
     MessageModule,
     MessagesModule,
     ConfirmDialogModule,
+    CalendarModule,
     MultiSelectModule,
     DropdownModule,
     PanelModule,

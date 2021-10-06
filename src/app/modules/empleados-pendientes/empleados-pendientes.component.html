@@ -3,6 +3,11 @@
     <i class="pi pi-search"></i>
 </div>
 <br><br><br>
+<div class="ui-g" *ngIf="loading">
+    <div class="ui-g-12" style="text-align: center;">
+        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    </div>
+</div>
 <div class="card">
     <p-panel header="Empleados Pendientes">
         <p-table #dt [columns]="cols" [frozenColumns]="frozenCols" [value]="epData" [scrollable]="true" frozenWidth="150px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos']" [rows]="10" [paginator]="true" [rowHover]="true">

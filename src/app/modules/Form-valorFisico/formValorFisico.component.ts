@@ -55,8 +55,15 @@ export class FormValorFisicoComponent implements OnInit {
   respEstado:string;
   es: any;
   imagenIcon:string = '';
+  imagenIcon1:string = '';
   imgValid:boolean = false;
-  
+  imgValid1:boolean = false;
+  totalCR:number = 0;
+  validMsj:boolean = false;
+  msjCR:string = '';
+  colorMsj:string = '';
+  colorMsj1:string = '';
+
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
               private vfService: ValoracionFisicaService,
@@ -238,12 +245,15 @@ export class FormValorFisicoComponent implements OnInit {
         vaf_otrasd_num: this.localPrueba.vaf_otrasd_num,
         vaf_fantastico_total: this.localPrueba.vaf_fantastico_total,
         vafAF_p01: this.localPrueba.vafAF_p01,
-        vafAF_p02: this.localPrueba.vafAF_p02,
+        vafAF_p02: this.localPrueba.vafAF_p02
 
       });
+      this.validCardioRes();
+      // this.validEstado(this.userform.value.vaf_fantastico_total);
     } 
     
   }
+  
   /*Apartado de Validaciones */
   get vafidempresa() {
     return this.userform.get('vafidempresa').invalid && this.userform.get('vafidempresa').dirty
@@ -747,6 +757,69 @@ export class FormValorFisicoComponent implements OnInit {
       vafAF_p02: ['', Validators.required]
     });
   }
+  /*Función que valida la Ecuación  Cardio Respiratoria, 
+    según el resultado propuesto se le asignara un icono */
+  validCardioRes(){
+
+    this.totalCR = 0;
+    this.imagenIcon1 = '';
+    this.msjCR = '';
+    this.imgValid1 = true;
+    this.validMsj = false;
+    var p0:number = 0;
+    var p1:number = 0;
+    var p2:number = 0;
+    p0 = Number(this.userform.value.vafp0);
+    p1 = Number(this.userform.value.vafp1);
+    p2 = Number(this.userform.value.vafp2);
+
+    if (this.userform.value.vafp0 !== '' && p0 < 500 && 
+        this.userform.value.vafp1 !== '' && p1 < 500 && 
+        this.userform.value.vafp2 !== '' && p2 < 500) {
+
+        this.totalCR = ((p0 + p1 + p2) - 200) / 10;
+        
+        if(this.totalCR < 0 || this.totalCR > 20){
+          this.imgValid1 = false;
+          return;
+        }else{
+          this.validMsj = true;
+        }
+        
+        if (this.totalCR === 0) {
+          this.msjCR = '"(CV) Excelente (Propio de Atletas)."';
+          this.colorMsj = '#1bba00';
+          this.imagenIcon1 = 'https://gelainbienestarlaboral.com/GELAIN/img/Excelente.png';
+        }
+    
+        if (this.totalCR >= 0.1 && this.totalCR <= 5) {
+          this.msjCR = '"(CV) Bueno."';
+          this.colorMsj = '#4340ff';
+          this.imagenIcon1 = 'https://gelainbienestarlaboral.com/GELAIN/img/Bueno.png';
+        }
+    
+        if (this.totalCR >= 5.1 && this.totalCR <= 10) {
+          this.msjCR = '"(CV) Medio"';
+          this.colorMsj = '#eff100';
+          this.imagenIcon1 = 'https://gelainbienestarlaboral.com/GELAIN/img/medio_insuf.png';
+        }
+    
+        if (this.totalCR >= 10.1 && this.totalCR <= 15) {
+          this.msjCR = '"(CV) Insuficiente"';
+          this.colorMsj = '#ffb420';
+          this.imagenIcon1 = 'https://gelainbienestarlaboral.com/GELAIN/img/malo2.png';
+        }
+    
+        if (this.totalCR >= 15.1 && this.totalCR <= 20) {
+          this.msjCR = '"(CV) Malo (Requiere Evalución Médica)."';
+          this.colorMsj = '#ff220b';
+          this.imagenIcon1 = 'https://gelainbienestarlaboral.com/GELAIN/img/malo.png';
+        }
+    }else{
+      this.imgValid1 = false;
+    }
+
+  }
 
   validCS(){
     this.tempValorF = this.userform.value;
@@ -1012,20 +1085,25 @@ export class FormValorFisicoComponent implements OnInit {
 
   validEstado(value:number){
     this.imgValid = true;
+    this.colorMsj1 = '';
     if( value > 0  && value <= 46){
       this.respEstado = '"Estas en zona de peligro"';
+      this.colorMsj1 = '#ff0000';
       this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/malo.png';
     }
     if( value > 47 && value <= 72){
       this.respEstado = '"Algo bajo, podrías mejorar"';
+      this.colorMsj1 = '#ff8000';
       this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/medio_insuf.png';
     }
     if( value > 73 && value <= 84){
       this.respEstado = '"Adecuado, estas bien"';
+      this.colorMsj1 = '#0000ff';
       this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/Bueno.png';
     }
     if( value > 85 && value <= 100){
       this.respEstado = '"Buen trabajo, estas en el camino correcto"';
+      this.colorMsj1 = '#16520a';
       this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/Excelente.png';
     }
 

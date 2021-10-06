@@ -2,12 +2,11 @@
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
-
             <div class="ui-g" style="text-align: center;">
-                <div class="ui-g-3" style="margin-top: 30px;">
+                <div class="ui-g-3 ui-md-6 ui-lg-3" style="margin-top: 30px;">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
                 </div>
-                <div class="ui-g-5">
+                <div class="ui-g-5 ui-md-6 ui-lg-3">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/ValoracionFisica.png" alt="" width="800px" height="230px">
                 </div>
             </div>
@@ -122,8 +121,6 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-
-                    <div class="ui-g-1"></div>
                 </div>
             </fieldset>
             <br>
@@ -164,54 +161,86 @@
             <br>
             <fieldset>
                 <legend><b>EVALUACIÓN CARDIORESPIRATORIA</b></legend>
-                <b><p>Test de Ruffier: Resistencia aeróbica de corta duración y capacidad de recuperación cardiaca.</p></b>
-                <b><p>Formula: (Mujeres 20 rep en 30” Hombres 30 rep en 45”) </p></b>
-                <b><p>I: ((P0+P1+P2)-200) /10</p></b>
-                <br>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input   [class.is-invalid]="vafp0"  formControlName="vafp0" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">P0</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafp0"></p-message>
-                    </div>
-                    <div class="ui-g-1">
-                        <b><p>X60</p></b>
-                    </div>
-                    <div class="ui-g-8">
-                        <b><p>Sí I= 0 rendimiento cardiovascular (CV) excelente (propio de atletas)</p></b>
-                        <b><p>Sí I= 0,1 y 5 rendimiento cardiovascular (CV) bueno.</p></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input [class.is-invalid]="vafp1"  formControlName="vafp1" type="number" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">P1</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafp1"></p-message>
-                    </div>
-                    <div class="ui-g-1">
-                        <b><p>X60</p></b>
-                    </div>
-                    <div class="ui-g-8">
-                        <b><p>Sí I= 5,1 Y 10 rendimientos cardiovascular (CV) medio.</p></b>
-                        <b><p>Sí I= 10,1 y 15 rendimiento cardiovascular (CV) insuficiente.</p></b>
-                    </div>
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafp2"  formControlName="vafp2" type="number" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">P2</label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafp2"></p-message>
-                    </div>
-                    <div class="ui-g-1">
-                        <b><p>X60</p></b>
-                    </div>
-                    <div class="ui-g-8">
-                        <b><p>Sí I= 15,1 y 20 rendimiento cardiovascular (CV) malo (requiere evaluación médica)</p></b>
+
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <b><p>Test de Ruffier: Resistencia aeróbica de corta duración y capacidad de recuperación cardiaca.</p></b>
                     </div>
                 </div>
-
+                <div class="ui-g">
+                    <div class="ui-g-4">
+                        <b><p> (Mujeres 20 rep en 30” - Hombres 30 rep en 45”) </p></b>
+                    </div>
+                    <div class="ui-g-2">
+                        <b><p>Formula  I: ((P0+P1+P2)-200) /10</p></b>
+                    </div>
+                    <div class="ui-g-3" style="text-align: center;">
+                        <div *ngIf="validMsj">
+                            <b>Resultado I: <label>{{totalCR}}</label></b>
+                        </div>
+                        <div *ngIf="!validMsj">
+                            <b>Resultado I: <label>No valido</label></b>
+                        </div>
+                    </div>
+                    <div class="ui-g-3" style="text-align: center;">
+                        <label [ngStyle]="{'color': colorMsj }"><b>{{msjCR}}</b></label>
+                    </div>
+                </div>
+                <br>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-9">
+                        <div class="ui-g" style="margin-bottom: 10px;">
+                            <div class="ui-g-3">
+                                <span class="ui-float-label">
+                                    <input   [class.is-invalid]="vafp0" (ngModelChange)="validCardioRes()" formControlName="vafp0" type="number" pInputText> 
+                                    <label for="float-input" style="font-size: 15px; ">P0</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="vafp0"></p-message>
+                            </div>
+                            <div class="ui-g-1" style="margin-top: 8px;">
+                                <b><p>X60</p></b>
+                            </div>
+                            <div class="ui-g-8">
+                                <b><p>Sí I= 0 rendimiento cardiovascular (CV) excelente (Propio de atletas).</p></b>
+                                <b><p>Sí I= Esta entre 0,1 y 5 rendimiento cardiovascular (CV) bueno.</p></b>
+                            </div>
+                        </div>
+                        <div class="ui-g" style="margin-bottom: 10px;">
+                            <div class="ui-g-3">
+                                <span class="ui-float-label">
+                                    <input [class.is-invalid]="vafp1"  (ngModelChange)="validCardioRes()"  formControlName="vafp1" type="number" pInputText style="text-transform: uppercase;"> 
+                                    <label for="float-input" style="font-size: 15px; ">P1</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="vafp1"></p-message>
+                            </div>
+                            <div class="ui-g-1" style="margin-top: 8px;">
+                                <b><p>X60</p></b>
+                            </div>
+                            <div class="ui-g-8">
+                                <b><p>Sí I= Esta entre 5,1 Y 10 rendimientos cardiovascular (CV) medio.</p></b>
+                                <b><p>Sí I= Esta entre 10,1 y 15 rendimiento cardiovascular (CV) insuficiente.</p></b>
+                            </div>
+                        </div>
+                        <div class="ui-g" style="margin-bottom: 10px;">
+                            <div class="ui-g-3">
+                                <span class="ui-float-label">
+                                    <input  [class.is-invalid]="vafp2"  (ngModelChange)="validCardioRes()"  formControlName="vafp2" type="number" pInputText style="text-transform: uppercase;"> 
+                                    <label for="float-input" style="font-size: 15px; ">P2</label>
+                                </span>
+                                <p-message severity="error" text="Este campo es requerido" *ngIf="vafp2"></p-message>
+                            </div>
+                            <div class="ui-g-1" style="margin-top: 8px;">
+                                <b><p>X60</p></b>
+                            </div>
+                            <div class="ui-g-8">
+                                <b><p>Sí I= Esta entre 15,1 y 20 rendimiento cardiovascular (CV) malo (Requiere Evaluación Médica).</p></b>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-3" *ngIf="imgValid1" style="margin-top: 25px;text-align: center;">
+                        <img [src]="imagenIcon1" alt="" width="110" height="110">
+                    </div>
+                </div>
             </fieldset>
             <br>
             <fieldset>
@@ -1247,7 +1276,7 @@
                         <input style="font-size:50px;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_fantastico_total" type="number" pInputText>
                     </div>
                     <div class="ui-g-3" style="margin-top: 10px; text-align: center;">
-                        <h2>{{respEstado}}</h2>
+                        <h2><label [ngStyle]="{'color': colorMsj1 }">{{respEstado}}</label></h2>
                     </div>
                     <div *ngIf="imgValid" class="ui-g-3" style="margin-top: 10px; text-align: center;">
                         <img [src]='imagenIcon' alt="" width="110" height="110">

@@ -13,6 +13,7 @@ export class EmpleadosPendientesComponent implements OnInit {
 
   epData:EmpleadoPendienteModel[] = [];
   idEmpresa:number;
+  loading:boolean = true;
   cols = [
     { field: 'emdnombres', header: 'Nombres', width: '300px'},
     { field: 'formato', header: 'Formato', width: '120px' },
@@ -49,6 +50,11 @@ export class EmpleadosPendientesComponent implements OnInit {
   async consultaEmpleadosPendientes(id:number){
     this.epService.getEmpleadosPendientes(id).toPromise().then((res:EmpleadoPendienteModel[]) => {
       this.epData = res;
+      if (this.epData.length > 0) {
+        this.loading = false;
+      }else{
+        this.loading = false;
+      }
       this.makeRowsSameHeight();
     });
   }

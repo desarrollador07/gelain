@@ -12,6 +12,8 @@ import { UsuariosService } from '../../services/usuarios.service';
 export class UsuariosComponent implements OnInit {
 
   usuariosData: UsuariosModel [] = [];
+  loading:boolean = true;
+  
   constructor(private usuariosService: UsuariosService,
               private router: Router,
               private _confirmationService: ConfirmationService,
@@ -27,6 +29,11 @@ export class UsuariosComponent implements OnInit {
   async consultaUsuarios(){
     this.usuariosService.getUsuarios().toPromise().then((res:UsuariosModel[]) => {
       this.usuariosData = res;
+      if (this.usuariosData.length > 0) {
+        this.loading = false;
+      }else{
+        this.loading = false;
+      }
     });
   }
 
