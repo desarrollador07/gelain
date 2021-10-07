@@ -216,8 +216,6 @@ import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-v
         }),
         ScrollPanelModule
        
-
-
     ],
     declarations: [
         AppComponent,

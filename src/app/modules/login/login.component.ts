@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     }
 
     async ngOnInit() {
-        
+        localStorage.clear();
     }
 
     crearFormulario() {

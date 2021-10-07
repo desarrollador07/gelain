@@ -22,7 +22,6 @@ export class ExformVfComponent implements OnInit {
   empresas: Empresa[] = [];
   area: SelectItem[] = [];
   areas: Area[] = [];
-  localPrueba: ValorFisico = {};
   tempValorF: ValorFisico = {};
   sexo: SelectItem[] = [];
   selectvafc0:SelectItem[] = [];
@@ -72,7 +71,6 @@ export class ExformVfComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.localPrueba = JSON.parse(localStorage.getItem('valorFisico'));
     this.formulario();
     this.selectData();
     
@@ -452,12 +450,6 @@ get discapacidadValidAprob(){
   return this.userform.get('vafdiscapacidad_opc').value === 1 && this.userform.get('vafdiscapacidad_var').value.length <= 1
 }
 
-get aprobForm (){
-  return this.userform.invalid || this.vafcs15Valid || this.vafcs21Valid || this.cancerValidAprob || this.hiper_arteValidAprob || 
-         this.asmaValidAprob || this.cardioValidAprob || this.diabetValidAprob || this.alergiaValidAprob || this.artritisValidAprob || 
-         this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob;
-}
-
 get vafAF_p01Valid() {
   return this.userform.get('vafAF_p01').invalid && this.userform.get('vafAF_p01').dirty
 }
@@ -465,6 +457,15 @@ get vafAF_p01Valid() {
 get vafAF_p02Valid() {
   return this.userform.get('vafAF_p02').invalid && this.userform.get('vafAF_p02').dirty
 }
+
+get aprobForm (){
+  return this.userform.invalid || this.vafcs15Valid || this.vafcs21Valid || this.cancerValidAprob || this.hiper_arteValidAprob || 
+         this.asmaValidAprob || this.cardioValidAprob || this.diabetValidAprob || this.alergiaValidAprob || this.artritisValidAprob || 
+         this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob;
+}
+
+
+
 formulario(){
   this.userform = this.fb.group({
     vafid:[''],
@@ -715,24 +716,24 @@ async onSubmit(){
       await this.vfService.createvalorFisico(this.tempValorF).toPromise().then((data:any)=>{
         if(data){
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha creado exitosamente', life: 5000});
-        }else{
-          this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al crear el registro', life: 5000});
         }
         setTimeout(() => {
           this.limpiarForm();
-        }, 500);
+        }, 1000);
+      }, err => {
+        console.log(err);
+        this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al crear el registro', life: 5000});
       });
 
   }else{
-    this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000});
-    this.limpiarForm();
+    this._messageService.add({severity: 'error',summary: 'fallido',detail: 'Surgio un error', life: 3000});
   }
 
 }
 
 limpiarForm(){
   this.userform.reset();
-  this.router.navigate(["/main/ValorFisico"]);
+  this.cancelar();
 }
 
 fnSumatoriaFamiliaTF(){
@@ -942,11 +943,8 @@ async consultarEmpresas(){
 async buscarArea(){
 
   let id:number =  0;
-  if (this.localPrueba !== null) {
-    id = this.localPrueba.vafidempresa;
-  }else{
-    id = this.userform.value.vafidempresa;
-  }
+  id = this.userform.value.vafidempresa;
+  
   this.area =[];
   await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
     this.areas = data;
@@ -958,12 +956,6 @@ async buscarArea(){
     });
   });
 
-  if(this.localPrueba !== null){
-    this.userform.patchValue({
-      vafidarea:this.localPrueba.vafidarea
-    });
-  }
-  
 }
 
 selectData(){

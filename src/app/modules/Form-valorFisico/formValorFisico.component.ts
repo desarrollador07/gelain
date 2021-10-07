@@ -10,6 +10,8 @@ import { ValorFisico } from '../../models/valorFisico.model';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
+import { AppState } from 'src/app/app.reducer';
+import { Store } from '@ngrx/store';
 
 
 @Component({
@@ -70,11 +72,17 @@ export class FormValorFisicoComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private _messageService: MessageService,
-              private datepipe: DatePipe) { 
+              private datepipe: DatePipe,
+              private store: Store<AppState>) { 
     
   }
 
   async ngOnInit() {
+
+    // this.store.select('valoFisica').subscribe((vf:any) => {
+    //   this.localPrueba = vf.valoraFisica;
+    // });
+
     this.localPrueba = JSON.parse(localStorage.getItem('valorFisico'));
     this.formulario();
     this.selectData();
@@ -640,6 +648,7 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafAF_p02').invalid && this.userform.get('vafAF_p02').dirty
   }
 
+
   formulario(){
     this.userform = this.fb.group({
       vafid:[''],
@@ -891,28 +900,29 @@ export class FormValorFisicoComponent implements OnInit {
         this.vfService.updatevalorFisico(this.tempValorF,this.idd).toPromise().then((data:any)=>{
           if(data){
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha actualizado exitosamente', life: 5000});
-          }else{
-            this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al actualizar el registro', life: 5000});
           }
           setTimeout(() => {
             this.limpiarForm();
           }, 500);
+        }, err => {
+          console.log(err);
+          this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al actualizar el registro', life: 5000});
         });
       }else{
         await this.vfService.createvalorFisico(this.tempValorF).toPromise().then((data:any)=>{
           if(data){
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha creado exitosamente', life: 5000});
-          }else{
-            this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al crear el registro', life: 5000});
           }
           setTimeout(() => {
             this.limpiarForm();
           }, 500);
+        }, err => {
+          console.log(err);
+          this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'Surgio un error al crear el registro', life: 5000});
         });
       }
     }else{
-      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000});
-      this.limpiarForm();
+      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'Surgio un error', life: 3000});
     }
 
   }
@@ -1110,6 +1120,7 @@ export class FormValorFisicoComponent implements OnInit {
   }
 
   async consultarEmpresas(){
+
     await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
       this.empresas = data;
       this.empresas.map(x=>{
@@ -1120,6 +1131,7 @@ export class FormValorFisicoComponent implements OnInit {
       });
     });
   }
+
   async buscarArea(){
 
     let id:number =  0;
@@ -1146,7 +1158,8 @@ export class FormValorFisicoComponent implements OnInit {
     }
     
   }
-  
+
+
   selectData(){
     this.es = {
       firstDayOfWeek: 1,

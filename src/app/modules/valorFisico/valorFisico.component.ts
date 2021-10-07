@@ -4,6 +4,7 @@ import { ValorFisico } from '../../models/valorFisico.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
+import * as valoraFisicaAction from '../../store/actions/vf.actions';
 
 
 @Component({
@@ -76,6 +77,10 @@ export class ValorfisicoComponent implements OnInit {
     });
   }
 
+  // editVFRedux(vfData:ValorFisico){
+  //   this.store.dispatch(valoraFisicaAction.selectValoFisica({ id: vfData.vafid }))
+  // }
+
       editPrueba(vfData:ValorFisico){
         localStorage.setItem('valorFisico',JSON.stringify(vfData));
       }
@@ -95,9 +100,11 @@ export class ValorfisicoComponent implements OnInit {
     async indexData(id:number){
       await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
         this.vfData = data;
-        console.log('data', this.vfData);
         
         if (this.vfData.length > 0) {
+          this.store.dispatch(
+            valoraFisicaAction.addValoFisicas({ list: data })
+          );
           this.loading = false;
         }else{
           this.loading = false;

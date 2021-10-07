@@ -16,7 +16,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Cedula</label>      
+                            <label for="float-input" style="font-size: 15px; ">Cedula</label>     
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafidnombre"  formControlName="vafidnombre" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos</label>
+                            <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos </label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidnombre"></p-message>
                     </div>
@@ -40,8 +40,8 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafEdadValid" formControlName="vafedad" type="number" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Edad</label>
+                            <input  [class.is-invalid]="vafEdadValid"  formControlName="vafedad" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Edad </label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
                     </div>
