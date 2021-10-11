@@ -18,7 +18,7 @@
         <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
     </div>
 </div>
-<div class="card">
+<div class="card animated fadeIn fast">
     <p-panel header="VALORACIÓN DE LA CONDICIÓN FÍSICA">
         <p-table #dt [value]="vfData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro']" [rows]="10"
             [paginator]="true" [rowHover]="true">

@@ -1,5 +1,5 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
-<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+<form [formGroup]="userform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-g" style="text-align: center;">
@@ -238,7 +238,7 @@
                         </div>
                     </div>
                     <div class="ui-g-3" *ngIf="imgValid1" style="margin-top: 25px;text-align: center;">
-                        <img [src]="imagenIcon1" alt="" width="110" height="110">
+                        <img [src]="imagenIcon1" class="animate__animated animate__bounce" alt="" width="110" height="110">
                     </div>
                 </div>
             </fieldset>
@@ -1279,7 +1279,7 @@
                         <h2><label [ngStyle]="{'color': colorMsj1 }">{{respEstado}}</label></h2>
                     </div>
                     <div *ngIf="imgValid" class="ui-g-3" style="margin-top: 10px; text-align: center;">
-                        <img [src]='imagenIcon' alt="" width="110" height="110">
+                        <img [src]="imagenIcon" class="animate__animated animate__bounce" alt="" width="110" height="110">
                     </div>
                 </div>
             </fieldset>

@@ -1094,8 +1094,10 @@ export class FormValorFisicoComponent implements OnInit {
   }
 
   validEstado(value:number){
+    this.imagenIcon = '';
     this.imgValid = true;
     this.colorMsj1 = '';
+
     if( value > 0  && value <= 46){
       this.respEstado = '"Estas en zona de peligro"';
       this.colorMsj1 = '#ff0000';
@@ -1116,7 +1118,6 @@ export class FormValorFisicoComponent implements OnInit {
       this.colorMsj1 = '#16520a';
       this.imagenIcon = 'https://gelainbienestarlaboral.com/GELAIN/img/Excelente.png';
     }
-
   }
 
   async consultarEmpresas(){
