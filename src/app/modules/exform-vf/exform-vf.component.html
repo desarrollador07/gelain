@@ -1,5 +1,5 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
-<form [formGroup]="userform" (ngSubmit)="onSubmit()">
+<form [formGroup]="userform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-g" style="text-align: center;">
@@ -16,7 +16,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Cedula</label>      
+                            <label for="float-input" style="font-size: 15px; ">Cedula</label>     
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
@@ -24,7 +24,7 @@
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafidnombre"  formControlName="vafidnombre" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos</label>
+                            <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos </label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidnombre"></p-message>
                     </div>
@@ -40,8 +40,8 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafEdadValid" formControlName="vafedad" type="number" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Edad</label>
+                            <input  [class.is-invalid]="vafEdadValid"  formControlName="vafedad" type="number" pInputText> 
+                            <label for="float-input" style="font-size: 15px; ">Edad </label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
                     </div>
@@ -129,7 +129,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  style="width: 50%;"  [class.is-invalid]="vafpeso"  formControlName="vafpeso" type="number" pInputText> 
+                            <input  style="width: 50%;"  [class.is-invalid]="vafpeso"  formControlName="vafpeso" type="number"  pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Peso</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafpeso"></p-message>
@@ -238,7 +238,7 @@
                         </div>
                     </div>
                     <div class="ui-g-3" *ngIf="imgValid1" style="margin-top: 25px;text-align: center;">
-                        <img [src]="imagenIcon1" alt="" width="110" height="110">
+                        <img [src]="imagenIcon1" class="animate__animated animate__bounce" alt="" width="110" height="110">
                     </div>
                 </div>
             </fieldset>
@@ -1279,14 +1279,14 @@
                         <h2><label [ngStyle]="{'color': colorMsj1 }">{{respEstado}}</label></h2>
                     </div>
                     <div *ngIf="imgValid" class="ui-g-3" style="margin-top: 10px; text-align: center;">
-                        <img [src]='imagenIcon' alt="" width="110" height="110">
+                        <img [src]="imagenIcon" class="animate__animated animate__bounce" alt="" width="110" height="110">
                     </div>
                 </div>
             </fieldset>
             <br>
             <div style="text-align:center">
                 <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="aprobForm"></button>&nbsp;
-                <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple (click)="cancelar()" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+                <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple [routerLink]="['/main/ValorFisico']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
         </div>
         <!-- <pre>
