@@ -40,6 +40,8 @@ export class GraficaVfComponent implements OnInit {
   loading:boolean = false;
   loadingEmpty:boolean = true;
   msgs: Message[] = [];
+  sales = [
+  ];
   
   constructor(private vfService: ValoracionFisicaService,
               private store: Store<AppState>) {
