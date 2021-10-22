@@ -6,6 +6,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { TerminosCondicionesComponent } from './modules/terminos-condiciones/terminos-condiciones.component';
 import { ReporteAreasComponent } from './modules/reporte-areas/reporte-areas.component';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
+import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
 
 
 export const routes: Routes = [
@@ -71,7 +72,6 @@ export const routes: Routes = [
                 (m) => m.FinalFormulariosModule
             ),
     }, 
-
     {
         
         path:"main",
@@ -217,7 +217,10 @@ export const routes: Routes = [
                         (m) => m.FormValorFisicoModule
                     ),
             },
-
+            {
+                path: "grafica-vf",
+                component: GraficaVfComponent
+            },
 
             
         ]

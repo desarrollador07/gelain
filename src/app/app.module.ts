@@ -117,8 +117,9 @@ import { ExcelModule, GridModule, PDFModule } from '@progress/kendo-angular-grid
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from "./app.reducer";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { ScrollPanelModule } from 'primeng/primeng';
+import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
+import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
 
 
 
@@ -209,6 +210,7 @@ import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-v
         PDFModule,
         ExcelModule,
         GridModule,
+        ProgressSpinnerModule,
         StoreModule.forRoot(appReducers),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
@@ -242,7 +244,8 @@ import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-v
         MainComponent,
         TerminosCondicionesComponent,
         ReporteAreasComponent,
-        TerminosCondicionesVfComponent
+        TerminosCondicionesVfComponent,
+        GraficaVfComponent
   
 
 

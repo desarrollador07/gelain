@@ -1,0 +1,22 @@
+<fieldset>
+    <legend><b>IMC</b></legend>
+    <div class="ui-g" *ngIf="!loading">
+        <div class="ui-g-12" style="text-align: center;">
+            <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-12 ui-md-6 ui-lg-6 animated fadeIn fast" *ngIf="loading">
+            <kendo-chart>
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [categories]="categories">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                    <kendo-chart-series-item [data]="seriesData"> </kendo-chart-series-item>
+                </kendo-chart-series>
+            </kendo-chart>
+        </div>
+    </div>
+
+</fieldset>
