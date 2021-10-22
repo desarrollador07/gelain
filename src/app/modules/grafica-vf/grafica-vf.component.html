@@ -1,22 +1,246 @@
-<fieldset>
-    <legend><b>IMC</b></legend>
-    <div class="ui-g" *ngIf="!loading">
-        <div class="ui-g-12" style="text-align: center;">
-            <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
-        </div>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <p-messages [(value)]="msgs"></p-messages>
     </div>
-    <div class="ui-g">
-        <div class="ui-g-12 ui-md-6 ui-lg-6 animated fadeIn fast" *ngIf="loading">
-            <kendo-chart>
-                <kendo-chart-category-axis>
-                    <kendo-chart-category-axis-item [categories]="categories">
-                    </kendo-chart-category-axis-item>
-                </kendo-chart-category-axis>
-                <kendo-chart-series>
-                    <kendo-chart-series-item [data]="seriesData"> </kendo-chart-series-item>
-                </kendo-chart-series>
-            </kendo-chart>
-        </div>
-    </div>
+</div>
+<div class="ui-g" *ngIf="loadingEmpty">
+    <div class="ui-g-12">
+        <p-panel header="Graficas Valoración Física">
+            <div class="ui-g">
+                <div class="ui-g-6" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>IMC</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="ui-g-6" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>PERIMETRO ABDOMINAL</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories2">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData2F" name="Mujeres"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesData2M" name="Hombres"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories3">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData3"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES)</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories4">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData4Mop1" name="Menor de 35 años"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesData4Mop2" name="35 a 44 años"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesData4Mop3" name="Mayor de 44 años"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-g">
 
-</fieldset>
+                <div class="ui-g-12" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES)</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories4">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData4Fop1" name="Menor de 35 años"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesData4Fop2" name="35 a 44 años"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesData4Fop3" name="Mayor de 44 años"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-6" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>NIVEL DE FLEXIBILIDAD</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories5">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData5"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="ui-g-6" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>ANTECEDENTES FAMILIARES DE ENFERMEDAD</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories6">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData6"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="ui-g">
+                <div class="ui-g-6" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>CONDICIONES DE SALUD</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories7">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData7"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="ui-g-6" style="text-align: center;">
+                    <fieldset>
+                        <legend><b>ESTILO DE VIDA FANTASTICO</b></legend>
+                        <div class="ui-g" *ngIf="!loading">
+                            <div class="ui-g-12" style="text-align: center;">
+                                <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                            </div>
+                        </div>
+                        <div class="ui-g">
+                            <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories8">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData8"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </p-panel>
+    </div>
+</div>
