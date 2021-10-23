@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Message } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
 import { ValorFisico } from 'src/app/models/valorFisico.model';
+import { PruebaService } from 'src/app/services/prueba.service';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 
 @Component({
@@ -49,15 +50,32 @@ export class GraficaVfComponent implements OnInit {
   sales7: any[] = [];
   sales8: any[] = [];
   sales9: any[] = [];
-
+  nombreGelain:any;
+  nitGelain:any;
+  correoGelain:any;
+  telefono:any;
+  redGelain:any;
+  fechaActual :Date;
+  nEmpresa:any;
+  usuario:any;
+  anho:any;
+  mes:any;
+  dia:any;
+  hora:any;
+  min:any;
+  fecha:any;
+  text1:any;
   
   constructor(private vfService: ValoracionFisicaService,
+              private pruebaServices:PruebaService,
               private store: Store<AppState>) {
-                this.idEmpresa = localStorage.getItem('idEmpresa');   
+                this.idEmpresa = localStorage.getItem('idEmpresa');
+                this.nEmpresa = localStorage.getItem("nombreEmpresa"); 
+                this.usuario = localStorage.getItem("user");  
                }
 
   ngOnInit() {
-
+    this.dataGeneral();
     this.store.select('empresas').subscribe(async res=>{
       var id:number;
       if (res.empresa !== undefined) {
@@ -70,7 +88,9 @@ export class GraficaVfComponent implements OnInit {
         await this.consultaVF(id);
       }
     });
-
+    
+    this.datosGelain();
+  
   }
  /*Función que calcula y crea el arreglo para la grafica del IMC */
   fnIMC(){
@@ -638,6 +658,28 @@ export class GraficaVfComponent implements OnInit {
     this.sales7 = [];
     this.sales8 = [];
     this.sales9 = [];
+  }
+
+  datosGelain(){
+    this.pruebaServices.getDatosEmpresaGelain().subscribe((data:any)=>{
+      this.nombreGelain = data.nombre;
+      this.nitGelain= data.nit;
+      this.correoGelain= data.correo;
+      this.telefono= data.telefono;
+      this.redGelain= data.instagram;
+
+    })
+  }
+
+  dataGeneral(){
+    this.fechaActual = new Date();
+    this.anho = this.fechaActual.getFullYear();
+    this.mes = this.fechaActual.getMonth();
+    this.dia = this.fechaActual.getDay();
+    this.hora = this.fechaActual.getHours();
+    this.min = this.fechaActual.getMinutes();
+    this.fecha= this.anho +"-"+this.mes +"-"+this.dia+" "+this.hora+":"+this.min;
+    this.text1 = "IMC_"+this.fecha;
   }
 
   showInfo() {

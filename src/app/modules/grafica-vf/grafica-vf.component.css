@@ -1,0 +1,9 @@
+.k-pdf-export p {
+    border: 2px dashed #aaa;
+    padding: 10px;
+}
+
+kendo-pdf-export {
+    font-family: "DejaVu Sans", "Arial", sans-serif;
+    font-size: 12px;
+}
