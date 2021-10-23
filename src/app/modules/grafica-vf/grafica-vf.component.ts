@@ -40,8 +40,16 @@ export class GraficaVfComponent implements OnInit {
   loading:boolean = false;
   loadingEmpty:boolean = true;
   msgs: Message[] = [];
-  sales = [
-  ];
+  sales: any[] = [];
+  sales2: any[] = [];
+  sales3: any[] = [];
+  sales4: any[] = [];
+  sales5: any[] = [];
+  sales6: any[] = [];
+  sales7: any[] = [];
+  sales8: any[] = [];
+  sales9: any[] = [];
+
   
   constructor(private vfService: ValoracionFisicaService,
               private store: Store<AppState>) {
@@ -61,7 +69,6 @@ export class GraficaVfComponent implements OnInit {
         this.loading = false;
         await this.consultaVF(id);
       }
-     
     });
 
   }
@@ -73,6 +80,7 @@ export class GraficaVfComponent implements OnInit {
     var cont4:number = 0;
     var cont5:number = 0;
     var cont6:number = 0;
+    var total:number = 0;
     
     this.vfData.map( resp => {
       var imc:number = 0;
@@ -92,7 +100,16 @@ export class GraficaVfComponent implements OnInit {
       }
 
     });
-
+    total = cont1 + cont2 + cont3 + cont4 + cont5 + cont6;
+    this.sales = [
+      { brand: 'Bajo Peso', rango: cont1},
+      { brand: 'Peso Normal', rango: cont2 },
+      { brand: 'Sobrepeso', rango: cont3 },
+      { brand: 'Obesidad T1', rango: cont4 },
+      { brand: 'Obesidad T2', rango: cont5 },
+      { brand: 'Obesidad T3', rango: cont6 },
+      { brand: 'TOTAL', rango: total },
+    ];
     this.seriesData.push(cont1,cont2,cont3,cont4,cont5,cont6);
   }
 
@@ -103,7 +120,8 @@ export class GraficaVfComponent implements OnInit {
     var cont1M:number = 0;
     var cont2M:number = 0;
     var cont3M:number = 0;
-
+    var totalM:number = 0;
+    var totalF:number = 0;
 
     this.vfData.map( resp => {
         if (resp.vafsexo === "F" && resp.vafperimetro > 60 && resp.vafperimetro < 80 ) {
@@ -122,6 +140,14 @@ export class GraficaVfComponent implements OnInit {
           cont3M += 1;
         }
     });
+    totalM = cont1M + cont2M + cont3M ;
+    totalF = cont1F + cont2F + cont3F;
+    this.sales2 = [
+      { brand: 'Bajo', hombre: cont1M, mujer: cont1F },
+      { brand: 'Ideal', hombre: cont2M, mujer: cont2F },
+      { brand: 'Alto', hombre: cont3M, mujer: cont3F },
+      { brand: 'TOTAL', hombre: totalM, mujer: totalF},
+    ];
 
     this.seriesData2F.push(cont1F,cont2F,cont3F);
     this.seriesData2M.push(cont1M,cont2M,cont3M);
@@ -135,6 +161,7 @@ export class GraficaVfComponent implements OnInit {
     var cont4:number = 0;
     var cont5:number = 0;
     var totalCR:number = 0;
+    var total:number = 0;
     var p0:number = 0;
     var p1:number = 0;
     var p2:number = 0;
@@ -168,6 +195,17 @@ export class GraficaVfComponent implements OnInit {
       }
     })
 
+    total = cont1 + cont2 + cont3 + cont4 + cont5;
+
+    this.sales3 = [
+      { brand: 'Excelente', rango: cont1},
+      { brand: 'Bueno', rango: cont2 },
+      { brand: 'Medio', rango: cont3 },
+      { brand: 'Insuficiente', rango: cont4 },
+      { brand: 'Malo', rango: cont5 },
+      { brand: 'TOTAL', rango: total },
+    ];
+
     this.seriesData3.push(cont1,cont2,cont3,cont4,cont5);
   }
 
@@ -187,6 +225,9 @@ export class GraficaVfComponent implements OnInit {
     var cont2M50:number = 0;
     var cont3M50:number = 0;
     var cont4M50:number = 0;
+    var total35:number = 0;
+    var total44:number = 0;
+    var total50:number = 0;
 
     this.vfData.map(resp => {
 
@@ -227,14 +268,22 @@ export class GraficaVfComponent implements OnInit {
       }
     })
 
+    total35 = cont1M35 + cont2M35 + cont3M35 + cont4M35;
+    total44 = cont1M44 + cont2M44 + cont3M44 + cont4M44;
+    total50 = cont1M50 + cont2M50 + cont3M50 + cont4M50;
+
+    this.sales4 = [
+      { brand: 'Excelente', hombre35: cont1M35, hombre44: cont1M44, hombre50: cont1M50 },
+      { brand: 'Bien', hombre35: cont2M35, hombre44: cont2M44, hombre50: cont2M50 },
+      { brand: 'Regular', hombre35: cont3M35, hombre44: cont3M44, hombre50: cont3M50 },
+      { brand: 'Malo', hombre35: cont4M35, hombre44: cont4M44, hombre50: cont4M50 },
+      { brand: 'TOTAL', hombre35: total35, hombre44: total44, hombre50: total50},
+    ];
+
     this.seriesData4Mop1.push(cont1M35,cont2M35,cont3M35,cont4M35);
     this.seriesData4Mop2.push(cont1M44,cont2M44,cont3M44,cont4M44);
     this.seriesData4Mop3.push(cont1M50,cont2M50,cont3M50,cont4M50);
 
-    console.log("1",this.seriesData4Mop1);
-    console.log("2",this.seriesData4Mop2);
-    console.log("3",this.seriesData4Mop3);
-    
   }
 
   fnNivelERCMujer(){
@@ -253,6 +302,9 @@ export class GraficaVfComponent implements OnInit {
     var cont2F50:number = 0;
     var cont3F50:number = 0;
     var cont4F50:number = 0;
+    var total35:number = 0;
+    var total44:number = 0;
+    var total50:number = 0;
 
     this.vfData.map(resp => {
 
@@ -293,6 +345,18 @@ export class GraficaVfComponent implements OnInit {
       }
     })
 
+    total35 = cont1F35 + cont2F35 + cont3F35 + cont4F35;
+    total44 = cont1F44 + cont2F44 + cont3F44 + cont4F44;
+    total50 = cont1F50 + cont2F50 + cont3F50 + cont4F50;
+
+    this.sales5 = [
+      { brand: 'Excelente', mujer35: cont1F35, mujer44: cont1F44, mujer50: cont1F50 },
+      { brand: 'Bien', mujer35: cont2F35, mujer44: cont2F44, mujer50: cont2F50 },
+      { brand: 'Regular', mujer35: cont3F35, mujer44: cont3F44, mujer50: cont3F50 },
+      { brand: 'Malo', mujer35: cont4F35, mujer44: cont4F44, mujer50: cont4F50 },
+      { brand: 'TOTAL', mujer35: total35, mujer44: total44, mujer50: total50},
+    ];
+
     this.seriesData4Fop1.push(cont1F35,cont2F35,cont3F35,cont4F35);
     this.seriesData4Fop2.push(cont1F44,cont2F44,cont3F44,cont4F44);
     this.seriesData4Fop3.push(cont1F50,cont2F50,cont3F50,cont4F50);
@@ -302,6 +366,7 @@ export class GraficaVfComponent implements OnInit {
     var cont1:number = 0;
     var cont2:number = 0;
     var cont3:number = 0;
+    var total:number = 0;
 
     this.vfData.map( resp => {
       /*Nivel Alto */
@@ -315,6 +380,16 @@ export class GraficaVfComponent implements OnInit {
         cont3 += 1;
       }
     })
+
+    total = cont1 + cont2 + cont3;
+
+    this.sales6 = [
+      { brand: 'Nivel Alto', rango: cont1 },
+      { brand: 'Nivel Medio', rango: cont2 },
+      { brand: 'Nivel Bajo', rango: cont3 },
+      { brand: 'TOTAL', rango: total },
+    ];
+
     this.seriesData5.push(cont1,cont2,cont3);
   }
 
@@ -322,6 +397,7 @@ export class GraficaVfComponent implements OnInit {
     var cont1:number = 0;
     var cont2:number = 0;
     var cont3:number = 0;
+    var total:number = 0;
 
     this.vfData.map(resp => {
 
@@ -363,6 +439,16 @@ export class GraficaVfComponent implements OnInit {
         cont3 += 1;
       }
     })
+
+    total = cont1 + cont2 + cont3;
+
+    this.sales7 = [
+      { brand: 'Nivel Alto', rango: cont1 },
+      { brand: 'Nivel Medio', rango: cont2 },
+      { brand: 'Nivel Bajo', rango: cont3 },
+      { brand: 'TOTAL', rango: total },
+    ];
+
     this.seriesData6.push(cont1,cont2,cont3);
   }
 
@@ -370,6 +456,7 @@ export class GraficaVfComponent implements OnInit {
     var cont1:number = 0;
     var cont2:number = 0;
     var cont3:number = 0;
+    var total:number = 0;
 
     this.vfData.map(resp => {
 
@@ -451,6 +538,16 @@ export class GraficaVfComponent implements OnInit {
         cont3 += 1;
       }
     })
+
+    total = cont1 + cont2 + cont3;
+
+    this.sales8 = [
+      { brand: 'Nivel Alto', rango: cont1 },
+      { brand: 'Nivel Medio', rango: cont2 },
+      { brand: 'Nivel Bajo', rango: cont3 },
+      { brand: 'TOTAL', rango: total },
+    ];
+
     this.seriesData7.push(cont1,cont2,cont3);
   }
 
@@ -459,6 +556,7 @@ export class GraficaVfComponent implements OnInit {
     var cont2:number = 0;
     var cont3:number = 0;
     var cont4:number = 0;
+    var total:number = 0;
     
     this.vfData.map(resp => {
       let total:number = 0;
@@ -477,6 +575,16 @@ export class GraficaVfComponent implements OnInit {
         cont4 += 1;
       }
     })
+
+    total = cont1 + cont2 + cont3 + cont4;
+
+    this.sales9 = [
+      { brand: 'Malo', rango: cont1 },
+      { brand: 'Regular', rango: cont2 },
+      { brand: 'Bien', rango: cont3 },
+      { brand: 'Excelente', rango: cont4 },
+      { brand: 'TOTAL', rango: total },
+    ];
 
     this.seriesData8.push(cont1, cont2, cont3, cont4);
 
@@ -521,6 +629,15 @@ export class GraficaVfComponent implements OnInit {
     this.seriesData6 = [];
     this.seriesData7 = [];
     this.seriesData8 = [];
+    this.sales = [];
+    this.sales2 = [];
+    this.sales3 = [];
+    this.sales4 = [];
+    this.sales5 = [];
+    this.sales6 = [];
+    this.sales7 = [];
+    this.sales8 = [];
+    this.sales9 = [];
   }
 
   showInfo() {

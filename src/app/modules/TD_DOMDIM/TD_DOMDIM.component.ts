@@ -951,7 +951,7 @@ total_general2 :any[] = [];
         { brand: 'Riesgo alto',                      TOTAL_ESTRES: this.Riesgo_alto },
         { brand: 'Riesgo muy alto',                  TOTAL_ESTRES: this.Riesgo_muy_alto },
         { brand: 'TOTAL',                            TOTAL_ESTRES: this.total },
-    ];
+      ];
 
     this.Sin_riesgo_o_riesgo_despreciableD = Number((((this.donadata[0] *100)/this.total)).toFixed(1));
     this.Riesgo_bajoD =Number((((this.donadata[1] *100)/this.total)));

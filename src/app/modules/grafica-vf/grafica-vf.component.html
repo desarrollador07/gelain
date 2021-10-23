@@ -7,7 +7,7 @@
     <div class="ui-g-12">
         <p-panel header="Graficas Valoración Física">
             <div class="ui-g">
-                <div class="ui-g-6" style="text-align: center;">
+                <div class="ui-g-12" style="text-align: center;">
                     <fieldset>
                         <legend><b>IMC</b></legend>
                         <div class="ui-g" *ngIf="!loading">
@@ -17,6 +17,13 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="rango" title="Rango">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories">
@@ -31,7 +38,9 @@
                         </div>
                     </fieldset>
                 </div>
-                <div class="ui-g-6" style="text-align: center;">
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12" style="text-align: center;">
                     <fieldset>
                         <legend><b>PERIMETRO ABDOMINAL</b></legend>
                         <div class="ui-g" *ngIf="!loading">
@@ -41,6 +50,15 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales2">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="hombre" title="Hombre">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="mujer" title="Mujer">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories2">
@@ -68,6 +86,13 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales3">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="rango" title="Rango">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories3">
@@ -94,6 +119,17 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales4">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="hombre35" title="Menor de 35 años">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="hombre44" title="35 a 44 años">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="hombre50" title="Mayor  de 44 años">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories4">
@@ -123,6 +159,17 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales5">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="mujer35" title="Menor de 35 años">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="mujer44" title="35 a 44 años">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="mujer50" title="Mayor  de 44 años">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories4">
@@ -151,6 +198,13 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales6">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="rango" title="Rango">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories5">
@@ -175,6 +229,13 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales7">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="rango" title="Rango">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories6">
@@ -202,6 +263,13 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales8">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="rango" title="Rango">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories7">
@@ -226,6 +294,13 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <kendo-grid [data]="sales9">
+                                    <kendo-grid-column field="brand" title="Calificativo">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="rango" title="Rango">
+                                    </kendo-grid-column>
+                                </kendo-grid>
+                                <br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories8">
