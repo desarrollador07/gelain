@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Message } from 'primeng/api';
@@ -65,9 +66,18 @@ export class GraficaVfComponent implements OnInit {
   min:any;
   fecha:any;
   text1:any;
+  text2:any;
+  text3:any;
+  text4:any;
+  text5:any;
+  text6:any;
+  text7:any;
+  text8:any;
+  text9:any;
   
   constructor(private vfService: ValoracionFisicaService,
               private pruebaServices:PruebaService,
+              private datepipe: DatePipe,
               private store: Store<AppState>) {
                 this.idEmpresa = localStorage.getItem('idEmpresa');
                 this.nEmpresa = localStorage.getItem("nombreEmpresa"); 
@@ -672,14 +682,22 @@ export class GraficaVfComponent implements OnInit {
   }
 
   dataGeneral(){
+    
     this.fechaActual = new Date();
-    this.anho = this.fechaActual.getFullYear();
-    this.mes = this.fechaActual.getMonth();
-    this.dia = this.fechaActual.getDay();
+    const fechaAct = this.datepipe.transform(this.fechaActual, "yyyy-MM-dd");
     this.hora = this.fechaActual.getHours();
     this.min = this.fechaActual.getMinutes();
-    this.fecha= this.anho +"-"+this.mes +"-"+this.dia+" "+this.hora+":"+this.min;
+    this.fecha = fechaAct+" "+this.hora+":"+this.min;
+
     this.text1 = "IMC_"+this.fecha;
+    this.text2 = "PA_"+this.fecha;
+    this.text3 = "TRUFFIER_"+this.fecha;
+    this.text4 = "NERCHOMBRE_"+this.fecha;
+    this.text5 = "NERCMUJER_"+this.fecha;
+    this.text6 = "NF_"+this.fecha;
+    this.text7 = "AF_"+this.fecha;
+    this.text8 = "CS_"+this.fecha;
+    this.text9 = "EVF_"+this.fecha;
   }
 
   showInfo() {

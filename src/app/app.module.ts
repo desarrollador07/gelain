@@ -3,7 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, DatePipe } from '@angular/common';
 import { AppRoutes } from './app.routes';
 
 import { AccordionModule } from 'primeng/accordion';
@@ -120,6 +120,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
+
 
 
 
@@ -250,7 +251,7 @@ import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
 
 
     ],
-    providers: [
+    providers: [DatePipe,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         CarService, CountryService, EventService, NodeService, BreadcrumbService,EmpleadosComponent
     ],

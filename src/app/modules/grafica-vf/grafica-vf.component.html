@@ -3,6 +3,419 @@
         <p-messages [(value)]="msgs"></p-messages>
     </div>
 </div>
+<!-- ----------------------------------------- GENERAR PDF ------------------------------------------ -->
+
+<!---------------------------------------------- IMC PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf1 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="rango" title="Rango">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- PERIMETRO ABDOMINAL PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales2">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="hombre" title="Hombre">
+            </kendo-grid-column>
+            <kendo-grid-column field="mujer" title="Mujer">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories2">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData2F" name="Mujeres"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="seriesData2M" name="Hombres"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf3 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales3">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="rango" title="Rango">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories3">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData3"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES) PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales4">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="hombre35" title="Menor de 35 años">
+            </kendo-grid-column>
+            <kendo-grid-column field="hombre44" title="35 a 44 años">
+            </kendo-grid-column>
+            <kendo-grid-column field="hombre50" title="Mayor  de 44 años">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories4">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData4Mop1" name="Menor de 35 años"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="seriesData4Mop2" name="35 a 44 años"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="seriesData4Mop3" name="Mayor de 44 años"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES) PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales5">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="mujer35" title="Menor de 35 años">
+            </kendo-grid-column>
+            <kendo-grid-column field="mujer44" title="35 a 44 años">
+            </kendo-grid-column>
+            <kendo-grid-column field="mujer50" title="Mayor  de 44 años">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories4">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData4Fop1" name="Menor de 35 años"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="seriesData4Fop2" name="35 a 44 años"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="seriesData4Fop3" name="Mayor de 44 años"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- NIVEL DE FLEXIBILIDAD PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales6">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="rango" title="Rango">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories5">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData5"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- ANTECEDENTES FAMILIARES DE ENFERMEDAD PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf7 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales7">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="rango" title="Rango">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories6">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData6"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- CONDICIONES DE SALUD PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales8">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="rango" title="Rango">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories7">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData7"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!---------------------------------------------- ESTILO DE VIDA FANTASTICO PDF ---------------------------------------------- -->
+<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <kendo-grid [data]="sales9">
+            <kendo-grid-column field="brand" title="Calificativo">
+            </kendo-grid-column>
+            <kendo-grid-column field="rango" title="Rango">
+            </kendo-grid-column>
+        </kendo-grid>
+        <br>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories8">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="seriesData8"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
+        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+        </div>
+    </kendo-pdf-export>
+</div>
+
+<!------------------------------------------------ TABLAS Y GRAFICAS (VISUAL)----------------------------- -->
 <div class="ui-g" *ngIf="loadingEmpty">
     <div class="ui-g-12">
         <p-panel header="Graficas Valoración Física">
@@ -56,6 +469,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf2.saveAs(text2)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales2">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -92,6 +511,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf3.saveAs(text3)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales3">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -125,6 +550,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf4.saveAs(text4)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales4">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -165,6 +596,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf5.saveAs(text5)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales5">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -204,6 +641,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf6.saveAs(text6)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales6">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -235,6 +678,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf7.saveAs(text7)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales7">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -257,7 +706,6 @@
                     </fieldset>
                 </div>
             </div>
-
             <div class="ui-g">
                 <div class="ui-g-6" style="text-align: center;">
                     <fieldset>
@@ -267,15 +715,21 @@
                                 <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
                             </div>
                         </div>
-                        <div class="ui-g">
+                        <div class="ui-g" style="margin-bottom: 5px;">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf8.saveAs(text8)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales8">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="rango" title="Rango">
                                     </kendo-grid-column>
                                 </kendo-grid>
-                                <br>
+                                <br><br><br>
                                 <kendo-chart>
                                     <kendo-chart-category-axis>
                                         <kendo-chart-category-axis-item [categories]="categories7">
@@ -300,6 +754,12 @@
                         </div>
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" *ngIf="loading">
+                                <div class="example-config">
+                                    <button class="k-button" (click)="pdf9.saveAs(text9)">
+                                      Generar Reporte
+                                    </button>
+                                </div>
+                                <br>
                                 <kendo-grid [data]="sales9">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
@@ -324,49 +784,4 @@
             </div>
         </p-panel>
     </div>
-</div>
-
-<!-- ----------------------------------------- GENERAR PDF ------------------------------------------ -->
-
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
-    <kendo-pdf-export #pdf1 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales">
-            <kendo-grid-column field="brand" title="Calificativo">
-            </kendo-grid-column>
-            <kendo-grid-column field="rango" title="Rango">
-            </kendo-grid-column>
-        </kendo-grid>
-        <br>
-        <kendo-chart>
-            <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="categories">
-                </kendo-chart-category-axis-item>
-            </kendo-chart-category-axis>
-            <kendo-chart-series>
-                <kendo-chart-series-item color="#1E830A" [data]="seriesData"> </kendo-chart-series-item>
-            </kendo-chart-series>
-        </kendo-chart>
-        {{seriesData | json}}
-        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
-            <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
-        </div>
-    </kendo-pdf-export>
 </div>

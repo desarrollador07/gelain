@@ -3,6 +3,7 @@ import { PruebaService } from '../../services/prueba.service';
 import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -227,6 +228,7 @@ total_general2 :any[] = [];
  
 
   constructor(private pruebaServices:PruebaService,
+              private datepipe: DatePipe,
               private store: Store<AppState>) {
                 
                 this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
@@ -237,12 +239,10 @@ total_general2 :any[] = [];
 
   async ngOnInit() {
     this.fechaActual = new Date();
-    this.anho = this.fechaActual.getFullYear();
-    this.mes = this.fechaActual.getMonth();
-    this.dia = this.fechaActual.getDay();
+    const fechaAct = this.datepipe.transform(this.fechaActual, "yyyy-MM-dd");
     this.hora = this.fechaActual.getHours();
     this.min = this.fechaActual.getMinutes();
-    this.fecha= this.anho +"-"+this.mes +"-"+this.dia+" "+this.hora+":"+this.min;
+    this.fecha= fechaAct+" "+this.hora+":"+this.min;
 
     this.text1 = "LIDERAZGO_Y_RELACIONES_SOCIALES_"+this.fecha;
     this.text2 = "CONTROL_SOBRE_EL_TRABAJO_"+this.fecha;
