@@ -17,27 +17,27 @@ import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.serv
 })
 export class GraficaVfComponent implements OnInit {
 
-  seriesData: number[] = [];
+  seriesData: number[];
   categories: string[] = ["Bajo Peso", "Peso Normal", "Sobrepeso", "Obesidad T1", "Obesidad T2","Obesidad T3"];
-  seriesData2F: number[] = [];
-  seriesData2M: number[] = [];
+  seriesData2F: number[];
+  seriesData2M: number[];
   categories2: string[] = ["Bajo", "Ideal", "Alto"];
-  seriesData3: number[] = [];
+  seriesData3: number[];
   categories3: string[] = ["Excelente", "Bueno", "Medio", "Insuficiente", "Malo"];
-  seriesData4Mop1: number[] = [];
-  seriesData4Mop2: number[] = [];
-  seriesData4Mop3: number[] = [];
-  seriesData4Fop1: number[] = [];
-  seriesData4Fop2: number[] = [];
-  seriesData4Fop3: number[] = [];
+  seriesData4Mop1: number[];
+  seriesData4Mop2: number[];
+  seriesData4Mop3: number[];
+  seriesData4Fop1: number[];
+  seriesData4Fop2: number[];
+  seriesData4Fop3: number[];
   categories4: string[] = ["Excelente", "Bien", "Regular", "Mal"];
-  seriesData5: number[] = [];
+  seriesData5: number[];
   categories5: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
-  seriesData6: number[] = [];
+  seriesData6: number[];
   categories6: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
-  seriesData7: number[] = [];
+  seriesData7: number[];
   categories7: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
-  seriesData8: number[] = [];
+  seriesData8: number[];
   categories8: string[] = ["Mal", "Regular", "Bien", "Excelente"];
   vfData: ValorFisico[] = [];
   idEmpresa:any;
