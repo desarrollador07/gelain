@@ -6,7 +6,7 @@
 <!-- ----------------------------------------- GENERAR PDF ------------------------------------------ -->
 
 <!---------------------------------------------- IMC PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf1 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -49,7 +49,7 @@
 </div>
 
 <!---------------------------------------------- PERIMETRO ABDOMINAL PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -96,7 +96,7 @@
 </div>
 
 <!---------------------------------------------- TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf3 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -140,7 +140,7 @@
 </div>
 
 <!---------------------------------------------- NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES) PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -190,7 +190,7 @@
 </div>
 
 <!---------------------------------------------- NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES) PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -240,7 +240,7 @@
 </div>
 
 <!---------------------------------------------- NIVEL DE FLEXIBILIDAD PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -284,7 +284,7 @@
 </div>
 
 <!---------------------------------------------- ANTECEDENTES FAMILIARES DE ENFERMEDAD PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf7 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -328,7 +328,7 @@
 </div>
 
 <!---------------------------------------------- CONDICIONES DE SALUD PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -372,7 +372,7 @@
 </div>
 
 <!---------------------------------------------- ESTILO DE VIDA FANTASTICO PDF ---------------------------------------------- -->
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
@@ -414,8 +414,7 @@
         </div>
     </kendo-pdf-export>
 </div>
-
-<!------------------------------------------------ TABLAS Y GRAFICAS (VISUAL)----------------------------- -->
+<!---------------------------------------------- TABLAS Y GRAFICAS (VISUAL) ---------------------------------------------- -->
 <div class="ui-g" *ngIf="loadingEmpty">
     <div class="ui-g-12">
         <p-panel header="Graficas Valoración Física">

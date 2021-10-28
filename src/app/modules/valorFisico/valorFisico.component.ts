@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService, ConfirmationService } from 'primeng/api';
-import { ValorFisico } from '../../models/valorFisico.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
-import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 import * as valoraFisicaAction from '../../store/actions/vf.actions';
+/*Model */
+import { ValorFisico } from '../../models/valorFisico.model';
+/*Modulos */
+import { MessageService, ConfirmationService } from 'primeng/api';
+/*Servicios */
+import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 
 
 @Component({
@@ -14,7 +17,7 @@ import * as valoraFisicaAction from '../../store/actions/vf.actions';
 })
 export class ValorfisicoComponent implements OnInit {
 
-  vfData: ValorFisico[] = [];
+  vfData: ValorFisico[] = [];/*Arreglo VF */
   idEmpresa:any;
   loading:boolean = true;
   cols:any[];
@@ -28,40 +31,10 @@ export class ValorfisicoComponent implements OnInit {
   }
 
   async ngOnInit() {
-
-    this.store.select('empresas').subscribe(async res=>{
-      var id:number;
-      if (res.empresa !== undefined) {
-        id = res.empresa.empid;
-      }else{
-        id = this.idEmpresa;
-      }
-      if (id !== undefined && id !== null) {
-        await this.indexData(id);
-      }
-     
-    });
-
-    this.frozenCols = [
-      { field: 'vafcedula', header: 'Cédula', width: '180px' }
-    ];
-
-    this.cols = [
-      
-      { field: 'vafidnombre', header: 'Nombre', width: '350px' },
-      { field: 'vafciudad', header: 'Ciudad', width: '200px' },
-      { field: 'vafcorreo', header: 'Correo', width: '300px' },
-      { field: 'vafcargo', header: 'Cargo', width: '300px' },
-      { field: 'vaftelefono', header: 'Telefono', width: '180px' },
-      { field: 'vafsede', header: 'Sede', width: '200px' },
-      { field: 'vafpeso', header: 'Peso', width: '100px' },
-      { field: 'vaftalla', header: 'Talla', width: '100px' },
-      { field: 'vafimc', header: 'Ind Masa Corp', width: '160px' },
-      { field: 'vafperimetro', header: 'Perimetro', width: '125px' }
-    ];
-
+    this.consultaStore();
+    this.datosGenerales();
   }
-
+  /*Elimina los datos de los registros  de la tabla */
   deletePrueba(prueba: ValorFisico) {
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar este elemento?',
@@ -76,42 +49,70 @@ export class ValorfisicoComponent implements OnInit {
       }
     });
   }
-
-  // editVFRedux(vfData:ValorFisico){
-  //   this.store.dispatch(valoraFisicaAction.selectValoFisica({ id: vfData.vafid }))
-  // }
-
-      editPrueba(vfData:ValorFisico){
-        localStorage.setItem('valorFisico',JSON.stringify(vfData));
+  /*Agrega el objeto selecionado de VF */
+  editPrueba(vfData:ValorFisico){
+    localStorage.setItem('valorFisico',JSON.stringify(vfData));
+  }
+  /*Remover items del localStorage */
+  newcPrueba(){
+    localStorage.removeItem('valorFisico');
+    localStorage.removeItem('prueba');
+    localStorage.removeItem('IdEmpleado');
+    localStorage.removeItem('ForA');
+    localStorage.removeItem('ForAA');
+    localStorage.removeItem('ForB');
+    localStorage.removeItem('Extra');
+    localStorage.removeItem('estres');
+    localStorage.removeItem('estresEs');
+  }
+  /*Consulta los registros de la valoración física */
+  async indexData(id:number){
+    await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
+      this.vfData = data;
+      
+      if (this.vfData.length > 0) {
+        this.store.dispatch(
+          valoraFisicaAction.addValoFisicas({ list: data })
+        );
+        this.loading = false;
+      }else{
+        this.loading = false;
       }
-    
-      newcPrueba(){
-        localStorage.removeItem('valorFisico');
-        localStorage.removeItem('prueba');
-        localStorage.removeItem('IdEmpleado');
-        localStorage.removeItem('ForA');
-        localStorage.removeItem('ForAA');
-        localStorage.removeItem('ForB');
-        localStorage.removeItem('Extra');
-        localStorage.removeItem('estres');
-        localStorage.removeItem('estresEs');
+    });
+  }
+
+  datosGenerales(){
+    this.frozenCols = [
+      { field: 'vafcedula', header: 'Cédula', width: '180px' }
+    ];
+
+    this.cols = [
+      { field: 'vafidnombre', header: 'Nombre', width: '350px' },
+      { field: 'vafciudad', header: 'Ciudad', width: '200px' },
+      { field: 'vafcorreo', header: 'Correo', width: '300px' },
+      { field: 'vafcargo', header: 'Cargo', width: '300px' },
+      { field: 'vaftelefono', header: 'Telefono', width: '180px' },
+      { field: 'vafsede', header: 'Sede', width: '200px' },
+      { field: 'vafpeso', header: 'Peso', width: '100px' },
+      { field: 'vaftalla', header: 'Talla', width: '100px' },
+      { field: 'vafimc', header: 'Ind Masa Corp', width: '160px' },
+      { field: 'vafperimetro', header: 'Perimetro', width: '125px' }
+    ];
+  }
+
+  consultaStore(){
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa !== undefined) {
+        id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
       }
-
-    async indexData(id:number){
-      await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
-        this.vfData = data;
-        
-        if (this.vfData.length > 0) {
-          this.store.dispatch(
-            valoraFisicaAction.addValoFisicas({ list: data })
-          );
-          this.loading = false;
-        }else{
-          this.loading = false;
-        }
-      });
-    }
-
-
+      if (id !== undefined && id !== null) {
+        await this.indexData(id);
+      }
+     
+    });
+  }
 
 }

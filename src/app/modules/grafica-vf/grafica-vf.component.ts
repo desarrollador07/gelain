@@ -1,9 +1,12 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Message } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
+/*Modulos */
+import { Message } from 'primeng/api';
+/*Modelos */
 import { ValorFisico } from 'src/app/models/valorFisico.model';
+/*Servicios */
 import { PruebaService } from 'src/app/services/prueba.service';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 
@@ -42,15 +45,15 @@ export class GraficaVfComponent implements OnInit {
   loading:boolean = false;
   loadingEmpty:boolean = true;
   msgs: Message[] = [];
-  sales: any[] = [];
-  sales2: any[] = [];
-  sales3: any[] = [];
-  sales4: any[] = [];
-  sales5: any[] = [];
-  sales6: any[] = [];
-  sales7: any[] = [];
-  sales8: any[] = [];
-  sales9: any[] = [];
+  sales: any[] = [];/*Arreglo IMC */
+  sales2: any[] = [];/*Arreglo Perimetro Abdominal */
+  sales3: any[] = [];/*Arreglo Test Ruffier */
+  sales4: any[] = [];/*Arreglo Nivel de estabilidad y resistencia del core (HOMBRES) */
+  sales5: any[] = [];/*Arreglo Nivel de estabilidad y resistencia del core (MUJERES) */
+  sales6: any[] = [];/*Arreglo Nivel de flexibilidad */
+  sales7: any[] = [];/*Arreglo Antecedentes familiares de enfermedades */
+  sales8: any[] = [];/*Arreglo Condiciones de salud */
+  sales9: any[] = [];/*Arreglo Estilo de vida fantastico */
   nombreGelain:any;
   nitGelain:any;
   correoGelain:any;
@@ -59,12 +62,10 @@ export class GraficaVfComponent implements OnInit {
   fechaActual :Date;
   nEmpresa:any;
   usuario:any;
-  anho:any;
-  mes:any;
-  dia:any;
   hora:any;
   min:any;
   fecha:any;
+  /*Titulos pdf */
   text1:any;
   text2:any;
   text3:any;
@@ -86,21 +87,8 @@ export class GraficaVfComponent implements OnInit {
 
   ngOnInit() {
     this.dataGeneral();
-    this.store.select('empresas').subscribe(async res=>{
-      var id:number;
-      if (res.empresa !== undefined) {
-        id = res.empresa.empid;
-      }else{
-        id = this.idEmpresa;
-      }
-      if (id !== undefined && id !== null) {
-        this.loading = false;
-        await this.consultaVF(id);
-      }
-    });
-    
+    this.consultaStore();
     this.datosGelain();
-  
   }
  /*Función que calcula y crea el arreglo para la grafica del IMC */
   fnIMC(){
@@ -142,7 +130,7 @@ export class GraficaVfComponent implements OnInit {
     ];
     this.seriesData.push(cont1,cont2,cont3,cont4,cont5,cont6);
   }
-
+  /*Función que calcula y crea el arreglo para la grafica del perimetro Abdominal */
   fnPeriAbdo(){
     var cont1F:number = 0;
     var cont2F:number = 0;
@@ -183,7 +171,7 @@ export class GraficaVfComponent implements OnInit {
     this.seriesData2M.push(cont1M,cont2M,cont3M);
     
   }
-
+  /*Función que calcula y crea el arreglo para la grafica del Test de Ruffier */
   fnRuffierCRC(){
     var cont1:number = 0;
     var cont2:number = 0;
@@ -238,7 +226,7 @@ export class GraficaVfComponent implements OnInit {
 
     this.seriesData3.push(cont1,cont2,cont3,cont4,cont5);
   }
-
+  /*Función que calcula y crea el arreglo para la grafica del nivel de estabilidad y resistencia del core (HOMBRES) */
   fnNivelERCHombre(){
     /*Hombres 35*/
     var cont1M35:number = 0;
@@ -315,7 +303,7 @@ export class GraficaVfComponent implements OnInit {
     this.seriesData4Mop3.push(cont1M50,cont2M50,cont3M50,cont4M50);
 
   }
-
+  /*Función que calcula y crea el arreglo para la grafica del nivel de estabilidad y resistencia del core (MUJERES) */
   fnNivelERCMujer(){
     /*Mujeres 35*/
     var cont1F35:number = 0;
@@ -391,7 +379,7 @@ export class GraficaVfComponent implements OnInit {
     this.seriesData4Fop2.push(cont1F44,cont2F44,cont3F44,cont4F44);
     this.seriesData4Fop3.push(cont1F50,cont2F50,cont3F50,cont4F50);
   }
-
+  /*Función que calcula y crea el arreglo para la grafica del nivel de flexibilidad */
   fnNvlFlex(){
     var cont1:number = 0;
     var cont2:number = 0;
@@ -422,7 +410,7 @@ export class GraficaVfComponent implements OnInit {
 
     this.seriesData5.push(cont1,cont2,cont3);
   }
-
+  /*Función que calcula y crea el arreglo para la grafica de los antecedentes familiares de enfermedades */
   fnAnteFami(){
     var cont1:number = 0;
     var cont2:number = 0;
@@ -481,7 +469,7 @@ export class GraficaVfComponent implements OnInit {
 
     this.seriesData6.push(cont1,cont2,cont3);
   }
-
+  /*Función que calcula y crea el arreglo para la grafica de la condición de salud */
   fncondSalud(){
     var cont1:number = 0;
     var cont2:number = 0;
@@ -580,7 +568,7 @@ export class GraficaVfComponent implements OnInit {
 
     this.seriesData7.push(cont1,cont2,cont3);
   }
-
+  /*Función que calcula y crea el arreglo para la grafica de estilo de vida fantastico */
   fnTestFantastico(){
     var cont1:number = 0;
     var cont2:number = 0;
@@ -619,6 +607,7 @@ export class GraficaVfComponent implements OnInit {
     this.seriesData8.push(cont1, cont2, cont3, cont4);
 
   }
+  /*Consulta los registros de la tabla valoración física */
   async consultaVF(id:number){
     this.limpiarData();
     await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
@@ -669,7 +658,7 @@ export class GraficaVfComponent implements OnInit {
     this.sales8 = [];
     this.sales9 = [];
   }
-
+  /*Data para la generación del pdf 1 */
   datosGelain(){
     this.pruebaServices.getDatosEmpresaGelain().subscribe((data:any)=>{
       this.nombreGelain = data.nombre;
@@ -681,8 +670,8 @@ export class GraficaVfComponent implements OnInit {
     })
   }
 
+  /*Datos para la generación del pdf 2 Titulos y Fechas */
   dataGeneral(){
-    
     this.fechaActual = new Date();
     const fechaAct = this.datepipe.transform(this.fechaActual, "yyyy-MM-dd");
     this.hora = this.fechaActual.getHours();
@@ -699,10 +688,25 @@ export class GraficaVfComponent implements OnInit {
     this.text8 = "CS_"+this.fecha;
     this.text9 = "EVF_"+this.fecha;
   }
-
+  /*Mensaje Informativo cuando no hasy datos para la empresa seleccionada */
   showInfo() {
     this.msgs = [];
     this.msgs.push({severity:'info', summary:'Info', detail:'LA EMPRESA SELECCIONADA NO CUENTA CON REGISTROS EN ESTE MOMENTO EN LA TABLA DE VALORACIÓN FÍSICA.'});
+  }
+  /*Consulta los datos en el store cuando se cambia de empresa en el desplegable principal */
+  consultaStore(){
+    this.store.select('empresas').subscribe(async res=>{
+      var id:number;
+      if (res.empresa !== undefined) {
+        id = res.empresa.empid;
+      }else{
+        id = this.idEmpresa;
+      }
+      if (id !== undefined && id !== null) {
+        this.loading = false;
+        await this.consultaVF(id);
+      }
+    });
   }
 
 }
