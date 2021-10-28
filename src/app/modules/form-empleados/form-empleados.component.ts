@@ -177,7 +177,7 @@ export class FormEmpleadosComponent implements OnInit {
     return this.userform.get('emddireccion').invalid && this.userform.get('emddireccion').touched
   }
   get emdTelefono() {
-    return this.userform.get('emdtelefono').invalid && this.userform.get('emdtelefono').touched
+    return this.userform.get('emdtelefono').hasError('required') && this.userform.get('emdtelefono').touched
   }
   get emdTelefonomin() {
     return this.userform.get('emdtelefono').hasError('minlength') 
