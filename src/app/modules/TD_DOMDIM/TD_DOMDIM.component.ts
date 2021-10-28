@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { PruebaService } from '../../services/prueba.service';
-import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 import { DatePipe } from '@angular/common';
+/*Modulos */
+import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
+/*Servicios */
+import { PruebaService } from '../../services/prueba.service';
 
 
 @Component({

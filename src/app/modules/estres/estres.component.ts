@@ -1,18 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {Validators,FormGroup,FormBuilder} from '@angular/forms';
-import { DatePipe } from '@angular/common';
-import { PruebaService } from '../../services/prueba.service';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
-import {MessageService, ConfirmationService} from 'primeng/api';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
-import { routes } from '../../app.routes';
-import { SelectItem } from 'primeng/api';
+/*Modulos */
+import { MessageService, MenuItem, SelectItem} from 'primeng/api';
+/*Modelos */
 import { Estres } from '../../models/estres.nodel';
+/*Servicios */
+import { PruebaService } from '../../services/prueba.service';
 import { EmpleadosService } from '../../services/empleados.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
-
 
 @Component({
   selector: 'app-estres',

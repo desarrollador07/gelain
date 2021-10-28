@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { EmpleadosPendientesService } from '../../services/empleados-pendientes.service';
-import { EmpleadoPendienteModel } from '../../models/empleado-pendiente.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+/*Modelos */
+import { EmpleadoPendienteModel } from '../../models/empleado-pendiente.model';
+/*Servicios */
+import { EmpleadosPendientesService } from '../../services/empleados-pendientes.service';
 
 @Component({
   selector: 'app-empleados-pendientes',

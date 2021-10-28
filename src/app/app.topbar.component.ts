@@ -1,12 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SelectItem } from 'primeng/primeng';
-import { AppComponent} from './app.component';
-import { Empresa } from './models/empresa.model';
 import { AppState } from './app.reducer';
 import { Store } from '@ngrx/store';
 import * as empresasActions from "./store/actions/empresa.actions";
+/*Modulos */
+import { SelectItem } from 'primeng/primeng';
+/*Modelos */
+import { Empresa } from './models/empresa.model';
+/*Servicios */
 import { EmpresaService } from './services/empresa.service';
+/*Componente */
+import { AppComponent} from './app.component';
 
 @Component({
   selector: 'app-topbar',

@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
-import { Area } from '../../models/area.model';
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+/*Modulos */
+import { MessageService } from 'primeng/api';
+/*Modelos */
+import { Area } from '../../models/area.model';
+/*Servicios */
 import { AreasService } from 'src/app/services/areas.service';
-
 
 @Component({
   selector: 'app-form-prueba',

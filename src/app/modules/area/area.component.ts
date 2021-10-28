@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+/*Modulos */
+import { ConfirmationService, MessageService, MenuItem } from 'primeng/api';
+/*Modelos */
 import { Area } from '../../models/area.model';
-import { ConfirmationService,MessageService } from 'primeng/api';
-import { MenuItem } from 'primeng/api';
+/*Servicios */
 import { AreasService } from 'src/app/services/areas.service';
+
 @Component({
   selector: 'app-empleados',
   templateUrl: './area.component.html',

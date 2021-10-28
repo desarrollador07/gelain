@@ -1,11 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
-
+/*Modulos */
 import { ConfirmationService, MessageService } from "primeng/api";
-import { PruebaService } from '../../services/prueba.service';
+/*Modelos */
 import { User } from '../../models/user';
-
+/*Servicios */
+import { PruebaService } from '../../services/prueba.service';
 
 
 @Component({

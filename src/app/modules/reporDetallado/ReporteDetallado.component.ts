@@ -1,9 +1,12 @@
 import { Component, OnInit} from '@angular/core';
-import { PruebaService } from '../../services/prueba.service';
-import { ReporteDetallado } from '../../models/reporteDetallado';
-import { MessageService } from 'primeng/primeng';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+/*Modulos */
+import { MessageService } from 'primeng/primeng';
+/*Modelos */
+import { ReporteDetallado } from '../../models/reporteDetallado';
+/*Servicios */
+import { PruebaService } from '../../services/prueba.service';
 
 
 @Component({

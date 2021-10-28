@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { MenuItem} from 'primeng/api';
-import { SelectItem } from 'primeng/api';
+/*Modulos */
+import { MessageService, MenuItem, SelectItem } from 'primeng/api';
+/*Modelos */
 import { Estres } from '../../models/estres.nodel';
+/*Servicios */
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 

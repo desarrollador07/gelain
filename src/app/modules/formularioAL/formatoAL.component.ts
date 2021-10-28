@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
-import { SelectItem } from 'primeng/api';
+/*Modulos */
+import { MessageService, MenuItem, SelectItem } from 'primeng/api';
+/*Modelos */
 import { FormatoA } from '../../models/formatoAmodel';
+/*Servicios */
 import { FormatoAService } from 'src/app/services/formato-a.service';
-
 
 @Component({
   selector: 'app-formatoA',

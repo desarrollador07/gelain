@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+/*Modulos */
+import { MessageService, SelectItem } from 'primeng/api';
+/*Modelos */
 import { Empleado } from '../../models/empleado.mdel';
-import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
-import { SelectItem } from 'primeng/api';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
+/*Servicios */
+import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoAService } from 'src/app/services/formato-a.service';
 import { FormatoBService } from 'src/app/services/formato-b.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
-import { FormatoExtraService } from 'src/app/services/formato-extra.service';
-
-
 
 @Component({
   selector: 'app-form-prueba',

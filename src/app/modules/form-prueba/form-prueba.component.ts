@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
-import { Empresa } from '../../models/empresa.model';
-import { MessageService, ConfirmationService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
-import { SelectItem } from 'primeng/api';
+import { environment } from 'src/environments/environment';
+/*Modulos */
+import { MessageService, ConfirmationService, MenuItem, SelectItem } from 'primeng/api';
+/*Modelos */
 import { Area } from '../../models/area.model';
+import { Empresa } from '../../models/empresa.model';
+/*Servicios */
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
-import { environment } from 'src/environments/environment';
-
 
 @Component({
   selector: 'app-form-prueba',

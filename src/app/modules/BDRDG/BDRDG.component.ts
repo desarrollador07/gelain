@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Empleado } from '../../models/empleado.mdel';
-import { SelectItem } from 'primeng/api';
-import { MenuItem} from 'primeng/api';
-import { Empresa } from 'src/app/models/empresa.model';
-import { Area } from '../../models/area.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+/*Modulos */
+import { SelectItem, MenuItem } from 'primeng/api';
+/*Modelos */
+import { Empleado } from '../../models/empleado.mdel';
+import { Empresa } from 'src/app/models/empresa.model';
+import { Area } from '../../models/area.model';
+/*Servicios */
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';

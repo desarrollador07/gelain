@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Empleado } from '../../models/empleado.mdel';
-import { ConfirmationService,MessageService} from 'primeng/api';
-import {MenuItem} from 'primeng/api';
-import { Empresa } from 'src/app/models/empresa.model';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
+/*Modulos */
+import { ConfirmationService, MessageService, MenuItem } from 'primeng/api';
+/*Modelos */
+import { Empleado } from '../../models/empleado.mdel';
+import { Empresa } from 'src/app/models/empresa.model';
+/*Servicios */
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoAService } from 'src/app/services/formato-a.service';
 import { FormatoBService } from 'src/app/services/formato-b.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 import { FormatoExtraService } from 'src/app/services/formato-extra.service';
+
 @Component({
   selector: 'app-empleados',
   templateUrl: './empleados.component.html',

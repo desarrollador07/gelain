@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ConfirmationService,MessageService} from 'primeng/api';
-import { MenuItem } from 'primeng/api';
+/*Modulos */
+import { ConfirmationService, MessageService, MenuItem} from 'primeng/api';
+/*Modelos */
 import { Empresa } from '../../models/empresa.model';
+/*Servicios */
 import { EmpresaService } from 'src/app/services/empresa.service';
 
 @Component({

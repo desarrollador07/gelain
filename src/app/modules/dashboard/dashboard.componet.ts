@@ -1,14 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { SelectItem } from 'primeng/api';
-import { CarService } from '../../demo/service/carservice';
-import { EventService } from '../../demo/service/eventservice';
-import { Car } from '../../demo/domain/car';
-import { MenuItem } from 'primeng/primeng';
-import { BreadcrumbService } from '../../breadcrumb.service';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-
+/*Modulos */
+import { SelectItem } from 'primeng/api';
+import { MenuItem } from 'primeng/primeng';
+/*Modelos */
+import { Car } from '../../demo/domain/car';
+/*Servicios */
+import { CarService } from '../../demo/service/carservice';
+import { EventService } from '../../demo/service/eventservice';
+import { BreadcrumbService } from '../../breadcrumb.service';
 
 @Component({
     selector: "app-dashboard",

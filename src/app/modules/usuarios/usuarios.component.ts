@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+/*Modulos */
 import { ConfirmationService, MessageService } from 'primeng/api';
+/*Modelos */
 import { UsuariosModel } from 'src/app/models/usuarios.model';
+/*Servicios */
 import { UsuariosService } from '../../services/usuarios.service';
 
 @Component({

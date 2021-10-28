@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { ActivatedRoute } from "@angular/router";
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { MenuItem } from 'primeng/api';
-import { SelectItem } from 'primeng/api';
+/*Modulos */
+import { MessageService, MenuItem, SelectItem } from 'primeng/api';
+/*Modelos */
 import { Extralaboral } from 'src/app/models/extralaboral.model';
 import { Empleado } from '../../models/empleado.mdel';
+/*Servicios */
 import { FormatoExtraService } from 'src/app/services/formato-extra.service';
-
 
 @Component({
   selector: 'app-extralaboral',

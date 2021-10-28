@@ -1,17 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
-import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
-import { SelectItem } from 'primeng/api';
+import { AppState } from 'src/app/app.reducer';
+import { Store } from '@ngrx/store';
+/*Modulos */
+import { MessageService, SelectItem } from 'primeng/api';
+/*Modelos */
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
 import { ValorFisico } from '../../models/valorFisico.model';
+/*Servicios */
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
-import { AppState } from 'src/app/app.reducer';
-import { Store } from '@ngrx/store';
 
 
 @Component({
