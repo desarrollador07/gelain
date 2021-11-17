@@ -1095,6 +1095,20 @@ export class FormValorFisicoComponent implements OnInit {
     }
   }
 
+  fnFormulaIMC(){
+    var imc:number = 0;
+    var num:number = 0;
+    var denom:number = 0;
+    if (this.userform.value.vafpeso !== "" && this.userform.value.vaftalla !== "") {
+      num =  Math.abs(this.userform.value.vafpeso);
+      denom = Math.pow(Math.abs(this.userform.value.vaftalla),2);
+      imc = num / denom;
+      this.userform.patchValue({
+        vafimc:imc
+      })
+    }
+  }
+
   validEstado(value:number){
     this.imagenIcon = '';
     this.imgValid = true;
