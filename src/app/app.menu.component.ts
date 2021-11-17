@@ -20,35 +20,117 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.model = [
-            { label: 'Menu', icon: 'fa fa-fw fa-file-code-o', routerLink: ['dashboard']},
+            {   
+                label: 'Inicio', 
+                icon: 'fa fa-fw fa-home', 
+                routerLink: ['dashboard']
+            },
             { 
                 label: 'Sistema', 
                 icon: 'pi fa-fw pi-list',
                 items:[
+                    {   
+                        label: 'Empresas', 
+                        icon: 'fa fa-fw fa-building', 
+                        routerLink: ['listarEmpresa']
+                    },
                     {
                         label:'Empleados Pendientes',
-                        icon:'pi fa-fw pi-angle-right',
+                        icon:'fa fa-fw fa-user',
                         routerLink: ["empleados-pendientes"]  
                     },
                     {
                         label:'Usuarios',
-                        icon:'pi fa-fw pi-angle-right',
+                        icon:'fa fa-fw fa-user',
                         routerLink: ["usuarios"]  
                     },
 
                 ] 
                 
             },
-            { label: 'Empresas', icon: 'fa fa-fw fa-home', routerLink: ['listarEmpresa']},
-            {
-                label: 'Empleados', icon: 'fa fa-fw fa-user',routerLink: ['empleado'],
-
+            { 
+                label: 'Valoración Psicologica', 
+                icon: 'pi fa-fw pi-list',
+                items:[
+                    {
+                        label: 'Empleados', 
+                        icon: 'fa fa-fw fa-user',
+                        routerLink: ['empleado'],
+                    },
+                    {
+                        label: 'Reportes', 
+                        icon: 'pi fa-fw pi-angle-right',
+                        items:[
+                            {
+                                label: 'Informe Datos Generales', 
+                                icon: 'pi pi-circle-on',
+                                routerLink: ['BDRDG'],
+                            },
+                            {
+                                label: 'Informe De Riesgos', 
+                                icon: 'pi pi-circle-on',
+                                routerLink: ['TD_DOMDIM'],
+                            },
+                            {
+                                label: 'Informe De Riesgos Detallado Por Empleado', 
+                                icon: 'pi pi-circle-on',
+                                routerLink: ['ReporteDetallado'],
+                            },
+                            {
+                                label: 'Informe Areas', 
+                                icon: 'pi pi-circle-on',
+                                routerLink: ['reporte-areas'],
+                            },
+                        ]
+                    },
+                ] 
+                
             },
             {
-                label: 'Reportes', icon: 'fa fa-fw fa-book',routerLink: ['Reportes'],
+                label: 'Valoración Física', 
+                icon: 'pi fa-fw pi-list', 
+                items:[
+                    {
+                        label: 'Valoración C.Física', 
+                        icon: 'fa fa-fw fa-heartbeat', 
+                        routerLink: ['ValorFisico'] 
+                    },
+                    {
+                        label: 'Reportes', 
+                        icon: 'pi fa-fw pi-angle-right',
+                        items:[
+                            {
+                                label: 'Informe Valoración Física', 
+                                icon: 'pi pi-circle-on',
+                                routerLink: ['grafica-vf'],
+                            },
+                        ]
+                    }
+                    
+                ],
             },
             {
-                label: 'Valoración C.Física', icon: 'fa fa-fw fa-book',routerLink: ['ValorFisico'],
+                label: 'Valoración Riesgos', 
+                icon: 'pi fa-fw pi-list', 
+                items:[
+                    {
+                        label: 'Identificación de Peligros', 
+                        icon: 'pi pi-exclamation-triangle', 
+                        routerLink: ['ValorFisico'] 
+                    },
+                    // {
+                    //     label: 'Reportes', 
+                    //     icon: 'pi fa-fw pi-angle-right',
+                    //     items:[
+                    //         {
+                    //             label: 'Informe Valoración Peligros', 
+                    //             icon: 'pi pi-circle-on',
+                    //             routerLink: ['grafica-vf'],
+                    //         },
+                    //     ]
+                    // }
+                    
+                ],
             },
            
             

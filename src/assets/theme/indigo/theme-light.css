@@ -3521,7 +3521,7 @@ body .ui-menu .ui-submenu-header {
 body .ui-menubar {
     padding: 0;
     background-color: #ffffff;
-    border: 1px solid #dedede;
+    /* border: 1px solid #dedede; */
 }
 
 body .ui-menubar .ui-menubar-root-list>.ui-menuitem>.ui-menuitem-link {
