@@ -12,7 +12,7 @@ import { MessagesModule } from 'primeng/messages';
 import { FieldsetModule, CalendarModule, CheckboxModule, 
          ProgressBarModule, ProgressSpinnerModule, ButtonModule, 
          InputTextareaModule, DropdownModule, PanelModule, DialogModule, 
-         RadioButtonModule, TabMenuModule } from 'primeng/primeng';
+         RadioButtonModule, TabMenuModule, TooltipModule } from 'primeng/primeng';
 import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 
@@ -44,6 +44,7 @@ import { ToastModule } from 'primeng/toast';
     DialogModule,
     RadioButtonModule,
     TabMenuModule,
+    TooltipModule
   ]
 })
 export class EmpleadosPendientesModule { }

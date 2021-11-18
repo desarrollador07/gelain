@@ -21,7 +21,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { MessageService} from 'primeng/api';
 import {InputTextModule} from 'primeng/inputtext';
-import {InputTextareaModule } from 'primeng/primeng';
+import {InputTextareaModule, TooltipModule } from 'primeng/primeng';
 import {  PanelModule } from 'primeng/panel';
 import {DataViewModule} from 'primeng/dataview';
 import { DialogModule } from 'primeng/primeng';
@@ -58,7 +58,7 @@ import {TabMenuModule} from 'primeng/tabmenu';
     DialogModule,
     RadioButtonModule,
     TabMenuModule,
-
+    TooltipModule
   ],
   providers:[
     DatePipe,
