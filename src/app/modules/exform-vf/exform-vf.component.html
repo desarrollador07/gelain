@@ -126,27 +126,31 @@
             <br>
             <fieldset>
                 <legend><b>EVALUACIÓN COMPOSICIÓN CORPORAL</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <b><p style="font-size: medium;">Formula IMC = Peso/Altura&#178;</p></b>
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  style="width: 50%;"  [class.is-invalid]="vafpeso"  formControlName="vafpeso" type="number"  pInputText> 
+                            <input  style="width: 50%;"  [class.is-invalid]="vafpeso"  formControlName="vafpeso" (ngModelChange)="fnFormulaIMC()" type="number"  pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Peso</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafpeso"></p-message>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input style="width: 50%;" [class.is-invalid]="vaftalla"  formControlName="vaftalla" type="number" pInputText > 
-                            <label for="float-input" style="font-size: 15px; "> Talla</label>
+                            <input style="width: 50%;" [class.is-invalid]="vaftalla"  formControlName="vaftalla" (ngModelChange)="fnFormulaIMC()" type="number" pInputText > 
+                            <label for="float-input" style="font-size: 15px; "> Talla - Altura en M</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftalla"></p-message>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input style="width: 50%;"  [class.is-invalid]="vafimc"  formControlName="vafimc" type="number" pInputText > 
+                            <input style="width: 50%;"   formControlName="vafimc" type="number" pInputText readonly="readonly" > 
                             <label for="float-input" style="font-size: 15px; ">IMC</label>
                         </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafimc"></p-message>
                     </div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
@@ -164,26 +168,26 @@
 
                 <div class="ui-g">
                     <div class="ui-g-12">
-                        <b><p>Test de Ruffier: Resistencia aeróbica de corta duración y capacidad de recuperación cardiaca.</p></b>
+                        <b><p style="font-size: medium;">Test de Ruffier: Resistencia aeróbica de corta duración y capacidad de recuperación cardiaca.</p></b>
                     </div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-4">
-                        <b><p> (Mujeres 20 rep en 30” - Hombres 30 rep en 45”) </p></b>
+                        <b><p style="font-size: medium;"> (Mujeres 20 rep en 30” - Hombres 30 rep en 45”) </p></b>
                     </div>
-                    <div class="ui-g-2">
-                        <b><p>Formula  I: ((P0+P1+P2)-200) /10</p></b>
+                    <div class="ui-g-3">
+                        <b><p style="font-size: medium;">Formula  I: ((P0+P1+P2)-200) /10</p></b>
                     </div>
-                    <div class="ui-g-3" style="text-align: center;">
+                    <div class="ui-g-2" style="text-align: center;">
                         <div *ngIf="validMsj">
-                            <b>Resultado I: <label>{{totalCR}}</label></b>
+                            <b style="font-size:large">Resultado I: <label>{{totalCR}}</label></b>
                         </div>
                         <div *ngIf="!validMsj">
-                            <b>Resultado I: <label>No valido</label></b>
+                            <b style="font-size:large">Resultado I: <label>No valido</label></b>
                         </div>
                     </div>
                     <div class="ui-g-3" style="text-align: center;">
-                        <label [ngStyle]="{'color': colorMsj }"><b>{{msjCR}}</b></label>
+                        <label style="font-size: medium;" [ngStyle]="{'color': colorMsj }"><b>{{msjCR}}</b></label>
                     </div>
                 </div>
                 <br>
@@ -197,12 +201,9 @@
                                 </span>
                                 <p-message severity="error" text="Este campo es requerido" *ngIf="vafp0"></p-message>
                             </div>
-                            <div class="ui-g-1" style="margin-top: 8px;">
-                                <b><p>X60</p></b>
-                            </div>
                             <div class="ui-g-8">
-                                <b><p>Sí I= 0 rendimiento cardiovascular (CV) excelente (Propio de atletas).</p></b>
-                                <b><p>Sí I= Esta entre 0,1 y 5 rendimiento cardiovascular (CV) bueno.</p></b>
+                                <b><p style="font-size:medium;">Sí I= 0 rendimiento cardiovascular (CV) excelente (Propio de atletas).</p></b>
+                                <b><p style="font-size:medium;">Sí I= Esta entre 0,1 y 5 rendimiento cardiovascular (CV) bueno.</p></b>
                             </div>
                         </div>
                         <div class="ui-g" style="margin-bottom: 10px;">
@@ -213,12 +214,9 @@
                                 </span>
                                 <p-message severity="error" text="Este campo es requerido" *ngIf="vafp1"></p-message>
                             </div>
-                            <div class="ui-g-1" style="margin-top: 8px;">
-                                <b><p>X60</p></b>
-                            </div>
                             <div class="ui-g-8">
-                                <b><p>Sí I= Esta entre 5,1 Y 10 rendimientos cardiovascular (CV) medio.</p></b>
-                                <b><p>Sí I= Esta entre 10,1 y 15 rendimiento cardiovascular (CV) insuficiente.</p></b>
+                                <b><p style="font-size:medium;">Sí I= Esta entre 5,1 Y 10 rendimientos cardiovascular (CV) medio.</p></b>
+                                <b><p style="font-size:medium;">Sí I= Esta entre 10,1 y 15 rendimiento cardiovascular (CV) insuficiente.</p></b>
                             </div>
                         </div>
                         <div class="ui-g" style="margin-bottom: 10px;">
@@ -229,11 +227,8 @@
                                 </span>
                                 <p-message severity="error" text="Este campo es requerido" *ngIf="vafp2"></p-message>
                             </div>
-                            <div class="ui-g-1" style="margin-top: 8px;">
-                                <b><p>X60</p></b>
-                            </div>
                             <div class="ui-g-8">
-                                <b><p>Sí I= Esta entre 15,1 y 20 rendimiento cardiovascular (CV) malo (Requiere Evaluación Médica).</p></b>
+                                <b><p style="font-size:medium;">Sí I= Esta entre 15,1 y 20 rendimiento cardiovascular (CV) malo (Requiere Evaluación Médica).</p></b>
                             </div>
                         </div>
                     </div>

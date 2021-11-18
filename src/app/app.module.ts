@@ -120,6 +120,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
+import { ValorRiesgoComponent } from './modules/valor-riesgo/valor-riesgo.component';
 
 
 
@@ -246,7 +247,8 @@ import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
         TerminosCondicionesComponent,
         ReporteAreasComponent,
         TerminosCondicionesVfComponent,
-        GraficaVfComponent
+        GraficaVfComponent,
+        ValorRiesgoComponent
   
 
 
