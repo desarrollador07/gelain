@@ -1,3 +1,62 @@
-<p>
-  valor-riesgo works!
-</p>
+<div class="ui-g">
+    <div class="ui-g-2">
+        <div id="search-wrapper">
+            <input type="search" id="search" tooltipPosition="left" pTooltip="Filtrar registros de la tabla" pInputText placeholder="Filtrar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+            <i class="pi pi-search"></i>
+        </div>
+    </div>
+</div>
+<p-toast></p-toast>
+<p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
+    <p-footer>
+        <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+        <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
+    </p-footer>
+</p-confirmDialog>
+<div class="ui-g" *ngIf="loading">
+    <div class="ui-g-12" style="text-align: center;">
+        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    </div>
+</div>
+<div class="card animated fadeIn fast">
+    <p-panel header="VALORACIÓN DE RIESGOS">
+        <p-table #dt [value]="vrData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro']" [rows]="10"
+            [paginator]="true" [rowHover]="true">
+            <ng-template pTemplate="colgroup" let-columns>
+                <colgroup>
+                    <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
+                    <col [ngStyle]="{'width': '120px'}">
+                </colgroup>
+            </ng-template>
+            <ng-template pTemplate="header" let-columns>
+                <tr>
+                    <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                        {{col.header}}
+                        <p-sortIcon [field]="col.field"></p-sortIcon>
+                    </th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                <tr>
+                    <td *ngFor="let col of columns">
+                        {{rowData[col.field]}}
+                    </td>
+                    <td style="text-align:center">
+                        <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="./form-valor-riesgo" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton tooltipPosition="top" pTooltip="Eliminar Registro" pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deleteVR(rowData)" class="p-button-rounded p-button-warning"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    En total hay {{vrData ? vrData.length : 0 }} registros.
+                </div>
+            </ng-template>
+        </p-table>
+        <br>
+        <div style="text-align:center">
+            <button type="button" pButton tooltipPosition="top" pTooltip="Agregar Registro" icon="fa fa-plus" pRipple routerLink="./form-valor-riesgo" (click)="newVR()" label="Agregar"></button>
+        </div>
+    </p-panel>
+</div>

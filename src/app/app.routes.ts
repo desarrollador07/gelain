@@ -218,6 +218,13 @@ export const routes: Routes = [
                     ),
             },
             {
+                path: "valor-riesgo",
+                loadChildren: () =>
+                    import("./modules/valor-riesgo/valor-riesgo.module").then(
+                        (m) => m.ValorRiesgoModule
+                    ),
+            },
+            {
                 path: "grafica-vf",
                 component: GraficaVfComponent
             },

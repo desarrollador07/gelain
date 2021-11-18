@@ -116,7 +116,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                     {
                         label: 'Identificación de Peligros', 
                         icon: 'pi pi-exclamation-triangle', 
-                        routerLink: ['ValorFisico'] 
+                        routerLink: ['valor-riesgo'] 
                     },
                     // {
                     //     label: 'Reportes', 

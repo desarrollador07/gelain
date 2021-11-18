@@ -120,9 +120,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
-import { ValorRiesgoComponent } from './modules/valor-riesgo/valor-riesgo.component';
-
-
 
 
 
@@ -247,11 +244,8 @@ import { ValorRiesgoComponent } from './modules/valor-riesgo/valor-riesgo.compon
         TerminosCondicionesComponent,
         ReporteAreasComponent,
         TerminosCondicionesVfComponent,
-        GraficaVfComponent,
-        ValorRiesgoComponent
+        GraficaVfComponent
   
-
-
     ],
     providers: [DatePipe,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
