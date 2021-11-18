@@ -10,6 +10,7 @@ export class FormValorRiesgoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+        
   }
 
 }
