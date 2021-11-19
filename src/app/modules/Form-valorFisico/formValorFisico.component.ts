@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
-import { AppState } from 'src/app/app.reducer';
-import { Store } from '@ngrx/store';
 /*Modulos */
 import { MessageService, SelectItem } from 'primeng/api';
 /*Modelos */
@@ -74,16 +72,11 @@ export class FormValorFisicoComponent implements OnInit {
               private fb: FormBuilder,
               private router: Router,
               private _messageService: MessageService,
-              private datepipe: DatePipe,
-              private store: Store<AppState>) { 
+              private datepipe: DatePipe) { 
     
   }
 
   async ngOnInit() {
-
-    // this.store.select('valoFisica').subscribe((vf:any) => {
-    //   this.localPrueba = vf.valoraFisica;
-    // });
 
     this.localPrueba = JSON.parse(localStorage.getItem('valorFisico'));
     this.formulario();

@@ -30,17 +30,17 @@ export class ValorRiesgoComponent implements OnInit {
     this.datosGenerales();
   }
   /*Elimina los datos de los registros  de la tabla */
-  deleteVR(valorRiesgo: ValorRiesgoModel) {
+  deleteVR(id: number) {
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar este elemento?',
       header:'Confirmación',
       icon:'pi pi-exclamation-triangle',
       accept:() => {
-        // this.vfService.deletevalorFisico(valorRiesgo)
-        // .toPromise().then(data => {
-        //   this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000})
-        //   this.vfData = this.vfData.filter(r => r !== valorRiesgo);
-        // });
+        this.valoraRiesgoService.deletevalorRiesgo(id)
+        .toPromise().then(data => {
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'El registro se ha eliminado', life: 3000})
+          this.vrData = this.vrData.filter(r => r.idp_id !== id);
+        });
       }
     });
   }
@@ -64,7 +64,6 @@ export class ValorRiesgoComponent implements OnInit {
   async indexData(id:number){
     await this.valoraRiesgoService.getvalorRiesgoId(id).toPromise().then((data:ValorRiesgoModel[])=>{
       this.vrData = data;
-      console.log("DATA", this.vrData);
       
       if (this.vrData.length > 0) {
         this.loading = false;
@@ -73,13 +72,6 @@ export class ValorRiesgoComponent implements OnInit {
       }
     });
   }
-
-  
-  
-  
-  
-
-
 
   datosGenerales(){
     this.frozenCols = [

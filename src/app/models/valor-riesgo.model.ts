@@ -1,6 +1,6 @@
 export interface ValorRiesgoModel{
 
-    idpfecha?:Date,
+    idpfecha?:string,
     idpempresa?:number,
     idparea?:number,
     idpsede?:string,
@@ -15,9 +15,7 @@ export interface ValorRiesgoModel{
     idpprocesoactividad?:string,
     idpampliarobservac?:string,
     idpusuariocrea?:string,
-    idpfechacrea?:Date,
     idpusuariomod?:string,
-    idpfechamod?:Date,
     idpestado?:string,
     idpbioderani_efectos?:string,
     idpbioderani_ctrlfuente?:string,
