@@ -29,7 +29,9 @@
         <kendo-grid [data]="sales">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
-            <kendo-grid-column field="rango" title="Rango">
+            <kendo-grid-column field="hombre" title="Hombre">
+            </kendo-grid-column>
+            <kendo-grid-column field="mujer" title="Mujer">
             </kendo-grid-column>
         </kendo-grid>
         <br>
@@ -39,7 +41,8 @@
                 </kendo-chart-category-axis-item>
             </kendo-chart-category-axis>
             <kendo-chart-series>
-                <kendo-chart-series-item [data]="[seriesData[0],seriesData[1],seriesData[2],seriesData[3]]"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="[seriesDataF[0],seriesDataF[1],seriesDataF[2],seriesDataF[3],seriesDataF[4],seriesDataF[5]]"> </kendo-chart-series-item>
+                <kendo-chart-series-item [data]="[seriesDataM[0],seriesDataM[1],seriesDataM[2],seriesDataM[3],seriesDataM[4],seriesDataM[5]]"> </kendo-chart-series-item>
             </kendo-chart-series>
         </kendo-chart>
         <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
@@ -438,7 +441,9 @@
                                 <kendo-grid [data]="sales">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
-                                    <kendo-grid-column field="rango" title="Rango">
+                                    <kendo-grid-column field="hombre" title="Hombre">
+                                    </kendo-grid-column>
+                                    <kendo-grid-column field="mujer" title="Mujer">
                                     </kendo-grid-column>
                                 </kendo-grid>
                                 <br>
@@ -449,7 +454,8 @@
                                     </kendo-chart-category-axis>
                                     <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
                                     <kendo-chart-series>
-                                        <kendo-chart-series-item [data]="seriesData"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesDataF" name="Mujeres"> </kendo-chart-series-item>
+                                        <kendo-chart-series-item [data]="seriesDataM" name="Hombres"> </kendo-chart-series-item>
                                     </kendo-chart-series>
                                 </kendo-chart>
                             </div>

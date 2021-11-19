@@ -17,7 +17,8 @@ import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.serv
 })
 export class GraficaVfComponent implements OnInit {
 
-  seriesData: number[];
+  seriesDataF: number[];
+  seriesDataM: number[];
   categories: string[] = ["Bajo Peso", "Peso Normal", "Sobrepeso", "Obesidad T1", "Obesidad T2","Obesidad T3"];
   seriesData2F: number[];
   seriesData2M: number[];
@@ -92,43 +93,74 @@ export class GraficaVfComponent implements OnInit {
   }
  /*Función que calcula y crea el arreglo para la grafica del IMC */
   fnIMC(){
-    var cont1:number = 0;
-    var cont2:number = 0;
-    var cont3:number = 0;
-    var cont4:number = 0;
-    var cont5:number = 0;
-    var cont6:number = 0;
-    var total:number = 0;
+    var cont1F:number = 0;
+    var cont2F:number = 0;
+    var cont3F:number = 0;
+    var cont4F:number = 0;
+    var cont5F:number = 0;
+    var cont6F:number = 0;
+    var cont1M:number = 0;
+    var cont2M:number = 0;
+    var cont3M:number = 0;
+    var cont4M:number = 0;
+    var cont5M:number = 0;
+    var cont6M:number = 0;
+    var totalF:number = 0;
+    var totalM:number = 0;
     
     this.vfData.map( resp => {
       var imc:number = 0;
-      imc = Number(resp.vafpeso) / Math.pow(Number(resp.vaftalla),2)
-      if (imc < 18.5) {
-        cont1 += 1;
-      } else if (imc  >= 18.5 && imc <= 24.9) {
-        cont2 += 1;
-      } else if (imc >= 25 && imc <= 29.9) {
-        cont3 += 1;
-      } else if (imc >= 30 && imc <= 34.9){
-        cont4 += 1;
-      } else if (imc >= 35 && imc <= 39.9) {
-        cont5 += 1;
-      } else if (imc >= 40) {
-        cont6 += 1;
+      
+      imc = Number(resp.vafpeso) / Math.pow(Number(resp.vaftalla),2);
+
+      if (resp.vafsexo === 'F') {
+
+        if (imc < 18.5) {
+          cont1F += 1;
+        } else if (imc  >= 18.5 && imc <= 24.9) {
+          cont2F += 1;
+        } else if (imc >= 25 && imc <= 29.9) {
+          cont3F += 1;
+        } else if (imc >= 30 && imc <= 34.9){
+          cont4F += 1;
+        } else if (imc >= 35 && imc <= 39.9) {
+          cont5F += 1;
+        } else if (imc >= 40) {
+          cont6F += 1;
+        } 
+
+      }else{
+
+        if (imc < 18.5) {
+          cont1M += 1;
+        } else if (imc  >= 18.5 && imc <= 24.9) {
+          cont2M += 1;
+        } else if (imc >= 25 && imc <= 29.9) {
+          cont3M += 1;
+        } else if (imc >= 30 && imc <= 34.9){
+          cont4M += 1;
+        } else if (imc >= 35 && imc <= 39.9) {
+          cont5M += 1;
+        } else if (imc >= 40) {
+          cont6M += 1;
+        }
       }
 
     });
-    total = cont1 + cont2 + cont3 + cont4 + cont5 + cont6;
+    totalF = cont1F + cont2F + cont3F + cont4F + cont5F + cont6F;
+    totalM = cont1M + cont2M + cont3M + cont4M + cont5M + cont6M;
+    
     this.sales = [
-      { brand: 'Bajo Peso', rango: cont1},
-      { brand: 'Peso Normal', rango: cont2 },
-      { brand: 'Sobrepeso', rango: cont3 },
-      { brand: 'Obesidad T1', rango: cont4 },
-      { brand: 'Obesidad T2', rango: cont5 },
-      { brand: 'Obesidad T3', rango: cont6 },
-      { brand: 'TOTAL', rango: total },
+      { brand: 'Bajo Peso', hombre: cont1M, mujer: cont1F},
+      { brand: 'Peso Normal', hombre: cont2M, mujer: cont2F },
+      { brand: 'Sobrepeso', hombre: cont3M, mujer: cont3F },
+      { brand: 'Obesidad T1', hombre: cont4M, mujer: cont4F },
+      { brand: 'Obesidad T2', hombre: cont5M, mujer: cont5F },
+      { brand: 'Obesidad T3', hombre: cont6M, mujer: cont6F },
+      { brand: 'TOTAL', hombre: totalM, mujer: totalF },
     ];
-    this.seriesData.push(cont1,cont2,cont3,cont4,cont5,cont6);
+    this.seriesDataF.push(cont1F,cont2F,cont3F,cont4F,cont5F,cont6F);
+    this.seriesDataM.push(cont1M,cont2M,cont3M,cont4M,cont5M,cont6M);
   }
   /*Función que calcula y crea el arreglo para la grafica del perimetro Abdominal */
   fnPeriAbdo(){
@@ -634,7 +666,8 @@ export class GraficaVfComponent implements OnInit {
     this.loadingEmpty = true;
     this.msgs = [];
     this.vfData = [];
-    this.seriesData = [];
+    this.seriesDataF = [];
+    this.seriesDataM = [];
     this.seriesData2F = [];
     this.seriesData2M = [];
     this.seriesData3 = [];
