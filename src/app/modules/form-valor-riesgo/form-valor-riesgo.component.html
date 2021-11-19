@@ -1,3 +1,24 @@
-<p>
-  form-valor-riesgo works!
-</p>
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<form [formGroup]="vrform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
+
+    <p-panel header="IDENTIFICACIÓN DE PELIGROS">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+            <br>
+            <div style="text-align:center">
+                <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="vrform.invalid"></button>&nbsp;
+                <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple [routerLink]="['/main/valor-riesgo']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
+            </div>
+        </div>
+        <pre>
+          Estado del formulario: {{vrform.valid}}
+          <br>
+          Status: {{vrform.status}}
+        </pre>
+        <pre>
+            <code>
+                {{vrform.value | json}}
+            </code>
+        </pre>
+    </p-panel>
+
+</form>
