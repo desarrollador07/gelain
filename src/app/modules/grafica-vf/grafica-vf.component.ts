@@ -281,19 +281,19 @@ export class GraficaVfComponent implements OnInit {
 
     this.vfData.map(resp => {
 
-      if (resp.vafsexo === "M" && Number(resp.vafedad) < 35) {
+      if (resp.vafsexo === "M" && Number(resp.vafedad) <= 35) {
         if (Number(resp.vaftestbiering) >= 60 ) {
           cont1M35 += 1;
         } else if (Number(resp.vaftestbiering) < 60 &&  Number(resp.vaftestbiering) >= 45) {
           cont2M35 += 1;
         } else if (Number(resp.vaftestbiering) < 45 && Number(resp.vaftestbiering) >= 30) {
           cont3M35 += 1;
-        } else if (Number(resp.vaftestbiering) < 30 && Number(resp.vaftestbiering) >= 15) {
+        } else if (Number(resp.vaftestbiering) < 30 && Number(resp.vaftestbiering) > 0) {
           cont4M35 += 1;
         }
       }
 
-      if (resp.vafsexo === "M" && Number(resp.vafedad) <= 35 && Number(resp.vafedad) > 44) {
+      if (resp.vafsexo === "M" && Number(resp.vafedad) > 35 && Number(resp.vafedad) <= 44) {
         if (Number(resp.vaftestbiering) >= 50 ) {
           cont1M44 += 1;
         } else if (Number(resp.vaftestbiering) < 50 &&  Number(resp.vaftestbiering) >= 40) {
@@ -312,7 +312,7 @@ export class GraficaVfComponent implements OnInit {
           cont2M50 += 1;
         } else if (Number(resp.vaftestbiering) < 25 && Number(resp.vaftestbiering) >= 15) {
           cont3M50 += 1;
-        } else if (Number(resp.vaftestbiering) < 15 && Number(resp.vaftestbiering) >= 5) {
+        } else if (Number(resp.vaftestbiering) < 15 && Number(resp.vaftestbiering) > 0) {
           cont4M50 += 1;
         }
       }
@@ -358,7 +358,7 @@ export class GraficaVfComponent implements OnInit {
 
     this.vfData.map(resp => {
 
-      if (resp.vafsexo === "F" && Number(resp.vafedad) < 35) {
+      if (resp.vafsexo === "F" && Number(resp.vafedad) <= 35) {
         if (Number(resp.vaftestbiering) >= 50 ) {
           cont1F35 += 1;
         } else if (Number(resp.vaftestbiering) < 50 &&  Number(resp.vaftestbiering) >= 40) {
@@ -370,14 +370,14 @@ export class GraficaVfComponent implements OnInit {
         }
       }
 
-      if (resp.vafsexo === "F" && Number(resp.vafedad) <= 35 && Number(resp.vafedad) > 44) {
+      if (resp.vafsexo === "F" && Number(resp.vafedad) > 35 && Number(resp.vafedad) <= 44) {
         if (Number(resp.vaftestbiering) >= 40 ) {
           cont1F44 += 1;
         } else if (Number(resp.vaftestbiering) < 40 &&  Number(resp.vaftestbiering) >= 25) {
           cont2F44 += 1;
         } else if (Number(resp.vaftestbiering) < 25 && Number(resp.vaftestbiering) >= 15) {
           cont3F44 += 1;
-        } else if (Number(resp.vaftestbiering) < 15 && Number(resp.vaftestbiering) >= 6) {
+        } else if (Number(resp.vaftestbiering) < 15 && Number(resp.vaftestbiering) > 0) {
           cont4F44 += 1;
         }
       }
@@ -389,7 +389,7 @@ export class GraficaVfComponent implements OnInit {
           cont2F50 += 1;
         } else if (Number(resp.vaftestbiering) < 15 && Number(resp.vaftestbiering) >= 10) {
           cont3F50 += 1;
-        } else if (Number(resp.vaftestbiering) < 10 && Number(resp.vaftestbiering) >= 4) {
+        } else if (Number(resp.vaftestbiering) < 10 && Number(resp.vaftestbiering) >= 0) {
           cont4F50 += 1;
         }
       }

@@ -40,7 +40,7 @@
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns">
-                        {{rowData[col.field]}}
+                        {{rowData[col.field] | uppercase}}
                     </td>
                     <td style="text-align:center">
                         <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="/main/FormValorFisico/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>

@@ -93,6 +93,8 @@ export class ValorfisicoComponent implements OnInit {
       { field: 'vafcargo', header: 'Cargo', width: '300px' },
       { field: 'vaftelefono', header: 'Telefono', width: '180px' },
       { field: 'vafsede', header: 'Sede', width: '200px' },
+      { field: 'vafsexo', header: 'Sexo', width: '100px' },
+      { field: 'vafedad', header: 'Edad', width: '100px' },
       { field: 'vafpeso', header: 'Peso', width: '100px' },
       { field: 'vaftalla', header: 'Talla', width: '100px' },
       { field: 'vafimc', header: 'Ind Masa Corp', width: '160px' },
