@@ -50,7 +50,7 @@ export class ValorRiesgoComponent implements OnInit {
   }
   /*Remover items del localStorage */
   newVR(){
-    localStorage.removeItem('valorFisico');
+    localStorage.removeItem('valorRiesgo');
     localStorage.removeItem('prueba');
     localStorage.removeItem('IdEmpleado');
     localStorage.removeItem('ForA');
