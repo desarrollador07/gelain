@@ -1443,6 +1443,8 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  BIOLOGICO     ------------------------------------------------ */
+  /*Biologico - Derivados de origen animal NP */
   fnCalculoBioPart1NP(){
       var num:number = 0;
       var inter:string = '';
@@ -1475,7 +1477,7 @@ export class FormValorRiesgoComponent implements OnInit {
           })
       }
   }
-
+  /*Biologico - Derivados de origen animal NR*/
   fnCalculoBioPart1NR(){
     var num:number = 0;
     var result:string = '';
@@ -1508,5 +1510,272 @@ export class FormValorRiesgoComponent implements OnInit {
       })
     }
   }
+  /*Biologico - Microorganismos tipo hongo NP*/
+  fnCalculoBioPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpbiohongo_tb_nd !== 0 && this.vrform.value.idpbiohongo_tb_nd !== '' && 
+        this.vrform.value.idpbiohongo_tb_ne !== 0 && this.vrform.value.idpbiohongo_tb_ne !== '') {
+        num =  this.vrform.value.idpbiohongo_tb_nd * this.vrform.value.idpbiohongo_tb_ne;
+
+        this.vrform.patchValue({
+          idpbiohongo_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpbiohongo_interpreta:inter
+        })
+    }
+  }
+  /*Biologico - Microorganismos tipo hongo NR*/
+  fnCalculoBioPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpbiohongo_tb_np !== 0 && this.vrform.value.idpbiohongo_tb_np !== '' && 
+        this.vrform.value.idpbiohongo_tb_nc !== 0 && this.vrform.value.idpbiohongo_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpbiohongo_tb_nc)) * Math.abs(Number(this.vrform.value.idpbiohongo_tb_np));
+          
+      this.vrform.patchValue({
+        idpbiohongo_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpbiohongo_tb_nr: result
+      })
+    }
+  }
+  /*Biologico - Microorganismos tipo bacterias NP*/
+  fnCalculoBioPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpbiobacterias_tb_nd !== 0 && this.vrform.value.idpbiobacterias_tb_nd !== '' && 
+        this.vrform.value.idpbiobacterias_tb_ne !== 0 && this.vrform.value.idpbiobacterias_tb_ne !== '') {
+        num =  this.vrform.value.idpbiobacterias_tb_nd * this.vrform.value.idpbiobacterias_tb_ne;
+
+        this.vrform.patchValue({
+          idpbiobacterias_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpbiobacterias_interpreta:inter
+        })
+    }
+  }
+  /*Biologico - Microorganismos tipo bacterias NR*/
+  fnCalculoBioPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpbiobacterias_tb_np !== 0 && this.vrform.value.idpbiobacterias_tb_np !== '' && 
+        this.vrform.value.idpbiobacterias_tb_nc !== 0 && this.vrform.value.idpbiobacterias_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpbiobacterias_tb_nc)) * Math.abs(Number(this.vrform.value.idpbiobacterias_tb_np));
+          
+      this.vrform.patchValue({
+        idpbiobacterias_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpbiobacterias_tb_nr: result
+      })
+    }
+  }
+  /*Biologico - Microorganismos tipo virus NP*/
+  fnCalculoBioPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpbiovirus_tb_nd !== 0 && this.vrform.value.idpbiovirus_tb_nd !== '' && 
+        this.vrform.value.idpbiovirus_tb_ne !== 0 && this.vrform.value.idpbiovirus_tb_ne !== '') {
+        num =  this.vrform.value.idpbiovirus_tb_nd * this.vrform.value.idpbiovirus_tb_ne;
+
+        this.vrform.patchValue({
+          idpbiovirus_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpbiovirus_interpreta:inter
+        })
+    }
+  }
+  /*Biologico - Microorganismos tipo virus NR*/
+  fnCalculoBioPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpbiovirus_tb_np !== 0 && this.vrform.value.idpbiovirus_tb_np !== '' && 
+        this.vrform.value.idpbiovirus_tb_nc !== 0 && this.vrform.value.idpbiovirus_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpbiovirus_tb_nc)) * Math.abs(Number(this.vrform.value.idpbiovirus_tb_np));
+          
+      this.vrform.patchValue({
+        idpbiovirus_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpbiovirus_tb_nr: result
+      })
+    }
+  }
+  /*Biologico - Parásitos NP*/
+  fnCalculoBioPart5NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpbioparasitos_tb_nd !== 0 && this.vrform.value.idpbioparasitos_tb_nd !== '' && 
+        this.vrform.value.idpbioparasitos_tb_ne !== 0 && this.vrform.value.idpbioparasitos_tb_ne !== '') {
+        num =  this.vrform.value.idpbioparasitos_tb_nd * this.vrform.value.idpbioparasitos_tb_ne;
+
+        this.vrform.patchValue({
+          idpbioparasitos_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpbioparasitos_interpreta:inter
+        })
+    }
+  }
+  /*Biologico - Parásitos NR*/
+  fnCalculoBioPart5NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpbioparasitos_tb_np !== 0 && this.vrform.value.idpbioparasitos_tb_np !== '' && 
+        this.vrform.value.idpbioparasitos_tb_nc !== 0 && this.vrform.value.idpbioparasitos_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpbioparasitos_tb_nc)) * Math.abs(Number(this.vrform.value.idpbioparasitos_tb_np));
+          
+      this.vrform.patchValue({
+        idpbioparasitos_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpbioparasitos_tb_nr: result
+      })
+    }
+  }
+
+  /*----------------------------------      METODOS  -  CARGA FÍSICA     ------------------------------------------------ */
+  
 
 }

@@ -133,51 +133,51 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_tb_nd" (ngModelChange)="fnCalculoBioPart1NP()" type="text" pInputText> 
+                                              <input formControlName="idpbioderani_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NP()" type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_tb_ne" (ngModelChange)="fnCalculoBioPart1NP()" type="text" pInputText> 
+                                              <input formControlName="idpbioderani_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NP()" type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioderani_tb_np" type="text" pInputText readonly="readonly"> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">NP = (ND*NE)</label>
+                                              <input  formControlName="idpbioderani_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioderani_interpreta" type="text" pInputText readonly="readonly"> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERPRETACIÓN</label>
+                                              <input  formControlName="idpbioderani_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
                                           </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_tb_nc" (ngModelChange)="fnCalculoBioPart1NR()" type="text" pInputText> 
+                                              <input formControlName="idpbioderani_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NR()" type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_intervencion" type="text" pInputText readonly="readonly"> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERVENCIÓN</label>
+                                              <input formControlName="idpbioderani_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioderani_tb_nr" type="text" pInputText readonly="readonly"> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NR</label>
+                                              <input  formControlName="idpbioderani_tb_nr" style="color: rgb(36, 22, 167); font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioderani_numpuestos" type="text" pInputText> 
+                                              <input  formControlName="idpbioderani_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                           </span>
                                         </div>
@@ -222,51 +222,51 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_tb_nd" type="text" pInputText> 
+                                              <input formControlName="idpbiohongo_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
                                               <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_tb_ne" type="text" pInputText> 
+                                              <input formControlName="idpbiohongo_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_tb_np" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">NP = (ND*NE)</label>
+                                              <input  formControlName="idpbiohongo_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_interpreta" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERPRETACIÓN</label>
+                                              <input  formControlName="idpbiohongo_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color:rgb(36, 22, 167); ">INTERPRETACIÓN</label>
                                           </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_tb_nc" type="text" pInputText> 
+                                              <input formControlName="idpbiohongo_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NR()" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_intervencion" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERVENCIÓN</label>
+                                              <input formControlName="idpbiohongo_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_tb_nr" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NR</label>
+                                              <input  formControlName="idpbiohongo_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_numpuestos" type="text" pInputText> 
+                                              <input  formControlName="idpbiohongo_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                           </span>
                                         </div>
@@ -311,51 +311,51 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_tb_nd" type="text" pInputText> 
+                                              <input formControlName="idpbiobacterias_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
                                               <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_tb_ne" type="text" pInputText> 
+                                              <input formControlName="idpbiobacterias_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_tb_np" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">NP = (ND*NE)</label>
+                                              <input  formControlName="idpbiobacterias_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_interpreta" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERPRETACIÓN</label>
+                                              <input  formControlName="idpbiobacterias_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
                                           </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_tb_nc" type="text" pInputText> 
+                                              <input formControlName="idpbiobacterias_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NR()" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_intervencion" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERVENCIÓN</label>
+                                              <input formControlName="idpbiobacterias_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_tb_nr" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NR</label>
+                                              <input  formControlName="idpbiobacterias_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                              <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_numpuestos" type="text" pInputText> 
+                                              <input  formControlName="idpbiobacterias_numpuestos" type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                           </span>
                                         </div>
@@ -374,87 +374,87 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_efectos" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
-                                            </span>
-                                        </div>
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_ctrlfuente" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                            <input formControlName="idpbiovirus_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                           </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiovirus_ctrlmedio" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
-                                          </span>
+                                            <input formControlName="idpbiovirus_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiovirus_ctrlindividuo" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
-                                          </span>
-                                        </div>
-                                    </div>
-                                    <div class="ui-g" style="margin: 10px;">
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_tb_nd" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                          </span>
+                                            <input  formControlName="idpbiovirus_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_tb_ne" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                          </span>
-                                        </div>
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input  formControlName="idpbiovirus_tb_np" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">NP = (ND*NE)</label>
-                                          </span>
-                                        </div>
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input  formControlName="idpbiovirus_interpreta" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERPRETACIÓN</label>
-                                          </span>
+                                            <input  formControlName="idpbiovirus_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_tb_nc" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                          </span>
+                                            <input formControlName="idpbiovirus_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_intervencion" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERVENCIÓN</label>
-                                          </span>
+                                            <input formControlName="idpbiovirus_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiovirus_tb_nr" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NR</label>
-                                          </span>
+                                            <input  formControlName="idpbiovirus_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiovirus_numpuestos" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
-                                          </span>
+                                            <input  formControlName="idpbiovirus_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpbiovirus_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpbiovirus_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpbiovirus_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpbiovirus_numpuestos" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_observaciones" type="text" pInputText> 
-                                                <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
-                                              </span>
+                                              <input formControlName="idpbiovirus_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
                                         </div>
                                     </div>
                                 </p-tabPanel>
@@ -463,87 +463,87 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioparasitos_efectos" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
-                                            </span>
+                                          <input formControlName="idpbioparasitos_efectos" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                        </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioparasitos_ctrlfuente" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
-                                          </span>
+                                          <input formControlName="idpbioparasitos_ctrlfuente" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                      </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioparasitos_ctrlmedio" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
-                                          </span>
+                                          <input  formControlName="idpbioparasitos_ctrlmedio" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                      </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioparasitos_ctrlindividuo" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
-                                          </span>
-                                        </div>
-                                    </div>
-                                    <div class="ui-g" style="margin: 10px;">
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbioparasitos_tb_nd" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                          </span>
-                                        </div>
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbioparasitos_tb_ne" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                          </span>
-                                        </div>
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input  formControlName="idpbioparasitos_tb_np" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">NP = (ND*NE)</label>
-                                          </span>
-                                        </div>
-                                        <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input  formControlName="idpbioparasitos_interpreta" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERPRETACIÓN</label>
-                                          </span>
+                                          <input  formControlName="idpbioparasitos_ctrlindividuo" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                      </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioparasitos_tb_nc" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                          </span>
+                                          <input formControlName="idpbioparasitos_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                      </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbioparasitos_intervencion" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">INTERVENCIÓN</label>
-                                          </span>
+                                          <input formControlName="idpbioparasitos_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                      </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioparasitos_tb_nr" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NR</label>
-                                          </span>
+                                          <input  formControlName="idpbioparasitos_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                      </span>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioparasitos_numpuestos" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
-                                          </span>
+                                          <input  formControlName="idpbioparasitos_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpbioparasitos_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NR()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpbioparasitos_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpbioparasitos_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpbioparasitos_numpuestos" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                      </span>
                                         </div>
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_observaciones" type="text" pInputText> 
-                                                <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
-                                              </span>
+                                            <input formControlName="idpbioparasitos_observaciones" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                          </span>
                                         </div>
                                     </div>
                                 </p-tabPanel>
