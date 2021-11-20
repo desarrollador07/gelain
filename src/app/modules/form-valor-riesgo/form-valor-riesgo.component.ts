@@ -1443,7 +1443,7 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
-  fnCalculoBioPart1(){
+  fnCalculoBioPart1NP(){
       var num:number = 0;
       var inter:string = '';
       if (this.vrform.value.idpbioderani_tb_nd !== 0 && this.vrform.value.idpbioderani_tb_nd !== '' && 
@@ -1474,6 +1474,39 @@ export class FormValorRiesgoComponent implements OnInit {
             idpbioderani_interpreta:inter
           })
       }
+  }
+
+  fnCalculoBioPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpbioderani_tb_np !== 0 && this.vrform.value.idpbioderani_tb_np !== '' && 
+        this.vrform.value.idpbioderani_tb_nc !== 0 && this.vrform.value.idpbioderani_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpbioderani_tb_nc)) * Math.abs(Number(this.vrform.value.idpbioderani_tb_np));
+          
+      this.vrform.patchValue({
+        idpbioderani_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpbioderani_tb_nr: result
+      })
+    }
   }
 
 }
