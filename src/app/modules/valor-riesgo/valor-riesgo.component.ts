@@ -66,11 +66,37 @@ export class ValorRiesgoComponent implements OnInit {
       this.vrData = data;
       
       if (this.vrData.length > 0) {
+        this.makeRowsSameHeight();
         this.loading = false;
       }else{
         this.loading = false;
       }
     });
+  }
+
+  makeRowsSameHeight() {
+     
+    setTimeout(() => {
+
+        if (document.getElementsByClassName('ui-table-scrollable-wrapper').length) {
+         
+            let wrapper = document.getElementsByClassName('ui-table-scrollable-wrapper');
+            for (var i = 0; i < wrapper.length; i++) {
+               let w = wrapper.item(i) as HTMLElement;
+               let frozen_rows: any = w.querySelectorAll('.ui-table-frozen-view tr');
+               let unfrozen_rows: any = w.querySelectorAll('.ui-table-unfrozen-view tr');
+               for (let i = 0; i < frozen_rows.length; i++) {
+                  if (frozen_rows[i].clientHeight > unfrozen_rows[i].clientHeight) {
+                     unfrozen_rows[i].style.height = frozen_rows[i].clientHeight+"px";
+                  } 
+                  else if (frozen_rows[i].clientHeight < unfrozen_rows[i].clientHeight) 
+                  {
+                     frozen_rows[i].style.height = unfrozen_rows[i].clientHeight+"px";
+                  }
+                }
+              }
+        }
+    },100);
   }
 
   datosGenerales(){
