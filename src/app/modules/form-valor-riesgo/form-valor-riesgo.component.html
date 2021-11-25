@@ -1007,6 +1007,284 @@
                         </div>
                     </div>
                 </fieldset>
+                <br>
+                <fieldset>
+                    <legend><b>ELÉCTRICO - INDICADORES DE RIESGO</b></legend>
+                    <div class="ui-g" style="margin-bottom: 10px;">
+                        <br>
+                        <div class="ui-g-12">
+                            <p-tabView>
+                                <p-tabPanel header="ENERGÍA ELÉCTRICA DE BAJA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricobaja_efectos" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricobaja_ctrlfuente" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricobaja_ctrlmedio" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricobaja_ctrlindividuo" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricobaja_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart1NP()" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricobaja_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart1NP()" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricobaja_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricobaja_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricobaja_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart1NR()" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricobaja_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricobaja_tb_nr" style="color: rgb(36, 22, 167); font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricobaja_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpelectricobaja_observaciones" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                          </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="ENERGÍA ELÉCTRICA DE ALTA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricoalta_efectos" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricoalta_ctrlfuente" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricoalta_ctrlmedio" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricoalta_ctrlindividuo" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricoalta_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart2NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricoalta_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart2NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricoalta_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricoalta_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color:rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricoalta_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart2NR()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricoalta_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricoalta_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricoalta_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpelectricoalta_observaciones" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                          </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="CABLES ELÉCTRICOS EXPUESTOS, ENCINTADOS, TOMACORRIENTES SOBRECARGADOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricocables_efectos" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricocables_ctrlfuente" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricocables_ctrlmedio" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricocables_ctrlindividuo" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricocables_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart3NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricocables_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart3NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricocables_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricocables_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricocables_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoElecPart3NR()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpelectricocables_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricocables_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpelectricocables_numpuestos" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpelectricocables_observaciones" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                          </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+                </fieldset>
             </p-panel>
             <br>
             <div style="text-align:center">
