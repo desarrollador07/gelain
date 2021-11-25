@@ -109,29 +109,29 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                     
                 ],
             },
-            // {
-            //     label: 'Valoración Riesgos', 
-            //     icon: 'pi fa-fw pi-list', 
-            //     items:[
-            //         {
-            //             label: 'Identificación de Peligros', 
-            //             icon: 'pi pi-exclamation-triangle', 
-            //             routerLink: ['valor-riesgo'] 
-            //         },
-            //         // {
-            //         //     label: 'Reportes', 
-            //         //     icon: 'pi fa-fw pi-angle-right',
-            //         //     items:[
-            //         //         {
-            //         //             label: 'Informe Valoración Peligros', 
-            //         //             icon: 'pi pi-circle-on',
-            //         //             routerLink: ['grafica-vf'],
-            //         //         },
-            //         //     ]
-            //         // }
+            {
+                label: 'Valoración Riesgos', 
+                icon: 'pi fa-fw pi-list', 
+                items:[
+                    {
+                        label: 'Identificación de Peligros', 
+                        icon: 'pi pi-exclamation-triangle', 
+                        routerLink: ['valor-riesgo'] 
+                    },
+                    // {
+                    //     label: 'Reportes', 
+                    //     icon: 'pi fa-fw pi-angle-right',
+                    //     items:[
+                    //         {
+                    //             label: 'Informe Valoración Peligros', 
+                    //             icon: 'pi pi-circle-on',
+                    //             routerLink: ['grafica-vf'],
+                    //         },
+                    //     ]
+                    // }
                     
-            //     ],
-            // },
+                ],
+            },
            
             
  

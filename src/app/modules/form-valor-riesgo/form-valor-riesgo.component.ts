@@ -3485,4 +3485,270 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  MECÁNICOS   ------------------------------------------------ */
+  /* Mecánicos - Utilización de herramientas manuales NP*/
+  fnCalculoMecPart1NP(){
+      var num:number = 0;
+      var inter:string = '';
+      if (this.vrform.value.idpmecanicoherramient_tb_nd !== 0 && this.vrform.value.idpmecanicoherramient_tb_nd !== '' && 
+          this.vrform.value.idpmecanicoherramient_tb_ne !== 0 && this.vrform.value.idpmecanicoherramient_tb_ne !== '') {
+          num =  this.vrform.value.idpmecanicoherramient_tb_nd * this.vrform.value.idpmecanicoherramient_tb_ne;
+
+          this.vrform.patchValue({
+            idpmecanicoherramient_tb_np:num
+          })
+
+          if (num >= 40 && num <= 24) {
+            inter = 'MUY ALTO';
+          }
+
+          if (num <= 20 && num >= 10) {
+            inter = 'ALTO';
+          }
+
+          if (num <= 8 && num >= 6) {
+            inter = 'MEDIO';
+          }
+
+          if (num <= 4 && num >= 2) {
+            inter = 'MEDIO';
+          }
+
+          this.vrform.patchValue({
+            idpmecanicoherramient_interpreta:inter
+          })
+      }
+  }
+  /* Mecánicos - Utilización de herramientas manuales NR*/
+  fnCalculoMecPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpmecanicoherramient_tb_np !== 0 && this.vrform.value.idpmecanicoherramient_tb_np !== '' && 
+        this.vrform.value.idpmecanicoherramient_tb_nc !== 0 && this.vrform.value.idpmecanicoherramient_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpmecanicoherramient_tb_nc)) * Math.abs(Number(this.vrform.value.idpmecanicoherramient_tb_np));
+          
+      this.vrform.patchValue({
+        idpmecanicoherramient_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpmecanicoherramient_tb_nr: result
+      })
+    }
+  }
+  /* Mecánicos - Superficies cortantes NP*/
+  fnCalculoMecPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpmecanicocortante_tb_nd !== 0 && this.vrform.value.idpmecanicocortante_tb_nd !== '' && 
+        this.vrform.value.idpmecanicocortante_tb_ne !== 0 && this.vrform.value.idpmecanicocortante_tb_ne !== '') {
+        num =  this.vrform.value.idpmecanicocortante_tb_nd * this.vrform.value.idpmecanicocortante_tb_ne;
+
+        this.vrform.patchValue({
+          idpmecanicocortante_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpmecanicocortante_interpreta:inter
+        })
+    }
+  }
+  /* Mecánicos - Superficies cortantes NR*/
+  fnCalculoMecPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpmecanicocortante_tb_np !== 0 && this.vrform.value.idpmecanicocortante_tb_np !== '' && 
+        this.vrform.value.idpmecanicocortante_tb_nc !== 0 && this.vrform.value.idpmecanicocortante_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpmecanicocortante_tb_nc)) * Math.abs(Number(this.vrform.value.idpmecanicocortante_tb_np));
+          
+      this.vrform.patchValue({
+        idpmecanicocortante_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpmecanicocortante_tb_nr: result
+      })
+    }
+  }
+  /* Mecánicos - Contacto con elementos cortopunzantes NP*/
+  fnCalculoMecPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpmecanicocortopunz_tb_nd !== 0 && this.vrform.value.idpmecanicocortopunz_tb_nd !== '' && 
+        this.vrform.value.idpmecanicocortopunz_tb_ne !== 0 && this.vrform.value.idpmecanicocortopunz_tb_ne !== '') {
+        num =  this.vrform.value.idpmecanicocortopunz_tb_nd * this.vrform.value.idpmecanicocortopunz_tb_ne;
+
+        this.vrform.patchValue({
+          idpmecanicocortopunz_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpmecanicocortopunz_interpreta:inter
+        })
+    }
+  }
+  /* Mecánicos - Contacto con elementos cortopunzantes NR*/
+  fnCalculoMecPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpmecanicocortopunz_tb_np !== 0 && this.vrform.value.idpmecanicocortopunz_tb_np !== '' && 
+        this.vrform.value.idpmecanicocortopunz_tb_nc !== 0 && this.vrform.value.idpmecanicocortopunz_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpmecanicocortopunz_tb_nc)) * Math.abs(Number(this.vrform.value.idpmecanicocortopunz_tb_np));
+          
+      this.vrform.patchValue({
+        idpmecanicocortopunz_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpmecanicocortopunz_tb_nr: result
+      })
+    }
+  }
+  /* Mecánicos - Materiales proyectados sólidos o fluidos NP*/
+  fnCalculoMecPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpmecanicomateriales_tb_nd !== 0 && this.vrform.value.idpmecanicomateriales_tb_nd !== '' && 
+        this.vrform.value.idpmecanicomateriales_tb_ne !== 0 && this.vrform.value.idpmecanicomateriales_tb_ne !== '') {
+        num =  this.vrform.value.idpmecanicomateriales_tb_nd * this.vrform.value.idpmecanicomateriales_tb_ne;
+
+        this.vrform.patchValue({
+          idpmecanicomateriales_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpmecanicomateriales_interpreta:inter
+        })
+    }
+  }
+  /* Mecánicos - Materiales proyectados sólidos o fluidos NR*/
+  fnCalculoMecPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpmecanicomateriales_tb_np !== 0 && this.vrform.value.idpmecanicomateriales_tb_np !== '' && 
+        this.vrform.value.idpmecanicomateriales_tb_nc !== 0 && this.vrform.value.idpmecanicomateriales_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpmecanicomateriales_tb_nc)) * Math.abs(Number(this.vrform.value.idpmecanicomateriales_tb_np));
+          
+      this.vrform.patchValue({
+        idpmecanicomateriales_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpmecanicomateriales_tb_nr: result
+      })
+    }
+  }
+
 }

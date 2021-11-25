@@ -2742,6 +2742,373 @@
                         </div>
                     </div>
                 </fieldset>
+                <br>
+                <fieldset>
+                    <legend><b>MECÁNICOS - INDICADORES DE RIESGO</b></legend>
+                    <div class="ui-g" style="margin-bottom: 10px;">
+                        <br>
+                        <div class="ui-g-12">
+                            <p-tabView>
+                                <p-tabPanel header="UTILIZACIÓN DE HERRAMIENTAS MANUALES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicoherramient_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicoherramient_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicoherramient_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicoherramient_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicoherramient_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart1NP()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicoherramient_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart1NP()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicoherramient_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicoherramient_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicoherramient_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart1NR()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicoherramient_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicoherramient_tb_nr" style="color: rgb(36, 22, 167); font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicoherramient_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpmecanicoherramient_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="SUPERFICIES CORTANTES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortante_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortante_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortante_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortante_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortante_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart2NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortante_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart2NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortante_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortante_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color:rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortante_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart2NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortante_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortante_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortante_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpmecanicocortante_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="CONTACTO CON ELEMENTOS CORTOPUNZANTES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortopunz_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortopunz_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortopunz_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortopunz_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortopunz_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart3NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortopunz_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart3NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortopunz_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortopunz_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortopunz_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart3NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicocortopunz_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortopunz_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpmecanicocortopunz_numpuestos" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpmecanicocortopunz_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="MATERIALES PROYECTADOS SÓLIDOS O FLUIDOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpmecanicomateriales_efectos" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpmecanicomateriales_ctrlfuente" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpmecanicomateriales_ctrlmedio" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpmecanicomateriales_ctrlindividuo" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpmecanicomateriales_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart4NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpmecanicomateriales_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart4NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpmecanicomateriales_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpmecanicomateriales_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpmecanicomateriales_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoMecPart4NR()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpmecanicomateriales_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpmecanicomateriales_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpmecanicomateriales_numpuestos" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpmecanicomateriales_observaciones" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                          </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+                </fieldset>
             </p-panel>
             <br>
             <div style="text-align:center">
