@@ -3087,4 +3087,402 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  LOCATIVOS   ------------------------------------------------ */
+  /* Locativos - Pisos defectuosos NP*/
+  fnCalculoLocPart1NP(){
+      var num:number = 0;
+      var inter:string = '';
+      if (this.vrform.value.idplocativospisos_tb_nd !== 0 && this.vrform.value.idplocativospisos_tb_nd !== '' && 
+          this.vrform.value.idplocativospisos_tb_ne !== 0 && this.vrform.value.idplocativospisos_tb_ne !== '') {
+          num =  this.vrform.value.idplocativospisos_tb_nd * this.vrform.value.idplocativospisos_tb_ne;
+
+          this.vrform.patchValue({
+            idplocativospisos_tb_np:num
+          })
+
+          if (num >= 40 && num <= 24) {
+            inter = 'MUY ALTO';
+          }
+
+          if (num <= 20 && num >= 10) {
+            inter = 'ALTO';
+          }
+
+          if (num <= 8 && num >= 6) {
+            inter = 'MEDIO';
+          }
+
+          if (num <= 4 && num >= 2) {
+            inter = 'MEDIO';
+          }
+
+          this.vrform.patchValue({
+            idplocativospisos_interpreta:inter
+          })
+      }
+  }
+  /* Locativos - Pisos defectuosos NR*/
+  fnCalculoLocPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idplocativospisos_tb_np !== 0 && this.vrform.value.idplocativospisos_tb_np !== '' && 
+        this.vrform.value.idplocativospisos_tb_nc !== 0 && this.vrform.value.idplocativospisos_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idplocativospisos_tb_nc)) * Math.abs(Number(this.vrform.value.idplocativospisos_tb_np));
+          
+      this.vrform.patchValue({
+        idplocativospisos_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idplocativospisos_tb_nr: result
+      })
+    }
+  }
+  /* Locativos - Escaleras defectuosas NP*/
+  fnCalculoLocPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idplocativosescaleras_tb_nd !== 0 && this.vrform.value.idplocativosescaleras_tb_nd !== '' && 
+        this.vrform.value.idplocativosescaleras_tb_ne !== 0 && this.vrform.value.idplocativosescaleras_tb_ne !== '') {
+        num =  this.vrform.value.idplocativosescaleras_tb_nd * this.vrform.value.idplocativosescaleras_tb_ne;
+
+        this.vrform.patchValue({
+          idplocativosescaleras_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idplocativosescaleras_interpreta:inter
+        })
+    }
+  }
+  /* Locativos - Escaleras defectuosas NR*/
+  fnCalculoLocPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idplocativosescaleras_tb_np !== 0 && this.vrform.value.idplocativosescaleras_tb_np !== '' && 
+        this.vrform.value.idplocativosescaleras_tb_nc !== 0 && this.vrform.value.idplocativosescaleras_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idplocativosescaleras_tb_nc)) * Math.abs(Number(this.vrform.value.idplocativosescaleras_tb_np));
+          
+      this.vrform.patchValue({
+        idplocativosescaleras_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idplocativosescaleras_tb_nr: result
+      })
+    }
+  }
+  /* Locativos - Almacenamiento, estanterías en mal estado NP*/
+  fnCalculoLocPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idplocativosestanterias_tb_nd !== 0 && this.vrform.value.idplocativosestanterias_tb_nd !== '' && 
+        this.vrform.value.idplocativosestanterias_tb_ne !== 0 && this.vrform.value.idplocativosestanterias_tb_ne !== '') {
+        num =  this.vrform.value.idplocativosestanterias_tb_nd * this.vrform.value.idplocativosestanterias_tb_ne;
+
+        this.vrform.patchValue({
+          idplocativosestanterias_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idplocativosestanterias_interpreta:inter
+        })
+    }
+  }
+  /* Locativos - Almacenamiento, estanterías en mal estado NR*/
+  fnCalculoLocPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idplocativosestanterias_tb_np !== 0 && this.vrform.value.idplocativosestanterias_tb_np !== '' && 
+        this.vrform.value.idplocativosestanterias_tb_nc !== 0 && this.vrform.value.idplocativosestanterias_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idplocativosestanterias_tb_nc)) * Math.abs(Number(this.vrform.value.idplocativosestanterias_tb_np));
+          
+      this.vrform.patchValue({
+        idplocativosestanterias_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idplocativosestanterias_tb_nr: result
+      })
+    }
+  }
+  /* Locativos - Almacenamiento, arrumes con altura inadecuada NP*/
+  fnCalculoLocPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idplocativosarrumes_tb_nd !== 0 && this.vrform.value.idplocativosarrumes_tb_nd !== '' && 
+        this.vrform.value.idplocativosarrumes_tb_ne !== 0 && this.vrform.value.idplocativosarrumes_tb_ne !== '') {
+        num =  this.vrform.value.idplocativosarrumes_tb_nd * this.vrform.value.idplocativosarrumes_tb_ne;
+
+        this.vrform.patchValue({
+          idplocativosarrumes_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idplocativosarrumes_interpreta:inter
+        })
+    }
+  }
+  /* Locativos - Almacenamiento, arrumes con altura inadecuada NR*/
+  fnCalculoLocPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idplocativosarrumes_tb_np !== 0 && this.vrform.value.idplocativosarrumes_tb_np !== '' && 
+        this.vrform.value.idplocativosarrumes_tb_nc !== 0 && this.vrform.value.idplocativosarrumes_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idplocativosarrumes_tb_nc)) * Math.abs(Number(this.vrform.value.idplocativosarrumes_tb_np));
+          
+      this.vrform.patchValue({
+        idplocativosarrumes_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idplocativosarrumes_tb_nr: result
+      })
+    }
+  }
+  /* Locativos - Señalización y demarcación deficiente, inexistente o inadecuada NP*/
+  fnCalculoLocPart5NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idplocativosenalizacion_tb_nd !== 0 && this.vrform.value.idplocativosenalizacion_tb_nd !== '' && 
+        this.vrform.value.idplocativosenalizacion_tb_ne !== 0 && this.vrform.value.idplocativosenalizacion_tb_ne !== '') {
+        num =  this.vrform.value.idplocativosenalizacion_tb_nd * this.vrform.value.idplocativosenalizacion_tb_ne;
+
+        this.vrform.patchValue({
+          idplocativosenalizacion_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idplocativosenalizacion_interpreta:inter
+        })
+    }
+  }
+  /* Locativos - Señalización y demarcación deficiente, inexistente o inadecuada NR*/
+  fnCalculoLocPart5NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idplocativosenalizacion_tb_np !== 0 && this.vrform.value.idplocativosenalizacion_tb_np !== '' && 
+        this.vrform.value.idplocativosenalizacion_tb_nc !== 0 && this.vrform.value.idplocativosenalizacion_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idplocativosenalizacion_tb_nc)) * Math.abs(Number(this.vrform.value.idplocativosenalizacion_tb_np));
+          
+      this.vrform.patchValue({
+        idplocativosenalizacion_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idplocativosenalizacion_tb_nr: result
+      })
+    }
+  }
+  /* Locativos - Falta de orden y aseo NP*/
+  fnCalculoLocPart6NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idplocativosaseo_tb_nd !== 0 && this.vrform.value.idplocativosaseo_tb_nd !== '' && 
+        this.vrform.value.idplocativosaseo_tb_ne !== 0 && this.vrform.value.idplocativosaseo_tb_ne !== '') {
+        num =  this.vrform.value.idplocativosaseo_tb_nd * this.vrform.value.idplocativosaseo_tb_ne;
+
+        this.vrform.patchValue({
+          idplocativosaseo_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idplocativosaseo_interpreta:inter
+        })
+    }
+  }
+  /* Locativos - Falta de orden y aseo NR*/
+  fnCalculoLocPart6NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idplocativosaseo_tb_np !== 0 && this.vrform.value.idplocativosaseo_tb_np !== '' && 
+        this.vrform.value.idplocativosaseo_tb_nc !== 0 && this.vrform.value.idplocativosaseo_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idplocativosaseo_tb_nc)) * Math.abs(Number(this.vrform.value.idplocativosaseo_tb_np));
+          
+      this.vrform.patchValue({
+        idplocativosaseo_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idplocativosaseo_tb_nr: result
+      })
+    }
+  }
+
 }
