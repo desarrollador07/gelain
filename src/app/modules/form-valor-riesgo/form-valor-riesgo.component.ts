@@ -420,7 +420,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosescaleras_tb_nr:['.'],
       idplocativosescaleras_numpuestos:[0],
       idplocativosescaleras_observaciones:['.'],
-      /* Locativos - Escaleras defectuosas */
+      /* Locativos - Almacenamiento, estanterías en mal estado */
       idplocativosestanterias_efectos:['.'],
       idplocativosestanterias_ctrlfuente:['.'],
       idplocativosestanterias_ctrlmedio:['.'],
@@ -434,7 +434,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosestanterias_tb_nr:['.'],
       idplocativosestanterias_numpuestos:[0],
       idplocativosestanterias_observaciones:['.'],
-      /* Locativos - NN */
+      /* Locativos - Almacenamiento, arrumes con altura inadecuada */
       idplocativosarrumes_efectos:['.'],
       idplocativosarrumes_ctrlfuente:['.'],
       idplocativosarrumes_ctrlmedio:['.'],
@@ -662,7 +662,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idptransitocarro_tb_nr:['.'],
       idptransitocarro_numpuestos:[0],
       idptransitocarro_observaciones:['.'],
-      /* ----------------------QUÍMICOS------------------- */
+      /* ----------------------QUÍMICOS-------------------- */
       /* Químicos - Aerosoles, líquidos, rocíos */
       idpquimicosaerosol_efectos:['.'],
       idpquimicosaerosol_ctrlfuente:['.'],
@@ -839,6 +839,7 @@ export class FormValorRiesgoComponent implements OnInit {
     if(this.localVR !== null){
 
       this.vrform.patchValue({
+        /* ----------------------DATOS GENERALES------------------- */
         idpfecha:this.localVR.idpfecha,
         idpempresa:this.localVR.idpempresa,
         idpsede:this.localVR.idpsede,
@@ -855,6 +856,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpusuariocrea:this.localVR.idpusuariocrea,
         idpusuariomod:this.localVR.idpusuariomod,
         idpestado:this.localVR.idpestado,
+        /* ----------------------BIOLOGICO------------------- */
+        /*Biologico - Derivados de origen animal */
         idpbioderani_efectos:this.localVR.idpbioderani_efectos,
         idpbioderani_ctrlfuente:this.localVR.idpbioderani_ctrlfuente,
         idpbioderani_ctrlmedio:this.localVR.idpbioderani_ctrlmedio,
@@ -868,6 +871,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpbioderani_tb_nr:this.localVR.idpbioderani_tb_nr,
         idpbioderani_numpuestos:this.localVR.idpbioderani_numpuestos,
         idpbioderani_observaciones:this.localVR.idpbioderani_observaciones,
+        /*Biologico - Microorganismos tipo hongo */
         idpbiohongo_efectos:this.localVR.idpbiohongo_efectos,
         idpbiohongo_ctrlfuente:this.localVR.idpbiohongo_ctrlfuente,
         idpbiohongo_ctrlmedio:this.localVR.idpbiohongo_ctrlmedio,
@@ -881,6 +885,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpbiohongo_tb_nr:this.localVR.idpbiohongo_tb_nr,
         idpbiohongo_numpuestos:this.localVR.idpbiohongo_numpuestos,
         idpbiohongo_observaciones:this.localVR.idpbiohongo_observaciones,
+        /*Biologico - Microorganismos tipo bacterias */
         idpbiobacterias_efectos:this.localVR.idpbiobacterias_efectos,
         idpbiobacterias_ctrlfuente:this.localVR.idpbiobacterias_ctrlfuente,
         idpbiobacterias_ctrlmedio:this.localVR.idpbiobacterias_ctrlmedio,
@@ -894,6 +899,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpbiobacterias_tb_nr:this.localVR.idpbiobacterias_tb_nr,
         idpbiobacterias_numpuestos:this.localVR.idpbiobacterias_numpuestos,
         idpbiobacterias_observaciones:this.localVR.idpbiobacterias_observaciones,
+        /*Biologico - Microorganismos tipo virus */
         idpbiovirus_efectos:this.localVR.idpbiovirus_efectos,
         idpbiovirus_ctrlfuente:this.localVR.idpbiovirus_ctrlfuente,
         idpbiovirus_ctrlmedio:this.localVR.idpbiovirus_ctrlmedio,
@@ -907,6 +913,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpbiovirus_tb_nr:this.localVR.idpbiovirus_tb_nr,
         idpbiovirus_numpuestos:this.localVR.idpbiovirus_numpuestos,
         idpbiovirus_observaciones:this.localVR.idpbiovirus_observaciones,
+        /*Biologico - Parásitos */
         idpbioparasitos_efectos:this.localVR.idpbioparasitos_efectos,
         idpbioparasitos_ctrlfuente:this.localVR.idpbioparasitos_ctrlfuente,
         idpbioparasitos_ctrlmedio:this.localVR.idpbioparasitos_ctrlmedio,
@@ -920,6 +927,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpbioparasitos_tb_nr:this.localVR.idpbioparasitos_tb_nr,
         idpbioparasitos_numpuestos:this.localVR.idpbioparasitos_numpuestos,
         idpbioparasitos_observaciones:this.localVR.idpbioparasitos_observaciones,
+        /* ----------------------CARGA FÍSICA------------------- */
+        /* Carga Física - Carga dinámica por esfuerzos */
         idpcargesfuerzos_efectos:this.localVR.idpcargesfuerzos_efectos,
         idpcargesfuerzos_ctrlfuente:this.localVR.idpcargesfuerzos_ctrlfuente,
         idpcargesfuerzos_ctrlmedio:this.localVR.idpcargesfuerzos_ctrlmedio,
@@ -933,6 +942,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpcargesfuerzos_tb_nr:this.localVR.idpcargesfuerzos_tb_nr,
         idpcargesfuerzos_numpuestos:this.localVR.idpcargesfuerzos_numpuestos,
         idpcargesfuerzos_observaciones:this.localVR.idpcargesfuerzos_observaciones,
+        /* Carga Física - Carga dinámica por movimientos repetitivos */
         idpcargmovimiento_efectos:this.localVR.idpcargmovimiento_efectos,
         idpcargmovimiento_ctrlfuente:this.localVR.idpcargmovimiento_ctrlfuente,
         idpcargmovimiento_ctrlmedio:this.localVR.idpcargmovimiento_ctrlmedio,
@@ -946,6 +956,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpcargmovimiento_tb_nr:this.localVR.idpcargmovimiento_tb_nr,
         idpcargmovimiento_numpuestos:this.localVR.idpcargmovimiento_numpuestos,
         idpcargmovimiento_observaciones:this.localVR.idpcargmovimiento_observaciones,
+        /* Carga Física - Carga dinámica por sobreesfuerzos de la voz */
         idpcargvoz_efectos:this.localVR.idpcargvoz_efectos,
         idpcargvoz_ctrlfuente:this.localVR.idpcargvoz_ctrlfuente,
         idpcargvoz_ctrlmedio:this.localVR.idpcargvoz_ctrlmedio,
@@ -959,6 +970,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpcargvoz_tb_nr:this.localVR.idpcargvoz_tb_nr,
         idpcargvoz_numpuestos:this.localVR.idpcargvoz_numpuestos,
         idpcargvoz_observaciones:this.localVR.idpcargvoz_observaciones,
+        /* Carga Física - Carga estática de pie */
         idpcargpie_efectos:this.localVR.idpcargpie_efectos,
         idpcargpie_ctrlfuente:this.localVR.idpcargpie_ctrlfuente,
         idpcargpie_ctrlmedio:this.localVR.idpcargpie_ctrlmedio,
@@ -972,6 +984,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpcargpie_tb_nr:this.localVR.idpcargpie_tb_nr,
         idpcargpie_numpuestos:this.localVR.idpcargpie_numpuestos,
         idpcargpie_observaciones:this.localVR.idpcargpie_observaciones,
+        /* Carga Física - Posiciones prolongadas sentado */
         idpcargsentado_efectos:this.localVR.idpcargsentado_efectos,
         idpcargsentado_ctrlfuente:this.localVR.idpcargsentado_ctrlfuente,
         idpcargsentado_ctrlmedio:this.localVR.idpcargsentado_ctrlmedio,
@@ -985,6 +998,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpcargsentado_tb_nr:this.localVR.idpcargsentado_tb_nr,
         idpcargsentado_numpuestos:this.localVR.idpcargsentado_numpuestos,
         idpcargsentado_observaciones:this.localVR.idpcargsentado_observaciones,
+        /* ----------------------ELÉCTRICO------------------- */
+        /* Eléctrico - Energía eléctrica de baja */
         idpelectricobaja_efectos:this.localVR.idpelectricobaja_efectos,
         idpelectricobaja_ctrlfuente:this.localVR.idpelectricobaja_ctrlfuente,
         idpelectricobaja_ctrlmedio:this.localVR.idpelectricobaja_ctrlmedio,
@@ -998,6 +1013,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpelectricobaja_tb_nr:this.localVR.idpelectricobaja_tb_nr,
         idpelectricobaja_numpuestos:this.localVR.idpelectricobaja_numpuestos,
         idpelectricobaja_observaciones:this.localVR.idpelectricobaja_observaciones,
+        /* Eléctrico - Energía eléctrica de alta */
         idpelectricoalta_efectos:this.localVR.idpelectricoalta_efectos,
         idpelectricoalta_ctrlfuente:this.localVR.idpelectricoalta_ctrlfuente,
         idpelectricoalta_ctrlmedio:this.localVR.idpelectricoalta_ctrlmedio,
@@ -1011,6 +1027,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpelectricoalta_tb_nr:this.localVR.idpelectricoalta_tb_nr,
         idpelectricoalta_numpuestos:this.localVR.idpelectricoalta_numpuestos,
         idpelectricoalta_observaciones:this.localVR.idpelectricoalta_observaciones,
+        /* Eléctrico - Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados */
         idpelectricocables_efectos:this.localVR.idpelectricocables_efectos,
         idpelectricocables_ctrlfuente:this.localVR.idpelectricocables_ctrlfuente,
         idpelectricocables_ctrlmedio:this.localVR.idpelectricocables_ctrlmedio,
@@ -1024,6 +1041,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpelectricocables_tb_nr:this.localVR.idpelectricocables_tb_nr,
         idpelectricocables_numpuestos:this.localVR.idpelectricocables_numpuestos,
         idpelectricocables_observaciones:this.localVR.idpelectricocables_observaciones,
+        /* ----------------------FÍSICO------------------- */
+        /* Físico - Iluminación deficiente */
         idpfisicoilumdef_efectos:this.localVR.idpfisicoilumdef_efectos,
         idpfisicoilumdef_ctrlfuente:this.localVR.idpfisicoilumdef_ctrlfuente,
         idpfisicoilumdef_ctrlmedio:this.localVR.idpfisicoilumdef_ctrlmedio,
@@ -1037,6 +1056,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicoilumdef_tb_nr:this.localVR.idpfisicoilumdef_tb_nr,
         idpfisicoilumdef_numpuestos:this.localVR.idpfisicoilumdef_numpuestos,
         idpfisicoilumdef_observaciones:this.localVR.idpfisicoilumdef_observaciones,
+        /* Físico - Iluminación en exceso */
         idpfisicoilumexceso_efectos:this.localVR.idpfisicoilumexceso_efectos,
         idpfisicoilumexceso_ctrlfuente:this.localVR.idpfisicoilumexceso_ctrlfuente,
         idpfisicoilumexceso_ctrlmedio:this.localVR.idpfisicoilumexceso_ctrlmedio,
@@ -1050,6 +1070,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicoilumexceso_tb_nr:this.localVR.idpfisicoilumexceso_tb_nr,
         idpfisicoilumexceso_numpuestos:this.localVR.idpfisicoilumexceso_numpuestos,
         idpfisicoilumexceso_observaciones:this.localVR.idpfisicoilumexceso_observaciones,
+        /* Físico - Radiaciones no ionizantes por ultravioleta */
         idpfisicoradiaciones_efectos:this.localVR.idpfisicoradiaciones_efectos,
         idpfisicoradiaciones_ctrlfuente:this.localVR.idpfisicoradiaciones_ctrlfuente,
         idpfisicoradiaciones_ctrlmedio:this.localVR.idpfisicoradiaciones_ctrlmedio,
@@ -1063,6 +1084,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicoradiaciones_tb_nr:this.localVR.idpfisicoradiaciones_tb_nr,
         idpfisicoradiaciones_numpuestos:this.localVR.idpfisicoradiaciones_numpuestos,
         idpfisicoradiaciones_observaciones:this.localVR.idpfisicoradiaciones_observaciones,
+        /* Físico - Ruido */
         idpfisicoruido_efectos:this.localVR.idpfisicoruido_efectos,
         idpfisicoruido_ctrlfuente:this.localVR.idpfisicoruido_ctrlfuente,
         idpfisicoruido_ctrlmedio:this.localVR.idpfisicoruido_ctrlmedio,
@@ -1076,6 +1098,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicoruido_tb_nr:this.localVR.idpfisicoruido_tb_nr,
         idpfisicoruido_numpuestos:this.localVR.idpfisicoruido_numpuestos,
         idpfisicoruido_observaciones:this.localVR.idpfisicoruido_observaciones,
+        /* Físico - Vibraciones */
         idpfisicovibraciones_efectos:this.localVR.idpfisicovibraciones_efectos,
         idpfisicovibraciones_ctrlfuente:this.localVR.idpfisicovibraciones_ctrlfuente,
         idpfisicovibraciones_ctrlmedio:this.localVR.idpfisicovibraciones_ctrlmedio,
@@ -1089,6 +1112,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicovibraciones_tb_nr:this.localVR.idpfisicovibraciones_tb_nr,
         idpfisicovibraciones_numpuestos:this.localVR.idpfisicovibraciones_numpuestos,
         idpfisicovibraciones_observaciones:this.localVR.idpfisicovibraciones_observaciones,
+        /* Físico - Transferencias de temperaturas por calor */
         idpfisicocalor_efectos:this.localVR.idpfisicocalor_efectos,
         idpfisicocalor_ctrlfuente:this.localVR.idpfisicocalor_ctrlfuente,
         idpfisicocalor_ctrlmedio:this.localVR.idpfisicocalor_ctrlmedio,
@@ -1102,6 +1126,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicocalor_tb_nr:this.localVR.idpfisicocalor_tb_nr,
         idpfisicocalor_numpuestos:this.localVR.idpfisicocalor_numpuestos,
         idpfisicocalor_observaciones:this.localVR.idpfisicocalor_observaciones,
+        /* Físico - Transferencias de temperaturas por frio */
         idpfisicofrio_efectos:this.localVR.idpfisicofrio_efectos,
         idpfisicofrio_ctrlfuente:this.localVR.idpfisicofrio_ctrlfuente,
         idpfisicofrio_ctrlmedio:this.localVR.idpfisicofrio_ctrlmedio,
@@ -1115,6 +1140,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicofrio_tb_nr:this.localVR.idpfisicofrio_tb_nr,
         idpfisicofrio_numpuestos:this.localVR.idpfisicofrio_numpuestos,
         idpfisicofrio_observaciones:this.localVR.idpfisicofrio_observaciones,
+        /* ----------------------INCENDIOS / EXPLOSIONES------------------- */
+        /* Incendios / Explosiones - Materiales combustibles */
         idpincendioscombust_efectos:this.localVR.idpincendioscombust_efectos,
         idpincendioscombust_ctrlfuente:this.localVR.idpincendioscombust_ctrlfuente,
         idpincendioscombust_ctrlmedio:this.localVR.idpincendioscombust_ctrlmedio,
@@ -1128,6 +1155,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpincendioscombust_tb_nr:this.localVR.idpincendioscombust_tb_nr,
         idpincendioscombust_numpuestos:this.localVR.idpincendioscombust_numpuestos,
         idpincendioscombust_observaciones:this.localVR.idpincendioscombust_observaciones,
+        /* Incendios / Explosiones - Ausencia de equipo contra incendio */
         idpincendiosequipo_efectos:this.localVR.idpincendiosequipo_efectos,
         idpincendiosequipo_ctrlfuente:this.localVR.idpincendiosequipo_ctrlfuente,
         idpincendiosequipo_ctrlmedio:this.localVR.idpincendiosequipo_ctrlmedio,
@@ -1141,6 +1169,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpincendiosequipo_tb_nr:this.localVR.idpincendiosequipo_tb_nr,
         idpincendiosequipo_numpuestos:this.localVR.idpincendiosequipo_numpuestos,
         idpincendiosequipo_observaciones:this.localVR.idpincendiosequipo_observaciones,
+        /* Incendios / Explosiones - Sustancias inflamables */
         idpincendiossustancias_efectos:this.localVR.idpincendiossustancias_efectos,
         idpincendiossustancias_ctrlfuente:this.localVR.idpincendiossustancias_ctrlfuente,
         idpincendiossustancias_ctrlmedio:this.localVR.idpincendiossustancias_ctrlmedio,
@@ -1154,6 +1183,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpincendiossustancias_tb_nr:this.localVR.idpincendiossustancias_tb_nr,
         idpincendiossustancias_numpuestos:this.localVR.idpincendiossustancias_numpuestos,
         idpincendiossustancias_observaciones:this.localVR.idpincendiossustancias_observaciones,
+        /* ----------------------LOCATIVOS------------------- */
+        /* Locativos - Pisos defectuosos */
         idplocativospisos_efectos:this.localVR.idplocativospisos_efectos,
         idplocativospisos_ctrlfuente:this.localVR.idplocativospisos_ctrlfuente,
         idplocativospisos_ctrlmedio:this.localVR.idplocativospisos_ctrlmedio,
@@ -1167,6 +1198,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idplocativospisos_tb_nr:this.localVR.idplocativospisos_tb_nr,
         idplocativospisos_numpuestos:this.localVR.idplocativospisos_numpuestos,
         idplocativospisos_observaciones:this.localVR.idplocativospisos_observaciones,
+        /* Locativos - Escaleras defectuosas */
         idplocativosescaleras_efectos:this.localVR.idplocativosescaleras_efectos,
         idplocativosescaleras_ctrlfuente:this.localVR.idplocativosescaleras_ctrlfuente,
         idplocativosescaleras_ctrlmedio:this.localVR.idplocativosescaleras_ctrlmedio,
@@ -1180,6 +1212,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idplocativosescaleras_tb_nr:this.localVR.idplocativosescaleras_tb_nr,
         idplocativosescaleras_numpuestos:this.localVR.idplocativosescaleras_numpuestos,
         idplocativosescaleras_observaciones:this.localVR.idplocativosescaleras_observaciones,
+        /* Locativos - Almacenamiento, estanterías en mal estado */
         idplocativosestanterias_efectos:this.localVR.idplocativosestanterias_efectos,
         idplocativosestanterias_ctrlfuente:this.localVR.idplocativosestanterias_ctrlfuente,
         idplocativosestanterias_ctrlmedio:this.localVR.idplocativosestanterias_ctrlmedio,
@@ -1193,6 +1226,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idplocativosestanterias_tb_nr:this.localVR.idplocativosestanterias_tb_nr,
         idplocativosestanterias_numpuestos:this.localVR.idplocativosestanterias_numpuestos,
         idplocativosestanterias_observaciones:this.localVR.idplocativosestanterias_observaciones,
+        /* Locativos - Almacenamiento, arrumes con altura inadecuada */
         idplocativosarrumes_efectos:this.localVR.idplocativosarrumes_efectos,
         idplocativosarrumes_ctrlfuente:this.localVR.idplocativosarrumes_ctrlfuente,
         idplocativosarrumes_ctrlmedio:this.localVR.idplocativosarrumes_ctrlmedio,
@@ -1206,6 +1240,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idplocativosarrumes_tb_nr:this.localVR.idplocativosarrumes_tb_nr,
         idplocativosarrumes_numpuestos:this.localVR.idplocativosarrumes_numpuestos,
         idplocativosarrumes_observaciones:this.localVR.idplocativosarrumes_observaciones,
+        /* Locativos - Señalización y demarcación deficiente, inexistente o inadecuada */
         idplocativosenalizacion_efectos:this.localVR.idplocativosenalizacion_efectos,
         idplocativosenalizacion_ctrlfuente:this.localVR.idplocativosenalizacion_ctrlfuente,
         idplocativosenalizacion_ctrlmedio:this.localVR.idplocativosenalizacion_ctrlmedio,
@@ -1219,6 +1254,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idplocativosenalizacion_tb_nr:this.localVR.idplocativosenalizacion_tb_nr,
         idplocativosenalizacion_numpuestos:this.localVR.idplocativosenalizacion_numpuestos,
         idplocativosenalizacion_observaciones:this.localVR.idplocativosenalizacion_observaciones,
+        /* Locativos - Falta de orden y aseo */
         idplocativosaseo_efectos:this.localVR.idplocativosaseo_efectos,
         idplocativosaseo_ctrlfuente:this.localVR.idplocativosaseo_ctrlfuente,
         idplocativosaseo_ctrlmedio:this.localVR.idplocativosaseo_ctrlmedio,
@@ -1232,6 +1268,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idplocativosaseo_tb_nr:this.localVR.idplocativosaseo_tb_nr,
         idplocativosaseo_numpuestos:this.localVR.idplocativosaseo_numpuestos,
         idplocativosaseo_observaciones:this.localVR.idplocativosaseo_observaciones,
+        /* ----------------------MECÁNICOS------------------- */
+        /* Mecánicos - Utilización de herramientas manuales */
         idpmecanicoherramient_efectos:this.localVR.idpmecanicoherramient_efectos,
         idpmecanicoherramient_ctrlfuente:this.localVR.idpmecanicoherramient_ctrlfuente,
         idpmecanicoherramient_ctrlmedio:this.localVR.idpmecanicoherramient_ctrlmedio,
@@ -1245,6 +1283,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpmecanicoherramient_tb_nr:this.localVR.idpmecanicoherramient_tb_nr,
         idpmecanicoherramient_numpuestos:this.localVR.idpmecanicoherramient_numpuestos,
         idpmecanicoherramient_observaciones:this.localVR.idpmecanicoherramient_observaciones,
+        /* Mecánicos - Superficies cortantes */
         idpmecanicocortante_efectos:this.localVR.idpmecanicocortante_efectos,
         idpmecanicocortante_ctrlfuente:this.localVR.idpmecanicocortante_ctrlfuente,
         idpmecanicocortante_ctrlmedio:this.localVR.idpmecanicocortante_ctrlmedio,
@@ -1258,6 +1297,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpmecanicocortante_tb_nr:this.localVR.idpmecanicocortante_tb_nr,
         idpmecanicocortante_numpuestos:this.localVR.idpmecanicocortante_numpuestos,
         idpmecanicocortante_observaciones:this.localVR.idpmecanicocortante_observaciones,
+        /* Mecánicos - Contacto con elementos cortopunzantes */
         idpmecanicocortopunz_efectos:this.localVR.idpmecanicocortopunz_efectos,
         idpmecanicocortopunz_ctrlfuente:this.localVR.idpmecanicocortopunz_ctrlfuente,
         idpmecanicocortopunz_ctrlmedio:this.localVR.idpmecanicocortopunz_ctrlmedio,
@@ -1271,6 +1311,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpmecanicocortopunz_tb_nr:this.localVR.idpmecanicocortopunz_tb_nr,
         idpmecanicocortopunz_numpuestos:this.localVR.idpmecanicocortopunz_numpuestos,
         idpmecanicocortopunz_observaciones:this.localVR.idpmecanicocortopunz_observaciones,
+        /* Mecánicos - Materiales proyectados sólidos o fluidos */
         idpmecanicomateriales_efectos:this.localVR.idpmecanicomateriales_efectos,
         idpmecanicomateriales_ctrlfuente:this.localVR.idpmecanicomateriales_ctrlfuente,
         idpmecanicomateriales_ctrlmedio:this.localVR.idpmecanicomateriales_ctrlmedio,
@@ -1284,6 +1325,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpmecanicomateriales_tb_nr:this.localVR.idpmecanicomateriales_tb_nr,
         idpmecanicomateriales_numpuestos:this.localVR.idpmecanicomateriales_numpuestos,
         idpmecanicomateriales_observaciones:this.localVR.idpmecanicomateriales_observaciones,
+        /* ----------------------PSICOSOCIAL------------------- */
+        /* Psicosocial - Sobrecarga de trabajo */
         idppsicosobrecarga_efectos:this.localVR.idppsicosobrecarga_efectos,
         idppsicosobrecarga_ctrlfuente:this.localVR.idppsicosobrecarga_ctrlfuente,
         idppsicosobrecarga_ctrlmedio:this.localVR.idppsicosobrecarga_ctrlmedio,
@@ -1297,6 +1340,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idppsicosobrecarga_tb_nr:this.localVR.idppsicosobrecarga_tb_nr,
         idppsicosobrecarga_numpuestos:this.localVR.idppsicosobrecarga_numpuestos,
         idppsicosobrecarga_observaciones:this.localVR.idppsicosobrecarga_observaciones,
+        /* Psicosocial - Resposanbilidad en el cargo/ manejo de personal */
         idppsicoresponsabilidad_efectos:this.localVR.idppsicoresponsabilidad_efectos,
         idppsicoresponsabilidad_ctrlfuente:this.localVR.idppsicoresponsabilidad_ctrlfuente,
         idppsicoresponsabilidad_ctrlmedio:this.localVR.idppsicoresponsabilidad_ctrlmedio,
@@ -1310,6 +1354,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idppsicoresponsabilidad_tb_nr:this.localVR.idppsicoresponsabilidad_tb_nr,
         idppsicoresponsabilidad_numpuestos:this.localVR.idppsicoresponsabilidad_numpuestos,
         idppsicoresponsabilidad_observaciones:this.localVR.idppsicoresponsabilidad_observaciones,
+        /* Psicosocial - Trabajo repetitivo */
         idppsicorepetitivo_efectos:this.localVR.idppsicorepetitivo_efectos,
         idppsicorepetitivo_ctrlfuente:this.localVR.idppsicorepetitivo_ctrlfuente,
         idppsicorepetitivo_ctrlmedio:this.localVR.idppsicorepetitivo_ctrlmedio,
@@ -1323,6 +1368,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idppsicorepetitivo_tb_nr:this.localVR.idppsicorepetitivo_tb_nr,
         idppsicorepetitivo_numpuestos:this.localVR.idppsicorepetitivo_numpuestos,
         idppsicorepetitivo_observaciones:this.localVR.idppsicorepetitivo_observaciones,
+        /* ----------------------PÚBLICOS------------------- */
+        /* Públicos - Situación de atraco o robo */
         idppublicorobo_efectos:this.localVR.idppublicorobo_efectos,
         idppublicorobo_ctrlfuente:this.localVR.idppublicorobo_ctrlfuente,
         idppublicorobo_ctrlmedio:this.localVR.idppublicorobo_ctrlmedio,
@@ -1336,6 +1383,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idppublicorobo_tb_nr:this.localVR.idppublicorobo_tb_nr,
         idppublicorobo_numpuestos:this.localVR.idppublicorobo_numpuestos,
         idppublicorobo_observaciones:this.localVR.idppublicorobo_observaciones,
+        /* Públicos - Terrorismo */
         idppublicoterrorismo_efectos:this.localVR.idppublicoterrorismo_efectos,
         idppublicoterrorismo_ctrlfuente:this.localVR.idppublicoterrorismo_ctrlfuente,
         idppublicoterrorismo_ctrlmedio:this.localVR.idppublicoterrorismo_ctrlmedio,
@@ -1349,6 +1397,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idppublicoterrorismo_tb_nr:this.localVR.idppublicoterrorismo_tb_nr,
         idppublicoterrorismo_numpuestos:this.localVR.idppublicoterrorismo_numpuestos,
         idppublicoterrorismo_observaciones:this.localVR.idppublicoterrorismo_observaciones,
+        /* Públicos - Situación de Agresión fisica */
         idppublicoagresion_efectos:this.localVR.idppublicoagresion_efectos,
         idppublicoagresion_ctrlfuente:this.localVR.idppublicoagresion_ctrlfuente,
         idppublicoagresion_ctrlmedio:this.localVR.idppublicoagresion_ctrlmedio,
@@ -1362,6 +1411,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idppublicoagresion_tb_nr:this.localVR.idppublicoagresion_tb_nr,
         idppublicoagresion_numpuestos:this.localVR.idppublicoagresion_numpuestos,
         idppublicoagresion_observaciones:this.localVR.idppublicoagresion_observaciones,
+        /* Públicos - Situación de asonada */
         idppublicoasonada_efectos:this.localVR.idppublicoasonada_efectos,
         idppublicoasonada_ctrlfuente:this.localVR.idppublicoasonada_ctrlfuente,
         idppublicoasonada_ctrlmedio:this.localVR.idppublicoasonada_ctrlmedio,
@@ -1375,6 +1425,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idppublicoasonada_tb_nr:this.localVR.idppublicoasonada_tb_nr,
         idppublicoasonada_numpuestos:this.localVR.idppublicoasonada_numpuestos,
         idppublicoasonada_observaciones:this.localVR.idppublicoasonada_observaciones,
+        /* ----------------------TRANSITO------------------- */
+        /* Transito - Transporte motocicleta */
         idptransitomoto_efectos:this.localVR.idptransitomoto_efectos,
         idptransitomoto_ctrlfuente:this.localVR.idptransitomoto_ctrlfuente,
         idptransitomoto_ctrlmedio:this.localVR.idptransitomoto_ctrlmedio,
@@ -1388,6 +1440,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idptransitomoto_tb_nr:this.localVR.idptransitomoto_tb_nr,
         idptransitomoto_numpuestos:this.localVR.idptransitomoto_numpuestos,
         idptransitomoto_observaciones:this.localVR.idptransitomoto_observaciones,
+        /* Transito - Transporte carro / ambulancia */
         idptransitocarro_efectos:this.localVR.idptransitocarro_efectos,
         idptransitocarro_ctrlfuente:this.localVR.idptransitocarro_ctrlfuente,
         idptransitocarro_ctrlmedio:this.localVR.idptransitocarro_ctrlmedio,
@@ -1401,6 +1454,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idptransitocarro_tb_nr:this.localVR.idptransitocarro_tb_nr,
         idptransitocarro_numpuestos:this.localVR.idptransitocarro_numpuestos,
         idptransitocarro_observaciones:this.localVR.idptransitocarro_observaciones,
+        /* ----------------------QUÍMICOS-------------------- */
+        /* Químicos - Aerosoles, líquidos, rocíos */
         idpquimicosaerosol_efectos:this.localVR.idpquimicosaerosol_efectos,
         idpquimicosaerosol_ctrlfuente:this.localVR.idpquimicosaerosol_ctrlfuente,
         idpquimicosaerosol_ctrlmedio:this.localVR.idpquimicosaerosol_ctrlmedio,
@@ -1414,6 +1469,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpquimicosaerosol_tb_nr:this.localVR.idpquimicosaerosol_tb_nr,
         idpquimicosaerosol_numpuestos:this.localVR.idpquimicosaerosol_numpuestos,
         idpquimicosaerosol_observaciones:this.localVR.idpquimicosaerosol_observaciones,
+        /* Químicos - Gases y vapores */
         idpquimicosgases_efectos:this.localVR.idpquimicosgases_efectos,
         idpquimicosgases_ctrlfuente:this.localVR.idpquimicosgases_ctrlfuente,
         idpquimicosgases_ctrlmedio:this.localVR.idpquimicosgases_ctrlmedio,
@@ -1427,6 +1483,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpquimicosgases_tb_nr:this.localVR.idpquimicosgases_tb_nr,
         idpquimicosgases_numpuestos:this.localVR.idpquimicosgases_numpuestos,
         idpquimicosgases_observaciones:this.localVR.idpquimicosgases_observaciones,
+        /* Químicos - Sustancias sólidas (polvos) */
         idpquimicossustanc_efectos:this.localVR.idpquimicossustanc_efectos,
         idpquimicossustanc_ctrlfuente:this.localVR.idpquimicossustanc_ctrlfuente,
         idpquimicossustanc_ctrlmedio:this.localVR.idpquimicossustanc_ctrlmedio,
@@ -1440,6 +1497,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpquimicossustanc_tb_nr:this.localVR.idpquimicossustanc_tb_nr,
         idpquimicossustanc_numpuestos:this.localVR.idpquimicossustanc_numpuestos,
         idpquimicossustanc_observaciones:this.localVR.idpquimicossustanc_observaciones,
+        /* Químicos - Contacto y/o salpicadura de químicos */
         idpquimicoscontacto_efectos:this.localVR.idpquimicoscontacto_efectos,
         idpquimicoscontacto_ctrlfuente:this.localVR.idpquimicoscontacto_ctrlfuente,
         idpquimicoscontacto_ctrlmedio:this.localVR.idpquimicoscontacto_ctrlmedio,
@@ -1453,6 +1511,8 @@ export class FormValorRiesgoComponent implements OnInit {
         idpquimicoscontacto_tb_nr:this.localVR.idpquimicoscontacto_tb_nr,
         idpquimicoscontacto_numpuestos:this.localVR.idpquimicoscontacto_numpuestos,
         idpquimicoscontacto_observaciones:this.localVR.idpquimicoscontacto_observaciones,
+        /* ----------------------TAREAS DE ALTO RIESGO------------------- */
+        /* Tareas de alto riesgo - Trabajo en alturas por encima de 1.50 metros */
         idptareasalturas_efectos:this.localVR.idptareasalturas_efectos,
         idptareasalturas_ctrlfuente:this.localVR.idptareasalturas_ctrlfuente,
         idptareasalturas_ctrlmedio:this.localVR.idptareasalturas_ctrlmedio,
@@ -1466,6 +1526,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idptareasalturas_tb_nr:this.localVR.idptareasalturas_tb_nr,
         idptareasalturas_numpuestos:this.localVR.idptareasalturas_numpuestos,
         idptareasalturas_observaciones:this.localVR.idptareasalturas_observaciones,
+        /* Tareas de alto riesgo - Trabajo en espacios confinados */
         idptareasconfinados_efectos:this.localVR.idptareasconfinados_efectos,
         idptareasconfinados_ctrlfuente:this.localVR.idptareasconfinados_ctrlfuente,
         idptareasconfinados_ctrlmedio:this.localVR.idptareasconfinados_ctrlmedio,
@@ -1479,6 +1540,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idptareasconfinados_tb_nr:this.localVR.idptareasconfinados_tb_nr,
         idptareasconfinados_numpuestos:this.localVR.idptareasconfinados_numpuestos,
         idptareasconfinados_observaciones:this.localVR.idptareasconfinados_observaciones,
+        /* Tareas de alto riesgo - Trabajo en caliente corte y soldadura */
         idptareassoldadura_efectos:this.localVR.idptareassoldadura_efectos,
         idptareassoldadura_ctrlfuente:this.localVR.idptareassoldadura_ctrlfuente,
         idptareassoldadura_ctrlmedio:this.localVR.idptareassoldadura_ctrlmedio,
