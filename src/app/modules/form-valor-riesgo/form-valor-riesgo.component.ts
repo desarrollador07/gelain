@@ -136,6 +136,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpbioparasitos_numpuestos:[0],
       idpbioparasitos_observaciones:['.'],
       /* ----------------------CARGA FÍSICA------------------- */
+      /* Carga Física - Carga dinámica por esfuerzos */
       idpcargesfuerzos_efectos:['.'],
       idpcargesfuerzos_ctrlfuente:['.'],
       idpcargesfuerzos_ctrlmedio:['.'],
@@ -149,6 +150,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpcargesfuerzos_tb_nr:['.'],
       idpcargesfuerzos_numpuestos:[0],
       idpcargesfuerzos_observaciones:['.'],
+      /* Carga Física - Carga dinámica por movimientos repetitivos */
       idpcargmovimiento_efectos:['.'],
       idpcargmovimiento_ctrlfuente:['.'],
       idpcargmovimiento_ctrlmedio:['.'],
@@ -162,6 +164,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpcargmovimiento_tb_nr:['.'],
       idpcargmovimiento_numpuestos:[0],
       idpcargmovimiento_observaciones:['.'],
+      /* Carga Física - Carga dinámica por sobreesfuerzos de la voz */
       idpcargvoz_efectos:['.'],
       idpcargvoz_ctrlfuente:['.'],
       idpcargvoz_ctrlmedio:['.'],
@@ -175,6 +178,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpcargvoz_tb_nr:['.'],
       idpcargvoz_numpuestos:[0],
       idpcargvoz_observaciones:['.'],
+      /* Carga Física - Carga estática de pie */
       idpcargpie_efectos:['.'],
       idpcargpie_ctrlfuente:['.'],
       idpcargpie_ctrlmedio:['.'],
@@ -188,6 +192,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpcargpie_tb_nr:['.'],
       idpcargpie_numpuestos:[0],
       idpcargpie_observaciones:['.'],
+      /* Carga Física - Posiciones prolongadas sentado */
       idpcargsentado_efectos:['.'],
       idpcargsentado_ctrlfuente:['.'],
       idpcargsentado_ctrlmedio:['.'],
@@ -201,6 +206,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idpcargsentado_tb_nr:['.'],
       idpcargsentado_numpuestos:[0],
       idpcargsentado_observaciones:['.'],
+      /* ----------------------ELÉCTRICO------------------- */
+      /* Eléctrico - Energía eléctrica de baja */
       idpelectricobaja_efectos:['.'],
       idpelectricobaja_ctrlfuente:['.'],
       idpelectricobaja_ctrlmedio:['.'],
@@ -214,6 +221,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpelectricobaja_tb_nr:['.'],
       idpelectricobaja_numpuestos:[0],
       idpelectricobaja_observaciones:['.'],
+      /* Eléctrico - Energía eléctrica de alta */
       idpelectricoalta_efectos:['.'],
       idpelectricoalta_ctrlfuente:['.'],
       idpelectricoalta_ctrlmedio:['.'],
@@ -227,6 +235,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpelectricoalta_tb_nr:['.'],
       idpelectricoalta_numpuestos:[0],
       idpelectricoalta_observaciones:['.'],
+      /* Eléctrico - Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados */
       idpelectricocables_efectos:['.'],
       idpelectricocables_ctrlfuente:['.'],
       idpelectricocables_ctrlmedio:['.'],
@@ -240,6 +249,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idpelectricocables_tb_nr:['.'],
       idpelectricocables_numpuestos:[0],
       idpelectricocables_observaciones:['.'],
+      /* ----------------------FÍSICO------------------- */
+      /* Físico - Iluminación deficiente */
       idpfisicoilumdef_efectos:['.'],
       idpfisicoilumdef_ctrlfuente:['.'],
       idpfisicoilumdef_ctrlmedio:['.'],
@@ -253,6 +264,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicoilumdef_tb_nr:['.'],
       idpfisicoilumdef_numpuestos:[0],
       idpfisicoilumdef_observaciones:['.'],
+      /* Físico - Iluminación en exceso */
       idpfisicoilumexceso_efectos:['.'],
       idpfisicoilumexceso_ctrlfuente:['.'],
       idpfisicoilumexceso_ctrlmedio:['.'],
@@ -266,6 +278,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicoilumexceso_tb_nr:['.'],
       idpfisicoilumexceso_numpuestos:[0],
       idpfisicoilumexceso_observaciones:['.'],
+      /* Físico - Radiaciones no ionizantes por ultravioleta */
       idpfisicoradiaciones_efectos:['.'],
       idpfisicoradiaciones_ctrlfuente:['.'],
       idpfisicoradiaciones_ctrlmedio:['.'],
@@ -279,6 +292,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicoradiaciones_tb_nr:['.'],
       idpfisicoradiaciones_numpuestos:[0],
       idpfisicoradiaciones_observaciones:['.'],
+      /* Físico - Ruido */
       idpfisicoruido_efectos:['.'],
       idpfisicoruido_ctrlfuente:['.'],
       idpfisicoruido_ctrlmedio:['.'],
@@ -292,6 +306,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicoruido_tb_nr:['.'],
       idpfisicoruido_numpuestos:[0],
       idpfisicoruido_observaciones:['.'],
+      /* Físico - Vibraciones */
       idpfisicovibraciones_efectos:['.'],
       idpfisicovibraciones_ctrlfuente:['.'],
       idpfisicovibraciones_ctrlmedio:['.'],
@@ -305,6 +320,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicovibraciones_tb_nr:['.'],
       idpfisicovibraciones_numpuestos:[0],
       idpfisicovibraciones_observaciones:['.'],
+      /* Físico - Transferencias de temperaturas por calor */
       idpfisicocalor_efectos:['.'],
       idpfisicocalor_ctrlfuente:['.'],
       idpfisicocalor_ctrlmedio:['.'],
@@ -318,6 +334,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicocalor_tb_nr:['.'],
       idpfisicocalor_numpuestos:[0],
       idpfisicocalor_observaciones:['.'],
+      /* Físico - Transferencias de temperaturas por frio */
       idpfisicofrio_efectos:['.'],
       idpfisicofrio_ctrlfuente:['.'],
       idpfisicofrio_ctrlmedio:['.'],
@@ -331,6 +348,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicofrio_tb_nr:['.'],
       idpfisicofrio_numpuestos:[0],
       idpfisicofrio_observaciones:['.'],
+      /* ----------------------INCENDIOS / EXPLOSIONES------------------- */
+      /* Incendios / Explosiones - Materiales combustibles */
       idpincendioscombust_efectos:['.'],
       idpincendioscombust_ctrlfuente:['.'],
       idpincendioscombust_ctrlmedio:['.'],
@@ -344,6 +363,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpincendioscombust_tb_nr:['.'],
       idpincendioscombust_numpuestos:[0],
       idpincendioscombust_observaciones:['.'],
+      /* Incendios / Explosiones - Ausencia de equipo contra incendio */
       idpincendiosequipo_efectos:['.'],
       idpincendiosequipo_ctrlfuente:['.'],
       idpincendiosequipo_ctrlmedio:['.'],
@@ -357,6 +377,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpincendiosequipo_tb_nr:['.'],
       idpincendiosequipo_numpuestos:[0],
       idpincendiosequipo_observaciones:['.'],
+      /* Incendios / Explosiones - Sustancias inflamables */
       idpincendiossustancias_efectos:['.'],
       idpincendiossustancias_ctrlfuente:['.'],
       idpincendiossustancias_ctrlmedio:['.'],
@@ -370,6 +391,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idpincendiossustancias_tb_nr:['.'],
       idpincendiossustancias_numpuestos:[0],
       idpincendiossustancias_observaciones:['.'],
+      /* ----------------------LOCATIVOS------------------- */
+      /* Locativos - Pisos defectuosos */
       idplocativospisos_efectos:['.'],
       idplocativospisos_ctrlfuente:['.'],
       idplocativospisos_ctrlmedio:['.'],
@@ -383,6 +406,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativospisos_tb_nr:['.'],
       idplocativospisos_numpuestos:[0],
       idplocativospisos_observaciones:['.'],
+      /* Locativos - Escaleras defectuosas */
       idplocativosescaleras_efectos:['.'],
       idplocativosescaleras_ctrlfuente:['.'],
       idplocativosescaleras_ctrlmedio:['.'],
@@ -396,6 +420,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosescaleras_tb_nr:['.'],
       idplocativosescaleras_numpuestos:[0],
       idplocativosescaleras_observaciones:['.'],
+      /* Locativos - Escaleras defectuosas */
       idplocativosestanterias_efectos:['.'],
       idplocativosestanterias_ctrlfuente:['.'],
       idplocativosestanterias_ctrlmedio:['.'],
@@ -409,6 +434,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosestanterias_tb_nr:['.'],
       idplocativosestanterias_numpuestos:[0],
       idplocativosestanterias_observaciones:['.'],
+      /* Locativos - NN */
       idplocativosarrumes_efectos:['.'],
       idplocativosarrumes_ctrlfuente:['.'],
       idplocativosarrumes_ctrlmedio:['.'],
@@ -422,6 +448,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosarrumes_tb_nr:['.'],
       idplocativosarrumes_numpuestos:[0],
       idplocativosarrumes_observaciones:['.'],
+      /* Locativos - Señalización y demarcación deficiente, inexistente o inadecuada */
       idplocativosenalizacion_efectos:['.'],
       idplocativosenalizacion_ctrlfuente:['.'],
       idplocativosenalizacion_ctrlmedio:['.'],
@@ -435,6 +462,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosenalizacion_tb_nr:['.'],
       idplocativosenalizacion_numpuestos:[0],
       idplocativosenalizacion_observaciones:['.'],
+      /* Locativos - Falta de orden y aseo */
       idplocativosaseo_efectos:['.'],
       idplocativosaseo_ctrlfuente:['.'],
       idplocativosaseo_ctrlmedio:['.'],
@@ -448,6 +476,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idplocativosaseo_tb_nr:['.'],
       idplocativosaseo_numpuestos:[0],
       idplocativosaseo_observaciones:['.'],
+      /* ----------------------MECÁNICOS------------------- */
+      /* Mecánicos - Utilización de herramientas manuales */
       idpmecanicoherramient_efectos:['.'],
       idpmecanicoherramient_ctrlfuente:['.'],
       idpmecanicoherramient_ctrlmedio:['.'],
@@ -461,6 +491,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpmecanicoherramient_tb_nr:['.'],
       idpmecanicoherramient_numpuestos:[0],
       idpmecanicoherramient_observaciones:['.'],
+      /* Mecánicos - Superficies cortantes */
       idpmecanicocortante_efectos:['.'],
       idpmecanicocortante_ctrlfuente:['.'],
       idpmecanicocortante_ctrlmedio:['.'],
@@ -474,6 +505,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpmecanicocortante_tb_nr:['.'],
       idpmecanicocortante_numpuestos:[0],
       idpmecanicocortante_observaciones:['.'],
+      /* Mecánicos - Contacto con elementos cortopunzantes */
       idpmecanicocortopunz_efectos:['.'],
       idpmecanicocortopunz_ctrlfuente:['.'],
       idpmecanicocortopunz_ctrlmedio:['.'],
@@ -487,6 +519,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpmecanicocortopunz_tb_nr:['.'],
       idpmecanicocortopunz_numpuestos:[0],
       idpmecanicocortopunz_observaciones:['.'],
+      /* Mecánicos - Materiales proyectados sólidos o fluidos */
       idpmecanicomateriales_efectos:['.'],
       idpmecanicomateriales_ctrlfuente:['.'],
       idpmecanicomateriales_ctrlmedio:['.'],
@@ -500,6 +533,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idpmecanicomateriales_tb_nr:['.'],
       idpmecanicomateriales_numpuestos:[0],
       idpmecanicomateriales_observaciones:['.'],
+      /* ----------------------PSICOSOCIAL------------------- */
+      /* Psicosocial - Sobrecarga de trabajo */
       idppsicosobrecarga_efectos:['.'],
       idppsicosobrecarga_ctrlfuente:['.'],
       idppsicosobrecarga_ctrlmedio:['.'],
@@ -513,6 +548,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idppsicosobrecarga_tb_nr:['.'],
       idppsicosobrecarga_numpuestos:[0],
       idppsicosobrecarga_observaciones:['.'],
+      /* Psicosocial - Resposanbilidad en el cargo/ manejo de personal */
       idppsicoresponsabilidad_efectos:['.'],
       idppsicoresponsabilidad_ctrlfuente:['.'],
       idppsicoresponsabilidad_ctrlmedio:['.'],
@@ -526,6 +562,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idppsicoresponsabilidad_tb_nr:['.'],
       idppsicoresponsabilidad_numpuestos:[0],
       idppsicoresponsabilidad_observaciones:['.'],
+      /* Psicosocial - Trabajo repetitivo */
       idppsicorepetitivo_efectos:['.'],
       idppsicorepetitivo_ctrlfuente:['.'],
       idppsicorepetitivo_ctrlmedio:['.'],
@@ -539,6 +576,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idppsicorepetitivo_tb_nr:['.'],
       idppsicorepetitivo_numpuestos:[0],
       idppsicorepetitivo_observaciones:['.'],
+      /* ----------------------PÚBLICOS------------------- */
+      /* Públicos - Situación de atraco o robo */
       idppublicorobo_efectos:['.'],
       idppublicorobo_ctrlfuente:['.'],
       idppublicorobo_ctrlmedio:['.'],
@@ -552,6 +591,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idppublicorobo_tb_nr:['.'],
       idppublicorobo_numpuestos:[0],
       idppublicorobo_observaciones:['.'],
+      /* Públicos - Terrorismo */
       idppublicoterrorismo_efectos:['.'],
       idppublicoterrorismo_ctrlfuente:['.'],
       idppublicoterrorismo_ctrlmedio:['.'],
@@ -565,6 +605,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idppublicoterrorismo_tb_nr:['.'],
       idppublicoterrorismo_numpuestos:[0],
       idppublicoterrorismo_observaciones:['.'],
+      /* Públicos - Situación de Agresión fisica */
       idppublicoagresion_efectos:['.'],
       idppublicoagresion_ctrlfuente:['.'],
       idppublicoagresion_ctrlmedio:['.'],
@@ -578,6 +619,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idppublicoagresion_tb_nr:['.'],
       idppublicoagresion_numpuestos:[0],
       idppublicoagresion_observaciones:['.'],
+      /* Públicos - Situación de asonada */
       idppublicoasonada_efectos:['.'],
       idppublicoasonada_ctrlfuente:['.'],
       idppublicoasonada_ctrlmedio:['.'],
@@ -591,6 +633,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idppublicoasonada_tb_nr:['.'],
       idppublicoasonada_numpuestos:[0],
       idppublicoasonada_observaciones:['.'],
+      /* ----------------------TRANSITO------------------- */
+      /* Transito - Transporte motocicleta */
       idptransitomoto_efectos:['.'],
       idptransitomoto_ctrlfuente:['.'],
       idptransitomoto_ctrlmedio:['.'],
@@ -604,6 +648,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idptransitomoto_tb_nr:['.'],
       idptransitomoto_numpuestos:[0],
       idptransitomoto_observaciones:['.'],
+      /* Transito - Transporte carro / ambulancia */
       idptransitocarro_efectos:['.'],
       idptransitocarro_ctrlfuente:['.'],
       idptransitocarro_ctrlmedio:['.'],
@@ -617,6 +662,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idptransitocarro_tb_nr:['.'],
       idptransitocarro_numpuestos:[0],
       idptransitocarro_observaciones:['.'],
+      /* ----------------------QUÍMICOS------------------- */
+      /* Químicos - Aerosoles, líquidos, rocíos */
       idpquimicosaerosol_efectos:['.'],
       idpquimicosaerosol_ctrlfuente:['.'],
       idpquimicosaerosol_ctrlmedio:['.'],
@@ -630,6 +677,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpquimicosaerosol_tb_nr:['.'],
       idpquimicosaerosol_numpuestos:[0],
       idpquimicosaerosol_observaciones:['.'],
+      /* Químicos - Gases y vapores */
       idpquimicosgases_efectos:['.'],
       idpquimicosgases_ctrlfuente:['.'],
       idpquimicosgases_ctrlmedio:['.'],
@@ -643,6 +691,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpquimicosgases_tb_nr:['.'],
       idpquimicosgases_numpuestos:[0],
       idpquimicosgases_observaciones:['.'],
+      /* Químicos - Sustancias sólidas (polvos) */
       idpquimicossustanc_efectos:['.'],
       idpquimicossustanc_ctrlfuente:['.'],
       idpquimicossustanc_ctrlmedio:['.'],
@@ -656,6 +705,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpquimicossustanc_tb_nr:['.'],
       idpquimicossustanc_numpuestos:[0],
       idpquimicossustanc_observaciones:['.'],
+      /* Químicos - Contacto y/o salpicadura de químicos */
       idpquimicoscontacto_efectos:['.'],
       idpquimicoscontacto_ctrlfuente:['.'],
       idpquimicoscontacto_ctrlmedio:['.'],
@@ -669,6 +719,8 @@ export class FormValorRiesgoComponent implements OnInit {
       idpquimicoscontacto_tb_nr:['.'],
       idpquimicoscontacto_numpuestos:[0],
       idpquimicoscontacto_observaciones:['.'],
+      /* ----------------------TAREAS DE ALTO RIESGO------------------- */
+      /* Tareas de alto riesgo - Trabajo en alturas por encima de 1.50 metros */
       idptareasalturas_efectos:['.'],
       idptareasalturas_ctrlfuente:['.'],
       idptareasalturas_ctrlmedio:['.'],
@@ -682,6 +734,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idptareasalturas_tb_nr:['.'],
       idptareasalturas_numpuestos:[0],
       idptareasalturas_observaciones:['.'],
+      /* Tareas de alto riesgo - Trabajo en espacios confinados */
       idptareasconfinados_efectos:['.'],
       idptareasconfinados_ctrlfuente:['.'],
       idptareasconfinados_ctrlmedio:['.'],
@@ -695,6 +748,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idptareasconfinados_tb_nr:['.'],
       idptareasconfinados_numpuestos:[0],
       idptareasconfinados_observaciones:['.'],
+      /* Tareas de alto riesgo - Trabajo en caliente corte y soldadura */
       idptareassoldadura_efectos:['.'],
       idptareassoldadura_ctrlfuente:['.'],
       idptareassoldadura_ctrlmedio:['.'],
