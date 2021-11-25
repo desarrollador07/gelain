@@ -278,7 +278,7 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicoilumexceso_tb_nr:['.'],
       idpfisicoilumexceso_numpuestos:[0],
       idpfisicoilumexceso_observaciones:['.'],
-      /* Físico - Radiaciones no ionizantes por ultravioleta */
+      /* Físico - Radiaciones ionizantes */
       idpfisicoradiaciones_efectos:['.'],
       idpfisicoradiaciones_ctrlfuente:['.'],
       idpfisicoradiaciones_ctrlmedio:['.'],
@@ -1070,7 +1070,7 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicoilumexceso_tb_nr:this.localVR.idpfisicoilumexceso_tb_nr,
         idpfisicoilumexceso_numpuestos:this.localVR.idpfisicoilumexceso_numpuestos,
         idpfisicoilumexceso_observaciones:this.localVR.idpfisicoilumexceso_observaciones,
-        /* Físico - Radiaciones no ionizantes por ultravioleta */
+        /* Físico - Radiaciones ionizantes */
         idpfisicoradiaciones_efectos:this.localVR.idpfisicoradiaciones_efectos,
         idpfisicoradiaciones_ctrlfuente:this.localVR.idpfisicoradiaciones_ctrlfuente,
         idpfisicoradiaciones_ctrlmedio:this.localVR.idpfisicoradiaciones_ctrlmedio,
@@ -2422,4 +2422,469 @@ export class FormValorRiesgoComponent implements OnInit {
       })
     }
   }
+
+  /*----------------------------------      METODOS  -  FÍSICO    ------------------------------------------------ */
+   /* Físico - Iluminación deficiente NP*/
+  fnCalculoFPart1NP(){
+      var num:number = 0;
+      var inter:string = '';
+      if (this.vrform.value.idpfisicoilumdef_tb_nd !== 0 && this.vrform.value.idpfisicoilumdef_tb_nd !== '' && 
+          this.vrform.value.idpfisicoilumdef_tb_ne !== 0 && this.vrform.value.idpfisicoilumdef_tb_ne !== '') {
+          num =  this.vrform.value.idpfisicoilumdef_tb_nd * this.vrform.value.idpfisicoilumdef_tb_ne;
+
+          this.vrform.patchValue({
+            idpfisicoilumdef_tb_np:num
+          })
+
+          if (num >= 40 && num <= 24) {
+            inter = 'MUY ALTO';
+          }
+
+          if (num <= 20 && num >= 10) {
+            inter = 'ALTO';
+          }
+
+          if (num <= 8 && num >= 6) {
+            inter = 'MEDIO';
+          }
+
+          if (num <= 4 && num >= 2) {
+            inter = 'MEDIO';
+          }
+
+          this.vrform.patchValue({
+            idpfisicoilumdef_interpreta:inter
+          })
+      }
+  }
+   /* Físico - Iluminación deficiente NR*/
+  fnCalculoFPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicoilumdef_tb_np !== 0 && this.vrform.value.idpfisicoilumdef_tb_np !== '' && 
+        this.vrform.value.idpfisicoilumdef_tb_nc !== 0 && this.vrform.value.idpfisicoilumdef_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicoilumdef_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicoilumdef_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicoilumdef_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicoilumdef_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Iluminación en exceso NP*/
+  fnCalculoFPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisicoilumexceso_tb_nd !== 0 && this.vrform.value.idpfisicoilumexceso_tb_nd !== '' && 
+        this.vrform.value.idpfisicoilumexceso_tb_ne !== 0 && this.vrform.value.idpfisicoilumexceso_tb_ne !== '') {
+        num =  this.vrform.value.idpfisicoilumexceso_tb_nd * this.vrform.value.idpfisicoilumexceso_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisicoilumexceso_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisicoilumexceso_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Iluminación en exceso NR*/
+  fnCalculoFPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicoilumexceso_tb_np !== 0 && this.vrform.value.idpfisicoilumexceso_tb_np !== '' && 
+        this.vrform.value.idpfisicoilumexceso_tb_nc !== 0 && this.vrform.value.idpfisicoilumexceso_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicoilumexceso_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicoilumexceso_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicoilumexceso_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicoilumexceso_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Radiaciones ionizantes NP*/
+  fnCalculoFPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisicoradiaciones_tb_nd !== 0 && this.vrform.value.idpfisicoradiaciones_tb_nd !== '' && 
+        this.vrform.value.idpfisicoradiaciones_tb_ne !== 0 && this.vrform.value.idpfisicoradiaciones_tb_ne !== '') {
+        num =  this.vrform.value.idpfisicoradiaciones_tb_nd * this.vrform.value.idpfisicoradiaciones_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisicoradiaciones_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisicoradiaciones_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Radiaciones ionizantes NR*/
+  fnCalculoFPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicoradiaciones_tb_np !== 0 && this.vrform.value.idpfisicoradiaciones_tb_np !== '' && 
+        this.vrform.value.idpfisicoradiaciones_tb_nc !== 0 && this.vrform.value.idpfisicoradiaciones_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicoradiaciones_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicoradiaciones_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicoradiaciones_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicoradiaciones_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Ruido NP*/
+  fnCalculoFPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisicoruido_tb_nd !== 0 && this.vrform.value.idpfisicoruido_tb_nd !== '' && 
+        this.vrform.value.idpfisicoruido_tb_ne !== 0 && this.vrform.value.idpfisicoruido_tb_ne !== '') {
+        num =  this.vrform.value.idpfisicoruido_tb_nd * this.vrform.value.idpfisicoruido_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisicoruido_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisicoruido_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Ruido NR*/
+  fnCalculoFPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicoruido_tb_np !== 0 && this.vrform.value.idpfisicoruido_tb_np !== '' && 
+        this.vrform.value.idpfisicoruido_tb_nc !== 0 && this.vrform.value.idpfisicoruido_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicoruido_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicoruido_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicoruido_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicoruido_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Vibraciones NP*/
+  fnCalculoFPart5NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisicovibraciones_tb_nd !== 0 && this.vrform.value.idpfisicovibraciones_tb_nd !== '' && 
+        this.vrform.value.idpfisicovibraciones_tb_ne !== 0 && this.vrform.value.idpfisicovibraciones_tb_ne !== '') {
+        num =  this.vrform.value.idpfisicovibraciones_tb_nd * this.vrform.value.idpfisicovibraciones_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisicovibraciones_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisicovibraciones_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Vibraciones NR*/
+  fnCalculoFPart5NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicovibraciones_tb_np !== 0 && this.vrform.value.idpfisicovibraciones_tb_np !== '' && 
+        this.vrform.value.idpfisicovibraciones_tb_nc !== 0 && this.vrform.value.idpfisicovibraciones_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicovibraciones_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicovibraciones_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicovibraciones_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicovibraciones_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Transferencias de temperaturas por calor NP*/
+  fnCalculoFPart6NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisicocalor_tb_nd !== 0 && this.vrform.value.idpfisicocalor_tb_nd !== '' && 
+        this.vrform.value.idpfisicocalor_tb_ne !== 0 && this.vrform.value.idpfisicocalor_tb_ne !== '') {
+        num =  this.vrform.value.idpfisicocalor_tb_nd * this.vrform.value.idpfisicocalor_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisicocalor_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisicocalor_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Transferencias de temperaturas por calor NR*/
+  fnCalculoFPart6NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicocalor_tb_np !== 0 && this.vrform.value.idpfisicocalor_tb_np !== '' && 
+        this.vrform.value.idpfisicocalor_tb_nc !== 0 && this.vrform.value.idpfisicocalor_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicocalor_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicocalor_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicocalor_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicocalor_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Transferencias de temperaturas por frio NP*/
+  fnCalculoFPart7NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisicofrio_tb_nd !== 0 && this.vrform.value.idpfisicofrio_tb_nd !== '' && 
+        this.vrform.value.idpfisicofrio_tb_ne !== 0 && this.vrform.value.idpfisicofrio_tb_ne !== '') {
+        num =  this.vrform.value.idpfisicofrio_tb_nd * this.vrform.value.idpfisicofrio_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisicofrio_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisicofrio_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Transferencias de temperaturas por frio NR*/
+  fnCalculoFPart7NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisicofrio_tb_np !== 0 && this.vrform.value.idpfisicofrio_tb_np !== '' && 
+        this.vrform.value.idpfisicofrio_tb_nc !== 0 && this.vrform.value.idpfisicofrio_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisicofrio_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisicofrio_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisicofrio_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisicofrio_tb_nr: result
+      })
+    }
+  }
+
 }
