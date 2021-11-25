@@ -2887,4 +2887,204 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  INCENDIOS / EXPLOSIONES    ------------------------------------------------ */
+  /* Incendios / Explosiones - Materiales combustibles NP*/
+  fnCalculoIEPart1NP(){
+      var num:number = 0;
+      var inter:string = '';
+      if (this.vrform.value.idpincendioscombust_tb_nd !== 0 && this.vrform.value.idpincendioscombust_tb_nd !== '' && 
+          this.vrform.value.idpincendioscombust_tb_ne !== 0 && this.vrform.value.idpincendioscombust_tb_ne !== '') {
+          num =  this.vrform.value.idpincendioscombust_tb_nd * this.vrform.value.idpincendioscombust_tb_ne;
+
+          this.vrform.patchValue({
+            idpincendioscombust_tb_np:num
+          })
+
+          if (num >= 40 && num <= 24) {
+            inter = 'MUY ALTO';
+          }
+
+          if (num <= 20 && num >= 10) {
+            inter = 'ALTO';
+          }
+
+          if (num <= 8 && num >= 6) {
+            inter = 'MEDIO';
+          }
+
+          if (num <= 4 && num >= 2) {
+            inter = 'MEDIO';
+          }
+
+          this.vrform.patchValue({
+            idpincendioscombust_interpreta:inter
+          })
+      }
+  }
+  /* Incendios / Explosiones - Materiales combustibles NR*/
+  fnCalculoIEPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpincendioscombust_tb_np !== 0 && this.vrform.value.idpincendioscombust_tb_np !== '' && 
+        this.vrform.value.idpincendioscombust_tb_nc !== 0 && this.vrform.value.idpincendioscombust_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpincendioscombust_tb_nc)) * Math.abs(Number(this.vrform.value.idpincendioscombust_tb_np));
+          
+      this.vrform.patchValue({
+        idpincendioscombust_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpincendioscombust_tb_nr: result
+      })
+    }
+  }
+  /* Incendios / Explosiones - Ausencia de equipo contra incendio NP*/
+  fnCalculoIEPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpincendiosequipo_tb_nd !== 0 && this.vrform.value.idpincendiosequipo_tb_nd !== '' && 
+        this.vrform.value.idpincendiosequipo_tb_ne !== 0 && this.vrform.value.idpincendiosequipo_tb_ne !== '') {
+        num =  this.vrform.value.idpincendiosequipo_tb_nd * this.vrform.value.idpincendiosequipo_tb_ne;
+
+        this.vrform.patchValue({
+          idpincendiosequipo_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpincendiosequipo_interpreta:inter
+        })
+    }
+  }
+  /* Incendios / Explosiones - Ausencia de equipo contra incendio NR*/
+  fnCalculoIEPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpincendiosequipo_tb_np !== 0 && this.vrform.value.idpincendiosequipo_tb_np !== '' && 
+        this.vrform.value.idpincendiosequipo_tb_nc !== 0 && this.vrform.value.idpincendiosequipo_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpincendiosequipo_tb_nc)) * Math.abs(Number(this.vrform.value.idpincendiosequipo_tb_np));
+          
+      this.vrform.patchValue({
+        idpincendiosequipo_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpincendiosequipo_tb_nr: result
+      })
+    }
+  }
+  /* Incendios / Explosiones - Sustancias inflamables NP*/
+  fnCalculoIEPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpincendiossustancias_tb_nd !== 0 && this.vrform.value.idpincendiossustancias_tb_nd !== '' && 
+        this.vrform.value.idpincendiossustancias_tb_ne !== 0 && this.vrform.value.idpincendiossustancias_tb_ne !== '') {
+        num =  this.vrform.value.idpincendiossustancias_tb_nd * this.vrform.value.idpincendiossustancias_tb_ne;
+
+        this.vrform.patchValue({
+          idpincendiossustancias_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpincendiossustancias_interpreta:inter
+        })
+    }
+  }
+  /* Incendios / Explosiones - Sustancias inflamables NR*/
+  fnCalculoIEPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpincendiossustancias_tb_np !== 0 && this.vrform.value.idpincendiossustancias_tb_np !== '' && 
+        this.vrform.value.idpincendiossustancias_tb_nc !== 0 && this.vrform.value.idpincendiossustancias_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpincendiossustancias_tb_nc)) * Math.abs(Number(this.vrform.value.idpincendiossustancias_tb_np));
+          
+      this.vrform.patchValue({
+        idpincendiossustancias_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpincendiossustancias_tb_nr: result
+      })
+    }
+  }
+
 }

@@ -1919,6 +1919,284 @@
                         </div>
                     </div>
                 </fieldset>
+                <br>
+                <fieldset>
+                    <legend><b>INCENDIOS / EXPLOSIONES - INDICADORES DE RIESGO</b></legend>
+                    <div class="ui-g" style="margin-bottom: 10px;">
+                        <br>
+                        <div class="ui-g-12">
+                            <p-tabView>
+                                <p-tabPanel header="MATERIALES COMBUSTIBLES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendioscombust_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendioscombust_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendioscombust_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendioscombust_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendioscombust_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart1NP()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendioscombust_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart1NP()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendioscombust_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendioscombust_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendioscombust_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart1NR()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendioscombust_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendioscombust_tb_nr" style="color: rgb(36, 22, 167); font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendioscombust_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpincendioscombust_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="AUSENCIA DE EQUIPO CONTRA INCENDIO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiosequipo_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiosequipo_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiosequipo_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiosequipo_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiosequipo_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart2NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiosequipo_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart2NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiosequipo_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiosequipo_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color:rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiosequipo_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart2NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiosequipo_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiosequipo_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiosequipo_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpincendiosequipo_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="SUSTANCIAS INFLAMABLES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiossustancias_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiossustancias_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiossustancias_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiossustancias_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiossustancias_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart3NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiossustancias_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart3NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiossustancias_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiossustancias_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiossustancias_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoIEPart3NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpincendiossustancias_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiossustancias_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpincendiossustancias_numpuestos" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpincendiossustancias_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+                </fieldset>
             </p-panel>
             <br>
             <div style="text-align:center">
