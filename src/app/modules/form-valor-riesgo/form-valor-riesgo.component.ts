@@ -1892,6 +1892,335 @@ export class FormValorRiesgoComponent implements OnInit {
   }
 
   /*----------------------------------      METODOS  -  CARGA FÍSICA     ------------------------------------------------ */
-  
+  /* Carga Física - Carga dinámica por esfuerzos NP */
+  fnCalculoCarFPart1NP(){
+      var num:number = 0;
+      var inter:string = '';
+      if (this.vrform.value.idpcargesfuerzos_tb_nd !== 0 && this.vrform.value.idpcargesfuerzos_tb_nd !== '' && 
+          this.vrform.value.idpcargesfuerzos_tb_ne !== 0 && this.vrform.value.idpcargesfuerzos_tb_ne !== '') {
+          num =  this.vrform.value.idpcargesfuerzos_tb_nd * this.vrform.value.idpcargesfuerzos_tb_ne;
+
+          this.vrform.patchValue({
+            idpcargesfuerzos_tb_np:num
+          })
+
+          if (num >= 40 && num <= 24) {
+            inter = 'MUY ALTO';
+          }
+
+          if (num <= 20 && num >= 10) {
+            inter = 'ALTO';
+          }
+
+          if (num <= 8 && num >= 6) {
+            inter = 'MEDIO';
+          }
+
+          if (num <= 4 && num >= 2) {
+            inter = 'MEDIO';
+          }
+
+          this.vrform.patchValue({
+            idpcargesfuerzos_interpreta:inter
+          })
+      }
+  }
+  /* Carga Física - Carga dinámica por esfuerzos NR */
+  fnCalculoCarFPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpcargesfuerzos_tb_np !== 0 && this.vrform.value.idpcargesfuerzos_tb_np !== '' && 
+        this.vrform.value.idpcargesfuerzos_tb_nc !== 0 && this.vrform.value.idpcargesfuerzos_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpcargesfuerzos_tb_nc)) * Math.abs(Number(this.vrform.value.idpcargesfuerzos_tb_np));
+          
+      this.vrform.patchValue({
+        idpcargesfuerzos_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpcargesfuerzos_tb_nr: result
+      })
+    }
+  }
+  /* Carga Física - Carga dinámica por movimientos repetitivos NP*/
+  fnCalculoCarFPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpcargmovimiento_tb_nd !== 0 && this.vrform.value.idpcargmovimiento_tb_nd !== '' && 
+        this.vrform.value.idpcargmovimiento_tb_ne !== 0 && this.vrform.value.idpcargmovimiento_tb_ne !== '') {
+        num =  this.vrform.value.idpcargmovimiento_tb_nd * this.vrform.value.idpcargmovimiento_tb_ne;
+
+        this.vrform.patchValue({
+          idpcargmovimiento_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpcargmovimiento_interpreta:inter
+        })
+    }
+  }
+  /* Carga Física - Carga dinámica por movimientos repetitivos NR*/
+  fnCalculoCarFPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpcargmovimiento_tb_np !== 0 && this.vrform.value.idpcargmovimiento_tb_np !== '' && 
+        this.vrform.value.idpcargmovimiento_tb_nc !== 0 && this.vrform.value.idpcargmovimiento_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpcargmovimiento_tb_nc)) * Math.abs(Number(this.vrform.value.idpcargmovimiento_tb_np));
+          
+      this.vrform.patchValue({
+        idpcargmovimiento_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpcargmovimiento_tb_nr: result
+      })
+    }
+  }
+  /* Carga Física - Carga dinámica por sobreesfuerzos de la voz NP*/
+  fnCalculoCarFPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpcargvoz_tb_nd !== 0 && this.vrform.value.idpcargvoz_tb_nd !== '' && 
+        this.vrform.value.idpcargvoz_tb_ne !== 0 && this.vrform.value.idpcargvoz_tb_ne !== '') {
+        num =  this.vrform.value.idpcargvoz_tb_nd * this.vrform.value.idpcargvoz_tb_ne;
+
+        this.vrform.patchValue({
+          idpcargvoz_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpcargvoz_interpreta:inter
+        })
+    }
+  }
+  /* Carga Física - Carga dinámica por sobreesfuerzos de la voz NR*/
+  fnCalculoCarFPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpcargvoz_tb_np !== 0 && this.vrform.value.idpcargvoz_tb_np !== '' && 
+        this.vrform.value.idpcargvoz_tb_nc !== 0 && this.vrform.value.idpcargvoz_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpcargvoz_tb_nc)) * Math.abs(Number(this.vrform.value.idpcargvoz_tb_np));
+          
+      this.vrform.patchValue({
+        idpcargvoz_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpcargvoz_tb_nr: result
+      })
+    }
+  }
+  /* Carga Física - Carga estática de pie NP*/
+  fnCalculoCarFPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpcargpie_tb_nd !== 0 && this.vrform.value.idpcargpie_tb_nd !== '' && 
+        this.vrform.value.idpcargpie_tb_ne !== 0 && this.vrform.value.idpcargpie_tb_ne !== '') {
+        num =  this.vrform.value.idpcargpie_tb_nd * this.vrform.value.idpcargpie_tb_ne;
+
+        this.vrform.patchValue({
+          idpcargpie_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpcargpie_interpreta:inter
+        })
+    }
+  }
+  /* Carga Física - Carga estática de pie NR*/
+  fnCalculoCarFPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpcargpie_tb_np !== 0 && this.vrform.value.idpcargpie_tb_np !== '' && 
+        this.vrform.value.idpcargpie_tb_nc !== 0 && this.vrform.value.idpcargpie_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpcargpie_tb_nc)) * Math.abs(Number(this.vrform.value.idpcargpie_tb_np));
+          
+      this.vrform.patchValue({
+        idpcargpie_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpcargpie_tb_nr: result
+      })
+    }
+  }
+  /* Carga Física - Posiciones prolongadas sentado NP*/
+  fnCalculoCarFPart5NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpcargsentado_tb_nd !== 0 && this.vrform.value.idpcargsentado_tb_nd !== '' && 
+        this.vrform.value.idpcargsentado_tb_ne !== 0 && this.vrform.value.idpcargsentado_tb_ne !== '') {
+        num =  this.vrform.value.idpcargsentado_tb_nd * this.vrform.value.idpcargsentado_tb_ne;
+
+        this.vrform.patchValue({
+          idpcargsentado_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpcargsentado_interpreta:inter
+        })
+    }
+  }
+  /* Carga Física - Posiciones prolongadas sentado NR*/
+  fnCalculoCarFPart5NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpcargsentado_tb_np !== 0 && this.vrform.value.idpcargsentado_tb_np !== '' && 
+        this.vrform.value.idpcargsentado_tb_nc !== 0 && this.vrform.value.idpcargsentado_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpcargsentado_tb_nc)) * Math.abs(Number(this.vrform.value.idpcargsentado_tb_np));
+          
+      this.vrform.patchValue({
+        idpcargsentado_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpcargsentado_tb_nr: result
+      })
+    }
+  }
 
 }

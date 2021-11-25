@@ -551,6 +551,462 @@
                         </div>
                     </div>
                 </fieldset>
+                <br>
+                <fieldset>
+                    <legend><b>CARGA FÍSICA - INDICADORES DE RIESGO</b></legend>
+                    <div class="ui-g" style="margin-bottom: 10px;">
+                        <br>
+                        <div class="ui-g-12">
+                            <p-tabView>
+                                <p-tabPanel header="CARGA DINÁMICA POR ESFUERZOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargesfuerzos_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargesfuerzos_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargesfuerzos_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargesfuerzos_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargesfuerzos_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargesfuerzos_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargesfuerzos_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargesfuerzos_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargesfuerzos_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NR()" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargesfuerzos_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargesfuerzos_tb_nr" style="color: rgb(36, 22, 167); font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargesfuerzos_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpcargesfuerzos_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="CARGA DINÁMICA POR MOVIMIENTOS REPETITIVOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargmovimiento_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargmovimiento_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargmovimiento_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargmovimiento_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargmovimiento_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargmovimiento_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargmovimiento_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargmovimiento_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color:rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargmovimiento_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargmovimiento_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargmovimiento_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargmovimiento_numpuestos" onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpcargmovimiento_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="CARGA DINÁMICA POR SOBREESFUERZOS DE LA VOZ">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargvoz_efectos" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                          </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargvoz_ctrlfuente" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargvoz_ctrlmedio" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargvoz_ctrlindividuo" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargvoz_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargvoz_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargvoz_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargvoz_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargvoz_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NR()" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargvoz_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargvoz_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                            <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                            <input  formControlName="idpcargvoz_numpuestos" type="number" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                              <input formControlName="idpcargvoz_observaciones" type="text" pInputText> 
+                                              <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                            </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="CARGA ESTÁTICA DE PIE">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargpie_efectos" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                        </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargpie_ctrlfuente" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpcargpie_ctrlmedio" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpcargpie_ctrlindividuo" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargpie_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargpie_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpcargpie_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpcargpie_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargpie_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NR()" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargpie_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpcargpie_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                          <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                          <input  formControlName="idpcargpie_numpuestos" type="number" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                      </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                            <input formControlName="idpcargpie_observaciones" type="text" pInputText> 
+                                            <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                          </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                                <p-tabPanel header="POSICIONES PROLONGADAS SENTADO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input formControlName="idpcargsentado_efectos" type="text" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                      </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input formControlName="idpcargsentado_ctrlfuente" type="text" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input  formControlName="idpcargsentado_ctrlmedio" type="text" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input  formControlName="idpcargsentado_ctrlindividuo" type="text" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input formControlName="idpcargsentado_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
+                                        <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input formControlName="idpcargsentado_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input  formControlName="idpcargsentado_tb_np" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                        <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">NP = (ND*NE)</label>
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input  formControlName="idpcargsentado_interpreta" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                        <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERPRETACIÓN</label>
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input formControlName="idpcargsentado_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NR()" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input formControlName="idpcargsentado_intervencion" style="color: rgb(36, 22, 167);font-weight: bold;" type="number" pInputText readonly="readonly"> 
+                                        <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">INTERVENCIÓN</label>
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input  formControlName="idpcargsentado_tb_nr" style="color: rgb(36, 22, 167);font-weight: bold;" type="text" pInputText readonly="readonly"> 
+                                        <label for="float-input" style="font-size: 15px;color: rgb(36, 22, 167); ">TABLA NR</label>
+                                    </span>
+                                        </div>
+                                        <div class="ui-g-3">
+                                            <span class="ui-float-label">
+                                        <input  formControlName="idpcargsentado_numpuestos" type="number" pInputText> 
+                                        <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
+                                    </span>
+                                        </div>
+                                    </div>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <div class="ui-g-12">
+                                            <span class="ui-float-label">
+                                          <input formControlName="idpcargsentado_observaciones" type="text" pInputText> 
+                                          <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
+                                        </span>
+                                        </div>
+                                    </div>
+                                </p-tabPanel>
+                            </p-tabView>
+                        </div>
+                    </div>
+                </fieldset>
             </p-panel>
             <br>
             <div style="text-align:center">
