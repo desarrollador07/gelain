@@ -3751,4 +3751,204 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  PSICOSOCIAL   ------------------------------------------------ */
+  /* Psicosocial - Sobrecarga de trabajo NP*/
+  fnCalculoPsicoPart1NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppsicosobrecarga_tb_nd !== 0 && this.vrform.value.idppsicosobrecarga_tb_nd !== '' && 
+        this.vrform.value.idppsicosobrecarga_tb_ne !== 0 && this.vrform.value.idppsicosobrecarga_tb_ne !== '') {
+        num =  this.vrform.value.idppsicosobrecarga_tb_nd * this.vrform.value.idppsicosobrecarga_tb_ne;
+
+        this.vrform.patchValue({
+          idppsicosobrecarga_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppsicosobrecarga_interpreta:inter
+        })
+    }
+  }
+  /* Psicosocial - Sobrecarga de trabajo NR*/
+  fnCalculoPsicoPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppsicosobrecarga_tb_np !== 0 && this.vrform.value.idppsicosobrecarga_tb_np !== '' && 
+        this.vrform.value.idppsicosobrecarga_tb_nc !== 0 && this.vrform.value.idppsicosobrecarga_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppsicosobrecarga_tb_nc)) * Math.abs(Number(this.vrform.value.idppsicosobrecarga_tb_np));
+          
+      this.vrform.patchValue({
+        idppsicosobrecarga_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppsicosobrecarga_tb_nr: result
+      })
+    }
+  }
+  /* Psicosocial - Resposanbilidad en el cargo/ manejo de personal NP*/
+  fnCalculoPsicoPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppsicoresponsabilidad_tb_nd !== 0 && this.vrform.value.idppsicoresponsabilidad_tb_nd !== '' && 
+        this.vrform.value.idppsicoresponsabilidad_tb_ne !== 0 && this.vrform.value.idppsicoresponsabilidad_tb_ne !== '') {
+        num =  this.vrform.value.idppsicoresponsabilidad_tb_nd * this.vrform.value.idppsicoresponsabilidad_tb_ne;
+
+        this.vrform.patchValue({
+          idppsicoresponsabilidad_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppsicoresponsabilidad_interpreta:inter
+        })
+    }
+  }
+  /* Psicosocial - Resposanbilidad en el cargo/ manejo de personal NR*/
+  fnCalculoPsicoPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppsicoresponsabilidad_tb_np !== 0 && this.vrform.value.idppsicoresponsabilidad_tb_np !== '' && 
+        this.vrform.value.idppsicoresponsabilidad_tb_nc !== 0 && this.vrform.value.idppsicoresponsabilidad_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppsicoresponsabilidad_tb_nc)) * Math.abs(Number(this.vrform.value.idppsicoresponsabilidad_tb_np));
+          
+      this.vrform.patchValue({
+        idppsicoresponsabilidad_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppsicoresponsabilidad_tb_nr: result
+      })
+    }
+  }
+  /* Psicosocial - Trabajo repetitivo NP*/
+  fnCalculoPsicoPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppsicorepetitivo_tb_nd !== 0 && this.vrform.value.idppsicorepetitivo_tb_nd !== '' && 
+        this.vrform.value.idppsicorepetitivo_tb_ne !== 0 && this.vrform.value.idppsicorepetitivo_tb_ne !== '') {
+        num =  this.vrform.value.idppsicorepetitivo_tb_nd * this.vrform.value.idppsicorepetitivo_tb_ne;
+
+        this.vrform.patchValue({
+          idppsicorepetitivo_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppsicorepetitivo_interpreta:inter
+        })
+    }
+  }
+  /* Psicosocial - Trabajo repetitivo NR*/
+  fnCalculoPsicoPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppsicorepetitivo_tb_np !== 0 && this.vrform.value.idppsicorepetitivo_tb_np !== '' && 
+        this.vrform.value.idppsicorepetitivo_tb_nc !== 0 && this.vrform.value.idppsicorepetitivo_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppsicorepetitivo_tb_nc)) * Math.abs(Number(this.vrform.value.idppsicorepetitivo_tb_np));
+          
+      this.vrform.patchValue({
+        idppsicorepetitivo_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppsicorepetitivo_tb_nr: result
+      })
+    }
+  }
+
 }
