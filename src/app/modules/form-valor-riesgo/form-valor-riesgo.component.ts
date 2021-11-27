@@ -3951,4 +3951,404 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  PÚBLICOS   ------------------------------------------------ */
+  /* Públicos - Situación de atraco o robo NP*/
+  fnCalculoPubliPart1NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppublicorobo_tb_nd !== 0 && this.vrform.value.idppublicorobo_tb_nd !== '' && 
+        this.vrform.value.idppublicorobo_tb_ne !== 0 && this.vrform.value.idppublicorobo_tb_ne !== '') {
+        num =  this.vrform.value.idppublicorobo_tb_nd * this.vrform.value.idppublicorobo_tb_ne;
+
+        this.vrform.patchValue({
+          idppublicorobo_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppublicorobo_interpreta:inter
+        })
+    }
+  }
+  /* Públicos - Situación de atraco o robo NR*/
+  fnCalculoPubliPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppublicorobo_tb_np !== 0 && this.vrform.value.idppublicorobo_tb_np !== '' && 
+        this.vrform.value.idppublicorobo_tb_nc !== 0 && this.vrform.value.idppublicorobo_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppublicorobo_tb_nc)) * Math.abs(Number(this.vrform.value.idppublicorobo_tb_np));
+          
+      this.vrform.patchValue({
+        idppublicorobo_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppublicorobo_tb_nr: result
+      })
+    }
+  }
+  /* Públicos - Terrorismo NP*/
+  fnCalculoPubliPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppublicoterrorismo_tb_nd !== 0 && this.vrform.value.idppublicoterrorismo_tb_nd !== '' && 
+        this.vrform.value.idppublicoterrorismo_tb_ne !== 0 && this.vrform.value.idppublicoterrorismo_tb_ne !== '') {
+        num =  this.vrform.value.idppublicoterrorismo_tb_nd * this.vrform.value.idppublicoterrorismo_tb_ne;
+
+        this.vrform.patchValue({
+          idppublicoterrorismo_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppublicoterrorismo_interpreta:inter
+        })
+    }
+  }
+  /* Públicos - Terrorismo NR*/
+  fnCalculoPubliPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppublicoterrorismo_tb_np !== 0 && this.vrform.value.idppublicoterrorismo_tb_np !== '' && 
+        this.vrform.value.idppublicoterrorismo_tb_nc !== 0 && this.vrform.value.idppublicoterrorismo_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppublicoterrorismo_tb_nc)) * Math.abs(Number(this.vrform.value.idppublicoterrorismo_tb_np));
+          
+      this.vrform.patchValue({
+        idppublicoterrorismo_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppublicoterrorismo_tb_nr: result
+      })
+    }
+  }
+  /* Públicos - Situación de Agresión fisica NP*/
+  fnCalculoPubliPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppublicoagresion_tb_nd !== 0 && this.vrform.value.idppublicoagresion_tb_nd !== '' && 
+        this.vrform.value.idppublicoagresion_tb_ne !== 0 && this.vrform.value.idppublicoagresion_tb_ne !== '') {
+        num =  this.vrform.value.idppublicoagresion_tb_nd * this.vrform.value.idppublicoagresion_tb_ne;
+
+        this.vrform.patchValue({
+          idppublicoagresion_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppublicoagresion_interpreta:inter
+        })
+    }
+  }
+  /* Públicos - Situación de Agresión fisica NR*/
+  fnCalculoPubliPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppublicoagresion_tb_np !== 0 && this.vrform.value.idppublicoagresion_tb_np !== '' && 
+        this.vrform.value.idppublicoagresion_tb_nc !== 0 && this.vrform.value.idppublicoagresion_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppublicoagresion_tb_nc)) * Math.abs(Number(this.vrform.value.idppublicoagresion_tb_np));
+          
+      this.vrform.patchValue({
+        idppublicoagresion_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppublicoagresion_tb_nr: result
+      })
+    }
+  }
+  /* Públicos - Situación de asonada NP*/
+  fnCalculoPubliPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idppublicoasonada_tb_nd !== 0 && this.vrform.value.idppublicoasonada_tb_nd !== '' && 
+        this.vrform.value.idppublicoasonada_tb_ne !== 0 && this.vrform.value.idppublicoasonada_tb_ne !== '') {
+        num =  this.vrform.value.idppublicoasonada_tb_nd * this.vrform.value.idppublicoasonada_tb_ne;
+
+        this.vrform.patchValue({
+          idppublicoasonada_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idppublicoasonada_interpreta:inter
+        })
+    }
+  }
+  /* Públicos - Situación de asonada NR*/
+  fnCalculoPubliPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idppublicoasonada_tb_np !== 0 && this.vrform.value.idppublicoasonada_tb_np !== '' && 
+        this.vrform.value.idppublicoasonada_tb_nc !== 0 && this.vrform.value.idppublicoasonada_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idppublicoasonada_tb_nc)) * Math.abs(Number(this.vrform.value.idppublicoasonada_tb_np));
+          
+      this.vrform.patchValue({
+        idppublicoasonada_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idppublicoasonada_tb_nr: result
+      })
+    }
+  }
+
+  /*----------------------------------      METODOS  -  TRANSITO   ------------------------------------------------ */
+  /* Transito - Transporte motocicleta NP*/
+  fnCalculoTransiPart1NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idptransitomoto_tb_nd !== 0 && this.vrform.value.idptransitomoto_tb_nd !== '' && 
+        this.vrform.value.idptransitomoto_tb_ne !== 0 && this.vrform.value.idptransitomoto_tb_ne !== '') {
+        num =  this.vrform.value.idptransitomoto_tb_nd * this.vrform.value.idptransitomoto_tb_ne;
+
+        this.vrform.patchValue({
+          idptransitomoto_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idptransitomoto_interpreta:inter
+        })
+    }
+  }
+  /* Transito - Transporte motocicleta NR*/
+  fnCalculoTransiPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idptransitomoto_tb_np !== 0 && this.vrform.value.idptransitomoto_tb_np !== '' && 
+        this.vrform.value.idptransitomoto_tb_nc !== 0 && this.vrform.value.idptransitomoto_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idptransitomoto_tb_nc)) * Math.abs(Number(this.vrform.value.idptransitomoto_tb_np));
+          
+      this.vrform.patchValue({
+        idptransitomoto_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idptransitomoto_tb_nr: result
+      })
+    }
+  }
+  /* Transito - Transporte carro / ambulancia NP*/
+  fnCalculoTransiPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idptransitocarro_tb_nd !== 0 && this.vrform.value.idptransitocarro_tb_nd !== '' && 
+        this.vrform.value.idptransitocarro_tb_ne !== 0 && this.vrform.value.idptransitocarro_tb_ne !== '') {
+        num =  this.vrform.value.idptransitocarro_tb_nd * this.vrform.value.idptransitocarro_tb_ne;
+
+        this.vrform.patchValue({
+          idptransitocarro_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idptransitocarro_interpreta:inter
+        })
+    }
+  }
+  /* Transito - Transporte carro / ambulancia NR*/
+  fnCalculoTransiPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idptransitocarro_tb_np !== 0 && this.vrform.value.idptransitocarro_tb_np !== '' && 
+        this.vrform.value.idptransitocarro_tb_nc !== 0 && this.vrform.value.idptransitocarro_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idptransitocarro_tb_nc)) * Math.abs(Number(this.vrform.value.idptransitocarro_tb_np));
+          
+      this.vrform.patchValue({
+        idptransitocarro_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idptransitocarro_tb_nr: result
+      })
+    }
+  }
+
 }
