@@ -1,25 +1,27 @@
 <!-- Apartado de la Busqueda avanzada -->
 <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
     <fieldset>
-        <legend><b>Búsqueda Avanzada</b></legend>
+        <legend><b>Búsqueda Por Fecha</b></legend>
         <div class="ui-grid-row">
-            <div class="ui-grid-col-4" style="text-align: center;">
+            <!-- <div class="ui-grid-col-4" style="text-align: center;">
                 <div id="search-wrapperTercero">
                     <input type="search" id="searchTercero" (keyup.enter)="getEmpleadoByFiltro()" [(ngModel)]="buscarData" pInputText placeholder="Digite el dato a buscar">
                     <p-dropdown id="searchDropdown" [options]="tipoSelect" [(ngModel)]="selectBuscar"></p-dropdown>
                     <i class="pi pi-search"></i>
                 </div>
             </div>
-            <div class="ui-grid-col-2"></div>
-
+            <div class="ui-grid-col-2"></div> -->
+            <div class="ui-grid-col-3"></div>
             <div class="ui-grid-col-1" style="margin-top: 10px;">
                 <div style="text-align: right; ">
                     <label>Fecha Inicial: </label> &nbsp;
                 </div>
             </div>
+
             <div class="ui-grid-col-1" style="margin-top: 5px;">
                 <p-calendar [(ngModel)]="fechainicial" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechainicio"></p-calendar>
             </div>
+            <div class="ui-grid-col-1"></div>
             <div class="ui-grid-col-1" style="margin-top: 10px;">
                 <div style="text-align: right; ">
                     <label>Fecha Final:</label>&nbsp;
@@ -33,6 +35,11 @@
             </div>
         </div>
     </fieldset>
+</div>
+<div class="ui-g" *ngIf="loading">
+    <div class="ui-g-12" style="text-align: center;">
+        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    </div>
 </div>
 <br>
 <div id="search-wrapper">
@@ -49,11 +56,7 @@
         <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
     </p-footer>
 </p-confirmDialog>
-<div class="ui-g" *ngIf="loading">
-    <div class="ui-g-12" style="text-align: center;">
-        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
-    </div>
-</div>
+
 <div class="card">
     <p-panel header="Empleados">
         <p-table #dt [value]="empleadoData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="160px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa','emdfechareg']"

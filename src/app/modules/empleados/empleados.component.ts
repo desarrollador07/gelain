@@ -14,6 +14,7 @@ import { FormatoAService } from 'src/app/services/formato-a.service';
 import { FormatoBService } from 'src/app/services/formato-b.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 import { FormatoExtraService } from 'src/app/services/formato-extra.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-empleados',
@@ -52,7 +53,7 @@ export class EmpleadosComponent implements OnInit {
   ];
   buscarData:string = '';
   selectBuscar:any = 1;
-  
+  id:any;
 
   constructor(
               private empleadosService: EmpleadosService,
@@ -62,6 +63,7 @@ export class EmpleadosComponent implements OnInit {
               private formatoExtraService: FormatoExtraService,
               private empresaServices:EmpresaService,
               private router: Router,
+              private datepipe: DatePipe,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService,
               private store: Store<AppState>) {
@@ -75,15 +77,15 @@ export class EmpleadosComponent implements OnInit {
     await this.consultaEmpresas();
     
     this.store.select('empresas').subscribe(async res=>{
-      var id:number;
+  
       if (res.empresa !== undefined) {
-        id = res.empresa.empid;
+        this.id = res.empresa.empid;
       }else{
-        id = this.idEmpresa;
+        this.id = this.idEmpresa;
       }
-      if (id !== undefined && id !== null) {
+      if (this.id !== undefined && this.id !== null) {
           /*Consulta de Empleados */
-        await this.consultaEmpleados(id);
+        await this.consultaEmpleados(this.id);
       }
      
     });
@@ -210,8 +212,52 @@ export class EmpleadosComponent implements OnInit {
       this.fechafinal = new Date();
     }
 
-    getEmpleadoByFiltro(){
+    async getEmpleadoByFiltro(){
 
+      this.loading = true;
+      // if (this.selectBuscar !== 1  && this.buscarData === '') {
+      //   this.loading = false;
+      //   this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'Digite el dato a buscar', life: 3000 });
+      //   return;
+      // }
+
+      if (this.fechafinal === null || this.fechainicial === null ) {
+        this.loading = false;
+        this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
+        return;
+      }
+
+      var dateinicio = this.datepipe.transform(this.fechainicial, "yyyy-MM-dd");
+      var datefinal = this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");
+      if (dateinicio > datefinal) {
+        this.loading = false;
+        this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
+        return;
+      }
+
+      // var valor = this.buscarData.trim();
+      // if (this.selectBuscar === 1) {
+      //   // valor = 'valor';
+      // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+      // }else{
+      // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+      // }
+
+      await this.buscarEmpleadosByFechas(this.id,dateinicio,datefinal);
+
+    }
+
+    async buscarEmpleadosByFechas(id:number,fechaInicial:string,fechaFinal:string){
+      this.empleadoData = [];
+      await this.empleadosService.buscarEmpleadosByFechas(id,fechaInicial,fechaFinal).toPromise().then((resp:Empleado[]) => {
+        this.empleadoData = resp;
+
+        if (this.empleadoData.length === 0) {
+          this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda.', life: 3000 });
+        }
+        this.loading = false;
+
+      });
     }
 
 }
