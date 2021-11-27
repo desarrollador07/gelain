@@ -20,8 +20,8 @@ export class ValorfisicoComponent implements OnInit {
   vfData: ValorFisico[] = [];/*Arreglo VF */
   idEmpresa:any;
   loading:boolean = true;
-  cols:any[];
-  frozenCols: any[];
+  cols:any[] = [];
+  frozenCols: any[] = [];
 
   constructor(private vfService: ValoracionFisicaService,
               private _messageService: MessageService,

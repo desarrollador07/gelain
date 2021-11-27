@@ -27,6 +27,8 @@ export class EmpleadosComponent implements OnInit {
   items1: MenuItem[];
   empresas: Empresa[] = [];
   loading:boolean = true;
+  cols:any[] = [];
+  frozenCols: any[] = [];
 
   constructor(
               private empleadosService: EmpleadosService,
@@ -62,11 +64,7 @@ export class EmpleadosComponent implements OnInit {
      
     });
      
-    this.items1 = [
-      {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
-      {label: 'Areas', icon: 'fa fa-fw fa-book'},
-      {label: 'Empleados', icon: 'fa fa-fw fa-user'},
-    ];
+    this.dataGeneral();
 
   }
 
@@ -115,6 +113,8 @@ export class EmpleadosComponent implements OnInit {
     async consultaEmpleados(id:number){
       await this.empleadosService.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
         this.empleadoData = data;
+        console.log("DATA",data);
+        
         this.empleadoData.map(res=>{
           this.empresas.map(x=>{
             if (res.emdempresa === x.empid) {
@@ -148,5 +148,25 @@ export class EmpleadosComponent implements OnInit {
       this.router.navigate(["/main/addempleado/crear"]);
     }
 
+    dataGeneral(){
+      this.items1 = [
+        {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
+        {label: 'Areas', icon: 'fa fa-fw fa-book'},
+        {label: 'Empleados', icon: 'fa fa-fw fa-user'},
+      ];
+
+      this.frozenCols = [
+        { field: 'emdcedula', header: 'Cédula', width: '160px' }
+      ];
+  
+      this.cols = [
+        { field: 'emdnombres', header: 'Nombre', width: '400px' },
+        { field: 'emdtraciudad', header: 'Ciudad', width: '250px' },
+        { field: 'emdtelefono', header: 'Telefono', width: '230px' },
+        { field: 'nomempresa', header: 'Empresa', width: '400px' },
+        { field: 'emdfechareg', header: 'Fecha Registro', width: '250px' },
+        { field: 'emdactivo', header: 'Estado', width: '140px' }
+      ];
+    }
 
 }
