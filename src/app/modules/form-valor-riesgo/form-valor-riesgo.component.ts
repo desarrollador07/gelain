@@ -4351,4 +4351,470 @@ export class FormValorRiesgoComponent implements OnInit {
     }
   }
 
+  /*----------------------------------      METODOS  -  QUÍMICOS   ------------------------------------------------ */
+  /* Químicos - Aerosoles, líquidos, rocíos NP*/
+  fnCalculoQuimiPart1NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpquimicosaerosol_tb_nd !== 0 && this.vrform.value.idpquimicosaerosol_tb_nd !== '' && 
+        this.vrform.value.idpquimicosaerosol_tb_ne !== 0 && this.vrform.value.idpquimicosaerosol_tb_ne !== '') {
+        num =  this.vrform.value.idpquimicosaerosol_tb_nd * this.vrform.value.idpquimicosaerosol_tb_ne;
+
+        this.vrform.patchValue({
+          idpquimicosaerosol_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpquimicosaerosol_interpreta:inter
+        })
+    }
+  }
+  /* Químicos - Aerosoles, líquidos, rocíos NR*/
+  fnCalculoQuimiPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpquimicosaerosol_tb_np !== 0 && this.vrform.value.idpquimicosaerosol_tb_np !== '' && 
+        this.vrform.value.idpquimicosaerosol_tb_nc !== 0 && this.vrform.value.idpquimicosaerosol_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpquimicosaerosol_tb_nc)) * Math.abs(Number(this.vrform.value.idpquimicosaerosol_tb_np));
+          
+      this.vrform.patchValue({
+        idpquimicosaerosol_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpquimicosaerosol_tb_nr: result
+      })
+    }
+  }
+  /* Químicos - Gases y vapores NP*/
+  fnCalculoQuimiPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpquimicosgases_tb_nd !== 0 && this.vrform.value.idpquimicosgases_tb_nd !== '' && 
+        this.vrform.value.idpquimicosgases_tb_ne !== 0 && this.vrform.value.idpquimicosgases_tb_ne !== '') {
+        num =  this.vrform.value.idpquimicosgases_tb_nd * this.vrform.value.idpquimicosgases_tb_ne;
+
+        this.vrform.patchValue({
+          idpquimicosgases_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpquimicosgases_interpreta:inter
+        })
+    }
+  }
+  /* Químicos - Gases y vapores NR*/
+  fnCalculoQuimiPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpquimicosgases_tb_np !== 0 && this.vrform.value.idpquimicosgases_tb_np !== '' && 
+        this.vrform.value.idpquimicosgases_tb_nc !== 0 && this.vrform.value.idpquimicosgases_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpquimicosgases_tb_nc)) * Math.abs(Number(this.vrform.value.idpquimicosgases_tb_np));
+          
+      this.vrform.patchValue({
+        idpquimicosgases_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpquimicosgases_tb_nr: result
+      })
+    }
+  }
+  /* Químicos - Sustancias sólidas (polvos) NP*/
+  fnCalculoQuimiPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpquimicossustanc_tb_nd !== 0 && this.vrform.value.idpquimicossustanc_tb_nd !== '' && 
+        this.vrform.value.idpquimicossustanc_tb_ne !== 0 && this.vrform.value.idpquimicossustanc_tb_ne !== '') {
+        num =  this.vrform.value.idpquimicossustanc_tb_nd * this.vrform.value.idpquimicossustanc_tb_ne;
+
+        this.vrform.patchValue({
+          idpquimicossustanc_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpquimicossustanc_interpreta:inter
+        })
+    }
+  }
+  /* Químicos - Sustancias sólidas (polvos) NR*/
+  fnCalculoQuimiPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpquimicossustanc_tb_np !== 0 && this.vrform.value.idpquimicossustanc_tb_np !== '' && 
+        this.vrform.value.idpquimicossustanc_tb_nc !== 0 && this.vrform.value.idpquimicossustanc_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpquimicossustanc_tb_nc)) * Math.abs(Number(this.vrform.value.idpquimicossustanc_tb_np));
+          
+      this.vrform.patchValue({
+        idpquimicossustanc_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpquimicossustanc_tb_nr: result
+      })
+    }
+  }
+  /* Químicos - Contacto y/o salpicadura de químicos NP*/
+  fnCalculoQuimiPart4NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpquimicoscontacto_tb_nd !== 0 && this.vrform.value.idpquimicoscontacto_tb_nd !== '' && 
+        this.vrform.value.idpquimicoscontacto_tb_ne !== 0 && this.vrform.value.idpquimicoscontacto_tb_ne !== '') {
+        num =  this.vrform.value.idpquimicoscontacto_tb_nd * this.vrform.value.idpquimicoscontacto_tb_ne;
+
+        this.vrform.patchValue({
+          idpquimicoscontacto_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpquimicoscontacto_interpreta:inter
+        })
+    }
+  }
+  /* Químicos - Contacto y/o salpicadura de químicos NR*/
+  fnCalculoQuimiPart4NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpquimicoscontacto_tb_np !== 0 && this.vrform.value.idpquimicoscontacto_tb_np !== '' && 
+        this.vrform.value.idpquimicoscontacto_tb_nc !== 0 && this.vrform.value.idpquimicoscontacto_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpquimicoscontacto_tb_nc)) * Math.abs(Number(this.vrform.value.idpquimicoscontacto_tb_np));
+          
+      this.vrform.patchValue({
+        idpquimicoscontacto_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpquimicoscontacto_tb_nr: result
+      })
+    }
+  }
+
+  /*----------------------------------      METODOS  -  TAREAS DE ALTO RIESGO   ------------------------------------------------ */
+  /* Tareas de alto riesgo - Trabajo en alturas por encima de 1.50 metros NP*/
+  fnCalculoTARPart1NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idptareasalturas_tb_nd !== 0 && this.vrform.value.idptareasalturas_tb_nd !== '' && 
+        this.vrform.value.idptareasalturas_tb_ne !== 0 && this.vrform.value.idptareasalturas_tb_ne !== '') {
+        num =  this.vrform.value.idptareasalturas_tb_nd * this.vrform.value.idptareasalturas_tb_ne;
+
+        this.vrform.patchValue({
+          idptareasalturas_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idptareasalturas_interpreta:inter
+        })
+    }
+  }
+  /* Tareas de alto riesgo - Trabajo en alturas por encima de 1.50 metros NR*/
+  fnCalculoTARPart1NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idptareasalturas_tb_np !== 0 && this.vrform.value.idptareasalturas_tb_np !== '' && 
+        this.vrform.value.idptareasalturas_tb_nc !== 0 && this.vrform.value.idptareasalturas_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idptareasalturas_tb_nc)) * Math.abs(Number(this.vrform.value.idptareasalturas_tb_np));
+          
+      this.vrform.patchValue({
+        idptareasalturas_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idptareasalturas_tb_nr: result
+      })
+    }
+  }
+  /* Tareas de alto riesgo - Trabajo en espacios confinados NP*/
+  fnCalculoTARPart2NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idptareasconfinados_tb_nd !== 0 && this.vrform.value.idptareasconfinados_tb_nd !== '' && 
+        this.vrform.value.idptareasconfinados_tb_ne !== 0 && this.vrform.value.idptareasconfinados_tb_ne !== '') {
+        num =  this.vrform.value.idptareasconfinados_tb_nd * this.vrform.value.idptareasconfinados_tb_ne;
+
+        this.vrform.patchValue({
+          idptareasconfinados_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idptareasconfinados_interpreta:inter
+        })
+    }
+  }
+  /* Tareas de alto riesgo - Trabajo en espacios confinados NR*/
+  fnCalculoTARPart2NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idptareasconfinados_tb_np !== 0 && this.vrform.value.idptareasconfinados_tb_np !== '' && 
+        this.vrform.value.idptareasconfinados_tb_nc !== 0 && this.vrform.value.idptareasconfinados_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idptareasconfinados_tb_nc)) * Math.abs(Number(this.vrform.value.idptareasconfinados_tb_np));
+          
+      this.vrform.patchValue({
+        idptareasconfinados_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idptareasconfinados_tb_nr: result
+      })
+    }
+  }
+  /* Tareas de alto riesgo - Trabajo en caliente corte y soldadura NP*/
+  fnCalculoTARPart3NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idptareassoldadura_tb_nd !== 0 && this.vrform.value.idptareassoldadura_tb_nd !== '' && 
+        this.vrform.value.idptareassoldadura_tb_ne !== 0 && this.vrform.value.idptareassoldadura_tb_ne !== '') {
+        num =  this.vrform.value.idptareassoldadura_tb_nd * this.vrform.value.idptareassoldadura_tb_ne;
+
+        this.vrform.patchValue({
+          idptareassoldadura_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idptareassoldadura_interpreta:inter
+        })
+    }
+  }
+  /* Tareas de alto riesgo - Trabajo en caliente corte y soldadura NR*/
+  fnCalculoTARPart3NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idptareassoldadura_tb_np !== 0 && this.vrform.value.idptareassoldadura_tb_np !== '' && 
+        this.vrform.value.idptareassoldadura_tb_nc !== 0 && this.vrform.value.idptareassoldadura_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idptareassoldadura_tb_nc)) * Math.abs(Number(this.vrform.value.idptareassoldadura_tb_np));
+          
+      this.vrform.patchValue({
+        idptareassoldadura_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idptareassoldadura_tb_nr: result
+      })
+    }
+  }
+
 }
