@@ -22,6 +22,20 @@ import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 })
 export class EmpleadosComponent implements OnInit {
 
+  es: any = {
+    firstDayOfWeek: 0,
+    dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+    dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+    today: "Hoy",
+    clear: "Limpiar",
+    dateFormat: "yy-mm-dd",
+    weekHeader: "Wk",
+  };
+  fechainicial: Date;
+  fechafinal: Date;
   idEmpresa:any;
   empleadoData: Empleado[] = [];
   items1: MenuItem[];
@@ -29,6 +43,16 @@ export class EmpleadosComponent implements OnInit {
   loading:boolean = true;
   cols:any[] = [];
   frozenCols: any[] = [];
+  tipoSelect = [
+    {label:'Todos los registros', value:1},
+    {label:'NIT', value:2},
+    {label:'Nombre', value:3},
+    {label:'Prefijo', value:4},
+    {label:'Número', value:5}
+  ];
+  buscarData:string = '';
+  selectBuscar:any = 1;
+  
 
   constructor(
               private empleadosService: EmpleadosService,
@@ -113,8 +137,6 @@ export class EmpleadosComponent implements OnInit {
     async consultaEmpleados(id:number){
       await this.empleadosService.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
         this.empleadoData = data;
-        console.log("DATA",data);
-        
         this.empleadoData.map(res=>{
           this.empresas.map(x=>{
             if (res.emdempresa === x.empid) {
@@ -149,6 +171,8 @@ export class EmpleadosComponent implements OnInit {
     }
 
     dataGeneral(){
+      
+      
       this.items1 = [
         {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
         {label: 'Areas', icon: 'fa fa-fw fa-book'},
@@ -167,6 +191,27 @@ export class EmpleadosComponent implements OnInit {
         { field: 'emdfechareg', header: 'Fecha Registro', width: '250px' },
         { field: 'emdactivo', header: 'Estado', width: '140px' }
       ];
+
+      this.es = {
+        firstDayOfWeek: 0,
+        dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+        dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+        dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+        monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+        monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+        today: "Hoy",
+        clear: "Limpiar",
+        dateFormat: "yy-mm-dd",
+        weekHeader: "Wk",
+      };
+
+      const fecini = new Date();
+      this.fechainicial = new Date(fecini.getFullYear(), fecini.getMonth()-1, 1);
+      this.fechafinal = new Date();
+    }
+
+    getEmpleadoByFiltro(){
+
     }
 
 }

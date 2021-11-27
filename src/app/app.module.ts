@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
@@ -120,7 +120,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
-
+import '@angular/common/locales/es';
 
 
 
@@ -249,6 +249,7 @@ import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
     ],
     providers: [DatePipe,
         { provide: LocationStrategy, useClass: HashLocationStrategy },
+        { provide: LOCALE_ID, useValue: 'es' },
         CarService, CountryService, EventService, NodeService, BreadcrumbService,EmpleadosComponent
     ],
     bootstrap: [AppComponent]
