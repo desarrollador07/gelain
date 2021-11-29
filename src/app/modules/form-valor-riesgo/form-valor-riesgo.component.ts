@@ -278,6 +278,20 @@ export class FormValorRiesgoComponent implements OnInit {
       idpfisicoilumexceso_tb_nr:['.'],
       idpfisicoilumexceso_numpuestos:[0],
       idpfisicoilumexceso_observaciones:['.'],
+      /* Físico - Radiaciones no ionizantes por ultravioleta */
+      idpfisiconoradiaciones_efectos:['.'],
+      idpfisiconoradiaciones_ctrlfuente:['.'],
+      idpfisiconoradiaciones_ctrlmedio:['.'],
+      idpfisiconoradiaciones_ctrlindividuo:['.'],
+      idpfisiconoradiaciones_tb_nd:[0],
+      idpfisiconoradiaciones_tb_ne:[0],
+      idpfisiconoradiaciones_tb_np:[0],
+      idpfisiconoradiaciones_interpreta:['.'],
+      idpfisiconoradiaciones_tb_nc:[0],
+      idpfisiconoradiaciones_intervencion:[0],
+      idpfisiconoradiaciones_tb_nr:['.'],
+      idpfisiconoradiaciones_numpuestos:[0],
+      idpfisiconoradiaciones_observaciones:['.'],
       /* Físico - Radiaciones ionizantes */
       idpfisicoradiaciones_efectos:['.'],
       idpfisicoradiaciones_ctrlfuente:['.'],
@@ -1070,6 +1084,20 @@ export class FormValorRiesgoComponent implements OnInit {
         idpfisicoilumexceso_tb_nr:this.localVR.idpfisicoilumexceso_tb_nr,
         idpfisicoilumexceso_numpuestos:this.localVR.idpfisicoilumexceso_numpuestos,
         idpfisicoilumexceso_observaciones:this.localVR.idpfisicoilumexceso_observaciones,
+        /* Físico - Radiaciones no ionizantes por ultravioleta */
+        idpfisiconoradiaciones_efectos:this.localVR.idpfisiconoradiaciones_efectos,
+        idpfisiconoradiaciones_ctrlfuente:this.localVR.idpfisiconoradiaciones_ctrlfuente,
+        idpfisiconoradiaciones_ctrlmedio:this.localVR.idpfisiconoradiaciones_ctrlmedio,
+        idpfisiconoradiaciones_ctrlindividuo:this.localVR.idpfisiconoradiaciones_ctrlindividuo,
+        idpfisiconoradiaciones_tb_nd:this.localVR.idpfisiconoradiaciones_tb_nd,
+        idpfisiconoradiaciones_tb_ne:this.localVR.idpfisiconoradiaciones_tb_ne,
+        idpfisiconoradiaciones_tb_np:this.localVR.idpfisiconoradiaciones_tb_np,
+        idpfisiconoradiaciones_interpreta:this.localVR.idpfisiconoradiaciones_interpreta,
+        idpfisiconoradiaciones_tb_nc:this.localVR.idpfisiconoradiaciones_tb_nc,
+        idpfisiconoradiaciones_intervencion:this.localVR.idpfisiconoradiaciones_intervencion,
+        idpfisiconoradiaciones_tb_nr:this.localVR.idpfisiconoradiaciones_tb_nr,
+        idpfisiconoradiaciones_numpuestos:this.localVR.idpfisiconoradiaciones_numpuestos,
+        idpfisiconoradiaciones_observaciones:this.localVR.idpfisiconoradiaciones_observaciones,
         /* Físico - Radiaciones ionizantes */
         idpfisicoradiaciones_efectos:this.localVR.idpfisicoradiaciones_efectos,
         idpfisicoradiaciones_ctrlfuente:this.localVR.idpfisicoradiaciones_ctrlfuente,
@@ -2883,6 +2911,72 @@ export class FormValorRiesgoComponent implements OnInit {
 
       this.vrform.patchValue({
         idpfisicofrio_tb_nr: result
+      })
+    }
+  }
+  /* Físico - Radiaciones no ionizantes por ultravioleta NP*/
+  fnCalculoFPart8NP(){
+    var num:number = 0;
+    var inter:string = '';
+    if (this.vrform.value.idpfisiconoradiaciones_tb_nd !== 0 && this.vrform.value.idpfisiconoradiaciones_tb_nd !== '' && 
+        this.vrform.value.idpfisiconoradiaciones_tb_ne !== 0 && this.vrform.value.idpfisiconoradiaciones_tb_ne !== '') {
+        num =  this.vrform.value.idpfisiconoradiaciones_tb_nd * this.vrform.value.idpfisiconoradiaciones_tb_ne;
+
+        this.vrform.patchValue({
+          idpfisiconoradiaciones_tb_np:num
+        })
+
+        if (num >= 40 && num <= 24) {
+          inter = 'MUY ALTO';
+        }
+
+        if (num <= 20 && num >= 10) {
+          inter = 'ALTO';
+        }
+
+        if (num <= 8 && num >= 6) {
+          inter = 'MEDIO';
+        }
+
+        if (num <= 4 && num >= 2) {
+          inter = 'MEDIO';
+        }
+
+        this.vrform.patchValue({
+          idpfisiconoradiaciones_interpreta:inter
+        })
+    }
+  }
+  /* Físico - Radiaciones no ionizantes por ultravioleta NR*/
+  fnCalculoFPart8NR(){
+    var num:number = 0;
+    var result:string = '';
+    if (this.vrform.value.idpfisiconoradiaciones_tb_np !== 0 && this.vrform.value.idpfisiconoradiaciones_tb_np !== '' && 
+        this.vrform.value.idpfisiconoradiaciones_tb_nc !== 0 && this.vrform.value.idpfisiconoradiaciones_tb_nc !== '') {
+      num = Math.abs(Number(this.vrform.value.idpfisiconoradiaciones_tb_nc)) * Math.abs(Number(this.vrform.value.idpfisiconoradiaciones_tb_np));
+          
+      this.vrform.patchValue({
+        idpfisiconoradiaciones_intervencion:num
+      })
+
+      if (num <= 4000 && num >= 600) {
+        result = 'I';
+      }
+
+      if (num <= 500 && num >= 150) {
+        result = 'II';
+      }
+
+      if (num <= 120 && num >= 40) {
+        result = 'III';
+      }
+
+      if (num < 40 && num >= 20) {
+        result = 'IV';
+      }
+
+      this.vrform.patchValue({
+        idpfisiconoradiaciones_tb_nr: result
       })
     }
   }
