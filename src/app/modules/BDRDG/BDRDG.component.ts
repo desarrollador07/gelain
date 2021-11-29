@@ -33,8 +33,10 @@ export class BDRDGComponent implements OnInit {
   areas: Area[] = [];
   columns: any[];
   nombre:any;
-   image = new Image();
+  image = new Image();
   loading:boolean = true;
+  cols:any[] = [];
+  frozenCols: any[] = [];
   
 
   constructor(
@@ -49,7 +51,7 @@ export class BDRDGComponent implements OnInit {
 
   async ngOnInit() {
     this.pruebas2 = this.pruebas;
-
+    this.datosGenerales();
     await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
       this.empresas = data;
     });
@@ -75,6 +77,7 @@ export class BDRDGComponent implements OnInit {
       .buscarByEmpleadosRepor(id).toPromise().then((data: any)=>{
        
         this.pruebas = data;
+        this.makeRowsSameHeight();
         this.pruebas.map(res=>{
           this.empresas.map(x=>{
           if (res.emdempresa === x.empid) {
@@ -211,6 +214,45 @@ export class BDRDGComponent implements OnInit {
       return arreglado;
   }
 
+  datosGenerales(){
+    this.frozenCols = [
+      { field: 'emdcedula', header: 'Cédula', width: '180px' }
+    ];
+
+    this.cols = [
+      { field: 'emdnombres', header: 'Nombre', width: '400px' },
+      { field: 'emddepartamento', header: 'Departamento', width: '250px' },
+      { field: 'emdciudad', header: 'Ciudad', width: '200px' },
+      { field: 'emdfecnacido', header: 'Año de Nacimiento', width: '200px' },
+      { field: 'nomempresa', header: 'Empresa', width: '300px' },
+      { field: 'emdfechareg', header: 'Fecha Registro', width: '250px' },
+    ];
+  }
+
+  makeRowsSameHeight() {
+     
+    setTimeout(() => {
+
+        if (document.getElementsByClassName('ui-table-scrollable-wrapper').length) {
+         
+            let wrapper = document.getElementsByClassName('ui-table-scrollable-wrapper');
+            for (var i = 0; i < wrapper.length; i++) {
+               let w = wrapper.item(i) as HTMLElement;
+               let frozen_rows: any = w.querySelectorAll('.ui-table-frozen-view tr');
+               let unfrozen_rows: any = w.querySelectorAll('.ui-table-unfrozen-view tr');
+               for (let i = 0; i < frozen_rows.length; i++) {
+                  if (frozen_rows[i].clientHeight > unfrozen_rows[i].clientHeight) {
+                     unfrozen_rows[i].style.height = frozen_rows[i].clientHeight+"px";
+                  } 
+                  else if (frozen_rows[i].clientHeight < unfrozen_rows[i].clientHeight) 
+                  {
+                     frozen_rows[i].style.height = unfrozen_rows[i].clientHeight+"px";
+                  }
+                }
+              }
+        }
+    },100);
+  }
 
 
 }

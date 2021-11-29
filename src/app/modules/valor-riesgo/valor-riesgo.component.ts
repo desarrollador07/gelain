@@ -15,8 +15,8 @@ export class ValorRiesgoComponent implements OnInit {
   vrData: ValorRiesgoModel[] = [];/*Arreglo VR */
   idEmpresa:any;
   loading:boolean = true;
-  cols:any[];
-  frozenCols: any[];
+  cols:any[] = [];
+  frozenCols: any[] = [];
 
   constructor(private valoraRiesgoService: ValoracionRiesgosService,
               private _messageService: MessageService,
