@@ -106,9 +106,7 @@ export class ValorRiesgoComponent implements OnInit {
 
     this.cols = [
       { field: 'idpnombre', header: 'Nombre', width: '350px' },
-      { field: 'idpempresa', header: 'Empresa', width: '350px' },
       { field: 'idpfecha', header: 'Fecha', width: '160px' },
-      { field: 'idparea', header: 'Area', width: '300px' },
       { field: 'idpsede', header: 'Sede', width: '180px' },
       { field: 'idptelefono', header: 'Telefono', width: '200px' },
       { field: 'idpestado', header: 'Estado', width: '100px' },

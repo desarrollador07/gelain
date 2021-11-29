@@ -4679,6 +4679,13 @@
                 </fieldset>
             </p-panel>
             <br>
+            <div class="card">
+                <fieldset>
+                    <legend><b>OBSERVACIONES GENERALES</b></legend>
+                    <textarea rows="5" cols="30" formControlName="idpampliarobservac" pInputTextarea></textarea>
+                </fieldset>
+            </div>
+            <br>
             <div style="text-align:center">
                 <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="vrform.invalid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple [routerLink]="['/main/valor-riesgo']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
