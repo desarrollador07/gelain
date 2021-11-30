@@ -17,6 +17,7 @@ export class EmpleadosService {
   Url6 = `${this.apiUrl}/lv/public/allEmpleadosReportes`;
   Url7 = `${this.apiUrl}/lv/public/updateEstado`;
   Url8 = `${this.apiUrl}/lv/public/buscarEmpleadosFecha`;
+  Url9 = `${this.apiUrl}/lv/public/buscarEmpleadosFechaReportes`;
   constructor(private http: HttpClient) { }
 
   getPrueba(){
@@ -47,6 +48,10 @@ export class EmpleadosService {
   }
 
   buscarEmpleadosByFechas(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.Url8+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  buscarEmpleadosByFechasReportes(id:number, fechaInicial:string, fechaFinal:string){
     return this.http.get(this.Url8+ `/${id}/${fechaInicial}/${fechaFinal}`);
   }
 }
