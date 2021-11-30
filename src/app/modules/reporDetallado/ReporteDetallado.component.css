@@ -235,73 +235,6 @@ fieldset legend {
     color: #ffffff !important;
 }
 
-#search-wrapperTercero {
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    -webkit-flex-flow: row-reverse nowrap;
-    -ms-flex-flow: row-reverse nowrap;
-    flex-flow: row-reverse nowrap;
-    width: 600px;
-}
-
-#search-wrapperTercero #searchTercero {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-left: 0;
-    border-radius: 0 0 0 0;
-    color: #777;
-    padding: .6rem .5rem;
-    height: 40.2px;
-    font-size: 15px;
-    font-weight: lighter;
-    -webkit-transition: border-color .2s ease;
-    transition: border-color .2s ease;
-    width: 400px;
-}
-
-#search-wrapperTercero #searchDropdown {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-left: 0;
-    border-radius: 0 0 0 0;
-    color: #777;
-    height: 40.2px;
-    padding-top: 4px;
-    padding-right: 4px;
-    font-size: 15px;
-    font-weight: lighter;
-    -webkit-transition: border-color .2s ease;
-    transition: border-color .2s ease;
-    width: 300px;
-}
-
-#search-wrapperTercero #searchDropdown+i {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    border-radius: 25px 0 0 25px;
-    height: 40.2px;
-    border-right: 0;
-    color: #777;
-    padding: .67rem .65rem;
-    -webkit-transition: border-color .2s ease;
-    transition: border-color .2s ease;
-}
-
-#search-wrapperTercero #buttonSearch {
-    padding: .67rem .65rem;
-    height: 40.2px;
-    border-radius: 0 25px 25px 0;
-    width: 100px;
-    font-size: 15px;
-    font-weight: lighter;
-}
-
 fieldset {
     font-family: "Montserrat", sans-serif;
     border: 2px solid #2162b0;
@@ -319,4 +252,67 @@ fieldset legend {
     border-radius: 5px;
     box-shadow: 0 0 0 5px white;
     margin-left: 20px;
+}
+
+#search-wrapperTercero #searchDropdown {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-radius: 0 0 0 0;
+    color: #777;
+    height: 40.2px;
+    padding-top: 4px;
+    padding-right: 4px;
+    font-size: 15px;
+    /* font-weight: lighter; */
+    -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+    width: 200px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+}
+
+#search-wrapperTercero #searchDropdown+i {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    height: 40.2px;
+    border-right: 0;
+    color: #777;
+    padding: .67rem .65rem;
+    -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+}
+
+#search-wrapperTercero {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-inline-box;
+    display: -webkit-inline-flex;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-flex-flow: row-reverse nowrap;
+    -ms-flex-flow: row-reverse nowrap;
+    flex-flow: row-reverse nowrap;
+    font-weight: normal;
+}
+
+#search-wrapperTercero #searchTercero {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-radius: 0 25px 25px 0;
+    color: #777;
+    padding: .6rem .5rem;
+    height: 40.2px;
+    font-size: 15px;
+    /* font-weight: lighter; */
+    -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease;
+    /* width: 400px; */
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    width: 205px;
 }

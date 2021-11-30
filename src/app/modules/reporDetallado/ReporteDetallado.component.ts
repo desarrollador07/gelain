@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/primeng';
 import { ReporteDetallado } from '../../models/reporteDetallado';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -22,6 +23,21 @@ export class ReporteDetalladoComponent implements OnInit {
   buscarData:string;
   selectReporte: any;
   loading:boolean = true;
+  checked:boolean = true;
+  fechainicial: Date;
+  fechafinal: Date = new Date();
+  es: any = {
+    firstDayOfWeek: 0,
+    dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+    dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+    today: "Hoy",
+    clear: "Limpiar",
+    dateFormat: "yy-mm-dd",
+    weekHeader: "Wk",
+  };
   rdSelect = [
     {label:'Seleccione Una Opción', value:null},
     {label:'Cédula', value:1},
@@ -43,6 +59,7 @@ export class ReporteDetalladoComponent implements OnInit {
 
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
+              private datepipe: DatePipe,
               private store: Store<AppState>
               ) {
                 this.idEmpresa = Number(localStorage.getItem("idEmpresa"));   
@@ -78,7 +95,7 @@ export class ReporteDetalladoComponent implements OnInit {
     });
 
   }
-  /* Función para exportar los registros de los empleados en Excel */
+
   exportExcel() {
       import("xlsx").then(xlsx => {
           const worksheet = xlsx.utils.json_to_sheet(this.reporteDetalladoEmpleado());
@@ -229,46 +246,76 @@ export class ReporteDetalladoComponent implements OnInit {
   /*Función de la busqueda avanzada */
   async buscador(){
     this.loading = true;
+    var bandera:boolean = false;
       /*Validación del desplegable que nos identifica si en una busqueda no eligen el tipo de busqueda */
       if (this.selectReporte === null || this.selectReporte === undefined) {
           this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Debe seleccionar el tipo dato a buscar', life: 3000 });
           this.loading = false;
           return;
       }
-      /*Validación del desplegable  que  permite traer todos los datos */
-      if (this.selectReporte === 6) {
+
+      if (this.checked === true) {
+
+        if (this.fechafinal === null || this.fechainicial === null ) {
+          this.loading = false;
+          this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
+          bandera = true;
+        }
+        var dateinicio = this.datepipe.transform(this.fechainicial, "yyyyMMdd");
+        var datefinal = this.datepipe.transform(this.fechafinal, "yyyyMMdd");
+        if (dateinicio > datefinal) {
+          this.loading = false;
+          this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
+          bandera = true;
+        }
+      }
+      
+      if (bandera) {
+        return;
+      }
+
+      var checkTemp:number;
+      if (this.checked === true) {
+        checkTemp = 1;
+      }else{
+        checkTemp = 2;
+        dateinicio = '00-00-00';
+        datefinal = '00-00-00';
+      }
+      /*Validación del desplegable  que  permite traer todos los datos de una empresa*/
+      if (this.selectReporte === 6 && this.checked === false) {
         this.rdEmpleado = [];
         this.buscarData = '';
         await this.consultarReportes(this.idEmpresa);
         return;
       }
-      if (this.selectReporte === 7) {
+      /*Validación del desplegable  que  permite traer todos los datos de todas las empresas*/
+      if (this.selectReporte === 7 && this.checked === false) {
         this.rdEmpleado = [];
         await this.consultaAll();
+        return;
       }
       /*Valida que el input  tenga data para buscar */
-      if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '') {
+      if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '' && this.checked === false) {
         const data = this.buscarData.trim();
-        await this.pruebaServices.getBuscardorData(this.idEmpresa,data,this.selectReporte).toPromise().then((res:any) => {
-            
-            if (res !== null) {
-              this.rdEmpleado = [];
-              this.rdEmpleado = res;
-            }
-
-            if (res.length === 0) {
-              this._messageService.add({ severity: 'info', summary: 'Sin Resultados', detail: 'No se encontraron resultados para el tipo de busqueda', life: 3000 });
-            }
-
-            if (res.length > 0) {
-              this.loading = false;
-            }else{
-              this.loading = false;
-            }
-            
-        },err => console.log(err));
+        this.buscadorAvanzado(this.idEmpresa,data,this.selectReporte,checkTemp,dateinicio,datefinal);
       }
      
+  }
+
+  async buscadorAvanzado(idEmp:number,valorBuscado:string, tipo:number,check:number, fechaInicial:string, fechaFinal:string){
+    await this.pruebaServices.getBuscardorData(idEmp,valorBuscado,tipo,check,fechaInicial,fechaFinal).toPromise().then((res:any) => {
+            
+      if (res.length === 0) {
+        this._messageService.add({ severity: 'info', summary: 'Sin Resultados', detail: 'No se encontraron resultados para el tipo de busqueda', life: 3000 });
+      }else{
+        this.rdEmpleado = [];
+        this.rdEmpleado = res;
+      }
+
+      this.loading = false;
+      
+    },err => console.log(err));
   }
 
 
