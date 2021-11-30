@@ -78,7 +78,7 @@ export class ReporteDetalladoComponent implements OnInit {
     });
 
   }
-
+  /* Función para exportar los registros de los empleados en Excel */
   exportExcel() {
       import("xlsx").then(xlsx => {
           const worksheet = xlsx.utils.json_to_sheet(this.reporteDetalladoEmpleado());
