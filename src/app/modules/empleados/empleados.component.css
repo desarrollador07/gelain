@@ -319,3 +319,9 @@ fieldset legend {
 p-calendar {
     border-radius: 10px !important;
 }
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}

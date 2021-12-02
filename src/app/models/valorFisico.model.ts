@@ -112,5 +112,6 @@ export interface ValorFisico{
     vaf_otrasd_num?:number,
     vaf_fantastico_total?:number,
     vafAF_p01?:number,
-    vafAF_p02?:number
+    vafAF_p02?:number,
+    vaf_fecha_creacion?:Date
 }

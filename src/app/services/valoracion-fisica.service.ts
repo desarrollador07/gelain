@@ -14,6 +14,7 @@ export class ValoracionFisicaService {
   Url3vf = `${this.apiUrl}/lv/public/updateValorFisico`;
   Url4vf = `${this.apiUrl}/lv/public/deleteValorFisico`;
   Url5vf = `${this.apiUrl}/lv/public/getidempValor`;
+  Url6vf = `${this.apiUrl}/lv/public/buscarVFFecha`;
 
   constructor(private http: HttpClient) { }
 
@@ -35,5 +36,9 @@ export class ValoracionFisicaService {
 
   getvalorFisicoId(id:number){
     return this.http.get(this.Url5vf+ "/" + id);
+  }
+
+  buscarVFByFechasReportes(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.Url6vf+ `/${id}/${fechaInicial}/${fechaFinal}`);
   }
 }
