@@ -38,7 +38,7 @@ export class ValoracionFisicaService {
     return this.http.get(this.Url5vf+ "/" + id);
   }
 
-  buscarVFByFechasReportes(id:number, fechaInicial:string, fechaFinal:string){
+  buscarVFByFechas(id:number, fechaInicial:string, fechaFinal:string){
     return this.http.get(this.Url6vf+ `/${id}/${fechaInicial}/${fechaFinal}`);
   }
 }

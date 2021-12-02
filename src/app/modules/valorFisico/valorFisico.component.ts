@@ -94,16 +94,13 @@ export class ValorfisicoComponent implements OnInit {
   async indexData(id:number){
     await this.vfService.getvalorFisicoId(id).toPromise().then((data:ValorFisico[])=>{
       this.vfData = data;
-      console.log("DATA", data);
       
       if (this.vfData.length > 0) {
         this.store.dispatch(
           valoraFisicaAction.addValoFisicas({ list: data })
         );
-        this.loading = false;
-      }else{
-        this.loading = false;
       }
+      this.loading = false;
     });
   }
 
@@ -179,17 +176,21 @@ export class ValorfisicoComponent implements OnInit {
     // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
     // }
 
-    await this.buscarVFByFechasReportes(this.id,dateinicio,datefinal);
+    await this.buscarVFByFechas(this.id,dateinicio,datefinal);
 
   }
 
-  async buscarVFByFechasReportes(id:number,fechaInicial:string,fechaFinal:string){
+  async buscarVFByFechas(id:number,fechaInicial:string,fechaFinal:string){
       this.vfData = [];
-    await this.vfService.buscarVFByFechasReportes(id,fechaInicial,fechaFinal).toPromise().then((resp:ValorFisico[]) => {
+    await this.vfService.buscarVFByFechas(id,fechaInicial,fechaFinal).toPromise().then((resp:ValorFisico[]) => {
       this.vfData = resp;
       this.makeRowsSameHeight();
       if (this.vfData.length === 0) {
         this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda.', life: 3000 });
+      }else{
+        this.store.dispatch(
+          valoraFisicaAction.addValoFisicas({ list: resp })
+        );
       }
       this.loading = false;
 

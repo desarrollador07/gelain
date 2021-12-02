@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/app.reducer';
 /*Modulos */
-import { Message } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
 /*Modelos */
 import { ValorFisico } from 'src/app/models/valorFisico.model';
 /*Servicios */
@@ -76,9 +76,27 @@ export class GraficaVfComponent implements OnInit {
   text7:any;
   text8:any;
   text9:any;
+  fechainicial: Date;
+  fechafinal: Date;
+  buscarData:string = '';
+  selectBuscar:any = 1;
+  id:any;
+  es: any = {
+    firstDayOfWeek: 0,
+    dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+    dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+    today: "Hoy",
+    clear: "Limpiar",
+    dateFormat: "yy-mm-dd",
+    weekHeader: "Wk",
+  };
   
   constructor(private vfService: ValoracionFisicaService,
               private pruebaServices:PruebaService,
+              private _messageService: MessageService,
               private datepipe: DatePipe,
               private store: Store<AppState>) {
                 this.idEmpresa = localStorage.getItem('idEmpresa');
@@ -705,6 +723,9 @@ export class GraficaVfComponent implements OnInit {
 
   /*Datos para la generación del pdf 2 Titulos y Fechas */
   dataGeneral(){
+    const fecini = new Date();
+    this.fechainicial = new Date(fecini.getFullYear(), fecini.getMonth()-1, 1);
+    this.fechafinal = new Date();
     this.fechaActual = new Date();
     const fechaAct = this.datepipe.transform(this.fechaActual, "yyyy-MM-dd");
     this.hora = this.fechaActual.getHours();
@@ -729,17 +750,73 @@ export class GraficaVfComponent implements OnInit {
   /*Consulta los datos en el store cuando se cambia de empresa en el desplegable principal */
   consultaStore(){
     this.store.select('empresas').subscribe(async res=>{
-      var id:number;
+
       if (res.empresa !== undefined) {
-        id = res.empresa.empid;
+        this.id = res.empresa.empid;
       }else{
-        id = this.idEmpresa;
+        this.id = this.idEmpresa;
       }
-      if (id !== undefined && id !== null) {
+      if (this.id !== undefined && this.id !== null) {
         this.loading = false;
-        await this.consultaVF(id);
+        await this.consultaVF(this.id);
       }
     });
+  }
+
+  async getVFByFiltro(){
+
+    this.loading = true;
+    // if (this.selectBuscar !== 1  && this.buscarData === '') {
+    //   this.loading = false;
+    //   this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'Digite el dato a buscar', life: 3000 });
+    //   return;
+    // }
+
+    if (this.fechafinal === null || this.fechainicial === null ) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
+      return;
+    }
+
+    var dateinicio = this.datepipe.transform(this.fechainicial, "yyyy-MM-dd");
+    var datefinal = this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");
+    if (dateinicio > datefinal) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
+      return;
+    }
+
+    // var valor = this.buscarData.trim();
+    // if (this.selectBuscar === 1) {
+    //   // valor = 'valor';
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }else{
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }
+
+    await this.buscarVFByFechas(this.id,dateinicio,datefinal);
+
+  }
+
+  async buscarVFByFechas(id:number,fechaInicial:string,fechaFinal:string){
+    this.limpiarData();
+    await this.vfService.buscarVFByFechas(id,fechaInicial,fechaFinal).toPromise().then((resp:ValorFisico[]) => {
+      this.vfData = resp;
+      if (this.vfData.length === 0) {
+        this.loadingEmpty = false;
+        this.showInfo();
+      }
+      this.loading = true;
+    });
+    this.fnIMC();
+    this.fnPeriAbdo();
+    this.fnRuffierCRC();
+    this.fnNivelERCHombre();
+    this.fnNivelERCMujer();
+    this.fnNvlFlex();
+    this.fnAnteFami();
+    this.fncondSalud();
+    this.fnTestFantastico();
   }
 
 }
