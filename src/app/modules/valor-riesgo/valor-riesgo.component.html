@@ -1,3 +1,42 @@
+<!-- Apartado de la Busqueda avanzada -->
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+    <fieldset>
+        <legend><b>Búsqueda Por Fecha</b></legend>
+        <div class="ui-grid-row">
+            <!-- <div class="ui-grid-col-4" style="text-align: center;">
+                <div id="search-wrapperTercero">
+                    <input type="search" id="searchTercero" (keyup.enter)="getEmpleadoByFiltro()" [(ngModel)]="buscarData" pInputText placeholder="Digite el dato a buscar">
+                    <p-dropdown id="searchDropdown" [options]="tipoSelect" [(ngModel)]="selectBuscar"></p-dropdown>
+                    <i class="pi pi-search"></i>
+                </div>
+            </div>
+            <div class="ui-grid-col-2"></div> -->
+            <div class="ui-grid-col-2"></div>
+            <div class="ui-grid-col-1" style="margin-top: 10px;">
+                <div style="text-align: right; ">
+                    <label>Fecha Inicial: </label> &nbsp;
+                </div>
+            </div>
+
+            <div class="ui-grid-col-1" style="margin-top: 5px;">
+                <p-calendar [(ngModel)]="fechainicial" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechainicio"></p-calendar>
+            </div>
+            <div class="ui-grid-col-1"></div>
+            <div class="ui-grid-col-1" style="margin-top: 10px;">
+                <div style="text-align: right; ">
+                    <label>Fecha Final:</label>&nbsp;
+                </div>
+            </div>
+            <div class="ui-grid-col-1" style="margin-top: 5px;">
+                <p-calendar [(ngModel)]="fechafinal" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechafinal"></p-calendar>
+            </div>
+            <div class="ui-grid-col-2" style="text-align: center;margin-top: 5px;">
+                <button class="btnsearch" pButton label="Buscar" (click)="getVRByFiltro()"></button>
+            </div>
+        </div>
+    </fieldset>
+</div>
+<br>
 <div class="ui-g">
     <div class="ui-g-2">
         <div id="search-wrapper">
@@ -20,8 +59,8 @@
 </div>
 <div class="card animated fadeIn fast">
     <p-panel header="VALORACIÓN DE RIESGOS">
-        <p-table #dt [value]="vrData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro']" [rows]="10"
-            [paginator]="true" [rowHover]="true">
+        <p-table #dt [value]="vrData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro','idpfechacrea']"
+            [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">

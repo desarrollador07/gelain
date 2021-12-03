@@ -14,6 +14,7 @@ export class ValoracionRiesgosService {
   Url3vr = `${this.apiUrl}/lv/public/updateValorRiesgo`;
   Url4vr = `${this.apiUrl}/lv/public/deleteValorRiesgo`;
   Url5vr = `${this.apiUrl}/lv/public/getidempValorRiesgo`;
+  Url6vr = `${this.apiUrl}/lv/public/buscarVRFecha`;
 
   constructor(private http: HttpClient) { }
 
@@ -35,5 +36,9 @@ export class ValoracionRiesgosService {
 
   getvalorRiesgoId(id:number){
     return this.http.get<ValorRiesgoModel[]>(this.Url5vr+ "/" + id);
+  }
+
+  buscarVRByFechas(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.Url6vr+ `/${id}/${fechaInicial}/${fechaFinal}`);
   }
 }
