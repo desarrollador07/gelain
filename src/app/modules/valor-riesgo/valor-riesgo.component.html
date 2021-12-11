@@ -79,7 +79,12 @@
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns">
-                        {{rowData[col.field ] | uppercase}}
+                        <div *ngIf="col.field === 'idpfechacrea' else elseBlock">
+                            {{rowData[col.field]| date:'dd-MM-yyyy, h:mm a'}}
+                        </div>
+                        <ng-template #elseBlock>
+                            {{rowData[col.field]| uppercase}}
+                        </ng-template>
                     </td>
                     <td style="text-align:center">
                         <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="./form-valor-riesgo" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>

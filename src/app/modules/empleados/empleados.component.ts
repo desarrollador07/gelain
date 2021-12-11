@@ -186,7 +186,7 @@ export class EmpleadosComponent implements OnInit {
       ];
   
       this.cols = [
-        { field: 'emdnombres', header: 'Nombre', width: '400px' },
+        { field: 'emdnombres', header: 'Nombre', width: '500px' },
         { field: 'emdtraciudad', header: 'Ciudad', width: '250px' },
         { field: 'emdtelefono', header: 'Telefono', width: '230px' },
         { field: 'nomempresa', header: 'Empresa', width: '400px' },

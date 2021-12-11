@@ -81,14 +81,19 @@
                     </th>
                 </tr>
             </ng-template>
-            <ng-template pTemplate="body" let-prueba let-i="rowIndex" let-columns="columns">
+            <ng-template pTemplate="body" let-empleado let-i="rowIndex" let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns">
-                        <div *ngIf="col.field === 'emdnombres' else elseData">
-                            {{prueba[col.field]| uppercase}} {{prueba.emdapellidos | uppercase}}
+                        <div *ngIf="col.field === 'emdnombres'">
+                            {{empleado.emdnombres| uppercase}} {{empleado.emdapellidos | uppercase}}
+                        </div>
+                        <div *ngIf="col.field === 'emdfechareg'  else elseData">
+                            {{empleado[col.field]| date:'dd-MM-yyyy, h:mm a'}}
                         </div>
                         <ng-template #elseData>
-                            {{prueba[col.field]| uppercase}}
+                            <div *ngIf="col.field !== 'emdnombres'">
+                                {{empleado[col.field]| uppercase}}
+                            </div>
                         </ng-template>
                     </td>
                 </tr>
