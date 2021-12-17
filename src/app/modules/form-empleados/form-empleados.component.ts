@@ -333,18 +333,20 @@ export class FormEmpleadosComponent implements OnInit {
  
     this.area =[];
     if (this.localPrueba !== null) {
-     await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
-        this.areas = data;
-        this.areas.map(x=>{    
-          this.area.push({
-            label:x.arenombre,
-            value: x.areid
+      if (id !== null) {
+        await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
+          this.areas = data;
+          this.areas.map(x=>{    
+            this.area.push({
+              label:x.arenombre,
+              value: x.areid
+            });
           });
         });
-      });
-      this.userform.patchValue({
-        emdarea: this.localPrueba.emdarea
-      });
+        this.userform.patchValue({
+          emdarea: this.localPrueba.emdarea
+        });
+      }
     }else{
       this.empresas.map(res => {
         if (res.empid === this.userform.value.emdempresa) {

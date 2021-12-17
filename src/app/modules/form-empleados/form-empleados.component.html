@@ -7,7 +7,6 @@
     </p-footer>
 </p-confirmDialog>
 
-
 <p-toast></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
     <p-panel header="FICHA DE DATOS GENERALES">
@@ -286,7 +285,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="emdActivo"  [options]="estado" formControlName="emdactivo" [showClear]="true" disabled="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="emdActivo"  [options]="estado" formControlName="emdactivo" [showClear]="true" [disabled]="true" ></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdActivo"></p-message>
                     </div>
@@ -302,7 +301,6 @@
 
             <br>
             <div style="text-align:center">
-
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/empleado']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
