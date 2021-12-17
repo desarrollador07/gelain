@@ -56,7 +56,6 @@ export class FormatoAComponent implements OnInit {
     await this.formatoAService.buscarByFa(this.idl).toPromise().then((data:any)=>{
       this.localPrueba = data[0];
     });
-     this.getFormulario();
     
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });

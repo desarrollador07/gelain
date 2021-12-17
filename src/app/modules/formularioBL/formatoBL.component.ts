@@ -36,25 +36,18 @@ export class FormatoBLComponent implements OnInit {
                 this.idem = Number(this.route.snapshot.paramMap.get("id")); 
                 this.forrr =JSON.parse(localStorage.getItem('ForB'));
                 this.forrrB =JSON.parse(localStorage.getItem('ForBB'));
-                console.log("forBB",this.forrrB);
-                console.log("forB",this.forrr);
                 
             if (this.forrr !== null) {
-              console.log("ina");
               
               this.localPrueba = this.forrr[0];
             }if (this.forrrB !== null) {
-              console.log("inb");
               this.forrr = [];
               this.localPrueba = this.forrrB;
             }
             if(this.forrr == null && this.forrrB == null){
-              console.log("inc");
               
               this.localPrueba = null;
             }
-            console.log("lo",this.localPrueba);
-
                 this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 

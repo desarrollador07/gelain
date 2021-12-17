@@ -275,7 +275,7 @@ export class ExtralaboralLComponent implements OnInit {
   }
 
   volver(){
-  this.localvalidaEmple = JSON.parse(localStorage.getItem('prueba'));
+  this.localvalidaEmple = JSON.parse(localStorage.getItem('empRegExt'));
   if (Number(this.localvalidaEmple.emdtipodecargo) == 1 || Number(this.localvalidaEmple.emdtipodecargo) == 2) {
     this.router.navigate(["FormularioAL/"+this.idem]);
   }else{

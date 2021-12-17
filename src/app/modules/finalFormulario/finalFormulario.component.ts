@@ -19,7 +19,7 @@ export class FinalFormularioComponent implements OnInit {
 
 
   salir(){
-    localStorage.removeItem('prueba');
+    localStorage.removeItem('empRegExt');
     localStorage.removeItem('IdEmpleado');
     localStorage.removeItem('ForA');
     localStorage.removeItem('ForAA');

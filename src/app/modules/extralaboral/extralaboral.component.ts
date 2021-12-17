@@ -91,7 +91,6 @@ export class ExtralaboralComponent implements OnInit {
 
 
     this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
-    console.log(this.idl);
     
     await this.formatoExtraService.buscarExtra((this.idl)).toPromise().then((data:any)=>{
         this.localPrueba = data[0];   
@@ -278,7 +277,7 @@ export class ExtralaboralComponent implements OnInit {
   }
 
   volver(){
-    this.localvalidaEmple = JSON.parse(localStorage.getItem('prueba'));
+    this.localvalidaEmple = JSON.parse(localStorage.getItem('empEdit'));
     if (Number(this.localvalidaEmple.emdtipodecargo) == 1 || Number(this.localvalidaEmple.emdtipodecargo) == 2) {
       this.router.navigate(['/main/addFormatoA/editar']);
     }else{

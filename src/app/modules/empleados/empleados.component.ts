@@ -115,22 +115,22 @@ export class EmpleadosComponent implements OnInit {
         
   }
 
-      editPrueba(cpruebas:Empleado){
-        localStorage.setItem('prueba',JSON.stringify(cpruebas));
-        localStorage.setItem('IdEmpleado',JSON.stringify(cpruebas.emdid));
-        this.formatoAService.buscarByFa(cpruebas.emdid)
+      editPrueba(cEmpleado:Empleado){
+        localStorage.setItem('empEdit',JSON.stringify(cEmpleado));
+        localStorage.setItem('IdEmpleado',JSON.stringify(cEmpleado.emdid));
+        this.formatoAService.buscarByFa(cEmpleado.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('ForA',JSON.stringify(data));
         })
-        this.formatoExtraService.buscarExtra(cpruebas.emdid)
+        this.formatoExtraService.buscarExtra(cEmpleado.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('Extra',JSON.stringify(data));
         })
-        this.formatoEstresService.buscarByEstres(cpruebas.emdid)
+        this.formatoEstresService.buscarByEstres(cEmpleado.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('estres',JSON.stringify(data));
         })
-        this.formatoBService.buscarByFb(cpruebas.emdid)
+        this.formatoBService.buscarByFb(cEmpleado.emdid)
         .subscribe((data:any)=>{
           localStorage.setItem('ForB',JSON.stringify(data));
         })
@@ -161,7 +161,7 @@ export class EmpleadosComponent implements OnInit {
     }
 
     confirmationForm(){
-      localStorage.removeItem('prueba');
+      localStorage.removeItem('empEdit');
       localStorage.removeItem('IdEmpleado');
       localStorage.removeItem('ForA');
       localStorage.removeItem('ForAA');

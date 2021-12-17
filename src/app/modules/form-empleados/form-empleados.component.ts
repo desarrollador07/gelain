@@ -39,7 +39,7 @@ export class FormEmpleadosComponent implements OnInit {
   empresas: Empresa[] = [];
   area: SelectItem[] = [];
   areas: Area[] = [];
-  localPrueba: Empleado = {};
+  localEmpleados: Empleado = {};
   userform: FormGroup;
   userformFormaA: FormGroup;
   userformFormaB: FormGroup;
@@ -86,7 +86,7 @@ export class FormEmpleadosComponent implements OnInit {
     /*Formulario Estres */
     this.formEstres();
 
-    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
+    this.localEmpleados =JSON.parse(localStorage.getItem('empEdit'));
  
     /*Consultar empresas */
     await this.consultarEmpresas();
@@ -94,40 +94,40 @@ export class FormEmpleadosComponent implements OnInit {
     this.cargaSelect();
 
    
-     if(this.localPrueba !==null){
+     if(this.localEmpleados !==null){
       
       this.userform.patchValue({
-        /* emdid:this.localPrueba.emdid, */
-        emdcedula:this.localPrueba.emdcedula,
-        emdnombres:this.localPrueba.emdnombres,
-        emdapellidos:this.localPrueba.emdapellidos,
-        emdsexo:this.localPrueba.emdsexo,
-        emdfecnacido:this.localPrueba.emdfecnacido,
-        emdestcivil:this.localPrueba.emdestcivil,
-        emdnivelestudio:this.localPrueba.emdnivelestudio,
-        emdprofesion:this.localPrueba.emdprofesion,
-        emddepartamento:this.localPrueba.emddepartamento,
-        emdciudad:this.localPrueba.emdciudad,
-        emddireccion:this.localPrueba.emddireccion,
-        emdtelefono:this.localPrueba.emdtelefono,
-        emdemail:this.localPrueba.emdemail,
-        emdestracto:this.localPrueba.emdestracto,
-        emdtipovivienda:this.localPrueba.emdtipovivienda,
-        emdpersdepen:this.localPrueba.emdpersdepen,
-        emdempresa:this.localPrueba.emdempresa,
-        emdtiempolab:this.localPrueba.emdtiempolab,
-        emdcargo:this.localPrueba.emdcargo,
-        emdtipodecargo:this.localPrueba.emdtipodecargo,
-        emdtiemcargo:this.localPrueba.emdtiemcargo,
-        emdtipocontrato:this.localPrueba.emdtipocontrato,
-        emdhorasdia:this.localPrueba.emdhorasdia,
-        emdtiposalario:this.localPrueba.emdtiposalario,
-        emdusuarioreg:this.localPrueba.emdusuarioreg,
-        emdipreg:this.localPrueba.emdipreg,
-        emdactivo:this.localPrueba.emdactivo,
-        emdzona:this.localPrueba.emdzona,
-        emdtraciudad:this.localPrueba.emdtraciudad,
-        emdtradepartamento: this.localPrueba.emdtradepartamento
+        /* emdid:this.localEmpleados.emdid, */
+        emdcedula:this.localEmpleados.emdcedula,
+        emdnombres:this.localEmpleados.emdnombres,
+        emdapellidos:this.localEmpleados.emdapellidos,
+        emdsexo:this.localEmpleados.emdsexo,
+        emdfecnacido:this.localEmpleados.emdfecnacido,
+        emdestcivil:this.localEmpleados.emdestcivil,
+        emdnivelestudio:this.localEmpleados.emdnivelestudio,
+        emdprofesion:this.localEmpleados.emdprofesion,
+        emddepartamento:this.localEmpleados.emddepartamento,
+        emdciudad:this.localEmpleados.emdciudad,
+        emddireccion:this.localEmpleados.emddireccion,
+        emdtelefono:this.localEmpleados.emdtelefono,
+        emdemail:this.localEmpleados.emdemail,
+        emdestracto:this.localEmpleados.emdestracto,
+        emdtipovivienda:this.localEmpleados.emdtipovivienda,
+        emdpersdepen:this.localEmpleados.emdpersdepen,
+        emdempresa:this.localEmpleados.emdempresa,
+        emdtiempolab:this.localEmpleados.emdtiempolab,
+        emdcargo:this.localEmpleados.emdcargo,
+        emdtipodecargo:this.localEmpleados.emdtipodecargo,
+        emdtiemcargo:this.localEmpleados.emdtiemcargo,
+        emdtipocontrato:this.localEmpleados.emdtipocontrato,
+        emdhorasdia:this.localEmpleados.emdhorasdia,
+        emdtiposalario:this.localEmpleados.emdtiposalario,
+        emdusuarioreg:this.localEmpleados.emdusuarioreg,
+        emdipreg:this.localEmpleados.emdipreg,
+        emdactivo:this.localEmpleados.emdactivo,
+        emdzona:this.localEmpleados.emdzona,
+        emdtraciudad:this.localEmpleados.emdtraciudad,
+        emdtradepartamento: this.localEmpleados.emdtradepartamento
       });
     }else{
       this.tempEmpresa = this.empresas.find(element => element.empid === this.idEmpresa);
@@ -255,14 +255,13 @@ export class FormEmpleadosComponent implements OnInit {
  onSubmit(){
     if(this.userform.valid){
       
-      if(this.localPrueba !== null){
+      if(this.localEmpleados !== null){
         /*Edición*/
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        this.idd = this.localPrueba.emdid;
+        this.idd = this.localEmpleados.emdid;
         this.empleadosService.updatePrueba(this.userform.value,this.idd).subscribe((data: any) =>{
-
-          localStorage.setItem('prueba',JSON.stringify(data));
+          localStorage.setItem('empEdit',JSON.stringify(data));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
@@ -276,33 +275,53 @@ export class FormEmpleadosComponent implements OnInit {
         /*Creación*/
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        this.empleadosService.createPrueba(this.userform.value).subscribe((data=>{
-
+        this.empleadosService.createPrueba(this.userform.value).subscribe( async data=>{
+          
           localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
-          localStorage.setItem('prueba',JSON.stringify(data));
+          localStorage.setItem('empEdit',JSON.stringify(data));
           this.userformExtra.value.extidempleado = data.emdid;
           this.userformEstres.value.estidempleado = data.emdid;
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
             this.userformFormaA.value.inaidempleado = data.emdid;
             this.userformFormaA.value.inaatencionausuarios = 2;
             this.userformFormaA.value.inasoyjefe = 2;
-            this.formatoAService.createFormatoA(this.userformFormaA.value)
-        .subscribe((data:any)=>{
-        })
+            await this.formatoAService.buscarByFa(data.emdid).toPromise().then((data:any)=>{
+              if (data.length  === 0) {
+                this.formatoAService.createFormatoA(this.userformFormaA.value).subscribe((data:any)=>{});
+              }else{
+                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral A', life: 5000 });
+              }
+            });
+            
           }else{
             this.userformFormaB.value.inbidempleado = data.emdid;
             this.userformFormaB.value.inbatencionausuarios = 2;
-            this.formatoBService.createFormatoB(this.userformFormaB.value)
-            .subscribe((data:any)=>{
+            await  this.formatoBService.buscarByFb(data.emdid).toPromise().then((data:any)=>{
+              if (data.length  === 0) {
+                this.formatoBService.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
+              }else{
+                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral B', life: 5000 });
+              }
             })
+            
           }
-       this.formatoExtraService.createExtra(this.userformExtra.value)
-        .subscribe((data:any)=>{
-        })
-        this.formatoEstresService.createEstres(this.userformEstres.value)
-        .subscribe((data:any)=>{
 
-        })
+          await this.formatoExtraService.buscarExtra(data.emdid).toPromise().then((data:any)=>{
+            if (data.length  === 0) {
+              this.formatoExtraService.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
+            }else{
+              this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Extralaboral', life: 5000 });
+            }
+          });
+
+          await  this.formatoEstresService.buscarByEstres(data.emdid).toPromise().then((data:any)=>{
+            if (data.length  === 0) {
+              this.formatoEstresService.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
+            }else{
+              this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Formulario Estres', life: 5000 });
+            }
+          });
+          
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro creado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
@@ -318,7 +337,7 @@ export class FormEmpleadosComponent implements OnInit {
           }
           
           
-        }))
+        })
       }
       
     }else{
@@ -332,7 +351,7 @@ export class FormEmpleadosComponent implements OnInit {
   async buscarArea(id:number){
  
     this.area =[];
-    if (this.localPrueba !== null) {
+    if (this.localEmpleados !== null) {
       if (id !== null) {
         await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
           this.areas = data;
@@ -344,7 +363,7 @@ export class FormEmpleadosComponent implements OnInit {
           });
         });
         this.userform.patchValue({
-          emdarea: this.localPrueba.emdarea
+          emdarea: this.localEmpleados.emdarea
         });
       }
     }else{
@@ -356,21 +375,24 @@ export class FormEmpleadosComponent implements OnInit {
           });
         }
       });
-      await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
-        this.areas = data;
-        this.areas.map(x=>{
-          this.area.push({
-            label:x.arenombre,
-            value: x.areid
+      if (id !== null) {
+        await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
+          this.areas = data;
+          this.areas.map(x=>{
+            this.area.push({
+              label:x.arenombre,
+              value: x.areid
+            });
           });
+  
+          if (this.areas.length === 1) {
+            this.userform.patchValue({
+              emdarea:this.areas[0].areid
+            });
+          }
         });
-
-        if (this.areas.length === 1) {
-          this.userform.patchValue({
-            emdarea:this.areas[0].areid
-          });
-        }
-      });
+      }
+      
     }
 
 
@@ -392,8 +414,8 @@ export class FormEmpleadosComponent implements OnInit {
   }
 
   numeromax(){
-    if(this.localPrueba !==null){
-      this.nummaxpre = Number(this.localPrueba.emdtiempolab);
+    if(this.localEmpleados !==null){
+      this.nummaxpre = Number(this.localEmpleados.emdtiempolab);
       this.nummax = this.userform.value.emdtiempolab;
       
     }else{

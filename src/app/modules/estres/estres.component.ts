@@ -293,7 +293,7 @@ export class EstresComponent implements OnInit {
   }
 
   salir(){
-    localStorage.removeItem('prueba');
+    localStorage.removeItem('empEdit');
     localStorage.removeItem('IdEmpleado');
     localStorage.removeItem('ForA');
     localStorage.removeItem('ForAA');

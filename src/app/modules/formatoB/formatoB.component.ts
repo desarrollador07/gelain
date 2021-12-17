@@ -39,13 +39,11 @@ export class FormatoBComponent implements OnInit {
                 this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
   }
 
- async ngOnInit() {
+  async ngOnInit() {
    
   this.pruebaservices.getEmpleadoId(this.datosEmpleado).subscribe((data:any)=>{
     this.cedula = data[0].emdcedula;
     this.nombre = data[0].emdnombres + " " +data[0].emdapellidos;
-    console.log("cedula",this.cedula);
-    console.log("nombre",this.nombre);
     
   })
     this.vart=false;
@@ -53,13 +51,10 @@ export class FormatoBComponent implements OnInit {
     this.getFormulario();
 
     await  this.formatoBService.buscarByFb(this.idl).toPromise().then((data:any)=>{
-        console.log('buscando data:',data);
-        this.localPrueba = data[0];
-        console.log('localDataaaa',this.localPrueba);
-        
-      })
 
-      this.getFormulario();
+      this.localPrueba = data[0];
+      
+    })
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione...', value: '' });

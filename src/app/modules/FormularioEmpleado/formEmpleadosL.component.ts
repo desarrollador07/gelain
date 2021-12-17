@@ -37,7 +37,6 @@ export class FormEmpleadosLComponent implements OnInit {
   empresas: Empresa[] = [];
   area: SelectItem[] = [];
   areas: Area[] = [];
-  localPrueba: Empleado = {};
   userform: FormGroup;
   userformFormaA: FormGroup;
   userformFormaB: FormGroup;
@@ -212,44 +211,57 @@ export class FormEmpleadosLComponent implements OnInit {
   onSubmit(){
 
     if(this.userform.valid){
-      // if(this.localPrueba !== null){
-
-      //   let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
-      //   this.userform.value.emdfecnacido = date;
-      //   this.idd = this.localPrueba.emdid;
-      //   this.pruebaservices.updatePrueba(this.userform.value,this.idd)
-      //   .subscribe((data: any) =>{
-      //     localStorage.setItem('prueba',JSON.stringify(data));
-      //     this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-      //     this.userform.reset();
-      //     if (Number(data.emdtipodecargo)==1  || Number(data.emdtipodecargo)==2) {
-      //       this.router.navigate(["/FormularioAL/"+this.idem]);
-      //     }else{
-      //       this.router.navigate(["/FormularioBL/"+this.idem]);
-      //     }
-      //   })
-      // }else{
+    
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        this.empleadosService.createPrueba(this.userform.value).subscribe(data =>{
+        this.empleadosService.createPrueba(this.userform.value).subscribe(async data =>{
 
           localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
-          localStorage.setItem('prueba',JSON.stringify(data));
+          localStorage.setItem('empRegExt',JSON.stringify(data));
           this.userformExtra.value.extidempleado = data.emdid;
           this.userformEstres.value.estidempleado = data.emdid;
+
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
             this.userformFormaA.value.inaidempleado = data.emdid;
             this.userformFormaA.value.inaatencionausuarios = 2;
             this.userformFormaA.value.inasoyjefe = 2;
-            this.formatoAService.createFormatoA(this.userformFormaA.value).subscribe((data:any)=>{});
+            await this.formatoAService.buscarByFa(data.emdid).toPromise().then((data:any)=>{
+              if (data.length  === 0) {
+                this.formatoAService.createFormatoA(this.userformFormaA.value).subscribe((data:any)=>{});
+              }else{
+                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral A', life: 5000 });
+              }
+            });
           }else{
             this.userformFormaB.value.inbidempleado = data.emdid;
             this.userformFormaB.value.inbatencionausuarios = 2;
-            this.formatoBService.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
+            await  this.formatoBService.buscarByFb(data.emdid).toPromise().then((data:any)=>{
+              if (data.length  === 0) {
+                this.formatoBService.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
+              }else{
+                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral B', life: 5000 });
+              }
+            })
+            
           }
-          this.formatoExtraService.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
-          this.formatoEstresService.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+
+          await this.formatoExtraService.buscarExtra(data.emdid).toPromise().then((data:any)=>{
+            if (data.length  === 0) {
+              this.formatoExtraService.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
+            }else{
+              this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Extralaboral', life: 5000 });
+            }
+          });
+
+          await  this.formatoEstresService.buscarByEstres(data.emdid).toPromise().then((data:any)=>{
+            if (data.length  === 0) {
+              this.formatoEstresService.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
+            }else{
+              this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Formulario Estres', life: 5000 });
+            }
+          });
+          
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Creado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
             this.router.navigate(["/FormularioAL/"+this.idem]);
@@ -258,7 +270,6 @@ export class FormEmpleadosLComponent implements OnInit {
           }
           
         });
-      // }
       
     }else{
       this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
