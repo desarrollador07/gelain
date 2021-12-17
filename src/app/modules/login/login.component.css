@@ -201,3 +201,26 @@ button {
     -webkit-transition: background-color 0.3s;
     transition: background-color 0.3s;
 }
+
+.buttonEye {
+    width: 30px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+}
+
+@keyframes ui-progress-spinner-color {
+    100%,
+    0% {
+        stroke: #0057e7;
+    }
+    40% {
+        stroke: #0057e7;
+    }
+    66% {
+        stroke: #008744;
+    }
+    80%,
+    90% {
+        stroke: #ffa700;
+    }
+}

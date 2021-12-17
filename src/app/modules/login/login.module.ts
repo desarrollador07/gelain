@@ -9,18 +9,19 @@ import { ConfirmDialogModule } from "primeng/confirmdialog";
 import { ConfirmationService } from "primeng/api";
 import { MessageService } from "primeng/api";
 import { ToastModule } from "primeng/toast";
+import { ProgressSpinnerModule } from "primeng/primeng";
 
 
 @NgModule({
     declarations: [LoginComponent],
     imports: [
         CommonModule,
-
         MessageModule,
         MessagesModule,
         ConfirmDialogModule,
         ReactiveFormsModule,
         ToastModule,
+        ProgressSpinnerModule
     ],
     providers: [MessageService, ConfirmationService],
 })

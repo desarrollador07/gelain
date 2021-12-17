@@ -6,30 +6,34 @@
             <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="Logo" />
             <form [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginform">
                 <div class="ui-g-12">
-                    <div class="input-wrapper">
+                    <p-progressSpinner *ngIf="loading" [style]="{width: '45px', height: '45px'}" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
+                </div>
+                <div class="ui-g-12">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon" style="margin-top: 6px;margin-bottom: 6px; border-top-left-radius: 10px;border-bottom-left-radius: 10px;"><i class="pi pi-user"></i></span>
                         <input type="text" formControlName="email" placeholder="Usuario" class="ui-inputtext ui-widget">
                     </div>
                 </div>
                 <div class="ui-g-12">
-                    <div class="input-wrapper">
-                        <input type="password" formControlName="password" placeholder="Contraseña" class="ui-inputtext ui-widget">
+                    <div class="ui-inputgroup">
+                        <span class="ui-inputgroup-addon" style="margin-top: 6px;margin-bottom: 6px; border-top-left-radius: 10px;border-bottom-left-radius: 10px;"><i class="pi pi-key"></i></span>
+                        <input type="password" id="pass1" formControlName="password" placeholder="Contraseña" class="ui-inputtext ui-widget">
+                        <button pButton *ngIf="validPass1" type="button" (click)="mostrarContrasena()" icon="pi pi-eye" class="ui-inputtext ui-widget buttonEye"></button>
+                        <button pButton *ngIf="!validPass1" type="button" (click)="mostrarContrasena()" icon="pi pi-eye-slash" class="ui-inputtext ui-widget buttonEye"></button>
                     </div>
                 </div>
                 <div class="ui-grid-row">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-10">
                         <div class="checkbox-container">
-                            <button pButton type="submit" style="border-radius: 10px;" label="Iniciar Sesión"></button>
+                            <button pButton type="submit" icon="fa fa-sign-in" style="border-radius: 10px;" label="Iniciar Sesión"></button>
                         </div>
                     </div>
                     <div class="ui-g-1"></div>
                 </div>
 
-                <div class="separator"></div>
-
-
+                <!-- <div class="separator"></div> -->
                 <!-- <p class="subinfo">V 1.0</p> -->
-
             </form>
 
         </div>

@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
     usuarioR:User = {};
     token:string;
     err:User;
+    validPass1:boolean = true;
+    loading:boolean = false;
 
     constructor(
         private fb: FormBuilder,
@@ -52,6 +54,7 @@ export class LoginComponent implements OnInit {
     }
 
     ingresar() {
+        this.loading = true;
         this.pruebaservices.logIn(this.loginForm.value).then(async(resp: any)=>{
             
             if (resp.Autherror == "Unauthorized") {
@@ -79,9 +82,20 @@ export class LoginComponent implements OnInit {
                     });
                 }
             }
- 
+            this.loading = false;
         }
         );
     
+    }
+
+    mostrarContrasena(){
+        var tipo = <HTMLInputElement>document.getElementById("pass1");
+        if(tipo.type == "password"){
+            tipo.type = "text";
+            this.validPass1 = false;
+        }else{
+            tipo.type = "password";
+            this.validPass1 = true;
+        }
     }
 }

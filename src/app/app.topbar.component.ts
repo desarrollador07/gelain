@@ -71,26 +71,26 @@ export class AppTopBarComponent {
       this.router.navigate(["/login"]);
     }
 
-   async consultaEmpresas(){
-      this.empresa = [];
-      await this.empresaServices.getEmpresa().toPromise().then((data:any) => {
+    async consultaEmpresas(){
+        this.empresa = [];
+        await this.empresaServices.getEmpresa().toPromise().then((data:any) => {
 
-        this.empresas = data;
-        this.empresas.map(x =>{
-          this.empresa.push({
-            label:x.empnombre,
-            value:x.empid
+          this.empresas = data;
+          this.empresas.map(x =>{
+            this.empresa.push({
+              label:x.empnombre,
+              value:x.empid
+            });
           });
+          this.store.dispatch(
+            empresasActions.addEmpresas({ list: data })
+          );
         });
-        this.store.dispatch(
-          empresasActions.addEmpresas({ list: data })
-        );
-      });
 
-      if (this.idEmpresa !== 0) {
-        this.empresaSelect = this.idEmpresa;
-      }
-      this.store.dispatch(empresasActions.selectEmpresa({ id: this.empresaSelect }));
+        if (this.idEmpresa !== 0) {
+          this.empresaSelect = this.idEmpresa;
+        }
+        this.store.dispatch(empresasActions.selectEmpresa({ id: this.empresaSelect }));
     }
 
 }
