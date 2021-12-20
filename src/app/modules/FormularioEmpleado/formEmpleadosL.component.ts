@@ -710,6 +710,7 @@ export class FormEmpleadosLComponent implements OnInit {
   }
 
   cargaSelect(){
+    localStorage.removeItem('IdEmpleado');
     this.estado = [];
     this.estado.push({ label: 'Estado', value: '' });
     this.estado.push({ label: 'Activo', value: '1' });
