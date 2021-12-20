@@ -39,8 +39,8 @@ export class EstresComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private _messageService: MessageService) {  
-                this.datosEmpleado = localStorage.getItem("IdEmpleado");
-                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+                this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
+                this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
   }
 
   async ngOnInit() {
@@ -293,15 +293,15 @@ export class EstresComponent implements OnInit {
   }
 
   salir(){
-    localStorage.removeItem('empEdit');
-    localStorage.removeItem('IdEmpleado');
-    localStorage.removeItem('ForA');
-    localStorage.removeItem('ForAA');
-    localStorage.removeItem('ForB');
-    localStorage.removeItem('Extra');
-    localStorage.removeItem('ExtraE');
-    localStorage.removeItem('estresEs');
-    localStorage.removeItem('estres');
+    sessionStorage.removeItem('empEdit');
+    sessionStorage.removeItem('IdEmpleado');
+    sessionStorage.removeItem('ForA');
+    sessionStorage.removeItem('ForAA');
+    sessionStorage.removeItem('ForB');
+    sessionStorage.removeItem('Extra');
+    sessionStorage.removeItem('ExtraE');
+    sessionStorage.removeItem('estresEs');
+    sessionStorage.removeItem('estres');
   }
 
 }

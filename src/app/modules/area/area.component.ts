@@ -27,7 +27,7 @@ export class AreaComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
+    this.localIDEmp =JSON.parse(sessionStorage.getItem('Idempres'));
     this.indexData();
 
     this.items1 = [
@@ -56,11 +56,11 @@ export class AreaComponent implements OnInit {
       }
 
       editPrueba(cpruebas:Area){
-        localStorage.setItem('prueba',JSON.stringify(cpruebas));
+        sessionStorage.setItem('prueba',JSON.stringify(cpruebas));
       }
     
       newcPrueba(){
-        localStorage.removeItem('prueba');
+        sessionStorage.removeItem('prueba');
       }
 
       indexData(){

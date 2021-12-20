@@ -5,7 +5,6 @@ import { ActivatedRoute, Router } from "@angular/router";
 /*Modulos */
 import { MessageService, SelectItem } from 'primeng/api';
 /*Modelos */
-import { Empleado } from '../../models/empleado.mdel';
 import { Empresa } from '../../models/empresa.model';
 import { Area } from '../../models/area.model';
 /*Servicios */
@@ -64,6 +63,7 @@ export class FormEmpleadosLComponent implements OnInit {
               private datepipe: DatePipe) {  
 
     this.idem = Number(this.route.snapshot.paramMap.get("id"));
+    localStorage.clear();
   }
 
   async ngOnInit() {
@@ -216,8 +216,8 @@ export class FormEmpleadosLComponent implements OnInit {
         this.userform.value.emdfecnacido = date;
         this.empleadosService.createPrueba(this.userform.value).subscribe(async data =>{
 
-          localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
-          localStorage.setItem('empRegExt',JSON.stringify(data));
+          sessionStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
+          sessionStorage.setItem('empRegExt',JSON.stringify(data));
           this.userformExtra.value.extidempleado = data.emdid;
           this.userformEstres.value.estidempleado = data.emdid;
 
@@ -710,7 +710,7 @@ export class FormEmpleadosLComponent implements OnInit {
   }
 
   cargaSelect(){
-    localStorage.removeItem('IdEmpleado');
+    sessionStorage.removeItem('IdEmpleado');
     this.estado = [];
     this.estado.push({ label: 'Estado', value: '' });
     this.estado.push({ label: 'Activo', value: '1' });

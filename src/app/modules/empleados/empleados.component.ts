@@ -67,7 +67,7 @@ export class EmpleadosComponent implements OnInit {
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService,
               private store: Store<AppState>) {
-                this.idEmpresa = localStorage.getItem("idEmpresa");
+                this.idEmpresa = sessionStorage.getItem("idEmpresa");
                 
    }
 
@@ -116,23 +116,23 @@ export class EmpleadosComponent implements OnInit {
   }
 
       editPrueba(cEmpleado:Empleado){
-        localStorage.setItem('empEdit',JSON.stringify(cEmpleado));
-        localStorage.setItem('IdEmpleado',JSON.stringify(cEmpleado.emdid));
+        sessionStorage.setItem('empEdit',JSON.stringify(cEmpleado));
+        sessionStorage.setItem('IdEmpleado',JSON.stringify(cEmpleado.emdid));
         this.formatoAService.buscarByFa(cEmpleado.emdid)
         .subscribe((data:any)=>{
-          localStorage.setItem('ForA',JSON.stringify(data));
+          sessionStorage.setItem('ForA',JSON.stringify(data));
         })
         this.formatoExtraService.buscarExtra(cEmpleado.emdid)
         .subscribe((data:any)=>{
-          localStorage.setItem('Extra',JSON.stringify(data));
+          sessionStorage.setItem('Extra',JSON.stringify(data));
         })
         this.formatoEstresService.buscarByEstres(cEmpleado.emdid)
         .subscribe((data:any)=>{
-          localStorage.setItem('estres',JSON.stringify(data));
+          sessionStorage.setItem('estres',JSON.stringify(data));
         })
         this.formatoBService.buscarByFb(cEmpleado.emdid)
         .subscribe((data:any)=>{
-          localStorage.setItem('ForB',JSON.stringify(data));
+          sessionStorage.setItem('ForB',JSON.stringify(data));
         })
       }
     
@@ -161,14 +161,14 @@ export class EmpleadosComponent implements OnInit {
     }
 
     confirmationForm(){
-      localStorage.removeItem('empEdit');
-      localStorage.removeItem('IdEmpleado');
-      localStorage.removeItem('ForA');
-      localStorage.removeItem('ForAA');
-      localStorage.removeItem('ForB');
-      localStorage.removeItem('Extra');
-      localStorage.removeItem('estres');
-      localStorage.removeItem('estresEs');
+      sessionStorage.removeItem('empEdit');
+      sessionStorage.removeItem('IdEmpleado');
+      sessionStorage.removeItem('ForA');
+      sessionStorage.removeItem('ForAA');
+      sessionStorage.removeItem('ForB');
+      sessionStorage.removeItem('Extra');
+      sessionStorage.removeItem('estres');
+      sessionStorage.removeItem('estresEs');
       this.router.navigate(["/main/addempleado/crear"]);
     }
 

@@ -99,9 +99,9 @@ export class GraficaVfComponent implements OnInit {
               private _messageService: MessageService,
               private datepipe: DatePipe,
               private store: Store<AppState>) {
-                this.idEmpresa = localStorage.getItem('idEmpresa');
-                this.nEmpresa = localStorage.getItem("nombreEmpresa"); 
-                this.usuario = localStorage.getItem("user");  
+                this.idEmpresa = sessionStorage.getItem('idEmpresa');
+                this.nEmpresa = sessionStorage.getItem("nombreEmpresa"); 
+                this.usuario = sessionStorage.getItem("user");  
                }
 
   ngOnInit() {

@@ -61,11 +61,11 @@ export class UsuariosComponent implements OnInit {
   }
 
   editarUser(userForm:UsuariosModel){
-    localStorage.setItem('userForm',JSON.stringify(userForm));
+    sessionStorage.setItem('userForm',JSON.stringify(userForm));
   }
 
   agregarForm(){
-    localStorage.removeItem('userForm');
+    sessionStorage.removeItem('userForm');
     this.router.navigateByUrl("/main/usuarios/form-usuarios");
   }
 

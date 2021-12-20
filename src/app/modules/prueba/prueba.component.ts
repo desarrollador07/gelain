@@ -57,15 +57,15 @@ export class PruebaComponent implements OnInit {
       } 
 
       editEmpresa(emp:Empresa){
-        localStorage.setItem('prueba',JSON.stringify(emp));
-        localStorage.setItem('Idempres',JSON.stringify(emp.empid));
-        localStorage.setItem('pruebaArea',JSON.stringify(emp));
+        sessionStorage.setItem('prueba',JSON.stringify(emp));
+        sessionStorage.setItem('Idempres',JSON.stringify(emp.empid));
+        sessionStorage.setItem('pruebaArea',JSON.stringify(emp));
         
       }
     
       newcPrueba(){
-        localStorage.removeItem('prueba');
-        localStorage.removeItem('Idempres');
+        sessionStorage.removeItem('prueba');
+        sessionStorage.removeItem('Idempres');
       }
 
       indexData(){

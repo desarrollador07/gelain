@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
     }
 
     async ngOnInit() {
+        sessionStorage.clear();
         localStorage.clear();
     }
 
@@ -68,8 +69,8 @@ export class LoginComponent implements OnInit {
 
                 if (resp.access_token !== null ) {
                     this.usuarioR = resp.user;
-                    localStorage.setItem("token",resp.access_token);
-                    localStorage.setItem("user",this.usuarioR.name);
+                    sessionStorage.setItem("token",resp.access_token);
+                    sessionStorage.setItem("user",this.usuarioR.name);
                     
                     this.router.navigate(["/main/dashboard"]);
                 }

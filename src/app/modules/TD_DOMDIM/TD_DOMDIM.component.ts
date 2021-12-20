@@ -233,9 +233,9 @@ total_general2 :any[] = [];
               private datepipe: DatePipe,
               private store: Store<AppState>) {
                 
-                this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
-                this.usuario = localStorage.getItem("user");
-                this.nEmpresa = localStorage.getItem("nombreEmpresa");
+                this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));
+                this.usuario = sessionStorage.getItem("user");
+                this.nEmpresa = sessionStorage.getItem("nombreEmpresa");
                 this.idtemporal = 0;           
    }
 

@@ -35,8 +35,8 @@ export class FormatoBComponent implements OnInit {
   nombre:any;
   constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
-                this.datosEmpleado = localStorage.getItem("IdEmpleado");
-                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+                this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
+                this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
   }
 
   async ngOnInit() {

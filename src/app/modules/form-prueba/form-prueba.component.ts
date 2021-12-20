@@ -56,9 +56,9 @@ export class FormPruebaComponent implements OnInit {
 
   ngOnInit() {
     
-    localStorage.removeItem('IdEmpleado');
+    sessionStorage.removeItem('IdEmpleado');
     let today = new Date();
-    this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
+    this.localIDEmp =JSON.parse(sessionStorage.getItem('Idempres'));
     // this.linkformulario = "http://localhost:4200/#/terminos-condiciones/"+this.localIDEmp;
     // this.linkformulario = "https://gelainbienestarlaboral.com/GELAIN/ng/#/terminos-condiciones/"+this.localIDEmp;
     this.linkformulario = `${this.base_Url}terminos-condiciones/${this.localIDEmp}`;
@@ -78,8 +78,8 @@ export class FormPruebaComponent implements OnInit {
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
     ];
 
-    this.localPruebaA =JSON.parse(localStorage.getItem('pruebaArea'));
-    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
+    this.localPruebaA =JSON.parse(sessionStorage.getItem('pruebaArea'));
+    this.localPrueba =JSON.parse(sessionStorage.getItem('prueba'));
     //console.log('f',this.localPrueba);
 
     this.userform = this.fb.group({
@@ -192,7 +192,7 @@ export class FormPruebaComponent implements OnInit {
         
         this.empresaServices.createEmpresa(this.userform.value)
         .subscribe((data=>{
-          localStorage.setItem('Idempres',JSON.stringify(data.empid));
+          sessionStorage.setItem('Idempres',JSON.stringify(data.empid));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})        
         }));
       }
@@ -206,8 +206,8 @@ export class FormPruebaComponent implements OnInit {
   }
 
   onSubmit2(){
-    this.localIDEmp2 =JSON.parse(localStorage.getItem('Idempres'));
-    this.localIDEmp =JSON.parse(localStorage.getItem('Idempres'));
+    this.localIDEmp2 =JSON.parse(sessionStorage.getItem('Idempres'));
+    this.localIDEmp =JSON.parse(sessionStorage.getItem('Idempres'));
     if(this.userformArea.valid){
 
         this.userformArea.value.areempresa = this.localIDEmp2;
@@ -262,21 +262,21 @@ export class FormPruebaComponent implements OnInit {
     });
   }
   editArea(){
-    localStorage.setItem('Idempres',JSON.stringify(this.localPrueba.empid));
+    sessionStorage.setItem('Idempres',JSON.stringify(this.localPrueba.empid));
   }
 
   editPrueba(cpruebas:Area){
-    localStorage.setItem('prueba',JSON.stringify(cpruebas));
+    sessionStorage.setItem('prueba',JSON.stringify(cpruebas));
   }
 
   newcPrueba(){
-    localStorage.removeItem('prueba');
+    sessionStorage.removeItem('prueba');
   }
 
   SalirPrueba(){
-    localStorage.removeItem('prueba');
-    localStorage.removeItem('pruebaArea');
-    localStorage.removeItem('Idempres');
+    sessionStorage.removeItem('prueba');
+    sessionStorage.removeItem('pruebaArea');
+    sessionStorage.removeItem('Idempres');
   }
 
   indexData(){

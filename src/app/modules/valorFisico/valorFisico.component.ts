@@ -52,7 +52,7 @@ export class ValorfisicoComponent implements OnInit {
               private _confirmationServices: ConfirmationService,
               private datepipe: DatePipe,
               private store: Store<AppState>) {
-               this.idEmpresa = localStorage.getItem('idEmpresa');   
+               this.idEmpresa = sessionStorage.getItem('idEmpresa');   
   }
 
   async ngOnInit() {
@@ -76,19 +76,19 @@ export class ValorfisicoComponent implements OnInit {
   }
   /*Agrega el objeto selecionado de VF */
   editPrueba(vfData:ValorFisico){
-    localStorage.setItem('valorFisico',JSON.stringify(vfData));
+    sessionStorage.setItem('valorFisico',JSON.stringify(vfData));
   }
-  /*Remover items del localStorage */
+  /*Remover items del sessionStorage */
   newcPrueba(){
-    localStorage.removeItem('valorFisico');
-    localStorage.removeItem('prueba');
-    localStorage.removeItem('IdEmpleado');
-    localStorage.removeItem('ForA');
-    localStorage.removeItem('ForAA');
-    localStorage.removeItem('ForB');
-    localStorage.removeItem('Extra');
-    localStorage.removeItem('estres');
-    localStorage.removeItem('estresEs');
+    sessionStorage.removeItem('valorFisico');
+    sessionStorage.removeItem('prueba');
+    sessionStorage.removeItem('IdEmpleado');
+    sessionStorage.removeItem('ForA');
+    sessionStorage.removeItem('ForAA');
+    sessionStorage.removeItem('ForB');
+    sessionStorage.removeItem('Extra');
+    sessionStorage.removeItem('estres');
+    sessionStorage.removeItem('estresEs');
   }
   /*Consulta los registros de la valoración física */
   async indexData(id:number){

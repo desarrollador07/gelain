@@ -39,7 +39,7 @@ export class ExtralaboralComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private _messageService: MessageService) {  
-                this.datosEmpleado = localStorage.getItem("IdEmpleado");
+                this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
   }
 
   async ngOnInit() {
@@ -90,7 +90,7 @@ export class ExtralaboralComponent implements OnInit {
     })
 
 
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
     
     await this.formatoExtraService.buscarExtra((this.idl)).toPromise().then((data:any)=>{
         this.localPrueba = data[0];   
@@ -277,7 +277,7 @@ export class ExtralaboralComponent implements OnInit {
   }
 
   volver(){
-    this.localvalidaEmple = JSON.parse(localStorage.getItem('empEdit'));
+    this.localvalidaEmple = JSON.parse(sessionStorage.getItem('empEdit'));
     if (Number(this.localvalidaEmple.emdtipodecargo) == 1 || Number(this.localvalidaEmple.emdtipodecargo) == 2) {
       this.router.navigate(['/main/addFormatoA/editar']);
     }else{

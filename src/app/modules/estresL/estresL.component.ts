@@ -79,7 +79,7 @@ export class EstresLComponent implements OnInit {
 
     })
 
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
     await  this.formatoEstresService.buscarByEstres(this.idl).toPromise().then((data:any)=>{
         this.localPrueba = data[0];
     });
@@ -270,15 +270,15 @@ export class EstresLComponent implements OnInit {
   }
 
   salir(){
-    localStorage.removeItem('empRegExt');
-    localStorage.removeItem('IdEmpleado');
-    localStorage.removeItem('ForA');
-    localStorage.removeItem('ForAA');
-    localStorage.removeItem('ForB');
-    localStorage.removeItem('Extra');
-    localStorage.removeItem('ExtraE');
-    localStorage.removeItem('estresEs');
-    localStorage.removeItem('estres');
+    sessionStorage.removeItem('empRegExt');
+    sessionStorage.removeItem('IdEmpleado');
+    sessionStorage.removeItem('ForA');
+    sessionStorage.removeItem('ForAA');
+    sessionStorage.removeItem('ForB');
+    sessionStorage.removeItem('Extra');
+    sessionStorage.removeItem('ExtraE');
+    sessionStorage.removeItem('estresEs');
+    sessionStorage.removeItem('estres');
   }
 
   volver(){

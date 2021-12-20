@@ -39,6 +39,7 @@ export class FormatoALComponent implements OnInit {
               private route: ActivatedRoute,
               private _messageService: MessageService) {
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));  
+                localStorage.clear();
   }
 
  async ngOnInit() {
@@ -181,9 +182,11 @@ export class FormatoALComponent implements OnInit {
     })
     
 
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
     await  this.formatoAService.buscarByFa(this.idl).toPromise().then((data:any)=>{
         this.localPrueba = data[0]; 
+        console.log("LOCAL", this.localPrueba);
+        
     });
 
 
@@ -682,7 +685,7 @@ export class FormatoALComponent implements OnInit {
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.inaid;
           this.formatoAService.updateFormatoA(this.userform.value,this.idd).subscribe((data: any) =>{
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             setTimeout(() => {
               this.router.navigate(["/ExtralaboralL"]);

@@ -29,13 +29,13 @@ export class FormValorRiesgoComponent implements OnInit {
               private router: Router,
               private _messageService: MessageService,
               private datepipe: DatePipe) { 
-                this.idEmpresa = Number(localStorage.getItem('idEmpresa')); 
-                this.userMod = localStorage.getItem('user');
+                this.idEmpresa = Number(sessionStorage.getItem('idEmpresa')); 
+                this.userMod = sessionStorage.getItem('user');
                 this.fechaActual = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
               }
 
   ngOnInit() {
-    this.localVR = JSON.parse(localStorage.getItem('valorRiesgo'));  
+    this.localVR = JSON.parse(sessionStorage.getItem('valorRiesgo'));  
     this.formulario();
     /*Carga los datos en el modo editar para el formulario */
     this.modoEdicion();

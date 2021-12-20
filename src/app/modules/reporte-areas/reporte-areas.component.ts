@@ -20,7 +20,7 @@ export class ReporteAreasComponent implements OnInit {
   
   constructor(private pruebaServices:PruebaService,
               private store: Store<AppState>) { 
-    this.idEmpresa = localStorage.getItem("idEmpresa");
+    this.idEmpresa = sessionStorage.getItem("idEmpresa");
   }
 
   async ngOnInit() {

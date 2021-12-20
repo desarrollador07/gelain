@@ -6,21 +6,21 @@ export function hydrationMetaReducer (
 ): ActionReducer<AppState>  {
     return (state, action) => {
         if (action.type === INIT) {
-            const storageValue = localStorage.getItem("state");
+            const storageValue = sessionStorage.getItem("state");
             if (storageValue) {
                 try {
                     return JSON.parse(storageValue);
                 } catch {
-                    localStorage.removeItem("state");
+                    sessionStorage.removeItem("state");
                 }
             }
         }
         const nextState = reducer(state, action);
-        const bandera = localStorage.getItem("idEmpresa");
+        const bandera = sessionStorage.getItem("idEmpresa");
         if (bandera === "0") {
-            localStorage.removeItem("state");
+            sessionStorage.removeItem("state");
         } else {
-            localStorage.setItem("state", JSON.stringify(nextState));
+            sessionStorage.setItem("state", JSON.stringify(nextState));
             return nextState;
         } 
     };

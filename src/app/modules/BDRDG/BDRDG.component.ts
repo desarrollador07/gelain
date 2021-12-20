@@ -71,7 +71,7 @@ export class BDRDGComponent implements OnInit {
               private datepipe: DatePipe,
               private _messageService: MessageService,
               private store: Store<AppState>) {
-                this.idEmpresa = localStorage.getItem("idEmpresa");
+                this.idEmpresa = sessionStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
                 this.image.src = "https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg";      
    }

@@ -36,13 +36,13 @@ export class AppTopBarComponent {
                 private store: Store<AppState>,
                 private empresaServices: EmpresaService) {
 
-      this.nombre = localStorage.getItem("user");
-      this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
-       if (localStorage.getItem("user")==="LINA") {
+      this.nombre = sessionStorage.getItem("user");
+      this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));
+       if (sessionStorage.getItem("user")==="LINA") {
         this.imagenfin = this.imagen1;
-      } else if (localStorage.getItem("user")==="JENNIFER") {
+      } else if (sessionStorage.getItem("user")==="JENNIFER") {
         this.imagenfin = this.imagen2;
-      }else if(localStorage.getItem("user")==="MONICA"){
+      }else if(sessionStorage.getItem("user")==="MONICA"){
         this.imagenfin = this.imagen3;
       }else{
         this.imagenfin = this.imagenDefecto;
@@ -60,14 +60,14 @@ export class AppTopBarComponent {
 
       this.store.dispatch(empresasActions.selectEmpresa({ id: parseInt(this.empresaSelect) }));
       let select = this.empresa.find(el => el.value == this.empresaSelect);
-      localStorage.setItem("nombreEmpresa",select.label);
-      localStorage.setItem('idEmpresa', this.empresaSelect);
+      sessionStorage.setItem("nombreEmpresa",select.label);
+      sessionStorage.setItem('idEmpresa', this.empresaSelect);
       // this.router.navigate(["main/dashboard"]);
 
     }
 
     salir(){
-      localStorage.clear();
+      sessionStorage.clear();
       this.router.navigate(["/login"]);
     }
 

@@ -34,24 +34,12 @@ export class FormatoBLComponent implements OnInit {
   constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id")); 
-                this.forrr =JSON.parse(localStorage.getItem('ForB'));
-                this.forrrB =JSON.parse(localStorage.getItem('ForBB'));
                 
-            if (this.forrr !== null) {
-              
-              this.localPrueba = this.forrr[0];
-            }if (this.forrrB !== null) {
-              this.forrr = [];
-              this.localPrueba = this.forrrB;
-            }
-            if(this.forrr == null && this.forrrB == null){
-              
-              this.localPrueba = null;
-            }
-                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+                this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
+                localStorage.clear();
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.vart=false;
 
     this.userform = this.fb.group({
@@ -157,6 +145,11 @@ export class FormatoBLComponent implements OnInit {
       inbexigedolorosas :[''],
       inbexpretristeza :[''] 
 
+    })
+
+
+    await  this.formatoBService.buscarByFb(this.idl).toPromise().then((data:any)=>{
+      this.localPrueba = data[0]; 
     })
 
     this.a1 = [];
@@ -562,70 +555,24 @@ export class FormatoBLComponent implements OnInit {
 
 
   onSubmit(){
-    if(this.userform.valid){       
-     if(this.localPrueba !== null){
- 
-       if(this.forrr.length !== 0  || this.forrr !== null){
-                 
-       console.log("voy a actualizar");
-       this.idd = this.localPrueba.inbid;
-       this.formatoBService.updateFormatoB(this.userform.value,this.idd)
-       .subscribe((data: any) =>{
-         this.formatoBService.buscarByFb(this.localPrueba.inbidempleado)
-         .subscribe((data:any)=>{
-           localStorage.setItem('ForB',JSON.stringify(data));
-         })
-         this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-         this.userform.reset();
-         console.log("idd",this.idd);
-         
+    if(this.userform.valid){  
 
-         this.router.navigate(["/ExtralaboralL"]);
-       })
-       }
-       if (this.forrrB !== null) {
-        console.log("voy a actualizarA");
+      if(this.localPrueba !== null){
+ 
         this.idd = this.localPrueba.inbid;
-        this.formatoBService.updateFormatoB(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-          this.formatoBService.buscarByFb(this.localPrueba.inbidempleado)
-        .subscribe((data:any)=>{
-          localStorage.setItem('ForB',JSON.stringify(data));
-          localStorage.removeItem('ForBB');
-        })
+        this.formatoBService.updateFormatoB(this.userform.value,this.idd).subscribe((data: any) =>{
+          this.formatoBService.buscarByFb(this.localPrueba.inbidempleado).subscribe((data:any)=>{
+            sessionStorage.setItem('ForB',JSON.stringify(data));
+          })
 
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
-          console.log("idd",this.idd);
-          
-
-          this.router.navigate(["/ExtralaboralL"]);
+          setTimeout(() => {
+            this.router.navigate(["/ExtralaboralL"]);
+          }, 1000); 
         })
       }
        
-/*        else{
-         console.log("voy a crear");
-         this.pruebaservices.createFormatoB(this.userform.value)
-         .subscribe((data=>{
-           console.log(data);
-           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-           this.userform.reset();
-           this.router.navigate(["/main/addExtralaboral/crear"]);
-           
-         }))
-       } */
-
-     }else{
-       this.formatoBService.createFormatoB(this.userform.value)
-       .subscribe((data=>{
-        localStorage.setItem('ForBB',JSON.stringify(data));
-         this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
-         this.userform.reset();
-         this.router.navigate(["/ExtralaboralL"]);
-         
-       }));
-     }
-     
    }else{
      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
      this.userform.reset();

@@ -36,8 +36,8 @@ export class FormAreaComponent implements OnInit {
 
   ngOnInit() {
     let today = new Date();
-    this.localPrueba =JSON.parse(localStorage.getItem('prueba'));
-    this.localIDEmp =JSON.parse(localStorage.getItem('idempre'));
+    this.localPrueba =JSON.parse(sessionStorage.getItem('prueba'));
+    this.localIDEmp =JSON.parse(sessionStorage.getItem('idempre'));
     console.log('f',this.localPrueba);
 
 

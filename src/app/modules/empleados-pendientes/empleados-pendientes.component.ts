@@ -29,7 +29,7 @@ export class EmpleadosPendientesComponent implements OnInit {
   ];
   constructor(private epService: EmpleadosPendientesService,
               private store: Store<AppState>) { 
-    this.idEmpresa = Number(localStorage.getItem("idEmpresa"));
+    this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));
   }
 
   async ngOnInit() {

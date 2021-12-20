@@ -37,6 +37,7 @@ export class ExtralaboralLComponent implements OnInit {
               private route: ActivatedRoute,
               private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));  
+                localStorage.clear();
 
   }
 
@@ -84,7 +85,7 @@ export class ExtralaboralLComponent implements OnInit {
     })
 
     
-    this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+    this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
     console.log(this.idl);
     
     await this.formatoExtraService.buscarExtra((this.idl)).toPromise().then((data:any)=>{
@@ -275,7 +276,7 @@ export class ExtralaboralLComponent implements OnInit {
   }
 
   volver(){
-  this.localvalidaEmple = JSON.parse(localStorage.getItem('empRegExt'));
+  this.localvalidaEmple = JSON.parse(sessionStorage.getItem('empRegExt'));
   if (Number(this.localvalidaEmple.emdtipodecargo) == 1 || Number(this.localvalidaEmple.emdtipodecargo) == 2) {
     this.router.navigate(["FormularioAL/"+this.idem]);
   }else{

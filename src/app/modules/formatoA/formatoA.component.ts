@@ -41,8 +41,8 @@ export class FormatoAComponent implements OnInit {
               private router: Router,
               private route: ActivatedRoute,
               private _messageService: MessageService) {
-                this.datosEmpleado = localStorage.getItem("IdEmpleado");
-                this.idl =JSON.parse(localStorage.getItem('IdEmpleado'));
+                this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
+                this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
 
   }
 

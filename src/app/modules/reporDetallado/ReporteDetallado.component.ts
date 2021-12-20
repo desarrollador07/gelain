@@ -45,7 +45,7 @@ export class ReporteDetalladoComponent implements OnInit {
               private _messageService: MessageService,
               private store: Store<AppState>
               ) {
-                this.idEmpresa = Number(localStorage.getItem("idEmpresa"));   
+                this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));   
    }
 
   async ngOnInit() {

@@ -48,7 +48,7 @@ export class ValorRiesgoComponent implements OnInit {
               private datepipe: DatePipe,
               private _confirmationServices: ConfirmationService,
               private store: Store<AppState>) {
-               this.idEmpresa = localStorage.getItem('idEmpresa');   
+               this.idEmpresa = sessionStorage.getItem('idEmpresa');   
   }
 
   async ngOnInit() {
@@ -72,19 +72,19 @@ export class ValorRiesgoComponent implements OnInit {
   }
   /*Agrega el objeto selecionado de VF */
   editPrueba(vrData:ValorRiesgoModel){
-    localStorage.setItem('valorRiesgo',JSON.stringify(vrData));
+    sessionStorage.setItem('valorRiesgo',JSON.stringify(vrData));
   }
-  /*Remover items del localStorage */
+  /*Remover items del sessionStorage */
   newVR(){
-    localStorage.removeItem('valorRiesgo');
-    localStorage.removeItem('prueba');
-    localStorage.removeItem('IdEmpleado');
-    localStorage.removeItem('ForA');
-    localStorage.removeItem('ForAA');
-    localStorage.removeItem('ForB');
-    localStorage.removeItem('Extra');
-    localStorage.removeItem('estres');
-    localStorage.removeItem('estresEs');
+    sessionStorage.removeItem('valorRiesgo');
+    sessionStorage.removeItem('prueba');
+    sessionStorage.removeItem('IdEmpleado');
+    sessionStorage.removeItem('ForA');
+    sessionStorage.removeItem('ForAA');
+    sessionStorage.removeItem('ForB');
+    sessionStorage.removeItem('Extra');
+    sessionStorage.removeItem('estres');
+    sessionStorage.removeItem('estresEs');
   }
   /*Consulta los registros de la valoración Riesgos */
   async indexData(id:number){

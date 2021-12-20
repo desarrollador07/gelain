@@ -69,8 +69,8 @@ export class FormEmpleadosComponent implements OnInit {
               private _messageService: MessageService,
               private datepipe: DatePipe) { 
     this.id = Number(this.route.snapshot.paramMap.get("id"));  
-    this.nombre = localStorage.getItem("user");
-    this.idEmpresa = Number(localStorage.getItem('idEmpresa'));
+    this.nombre = sessionStorage.getItem("user");
+    this.idEmpresa = Number(sessionStorage.getItem('idEmpresa'));
   }
 
   async ngOnInit() {
@@ -86,7 +86,7 @@ export class FormEmpleadosComponent implements OnInit {
     /*Formulario Estres */
     this.formEstres();
 
-    this.localEmpleados =JSON.parse(localStorage.getItem('empEdit'));
+    this.localEmpleados =JSON.parse(sessionStorage.getItem('empEdit'));
  
     /*Consultar empresas */
     await this.consultarEmpresas();
@@ -261,7 +261,7 @@ export class FormEmpleadosComponent implements OnInit {
         this.userform.value.emdfecnacido = date;
         this.idd = this.localEmpleados.emdid;
         this.empleadosService.updatePrueba(this.userform.value,this.idd).subscribe((data: any) =>{
-          localStorage.setItem('empEdit',JSON.stringify(data));
+          sessionStorage.setItem('empEdit',JSON.stringify(data));
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
           this.userform.reset();
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
@@ -277,8 +277,8 @@ export class FormEmpleadosComponent implements OnInit {
         this.userform.value.emdfecnacido = date;
         this.empleadosService.createPrueba(this.userform.value).subscribe( async data=>{
           
-          localStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
-          localStorage.setItem('empEdit',JSON.stringify(data));
+          sessionStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
+          sessionStorage.setItem('empEdit',JSON.stringify(data));
           this.userformExtra.value.extidempleado = data.emdid;
           this.userformEstres.value.estidempleado = data.emdid;
           if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {

@@ -78,7 +78,7 @@ export class FormValorFisicoComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.localPrueba = JSON.parse(localStorage.getItem('valorFisico'));
+    this.localPrueba = JSON.parse(sessionStorage.getItem('valorFisico'));
     this.formulario();
     this.selectData();
     
