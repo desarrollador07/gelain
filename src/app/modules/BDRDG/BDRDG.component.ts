@@ -193,15 +193,7 @@ export class BDRDGComponent implements OnInit {
       let fecha:Date;
       
       for(let car of this.pruebas) {
-        /* this.pruebaServices.buscarByAreaExpecifica(car.emdempresa,car.emdarea).toPromise().then((data:any)=>{
-          console.log(data);
-          this.areaExp = data[0];
-          this.nombre = this.areaExp.arenombre;
-          console.log(this.nombre);
-          
-      }) */
           car.emdnombres = car.emdnombres.toUpperCase()+" "+car.emdapellidos.toUpperCase();
-          console.log("car.emdnombres",car.emdnombres);
           
           fecha = new Date(car.emdfecnacido);
           var year = fecha.getFullYear();
