@@ -12,13 +12,25 @@
                 </div>
             </div>
             <fieldset>
-                <legend><b>Datos generales</b></legend>
+                <legend><b>Área a valorar</b></legend>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                            <p-dropdown [options]="area" formControlName="idparea" [showClear]="true" placeholder="Áreas"></p-dropdown>
+                        </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                </div>
+            </fieldset>
+            <br>
+            <fieldset>
+                <legend><b>Lider de Zona</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
                           <input formControlName="idpcedula" type="text" pInputText> 
                           <label for="float-input" style="font-size: 15px; ">Cedula</label>     
-                      </span>
+                        </span>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -79,25 +91,12 @@
                       </span>
                     </div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
-                        <span class="ui-float-label">
-                          <p-dropdown [options]="area" formControlName="idparea" [showClear]="true" placeholder="Areas"></p-dropdown>
-                      </span>
-                    </div>
-                    <div class="ui-g-1"></div>
-                    <!-- <div class="ui-g-3">
-                        <span class="ui-float-label">
-                          <input  formControlName="idpampliarobservac" type="text" pInputText style="text-transform: uppercase;"> 
-                          <label for="float-input" style="font-size: 15px; ">idpampliarobservac</label>
-                      </span>
-                    </div> -->
-                </div>
+
             </fieldset>
             <br>
             <p-panel header="FACTORES DE RIESGO">
-                <fieldset>
-                    <legend><b>BIOLÓGICO - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid green;">
+                    <legend style="background-color: green;"><b>BIOLÓGICO - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
@@ -105,10 +104,14 @@
                                 <p-tabPanel header="DERIVADOS DE ORIGEN ANIMAL">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">DERIVADOS DE ORIGEN ANIMAL</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                               <input formControlName="idpbioderani_efectos" type="text" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
+                                              <label for="float-input" style="font-size: 15px;color: black; ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-3">
@@ -192,6 +195,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="MICROORGANISMOS TIPO HONGO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">MICROORGANISMOS TIPO HONGO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -283,6 +290,10 @@
                                 <p-tabPanel header="MICROORGANISMOS TIPO BACTERIAS">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">MICROORGANISMOS TIPO BACTERIAS</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                               <input formControlName="idpbiobacterias_efectos" type="text" pInputText> 
@@ -372,6 +383,10 @@
                                 <p-tabPanel header="MICROORGANISMOS TIPO VIRUS">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">MICROORGANISMOS TIPO VIRUS</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpbiovirus_efectos" type="text" pInputText> 
@@ -459,6 +474,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="PARÁSITOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">PARÁSITOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -552,13 +571,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>CARGA FÍSICA - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #E7B80E">
+                    <legend style="background-color: #E7B80E;"><b>CARGA FÍSICA - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="CARGA DINÁMICA POR ESFUERZOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CARGA DINÁMICA POR ESFUERZOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -650,6 +673,10 @@
                                 <p-tabPanel header="CARGA DINÁMICA POR MOVIMIENTOS REPETITIVOS">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CARGA DINÁMICA POR MOVIMIENTOS REPETITIVOS</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpcargmovimiento_efectos" type="text" pInputText> 
@@ -737,6 +764,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="CARGA DINÁMICA POR SOBREESFUERZOS DE LA VOZ">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CARGA DINÁMICA POR SOBREESFUERZOS DE LA VOZ</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -828,6 +859,10 @@
                                 <p-tabPanel header="CARGA ESTÁTICA DE PIE">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CARGA ESTÁTICA DE PIE</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                           <input formControlName="idpcargpie_efectos" type="text" pInputText> 
@@ -915,6 +950,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="POSICIONES PROLONGADAS SENTADO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">POSICIONES PROLONGADAS SENTADO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -1008,13 +1047,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>ELÉCTRICO - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #F2F507">
+                    <legend style="background-color: #F2F507;"><b>ELÉCTRICO - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="ENERGÍA ELÉCTRICA DE BAJA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ENERGÍA ELÉCTRICA DE BAJA</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -1106,6 +1149,10 @@
                                 <p-tabPanel header="ENERGÍA ELÉCTRICA DE ALTA">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ENERGÍA ELÉCTRICA DE ALTA</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                           <input formControlName="idpelectricoalta_efectos" type="text" pInputText> 
@@ -1193,6 +1240,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="CABLES ELÉCTRICOS EXPUESTOS, ENCINTADOS, TOMACORRIENTES SOBRECARGADOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CABLES ELÉCTRICOS EXPUESTOS, ENCINTADOS, TOMACORRIENTES SOBRECARGADOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -1295,6 +1346,10 @@
                                 <p-tabPanel header="ILUMINACIÓN DEFICIENTE">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ILUMINACIÓN DEFICIENTE</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpfisicoilumdef_efectos" type="text" pInputText> 
@@ -1382,6 +1437,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="ILUMINACIÓN EN EXCESO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ILUMINACIÓN EN EXCESO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -1473,6 +1532,10 @@
                                 <p-tabPanel header="RADIACIONES NO IONIZANTES POR ULTRAVIOLETA">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">RADIACIONES NO IONIZANTES POR ULTRAVIOLETA</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpfisiconoradiaciones_efectos" type="text" pInputText> 
@@ -1560,6 +1623,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="RADIACIONES IONIZANTES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">RADIACIONES IONIZANTES</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -1651,6 +1718,10 @@
                                 <p-tabPanel header="RUIDO">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">RUIDO</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                           <input formControlName="idpfisicoruido_efectos" type="text" pInputText> 
@@ -1738,6 +1809,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="VIBRACIONES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">VIBRACIONES</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -1829,6 +1904,10 @@
                                 <p-tabPanel header="TRANSFERENCIAS DE TEMPERATURAS POR CALOR">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRANSFERENCIAS DE TEMPERATURAS POR CALOR</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                       <input formControlName="idpfisicocalor_efectos" type="text" pInputText> 
@@ -1916,6 +1995,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="TRANSFERENCIAS DE TEMPERATURAS POR FRIO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRANSFERENCIAS DE TEMPERATURAS POR FRIO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2009,13 +2092,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>INCENDIOS / EXPLOSIONES - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #F52707">
+                    <legend style="background-color: #F52707;"><b>INCENDIOS / EXPLOSIONES - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="MATERIALES COMBUSTIBLES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">MATERIALES COMBUSTIBLES</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2107,6 +2194,10 @@
                                 <p-tabPanel header="AUSENCIA DE EQUIPO CONTRA INCENDIO">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">AUSENCIA DE EQUIPO CONTRA INCENDIO</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpincendiosequipo_efectos" type="text" pInputText> 
@@ -2194,6 +2285,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="SUSTANCIAS INFLAMABLES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SUSTANCIAS INFLAMABLES</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2287,13 +2382,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>LOCATIVOS - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #836013">
+                    <legend style="background-color: #836013;"><b>LOCATIVOS - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="PISOS DEFECTUOSOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">PISOS DEFECTUOSOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2385,6 +2484,10 @@
                                 <p-tabPanel header="ESCALERAS DEFECTUOSAS">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ESCALERAS DEFECTUOSAS</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idplocativosescaleras_efectos" type="text" pInputText> 
@@ -2472,6 +2575,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="ALMACENAMIENTO, ESTANTERÍAS EN MAL ESTADO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ALMACENAMIENTO, ESTANTERÍAS EN MAL ESTADO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2563,6 +2670,10 @@
                                 <p-tabPanel header="ALMACENAMIENTO, ARRUMES CON ALTURA INADECUADA">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">ALMACENAMIENTO, ARRUMES CON ALTURA INADECUADA</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                           <input formControlName="idplocativosarrumes_efectos" type="text" pInputText> 
@@ -2652,6 +2763,10 @@
                                 <p-tabPanel header="SEÑALIZACIÓN Y DEMARCACIÓN DEFICIENTE, INEXISTENTE O INADECUADA">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SEÑALIZACIÓN Y DEMARCACIÓN DEFICIENTE, INEXISTENTE O INADECUADA</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                         <input formControlName="idplocativosenalizacion_efectos" type="text" pInputText> 
@@ -2739,6 +2854,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="FALTA DE ORDEN Y ASEO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">FALTA DE ORDEN Y ASEO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2832,13 +2951,18 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>MECÁNICOS - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #4E493E">
+                    <legend style="background-color: #4E493E;"><b>MECÁNICOS - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
+
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="UTILIZACIÓN DE HERRAMIENTAS MANUALES">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">UTILIZACIÓN DE HERRAMIENTAS MANUALES</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -2930,6 +3054,10 @@
                                 <p-tabPanel header="SUPERFICIES CORTANTES">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SUPERFICIES CORTANTES</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpmecanicocortante_efectos" type="text" pInputText> 
@@ -3019,6 +3147,10 @@
                                 <p-tabPanel header="CONTACTO CON ELEMENTOS CORTOPUNZANTES">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CONTACTO CON ELEMENTOS CORTOPUNZANTES</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpmecanicocortopunz_efectos" type="text" pInputText> 
@@ -3106,6 +3238,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="MATERIALES PROYECTADOS SÓLIDOS O FLUIDOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">MATERIALES PROYECTADOS SÓLIDOS O FLUIDOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -3199,13 +3335,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>PSICOSOCIAL - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #8547B3">
+                    <legend style="background-color: #8547B3;"><b>PSICOSOCIAL - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="SOBRECARGA DE TRABAJO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SOBRECARGA DE TRABAJO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -3297,6 +3437,10 @@
                                 <p-tabPanel header="RESPOSANBILIDAD EN EL CARGO / MANEJO DE PERSONAL">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">RESPOSANBILIDAD EN EL CARGO / MANEJO DE PERSONAL</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idppsicoresponsabilidad_efectos" type="text" pInputText> 
@@ -3384,6 +3528,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="TRABAJO REPETITIVO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRABAJO REPETITIVO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -3477,13 +3625,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>PÚBLICOS - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #2BD2D5">
+                    <legend style="background-color: #2BD2D5;"><b>PÚBLICOS - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="SITUACIÓN DE ATRACO O ROBO">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SITUACIÓN DE ATRACO O ROBO</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -3575,6 +3727,10 @@
                                 <p-tabPanel header="TERRORISMO">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TERRORISMO</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idppublicoterrorismo_efectos" type="text" pInputText> 
@@ -3664,6 +3820,10 @@
                                 <p-tabPanel header="SITUACIÓN DE AGRESIÓN FÍSICA">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SITUACIÓN DE AGRESIÓN FÍSICA</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idppublicoagresion_efectos" type="text" pInputText> 
@@ -3751,6 +3911,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="SITUACIÓN DE ASONADA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SITUACIÓN DE ASONADA</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -3844,13 +4008,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>TRANSITO - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #53DA70">
+                    <legend style="background-color: #53DA70;"><b>TRANSITO - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="TRANSPORTE MOTOCICLETA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRANSPORTE MOTOCICLETA</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -3940,6 +4108,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="TRANSPORTE CARRO / AMBULANCIA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRANSPORTE CARRO / AMBULANCIA</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -4033,13 +4205,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>QUÍMICOS - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #E47BC4">
+                    <legend style="background-color: #E47BC4;"><b>QUÍMICOS - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="AEROSOLES, LÍQUIDOS, ROCÍOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">AEROSOLES, LÍQUIDOS, ROCÍOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -4131,6 +4307,10 @@
                                 <p-tabPanel header="GASES Y VAPORES">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">GASES Y VAPORES</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpquimicosgases_efectos" type="text" pInputText> 
@@ -4220,6 +4400,10 @@
                                 <p-tabPanel header="SUSTANCIAS SÓLIDAS (POLVOS)">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">SUSTANCIAS SÓLIDAS (POLVOS)</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idpquimicossustanc_efectos" type="text" pInputText> 
@@ -4307,6 +4491,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="CONTACTO Y/O SALPICADURA DE QUÍMICOS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">CONTACTO Y/O SALPICADURA DE QUÍMICOS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -4400,13 +4588,17 @@
                     </div>
                 </fieldset>
                 <br>
-                <fieldset>
-                    <legend><b>TAREAS DE ALTO RIESGO - INDICADORES DE RIESGO</b></legend>
+                <fieldset style="border: 2px solid #E37A23">
+                    <legend style="background-color: #E37A23;"><b>TAREAS DE ALTO RIESGO - INDICADORES DE RIESGO</b></legend>
                     <div class="ui-g" style="margin-bottom: 10px;">
                         <br>
                         <div class="ui-g-12">
                             <p-tabView>
                                 <p-tabPanel header="TRABAJO EN ALTURAS POR ENCIMA DE 1.50 METROS">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRABAJO EN ALTURAS POR ENCIMA DE 1.50 METROS</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
@@ -4498,6 +4690,10 @@
                                 <p-tabPanel header="TRABAJO EN ESPACIOS CONFINADOS">
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRABAJO EN ESPACIOS CONFINADOS</label>
+                                    </div>
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
                                             <input formControlName="idptareasconfinados_efectos" type="text" pInputText> 
@@ -4585,6 +4781,10 @@
                                     </div>
                                 </p-tabPanel>
                                 <p-tabPanel header="TRABAJO EN CALIENTE CORTE Y SOLDADURA">
+                                    <br>
+                                    <div class="ui-g" style="margin: 10px;">
+                                        <label style="font-weight: bold; font-size: medium;">TRABAJO EN CALIENTE CORTE Y SOLDADURA</label>
+                                    </div>
                                     <br>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">

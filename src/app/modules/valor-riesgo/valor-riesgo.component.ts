@@ -3,7 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
+import { Area } from 'src/app/models/area.model';
 import { ValorRiesgoModel } from 'src/app/models/valor-riesgo.model';
+import { AreasService } from 'src/app/services/areas.service';
 import { ValoracionRiesgosService } from '../../services/valoracion-riesgos.service';
 
 @Component({
@@ -42,10 +44,12 @@ export class ValorRiesgoComponent implements OnInit {
   buscarData:string = '';
   selectBuscar:any = 1;
   id:any;
+  areas: Area[] = [];
 
   constructor(private valoraRiesgoService: ValoracionRiesgosService,
               private _messageService: MessageService,
               private datepipe: DatePipe,
+              private areasServices: AreasService,
               private _confirmationServices: ConfirmationService,
               private store: Store<AppState>) {
                this.idEmpresa = sessionStorage.getItem('idEmpresa');   
@@ -92,6 +96,7 @@ export class ValorRiesgoComponent implements OnInit {
       this.vrData = data;
       
       if (this.vrData.length > 0) {
+        this.asignarNombArea();
         this.makeRowsSameHeight();
         this.loading = false;
       }else{
@@ -127,7 +132,7 @@ export class ValorRiesgoComponent implements OnInit {
 
   datosGenerales(){
     this.frozenCols = [
-      { field: 'idpcedula', header: 'Cédula', width: '180px' }
+      { field: 'idpareanombre', header: 'Area', width: '300px' }
     ];
 
     this.cols = [
@@ -155,6 +160,7 @@ export class ValorRiesgoComponent implements OnInit {
         this.id = this.idEmpresa;
       }
       if (this.id !== undefined && this.id !== null) {
+        await this.buscarArea(this.id);
         await this.indexData(this.id);
       }
      
@@ -201,12 +207,28 @@ export class ValorRiesgoComponent implements OnInit {
     await this.valoraRiesgoService.buscarVRByFechas(id,fechaInicial,fechaFinal).toPromise().then((resp:ValorRiesgoModel[]) => {
       this.vrData = resp;
       this.makeRowsSameHeight();
-
       if (this.vrData.length === 0) {
         this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda.', life: 3000 });
+      }else{
+        this.asignarNombArea();
       }
       this.loading = false;
 
+    });
+  }
+
+  async buscarArea(id:any){
+    await this.areasServices.buscarByArea(id).toPromise().then((data:Area[])=>{
+      this.areas = data;
+    });
+
+  }
+
+  asignarNombArea(){
+    this.vrData.map(resp => {
+      var varTemp: Area[] = [];
+      varTemp = this.areas.filter(area => area.areid === resp.idparea);
+      resp.idpareanombre = varTemp[0].arenombre;
     });
   }
 }

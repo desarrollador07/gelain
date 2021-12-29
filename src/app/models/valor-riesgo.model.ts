@@ -3,6 +3,7 @@ export interface ValorRiesgoModel{
     idpfecha?:string,
     idpempresa?:number,
     idparea?:number,
+    idpareanombre?:string,
     idpsede?:string,
     idphorario?:string,
     idpelemntoprot?:string,
