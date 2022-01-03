@@ -172,7 +172,7 @@ export class BDRDGComponent implements OnInit {
           const worksheet = xlsx.utils.json_to_sheet(this.getCars());
           const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
           const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-          this.saveAsExcelFile(excelBuffer, "EMPLEADOS");
+          this.saveAsExcelFile(excelBuffer,`EMPLEADOS_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
       });
   }
 

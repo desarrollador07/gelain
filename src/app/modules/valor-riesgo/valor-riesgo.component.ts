@@ -237,7 +237,7 @@ export class ValorRiesgoComponent implements OnInit {
         const worksheet = xlsx.utils.json_to_sheet(this.getCars());
         const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
         const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-        this.saveAsExcelFile(excelBuffer, "VR");
+        this.saveAsExcelFile(excelBuffer, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
     });
   }
 
@@ -254,9 +254,6 @@ export class ValorRiesgoComponent implements OnInit {
 
   getCars() {
     let arrFinal :any;
-
-    console.log("ARRAY DATA", this.vrData);
-    
     arrFinal = this.vrData.map( resp => { 
       return {
         'EMPRESA': sessionStorage.getItem('nombreEmpresa'),

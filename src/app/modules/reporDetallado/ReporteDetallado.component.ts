@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/primeng';
 import { ReporteDetallado } from '../../models/reporteDetallado';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class ReporteDetalladoComponent implements OnInit {
   buscarData:string;
   selectReporte: any;
   loading:boolean = true;
+  fechafinal: Date;
   rdSelect = [
     {label:'Seleccione Una Opción', value:null},
     {label:'Cédula', value:1},
@@ -43,9 +45,11 @@ export class ReporteDetalladoComponent implements OnInit {
 
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
+              private datepipe: DatePipe,
               private store: Store<AppState>
               ) {
-                this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));   
+                this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));  
+                this.fechafinal = new Date() 
    }
 
   async ngOnInit() {
@@ -84,7 +88,7 @@ export class ReporteDetalladoComponent implements OnInit {
           const worksheet = xlsx.utils.json_to_sheet(this.reporteDetalladoEmpleado());
           const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
           const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-          this.saveAsExcelFile(excelBuffer, "EMPLEADOS");
+          this.saveAsExcelFile(excelBuffer, `EMPLEADOS_RD_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
       });
   }
 
