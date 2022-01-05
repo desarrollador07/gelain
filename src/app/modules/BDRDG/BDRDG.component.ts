@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 /*Modulos */
-import { SelectItem, MenuItem, MessageService } from 'primeng/api';
+import { SelectItem, MenuItem, MessageService, Message } from 'primeng/api';
 /*Modelos */
 import { Empleado } from '../../models/empleado.mdel';
 import { Empresa } from 'src/app/models/empresa.model';
@@ -34,6 +34,7 @@ export class BDRDGComponent implements OnInit {
   areas: Area[] = [];
   columns: any[];
   nombre:any;
+  msgs: Message[] = [];
   id:any;
   image = new Image();
   loading:boolean = true;
@@ -90,7 +91,13 @@ export class BDRDGComponent implements OnInit {
         this.id = this.idEmpresa;
       }
       if (this.id !== undefined && this.id !== null) {
+        this.limpiarData();
         await this.consultaEmpleados(this.id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo();
       }
      
     });
@@ -332,6 +339,16 @@ export class BDRDGComponent implements OnInit {
       this.loading = false;
 
     });
+  }
+
+  /*Mensaje Informativo cuando esta seleccionada la empresa */
+  showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
+
+  limpiarData(){
+    this.msgs = [];
   }
 
 

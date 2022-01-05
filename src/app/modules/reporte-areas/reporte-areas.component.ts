@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Message } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
 /*Servicios */
 import { PruebaService } from 'src/app/services/prueba.service';
@@ -17,6 +18,7 @@ export class ReporteAreasComponent implements OnInit {
   sales9: any[] = [];/*Data de la tabla de Reporte Áreas con los datos procesados */
   idEmpresa:any;
   data: any;
+  msgs: Message[] = [];
   
   constructor(private pruebaServices:PruebaService,
               private store: Store<AppState>) { 
@@ -33,8 +35,13 @@ export class ReporteAreasComponent implements OnInit {
       }
       this.limpiarData();
       if (id !== undefined && id !== null) {
+        this.msgs = [];
       /*Consulta reporte áreas */
       await this.fnConsultarReporteAreas(id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.showInfo();
       }
     });
     
@@ -160,4 +167,11 @@ export class ReporteAreasComponent implements OnInit {
     }
     return "#" + coolor;
   }
+
+   /*Mensaje Informativo cuando esta seleccionada la empresa */
+   showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
+
 }

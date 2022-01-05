@@ -6,6 +6,7 @@ import { DatePipe } from '@angular/common';
 import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
+import { Message } from 'primeng/api';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class TD_DOMDIMComponent implements OnInit {
   idtemporal:any;
   nEmpresa:any;
   usuario:any;
-
+  msgs: Message[] = [];
   sales: any[] = [];
   sales2: any[] = [];
   sales3: any[] = [];
@@ -265,6 +266,7 @@ total_general2 :any[] = [];
       this.limpiarData();
 
       if (id !== undefined && id !== null) {
+        this.msgs = [];
         await this.fnBuscarCatalogos(id);
         await this.fnBuscarCatalogosControl(id);
         await this.fnBuscarCatalogosDemandas(id);
@@ -273,6 +275,10 @@ total_general2 :any[] = [];
         await this.fnBuscarCatalogosPsicoEstresDetalles(id);
         await this.fnBuscarCatalogosTotal(id);
         await this.metodo(id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.showInfo();
       }
      
     });
@@ -1134,5 +1140,10 @@ total_general2 :any[] = [];
     this.dataDona= [];
   }
   
+  /*Mensaje Informativo cuando esta seleccionada la empresa */
+  showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
 
 }

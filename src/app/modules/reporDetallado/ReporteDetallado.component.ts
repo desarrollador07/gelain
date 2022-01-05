@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 /*Modulos */
-import { MessageService } from 'primeng/primeng';
+import { Message, MessageService } from 'primeng/primeng';
 /*Modelos */
 import { ReporteDetallado } from '../../models/reporteDetallado';
 /*Servicios */
@@ -23,6 +23,7 @@ export class ReporteDetalladoComponent implements OnInit {
   buscarData:string;
   selectReporte: any;
   loading:boolean = true;
+  msgs: Message[] = [];
   fechafinal: Date;
   rdSelect = [
     {label:'Seleccione Una Opción', value:null},
@@ -62,8 +63,14 @@ export class ReporteDetalladoComponent implements OnInit {
         id = this.idEmpresa;
       }
       if (id !== undefined && id !== null) {
+        this.limpiarData();
       /*Consulta de reportes por empleado */
       await this.consultarReportes(id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo();
       }
     });
     
@@ -275,6 +282,14 @@ export class ReporteDetalladoComponent implements OnInit {
      
   }
 
+   /*Mensaje Informativo cuando esta seleccionada la empresa */
+   showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
 
+  limpiarData(){
+    this.msgs = [];
+  }
 
 }

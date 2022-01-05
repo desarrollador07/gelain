@@ -747,6 +747,12 @@ export class GraficaVfComponent implements OnInit {
     this.msgs = [];
     this.msgs.push({severity:'info', summary:'Info', detail:'LA EMPRESA SELECCIONADA NO CUENTA CON REGISTROS EN ESTE MOMENTO EN LA TABLA DE VALORACIÓN FÍSICA.'});
   }
+
+  /*Mensaje Informativo cuando esta seleccionada la empresa */
+  showInfo2() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
   /*Consulta los datos en el store cuando se cambia de empresa en el desplegable principal */
   consultaStore(){
     this.store.select('empresas').subscribe(async res=>{
@@ -758,7 +764,13 @@ export class GraficaVfComponent implements OnInit {
       }
       if (this.id !== undefined && this.id !== null) {
         this.loading = false;
+        this.msgs = [];
         await this.consultaVF(this.id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo2();
       }
     });
   }

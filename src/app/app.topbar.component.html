@@ -13,7 +13,12 @@
 
     <a id="topbar-profile-menu-button">
         <span>
-            <p-dropdown [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa" >
+            <div class="ui-g" *ngIf="loading" style="text-align: center;">
+                <div class="ui-g-12" style="text-align: center;">
+                    <p-progressSpinner class="animated fadeIn" [style]="{width: '20px', height: '20px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                </div>
+            </div>
+            <p-dropdown *ngIf="!loading" [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa" >
                 <ng-template let-empresa>
                     <div class="ui-helper-clearfix" style="height: 25px;">
                         <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
@@ -21,6 +26,7 @@
                 </ng-template>
             </p-dropdown>
         </span>
+
     </a>
 
     <!-- <a id="topbar-profile-menu-button">
@@ -32,12 +38,12 @@
             </select>
         </span>
     </a> -->
-    <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
-        <li>
-            <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                <i class="fa fa-fw fa-user"></i>
-                <span class="topbar-item-name" (click)="salir()">Cerrar sesión</span>
 
+    <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
+        <li (click)="salir()">
+            <a href="#" (click)="app.onTopbarSubItemClick($event)">
+                <i class="fa fa-fw fa-sign-out"></i>
+                <span class="topbar-item-name">Cerrar sesión</span>
             </a>
         </li>
     </ul>

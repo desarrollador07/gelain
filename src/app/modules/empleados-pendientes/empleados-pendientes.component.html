@@ -1,3 +1,9 @@
+<div class="ui-g">
+    <div class="ui-g-12">
+        <p-messages [(value)]="msgs"></p-messages>
+    </div>
+</div>
+<br>
 <div id="search-wrapper">
     <input type="search" id="search" tooltipPosition="left" pTooltip="Filtrar registros de la tabla" pInputText placeholder="Filtrar" (input)="dt.filterGlobal($event.target.value, 'contains')">
     <i class="pi pi-search"></i>

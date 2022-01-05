@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService, Message, MessageService } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
 import { Area } from 'src/app/models/area.model';
 import { ValorRiesgoModel } from 'src/app/models/valor-riesgo.model';
@@ -18,6 +18,7 @@ export class ValorRiesgoComponent implements OnInit {
   vrData: ValorRiesgoModel[] = [];/*Arreglo VR */
   idEmpresa:any;
   loading:boolean = true;
+  msgs: Message[] = [];
   cols:any[] = [];
   frozenCols: any[] = [];
   es: any = {
@@ -160,8 +161,13 @@ export class ValorRiesgoComponent implements OnInit {
         this.id = this.idEmpresa;
       }
       if (this.id !== undefined && this.id !== null) {
+        this.limpiarData();
         await this.buscarArea(this.id);
         await this.indexData(this.id);
+      }
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo();
       }
      
     });
@@ -985,5 +991,15 @@ export class ValorRiesgoComponent implements OnInit {
     });  
 
     return arrFinal;
+  }
+
+  /*Mensaje Informativo cuando esta seleccionada la empresa */
+  showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
+
+  limpiarData(){
+    this.msgs = [];
   }
 }

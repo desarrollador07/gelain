@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 /*Modulos */
-import { ConfirmationService, MessageService, MenuItem } from 'primeng/api';
+import { ConfirmationService, MessageService, MenuItem, Message } from 'primeng/api';
 /*Modelos */
 import { Empleado } from '../../models/empleado.mdel';
 import { Empresa } from 'src/app/models/empresa.model';
@@ -54,6 +54,7 @@ export class EmpleadosComponent implements OnInit {
   buscarData:string = '';
   selectBuscar:any = 1;
   id:any;
+  msgs: Message[] = [];
 
   constructor(
               private empleadosService: EmpleadosService,
@@ -84,8 +85,14 @@ export class EmpleadosComponent implements OnInit {
         this.id = this.idEmpresa;
       }
       if (this.id !== undefined && this.id !== null) {
-          /*Consulta de Empleados */
+        this.limpiarData();
+        /*Consulta de Empleados */
         await this.consultaEmpleados(this.id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo();
       }
      
     });
@@ -258,6 +265,16 @@ export class EmpleadosComponent implements OnInit {
         this.loading = false;
 
       });
+    }
+
+     /*Mensaje Informativo cuando esta seleccionada la empresa */
+    showInfo() {
+      this.msgs = [];
+      this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+    }
+
+    limpiarData(){
+      this.msgs = [];
     }
 
 }

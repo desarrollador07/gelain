@@ -5,7 +5,7 @@ import * as valoraFisicaAction from '../../store/actions/vf.actions';
 /*Model */
 import { ValorFisico } from '../../models/valorFisico.model';
 /*Modulos */
-import { MessageService, ConfirmationService } from 'primeng/api';
+import { MessageService, ConfirmationService, Message } from 'primeng/api';
 /*Servicios */
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 import { DatePipe } from '@angular/common';
@@ -22,6 +22,7 @@ export class ValorfisicoComponent implements OnInit {
   idEmpresa:any;
   loading:boolean = true;
   cols:any[] = [];
+  msgs: Message[] = [];
   frozenCols: any[] = [];
   es: any = {
     firstDayOfWeek: 0,
@@ -139,7 +140,13 @@ export class ValorfisicoComponent implements OnInit {
         this.id = this.idEmpresa;
       }
       if (this.id !== undefined && this.id !== null) {
+        this.limpiarData();
         await this.indexData(this.id);
+      }
+      
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo();
       }
      
     });
@@ -220,6 +227,16 @@ export class ValorfisicoComponent implements OnInit {
               }
         }
     },100);
+  }
+
+   /*Mensaje Informativo cuando esta seleccionada la empresa */
+   showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
+
+  limpiarData(){
+    this.msgs = [];
   }
 
 }

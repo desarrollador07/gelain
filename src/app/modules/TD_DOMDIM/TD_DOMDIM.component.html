@@ -1,8 +1,11 @@
-<p-toast>
+<div class="ui-g">
+    <div class="ui-g-12">
+        <p-messages [(value)]="msgs"></p-messages>
+    </div>
+</div>
+<br>
 
-
-
-</p-toast>
+<p-toast></p-toast>
 <p-toast position="top-left" key="tl"></p-toast>
 <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
     <p-footer>

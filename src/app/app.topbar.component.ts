@@ -30,6 +30,7 @@ export class AppTopBarComponent {
   imagen3:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr03.jpg";
   imagenDefecto:any = "assets/layout/images/avatar.png"
   imagenfin:any;
+  loading:boolean = true;
 
     constructor(public app: AppComponent,
                 private router: Router,
@@ -85,6 +86,7 @@ export class AppTopBarComponent {
           this.store.dispatch(
             empresasActions.addEmpresas({ list: data })
           );
+          this.loading = false;
         });
 
         if (this.idEmpresa !== 0) {

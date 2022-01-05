@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { EmpleadoPendienteModel } from '../../models/empleado-pendiente.model';
 /*Servicios */
 import { EmpleadosPendientesService } from '../../services/empleados-pendientes.service';
+import { Message } from 'primeng/api';
 
 @Component({
   selector: 'app-empleados-pendientes',
@@ -16,6 +17,7 @@ export class EmpleadosPendientesComponent implements OnInit {
   epData:EmpleadoPendienteModel[] = [];
   idEmpresa:number;
   loading:boolean = true;
+  msgs: Message[] = [];
   cols = [
     { field: 'emdnombres', header: 'Nombres', width: '300px'},
     { field: 'formato', header: 'Formato', width: '120px' },
@@ -42,7 +44,13 @@ export class EmpleadosPendientesComponent implements OnInit {
         id = this.idEmpresa;
       }
       if (id !== undefined && id !== null) {
+        this.limpiarData();
         await this.consultaEmpleadosPendientes(id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.loading = false;
+        this.showInfo();
       }
     });
 
@@ -84,5 +92,15 @@ export class EmpleadosPendientesComponent implements OnInit {
               }
         }
     },100);
+  }
+
+   /*Mensaje Informativo cuando esta seleccionada la empresa */
+   showInfo() {
+    this.msgs = [];
+    this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
+
+  limpiarData(){
+    this.msgs = [];
   }
 }
