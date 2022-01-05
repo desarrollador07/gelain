@@ -1,6 +1,10 @@
 <div class="layout-topbar">
+    <a href="#" id="topbar-menu-button" (click)="app.onMenuButtonClick($event)">
+        <i class="fa fa-angle-left arrow"></i>
+        <i class="fa fa-angle-up mobile"></i>
+    </a>
     <div class="search-input">
-        <img class="cursor" src="https://gelainbienestarlaboral.com/GELAIN/img/logotoobar.png" style="width: 92%; height: 137%;padding-bottom: 3%;" alt="logo-GELAIN" routerLink="/main/dashboard">
+        <img class="cursor" *ngIf="imgvalidator" src="https://gelainbienestarlaboral.com/GELAIN/img/logotoobar.png" style="width: 92%; height: 137%;padding-bottom: 3%;" alt="logo-GELAIN" routerLink="/main/dashboard">
     </div>
     <a href="/#/main/dashboard" class="logo-container">
         <span style="font-size: 2em;color: aliceblue;">GELAIN Gestión Laboral Integral</span>
@@ -11,8 +15,8 @@
         <i class="fa fa-sort-desc"></i>
     </a>
 
-    <a id="topbar-profile-menu-button">
-        <span>
+    <a id="topbar-profile-menu-button" *ngIf="imgvalidator">
+        <span class="ui-float-label">
             <div class="ui-g" *ngIf="loading" style="text-align: center;">
                 <div class="ui-g-12" style="text-align: center;">
                     <p-progressSpinner class="animated fadeIn" [style]="{width: '20px', height: '20px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
@@ -26,18 +30,7 @@
                 </ng-template>
             </p-dropdown>
         </span>
-
     </a>
-
-    <!-- <a id="topbar-profile-menu-button">
-        <span class="ui-float-label">
-            
-            <select name="country1" (change)="buscarActualizarData($event)" class="ui-corner-all" >
-                <option [ngValue]="null" >Seleccione una empresa</option>
-                <option *ngFor="let country of empresas"  [ngValue]="country.empid">{{country.empnombre}}</option>
-            </select>
-        </span>
-    </a> -->
 
     <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
         <li (click)="salir()">

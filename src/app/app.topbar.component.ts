@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppState } from './app.reducer';
 import { Store } from '@ngrx/store';
@@ -25,6 +25,8 @@ export class AppTopBarComponent {
   empresa: SelectItem[] = [];
   empresas: Empresa[] = [];
   empresaSelect:any;
+  mobWidth: any;
+  imgvalidator: boolean = true;
   imagen1:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr01.jpg";
   imagen2:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr02.jpg";
   imagen3:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr03.jpg";
@@ -48,6 +50,17 @@ export class AppTopBarComponent {
       }else{
         this.imagenfin = this.imagenDefecto;
       }
+    }
+
+    @HostListener("window:resize", ["$event"])
+    onResize() {
+        this.mobWidth = window.innerWidth;
+
+        if (this.mobWidth <= 1024) {
+            this.imgvalidator = false;
+        } else {
+            this.imgvalidator = true;
+        }
     }
 
   ngOnInit() {
