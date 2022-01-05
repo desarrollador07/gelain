@@ -105,3 +105,7 @@ fieldset legend {
         stroke: #ffa700;
     }
 }
+
+.cursor {
+    cursor: pointer;
+}
