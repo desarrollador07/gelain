@@ -1,6 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Message } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
 /*Servicios */
 import { PruebaService } from 'src/app/services/prueba.service';
@@ -19,25 +20,43 @@ export class ReporteAreasComponent implements OnInit {
   idEmpresa:any;
   data: any;
   msgs: Message[] = [];
+  fechainicial: Date;
+  fechafinal: Date;
+  loading:boolean = true;
+  id:any;
+  es: any = {
+    firstDayOfWeek: 0,
+    dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+    dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+    today: "Hoy",
+    clear: "Limpiar",
+    dateFormat: "yy-mm-dd",
+    weekHeader: "Wk",
+  };
   
   constructor(private pruebaServices:PruebaService,
+              private _messageService: MessageService,
+              private datepipe: DatePipe,
               private store: Store<AppState>) { 
     this.idEmpresa = sessionStorage.getItem("idEmpresa");
   }
 
   async ngOnInit() {
     this.store.select('empresas').subscribe(async res=>{
-      var id:number;
+
       if (res.empresa !== undefined) {
-        id = res.empresa.empid;
+        this.id = res.empresa.empid;
       }else{
-        id = this.idEmpresa;
+        this.id = this.idEmpresa;
       }
       this.limpiarData();
-      if (id !== undefined && id !== null) {
+      if (this.id !== undefined && this.id !== null) {
         this.msgs = [];
       /*Consulta reporte áreas */
-      await this.fnConsultarReporteAreas(id);
+      await this.fnConsultarReporteAreas(this.id);
       }
 
       if(sessionStorage.getItem('idEmpresa') === null){
@@ -45,6 +64,9 @@ export class ReporteAreasComponent implements OnInit {
       }
     });
     
+    const fecini = new Date();
+    this.fechainicial = new Date(fecini.getFullYear(), fecini.getMonth()-1, 1);
+    this.fechafinal = new Date();
   }
 
   /*Consulta reportes áreas */
@@ -161,17 +183,65 @@ export class ReporteAreasComponent implements OnInit {
     return letras[numero];
   }
   colorHEX(){
-    var coolor = "";
+    var color = "";
     for(var i=0;i<6;i++){
-      coolor = coolor + this.generarLetra() ;
+      color = color + this.generarLetra() ;
     }
-    return "#" + coolor;
+    return "#" + color;
   }
 
    /*Mensaje Informativo cuando esta seleccionada la empresa */
    showInfo() {
     this.msgs = [];
     this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
+  }
+
+  async getAreaByFiltro(){
+
+    this.loading = true;
+    // if (this.selectBuscar !== 1  && this.buscarData === '') {
+    //   this.loading = false;
+    //   this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'Digite el dato a buscar', life: 3000 });
+    //   return;
+    // }
+
+    if (this.fechafinal === null || this.fechainicial === null ) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
+      return;
+    }
+
+    var dateinicio = this.datepipe.transform(this.fechainicial, "yyyy-MM-dd");
+    var datefinal = this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");
+    if (dateinicio > datefinal) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
+      return;
+    }
+
+    // var valor = this.buscarData.trim();
+    // if (this.selectBuscar === 1) {
+    //   // valor = 'valor';
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }else{
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }
+
+    await this.buscarAreasByFechas(this.id,dateinicio,datefinal);
+
+  }
+
+  async buscarAreasByFechas(id:number,fechaInicial:string,fechaFinal:string){
+    this.dataAreas = [];
+    await this.pruebaServices.buscarAreasByFechas(id,fechaInicial,fechaFinal).toPromise().then((resp:any) => {
+      this.dataAreas = resp;
+
+      if (this.dataAreas.length === 0) {
+        this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda.', life: 3000 });
+      }
+      this.loading = false;
+
+    });
   }
 
 }

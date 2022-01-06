@@ -1,19 +1,94 @@
+#search-wrapperTercero {
+    /* -webkit-box-align: center; */
+    /* -webkit-align-items: center; */
+    /* -ms-flex-align: center; */
+    /* align-items: center; */
+    /* display: -webkit-inline-box; */
+    /* display: -webkit-inline-flex; */
+    /* display: -ms-inline-flexbox; */
+    display: inline-flex;
+    /* -webkit-flex-flow: row-reverse nowrap; */
+    /* -ms-flex-flow: row-reverse nowrap; */
+    flex-flow: row-reverse nowrap;
+}
+
+#search-wrapperTercero #searchTercero {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-radius: 0 25px 25px 0;
+    color: #777;
+    padding: .6rem .5rem;
+    height: 40.2px;
+    font-size: 15px;
+    /* font-weight: lighter; */
+    /* -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease ; */
+    width: 205px;
+}
+
+#search-wrapperTercero #searchDropdown {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-left: 0;
+    border-radius: 0 0 0 0;
+    color: #777;
+    height: 40.2px;
+    padding-top: 4px;
+    padding-right: 4px;
+    font-size: 15px;
+    /* font-weight: lighter; */
+    /* -webkit-transition: border-color .2s ease;
+    transition: border-color .2s ease; */
+    width: 200px !important;
+}
+
+#search-wrapperTercero #searchDropdown+i {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 25px 0 0 25px;
+    height: 40.2px;
+    border-right: 0;
+    color: #777;
+    padding: .67rem .65rem;
+    /* -webkit-transition: border-color .2s ease; */
+    /* transition: border-color .2s ease; */
+}
+
+button {
+    border-radius: 10px;
+}
+
 fieldset {
     font-family: sans-serif;
-    border: 2px solid #3275b3;
+    border: 2px solid #2162b0;
     background: white;
     border-radius: 5px;
     padding: 15px;
-    /* width: 58em; */
     width: auto;
 }
 
 fieldset legend {
-    background: #3275b3;
+    background: #2162b0;
     color: #fff;
     padding: 5px 10px;
     font-size: 14px;
     border-radius: 5px;
     box-shadow: 0 0 0 5px white;
     margin-left: 20px;
+}
+
+p-calendar {
+    border-radius: 10px !important;
+}
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}
+
+.btnsearch {
+    border-radius: 10px;
+    width: 150px;
 }

@@ -31,6 +31,7 @@ export class PruebaService {
   UrlDatoBuscado = `${this.apiUrl}/lv/public/buscarReportesDetallados`;
   UrlReporteArea = `${this.apiUrl}/lv/public/ReporteArea`;
   UrlAllReporteDetallado = `${this.apiUrl}/lv/public/buscarReportesGenerales`;
+  Url = `${this.apiUrl}/lv/public/buscarAreaFecha`;
 
   constructor(private http: HttpClient) {
   }
@@ -90,9 +91,6 @@ export class PruebaService {
   getReporteExcelDetallado(id:number){
     return this.http.get(this.UrlReporExcelDetallado+ "/" + id);
   }
-  /*   getReporteExcelDetallado(id:number,nom:string){
-    return this.http.get(this.UrlReporExcelDetallado+ "/" + id+"/"+nom);
-  } */
 
   getCiudadReporte(id:number){
     return this.http.get(this.UrlCiudadReporte+ "/" + id);
@@ -119,10 +117,7 @@ export class PruebaService {
     return this.http.get(this.UrlAllReporteDetallado);
   }
 
-  
-/*  getIPAddress()  
-  {  
-    return this.http.get("http://api.ipify.org/?format=json");  
-  } */
-
+  buscarAreasByFechas(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.Url+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
 }
