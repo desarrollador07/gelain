@@ -30,9 +30,6 @@ import {TabMenuModule} from 'primeng/tabmenu';
 import { ChartModule } from 'primeng/chart';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 
-
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PDFExportModule } from "@progress/kendo-angular-pdf-export";
 import { IntlModule } from "@progress/kendo-angular-intl";
 import { GridModule } from "@progress/kendo-angular-grid";

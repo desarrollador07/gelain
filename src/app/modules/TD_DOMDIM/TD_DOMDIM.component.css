@@ -83,3 +83,28 @@ fieldset legend {
     box-shadow: 0 0 0 5px white;
     margin-left: 20px;
 }
+
+.btnsearch {
+    border-radius: 10px;
+    width: 150px;
+}
+
+label {
+    margin-top: 4px;
+    width: 113px;
+    border-radius: 10px 0px 0px 10px !important;
+}
+
+p-calendar {
+    border-radius: 10px !important;
+}
+
+button {
+    border-radius: 10px;
+}
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}

@@ -6,7 +6,7 @@ import { DatePipe } from '@angular/common';
 import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
-import { Message } from 'primeng/api';
+import { Message, MessageService } from 'primeng/api';
 
 
 @Component({
@@ -44,8 +44,20 @@ export class TD_DOMDIMComponent implements OnInit {
   sales6: any[] = [];
   sales7: any[] = [];
   sales8: any[] = [];
+  loading:boolean = true;
+  es: any = {
+    firstDayOfWeek: 0,
+    dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+    dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+    today: "Hoy",
+    clear: "Limpiar",
+    dateFormat: "yy-mm-dd",
+    weekHeader: "Wk",
+  };
   
-
   columns: any[];
   dataDona: any[];
   data: any;
@@ -227,11 +239,14 @@ total_general2 :any[] = [];
   text6:any;
   text7:any;
   text8:any;
-
+  fechainicial: Date;
+  fechafinal: Date;
+  id:any;
  
 
   constructor(private pruebaServices:PruebaService,
               private datepipe: DatePipe,
+              private _messageService: MessageService,
               private store: Store<AppState>) {
                 
                 this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));
@@ -241,49 +256,9 @@ total_general2 :any[] = [];
    }
 
   async ngOnInit() {
-    this.fechaActual = new Date();
-    const fechaAct = this.datepipe.transform(this.fechaActual, "yyyy-MM-dd");
-    this.hora = this.fechaActual.getHours();
-    this.min = this.fechaActual.getMinutes();
-    this.fecha= fechaAct+" "+this.hora+":"+this.min;
 
-    this.text1 = "LIDERAZGO_Y_RELACIONES_SOCIALES_"+this.fecha;
-    this.text2 = "CONTROL_SOBRE_EL_TRABAJO_"+this.fecha;
-    this.text3 = "DEMANDAS_DEL_TRABAJO_"+this.fecha;
-    this.text4 = "RECOMPENSAS_"+this.fecha;
-    this.text5 = "RIESGO_PSICOSOCIAL_EXTRALABORAL_"+this.fecha;
-    this.text6 = "Estres_"+this.fecha;
-    this.text7 = "ESTRES_DETALLES_"+this.fecha;
-    this.text8 = "TOTALES_GENERALES_"+this.fecha;
-  
-    this.store.select('empresas').subscribe(async res=>{
-      var id:number;
-      if (res.empresa !== undefined) {
-        id = res.empresa.empid;
-      }else{
-        id = this.idEmpresa;
-      }
-      this.limpiarData();
-
-      if (id !== undefined && id !== null) {
-        this.msgs = [];
-        await this.fnBuscarCatalogos(id);
-        await this.fnBuscarCatalogosControl(id);
-        await this.fnBuscarCatalogosDemandas(id);
-        await this.fnBuscarCatalogosRecompensas(id);
-        await this.fnBuscarCatalogosPsicoExtra(id);
-        await this.fnBuscarCatalogosPsicoEstresDetalles(id);
-        await this.fnBuscarCatalogosTotal(id);
-        await this.metodo(id);
-      }
-
-      if(sessionStorage.getItem('idEmpresa') === null){
-        this.showInfo();
-      }
-     
-    });
-
-    
+    this.datosGenerales();
+    this.consultaStore();
     this.datosGelain();
     
   }
@@ -300,7 +275,7 @@ total_general2 :any[] = [];
 
         this.tam = data.length;
          for (let i = 0; i < this.tam; i++) {
-          this.infopreF[i] = this.info1[i].map( (item, ix) => item + this.info2[i][ix] );
+          this.infopreF[i] = this.info1[i].map( (item:any, ix:any) => item + this.info2[i][ix] );
         } 
         for (let j = 0; j < this.infopreF.length; j++) {
           this.fnAsisgnarDatosFiltros(this.infopreF[j],j);
@@ -382,20 +357,20 @@ total_general2 :any[] = [];
 
   public async fnBuscarCatalogosControl(id:number) {
 
-   await this.pruebaServices.getcontrolSobreRol(id).toPromise().then(async(data:any)=>{
-      this.info11 = data;
-      
-     await this.pruebaServices.getcontrolSobreRolB(id).toPromise().then((data:any)=>{
-        this.info21 = data;
+    await this.pruebaServices.getcontrolSobreRol(id).toPromise().then(async(data:any)=>{
+        this.info11 = data;
+        
+      await this.pruebaServices.getcontrolSobreRolB(id).toPromise().then((data:any)=>{
+          this.info21 = data;
 
-        this.tam1 = data.length;
-         for (let i = 0; i < this.tam1; i++) {
-          this.infopreF1[i] = this.info11[i].map( (item, ix) => item + this.info21[i][ix] );
-        } 
-        for (let j = 0; j < this.infopreF1.length; j++) {
-          this.fnAsisgnarDatosFiltrosControl(this.infopreF1[j],j);
-        }
-        this.controlSobreRol(this.infopreF1);
+          this.tam1 = data.length;
+          for (let i = 0; i < this.tam1; i++) {
+            this.infopreF1[i] = this.info11[i].map( (item, ix) => item + this.info21[i][ix] );
+          } 
+          for (let j = 0; j < this.infopreF1.length; j++) {
+            this.fnAsisgnarDatosFiltrosControl(this.infopreF1[j],j);
+          }
+          this.controlSobreRol(this.infopreF1);
       }); 
     });
 
@@ -990,6 +965,7 @@ total_general2 :any[] = [];
   }
 
   datosGelain(){
+    
     this.pruebaServices.getDatosEmpresaGelain().subscribe((data:any)=>{
       this.nombreGelain = data.nombre;
       this.nitGelain= data.nit;
@@ -1139,11 +1115,323 @@ total_general2 :any[] = [];
     this.columns = [];
     this.dataDona= [];
   }
+
+  async getReporteGraficaFiltro(){
+
+    this.loading = true;
+    // if (this.selectBuscar !== 1  && this.buscarData === '') {
+    //   this.loading = false;
+    //   this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'Digite el dato a buscar', life: 3000 });
+    //   return;
+    // }
+
+    if (this.fechafinal === null || this.fechainicial === null ) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
+      return;
+    }
+
+    var dateinicio = this.datepipe.transform(this.fechainicial, "yyyy-MM-dd");
+    var datefinal = this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");
+    if (dateinicio > datefinal) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
+      return;
+    }
+
+    // var valor = this.buscarData.trim();
+    // if (this.selectBuscar === 1) {
+    //   // valor = 'valor';
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }else{
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }
+
+    await this.buscarGraficasByFechas(this.id,dateinicio,datefinal);
+
+  }
+
+  async buscarGraficasByFechas(id:number,fechaInicial:string,fechaFinal:string){
+   
+    await this.fnBuscarCatalogosByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosControlByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosDemandasByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosRecompensasByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosPsicoExtraByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosPsicoEstresDetallesByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosTotalByFecha(id,fechaInicial,fechaFinal);
+    await this.metodoByFecha(id,fechaInicial,fechaFinal);
+  }
   
   /*Mensaje Informativo cuando esta seleccionada la empresa */
   showInfo() {
     this.msgs = [];
     this.msgs.push({severity:'info', summary:'Info', detail:'SELECCIONE UNA EMPRESA'});
   }
+
+  consultaStore(){
+    this.store.select('empresas').subscribe(async res=>{
+
+      if (res.empresa !== undefined) {
+        this.id = res.empresa.empid;
+      }else{
+        this.id = this.idEmpresa;
+      }
+      this.limpiarData();
+
+      if (this.id !== undefined && this.id !== null) {
+        this.msgs = [];
+        await this.fnBuscarCatalogos(this.id);
+        await this.fnBuscarCatalogosControl(this.id);
+        await this.fnBuscarCatalogosDemandas(this.id);
+        await this.fnBuscarCatalogosRecompensas(this.id);
+        await this.fnBuscarCatalogosPsicoExtra(this.id);
+        await this.fnBuscarCatalogosPsicoEstresDetalles(this.id);
+        await this.fnBuscarCatalogosTotal(this.id);
+        await this.metodo(this.id);
+      }
+
+      if(sessionStorage.getItem('idEmpresa') === null){
+        this.showInfo();
+      }
+     
+    });
+  }
+
+  datosGenerales(){
+    const fecini = new Date();
+    this.fechainicial = new Date(fecini.getFullYear(), fecini.getMonth()-1, 1);
+    this.fechafinal = new Date();
+    this.fechaActual = new Date();
+    const fechaAct = this.datepipe.transform(this.fechaActual, "yyyy-MM-dd");
+    this.hora = this.fechaActual.getHours();
+    this.min = this.fechaActual.getMinutes();
+    this.fecha= fechaAct+" "+this.hora+":"+this.min;
+
+    this.text1 = "LIDERAZGO_Y_RELACIONES_SOCIALES_"+this.fecha;
+    this.text2 = "CONTROL_SOBRE_EL_TRABAJO_"+this.fecha;
+    this.text3 = "DEMANDAS_DEL_TRABAJO_"+this.fecha;
+    this.text4 = "RECOMPENSAS_"+this.fecha;
+    this.text5 = "RIESGO_PSICOSOCIAL_EXTRALABORAL_"+this.fecha;
+    this.text6 = "Estres_"+this.fecha;
+    this.text7 = "ESTRES_DETALLES_"+this.fecha;
+    this.text8 = "TOTALES_GENERALES_"+this.fecha;
+  }
+
+  // --------------------------------------------------------- METODOS DE CONSULTA POR FECHA --------------------------------------
+
+  async fnBuscarCatalogosByFecha(id:number,fechaIni:string,fechafin:string){
+      this.info1 = [];
+      this.info2 = [];
+    await this.pruebaServices.getLiderazgoRAByFecha(id,fechaIni,fechafin).toPromise().then(async(data:any)=>{
+      this.info1 = data;
+      
+      
+
+      await this.pruebaServices.getLiderazgoRBByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+        this.info2 = data;
+
+        this.tam = data.length;
+         for (let i = 0; i < this.tam; i++) {
+          this.infopreF[i] = this.info1[i].map( (item:any, ix:any) => item + this.info2[i][ix] );
+        } 
+        for (let j = 0; j < this.infopreF.length; j++) {
+          this.fnAsisgnarDatosFiltros(this.infopreF[j],j);
+        }
+        this.liderasgoYRelacionesSociales(this.infopreF);
+      });
+    });
+
+    if (this.info1.length === 0 && this.info2.length === 0 ) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (LIDERAZGO Y RELACIONES SOCIALES).', life: 3000 });
+    }
+  }
+
+  public async fnBuscarCatalogosControlByFecha(id:number,fechaIni:string,fechafin:string) {
+    
+    this.info11 = [];
+    this.info21 = [];
+    await this.pruebaServices.getcontrolSobreRolByFecha(id,fechaIni,fechafin).toPromise().then(async(data:any)=>{
+       this.info11 = data;
+       
+      await this.pruebaServices.getcontrolSobreRolBByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+         this.info21 = data;
+ 
+         this.tam1 = data.length;
+          for (let i = 0; i < this.tam1; i++) {
+           this.infopreF1[i] = this.info11[i].map( (item, ix) => item + this.info21[i][ix] );
+         } 
+         for (let j = 0; j < this.infopreF1.length; j++) {
+           this.fnAsisgnarDatosFiltrosControl(this.infopreF1[j],j);
+         }
+         this.controlSobreRol(this.infopreF1);
+       }); 
+     });
+
+    if (this.info11.length === 0 && this.info21.length === 0 ) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (CONTROL SOBRE EL TRABAJO).', life: 3000 });
+    }
+ 
+   }
+
+  public async fnBuscarCatalogosDemandasByFecha(id:number,fechaIni:string,fechafin:string){
+
+    this.info13 = [];
+    this.info23 = [];
+    await this.pruebaServices.getDemandasTrabajoByFecha(id,fechaIni,fechafin).toPromise().then(async (data:any)=>{
+      this.info13 = data;
+      
+      await this.pruebaServices.getDemandasTrabajoBByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+          this.info23 = data;
+          
+          this.tam3 = data.length;
+            for (let i = 0; i < this.tam3; i++) {
+            this.infopreF3[i] = this.info13[i].map( (item, ix) => item + this.info23[i][ix] );
+          } 
+  
+          for (let j = 0; j < this.infopreF3.length; j++) {
+            this.fnAsisgnarDatosFiltrosDemandas(this.infopreF3[j],j);
+          }
+            this.Demandas(this.infopreF3);
+      })
+    })
+
+    if (this.info13.length === 0 && this.info23.length === 0 ) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (DEMANDAS DEL TRABAJO).', life: 3000 });
+    }
+
+  }
+
+  public async fnBuscarCatalogosRecompensasByFecha(id:number,fechaIni:string,fechafin:string){
+
+    this.info12 = [];
+    this.info22 = [];
+    await this.pruebaServices.getRecompensasByFecha(id,fechaIni,fechafin).toPromise().then(async(data:any)=>{
+      this.info12 = data;
+      
+      await this.pruebaServices.getRecompensasBByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+          this.info22 = data;
+        
+          this.tam2 = data.length;
+          for (let i = 0; i < this.tam2; i++) {
+            this.infopreF2[i] = this.info12[i].map( (item, ix) => item + this.info22[i][ix] );
+          } 
+  
+          for (let j = 0; j < this.infopreF2.length; j++) {
+            this.fnAsisgnarDatosFiltrosRecompensas(this.infopreF2[j],j);
+          }
+          this.Recompensas(this.infopreF2);
+      });
+    });
+
+    if (this.info12.length === 0 && this.info22.length === 0 ) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (RECOMPENSAS).', life: 3000 });
+    }
+  }
+
+  public async fnBuscarCatalogosPsicoExtraByFecha(id:number,fechaIni:string,fechafin:string) {
+    this.info14 = [];
+    await  this.pruebaServices.getPSICOSOCIAL_EXTRALABORALByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+      this.info14 = data;
+      
+        for (let j = 0; j < this.info14.length; j++) {
+          this.fnAsisgnarDatosFiltrosPsicoExtra(this.info14[j],j);
+        }
+          this.PsicoExtra(this.info14);
+    });
+
+    if (this.info14.length === 0) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (RIESGO PSICOSOCIAL EXTRALABORAL).', life: 3000 });
+    }
+
+  }
+
+  public async fnBuscarCatalogosPsicoEstresDetallesByFecha(id:number,fechaIni:string,fechafin:string){
+    this.info14 = [];
+    await this.pruebaServices.getESTRES_DETALLESByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+      this.info14 = data;
+        for (let j = 0; j < this.info14.length; j++) {
+          this.fnAsisgnarDatosFiltrosESTRES_DETALLES(this.info14[j],j);
+        }
+          this.ESTRES_DETALLES(this.info14);
+    });
+
+    if (this.info14.length === 0) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (ESTRES DETALLES).', life: 3000 });
+    }
+  }
+
+  public async fnBuscarCatalogosTotalByFecha(id:number,fechaIni:string,fechafin:string){
+      this.info15 = [];
+    await this.pruebaServices.getTotalGeneralByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
+      this.info15 = data;
+
+        for (let j = 0; j < this.info15.length; j++) {
+          this.fnAsisgnarDatosFiltrosTotalGeneral(this.info15[j],j);
+        }
+        
+          this.TotalGeneral(this.info15);
+    });
+
+    if (this.info15.length === 0) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (TOTALES GENERALES).', life: 3000 });
+    }
+  
+  }
+
+  async metodoByFecha(id:number,fechaIni:string,fechafin:string){
+      this.donadata = [];
+    await this.pruebaServices.getESTRESTOTALByFecha(id,fechaIni,fechafin).toPromise().then((data) => {
+    
+      this.donadata = data[0]
+      this.total = this.donadata[0] + this.donadata[1] + this.donadata[2] + this.donadata[3] + this.donadata[4];
+      this.Sin_riesgo_o_riesgo_despreciable = this.donadata[0];
+      this.Riesgo_bajo =this.donadata[1];
+      this.Riesgo_medio =this.donadata[2];
+      this.Riesgo_alto =this.donadata[3];
+      this.Riesgo_muy_alto = this.donadata[4];
+      
+
+      this.sales7 = [
+        { brand: 'Sin riesgo o riesgo despreciable', TOTAL_ESTRES: this.Sin_riesgo_o_riesgo_despreciable },
+        { brand: 'Riesgo bajo',                      TOTAL_ESTRES: this.Riesgo_bajo },
+        { brand: 'Riesgo medio',                     TOTAL_ESTRES: this.Riesgo_medio },
+        { brand: 'Riesgo alto',                      TOTAL_ESTRES: this.Riesgo_alto },
+        { brand: 'Riesgo muy alto',                  TOTAL_ESTRES: this.Riesgo_muy_alto },
+        { brand: 'TOTAL',                            TOTAL_ESTRES: this.total },
+      ];
+
+    this.Sin_riesgo_o_riesgo_despreciableD = Number((((this.donadata[0] *100)/this.total)).toFixed(1));
+    this.Riesgo_bajoD =Number((((this.donadata[1] *100)/this.total)));
+    this.Riesgo_medioD =Number((((this.donadata[2] *100)/this.total)));
+    this.Riesgo_altoD =((this.donadata[3] *100)/this.total);
+    this.Riesgo_muy_altoD = Number((((this.donadata[4] *100)/this.total)));
+
+      this.dataDona = [{ category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))},
+      { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD ))  },
+      { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD ))  },
+      { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD ))  },
+      { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))   },
+      { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)) }];
+
+      this.options2 = {
+          title: {
+              display: true,
+              // text: "Facturación Mensual",
+              fontSize: 16,
+          },
+          legend: {
+              position: "bottom",
+          },
+      };
+         
+
+    });   
+    
+    if (this.donadata.length === 0) {
+      this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda (ESTRES).', life: 3000 });
+    }
+  }
+
 
 }

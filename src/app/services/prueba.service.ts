@@ -12,18 +12,43 @@ export class PruebaService {
   apiUrl:string = environment.urlGlobal;
 
   UrlLogin = `${this.apiUrl}/lv2/public/api/auth/signin`;
+
   UrlliderazgoRA = `${this.apiUrl}/lv/public/liderazgoRelacionesA`;
+  UrlliderazgoRAFecha = `${this.apiUrl}/lv/public/liderazgoRelacionesAByFecha`;
+
   UrlcontrolSobreRol = `${this.apiUrl}/lv/public/controlSobreRol`;
+  UrlcontrolSobreRolFecha = `${this.apiUrl}/lv/public/controlSobreRolByFecha`;
+
   UrlDemandasTrabajo = `${this.apiUrl}/lv/public/DemandasTrabajo`;
+  UrlDemandasTrabajoFecha = `${this.apiUrl}/lv/public/DemandasTrabajoByFecha`;
+
   Urlrecompensas = `${this.apiUrl}/lv/public/recompensas`;
+  UrlrecompensasFecha = `${this.apiUrl}/lv/public/recompensasByFecha`;
+
   UrlliderazgoRB = `${this.apiUrl}/lv/public/liderazgoRelacionesB`;
+  UrlliderazgoRBFecha = `${this.apiUrl}/lv/public/liderazgoRelacionesBByFecha`;
+
   UrlcontrolSobreRolB = `${this.apiUrl}/lv/public/controlSobreRolB`;
-  UrlDemandasTrabajoB= `${this.apiUrl}/lv/public/DemandasTrabajoB`;
+  UrlcontrolSobreRolBFecha = `${this.apiUrl}/lv/public/controlSobreRolBByFecha`;
+
+  UrlDemandasTrabajoB = `${this.apiUrl}/lv/public/DemandasTrabajoB`;
+  UrlDemandasTrabajoBFecha = `${this.apiUrl}/lv/public/DemandasTrabajoBByFecha`;
+
   UrlrecompensasB = `${this.apiUrl}/lv/public/recompensasB`;
+  UrlrecompensasBFecha = `${this.apiUrl}/lv/public/recompensasBByFecha`;
+
   UrlPSICOSOCIAL_EXTRALABORAL = `${this.apiUrl}/lv/public/PSICOSOCIAL_EXTRALABORAL`;
+  UrlPSICOSOCIAL_EXTRALABORALFecha = `${this.apiUrl}/lv/public/PSICOSOCIAL_EXTRALABORALByFecha`;
+
   UrlESTRES_DETALLES = `${this.apiUrl}/lv/public/ESTRES_DETALLES`;
+  UrlESTRES_DETALLESFecha = `${this.apiUrl}/lv/public/ESTRES_DETALLESByFecha`;
+
   UrlESTRES = `${this.apiUrl}/lv/public/ESTRES`;
+  UrlESTRESFecha = `${this.apiUrl}/lv/public/ESTRESByFecha`;
+
   UrlTotalGeneral = `${this.apiUrl}/lv/public/TotalGeneral`;
+  UrlTotalGeneralFecha = `${this.apiUrl}/lv/public/TotalGeneralByFecha`;
+
   UrlReporExcelDetallado = `${this.apiUrl}/lv/public/ReporteExcelDetallado`;
   UrlCiudadReporte = `${this.apiUrl}/lv/public/CiudadReporte`;
   UrlDatosPersonales = `${this.apiUrl}/lv/public/DatosFooter`;
@@ -119,10 +144,53 @@ export class PruebaService {
     return this.http.get(this.UrlAllReporteDetallado);
   }
 
-  
-/*  getIPAddress()  
-  {  
-    return this.http.get("http://api.ipify.org/?format=json");  
-  } */
+  /*Servicios consulta por fecha */
+  getLiderazgoRAByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlliderazgoRAFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getLiderazgoRBByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlliderazgoRBFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getcontrolSobreRolByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlcontrolSobreRolFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getcontrolSobreRolBByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlcontrolSobreRolBFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getDemandasTrabajoByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlDemandasTrabajoFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getDemandasTrabajoBByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlDemandasTrabajoBFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getRecompensasByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlrecompensasFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getRecompensasBByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlrecompensasBFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getPSICOSOCIAL_EXTRALABORALByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlPSICOSOCIAL_EXTRALABORALFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getESTRES_DETALLESByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlESTRES_DETALLESFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getTotalGeneralByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlTotalGeneralFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
+
+  getESTRESTOTALByFecha(id:number, fechaInicial:string, fechaFinal:string){
+    return this.http.get(this.UrlESTRESFecha+ `/${id}/${fechaInicial}/${fechaFinal}`);
+  }
 
 }

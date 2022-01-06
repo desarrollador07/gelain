@@ -76,27 +76,8 @@ export class EmpleadosComponent implements OnInit {
 
     /*Consulta Empresas */
     await this.consultaEmpresas();
+    this.consultaStore();
     
-    this.store.select('empresas').subscribe(async res=>{
-  
-      if (res.empresa !== undefined) {
-        this.id = res.empresa.empid;
-      }else{
-        this.id = this.idEmpresa;
-      }
-      if (this.id !== undefined && this.id !== null) {
-        this.limpiarData();
-        /*Consulta de Empleados */
-        await this.consultaEmpleados(this.id);
-      }
-
-      if(sessionStorage.getItem('idEmpresa') === null){
-        this.loading = false;
-        this.showInfo();
-      }
-     
-    });
-     
     this.dataGeneral();
 
   }
@@ -275,6 +256,28 @@ export class EmpleadosComponent implements OnInit {
 
     limpiarData(){
       this.msgs = [];
+    }
+
+    consultaStore(){
+      this.store.select('empresas').subscribe(async res=>{
+  
+        if (res.empresa !== undefined) {
+          this.id = res.empresa.empid;
+        }else{
+          this.id = this.idEmpresa;
+        }
+        if (this.id !== undefined && this.id !== null) {
+          this.limpiarData();
+          /*Consulta de Empleados */
+          await this.consultaEmpleados(this.id);
+        }
+  
+        if(sessionStorage.getItem('idEmpresa') === null){
+          this.loading = false;
+          this.showInfo();
+        }
+       
+      });
     }
 
 }
