@@ -807,7 +807,6 @@
         <br>
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
                     </kendo-chart-category-axis-item>
@@ -850,12 +849,18 @@
 <fieldset>
     <legend><b>LIDERAZGO Y RELACIONES SOCIALES</b></legend>
     <br>
+    <div *ngIf="validCTodos">
+        <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
+    </div>
+    <div *ngIf="!validCTodos">
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+    </div>
+    <br>
     <div>
         <p-panel header="LIDERAZGO Y RELACIONES SOCIALES">
             <div>
                 <div class="example-config">
                     <button class="k-button" (click)="pdf.saveAs(text1)">
-                    <!-- <button class="k-button" (click)="pdf.saveAs('LIDERAZGO_Y_RELACIONES_SOCIALES_'+fechaActual+'.pdf')"> -->
                   Generar Reporte
                 </button>
                 </div>
@@ -1226,6 +1231,13 @@
 <fieldset>
     <legend><b>RIESGO PSICOSOCIAL  EXTRALABORAL </b></legend>
     <br>
+    <div *ngIf="validCTodos">
+        <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
+    </div>
+    <div *ngIf="!validCTodos">
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+    </div>
+    <br>
     <div>
         <p-panel header="RIESGO PSICOSOCIAL EXTRALABORAL">
             <div>
@@ -1302,7 +1314,14 @@
 <!-- -----------------------------------Estres 7--------------------------------------------->
 <fieldset>
     <legend><b>Estres</b></legend>
-
+    <br>
+    <div *ngIf="validCTodos">
+        <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
+    </div>
+    <div *ngIf="!validCTodos">
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+    </div>
+    <br>
     <div class="ui-g">
         <p-panel header="Estres">
             <div>
@@ -1346,6 +1365,14 @@
 <!-- -----------------------------------Estres Detalles 6--------------------------------------------->
 <fieldset>
     <legend><b>ESTRES DETALLES</b></legend>
+    <br>
+    <div *ngIf="validCTodos">
+        <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
+    </div>
+    <div *ngIf="!validCTodos">
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+    </div>
+    <br>
     <div class="ui-g">
         <p-panel header="ESTRES DETALLES">
             <div>
@@ -1418,6 +1445,14 @@
 <!-- -----------------------------------Totales Generales 8--------------------------------------------->
 <fieldset>
     <legend><b><h4>TOTALES GENERALES</h4></b></legend>
+    <br>
+    <div *ngIf="validCTodos">
+        <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
+    </div>
+    <div *ngIf="!validCTodos">
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+    </div>
+    <br>
     <div class="ui-g">
         <p-panel header="TOTALES GENERALES">
             <div>

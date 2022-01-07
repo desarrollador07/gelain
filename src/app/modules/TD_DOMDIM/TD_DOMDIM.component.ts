@@ -242,6 +242,7 @@ total_general2 :any[] = [];
   fechainicial: Date;
   fechafinal: Date;
   id:any;
+  validCTodos:boolean = true;
  
 
   constructor(private pruebaServices:PruebaService,
@@ -1116,52 +1117,7 @@ total_general2 :any[] = [];
     this.dataDona= [];
   }
 
-  async getReporteGraficaFiltro(){
-
-    this.loading = true;
-    // if (this.selectBuscar !== 1  && this.buscarData === '') {
-    //   this.loading = false;
-    //   this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'Digite el dato a buscar', life: 3000 });
-    //   return;
-    // }
-
-    if (this.fechafinal === null || this.fechainicial === null ) {
-      this.loading = false;
-      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
-      return;
-    }
-
-    var dateinicio = this.datepipe.transform(this.fechainicial, "yyyy-MM-dd");
-    var datefinal = this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");
-    if (dateinicio > datefinal) {
-      this.loading = false;
-      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
-      return;
-    }
-
-    // var valor = this.buscarData.trim();
-    // if (this.selectBuscar === 1) {
-    //   // valor = 'valor';
-    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
-    // }else{
-    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
-    // }
-
-    await this.buscarGraficasByFechas(this.id,dateinicio,datefinal);
-
-  }
-
-  async buscarGraficasByFechas(id:number,fechaInicial:string,fechaFinal:string){
-   
-    await this.fnBuscarCatalogosByFecha(id,fechaInicial,fechaFinal);
-    await this.fnBuscarCatalogosControlByFecha(id,fechaInicial,fechaFinal);
-    await this.fnBuscarCatalogosDemandasByFecha(id,fechaInicial,fechaFinal);
-    await this.fnBuscarCatalogosRecompensasByFecha(id,fechaInicial,fechaFinal);
-    await this.fnBuscarCatalogosPsicoExtraByFecha(id,fechaInicial,fechaFinal);
-    await this.fnBuscarCatalogosPsicoEstresDetallesByFecha(id,fechaInicial,fechaFinal);
-    await this.fnBuscarCatalogosTotalByFecha(id,fechaInicial,fechaFinal);
-    await this.metodoByFecha(id,fechaInicial,fechaFinal);
-  }
+  
   
   /*Mensaje Informativo cuando esta seleccionada la empresa */
   showInfo() {
@@ -1219,6 +1175,54 @@ total_general2 :any[] = [];
   }
 
   // --------------------------------------------------------- METODOS DE CONSULTA POR FECHA --------------------------------------
+
+  async getReporteGraficaFiltro(){
+
+    this.loading = true;
+    // if (this.selectBuscar !== 1  && this.buscarData === '') {
+    //   this.loading = false;
+    //   this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'Digite el dato a buscar', life: 3000 });
+    //   return;
+    // }
+
+    if (this.fechafinal === null || this.fechainicial === null ) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Los campos de las fechas deben ir asignados.', life: 3000 });
+      return;
+    }
+
+    var dateinicio = this.datepipe.transform(this.fechainicial, "yyyy-MM-dd");
+    var datefinal = this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");
+    if (dateinicio > datefinal) {
+      this.loading = false;
+      this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'La fecha inicial debe ser menor a la fecha final.', life: 3000 });
+      return;
+    }
+
+    // var valor = this.buscarData.trim();
+    // if (this.selectBuscar === 1) {
+    //   // valor = 'valor';
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }else{
+    // //  await this.fnSearchByFecha(this.selectBuscar,valor,checkTemp,dateinicio,datefinal);
+    // }
+
+    await this.buscarGraficasByFechas(this.id,dateinicio,datefinal);
+
+  }
+
+  async buscarGraficasByFechas(id:number,fechaInicial:string,fechaFinal:string){
+    this.limpiarData();
+    this.validCTodos = false;
+    await this.fnBuscarCatalogosByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosControlByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosDemandasByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosRecompensasByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosPsicoExtraByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosPsicoEstresDetallesByFecha(id,fechaInicial,fechaFinal);
+    // await this.fnBuscarCatalogosTotalByFecha(id,fechaInicial,fechaFinal);
+    await this.metodoByFecha(id,fechaInicial,fechaFinal);
+  }
 
   async fnBuscarCatalogosByFecha(id:number,fechaIni:string,fechafin:string){
       this.info1 = [];
@@ -1382,7 +1386,8 @@ total_general2 :any[] = [];
   async metodoByFecha(id:number,fechaIni:string,fechafin:string){
       this.donadata = [];
     await this.pruebaServices.getESTRESTOTALByFecha(id,fechaIni,fechafin).toPromise().then((data) => {
-    
+      console.log("DATA TORTA", data);
+      
       this.donadata = data[0]
       this.total = this.donadata[0] + this.donadata[1] + this.donadata[2] + this.donadata[3] + this.donadata[4];
       this.Sin_riesgo_o_riesgo_despreciable = this.donadata[0];
