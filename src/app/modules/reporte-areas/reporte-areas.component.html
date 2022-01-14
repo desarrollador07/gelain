@@ -43,6 +43,12 @@
     </fieldset>
 </div>
 <br>
+<div class="ui-g" *ngIf="loading">
+    <div class="ui-g-12" style="text-align: center;">
+        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+    </div>
+</div>
+<br>
 <fieldset>
     <legend><b><h4>REPORTE ÁREAS</h4></b></legend>
     <!-- -----------------------------------REPORTE ÁREAS--------------------------------------------->

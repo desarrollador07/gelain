@@ -23,6 +23,7 @@ export class ReporteAreasComponent implements OnInit {
   fechainicial: Date;
   fechafinal: Date;
   loading:boolean = true;
+  dataCat:any [] = [];
   id:any;
   es: any = {
     firstDayOfWeek: 0,
@@ -71,6 +72,19 @@ export class ReporteAreasComponent implements OnInit {
 
   /*Consulta reportes áreas */
   async fnConsultarReporteAreas(id:number){
+    
+    await this.pruebaServices.getReporteAreas(id).toPromise().then((res:any) => {
+      this.dataAreas = res;
+      this.fnOrgPart1(); 
+    });
+
+    this.fnOrgPart2();
+   
+    this.loading = false;
+  }
+
+  /*Función que organiza la primer parte de la información de las areas */
+  fnOrgPart1(){
     var nombreArea:string;
     var contador1:number = 0;
     var contador2:number = 0;
@@ -79,12 +93,7 @@ export class ReporteAreasComponent implements OnInit {
     var contador5:number = 0;
     var obj = {};
     var obj1 = {};
-    var dataCat:any [] = [];
-    
-  await this.pruebaServices.getReporteAreas(id).toPromise().then((res:any) => {
 
-    this.dataAreas = res;
-    
     this.dataAreas.map(datai => {
       nombreArea = datai.arenombre;
       this.dataAreas.map(dataj => {
@@ -138,7 +147,7 @@ export class ReporteAreasComponent implements OnInit {
               contador5
             ]
       }
-      dataCat.push(obj1);
+      this.dataCat.push(obj1);
       this.sales9.push(obj);
       contador1 = 0;
       contador2 = 0;
@@ -146,35 +155,36 @@ export class ReporteAreasComponent implements OnInit {
       contador4 = 0;
       contador5 = 0;
     });
-       
-  });
-  
-    /*Proceso que permite eliminar todos los datos repetidos de un arreglo */
-    var hash = {};
-    this.sales9 = this.sales9.filter(function(current) {
-      var exists = !hash[current.nombreArea];
-      hash[current.nombreArea] = true;
-      return exists;
-    });
+  }
 
-    var hash = {};
-    dataCat = dataCat.filter(function(current) {
-      var exists = !hash[current.label];
-      hash[current.label] = true;
-      return exists;
-    });
+  fnOrgPart2(){
 
-    this.data = {
-      labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
-      datasets: dataCat
-    }
-
+     /*Proceso que permite eliminar todos los datos repetidos de un arreglo */
+     var hash = {};
+     this.sales9 = this.sales9.filter(function(current) {
+       var exists = !hash[current.nombreArea];
+       hash[current.nombreArea] = true;
+       return exists;
+     });
+ 
+     var hash = {};
+     this.dataCat = this.dataCat.filter(function(current) {
+       var exists = !hash[current.label];
+       hash[current.label] = true;
+       return exists;
+     });
+ 
+     this.data = {
+       labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
+       datasets: this.dataCat
+     }
   }
 
   limpiarData(){
     this.dataAreas = [];
     this.sales9 = [];
     this.data = [];
+    this.dataCat = [];
   }
 
   generarLetra(){
@@ -197,7 +207,7 @@ export class ReporteAreasComponent implements OnInit {
   }
 
   async getAreaByFiltro(){
-
+    this.limpiarData();
     this.loading = true;
     // if (this.selectBuscar !== 1  && this.buscarData === '') {
     //   this.loading = false;
@@ -239,9 +249,13 @@ export class ReporteAreasComponent implements OnInit {
       if (this.dataAreas.length === 0) {
         this._messageService.add({ severity: 'info', summary: 'Informativo', detail: 'No hay registros para el tipo de busqueda.', life: 3000 });
       }
-      this.loading = false;
 
+      this.fnOrgPart1();
+      
+      this.loading = false;
     });
+
+    this.fnOrgPart2();
   }
 
 }
