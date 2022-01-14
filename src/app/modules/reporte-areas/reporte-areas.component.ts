@@ -156,9 +156,9 @@ export class ReporteAreasComponent implements OnInit {
       contador5 = 0;
     });
   }
-
+  /*Función que organiza la segunda parte de la información de las areas en el cual 
+    organiza la información  como la necesita la grafica para su visualización */
   fnOrgPart2(){
-
      /*Proceso que permite eliminar todos los datos repetidos de un arreglo */
      var hash = {};
      this.sales9 = this.sales9.filter(function(current) {
