@@ -1220,7 +1220,7 @@ total_general2 :any[] = [];
     await this.fnBuscarCatalogosRecompensasByFecha(id,fechaInicial,fechaFinal);
     await this.fnBuscarCatalogosPsicoExtraByFecha(id,fechaInicial,fechaFinal);
     await this.fnBuscarCatalogosPsicoEstresDetallesByFecha(id,fechaInicial,fechaFinal);
-    // await this.fnBuscarCatalogosTotalByFecha(id,fechaInicial,fechaFinal);
+    await this.fnBuscarCatalogosTotalByFecha(id,fechaInicial,fechaFinal);
     await this.metodoByFecha(id,fechaInicial,fechaFinal);
   }
 
@@ -1369,7 +1369,6 @@ total_general2 :any[] = [];
       this.info15 = [];
     await this.pruebaServices.getTotalGeneralByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
       this.info15 = data;
-
         for (let j = 0; j < this.info15.length; j++) {
           this.fnAsisgnarDatosFiltrosTotalGeneral(this.info15[j],j);
         }
@@ -1386,7 +1385,6 @@ total_general2 :any[] = [];
   async metodoByFecha(id:number,fechaIni:string,fechafin:string){
       this.donadata = [];
     await this.pruebaServices.getESTRESTOTALByFecha(id,fechaIni,fechafin).toPromise().then((data) => {
-      console.log("DATA TORTA", data);
       
       this.donadata = data[0]
       this.total = this.donadata[0] + this.donadata[1] + this.donadata[2] + this.donadata[3] + this.donadata[4];
