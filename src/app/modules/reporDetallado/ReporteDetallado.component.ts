@@ -27,6 +27,7 @@ export class ReporteDetalladoComponent implements OnInit {
   msgs: Message[] = [];
   fechainicial: Date;
   fechafinal: Date = new Date();
+  banderaCheck:boolean = true;
   es: any = {
     firstDayOfWeek: 0,
     dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
@@ -47,7 +48,9 @@ export class ReporteDetalladoComponent implements OnInit {
     {label:'Área', value:4},
     {label:'Sede', value:5},
     {label:'Reporte General', value:6},
-    {label:'Reporte Global', value:7}
+    {label:'Reporte Global', value:7},
+    {label:'Filtro Fechas', value:8},
+
   ];
   cols = [
     { field: 'emdcedula', header: 'Cédula' },
@@ -55,7 +58,8 @@ export class ReporteDetalladoComponent implements OnInit {
     { field: 'emdtraciudad', header: 'Ciudad' },
     { field: 'emdtelefono', header: 'Telefono' },
     { field: 'arenombre', header: 'Área' },
-    { field: 'emdzona', header: 'Sede' }
+    { field: 'emdzona', header: 'Sede' },
+    { field: 'emdfechamod', header: 'Fecha Modificación' } 
   ];
 
   constructor(private pruebaServices:PruebaService,
@@ -87,6 +91,9 @@ export class ReporteDetalladoComponent implements OnInit {
         this.showInfo();
       }
     });
+
+    const fecini = new Date();
+    this.fechainicial = new Date(fecini.getFullYear(), fecini.getMonth()-1, 1);
     
   }
 
@@ -253,6 +260,7 @@ export class ReporteDetalladoComponent implements OnInit {
 
   /*Función de la busqueda avanzada */
   async buscador(){
+    this.msgs = [];
     this.loading = true;
     var bandera:boolean = false;
       /*Validación del desplegable que nos identifica si en una busqueda no eligen el tipo de busqueda */
@@ -277,7 +285,7 @@ export class ReporteDetalladoComponent implements OnInit {
           bandera = true;
         }
       }
-      
+
       if (bandera) {
         return;
       }
@@ -303,15 +311,28 @@ export class ReporteDetalladoComponent implements OnInit {
         await this.consultaAll();
         return;
       }
+
+      /*Validación del desplegable  que  permite traer todos los datos de todas las empresas*/
+      if (this.selectReporte === 8 && this.checked === true) {
+        this.rdEmpleado = [];
+        this.buscadorAvanzado(this.idEmpresa,"x",this.selectReporte,checkTemp,dateinicio,datefinal);
+        return;
+      }
+      
       /*Valida que el input  tenga data para buscar */
-      if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '' && this.checked === false) {
+      if (this.buscarData !== undefined && this.buscarData !== null && this.buscarData !== '') {
         const data = this.buscarData.trim();
         this.buscadorAvanzado(this.idEmpresa,data,this.selectReporte,checkTemp,dateinicio,datefinal);
+      }else{
+        this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Digite el dato a buscar', life: 3000 });
+        this.loading = false;
+        return;
       }
      
   }
 
   async buscadorAvanzado(idEmp:number,valorBuscado:string, tipo:number,check:number, fechaInicial:string, fechaFinal:string){
+    
     await this.pruebaServices.getBuscardorData(idEmp,valorBuscado,tipo,check,fechaInicial,fechaFinal).toPromise().then((res:any) => {
             
       if (res.length === 0) {
@@ -336,4 +357,13 @@ export class ReporteDetalladoComponent implements OnInit {
     this.msgs = [];
   }
 
+  deshabilitarCheck(){
+    
+    if (this.selectReporte === 6 || this.selectReporte === 7) {
+        this.checked = false;
+        this.banderaCheck = false;
+    }else{
+      this.banderaCheck = true;
+    }
+  }
 }

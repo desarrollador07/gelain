@@ -21,11 +21,14 @@
             <div class="ui-grid-col-4" style="text-align: center;">
                 <div id="search-wrapperTercero">
                     <input type="search" id="searchTercero" (keyup.enter)="buscador()" [(ngModel)]="buscarData" pInputText placeholder="Digite el dato a buscar">
-                    <p-dropdown id="searchDropdown" [options]="rdSelect" [(ngModel)]="selectReporte"></p-dropdown>
+                    <p-dropdown id="searchDropdown" [options]="rdSelect" [(ngModel)]="selectReporte" (ngModelChange)="deshabilitarCheck()"></p-dropdown>
                     <i class="pi pi-search"></i>
                 </div>
             </div>
-            <div class="ui-grid-col-2" style="text-align: right;margin-top: 10px;margin-right: 10px;">
+            <div class="ui-grid-col-2" *ngIf="!banderaCheck">
+
+            </div>
+            <div class="ui-grid-col-2" *ngIf="banderaCheck" style="text-align: right;margin-top: 10px;margin-right: 10px;">
                 <label>Habilitar Fechas: </label>
                 <p-checkbox [(ngModel)]="checked" binary="true"></p-checkbox>
             </div>
@@ -91,6 +94,7 @@
                     <td style="text-align:left">{{rdEmpleado.emdtelefono}}</td>
                     <td style="text-align:left">{{rdEmpleado.arenombre}}</td>
                     <td style="text-align:left">{{rdEmpleado.emdzona}}</td>
+                    <td style="text-align:left">{{rdEmpleado.emdfechamod | date:'dd-MM-yyyy, h:mm a'}}</td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">

@@ -316,3 +316,9 @@ fieldset legend {
     font-weight: normal;
     width: 205px;
 }
+
+*>>>.ui-corner-all {
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 10px;
+}

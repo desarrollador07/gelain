@@ -133,7 +133,7 @@ export class PruebaService {
 
   /* SERVICIOS NUEVOS 23-08-2021 MODULO: REPORTE DETALLADO POR EMPLEADO */
   getBuscardorData(idEmpresa:number,  valorBuscado:string, tipo:number, check:number,fechaInicial:string, fechaFinal:string){
-    return  this.http.get(this.UrlDatoBuscado + `/${idEmpresa}/${valorBuscado}/${tipo}/${check}/${fechaInicial}/${fechaFinal}`);
+    return  this.http.get(this.UrlDatoBuscado +`/${idEmpresa}/${valorBuscado}/${tipo}/${check}/${fechaInicial}/${fechaFinal}`);
   }
 
   getReporteAreas(idEmpresa:number){
