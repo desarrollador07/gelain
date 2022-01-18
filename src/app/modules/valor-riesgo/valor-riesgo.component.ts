@@ -1886,9 +1886,6 @@ export class ValorRiesgoComponent implements OnInit {
     /* Titulo - TAREAS DE ALTO RIESGO : Trabajo en caliente corte y soldadura*/
     this.fnParamExcelTitle('XY3','YK3','Trabajo en caliente corte y soldadura','Calibri',13);
 
-
-
-
     //Adding Header Row
     let headerRow = this.worksheet.addRow(header);
     headerRow.eachCell((cell, number) => {
@@ -1900,7 +1897,7 @@ export class ValorRiesgoComponent implements OnInit {
       }
 
       const widthCell = cell.value.toString().length
-      this.worksheet.getColumn(number).width = widthCell + 3;
+      this.worksheet.getColumn(number).width = widthCell + 5;
       /*Organización de colores por grupo de datos */
       /*BIOLÓGICO */
       if (number >= 12 && number <= 76) {
@@ -2015,48 +2012,11 @@ export class ValorRiesgoComponent implements OnInit {
 
     })
 
-   
-    
     // Adding Data with Conditional Formatting
     data.forEach(d => {
       this.worksheet.addRow(d);
-
-      // let sales = row.getCell(1);
-      // let color = 'FF99FF99';
-      // if (+sales.value < 200000) {
-      //   color = 'FF9999'
-      // }
-      // var maxLength = 0;
-      // d["eachCell"]({ includeEmpty: true }, function (cell) {
-      //     var columnLength = cell.value ? cell.value.toString().length : 10;
-      //     if (columnLength > maxLength ) {
-      //         maxLength = columnLength;
-      //     }
-      // });
-      // d.width = maxLength < 10 ? 10 : maxLength;
-      // sales.fill = {
-      //   type: 'pattern',
-      //   pattern: 'solid',
-      //   fgColor: { argb: '' }
-      // }
     }
     );
-
-    // for (let index = 1; index <= 662; index++) {
-    //   this.worksheet.getColumn(index).width = 20;
-    // }
-    // worksheet.addRow([]);
-
-    //Footer Row
-    // let footerRow = worksheet.addRow(['Employee Sales Report Generated from example.com at ' + date]);
-    // footerRow.getCell(1).fill = {
-    //   type: 'pattern',
-    //   pattern: 'solid',
-    //   fgColor: { argb: 'FFB050' }
-    // };
-
-    //Merge Cells
-    // worksheet.mergeCells(`A${footerRow.number}:F${footerRow.number}`);
 
     //Generate & Save Excel File
     this.workbook.xlsx.writeBuffer().then((data) => {
@@ -2078,7 +2038,6 @@ export class ValorRiesgoComponent implements OnInit {
     })
 
     let reportData = {
-      title: 'Employee Sales Report - Jan 2020',
       data: dataForExcel,
       headers: Object.keys(dataExcel[0])
     }
