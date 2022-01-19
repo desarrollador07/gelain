@@ -1737,8 +1737,10 @@ export class ValorRiesgoComponent implements OnInit {
     this.msgs = [];
   }
 
-  exportExcel2(excelData) {
+  exportExcel2(excelData:any) {
 
+    this.workbook = new Workbook();
+    this.worksheet = this.workbook.addWorksheet('Data');
     //Title, Header & Data
     // const title = excelData.title;
     const header = excelData.headers
@@ -2020,7 +2022,7 @@ export class ValorRiesgoComponent implements OnInit {
 
     //Generate & Save Excel File
     this.workbook.xlsx.writeBuffer().then((data) => {
-      let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
       saveAs(blob, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
     })
 
