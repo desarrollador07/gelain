@@ -2024,7 +2024,9 @@ export class ValorRiesgoComponent implements OnInit {
     this.workbook.xlsx.writeBuffer().then((data) => {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
       saveAs(blob, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
+      // this.saveAsExcelFile(data, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
     })
+
 
   }
 
