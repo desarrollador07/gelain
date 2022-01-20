@@ -1738,8 +1738,10 @@ export class ValorRiesgoComponent implements OnInit {
   }
 
   exportExcel2(excelData:any) {
-
+    /* Tenemos dos clases de titulos unos para referenciar las categorias y los otros headers o cabeceras es para identificar donde se asignara la información */
+    /*Creación del libro de Excel */
     this.workbook = new Workbook();
+    /*Creación de la pagina y asignación del libro de Excel */
     this.worksheet = this.workbook.addWorksheet('Data');
     //Title, Header & Data
     // const title = excelData.title;
@@ -1748,6 +1750,7 @@ export class ValorRiesgoComponent implements OnInit {
     const header2 = ['BIOLOGICO','CARGA FÍSICA','ELÉCTRICO','FÍSICO','INCENDIOS / EXPLOSIONES','LOCATIVOS','MECÁNICOS','PSICOSOCIAL','PÚBLICOS','TRANSITO','QUÍMICOS','TAREAS DE ALTO RIESGO']
 
     //Blank Row 
+    /*Agrega filas en blanco */
     this.worksheet.addRow([]);
     this.worksheet.addRow([]);
 
@@ -1889,8 +1892,11 @@ export class ValorRiesgoComponent implements OnInit {
     this.fnParamExcelTitle('XY3','YK3','Trabajo en caliente corte y soldadura','Calibri',13);
 
     //Adding Header Row
+    /*Se crea la fila con los titulos */
     let headerRow = this.worksheet.addRow(header);
+    /*Cabecera que tendra todos los titulos y se asignara la información  */
     headerRow.eachCell((cell, number) => {
+      /*Crea los bordes para las celdas de los titulos */
       cell.border = {
         top: { style: 'thin' },
         left: { style: 'thin' },
@@ -1898,9 +1904,11 @@ export class ValorRiesgoComponent implements OnInit {
         right: { style: 'thin' }
       }
 
-      const widthCell = cell.value.toString().length
+      /*Asigna el ancho de la celda según la longitud de los datos de forma relativa */
+      const widthCell = cell.value.toString().length;
+      /*Segun la columna correspondiente asigna el ancho de la celda y se le suma 5 para controlar el espaciado en las celdas */
       this.worksheet.getColumn(number).width = widthCell + 5;
-      /*Organización de colores por grupo de datos */
+      /*Organización de colores por grupo de datos  según los titulos de categorias*/
       /*BIOLÓGICO */
       if (number >= 12 && number <= 76) {
         cell.fill = {
@@ -2015,32 +2023,35 @@ export class ValorRiesgoComponent implements OnInit {
     })
 
     // Adding Data with Conditional Formatting
+    /*Agrega los datos al excel */
     data.forEach(d => {
       this.worksheet.addRow(d);
     }
     );
 
     //Generate & Save Excel File
+    /*Genera y guarda el archivo de Excel en el dispositivo */
     this.workbook.xlsx.writeBuffer().then((data) => {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
+      /*Asigna el nombre del archivo con que se quiere guardar */
       saveAs(blob, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
-      // this.saveAsExcelFile(data, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
     })
 
 
   }
 
-  
+  /*Funcion que toma la información y la organiza según se revise en la creación del libro del excel en la siguiente funcion exportExcel2 */
   exportToExcel() {
-
+    /*Arreglo Temporal */
     var dataForExcel = [];
-
+    /*Arreglo que contiene toda la información cabecera y datos */
     const dataExcel = this.getCars();
-
+    /*Agrega la información en el arreglo temporal segun el número de posiciónes en el arreglo, donde la posición [0] siempre ira el encabezado */
     dataExcel.forEach((row: any) => {
       dataForExcel.push(Object.values(row))
     })
 
+    /*Se crea un objeto con el cual la función del excel la va recibir */
     let reportData = {
       data: dataForExcel,
       headers: Object.keys(dataExcel[0])
@@ -2049,21 +2060,28 @@ export class ValorRiesgoComponent implements OnInit {
     this.exportExcel2(reportData);
   }
 
+  /*Función  que parametriza las celdas para los encabezados  los cual se requieren combinar las celdas */
   fnParamExcelTitle(cell1:string,cell2:string,title:string,nameFont:string,size:number,){
+    /*Se toma  las celdas a combinar */
     this.worksheet.mergeCells(`${cell1}`, `${cell2}`);
+    /*Se asigna el borde a la celdas correspondientes */
     this.worksheet.getCell(`${cell1}`, `${cell2}`).border = {
       top: { style: 'thin' },
       left: { style: 'thin' },
       bottom: { style: 'thin' },
       right: { style: 'thin' }
     }
+    /* Asigna estilos a la celda combinada según lo que queremos en el titulo */
     let titleRow = this.worksheet.getCell(`${cell1}`);
+    /*Toma el valor del titulo */
     titleRow.value = title;
+    /*Cambia los valores de estilo de las fuentes */
     titleRow.font = {
       name: nameFont,
       size: size,
       bold: true
     }
+    /*Alinea el titulo y lo centra en la celda combinada */
     titleRow.alignment = { vertical: 'middle', horizontal: 'center' }
   }
 
