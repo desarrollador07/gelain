@@ -48,6 +48,59 @@ export class ValorRiesgoComponent implements OnInit {
   selectBuscar:any = 1;
   id:any;
   areas: Area[] = [];
+  cont1:number;
+  cont2:number;
+  cont3:number;
+  cont4:number;
+  cont5:number;
+  cont6:number;
+  cont7:number;
+  cont8:number;
+  cont9:number;
+  cont10:number;
+  cont11:number;
+  cont12:number;
+  cont13:number;
+  cont14:number;
+  cont15:number;
+  cont16:number;
+  cont17:number;
+  cont18:number;
+  cont19:number;
+  cont20:number;
+  cont21:number;
+  cont22:number;
+  cont23:number;
+  cont24:number;
+  cont25:number;
+  cont26:number;
+  cont27:number;
+  cont28:number;
+  cont29:number;
+  cont30:number;
+  cont31:number;
+  cont32:number;
+  cont33:number;
+  cont34:number;
+  cont35:number;
+  cont36:number;
+  cont37:number;
+  cont38:number;
+  cont39:number;
+  cont40:number;
+  cont41:number;
+  cont42:number;
+  cont43:number;
+  cont44:number;
+  cont45:number;
+  cont46:number;
+  cont47:number;
+  cont48:number;
+  cont49:number;
+  cont50:number;
+  cont51:number;
+  headerRow:any;
+
   workbook = new Workbook();
   worksheet = this.workbook.addWorksheet('Data');
 
@@ -239,7 +292,9 @@ export class ValorRiesgoComponent implements OnInit {
     this.vrData.map(resp => {
       var varTemp: Area[] = [];
       varTemp = this.areas.filter(area => area.areid === resp.idparea);
-      resp.idpareanombre = varTemp[0].arenombre;
+      if (varTemp.length !== 0) {
+        resp.idpareanombre = varTemp[0].arenombre;
+      }
     });
   }
 
@@ -1209,345 +1264,35 @@ export class ValorRiesgoComponent implements OnInit {
     this.workbook = new Workbook();
     /*Creación de la pagina y asignación del libro de Excel */
     this.worksheet = this.workbook.addWorksheet(sessionStorage.getItem('nombreEmpresa'));
-  
-    //Blank Row 
     /*Agrega filas en blanco */
     this.worksheet.addRow([]);
-
-    this.fnParamExcelTitle(`N1`,`P1`,'CONTROL EXISTENTE','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`Q1`,`W1`,'EVALUACION DEL RIESGO','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`X1`,`X1`,'VALORACION DEL RIESGO','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`Y1`,`AA1`,'CRITERIOS PARA ESTABLECER CONTROLES','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`AB1`,`AG1`,'MEDIDAS DE INTERVENCIÓN','calibri',12,'A7ACA7','000000');
-  
-    //Adding Header Row
-    /*Se crea la fila con los titulos */
-    let headerRow = this.worksheet.addRow(header);
-    /*Cabecera que tendra todos los titulos y se asignara la información  */
-
-    headerRow.eachCell((cell, number) => {
-      /*Asigna el ancho de la celda según la longitud de los datos de forma relativa */
-      const widthCell = cell.value.toString().length;
-
-      if (number === 12 || number === 32 || number === 33) {
-        this.worksheet.getColumn(number).width = 70;
-      } else{
-        this.worksheet.getColumn(number).width = widthCell + 5;
-      }
-       /*Segun la columna correspondiente asigna el ancho de la celda y se le suma 5 para controlar el espaciado en las celdas */
-      
-      cell.border = {
-        top: { style: 'thin' },
-        left: { style: 'thin' },
-        bottom: { style: 'thin' },
-        right: { style: 'thin' }
-      }
-
-      cell.fill = {
-        type: 'pattern',
-        pattern: 'solid',
-        fgColor: { argb: 'A7ACA7' },
-        bgColor: { argb: '' }
-      }
-
-      cell.font = {
-        name: 'calibri',
-        size: 12,
-        bold: true
-      }
-
-      /*Alinea el titulo y lo centra en la celda combinada */
-      cell.alignment = { vertical: 'middle', horizontal: 'center' }
-
-    });
-    var cont1 = 3;
-    var cont2 = 52;
-    var cont3 = 7;
-    var cont4 = 4;
-    var cont5 = 5;
-    var cont6 = 6;
-    var cont7 = 8;
-    var cont8 = 12;
-    var cont9 = 9;
-    var cont10 = 10;
-    var cont11 = 11;
-    var cont12 = 13;
-    var cont13 = 15;
-    var cont14 = 14;
-    var cont15 = 16;
-    var cont16 = 23;
-    var cont17 = 17;
-    var cont18 = 18;
-    var cont19 = 19;
-    var cont20 = 20;
-    var cont21 = 21;
-    var cont22 = 22;
-    var cont23 = 24;
-    var cont24 = 26;
-    var cont25 = 25;
-    var cont26 = 27;
-    var cont27 = 32;
-    var cont28 = 28;
-    var cont29 = 29;
-    var cont30 = 30;
-    var cont31 = 31;
-    var cont32 = 33;
-    var cont33 = 36;
-    var cont34 = 34;
-    var cont35 = 35;
-    var cont36 = 37;
-    var cont37 = 39;
-    var cont38 = 38;
-    var cont39 = 40;
-    var cont40 = 43;
-    var cont41 = 41;
-    var cont42 = 42;
-    var cont43 = 44;
-    var cont44 = 45;
-    var cont45 = 46;
-    var cont46 = 49;
-    var cont47 = 47;
-    var cont48 = 48;
-    var cont49 = 50;
-    var cont50 = 52;
-    var cont51 = 51;
-    
+    /*Agrega la cabecera de agrupación inicial */
+    this.fnHeaderSup();
+    /*Agrega la cabecera princial*/
+    this.fnHeaderRow(header);
+    /*Inician los contadores de acuerdo a la posición que se necesita en las celdas */
+    this.fnContDataInit();
+    /*Ciclo que recorre el arreglo de los datos, tambien se adquieren datos del arreglo principal  y el arreglo segundario */
     for (let j = 0; j < data.length; j++) {
-      
+      /*Ciclo de arreglo con data secundaria el cual recorre por categoria */
       for (let i = 0; i < data[j].length; i++) {
-        
-        data[j][i].forEach(element => {
+        /*Ciclo que recorre por subcategoria */
+        data[j][i].forEach((element:any)=> {
             this.worksheet.addRow(element);
         });
 
       }
+      /*Condicional que valida los datos iniciales */
       if (j === 0) {
-
-        this.fnParamSubtitle(`A${cont1}`,`A${cont2}`,this.vrData[j].idpareanombre);
-        this.fnParamSubtitle(`B${cont1}`,`B${cont2}`,this.vrData[j].idpnombre);
-        this.fnParamSubtitle(`C${cont1}`,`C${cont2}`,this.vrData[j].idpcedula);
-        this.fnParamSubtitle(`D${cont1}`,`D${cont2}`,this.vrData[j].idptelefono);
-        this.fnParamSubtitle(`E${cont1}`,`E${cont2}`,this.vrData[j].idpsede);
-        this.fnParamSubtitle(`F${cont1}`,`F${cont2}`,'');
-        this.fnParamSubtitle(`G${cont1}`,`G${cont2}`,'');
-        this.fnParamSubtitle(`H${cont1}`,`H${cont2}`,'');
-        this.fnParamSubtitle(`I${cont1}`,`I${cont2}`,'');
-        this.fnParamSubtitle(`J${cont1}`,`J${cont2}`,'');
-
-        /*FACTORES DE RIESGO */
-        /*BIOLOGICO */
-        this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000','FFFFFF');
-        this.fnParamBorderTitle(`L${cont1}`,'Derivados de origen animal');
-        this.fnParamBorderTitle(`L${cont4}`,'Microorganismos tipo hongo');
-        this.fnParamBorderTitle(`L${cont5}`,'Microorganismos tipo bacterias');
-        this.fnParamBorderTitle(`L${cont6}`,'Microorganismos tipo virus');
-        this.fnParamBorderTitle(`L${cont3}`,'Parásitos');
-        /*CARGA FISICA */
-        this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
-        this.fnParamBorderTitle(`L${cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
-        this.fnParamBorderTitle(`L${cont9}`,'Carga dinámica por movimientos repetitivos');
-        this.fnParamBorderTitle(`L${cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
-        this.fnParamBorderTitle(`L${cont11}`,'Carga estática de pie');
-        this.fnParamBorderTitle(`L${cont8}`,'Posiciones prolongadas sentado');
-        /*ELECTRICO */
-        this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507','FFFFFF');
-        this.fnParamBorderTitle(`L${cont12}`,'Energía eléctrica de baja');
-        this.fnParamBorderTitle(`L${cont14}`,'Energía eléctrica de alta');
-        this.fnParamBorderTitle(`L${cont13}`,'Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
-        /*FISICO */
-        this.fnParamExcelTitle(`K${cont15}`,`K${cont16}`,'FÍSICO','calibri',10,'2162b0','FFFFFF');
-        this.fnParamBorderTitle(`L${cont15}`,'Iluminación deficiente');
-        this.fnParamBorderTitle(`L${cont17}`,'Iluminación en exceso');
-        this.fnParamBorderTitle(`L${cont18}`,'Radiaciones no ionizantes por ultravioleta');
-        this.fnParamBorderTitle(`L${cont19}`,'Radiaciones ionizantes');
-        this.fnParamBorderTitle(`L${cont20}`,'Ruido');
-        this.fnParamBorderTitle(`L${cont21}`,'Vibraciones');
-        this.fnParamBorderTitle(`L${cont22}`,'Transferencias de temperaturas por calor');
-        this.fnParamBorderTitle(`L${cont16}`,'Transferencias de temperaturas por frio');
-        /*INCENDIOS / EXPLOSIONES */
-        this.fnParamExcelTitle(`K${cont23}`,`K${cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707','FFFFFF');
-        this.fnParamBorderTitle(`L${cont23}`,'Materiales combustibles');
-        this.fnParamBorderTitle(`L${cont25}`,'Ausencia de equipo contra incendio');
-        this.fnParamBorderTitle(`L${cont24}`,'Sustancias inflamables');
-        /*LOCATIVOS */
-        this.fnParamExcelTitle(`K${cont26}`,`K${cont27}`,'LOCATIVOS','calibri',10,'836013','FFFFFF');
-        this.fnParamBorderTitle(`L${cont26}`,'Pisos defectuosos');
-        this.fnParamBorderTitle(`L${cont28}`,'Escaleras defectuosas');
-        this.fnParamBorderTitle(`L${cont29}`,'Almacenamiento, estanterías en mal estado');
-        this.fnParamBorderTitle(`L${cont30}`,'Almacenamiento, arrumes con altura inadecuada');
-        this.fnParamBorderTitle(`L${cont31}`,'Señalización y demarcación deficiente, inexistente o inadecuada');
-        this.fnParamBorderTitle(`L${cont27}`,'Falta de orden y aseo');
-        /*MECANICOS */
-        this.fnParamExcelTitle(`K${cont32}`,`K${cont33}`,'MECÁNICOS','calibri',10,'4E493E','FFFFFF');
-        this.fnParamBorderTitle(`L${cont32}`,'Utilización de herramientas manuales');
-        this.fnParamBorderTitle(`L${cont34}`,'Superficies cortantes');
-        this.fnParamBorderTitle(`L${cont35}`,'Contacto con elementos cortopunzantes');
-        this.fnParamBorderTitle(`L${cont33}`,'Materiales proyectados sólidos o fluidos');
-        /*PSICOSOCIAL */
-        this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
-        this.fnParamBorderTitle(`L${cont36}`,'Sobrecarga de trabajo');
-        this.fnParamBorderTitle(`L${cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
-        this.fnParamBorderTitle(`L${cont37}`,'Trabajo repetitivo');
-        /*PUBLICOS */
-        this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5','FFFFFF');
-        this.fnParamBorderTitle(`L${cont39}`,'Situación de atraco o robo');
-        this.fnParamBorderTitle(`L${cont41}`,'Terrorismo');
-        this.fnParamBorderTitle(`L${cont42}`,'Situación de Agresión fisica');
-        this.fnParamBorderTitle(`L${cont40}`,'Situación de asonada');
-        /*TRANSITO */
-        this.fnParamExcelTitle(`K${cont43}`,`K${cont44}`,'TRANSITO','calibri',10,'53DA70','FFFFFF');
-        this.fnParamBorderTitle(`L${cont43}`,'Transporte carro / ambulancia');
-        this.fnParamBorderTitle(`L${cont44}`,'Transporte motocicleta');
-        /*QUIMICOS */
-        this.fnParamExcelTitle(`K${cont45}`,`K${cont46}`,'QUÍMICOS','calibri',10,'E47BC4','FFFFFF');
-        this.fnParamBorderTitle(`L${cont45}`,'Aerosoles, líquidos, rocíos');
-        this.fnParamBorderTitle(`L${cont47}`,'Gases y vapores');
-        this.fnParamBorderTitle(`L${cont48}`,'Sustancias sólidas (polvos)');
-        this.fnParamBorderTitle(`L${cont46}`,'Contacto y/o salpicadura de químicos');
-        /*TAREAS DE ALTO RIESGO */
-        this.fnParamExcelTitle(`K${cont49}`,`K${cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23','FFFFFF');
-        this.fnParamBorderTitle(`L${cont49}`,'Trabajo en alturas por encima de 1.50 metros');
-        this.fnParamBorderTitle(`L${cont51}`,'Trabajo en espacios confinados');
-        this.fnParamBorderTitle(`L${cont50}`,'Trabajo en caliente corte y soldadura');
+        /*Estructura de los datos */
+        this.fnGroup(j);
+        /*Condición que valida los N datos siguientes haciendo la sumatoria de las 50 filas posteriores para la organización de los siguientes datos*/
       }else{
-        cont1 += 50;
-        cont2 += 50;
-        cont3 += 50;
-        cont4 += 50;
-        cont5 += 50;
-        cont6 += 50;
-        cont7 += 50;
-        cont8 += 50;
-        cont9 += 50;
-        cont10 += 50;
-        cont11 += 50;
-        cont12 += 50;
-        cont13 += 50;
-        cont14 += 50;
-        cont15 += 50;
-        cont16 += 50;
-        cont17 += 50;
-        cont18 += 50;
-        cont19 += 50;
-        cont20 += 50;
-        cont21 += 50;
-        cont22 += 50;
-        cont23 += 50;
-        cont24 += 50;
-        cont25 += 50;
-        cont26 += 50;
-        cont27 += 50;
-        cont28 += 50;
-        cont29 += 50;
-        cont30 += 50;
-        cont31 += 50;
-        cont32 += 50;
-        cont33 += 50;
-        cont34 += 50;
-        cont35 += 50;
-        cont36 += 50;
-        cont37 += 50;
-        cont38 += 50;
-        cont39 += 50;
-        cont40 += 50;
-        cont41 += 50;
-        cont42 += 50;
-        cont43 += 50;
-        cont44 += 50;
-        cont45 += 50;
-        cont46 += 50;
-        cont47 += 50;
-        cont48 += 50;
-        cont49 += 50;
-        cont50 += 50;
-        cont51 += 50;
-
-        this.fnParamSubtitle(`A${cont1}`,`A${cont2}`,this.vrData[j].idpareanombre);
-        this.fnParamSubtitle(`B${cont1}`,`B${cont2}`,this.vrData[j].idpnombre);
-        this.fnParamSubtitle(`C${cont1}`,`C${cont2}`,this.vrData[j].idpcedula);
-        this.fnParamSubtitle(`D${cont1}`,`D${cont2}`,this.vrData[j].idptelefono);
-        this.fnParamSubtitle(`E${cont1}`,`E${cont2}`,this.vrData[j].idpsede);
-        this.fnParamSubtitle(`F${cont1}`,`F${cont2}`,'');
-        this.fnParamSubtitle(`G${cont1}`,`G${cont2}`,'');
-        this.fnParamSubtitle(`H${cont1}`,`H${cont2}`,'');
-        this.fnParamSubtitle(`I${cont1}`,`I${cont2}`,'');
-        this.fnParamSubtitle(`J${cont1}`,`J${cont2}`,'');
-
-        /*FACTORES DE RIESGO */
-        /*BIOLOGICO */
-        this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000','FFFFFF');
-        this.fnParamBorderTitle(`L${cont1}`,'Derivados de origen animal');
-        this.fnParamBorderTitle(`L${cont4}`,'Microorganismos tipo hongo');
-        this.fnParamBorderTitle(`L${cont5}`,'Microorganismos tipo bacterias');
-        this.fnParamBorderTitle(`L${cont6}`,'Microorganismos tipo virus');
-        this.fnParamBorderTitle(`L${cont3}`,'Parásitos');
-        /*CARGA FISICA */
-        this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
-        this.fnParamBorderTitle(`L${cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
-        this.fnParamBorderTitle(`L${cont9}`,'Carga dinámica por movimientos repetitivos');
-        this.fnParamBorderTitle(`L${cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
-        this.fnParamBorderTitle(`L${cont11}`,'Carga estática de pie');
-        this.fnParamBorderTitle(`L${cont8}`,'Posiciones prolongadas sentado');
-        /*ELECTRICO */
-        this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507','FFFFFF');
-        this.fnParamBorderTitle(`L${cont12}`,'Energía eléctrica de baja');
-        this.fnParamBorderTitle(`L${cont14}`,'Energía eléctrica de alta');
-        this.fnParamBorderTitle(`L${cont13}`,'Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
-        /*FISICO */
-        this.fnParamExcelTitle(`K${cont15}`,`K${cont16}`,'FÍSICO','calibri',10,'2162b0','FFFFFF');
-        this.fnParamBorderTitle(`L${cont15}`,'Iluminación deficiente');
-        this.fnParamBorderTitle(`L${cont17}`,'Iluminación en exceso');
-        this.fnParamBorderTitle(`L${cont18}`,'Radiaciones no ionizantes por ultravioleta');
-        this.fnParamBorderTitle(`L${cont19}`,'Radiaciones ionizantes');
-        this.fnParamBorderTitle(`L${cont20}`,'Ruido');
-        this.fnParamBorderTitle(`L${cont21}`,'Vibraciones');
-        this.fnParamBorderTitle(`L${cont22}`,'Transferencias de temperaturas por calor');
-        this.fnParamBorderTitle(`L${cont16}`,'Transferencias de temperaturas por frio');
-        /*INCENDIOS / EXPLOSIONES */
-        this.fnParamExcelTitle(`K${cont23}`,`K${cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707','FFFFFF');
-        this.fnParamBorderTitle(`L${cont23}`,'Materiales combustibles');
-        this.fnParamBorderTitle(`L${cont25}`,'Ausencia de equipo contra incendio');
-        this.fnParamBorderTitle(`L${cont24}`,'Sustancias inflamables');
-        /*LOCATIVOS */
-        this.fnParamExcelTitle(`K${cont26}`,`K${cont27}`,'LOCATIVOS','calibri',10,'836013','FFFFFF');
-        this.fnParamBorderTitle(`L${cont26}`,'Pisos defectuosos');
-        this.fnParamBorderTitle(`L${cont28}`,'Escaleras defectuosas');
-        this.fnParamBorderTitle(`L${cont29}`,'Almacenamiento, estanterías en mal estado');
-        this.fnParamBorderTitle(`L${cont30}`,'Almacenamiento, arrumes con altura inadecuada');
-        this.fnParamBorderTitle(`L${cont31}`,'Señalización y demarcación deficiente, inexistente o inadecuada');
-        this.fnParamBorderTitle(`L${cont27}`,'Falta de orden y aseo');
-        /*MECANICOS */
-        this.fnParamExcelTitle(`K${cont32}`,`K${cont33}`,'MECÁNICOS','calibri',10,'4E493E','FFFFFF');
-        this.fnParamBorderTitle(`L${cont32}`,'Utilización de herramientas manuales');
-        this.fnParamBorderTitle(`L${cont34}`,'Superficies cortantes');
-        this.fnParamBorderTitle(`L${cont35}`,'Contacto con elementos cortopunzantes');
-        this.fnParamBorderTitle(`L${cont33}`,'Materiales proyectados sólidos o fluidos');
-         /*PSICOSOCIAL */
-        this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
-        this.fnParamBorderTitle(`L${cont36}`,'Sobrecarga de trabajo');
-        this.fnParamBorderTitle(`L${cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
-        this.fnParamBorderTitle(`L${cont37}`,'Trabajo repetitivo');
-         /*PUBLICOS */
-        this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5','FFFFFF');
-        this.fnParamBorderTitle(`L${cont39}`,'Situación de atraco o robo');
-        this.fnParamBorderTitle(`L${cont41}`,'Terrorismo');
-        this.fnParamBorderTitle(`L${cont42}`,'Situación de Agresión fisica');
-        this.fnParamBorderTitle(`L${cont40}`,'Situación de asonada');
-        /*TRANSITO */
-        this.fnParamExcelTitle(`K${cont43}`,`K${cont44}`,'TRANSITO','calibri',10,'53DA70','FFFFFF');
-        this.fnParamBorderTitle(`L${cont43}`,'Transporte carro / ambulancia');
-        this.fnParamBorderTitle(`L${cont44}`,'Transporte motocicleta');
-         /*QUIMICOS */
-        this.fnParamExcelTitle(`K${cont45}`,`K${cont46}`,'QUÍMICOS','calibri',10,'E47BC4','FFFFFF');
-        this.fnParamBorderTitle(`L${cont45}`,'Aerosoles, líquidos, rocíos');
-        this.fnParamBorderTitle(`L${cont47}`,'Gases y vapores');
-        this.fnParamBorderTitle(`L${cont48}`,'Sustancias sólidas (polvos)');
-        this.fnParamBorderTitle(`L${cont46}`,'Contacto y/o salpicadura de químicos');
-         /*TAREAS DE ALTO RIESGO */
-        this.fnParamExcelTitle(`K${cont49}`,`K${cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23','FFFFFF');
-        this.fnParamBorderTitle(`L${cont49}`,'Trabajo en alturas por encima de 1.50 metros');
-        this.fnParamBorderTitle(`L${cont51}`,'Trabajo en espacios confinados');
-        this.fnParamBorderTitle(`L${cont50}`,'Trabajo en caliente corte y soldadura');
+        /*Sumatoria de los contadores para la númeración de las celdas */
+        this.fnContSumaData();
+        /*Estructura de los datos */
+        this.fnGroup(j);
+  
       }
 
     }
@@ -1558,7 +1303,6 @@ export class ValorRiesgoComponent implements OnInit {
       /*Asigna el nombre del archivo con que se quiere guardar */
       saveAs(blob, `VR_${sessionStorage.getItem('nombreEmpresa')}_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
     })
-
 
   }
 
@@ -1634,6 +1378,253 @@ export class ValorRiesgoComponent implements OnInit {
     this.worksheet.mergeCells(cell1,cell2);
     this.worksheet.getCell(cell1).value = data;
     this.worksheet.getCell(cell1).alignment = { vertical: 'middle', horizontal: 'center' };
+  }
+
+  fnContDataInit(){
+    this.cont1 = 3;
+    this.cont2 = 52;
+    this.cont3 = 7;
+    this.cont4 = 4;
+    this.cont5 = 5;
+    this.cont6 = 6;
+    this.cont7 = 8;
+    this.cont8 = 12;
+    this.cont9 = 9;
+    this.cont10 = 10;
+    this.cont11 = 11;
+    this.cont12 = 13;
+    this.cont13 = 15;
+    this.cont14 = 14;
+    this.cont15 = 16;
+    this.cont16 = 23;
+    this.cont17 = 17;
+    this.cont18 = 18;
+    this.cont19 = 19;
+    this.cont20 = 20;
+    this.cont21 = 21;
+    this.cont22 = 22;
+    this.cont23 = 24;
+    this.cont24 = 26;
+    this.cont25 = 25;
+    this.cont26 = 27;
+    this.cont27 = 32;
+    this.cont28 = 28;
+    this.cont29 = 29;
+    this.cont30 = 30;
+    this.cont31 = 31;
+    this.cont32 = 33;
+    this.cont33 = 36;
+    this.cont34 = 34;
+    this.cont35 = 35;
+    this.cont36 = 37;
+    this.cont37 = 39;
+    this.cont38 = 38;
+    this.cont39 = 40;
+    this.cont40 = 43;
+    this.cont41 = 41;
+    this.cont42 = 42;
+    this.cont43 = 44;
+    this.cont44 = 45;
+    this.cont45 = 46;
+    this.cont46 = 49;
+    this.cont47 = 47;
+    this.cont48 = 48;
+    this.cont49 = 50;
+    this.cont50 = 52;
+    this.cont51 = 51;
+  }
+
+  fnGroup(j:number){
+    this.fnParamSubtitle(`A${this.cont1}`,`A${this.cont2}`,this.vrData[j].idpareanombre);
+        this.fnParamSubtitle(`B${this.cont1}`,`B${this.cont2}`,this.vrData[j].idpnombre);
+        this.fnParamSubtitle(`C${this.cont1}`,`C${this.cont2}`,this.vrData[j].idpcedula);
+        this.fnParamSubtitle(`D${this.cont1}`,`D${this.cont2}`,this.vrData[j].idptelefono);
+        this.fnParamSubtitle(`E${this.cont1}`,`E${this.cont2}`,this.vrData[j].idpsede);
+        this.fnParamSubtitle(`F${this.cont1}`,`F${this.cont2}`,'');
+        this.fnParamSubtitle(`G${this.cont1}`,`G${this.cont2}`,'');
+        this.fnParamSubtitle(`H${this.cont1}`,`H${this.cont2}`,'');
+        this.fnParamSubtitle(`I${this.cont1}`,`I${this.cont2}`,'');
+        this.fnParamSubtitle(`J${this.cont1}`,`J${this.cont2}`,'');
+
+        /*FACTORES DE RIESGO */
+        /*BIOLOGICO */
+        this.fnParamExcelTitle(`K${this.cont1}`,`K${this.cont3}`,'BIOLÓGICO','calibri',10,'008000','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont1}`,'Derivados de origen animal');
+        this.fnParamBorderTitle(`L${this.cont4}`,'Microorganismos tipo hongo');
+        this.fnParamBorderTitle(`L${this.cont5}`,'Microorganismos tipo bacterias');
+        this.fnParamBorderTitle(`L${this.cont6}`,'Microorganismos tipo virus');
+        this.fnParamBorderTitle(`L${this.cont3}`,'Parásitos');
+        /*CARGA FISICA */
+        this.fnParamExcelTitle(`K${this.cont7}`,`K${this.cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
+        this.fnParamBorderTitle(`L${this.cont9}`,'Carga dinámica por movimientos repetitivos');
+        this.fnParamBorderTitle(`L${this.cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
+        this.fnParamBorderTitle(`L${this.cont11}`,'Carga estática de pie');
+        this.fnParamBorderTitle(`L${this.cont8}`,'Posiciones prolongadas sentado');
+        /*ELECTRICO */
+        this.fnParamExcelTitle(`K${this.cont12}`,`K${this.cont13}`,'ELÉCTRICO','calibri',10,'F2F507','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont12}`,'Energía eléctrica de baja');
+        this.fnParamBorderTitle(`L${this.cont14}`,'Energía eléctrica de alta');
+        this.fnParamBorderTitle(`L${this.cont13}`,'Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
+        /*FISICO */
+        this.fnParamExcelTitle(`K${this.cont15}`,`K${this.cont16}`,'FÍSICO','calibri',10,'2162b0','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont15}`,'Iluminación deficiente');
+        this.fnParamBorderTitle(`L${this.cont17}`,'Iluminación en exceso');
+        this.fnParamBorderTitle(`L${this.cont18}`,'Radiaciones no ionizantes por ultravioleta');
+        this.fnParamBorderTitle(`L${this.cont19}`,'Radiaciones ionizantes');
+        this.fnParamBorderTitle(`L${this.cont20}`,'Ruido');
+        this.fnParamBorderTitle(`L${this.cont21}`,'Vibraciones');
+        this.fnParamBorderTitle(`L${this.cont22}`,'Transferencias de temperaturas por calor');
+        this.fnParamBorderTitle(`L${this.cont16}`,'Transferencias de temperaturas por frio');
+        /*INCENDIOS / EXPLOSIONES */
+        this.fnParamExcelTitle(`K${this.cont23}`,`K${this.cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont23}`,'Materiales combustibles');
+        this.fnParamBorderTitle(`L${this.cont25}`,'Ausencia de equipo contra incendio');
+        this.fnParamBorderTitle(`L${this.cont24}`,'Sustancias inflamables');
+        /*LOCATIVOS */
+        this.fnParamExcelTitle(`K${this.cont26}`,`K${this.cont27}`,'LOCATIVOS','calibri',10,'836013','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont26}`,'Pisos defectuosos');
+        this.fnParamBorderTitle(`L${this.cont28}`,'Escaleras defectuosas');
+        this.fnParamBorderTitle(`L${this.cont29}`,'Almacenamiento, estanterías en mal estado');
+        this.fnParamBorderTitle(`L${this.cont30}`,'Almacenamiento, arrumes con altura inadecuada');
+        this.fnParamBorderTitle(`L${this.cont31}`,'Señalización y demarcación deficiente, inexistente o inadecuada');
+        this.fnParamBorderTitle(`L${this.cont27}`,'Falta de orden y aseo');
+        /*MECANICOS */
+        this.fnParamExcelTitle(`K${this.cont32}`,`K${this.cont33}`,'MECÁNICOS','calibri',10,'4E493E','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont32}`,'Utilización de herramientas manuales');
+        this.fnParamBorderTitle(`L${this.cont34}`,'Superficies cortantes');
+        this.fnParamBorderTitle(`L${this.cont35}`,'Contacto con elementos cortopunzantes');
+        this.fnParamBorderTitle(`L${this.cont33}`,'Materiales proyectados sólidos o fluidos');
+         /*PSICOSOCIAL */
+        this.fnParamExcelTitle(`K${this.cont36}`,`K${this.cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont36}`,'Sobrecarga de trabajo');
+        this.fnParamBorderTitle(`L${this.cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
+        this.fnParamBorderTitle(`L${this.cont37}`,'Trabajo repetitivo');
+         /*PUBLICOS */
+        this.fnParamExcelTitle(`K${this.cont39}`,`K${this.cont40}`,'PÚBLICOS','calibri',10,'2BD2D5','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont39}`,'Situación de atraco o robo');
+        this.fnParamBorderTitle(`L${this.cont41}`,'Terrorismo');
+        this.fnParamBorderTitle(`L${this.cont42}`,'Situación de Agresión fisica');
+        this.fnParamBorderTitle(`L${this.cont40}`,'Situación de asonada');
+        /*TRANSITO */
+        this.fnParamExcelTitle(`K${this.cont43}`,`K${this.cont44}`,'TRANSITO','calibri',10,'53DA70','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont43}`,'Transporte carro / ambulancia');
+        this.fnParamBorderTitle(`L${this.cont44}`,'Transporte motocicleta');
+         /*QUIMICOS */
+        this.fnParamExcelTitle(`K${this.cont45}`,`K${this.cont46}`,'QUÍMICOS','calibri',10,'E47BC4','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont45}`,'Aerosoles, líquidos, rocíos');
+        this.fnParamBorderTitle(`L${this.cont47}`,'Gases y vapores');
+        this.fnParamBorderTitle(`L${this.cont48}`,'Sustancias sólidas (polvos)');
+        this.fnParamBorderTitle(`L${this.cont46}`,'Contacto y/o salpicadura de químicos');
+         /*TAREAS DE ALTO RIESGO */
+        this.fnParamExcelTitle(`K${this.cont49}`,`K${this.cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23','FFFFFF');
+        this.fnParamBorderTitle(`L${this.cont49}`,'Trabajo en alturas por encima de 1.50 metros');
+        this.fnParamBorderTitle(`L${this.cont51}`,'Trabajo en espacios confinados');
+        this.fnParamBorderTitle(`L${this.cont50}`,'Trabajo en caliente corte y soldadura');
+  }
+
+  fnContSumaData(){
+    this.cont1 += 50;
+    this.cont2 += 50;
+    this.cont3 += 50;
+    this.cont4 += 50;
+    this.cont5 += 50;
+    this.cont6 += 50;
+    this.cont7 += 50;
+    this.cont8 += 50;
+    this.cont9 += 50;
+    this.cont10 += 50;
+    this.cont11 += 50;
+    this.cont12 += 50;
+    this.cont13 += 50;
+    this.cont14 += 50;
+    this.cont15 += 50;
+    this.cont16 += 50;
+    this.cont17 += 50;
+    this.cont18 += 50;
+    this.cont19 += 50;
+    this.cont20 += 50;
+    this.cont21 += 50;
+    this.cont22 += 50;
+    this.cont23 += 50;
+    this.cont24 += 50;
+    this.cont25 += 50;
+    this.cont26 += 50;
+    this.cont27 += 50;
+    this.cont28 += 50;
+    this.cont29 += 50;
+    this.cont30 += 50;
+    this.cont31 += 50;
+    this.cont32 += 50;
+    this.cont33 += 50;
+    this.cont34 += 50;
+    this.cont35 += 50;
+    this.cont36 += 50;
+    this.cont37 += 50;
+    this.cont38 += 50;
+    this.cont39 += 50;
+    this.cont40 += 50;
+    this.cont41 += 50;
+    this.cont42 += 50;
+    this.cont43 += 50;
+    this.cont44 += 50;
+    this.cont45 += 50;
+    this.cont46 += 50;
+    this.cont47 += 50;
+    this.cont48 += 50;
+    this.cont49 += 50;
+    this.cont50 += 50;
+    this.cont51 += 50;
+  }
+
+  fnHeaderRow(header:any){
+    /*Se crea la fila con los titulos */
+    this.headerRow = this.worksheet.addRow(header);
+    /*Cabecera que tendra todos los titulos y se asignara la información  */
+
+    this.headerRow.eachCell((cell:any, number:any) => {
+      /*Asigna el ancho de la celda según la longitud de los datos de forma relativa */
+      const widthCell = cell.value.toString().length;
+
+      if (number === 12 || number === 32 || number === 33) {
+        this.worksheet.getColumn(number).width = 70;
+      } else{
+        this.worksheet.getColumn(number).width = widthCell + 5;
+      }
+       /*Segun la columna correspondiente asigna el ancho de la celda y se le suma 5 para controlar el espaciado en las celdas */
+      
+      cell.border = {
+        top: { style: 'thin' },
+        left: { style: 'thin' },
+        bottom: { style: 'thin' },
+        right: { style: 'thin' }
+      }
+
+      cell.fill = {
+        type: 'pattern',
+        pattern: 'solid',
+        fgColor: { argb: 'A7ACA7' },
+        bgColor: { argb: '' }
+      }
+
+      cell.font = {
+        name: 'calibri',
+        size: 12,
+        bold: true
+      }
+
+      /*Alinea el titulo y lo centra en la celda combinada */
+      cell.alignment = { vertical: 'middle', horizontal: 'center' }
+
+    });
+  }
+
+  fnHeaderSup(){
+    this.fnParamExcelTitle(`N1`,`P1`,'CONTROL EXISTENTE','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`Q1`,`W1`,'EVALUACION DEL RIESGO','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`X1`,`X1`,'VALORACION DEL RIESGO','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`Y1`,`AA1`,'CRITERIOS PARA ESTABLECER CONTROLES','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`AB1`,`AG1`,'MEDIDAS DE INTERVENCIÓN','calibri',12,'A7ACA7','000000');
   }
 
 }
