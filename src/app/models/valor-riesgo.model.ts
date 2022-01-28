@@ -10,7 +10,7 @@ export interface ValorRiesgoModel{
     idpactrutinarias?:string,
     idpactnorutinarias?:string,
     idpatpresentados?:string,
-    idpcedula?:number,
+    idpcedula?:string,
     idpnombre?:string,
     idptelefono?:string,
     idpprocesoactividad?:string,

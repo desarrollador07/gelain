@@ -63,8 +63,6 @@ export class ValorRiesgoComponent implements OnInit {
   async ngOnInit() {
     this.consultaStore();
     this.datosGenerales();
-    
-    
   }
   /*Elimina los datos de los registros  de la tabla */
   deleteVR(id: number) {
@@ -245,28 +243,7 @@ export class ValorRiesgoComponent implements OnInit {
     });
   }
 
-  exportExcel() {
-    import("xlsx").then(xlsx => {
-        const worksheet = xlsx.utils.json_to_sheet(this.getCars());
-        const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-        const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-        this.saveAsExcelFile(excelBuffer, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
-    });
-  
-  }
-
-  saveAsExcelFile(buffer: any, fileName: string): void {
-    import("file-saver").then(FileSaver => {
-        let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-        let EXCEL_EXTENSION = '.xlsx';
-        const data: Blob = new Blob([buffer], {
-            type: EXCEL_TYPE
-        });
-        FileSaver.saveAs(data, fileName  + EXCEL_EXTENSION);
-    });
-  }
-
-  getCars() {
+  fnArrData() {
     let arrFinal :any;
     arrFinal = this.vrData.map( resp => { 
       return [
@@ -1334,6 +1311,7 @@ export class ValorRiesgoComponent implements OnInit {
     var cont49 = 50;
     var cont50 = 52;
     var cont51 = 51;
+    
     for (let j = 0; j < data.length; j++) {
       
       for (let i = 0; i < data[j].length; i++) {
@@ -1344,41 +1322,18 @@ export class ValorRiesgoComponent implements OnInit {
 
       }
       if (j === 0) {
-        this.worksheet.mergeCells(`A${cont1}:A${cont2}`);
-        this.worksheet.getCell(`A${cont1}`).value = this.vrData[j].idpareanombre;
-        this.worksheet.getCell(`A${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
 
-        this.worksheet.mergeCells(`B${cont1}:B${cont2}`);
-        this.worksheet.getCell(`B${cont1}`).value = this.vrData[j].idpnombre;
-        this.worksheet.getCell(`B${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`C${cont1}:C${cont2}`);
-        this.worksheet.getCell(`C${cont1}`).value = this.vrData[j].idpcedula;
-        this.worksheet.getCell(`C${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`D${cont1}:D${cont2}`);
-        this.worksheet.getCell(`D${cont1}`).value = this.vrData[j].idptelefono;
-        this.worksheet.getCell(`D${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`E${cont1}:E${cont2}`);
-        this.worksheet.getCell(`E${cont1}`).value = this.vrData[j].idpsede;
-        this.worksheet.getCell(`E${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`F${cont1}:F${cont2}`);
-        this.worksheet.getCell(`F${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`G${cont1}:G${cont2}`);
-        this.worksheet.getCell(`G${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`H${cont1}:H${cont2}`);
-        this.worksheet.getCell(`H${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`I${cont1}:I${cont2}`);
-        this.worksheet.getCell(`I${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`J${cont1}:J${cont2}`);
-        this.worksheet.getCell(`J${cont1}`).value = '';
-    
+        this.fnParamSubtitle(`A${cont1}`,`A${cont2}`,this.vrData[j].idpareanombre);
+        this.fnParamSubtitle(`B${cont1}`,`B${cont2}`,this.vrData[j].idpnombre);
+        this.fnParamSubtitle(`C${cont1}`,`C${cont2}`,this.vrData[j].idpcedula);
+        this.fnParamSubtitle(`D${cont1}`,`D${cont2}`,this.vrData[j].idptelefono);
+        this.fnParamSubtitle(`E${cont1}`,`E${cont2}`,this.vrData[j].idpsede);
+        this.fnParamSubtitle(`F${cont1}`,`F${cont2}`,'');
+        this.fnParamSubtitle(`G${cont1}`,`G${cont2}`,'');
+        this.fnParamSubtitle(`H${cont1}`,`H${cont2}`,'');
+        this.fnParamSubtitle(`I${cont1}`,`I${cont2}`,'');
+        this.fnParamSubtitle(`J${cont1}`,`J${cont2}`,'');
+
         /*FACTORES DE RIESGO */
         /*BIOLOGICO */
         this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000','FFFFFF');
@@ -1507,40 +1462,16 @@ export class ValorRiesgoComponent implements OnInit {
         cont50 += 50;
         cont51 += 50;
 
-        this.worksheet.mergeCells(`A${cont1}:A${cont2}`);
-        this.worksheet.getCell(`A${cont1}`).value = this.vrData[j].idpareanombre;
-        this.worksheet.getCell(`A${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-
-        this.worksheet.mergeCells(`B${cont1}:B${cont2}`);
-        this.worksheet.getCell(`B${cont1}`).value = this.vrData[j].idpnombre;
-        this.worksheet.getCell(`B${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`C${cont1}:C${cont2}`);
-        this.worksheet.getCell(`C${cont1}`).value = this.vrData[j].idpcedula;
-        this.worksheet.getCell(`C${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`D${cont1}:D${cont2}`);
-        this.worksheet.getCell(`D${cont1}`).value = this.vrData[j].idptelefono;
-        this.worksheet.getCell(`D${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`E${cont1}:E${cont2}`);
-        this.worksheet.getCell(`E${cont1}`).value = this.vrData[j].idpsede;
-        this.worksheet.getCell(`E${cont1}`).alignment = { vertical: 'middle', horizontal: 'center' };
-    
-        this.worksheet.mergeCells(`F${cont1}:F${cont2}`);
-        this.worksheet.getCell(`F${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`G${cont1}:G${cont2}`);
-        this.worksheet.getCell(`G${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`H${cont1}:H${cont2}`);
-        this.worksheet.getCell(`H${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`I${cont1}:I${cont2}`);
-        this.worksheet.getCell(`I${cont1}`).value = '';
-    
-        this.worksheet.mergeCells(`J${cont1}:J${cont2}`);
-        this.worksheet.getCell(`J${cont1}`).value = '';
+        this.fnParamSubtitle(`A${cont1}`,`A${cont2}`,this.vrData[j].idpareanombre);
+        this.fnParamSubtitle(`B${cont1}`,`B${cont2}`,this.vrData[j].idpnombre);
+        this.fnParamSubtitle(`C${cont1}`,`C${cont2}`,this.vrData[j].idpcedula);
+        this.fnParamSubtitle(`D${cont1}`,`D${cont2}`,this.vrData[j].idptelefono);
+        this.fnParamSubtitle(`E${cont1}`,`E${cont2}`,this.vrData[j].idpsede);
+        this.fnParamSubtitle(`F${cont1}`,`F${cont2}`,'');
+        this.fnParamSubtitle(`G${cont1}`,`G${cont2}`,'');
+        this.fnParamSubtitle(`H${cont1}`,`H${cont2}`,'');
+        this.fnParamSubtitle(`I${cont1}`,`I${cont2}`,'');
+        this.fnParamSubtitle(`J${cont1}`,`J${cont2}`,'');
 
         /*FACTORES DE RIESGO */
         /*BIOLOGICO */
@@ -1551,12 +1482,12 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${cont6}`,'Microorganismos tipo virus');
         this.fnParamBorderTitle(`L${cont3}`,'Parásitos');
         /*CARGA FISICA */
-         this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
-         this.fnParamBorderTitle(`L${cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
-         this.fnParamBorderTitle(`L${cont9}`,'Carga dinámica por movimientos repetitivos');
-         this.fnParamBorderTitle(`L${cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
-         this.fnParamBorderTitle(`L${cont11}`,'Carga estática de pie');
-         this.fnParamBorderTitle(`L${cont8}`,'Posiciones prolongadas sentado');
+        this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
+        this.fnParamBorderTitle(`L${cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
+        this.fnParamBorderTitle(`L${cont9}`,'Carga dinámica por movimientos repetitivos');
+        this.fnParamBorderTitle(`L${cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
+        this.fnParamBorderTitle(`L${cont11}`,'Carga estática de pie');
+        this.fnParamBorderTitle(`L${cont8}`,'Posiciones prolongadas sentado');
         /*ELECTRICO */
         this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507','FFFFFF');
         this.fnParamBorderTitle(`L${cont12}`,'Energía eléctrica de baja');
@@ -1592,10 +1523,10 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${cont35}`,'Contacto con elementos cortopunzantes');
         this.fnParamBorderTitle(`L${cont33}`,'Materiales proyectados sólidos o fluidos');
          /*PSICOSOCIAL */
-         this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
-         this.fnParamBorderTitle(`L${cont36}`,'Sobrecarga de trabajo');
-         this.fnParamBorderTitle(`L${cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
-         this.fnParamBorderTitle(`L${cont37}`,'Trabajo repetitivo');
+        this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
+        this.fnParamBorderTitle(`L${cont36}`,'Sobrecarga de trabajo');
+        this.fnParamBorderTitle(`L${cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
+        this.fnParamBorderTitle(`L${cont37}`,'Trabajo repetitivo');
          /*PUBLICOS */
         this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5','FFFFFF');
         this.fnParamBorderTitle(`L${cont39}`,'Situación de atraco o robo');
@@ -1620,8 +1551,7 @@ export class ValorRiesgoComponent implements OnInit {
       }
 
     }
-
-    //Generate & Save Excel File
+    
     /*Genera y guarda el archivo de Excel en el dispositivo */
     this.workbook.xlsx.writeBuffer().then((data) => {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
@@ -1635,7 +1565,7 @@ export class ValorRiesgoComponent implements OnInit {
   /*Funcion que toma la información y la organiza según se revise en la creación del libro del excel en la siguiente funcion exportExcel2 */
   exportToExcel() {
     /*Arreglo que contiene toda la información */
-    const dataExcel = this.getCars();
+    const dataExcel = this.fnArrData();
     
     const headerData = [
       'ÁREA','NOMBRE LIDER','CÉDULA','TELEFONO','SEDE','PROCESO' ,'ZONA/LUGAR','ACTIVIDADES','TAREAS',
@@ -1698,6 +1628,12 @@ export class ValorRiesgoComponent implements OnInit {
       bgColor: { argb: '' }
     }
 
+  }
+
+  fnParamSubtitle(cell1:string,cell2:string, data:string){
+    this.worksheet.mergeCells(cell1,cell2);
+    this.worksheet.getCell(cell1).value = data;
+    this.worksheet.getCell(cell1).alignment = { vertical: 'middle', horizontal: 'center' };
   }
 
 }
