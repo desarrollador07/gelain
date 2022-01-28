@@ -1296,79 +1296,79 @@ export class ValorRiesgoComponent implements OnInit {
     /*FACTORES DE RIESGO */
     /*BIOLOGICO */
     this.fnParamExcelTitle('K3','K7','BIOLÓGICO','calibri',10);
-    this.worksheet.getCell(`L3`).value = 'Derivados de origen animal';
-    this.worksheet.getCell(`L4`).value = 'Microorganismos tipo hongo';
-    this.worksheet.getCell(`L5`).value = 'Microorganismos tipo bacterias';
-    this.worksheet.getCell(`L6`).value = 'Microorganismos tipo virus';
-    this.worksheet.getCell(`L7`).value = 'Parásitos';
-
+    this.fnParamBorderTitle('L3','Derivados de origen animal');
+    this.fnParamBorderTitle('L4','Microorganismos tipo hongo');
+    this.fnParamBorderTitle('L5','Microorganismos tipo bacterias');
+    this.fnParamBorderTitle('L6','Microorganismos tipo virus');
+    this.fnParamBorderTitle('L7','Parásitos');
+    
     /*CARGA FISICA */
     this.fnParamExcelTitle('K8','K12','CARGA FÍSICA','calibri',10);
-    this.worksheet.getCell(`L8`).value = 'Carga dinámica por esfuerzos (manejos o traslado de cargas)';
-    this.worksheet.getCell(`L9`).value = 'Carga dinámica por movimientos repetitivos';
-    this.worksheet.getCell(`L10`).value = 'Carga dinámica por sobreesfuerzos de la voz';
-    this.worksheet.getCell(`L11`).value = 'Carga estática de pie';
-    this.worksheet.getCell(`L12`).value = 'Posiciones prolongadas sentado';
+    this.fnParamBorderTitle('L8', 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
+    this.fnParamBorderTitle('L9','Carga dinámica por movimientos repetitivos');
+    this.fnParamBorderTitle('L10','Carga dinámica por sobreesfuerzos de la voz');
+    this.fnParamBorderTitle('L11','Carga estática de pie');
+    this.fnParamBorderTitle('L12','Posiciones prolongadas sentado');
     /*ELECTRICO */
     this.fnParamExcelTitle('K13','K15','ELÉCTRICO','calibri',10);
-    this.worksheet.getCell(`L13`).value = 'Energía eléctrica de baja';
-    this.worksheet.getCell(`L14`).value = 'Energía eléctrica de alta';
-    this.worksheet.getCell(`L15`).value = 'Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados';
+    this.fnParamBorderTitle('L13','Energía eléctrica de baja');
+    this.fnParamBorderTitle('L14','Energía eléctrica de alta');
+    this.fnParamBorderTitle('L15','Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
     /*FISICO */
     this.fnParamExcelTitle('K16','K23','FÍSICO','calibri',10);
-    this.worksheet.getCell(`L16`).value = 'Iluminación deficiente';
-    this.worksheet.getCell(`L17`).value = 'Iluminación en exceso';
-    this.worksheet.getCell(`L18`).value = 'Radiaciones no ionizantes por ultravioleta';
-    this.worksheet.getCell(`L19`).value = 'Radiaciones ionizantes';
-    this.worksheet.getCell(`L20`).value = 'Ruido';
-    this.worksheet.getCell(`L21`).value = 'Vibraciones';
-    this.worksheet.getCell(`L22`).value = 'Transferencias de temperaturas por calor';
-    this.worksheet.getCell(`L23`).value = 'Transferencias de temperaturas por frio';
+    this.fnParamBorderTitle('L16','Iluminación deficiente');
+    this.fnParamBorderTitle('L17','Iluminación en exceso');
+    this.fnParamBorderTitle('L18','Radiaciones no ionizantes por ultravioleta');
+    this.fnParamBorderTitle('L19','Radiaciones ionizantes');
+    this.fnParamBorderTitle('L20','Ruido');
+    this.fnParamBorderTitle('L21','Vibraciones');
+    this.fnParamBorderTitle('L22','Transferencias de temperaturas por calor');
+    this.fnParamBorderTitle('L23','Transferencias de temperaturas por frio');
     /*INCENDIOS / EXPLOSIONES */
     this.fnParamExcelTitle('K24','K26','INCENDIOS / EXPLOSIONES','calibri',10);
-    this.worksheet.getCell(`L24`).value = 'Materiales combustibles';
-    this.worksheet.getCell(`L25`).value = 'Ausencia de equipo contra incendio';
-    this.worksheet.getCell(`L26`).value = 'Sustancias inflamables';
+    this.fnParamBorderTitle('L24','Materiales combustibles');
+    this.fnParamBorderTitle('L25','Ausencia de equipo contra incendio');
+    this.fnParamBorderTitle('L26','Sustancias inflamables');
     /*LOCATIVOS */
     this.fnParamExcelTitle('K27','K32','LOCATIVOS','calibri',10);
-    this.worksheet.getCell(`L27`).value = 'Pisos defectuosos';
-    this.worksheet.getCell(`L28`).value = 'Escaleras defectuosas';
-    this.worksheet.getCell(`L29`).value = 'Almacenamiento, estanterías en mal estado';
-    this.worksheet.getCell(`L30`).value = 'Almacenamiento, arrumes con altura inadecuada';
-    this.worksheet.getCell(`L31`).value = 'Señalización y demarcación deficiente, inexistente o inadecuada';
-    this.worksheet.getCell(`L32`).value = 'Falta de orden y aseo';
+    this.fnParamBorderTitle('L27','Pisos defectuosos');
+    this.fnParamBorderTitle('L28','Escaleras defectuosas');
+    this.fnParamBorderTitle('L29','Almacenamiento, estanterías en mal estado');
+    this.fnParamBorderTitle('L30','Almacenamiento, arrumes con altura inadecuada');
+    this.fnParamBorderTitle('L31','Señalización y demarcación deficiente, inexistente o inadecuada');
+    this.fnParamBorderTitle('L32','Falta de orden y aseo');
     /*MECANICOS */
     this.fnParamExcelTitle('K33','K36','MECÁNICOS','calibri',10);
-    this.worksheet.getCell(`L33`).value = 'Utilización de herramientas manuales';
-    this.worksheet.getCell(`L34`).value = 'Superficies cortantes';
-    this.worksheet.getCell(`L35`).value = 'Contacto con elementos cortopunzantes';
-    this.worksheet.getCell(`L36`).value = 'Materiales proyectados sólidos o fluidos';
+    this.fnParamBorderTitle('L33','Utilización de herramientas manuales');
+    this.fnParamBorderTitle('L34','Superficies cortantes');
+    this.fnParamBorderTitle('L35','Contacto con elementos cortopunzantes');
+    this.fnParamBorderTitle('L36','Materiales proyectados sólidos o fluidos');
     /*PSICOSOCIAL */
     this.fnParamExcelTitle('K37','K39','PSICOSOCIAL','calibri',10);
-    this.worksheet.getCell(`L37`).value = 'Sobrecarga de trabajo';
-    this.worksheet.getCell(`L38`).value = 'Resposanbilidad en el cargo/ manejo de personal';
-    this.worksheet.getCell(`L39`).value = 'Trabajo repetitivo';
+    this.fnParamBorderTitle('L37','Sobrecarga de trabajo');
+    this.fnParamBorderTitle('L38','Resposanbilidad en el cargo/ manejo de personal');
+    this.fnParamBorderTitle('L39','Trabajo repetitivo');
     /*PUBLICOS */
     this.fnParamExcelTitle('K40','K43','PÚBLICOS','calibri',10);
-    this.worksheet.getCell(`L40`).value = 'Situación de atraco o robo';
-    this.worksheet.getCell(`L41`).value = 'Terrorismo';
-    this.worksheet.getCell(`L42`).value = 'Situación de Agresión fisica';
-    this.worksheet.getCell(`L43`).value = 'Situación de asonada';
+    this.fnParamBorderTitle('L40','Situación de atraco o robo');
+    this.fnParamBorderTitle('L41','Terrorismo');
+    this.fnParamBorderTitle('L42','Situación de Agresión fisica');
+    this.fnParamBorderTitle('L43','Situación de asonada');
     /*TRANSITO */
     this.fnParamExcelTitle('K44','K45','TRANSITO','calibri',10);
-    this.worksheet.getCell(`L44`).value = 'Transporte carro / ambulancia';
-    this.worksheet.getCell(`L45`).value = 'Transporte motocicleta';
+    this.fnParamBorderTitle('L44','Transporte carro / ambulancia');
+    this.fnParamBorderTitle('L45','Transporte motocicleta');
     /*QUIMICOS */
     this.fnParamExcelTitle('K46','K49','QUÍMICOS','calibri',10);
-    this.worksheet.getCell(`L46`).value = 'Aerosoles, líquidos, rocíos';
-    this.worksheet.getCell(`L47`).value = 'Gases y vapores';
-    this.worksheet.getCell(`L48`).value = 'Sustancias sólidas (polvos)';
-    this.worksheet.getCell(`L49`).value = 'Contacto y/o salpicadura de químicos';
+    this.fnParamBorderTitle('L46','Aerosoles, líquidos, rocíos');
+    this.fnParamBorderTitle('L47','Gases y vapores');
+    this.fnParamBorderTitle('L48','Sustancias sólidas (polvos)');
+    this.fnParamBorderTitle('L49','Contacto y/o salpicadura de químicos');
     /*TAREAS DE ALTO RIESGO */
     this.fnParamExcelTitle('K50','K52','TAREAS DE ALTO RIESGO','calibri',10);
-    this.worksheet.getCell(`L50`).value = 'Trabajo en alturas por encima de 1.50 metros';
-    this.worksheet.getCell(`L51`).value = 'Trabajo en espacios confinados';
-    this.worksheet.getCell(`L52`).value = 'Trabajo en caliente corte y soldadura';
+    this.fnParamBorderTitle('L50','Trabajo en alturas por encima de 1.50 metros');
+    this.fnParamBorderTitle('L51','Trabajo en espacios confinados');
+    this.fnParamBorderTitle('L52','Trabajo en caliente corte y soldadura');
 
     // /*Toma el valor del titulo */
     
@@ -1402,6 +1402,18 @@ export class ValorRiesgoComponent implements OnInit {
     }
 
     this.exportExcel2(reportData);
+  }
+
+  fnParamBorderTitle(cell:string, title:string){
+    this.worksheet.getCell(`${cell}`).border = {
+      top: { style: 'thin' },
+      left: { style: 'thin' },
+      bottom: { style: 'thin' },
+      right: { style: 'thin' }
+    }
+    this.worksheet.getCell(`${cell}`).value = title;
+    /*Alinea el titulo y lo centra en la celda combinada */
+    this.worksheet.getCell(`${cell}`).alignment = { vertical: 'middle', horizontal: 'center' }
   }
 
   /*Función  que parametriza las celdas para los encabezados  los cual se requieren combinar las celdas */
