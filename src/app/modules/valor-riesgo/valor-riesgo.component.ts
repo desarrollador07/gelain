@@ -1295,7 +1295,7 @@ export class ValorRiesgoComponent implements OnInit {
 
     /*FACTORES DE RIESGO */
     /*BIOLOGICO */
-    this.fnParamExcelTitle('K3','K7','BIOLÓGICO','calibri',10);
+    this.fnParamExcelTitle('K3','K7','BIOLÓGICO','calibri',10,'008000');
     this.fnParamBorderTitle('L3','Derivados de origen animal');
     this.fnParamBorderTitle('L4','Microorganismos tipo hongo');
     this.fnParamBorderTitle('L5','Microorganismos tipo bacterias');
@@ -1303,19 +1303,19 @@ export class ValorRiesgoComponent implements OnInit {
     this.fnParamBorderTitle('L7','Parásitos');
     
     /*CARGA FISICA */
-    this.fnParamExcelTitle('K8','K12','CARGA FÍSICA','calibri',10);
+    this.fnParamExcelTitle('K8','K12','CARGA FÍSICA','calibri',10,'E7B80E');
     this.fnParamBorderTitle('L8', 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
     this.fnParamBorderTitle('L9','Carga dinámica por movimientos repetitivos');
     this.fnParamBorderTitle('L10','Carga dinámica por sobreesfuerzos de la voz');
     this.fnParamBorderTitle('L11','Carga estática de pie');
     this.fnParamBorderTitle('L12','Posiciones prolongadas sentado');
     /*ELECTRICO */
-    this.fnParamExcelTitle('K13','K15','ELÉCTRICO','calibri',10);
+    this.fnParamExcelTitle('K13','K15','ELÉCTRICO','calibri',10,'F2F507');
     this.fnParamBorderTitle('L13','Energía eléctrica de baja');
     this.fnParamBorderTitle('L14','Energía eléctrica de alta');
     this.fnParamBorderTitle('L15','Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
     /*FISICO */
-    this.fnParamExcelTitle('K16','K23','FÍSICO','calibri',10);
+    this.fnParamExcelTitle('K16','K23','FÍSICO','calibri',10,'2162b0');
     this.fnParamBorderTitle('L16','Iluminación deficiente');
     this.fnParamBorderTitle('L17','Iluminación en exceso');
     this.fnParamBorderTitle('L18','Radiaciones no ionizantes por ultravioleta');
@@ -1325,12 +1325,12 @@ export class ValorRiesgoComponent implements OnInit {
     this.fnParamBorderTitle('L22','Transferencias de temperaturas por calor');
     this.fnParamBorderTitle('L23','Transferencias de temperaturas por frio');
     /*INCENDIOS / EXPLOSIONES */
-    this.fnParamExcelTitle('K24','K26','INCENDIOS / EXPLOSIONES','calibri',10);
+    this.fnParamExcelTitle('K24','K26','INCENDIOS / EXPLOSIONES','calibri',10,'F52707');
     this.fnParamBorderTitle('L24','Materiales combustibles');
     this.fnParamBorderTitle('L25','Ausencia de equipo contra incendio');
     this.fnParamBorderTitle('L26','Sustancias inflamables');
     /*LOCATIVOS */
-    this.fnParamExcelTitle('K27','K32','LOCATIVOS','calibri',10);
+    this.fnParamExcelTitle('K27','K32','LOCATIVOS','calibri',10,'836013');
     this.fnParamBorderTitle('L27','Pisos defectuosos');
     this.fnParamBorderTitle('L28','Escaleras defectuosas');
     this.fnParamBorderTitle('L29','Almacenamiento, estanterías en mal estado');
@@ -1338,34 +1338,34 @@ export class ValorRiesgoComponent implements OnInit {
     this.fnParamBorderTitle('L31','Señalización y demarcación deficiente, inexistente o inadecuada');
     this.fnParamBorderTitle('L32','Falta de orden y aseo');
     /*MECANICOS */
-    this.fnParamExcelTitle('K33','K36','MECÁNICOS','calibri',10);
+    this.fnParamExcelTitle('K33','K36','MECÁNICOS','calibri',10,'4E493E');
     this.fnParamBorderTitle('L33','Utilización de herramientas manuales');
     this.fnParamBorderTitle('L34','Superficies cortantes');
     this.fnParamBorderTitle('L35','Contacto con elementos cortopunzantes');
     this.fnParamBorderTitle('L36','Materiales proyectados sólidos o fluidos');
     /*PSICOSOCIAL */
-    this.fnParamExcelTitle('K37','K39','PSICOSOCIAL','calibri',10);
+    this.fnParamExcelTitle('K37','K39','PSICOSOCIAL','calibri',10,'8547B3');
     this.fnParamBorderTitle('L37','Sobrecarga de trabajo');
     this.fnParamBorderTitle('L38','Resposanbilidad en el cargo/ manejo de personal');
     this.fnParamBorderTitle('L39','Trabajo repetitivo');
     /*PUBLICOS */
-    this.fnParamExcelTitle('K40','K43','PÚBLICOS','calibri',10);
+    this.fnParamExcelTitle('K40','K43','PÚBLICOS','calibri',10,'2BD2D5');
     this.fnParamBorderTitle('L40','Situación de atraco o robo');
     this.fnParamBorderTitle('L41','Terrorismo');
     this.fnParamBorderTitle('L42','Situación de Agresión fisica');
     this.fnParamBorderTitle('L43','Situación de asonada');
     /*TRANSITO */
-    this.fnParamExcelTitle('K44','K45','TRANSITO','calibri',10);
+    this.fnParamExcelTitle('K44','K45','TRANSITO','calibri',10,'53DA70');
     this.fnParamBorderTitle('L44','Transporte carro / ambulancia');
     this.fnParamBorderTitle('L45','Transporte motocicleta');
     /*QUIMICOS */
-    this.fnParamExcelTitle('K46','K49','QUÍMICOS','calibri',10);
+    this.fnParamExcelTitle('K46','K49','QUÍMICOS','calibri',10,'E47BC4');
     this.fnParamBorderTitle('L46','Aerosoles, líquidos, rocíos');
     this.fnParamBorderTitle('L47','Gases y vapores');
     this.fnParamBorderTitle('L48','Sustancias sólidas (polvos)');
     this.fnParamBorderTitle('L49','Contacto y/o salpicadura de químicos');
     /*TAREAS DE ALTO RIESGO */
-    this.fnParamExcelTitle('K50','K52','TAREAS DE ALTO RIESGO','calibri',10);
+    this.fnParamExcelTitle('K50','K52','TAREAS DE ALTO RIESGO','calibri',10,'E37A23');
     this.fnParamBorderTitle('L50','Trabajo en alturas por encima de 1.50 metros');
     this.fnParamBorderTitle('L51','Trabajo en espacios confinados');
     this.fnParamBorderTitle('L52','Trabajo en caliente corte y soldadura');
@@ -1405,30 +1405,30 @@ export class ValorRiesgoComponent implements OnInit {
   }
 
   fnParamBorderTitle(cell:string, title:string){
-    this.worksheet.getCell(`${cell}`).border = {
+    this.worksheet.getCell(cell).border = {
       top: { style: 'thin' },
       left: { style: 'thin' },
       bottom: { style: 'thin' },
       right: { style: 'thin' }
     }
-    this.worksheet.getCell(`${cell}`).value = title;
+    this.worksheet.getCell(cell).value = title;
     /*Alinea el titulo y lo centra en la celda combinada */
-    this.worksheet.getCell(`${cell}`).alignment = { vertical: 'middle', horizontal: 'center' }
+    this.worksheet.getCell(cell).alignment = { vertical: 'middle', horizontal: 'center' }
   }
 
   /*Función  que parametriza las celdas para los encabezados  los cual se requieren combinar las celdas */
-  fnParamExcelTitle(cell1:string,cell2:string,title:string,nameFont:string,size:number,){
+  fnParamExcelTitle(cell1:string,cell2:string,title:string,nameFont:string,size:number,color:string){
     /*Se toma  las celdas a combinar */
-    this.worksheet.mergeCells(`${cell1}`, `${cell2}`);
+    this.worksheet.mergeCells(cell1, cell2);
     /*Se asigna el borde a la celdas correspondientes */
-    this.worksheet.getCell(`${cell1}`, `${cell2}`).border = {
+    this.worksheet.getCell(cell1, cell2).border = {
       top: { style: 'thin' },
       left: { style: 'thin' },
       bottom: { style: 'thin' },
       right: { style: 'thin' }
     }
     /* Asigna estilos a la celda combinada según lo que queremos en el titulo */
-    let titleRow = this.worksheet.getCell(`${cell1}`);
+    let titleRow = this.worksheet.getCell(cell1);
     /*Toma el valor del titulo */
     titleRow.value = title;
     /*Cambia los valores de estilo de las fuentes */
@@ -1439,6 +1439,14 @@ export class ValorRiesgoComponent implements OnInit {
     }
     /*Alinea el titulo y lo centra en la celda combinada */
     titleRow.alignment = { vertical: 'middle', horizontal: 'center' }
+
+    this.worksheet.getCell(cell1).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: color },
+      bgColor: { argb: '' }
+    }
+
   }
 
 }
