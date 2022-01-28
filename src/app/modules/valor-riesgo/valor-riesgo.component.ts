@@ -272,22 +272,22 @@ export class ValorRiesgoComponent implements OnInit {
       return [
 
         [ 
-          {
-            0:'',1:'',2:'',3:'',4:'',5:'',6:'',7:'',8:'',9:'',10:'',11:'',
-            12:resp.idpbioderani_efectos,
-            13:resp.idpbioderani_ctrlfuente,
-            14:resp.idpbioderani_ctrlmedio,
-            15:resp.idpbioderani_ctrlindividuo,
-            16:resp.idpbioderani_tb_nd,
-            17:resp.idpbioderani_tb_ne,
-            18:resp.idpbioderani_tb_np,
-            19:resp.idpbioderani_interpreta,
-            20:resp.idpbioderani_tb_nc,
-            21:resp.idpbioderani_intervencion,
-            22:resp.idpbioderani_tb_nr,
-            23:resp.idpbioderani_numpuestos,
-            24:resp.idpbioderani_observaciones,
-          }
+          [
+            '','','','','','','','','','','','',
+            resp.idpbioderani_efectos,
+            resp.idpbioderani_ctrlfuente,
+            resp.idpbioderani_ctrlmedio,
+            resp.idpbioderani_ctrlindividuo,
+            resp.idpbioderani_tb_nd,
+            resp.idpbioderani_tb_ne,
+            resp.idpbioderani_tb_np,
+            resp.idpbioderani_interpreta,
+            resp.idpbioderani_tb_nc,
+            resp.idpbioderani_intervencion,
+            resp.idpbioderani_tb_nr,
+            resp.idpbioderani_numpuestos,
+            resp.idpbioderani_observaciones,
+          ]
           ,
           [
             '','','','','','','','','','','','',
@@ -358,6 +358,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Carga Física - Carga dinámica por esfuerzos */
+            '','','','','','','','','','','','',
             resp.idpcargesfuerzos_efectos,
             resp.idpcargesfuerzos_ctrlfuente,
             resp.idpcargesfuerzos_ctrlmedio,
@@ -374,6 +375,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Carga Física - Carga dinámica por movimientos repetitivos */
+            '','','','','','','','','','','','',
             resp.idpcargmovimiento_efectos,
             resp.idpcargmovimiento_ctrlfuente,
             resp.idpcargmovimiento_ctrlmedio,
@@ -390,6 +392,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Carga Física - Carga dinámica por sobreesfuerzos de la voz */
+            '','','','','','','','','','','','',
             resp.idpcargvoz_efectos,
             resp.idpcargvoz_ctrlfuente,
             resp.idpcargvoz_ctrlmedio,
@@ -406,6 +409,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Carga Física - Carga estática de pie */
+            '','','','','','','','','','','','',
             resp.idpcargpie_efectos,
             resp.idpcargpie_ctrlfuente,
             resp.idpcargpie_ctrlmedio,
@@ -422,6 +426,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Carga Física - Posiciones prolongadas sentado */
+            '','','','','','','','','','','','',
             resp.idpcargsentado_efectos,
             resp.idpcargsentado_ctrlfuente,
             resp.idpcargsentado_ctrlmedio,
@@ -441,6 +446,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
              /* Eléctrico - Energía eléctrica de baja */
+            '','','','','','','','','','','','',
             resp.idpelectricobaja_efectos,
             resp.idpelectricobaja_ctrlfuente,
             resp.idpelectricobaja_ctrlmedio,
@@ -457,6 +463,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
              /* Eléctrico - Energía eléctrica de alta */
+            '','','','','','','','','','','','',
             resp.idpelectricoalta_efectos,
             resp.idpelectricoalta_ctrlfuente,
             resp.idpelectricoalta_ctrlmedio,
@@ -473,6 +480,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Eléctrico - Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados */
+            '','','','','','','','','','','','',
             resp.idpelectricocables_efectos,
             resp.idpelectricocables_ctrlfuente,
             resp.idpelectricocables_ctrlmedio,
@@ -492,6 +500,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Físico - Iluminación deficiente */
+            '','','','','','','','','','','','',
             resp.idpfisicoilumdef_efectos,
             resp.idpfisicoilumdef_ctrlfuente,
             resp.idpfisicoilumdef_ctrlmedio,
@@ -508,6 +517,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Iluminación en exceso */
+            '','','','','','','','','','','','',
             resp.idpfisicoilumexceso_efectos,
             resp.idpfisicoilumexceso_ctrlfuente,
             resp.idpfisicoilumexceso_ctrlmedio,
@@ -524,6 +534,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Radiaciones no ionizantes por ultravioleta */
+            '','','','','','','','','','','','',
             resp.idpfisiconoradiaciones_efectos,
             resp.idpfisiconoradiaciones_ctrlfuente,
             resp.idpfisiconoradiaciones_ctrlmedio,
@@ -540,6 +551,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Radiaciones ionizantes */
+            '','','','','','','','','','','','',
             resp.idpfisicoradiaciones_efectos,
             resp.idpfisicoradiaciones_ctrlfuente,
             resp.idpfisicoradiaciones_ctrlmedio,
@@ -556,6 +568,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Ruido */
+            '','','','','','','','','','','','',
             resp.idpfisicoruido_efectos,
             resp.idpfisicoruido_ctrlfuente,
             resp.idpfisicoruido_ctrlmedio,
@@ -572,6 +585,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Vibraciones */
+            '','','','','','','','','','','','',
             resp.idpfisicovibraciones_efectos,
             resp.idpfisicovibraciones_ctrlfuente,
             resp.idpfisicovibraciones_ctrlmedio,
@@ -588,6 +602,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Transferencias de temperaturas por calor */
+            '','','','','','','','','','','','',
             resp.idpfisicocalor_efectos,
             resp.idpfisicocalor_ctrlfuente,
             resp.idpfisicocalor_ctrlmedio,
@@ -604,6 +619,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Físico - Transferencias de temperaturas por frio */
+            '','','','','','','','','','','','',
             resp.idpfisicofrio_efectos,
             resp.idpfisicofrio_ctrlfuente,
             resp.idpfisicofrio_ctrlmedio,
@@ -623,6 +639,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Incendios / Explosiones - Materiales combustibles */
+            '','','','','','','','','','','','',
             resp.idpincendioscombust_efectos,
             resp.idpincendioscombust_ctrlfuente,
             resp.idpincendioscombust_ctrlmedio,
@@ -639,6 +656,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Incendios / Explosiones - Ausencia de equipo contra incendio */
+            '','','','','','','','','','','','',
             resp.idpincendiosequipo_efectos,
             resp.idpincendiosequipo_ctrlfuente,
             resp.idpincendiosequipo_ctrlmedio,
@@ -655,6 +673,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Incendios / Explosiones - Sustancias inflamables */
+            '','','','','','','','','','','','',
             resp.idpincendiossustancias_efectos,
             resp.idpincendiossustancias_ctrlfuente,
             resp.idpincendiossustancias_ctrlmedio,
@@ -674,6 +693,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Locativos - Pisos defectuosos */
+            '','','','','','','','','','','','',
             resp.idplocativospisos_efectos,
             resp.idplocativospisos_ctrlfuente,
             resp.idplocativospisos_ctrlmedio,
@@ -690,6 +710,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Locativos - Escaleras defectuosas */
+            '','','','','','','','','','','','',
             resp.idplocativosescaleras_efectos,
             resp.idplocativosescaleras_ctrlfuente,
             resp.idplocativosescaleras_ctrlmedio,
@@ -706,6 +727,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Locativos - Almacenamiento, estanterías en mal estado */
+            '','','','','','','','','','','','',
             resp.idplocativosestanterias_efectos,
             resp.idplocativosestanterias_ctrlfuente,
             resp.idplocativosestanterias_ctrlmedio,
@@ -722,6 +744,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Locativos - Almacenamiento, arrumes con altura inadecuada */
+            '','','','','','','','','','','','',
             resp.idplocativosarrumes_efectos,
             resp.idplocativosarrumes_ctrlfuente,
             resp.idplocativosarrumes_ctrlmedio,
@@ -738,6 +761,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Locativos - Señalización y demarcación deficiente, inexistente o inadecuada */
+            '','','','','','','','','','','','',
             resp.idplocativosenalizacion_efectos,
             resp.idplocativosenalizacion_ctrlfuente,
             resp.idplocativosenalizacion_ctrlmedio,
@@ -754,6 +778,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Locativos - Falta de orden y aseo */
+            '','','','','','','','','','','','',
             resp.idplocativosaseo_efectos,
             resp.idplocativosaseo_ctrlfuente,
             resp.idplocativosaseo_ctrlmedio,
@@ -773,6 +798,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Mecánicos - Utilización de herramientas manuales */
+            '','','','','','','','','','','','',
             resp.idpmecanicoherramient_efectos,
             resp.idpmecanicoherramient_ctrlfuente,
             resp.idpmecanicoherramient_ctrlmedio,
@@ -789,6 +815,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Mecánicos - Superficies cortantes */
+            '','','','','','','','','','','','',
             resp.idpmecanicocortante_efectos,
             resp.idpmecanicocortante_ctrlfuente,
             resp.idpmecanicocortante_ctrlmedio,
@@ -805,6 +832,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Mecánicos - Contacto con elementos cortopunzantes */
+            '','','','','','','','','','','','',
             resp.idpmecanicocortopunz_efectos,
             resp.idpmecanicocortopunz_ctrlfuente,
             resp.idpmecanicocortopunz_ctrlmedio,
@@ -821,6 +849,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Mecánicos - Materiales proyectados sólidos o fluidos */
+            '','','','','','','','','','','','',
             resp.idpmecanicomateriales_efectos,
             resp.idpmecanicomateriales_ctrlfuente,
             resp.idpmecanicomateriales_ctrlmedio,
@@ -840,6 +869,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Psicosocial - Sobrecarga de trabajo */
+            '','','','','','','','','','','','',
             resp.idppsicosobrecarga_efectos,
             resp.idppsicosobrecarga_ctrlfuente,
             resp.idppsicosobrecarga_ctrlmedio,
@@ -856,6 +886,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Psicosocial - Resposanbilidad en el cargo/ manejo de personal */
+            '','','','','','','','','','','','',
             resp.idppsicoresponsabilidad_efectos,
             resp.idppsicoresponsabilidad_ctrlfuente,
             resp.idppsicoresponsabilidad_ctrlmedio,
@@ -872,6 +903,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Psicosocial - Trabajo repetitivo */
+            '','','','','','','','','','','','',
             resp.idppsicorepetitivo_efectos,
             resp.idppsicorepetitivo_ctrlfuente,
             resp.idppsicorepetitivo_ctrlmedio,
@@ -891,6 +923,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Públicos - Situación de atraco o robo */
+            '','','','','','','','','','','','',
             resp.idppublicorobo_efectos,
             resp.idppublicorobo_ctrlfuente,
             resp.idppublicorobo_ctrlmedio,
@@ -907,6 +940,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Públicos - Terrorismo */
+            '','','','','','','','','','','','',
             resp.idppublicoterrorismo_efectos,
             resp.idppublicoterrorismo_ctrlfuente,
             resp.idppublicoterrorismo_ctrlmedio,
@@ -923,6 +957,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Públicos - Situación de Agresión fisica */
+            '','','','','','','','','','','','',
             resp.idppublicoagresion_efectos,
             resp.idppublicoagresion_ctrlfuente,
             resp.idppublicoagresion_ctrlmedio,
@@ -939,6 +974,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Públicos - Situación de asonada */
+            '','','','','','','','','','','','',
             resp.idppublicoasonada_efectos,
             resp.idppublicoasonada_ctrlfuente,
             resp.idppublicoasonada_ctrlmedio,
@@ -958,6 +994,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Transito - Transporte motocicleta */
+            '','','','','','','','','','','','',
             resp.idptransitomoto_efectos,
             resp.idptransitomoto_ctrlfuente,
             resp.idptransitomoto_ctrlmedio,
@@ -974,6 +1011,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Transito - Transporte carro / ambulancia */
+            '','','','','','','','','','','','',
             resp.idptransitocarro_efectos,
             resp.idptransitocarro_ctrlfuente,
             resp.idptransitocarro_ctrlmedio,
@@ -993,6 +1031,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Químicos - Aerosoles, líquidos, rocíos */
+            '','','','','','','','','','','','',
             resp.idpquimicosaerosol_efectos,
             resp.idpquimicosaerosol_ctrlfuente,
             resp.idpquimicosaerosol_ctrlmedio,
@@ -1009,6 +1048,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Químicos - Gases y vapores */
+            '','','','','','','','','','','','',
             resp.idpquimicosgases_efectos,
             resp.idpquimicosgases_ctrlfuente,
             resp.idpquimicosgases_ctrlmedio,
@@ -1025,6 +1065,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Químicos - Sustancias sólidas (polvos) */
+            '','','','','','','','','','','','',
             resp.idpquimicossustanc_efectos,
             resp.idpquimicossustanc_ctrlfuente,
             resp.idpquimicossustanc_ctrlmedio,
@@ -1041,6 +1082,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Químicos - Contacto y/o salpicadura de químicos */
+            '','','','','','','','','','','','',
             resp.idpquimicoscontacto_efectos,
             resp.idpquimicoscontacto_ctrlfuente,
             resp.idpquimicoscontacto_ctrlmedio,
@@ -1060,6 +1102,7 @@ export class ValorRiesgoComponent implements OnInit {
         [
           [
             /* Tareas de alto riesgo - Trabajo en alturas por encima de 1.50 metros */
+            '','','','','','','','','','','','',
             resp.idptareasalturas_efectos,
             resp.idptareasalturas_ctrlfuente,
             resp.idptareasalturas_ctrlmedio,
@@ -1076,6 +1119,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Tareas de alto riesgo - Trabajo en espacios confinados */
+            '','','','','','','','','','','','',
             resp.idptareasconfinados_efectos,
             resp.idptareasconfinados_ctrlfuente,
             resp.idptareasconfinados_ctrlmedio,
@@ -1092,6 +1136,7 @@ export class ValorRiesgoComponent implements OnInit {
           ],
           [
             /* Tareas de alto riesgo - Trabajo en caliente corte y soldadura */
+            '','','','','','','','','','','','',
             resp.idptareassoldadura_efectos,
             resp.idptareassoldadura_ctrlfuente,
             resp.idptareassoldadura_ctrlmedio,
@@ -1210,6 +1255,13 @@ export class ValorRiesgoComponent implements OnInit {
       cell.alignment = { vertical: 'middle', horizontal: 'center' }
 
     }) 
+    for (let i = 0; i < data[0].length; i++) {
+      
+      data[0][i].forEach(element => {
+          this.worksheet.addRow(element);
+      });
+      
+    }
 
     this.worksheet.mergeCells('A3:A52');
     this.worksheet.getCell('A3').value = this.vrData[0].idpareanombre;
@@ -1318,11 +1370,9 @@ export class ValorRiesgoComponent implements OnInit {
     this.worksheet.getCell(`L51`).value = 'Trabajo en espacios confinados';
     this.worksheet.getCell(`L52`).value = 'Trabajo en caliente corte y soldadura';
 
-    /*Toma el valor del titulo */
+    // /*Toma el valor del titulo */
     
-    // dataForExcel.forEach(element => {
-    //     this.worksheet.addRow(element);
-    // });
+    
 
     //Generate & Save Excel File
     /*Genera y guarda el archivo de Excel en el dispositivo */
