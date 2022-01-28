@@ -1595,12 +1595,12 @@ export class FormValorRiesgoComponent implements OnInit {
       if (this.vrform.value.idpbioderani_tb_nd !== 0 && this.vrform.value.idpbioderani_tb_nd !== '' && 
           this.vrform.value.idpbioderani_tb_ne !== 0 && this.vrform.value.idpbioderani_tb_ne !== '') {
           num =  this.vrform.value.idpbioderani_tb_nd * this.vrform.value.idpbioderani_tb_ne;
-
+            
           this.vrform.patchValue({
             idpbioderani_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num <= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -1613,7 +1613,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -1666,7 +1666,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpbiohongo_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -1679,7 +1679,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -1732,7 +1732,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpbiobacterias_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -1745,7 +1745,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -1798,7 +1798,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpbiovirus_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -1811,7 +1811,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -1864,7 +1864,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpbioparasitos_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -1877,7 +1877,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -1932,7 +1932,7 @@ export class FormValorRiesgoComponent implements OnInit {
             idpcargesfuerzos_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num <= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -1945,7 +1945,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -1998,7 +1998,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpcargmovimiento_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2011,7 +2011,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2064,7 +2064,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpcargvoz_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2077,7 +2077,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2130,7 +2130,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpcargpie_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2143,7 +2143,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2196,7 +2196,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpcargsentado_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2209,7 +2209,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2264,7 +2264,7 @@ export class FormValorRiesgoComponent implements OnInit {
             idpelectricobaja_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num <= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -2277,7 +2277,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -2330,7 +2330,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpelectricoalta_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2343,7 +2343,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2396,7 +2396,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpelectricocables_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2409,7 +2409,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2464,7 +2464,7 @@ export class FormValorRiesgoComponent implements OnInit {
             idpfisicoilumdef_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num <= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -2477,7 +2477,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -2530,7 +2530,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisicoilumexceso_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2543,7 +2543,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2596,7 +2596,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisicoradiaciones_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2609,7 +2609,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2662,7 +2662,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisicoruido_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2675,7 +2675,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2728,7 +2728,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisicovibraciones_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2741,7 +2741,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2794,7 +2794,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisicocalor_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2807,7 +2807,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2860,7 +2860,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisicofrio_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2873,7 +2873,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2926,7 +2926,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpfisiconoradiaciones_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -2939,7 +2939,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -2994,7 +2994,7 @@ export class FormValorRiesgoComponent implements OnInit {
             idpincendioscombust_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num <= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -3007,7 +3007,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -3060,7 +3060,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpincendiosequipo_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num >= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3073,7 +3073,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3126,7 +3126,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpincendiossustancias_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num >= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3139,7 +3139,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3194,7 +3194,7 @@ export class FormValorRiesgoComponent implements OnInit {
             idplocativospisos_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num >= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -3207,7 +3207,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -3260,7 +3260,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idplocativosescaleras_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3273,7 +3273,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3326,7 +3326,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idplocativosestanterias_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3339,7 +3339,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3392,7 +3392,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idplocativosarrumes_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3405,7 +3405,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3458,7 +3458,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idplocativosenalizacion_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3471,7 +3471,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3524,7 +3524,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idplocativosaseo_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3537,7 +3537,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3592,7 +3592,7 @@ export class FormValorRiesgoComponent implements OnInit {
             idpmecanicoherramient_tb_np:num
           })
 
-          if (num >= 40 && num <= 24) {
+          if (num <= 40 && num >= 24) {
             inter = 'MUY ALTO';
           }
 
@@ -3605,7 +3605,7 @@ export class FormValorRiesgoComponent implements OnInit {
           }
 
           if (num <= 4 && num >= 2) {
-            inter = 'MEDIO';
+            inter = 'BAJO';
           }
 
           this.vrform.patchValue({
@@ -3658,7 +3658,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpmecanicocortante_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3671,7 +3671,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3724,7 +3724,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpmecanicocortopunz_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3737,7 +3737,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3790,7 +3790,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpmecanicomateriales_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3803,7 +3803,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3858,7 +3858,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppsicosobrecarga_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3871,7 +3871,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3924,7 +3924,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppsicoresponsabilidad_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -3937,7 +3937,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -3990,7 +3990,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppsicorepetitivo_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4003,7 +4003,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4058,7 +4058,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppublicorobo_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4071,7 +4071,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4124,7 +4124,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppublicoterrorismo_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4137,7 +4137,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4190,7 +4190,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppublicoagresion_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4203,7 +4203,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4256,7 +4256,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idppublicoasonada_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4269,7 +4269,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4324,7 +4324,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idptransitomoto_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4337,7 +4337,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4390,7 +4390,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idptransitocarro_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4403,7 +4403,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4458,7 +4458,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpquimicosaerosol_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4467,7 +4467,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 8 && num >= 6) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         if (num <= 4 && num >= 2) {
@@ -4524,7 +4524,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpquimicosgases_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4537,7 +4537,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4590,7 +4590,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpquimicossustanc_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4603,7 +4603,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4656,7 +4656,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idpquimicoscontacto_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4669,7 +4669,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4724,7 +4724,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idptareasalturas_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4737,7 +4737,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4790,7 +4790,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idptareasconfinados_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4803,7 +4803,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({
@@ -4856,7 +4856,7 @@ export class FormValorRiesgoComponent implements OnInit {
           idptareassoldadura_tb_np:num
         })
 
-        if (num >= 40 && num <= 24) {
+        if (num <= 40 && num >= 24) {
           inter = 'MUY ALTO';
         }
 
@@ -4869,7 +4869,7 @@ export class FormValorRiesgoComponent implements OnInit {
         }
 
         if (num <= 4 && num >= 2) {
-          inter = 'MEDIO';
+          inter = 'BAJO';
         }
 
         this.vrform.patchValue({

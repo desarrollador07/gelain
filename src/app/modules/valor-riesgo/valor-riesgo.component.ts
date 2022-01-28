@@ -270,9 +270,10 @@ export class ValorRiesgoComponent implements OnInit {
     let arrFinal :any;
     arrFinal = this.vrData.map( resp => { 
       return [
-
+        /* ----------------------BIOLOGICO------------------- */
         [ 
           [
+            /*Biologico - Derivados de origen animal */
             '','','','','','','','','','','','',
             resp.idpbioderani_efectos,
             resp.idpbioderani_ctrlfuente,
@@ -285,11 +286,13 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbioderani_tb_nc,
             resp.idpbioderani_intervencion,
             resp.idpbioderani_tb_nr,
+            '',
             resp.idpbioderani_numpuestos,
             resp.idpbioderani_observaciones,
           ]
           ,
           [
+            /*Biologico - Microorganismos tipo hongo */
             '','','','','','','','','','','','',
             resp.idpbiohongo_efectos,
             resp.idpbiohongo_ctrlfuente,
@@ -302,10 +305,12 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbiohongo_tb_nc,
             resp.idpbiohongo_intervencion,
             resp.idpbiohongo_tb_nr,
+            '',
             resp.idpbiohongo_numpuestos,
             resp.idpbiohongo_observaciones,
           ],
           [
+            /*Biologico - Microorganismos tipo bacterias */
             '','','','','','','','','','','','',
             resp.idpbiobacterias_efectos,
             resp.idpbiobacterias_ctrlfuente,
@@ -318,10 +323,12 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbiobacterias_tb_nc,
             resp.idpbiobacterias_intervencion,
             resp.idpbiobacterias_tb_nr,
+            '',
             resp.idpbiobacterias_numpuestos,
             resp.idpbiobacterias_observaciones,
           ],
           [
+            /*Biologico - Microorganismos tipo virus */
             '','','','','','','','','','','','',
             resp.idpbiovirus_efectos,
             resp.idpbiovirus_ctrlfuente,
@@ -334,10 +341,12 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbiovirus_tb_nc,
             resp.idpbiovirus_intervencion,
             resp.idpbiovirus_tb_nr,
+            '',
             resp.idpbiovirus_numpuestos,
             resp.idpbiovirus_observaciones,
           ],
           [
+            /*Biologico - Parásitos */
             '','','','','','','','','','','','',
             resp.idpbioparasitos_efectos,
             resp.idpbioparasitos_ctrlfuente,
@@ -350,6 +359,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbioparasitos_tb_nc,
             resp.idpbioparasitos_intervencion,
             resp.idpbioparasitos_tb_nr,
+            '',
             resp.idpbioparasitos_numpuestos,
             resp.idpbioparasitos_observaciones,
           ]
@@ -370,6 +380,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargesfuerzos_tb_nc,
             resp.idpcargesfuerzos_intervencion,
             resp.idpcargesfuerzos_tb_nr,
+            '',
             resp.idpcargesfuerzos_numpuestos,
             resp.idpcargesfuerzos_observaciones,
           ],
@@ -387,6 +398,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargmovimiento_tb_nc,
             resp.idpcargmovimiento_intervencion,
             resp.idpcargmovimiento_tb_nr,
+            '',
             resp.idpcargmovimiento_numpuestos,
             resp.idpcargmovimiento_observaciones,
           ],
@@ -404,6 +416,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargvoz_tb_nc,
             resp.idpcargvoz_intervencion,
             resp.idpcargvoz_tb_nr,
+            '',
             resp.idpcargvoz_numpuestos,
             resp.idpcargvoz_observaciones,
           ],
@@ -421,6 +434,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargpie_tb_nc,
             resp.idpcargpie_intervencion,
             resp.idpcargpie_tb_nr,
+            '',
             resp.idpcargpie_numpuestos,
             resp.idpcargpie_observaciones,
           ],
@@ -438,6 +452,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargsentado_tb_nc,
             resp.idpcargsentado_intervencion,
             resp.idpcargsentado_tb_nr,
+            '',
             resp.idpcargsentado_numpuestos,
             resp.idpcargsentado_observaciones,
           ] 
@@ -458,6 +473,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpelectricobaja_tb_nc,
             resp.idpelectricobaja_intervencion,
             resp.idpelectricobaja_tb_nr,
+            '',
             resp.idpelectricobaja_numpuestos,
             resp.idpelectricobaja_observaciones,
           ],
@@ -475,6 +491,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpelectricoalta_tb_nc,
             resp.idpelectricoalta_intervencion,
             resp.idpelectricoalta_tb_nr,
+            '',
             resp.idpelectricoalta_numpuestos,
             resp.idpelectricoalta_observaciones,
           ],
@@ -492,6 +509,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpelectricocables_tb_nc,
             resp.idpelectricocables_intervencion,
             resp.idpelectricocables_tb_nr,
+            '',
             resp.idpelectricocables_numpuestos,
             resp.idpelectricocables_observaciones,
           ]
@@ -512,6 +530,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoilumdef_tb_nc,
             resp.idpfisicoilumdef_intervencion,
             resp.idpfisicoilumdef_tb_nr,
+            '',
             resp.idpfisicoilumdef_numpuestos,
             resp.idpfisicoilumdef_observaciones,
           ],
@@ -529,6 +548,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoilumexceso_tb_nc,
             resp.idpfisicoilumexceso_intervencion,
             resp.idpfisicoilumexceso_tb_nr,
+            '',
             resp.idpfisicoilumexceso_numpuestos,
             resp.idpfisicoilumexceso_observaciones,
           ],
@@ -546,6 +566,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisiconoradiaciones_tb_nc,
             resp.idpfisiconoradiaciones_intervencion,
             resp.idpfisiconoradiaciones_tb_nr,
+            '',
             resp.idpfisiconoradiaciones_numpuestos,
             resp.idpfisiconoradiaciones_observaciones,
           ],
@@ -563,6 +584,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoradiaciones_tb_nc,
             resp.idpfisicoradiaciones_intervencion,
             resp.idpfisicoradiaciones_tb_nr,
+            '',
             resp.idpfisicoradiaciones_numpuestos,
             resp.idpfisicoradiaciones_observaciones,
           ],
@@ -580,6 +602,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoruido_tb_nc,
             resp.idpfisicoruido_intervencion,
             resp.idpfisicoruido_tb_nr,
+            '',
             resp.idpfisicoruido_numpuestos,
             resp.idpfisicoruido_observaciones,
           ],
@@ -597,6 +620,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicovibraciones_tb_nc,
             resp.idpfisicovibraciones_intervencion,
             resp.idpfisicovibraciones_tb_nr,
+            '',
             resp.idpfisicovibraciones_numpuestos,
             resp.idpfisicovibraciones_observaciones,
           ],
@@ -614,6 +638,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicocalor_tb_nc,
             resp.idpfisicocalor_intervencion,
             resp.idpfisicocalor_tb_nr,
+            '',
             resp.idpfisicocalor_numpuestos,
             resp.idpfisicocalor_observaciones,
           ],
@@ -631,6 +656,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicofrio_tb_nc,
             resp.idpfisicofrio_intervencion,
             resp.idpfisicofrio_tb_nr,
+            '',
             resp.idpfisicofrio_numpuestos,
             resp.idpfisicofrio_observaciones,
           ]
@@ -651,6 +677,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpincendioscombust_tb_nc,
             resp.idpincendioscombust_intervencion,
             resp.idpincendioscombust_tb_nr,
+            '',
             resp.idpincendioscombust_numpuestos,
             resp.idpincendioscombust_observaciones,
           ],
@@ -668,6 +695,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpincendiosequipo_tb_nc,
             resp.idpincendiosequipo_intervencion,
             resp.idpincendiosequipo_tb_nr,
+            '',
             resp.idpincendiosequipo_numpuestos,
             resp.idpincendiosequipo_observaciones,
           ],
@@ -685,6 +713,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpincendiossustancias_tb_nc,
             resp.idpincendiossustancias_intervencion,
             resp.idpincendiossustancias_tb_nr,
+            '',
             resp.idpincendiossustancias_numpuestos,
             resp.idpincendiossustancias_observaciones,
           ]
@@ -705,6 +734,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativospisos_tb_nc,
             resp.idplocativospisos_intervencion,
             resp.idplocativospisos_tb_nr,
+            '',
             resp.idplocativospisos_numpuestos,
             resp.idplocativospisos_observaciones,
           ],
@@ -722,6 +752,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosescaleras_tb_nc,
             resp.idplocativosescaleras_intervencion,
             resp.idplocativosescaleras_tb_nr,
+            '',
             resp.idplocativosescaleras_numpuestos,
             resp.idplocativosescaleras_observaciones,
           ],
@@ -739,6 +770,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosestanterias_tb_nc,
             resp.idplocativosestanterias_intervencion,
             resp.idplocativosestanterias_tb_nr,
+            '',
             resp.idplocativosestanterias_numpuestos,
             resp.idplocativosestanterias_observaciones,
           ],
@@ -756,6 +788,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosarrumes_tb_nc,
             resp.idplocativosarrumes_intervencion,
             resp.idplocativosarrumes_tb_nr,
+            '',
             resp.idplocativosarrumes_numpuestos,
             resp.idplocativosarrumes_observaciones,
           ],
@@ -773,6 +806,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosenalizacion_tb_nc,
             resp.idplocativosenalizacion_intervencion,
             resp.idplocativosenalizacion_tb_nr,
+            '',
             resp.idplocativosenalizacion_numpuestos,
             resp.idplocativosenalizacion_observaciones,
           ],
@@ -790,6 +824,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosaseo_tb_nc,
             resp.idplocativosaseo_intervencion,
             resp.idplocativosaseo_tb_nr,
+            '',
             resp.idplocativosaseo_numpuestos,
             resp.idplocativosaseo_observaciones,
           ]
@@ -810,6 +845,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicoherramient_tb_nc,
             resp.idpmecanicoherramient_intervencion,
             resp.idpmecanicoherramient_tb_nr,
+            '',
             resp.idpmecanicoherramient_numpuestos,
             resp.idpmecanicoherramient_observaciones,
           ],
@@ -827,6 +863,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicocortante_tb_nc,
             resp.idpmecanicocortante_intervencion,
             resp.idpmecanicocortante_tb_nr,
+            '',
             resp.idpmecanicocortante_numpuestos,
             resp.idpmecanicocortante_observaciones,
           ],
@@ -844,6 +881,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicocortopunz_tb_nc,
             resp.idpmecanicocortopunz_intervencion,
             resp.idpmecanicocortopunz_tb_nr,
+            '',
             resp.idpmecanicocortopunz_numpuestos,
             resp.idpmecanicocortopunz_observaciones,
           ],
@@ -861,6 +899,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicomateriales_tb_nc,
             resp.idpmecanicomateriales_intervencion,
             resp.idpmecanicomateriales_tb_nr,
+            '',
             resp.idpmecanicomateriales_numpuestos,
             resp.idpmecanicomateriales_observaciones,
           ]
@@ -881,6 +920,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppsicosobrecarga_tb_nc,
             resp.idppsicosobrecarga_intervencion,
             resp.idppsicosobrecarga_tb_nr,
+            '',
             resp.idppsicosobrecarga_numpuestos,
             resp.idppsicosobrecarga_observaciones,
           ],
@@ -898,6 +938,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppsicoresponsabilidad_tb_nc,
             resp.idppsicoresponsabilidad_intervencion,
             resp.idppsicoresponsabilidad_tb_nr,
+            '',
             resp.idppsicoresponsabilidad_numpuestos,
             resp.idppsicoresponsabilidad_observaciones,
           ],
@@ -915,6 +956,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppsicorepetitivo_tb_nc,
             resp.idppsicorepetitivo_intervencion,
             resp.idppsicorepetitivo_tb_nr,
+            '',
             resp.idppsicorepetitivo_numpuestos,
             resp.idppsicorepetitivo_observaciones,
           ]
@@ -935,6 +977,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicorobo_tb_nc,
             resp.idppublicorobo_intervencion,
             resp.idppublicorobo_tb_nr,
+            '',
             resp.idppublicorobo_numpuestos,
             resp.idppublicorobo_observaciones,
           ],
@@ -952,6 +995,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicoterrorismo_tb_nc,
             resp.idppublicoterrorismo_intervencion,
             resp.idppublicoterrorismo_tb_nr,
+            '',
             resp.idppublicoterrorismo_numpuestos,
             resp.idppublicoterrorismo_observaciones,
           ],
@@ -969,6 +1013,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicoagresion_tb_nc,
             resp.idppublicoagresion_intervencion,
             resp.idppublicoagresion_tb_nr,
+            '',
             resp.idppublicoagresion_numpuestos,
             resp.idppublicoagresion_observaciones,
           ],
@@ -986,6 +1031,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicoasonada_tb_nc,
             resp.idppublicoasonada_intervencion,
             resp.idppublicoasonada_tb_nr,
+            '',
             resp.idppublicoasonada_numpuestos,
             resp.idppublicoasonada_observaciones,
           ]
@@ -1006,6 +1052,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptransitomoto_tb_nc,
             resp.idptransitomoto_intervencion,
             resp.idptransitomoto_tb_nr,
+            '',
             resp.idptransitomoto_numpuestos,
             resp.idptransitomoto_observaciones,
           ],
@@ -1023,6 +1070,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptransitocarro_tb_nc,
             resp.idptransitocarro_intervencion,
             resp.idptransitocarro_tb_nr,
+            '',
             resp.idptransitocarro_numpuestos,
             resp.idptransitocarro_observaciones,
           ]
@@ -1043,6 +1091,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicosaerosol_tb_nc,
             resp.idpquimicosaerosol_intervencion,
             resp.idpquimicosaerosol_tb_nr,
+            '',
             resp.idpquimicosaerosol_numpuestos,
             resp.idpquimicosaerosol_observaciones,
           ],
@@ -1060,6 +1109,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicosgases_tb_nc,
             resp.idpquimicosgases_intervencion,
             resp.idpquimicosgases_tb_nr,
+            '',
             resp.idpquimicosgases_numpuestos,
             resp.idpquimicosgases_observaciones,
           ],
@@ -1077,6 +1127,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicossustanc_tb_nc,
             resp.idpquimicossustanc_intervencion,
             resp.idpquimicossustanc_tb_nr,
+            '',
             resp.idpquimicossustanc_numpuestos,
             resp.idpquimicossustanc_observaciones,
           ],
@@ -1094,6 +1145,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicoscontacto_tb_nc,
             resp.idpquimicoscontacto_intervencion,
             resp.idpquimicoscontacto_tb_nr,
+            '',
             resp.idpquimicoscontacto_numpuestos,
             resp.idpquimicoscontacto_observaciones,
           ]
@@ -1114,6 +1166,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptareasalturas_tb_nc,
             resp.idptareasalturas_intervencion,
             resp.idptareasalturas_tb_nr,
+            '',
             resp.idptareasalturas_numpuestos,
             resp.idptareasalturas_observaciones,
           ],
@@ -1131,6 +1184,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptareasconfinados_tb_nc,
             resp.idptareasconfinados_intervencion,
             resp.idptareasconfinados_tb_nr,
+            '',
             resp.idptareasconfinados_numpuestos,
             resp.idptareasconfinados_observaciones,
           ],
@@ -1148,6 +1202,7 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptareassoldadura_tb_nc,
             resp.idptareassoldadura_intervencion,
             resp.idptareassoldadura_tb_nr,
+            '',
             resp.idptareassoldadura_numpuestos,
             resp.idptareassoldadura_observaciones,
           ]
@@ -1182,36 +1237,12 @@ export class ValorRiesgoComponent implements OnInit {
     /*Agrega filas en blanco */
     this.worksheet.addRow([]);
 
-    /*Se toma  las celdas a combinar */
-    this.worksheet.mergeCells(`N1`, `P1`);
-    /* Asigna estilos a la celda combinada según lo que queremos en el titulo */
-    let titleRow = this.worksheet.getCell(`N1`);
-    /*Toma el valor del titulo */
-    titleRow.value = 'CONTROL EXISTENTE';
-    /*Cambia los valores de estilo de las fuentes */
-    titleRow.font = {
-      name: 'calibri',
-      size: 12,
-      bold: true
-    }
-
-    titleRow.fill = {
-            type: 'pattern',
-            pattern: 'solid',
-            fgColor: { argb: 'A7ACA7' },
-            bgColor: { argb: '' }
-    }
-
-    /*Alinea el titulo y lo centra en la celda combinada */
-    titleRow.alignment = { vertical: 'middle', horizontal: 'center' }
-    /*Se asigna el borde a la celdas correspondientes */
-    this.worksheet.getCell(`N1`, `P1`).border = {
-      top: { style: 'thin' },
-      left: { style: 'thin' },
-      bottom: { style: 'thin' },
-      right: { style: 'thin' }
-    }
-
+    this.fnParamExcelTitle(`N1`,`P1`,'CONTROL EXISTENTE','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`Q1`,`W1`,'EVALUACION DEL RIESGO','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`X1`,`X1`,'VALORACION DEL RIESGO','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`Y1`,`AA1`,'CRITERIOS PARA ESTABLECER CONTROLES','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`AB1`,`AG1`,'MEDIDAS DE INTERVENCIÓN','calibri',12,'A7ACA7','000000');
+  
     //Adding Header Row
     /*Se crea la fila con los titulos */
     let headerRow = this.worksheet.addRow(header);
@@ -1221,9 +1252,9 @@ export class ValorRiesgoComponent implements OnInit {
       /*Asigna el ancho de la celda según la longitud de los datos de forma relativa */
       const widthCell = cell.value.toString().length;
 
-      if (number === 12) {
+      if (number === 12 || number === 32 || number === 33) {
         this.worksheet.getColumn(number).width = 70;
-      }else{
+      } else{
         this.worksheet.getColumn(number).width = widthCell + 5;
       }
        /*Segun la columna correspondiente asigna el ancho de la celda y se le suma 5 para controlar el espaciado en las celdas */
@@ -1350,26 +1381,26 @@ export class ValorRiesgoComponent implements OnInit {
     
         /*FACTORES DE RIESGO */
         /*BIOLOGICO */
-        this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000');
+        this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000','FFFFFF');
         this.fnParamBorderTitle(`L${cont1}`,'Derivados de origen animal');
         this.fnParamBorderTitle(`L${cont4}`,'Microorganismos tipo hongo');
         this.fnParamBorderTitle(`L${cont5}`,'Microorganismos tipo bacterias');
         this.fnParamBorderTitle(`L${cont6}`,'Microorganismos tipo virus');
         this.fnParamBorderTitle(`L${cont3}`,'Parásitos');
         /*CARGA FISICA */
-        this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E');
+        this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
         this.fnParamBorderTitle(`L${cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
         this.fnParamBorderTitle(`L${cont9}`,'Carga dinámica por movimientos repetitivos');
         this.fnParamBorderTitle(`L${cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
         this.fnParamBorderTitle(`L${cont11}`,'Carga estática de pie');
         this.fnParamBorderTitle(`L${cont8}`,'Posiciones prolongadas sentado');
         /*ELECTRICO */
-        this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507');
+        this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507','FFFFFF');
         this.fnParamBorderTitle(`L${cont12}`,'Energía eléctrica de baja');
         this.fnParamBorderTitle(`L${cont14}`,'Energía eléctrica de alta');
         this.fnParamBorderTitle(`L${cont13}`,'Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
         /*FISICO */
-        this.fnParamExcelTitle(`K${cont15}`,`K${cont16}`,'FÍSICO','calibri',10,'2162b0');
+        this.fnParamExcelTitle(`K${cont15}`,`K${cont16}`,'FÍSICO','calibri',10,'2162b0','FFFFFF');
         this.fnParamBorderTitle(`L${cont15}`,'Iluminación deficiente');
         this.fnParamBorderTitle(`L${cont17}`,'Iluminación en exceso');
         this.fnParamBorderTitle(`L${cont18}`,'Radiaciones no ionizantes por ultravioleta');
@@ -1379,12 +1410,12 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${cont22}`,'Transferencias de temperaturas por calor');
         this.fnParamBorderTitle(`L${cont16}`,'Transferencias de temperaturas por frio');
         /*INCENDIOS / EXPLOSIONES */
-        this.fnParamExcelTitle(`K${cont23}`,`K${cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707');
+        this.fnParamExcelTitle(`K${cont23}`,`K${cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707','FFFFFF');
         this.fnParamBorderTitle(`L${cont23}`,'Materiales combustibles');
         this.fnParamBorderTitle(`L${cont25}`,'Ausencia de equipo contra incendio');
         this.fnParamBorderTitle(`L${cont24}`,'Sustancias inflamables');
         /*LOCATIVOS */
-        this.fnParamExcelTitle(`K${cont26}`,`K${cont27}`,'LOCATIVOS','calibri',10,'836013');
+        this.fnParamExcelTitle(`K${cont26}`,`K${cont27}`,'LOCATIVOS','calibri',10,'836013','FFFFFF');
         this.fnParamBorderTitle(`L${cont26}`,'Pisos defectuosos');
         this.fnParamBorderTitle(`L${cont28}`,'Escaleras defectuosas');
         this.fnParamBorderTitle(`L${cont29}`,'Almacenamiento, estanterías en mal estado');
@@ -1392,34 +1423,34 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${cont31}`,'Señalización y demarcación deficiente, inexistente o inadecuada');
         this.fnParamBorderTitle(`L${cont27}`,'Falta de orden y aseo');
         /*MECANICOS */
-        this.fnParamExcelTitle(`K${cont32}`,`K${cont33}`,'MECÁNICOS','calibri',10,'4E493E');
+        this.fnParamExcelTitle(`K${cont32}`,`K${cont33}`,'MECÁNICOS','calibri',10,'4E493E','FFFFFF');
         this.fnParamBorderTitle(`L${cont32}`,'Utilización de herramientas manuales');
         this.fnParamBorderTitle(`L${cont34}`,'Superficies cortantes');
         this.fnParamBorderTitle(`L${cont35}`,'Contacto con elementos cortopunzantes');
         this.fnParamBorderTitle(`L${cont33}`,'Materiales proyectados sólidos o fluidos');
         /*PSICOSOCIAL */
-        this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3');
+        this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
         this.fnParamBorderTitle(`L${cont36}`,'Sobrecarga de trabajo');
         this.fnParamBorderTitle(`L${cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
         this.fnParamBorderTitle(`L${cont37}`,'Trabajo repetitivo');
         /*PUBLICOS */
-        this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5');
+        this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5','FFFFFF');
         this.fnParamBorderTitle(`L${cont39}`,'Situación de atraco o robo');
         this.fnParamBorderTitle(`L${cont41}`,'Terrorismo');
         this.fnParamBorderTitle(`L${cont42}`,'Situación de Agresión fisica');
         this.fnParamBorderTitle(`L${cont40}`,'Situación de asonada');
         /*TRANSITO */
-        this.fnParamExcelTitle(`K${cont43}`,`K${cont44}`,'TRANSITO','calibri',10,'53DA70');
+        this.fnParamExcelTitle(`K${cont43}`,`K${cont44}`,'TRANSITO','calibri',10,'53DA70','FFFFFF');
         this.fnParamBorderTitle(`L${cont43}`,'Transporte carro / ambulancia');
         this.fnParamBorderTitle(`L${cont44}`,'Transporte motocicleta');
         /*QUIMICOS */
-        this.fnParamExcelTitle(`K${cont45}`,`K${cont46}`,'QUÍMICOS','calibri',10,'E47BC4');
+        this.fnParamExcelTitle(`K${cont45}`,`K${cont46}`,'QUÍMICOS','calibri',10,'E47BC4','FFFFFF');
         this.fnParamBorderTitle(`L${cont45}`,'Aerosoles, líquidos, rocíos');
         this.fnParamBorderTitle(`L${cont47}`,'Gases y vapores');
         this.fnParamBorderTitle(`L${cont48}`,'Sustancias sólidas (polvos)');
         this.fnParamBorderTitle(`L${cont46}`,'Contacto y/o salpicadura de químicos');
         /*TAREAS DE ALTO RIESGO */
-        this.fnParamExcelTitle(`K${cont49}`,`K${cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23');
+        this.fnParamExcelTitle(`K${cont49}`,`K${cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23','FFFFFF');
         this.fnParamBorderTitle(`L${cont49}`,'Trabajo en alturas por encima de 1.50 metros');
         this.fnParamBorderTitle(`L${cont51}`,'Trabajo en espacios confinados');
         this.fnParamBorderTitle(`L${cont50}`,'Trabajo en caliente corte y soldadura');
@@ -1513,26 +1544,26 @@ export class ValorRiesgoComponent implements OnInit {
 
         /*FACTORES DE RIESGO */
         /*BIOLOGICO */
-        this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000');
+        this.fnParamExcelTitle(`K${cont1}`,`K${cont3}`,'BIOLÓGICO','calibri',10,'008000','FFFFFF');
         this.fnParamBorderTitle(`L${cont1}`,'Derivados de origen animal');
         this.fnParamBorderTitle(`L${cont4}`,'Microorganismos tipo hongo');
         this.fnParamBorderTitle(`L${cont5}`,'Microorganismos tipo bacterias');
         this.fnParamBorderTitle(`L${cont6}`,'Microorganismos tipo virus');
         this.fnParamBorderTitle(`L${cont3}`,'Parásitos');
         /*CARGA FISICA */
-         this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E');
+         this.fnParamExcelTitle(`K${cont7}`,`K${cont8}`,'CARGA FÍSICA','calibri',10,'E7B80E','FFFFFF');
          this.fnParamBorderTitle(`L${cont7}`, 'Carga dinámica por esfuerzos (manejos o traslado de cargas)');
          this.fnParamBorderTitle(`L${cont9}`,'Carga dinámica por movimientos repetitivos');
          this.fnParamBorderTitle(`L${cont10}`,'Carga dinámica por sobreesfuerzos de la voz');
          this.fnParamBorderTitle(`L${cont11}`,'Carga estática de pie');
          this.fnParamBorderTitle(`L${cont8}`,'Posiciones prolongadas sentado');
         /*ELECTRICO */
-        this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507');
+        this.fnParamExcelTitle(`K${cont12}`,`K${cont13}`,'ELÉCTRICO','calibri',10,'F2F507','FFFFFF');
         this.fnParamBorderTitle(`L${cont12}`,'Energía eléctrica de baja');
         this.fnParamBorderTitle(`L${cont14}`,'Energía eléctrica de alta');
         this.fnParamBorderTitle(`L${cont13}`,'Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados');
         /*FISICO */
-        this.fnParamExcelTitle(`K${cont15}`,`K${cont16}`,'FÍSICO','calibri',10,'2162b0');
+        this.fnParamExcelTitle(`K${cont15}`,`K${cont16}`,'FÍSICO','calibri',10,'2162b0','FFFFFF');
         this.fnParamBorderTitle(`L${cont15}`,'Iluminación deficiente');
         this.fnParamBorderTitle(`L${cont17}`,'Iluminación en exceso');
         this.fnParamBorderTitle(`L${cont18}`,'Radiaciones no ionizantes por ultravioleta');
@@ -1542,12 +1573,12 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${cont22}`,'Transferencias de temperaturas por calor');
         this.fnParamBorderTitle(`L${cont16}`,'Transferencias de temperaturas por frio');
         /*INCENDIOS / EXPLOSIONES */
-        this.fnParamExcelTitle(`K${cont23}`,`K${cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707');
+        this.fnParamExcelTitle(`K${cont23}`,`K${cont24}`,'INCENDIOS / EXPLOSIONES','calibri',10,'F52707','FFFFFF');
         this.fnParamBorderTitle(`L${cont23}`,'Materiales combustibles');
         this.fnParamBorderTitle(`L${cont25}`,'Ausencia de equipo contra incendio');
         this.fnParamBorderTitle(`L${cont24}`,'Sustancias inflamables');
         /*LOCATIVOS */
-        this.fnParamExcelTitle(`K${cont26}`,`K${cont27}`,'LOCATIVOS','calibri',10,'836013');
+        this.fnParamExcelTitle(`K${cont26}`,`K${cont27}`,'LOCATIVOS','calibri',10,'836013','FFFFFF');
         this.fnParamBorderTitle(`L${cont26}`,'Pisos defectuosos');
         this.fnParamBorderTitle(`L${cont28}`,'Escaleras defectuosas');
         this.fnParamBorderTitle(`L${cont29}`,'Almacenamiento, estanterías en mal estado');
@@ -1555,34 +1586,34 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${cont31}`,'Señalización y demarcación deficiente, inexistente o inadecuada');
         this.fnParamBorderTitle(`L${cont27}`,'Falta de orden y aseo');
         /*MECANICOS */
-        this.fnParamExcelTitle(`K${cont32}`,`K${cont33}`,'MECÁNICOS','calibri',10,'4E493E');
+        this.fnParamExcelTitle(`K${cont32}`,`K${cont33}`,'MECÁNICOS','calibri',10,'4E493E','FFFFFF');
         this.fnParamBorderTitle(`L${cont32}`,'Utilización de herramientas manuales');
         this.fnParamBorderTitle(`L${cont34}`,'Superficies cortantes');
         this.fnParamBorderTitle(`L${cont35}`,'Contacto con elementos cortopunzantes');
         this.fnParamBorderTitle(`L${cont33}`,'Materiales proyectados sólidos o fluidos');
          /*PSICOSOCIAL */
-         this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3');
+         this.fnParamExcelTitle(`K${cont36}`,`K${cont37}`,'PSICOSOCIAL','calibri',10,'8547B3','FFFFFF');
          this.fnParamBorderTitle(`L${cont36}`,'Sobrecarga de trabajo');
          this.fnParamBorderTitle(`L${cont38}`,'Resposanbilidad en el cargo/ manejo de personal');
          this.fnParamBorderTitle(`L${cont37}`,'Trabajo repetitivo');
          /*PUBLICOS */
-        this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5');
+        this.fnParamExcelTitle(`K${cont39}`,`K${cont40}`,'PÚBLICOS','calibri',10,'2BD2D5','FFFFFF');
         this.fnParamBorderTitle(`L${cont39}`,'Situación de atraco o robo');
         this.fnParamBorderTitle(`L${cont41}`,'Terrorismo');
         this.fnParamBorderTitle(`L${cont42}`,'Situación de Agresión fisica');
         this.fnParamBorderTitle(`L${cont40}`,'Situación de asonada');
         /*TRANSITO */
-        this.fnParamExcelTitle(`K${cont43}`,`K${cont44}`,'TRANSITO','calibri',10,'53DA70');
+        this.fnParamExcelTitle(`K${cont43}`,`K${cont44}`,'TRANSITO','calibri',10,'53DA70','FFFFFF');
         this.fnParamBorderTitle(`L${cont43}`,'Transporte carro / ambulancia');
         this.fnParamBorderTitle(`L${cont44}`,'Transporte motocicleta');
          /*QUIMICOS */
-        this.fnParamExcelTitle(`K${cont45}`,`K${cont46}`,'QUÍMICOS','calibri',10,'E47BC4');
+        this.fnParamExcelTitle(`K${cont45}`,`K${cont46}`,'QUÍMICOS','calibri',10,'E47BC4','FFFFFF');
         this.fnParamBorderTitle(`L${cont45}`,'Aerosoles, líquidos, rocíos');
         this.fnParamBorderTitle(`L${cont47}`,'Gases y vapores');
         this.fnParamBorderTitle(`L${cont48}`,'Sustancias sólidas (polvos)');
         this.fnParamBorderTitle(`L${cont46}`,'Contacto y/o salpicadura de químicos');
          /*TAREAS DE ALTO RIESGO */
-        this.fnParamExcelTitle(`K${cont49}`,`K${cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23');
+        this.fnParamExcelTitle(`K${cont49}`,`K${cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23','FFFFFF');
         this.fnParamBorderTitle(`L${cont49}`,'Trabajo en alturas por encima de 1.50 metros');
         this.fnParamBorderTitle(`L${cont51}`,'Trabajo en espacios confinados');
         this.fnParamBorderTitle(`L${cont50}`,'Trabajo en caliente corte y soldadura');
@@ -1595,7 +1626,7 @@ export class ValorRiesgoComponent implements OnInit {
     this.workbook.xlsx.writeBuffer().then((data) => {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
       /*Asigna el nombre del archivo con que se quiere guardar */
-      saveAs(blob, `VR_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
+      saveAs(blob, `VR_${sessionStorage.getItem('nombreEmpresa')}_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
     })
 
 
@@ -1609,7 +1640,10 @@ export class ValorRiesgoComponent implements OnInit {
     const headerData = [
       'ÁREA','NOMBRE LIDER','CÉDULA','TELEFONO','SEDE','PROCESO' ,'ZONA/LUGAR','ACTIVIDADES','TAREAS',
       'RUTINARIO (SI/NO)','FACTORES DE RIESGO','INDICADORES DE RIESGO','EFECTOS POSIBLES','FUENTE','MEDIO',
-      'INDIVIDUO','TABLA ND','TABLA NE','NP = (ND*NE)','INTERPRETACIÓN','NC','INTERVENCIÓN','TABLA NR','N° EXPUESTOS','OBSERVACIONES']
+      'INDIVIDUO','TABLA ND','TABLA NE','NP = (ND*NE)','INTERPRETACIÓN','NC','INTERVENCIÓN','TABLA NR',
+      'ACEPTABILIDAD DEL RIESGO','N° EXPUESTOS','OBSERVACIONES','PEOR CONSECUENCIA', 
+      'EXISTENCIA REQUISITO LEGAL ESPECIFICO ASOCIADO (SI/NO)','ELIMINACIÓN','SUSTITUCIÓN','CONTROL DE INGENIERIA',
+      'CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA','EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL']
  
     /*Se crea un objeto con el cual la función del excel la va recibir */
     let reportData = {
@@ -1633,7 +1667,7 @@ export class ValorRiesgoComponent implements OnInit {
   }
 
   /*Función  que parametriza las celdas para los encabezados  los cual se requieren combinar las celdas */
-  fnParamExcelTitle(cell1:string,cell2:string,title:string,nameFont:string,size:number,color:string){
+  fnParamExcelTitle(cell1:string,cell2:string,title:string,nameFont:string,size:number,color:string,colorFont:string){
     /*Se toma  las celdas a combinar */
     this.worksheet.mergeCells(cell1, cell2);
     /*Se asigna el borde a la celdas correspondientes */
@@ -1652,7 +1686,7 @@ export class ValorRiesgoComponent implements OnInit {
       name: nameFont,
       size: size,
       bold: true,
-      color: { argb: 'FFFFFF' },
+      color: { argb: colorFont },
     }
     /*Alinea el titulo y lo centra en la celda combinada */
     titleRow.alignment = { vertical: 'middle', horizontal: 'center' }
