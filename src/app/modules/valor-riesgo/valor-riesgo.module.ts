@@ -12,6 +12,7 @@ import { ToastModule } from 'primeng/toast';
 import { ValorRiesgoRoutingModule } from './valor-riesgo-routing.module';
 import { ValorRiesgoComponent } from './valor-riesgo.component';
 import { FormValorRiesgoComponent } from '../form-valor-riesgo/form-valor-riesgo.component';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
 
 @NgModule({
   declarations: [ 
@@ -47,7 +48,8 @@ import { FormValorRiesgoComponent } from '../form-valor-riesgo/form-valor-riesgo
     RadioButtonModule,
     TabMenuModule,
     TooltipModule,
-    TabViewModule
+    TabViewModule,
+    OverlayPanelModule
   ]
 })
 export class ValorRiesgoModule { }

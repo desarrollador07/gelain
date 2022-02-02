@@ -221,3 +221,10 @@ fieldset legend {
     -webkit-border-radius: 12px;
     border-radius: 10px;
 }
+
+.span-border {
+    border-top-right-radius: 10px !important;
+    border-bottom-right-radius: 10px !important;
+    height: 29.13px !important;
+    cursor: pointer !important;
+}

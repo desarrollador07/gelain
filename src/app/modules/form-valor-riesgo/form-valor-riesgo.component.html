@@ -135,16 +135,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NP()" type="number" pInputText> 
-                                              <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbioderani_tb_nd"   onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NP()" type="number" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px; color: black;">TABLA ND </label>   
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NP()" type="number" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbioderani_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NP()" type="number" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -161,10 +167,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbioderani_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NR()" type="number" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbioderani_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart1NR()" type="number" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -228,16 +237,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
-                                              <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbiohongo_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbiohongo_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -254,10 +269,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NR()" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbiohongo_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart2NR()" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -321,16 +339,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
-                                              <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbiobacterias_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbiobacterias_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -347,10 +371,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NR()" pInputText> 
-                                              <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                          </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                  <input formControlName="idpbiobacterias_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart3NR()" pInputText> 
+                                                  <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -414,16 +441,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpbiovirus_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpbiovirus_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpbiovirus_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpbiovirus_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -440,10 +473,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpbiovirus_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NR()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpbiovirus_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart4NR()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -507,16 +543,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                          <input formControlName="idpbioparasitos_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
-                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                      </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpbioparasitos_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                          <input formControlName="idpbioparasitos_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
-                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                      </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpbioparasitos_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -533,10 +575,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                          <input formControlName="idpbioparasitos_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NR()" pInputText> 
-                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                      </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpbioparasitos_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoBioPart5NR()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -4904,3 +4949,41 @@
     </p-panel>
 
 </form>
+
+<!-- Ventanas de ayudas para tablas emergentes -->
+<p-overlayPanel #op1>
+    <div class="ui-g">
+        <div class="ui-g-12" style="text-align: center;">
+            <label style="font-size: medium; font-weight: bold;color: black;">TABLA NC</label>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-12" style="text-align: center;">
+            <img src="https://gelainbienestarlaboral.com/GELAIN/img/Tabla_NC.png" alt="NC" />
+        </div>
+    </div>
+</p-overlayPanel>
+<p-overlayPanel #op2>
+    <div class="ui-g">
+        <div class="ui-g-12" style="text-align: center;">
+            <label style="font-size: medium; font-weight: bold;color: black;">TABLA NE</label>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-12" style="text-align: center;">
+            <img src="https://gelainbienestarlaboral.com/GELAIN/img/Tabla_NE.png" alt="NE" />
+        </div>
+    </div>
+</p-overlayPanel>
+<p-overlayPanel #op3>
+    <div class="ui-g">
+        <div class="ui-g-12" style="text-align: center;">
+            <label style="font-size: medium; font-weight: bold;color: black;">TABLA ND</label>
+        </div>
+    </div>
+    <div class="ui-g">
+        <div class="ui-g-12" style="text-align: center;">
+            <img src="https://gelainbienestarlaboral.com/GELAIN/img/Tabla_ND.png" alt="ND" />
+        </div>
+    </div>
+</p-overlayPanel>
