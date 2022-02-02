@@ -656,16 +656,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargesfuerzos_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
-                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargesfuerzos_tb_nd"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargesfuerzos_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargesfuerzos_tb_ne"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -682,10 +688,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargesfuerzos_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NR()" type="number" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargesfuerzos_tb_nc"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart1NR()" type="number" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -749,16 +758,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargmovimiento_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargmovimiento_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargmovimiento_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargmovimiento_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -775,10 +790,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargmovimiento_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NR()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargmovimiento_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart2NR()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -842,16 +860,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargvoz_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargvoz_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargvoz_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargvoz_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -868,10 +892,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                            <input formControlName="idpcargvoz_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NR()" pInputText> 
-                                            <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                        </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargvoz_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart3NR()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -935,16 +962,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                          <input formControlName="idpcargpie_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
-                                          <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                      </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargpie_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                          <input formControlName="idpcargpie_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
-                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                      </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargpie_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -961,10 +994,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                          <input formControlName="idpcargpie_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NR()" pInputText> 
-                                          <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                      </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargpie_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart4NR()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -1028,16 +1064,22 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                        <input formControlName="idpcargsentado_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
-                                        <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
-                                    </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargsentado_tb_nd" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                        <input formControlName="idpcargsentado_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
-                                        <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
-                                    </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargsentado_tb_ne" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
+                                                </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
@@ -1054,10 +1096,13 @@
                                     </div>
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-3">
-                                            <span class="ui-float-label">
-                                        <input formControlName="idpcargsentado_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NR()" pInputText> 
-                                        <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
-                                    </span>
+                                            <div class="ui-inputgroup">
+                                                <span class="ui-float-label">
+                                                    <input formControlName="idpcargsentado_tb_nc" type="number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' (ngModelChange)="fnCalculoCarFPart5NR()" pInputText> 
+                                                    <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
+                                                 </span>
+                                                <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
+                                            </div>
                                         </div>
                                         <div class="ui-g-3">
                                             <span class="ui-float-label">
