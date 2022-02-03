@@ -1645,7 +1645,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -1711,7 +1711,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -1777,7 +1777,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -1843,7 +1843,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -1909,7 +1909,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -1977,7 +1977,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2043,7 +2043,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2109,7 +2109,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2175,7 +2175,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2241,7 +2241,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2309,7 +2309,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2375,7 +2375,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2441,7 +2441,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2509,7 +2509,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2575,7 +2575,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2641,7 +2641,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2707,7 +2707,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2773,7 +2773,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2839,7 +2839,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2905,7 +2905,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -2971,7 +2971,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3039,7 +3039,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3105,7 +3105,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3171,7 +3171,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3239,7 +3239,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3305,7 +3305,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3371,7 +3371,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3437,7 +3437,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3503,7 +3503,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3569,7 +3569,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3637,7 +3637,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3703,7 +3703,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3769,7 +3769,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3835,7 +3835,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3903,7 +3903,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -3969,7 +3969,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4035,7 +4035,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4103,7 +4103,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4169,7 +4169,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4235,7 +4235,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4301,7 +4301,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4369,7 +4369,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4435,7 +4435,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4503,7 +4503,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4569,7 +4569,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4635,7 +4635,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4701,7 +4701,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4769,7 +4769,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4835,7 +4835,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 
@@ -4901,7 +4901,7 @@ export class FormValorRiesgoComponent implements OnInit {
         result = 'III';
       }
 
-      if (num < 40 && num >= 20) {
+      if (num < 40 && num >= 0) {
         result = 'IV';
       }
 

@@ -71,7 +71,7 @@
                 <div class="ui-g">
                     <div class="ui-g-2">
                         <div class="ui-helper-clearfix" style="text-align: left; margin-top: 5px;">
-                            <button type="button" pButton icon="pi pi-download" iconPos="left" label="EXCEL" (click)="exportToExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+                            <button type="button" pButton icon="pi pi-download" [disabled]="vrData.length === 0" iconPos="left" label="EXCEL" (click)="exportToExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
                         </div>
                     </div>
                 </div>

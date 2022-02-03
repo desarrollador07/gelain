@@ -1273,12 +1273,24 @@ export class ValorRiesgoComponent implements OnInit {
     /*Inician los contadores de acuerdo a la posición que se necesita en las celdas */
     this.fnContDataInit();
     /*Ciclo que recorre el arreglo de los datos, tambien se adquieren datos del arreglo principal  y el arreglo segundario */
+    var contFila:number = 2;
     for (let j = 0; j < data.length; j++) {
       /*Ciclo de arreglo con data secundaria el cual recorre por categoria */
       for (let i = 0; i < data[j].length; i++) {
         /*Ciclo que recorre por subcategoria */
+        
         data[j][i].forEach((element:any)=> {
+            contFila += 1;
             this.worksheet.addRow(element);
+
+            if (element[22].trim() === 'I') {
+              this.fnvalidColor(contFila, 'ED2616');
+            } else if (element[22].trim() === 'II') {
+              this.fnvalidColor(contFila, 'F3ED1A');
+            } else if (element[22].trim() === 'III' || element[22].trim() === 'IV') {
+              this.fnvalidColor(contFila, '86C537');
+            } 
+            
         });
 
       }
@@ -1625,6 +1637,35 @@ export class ValorRiesgoComponent implements OnInit {
     this.fnParamExcelTitle(`X1`,`X1`,'VALORACION DEL RIESGO','calibri',12,'A7ACA7','000000');
     this.fnParamExcelTitle(`Y1`,`AA1`,'CRITERIOS PARA ESTABLECER CONTROLES','calibri',12,'A7ACA7','000000');
     this.fnParamExcelTitle(`AB1`,`AG1`,'MEDIDAS DE INTERVENCIÓN','calibri',12,'A7ACA7','000000');
+  }
+
+  fnvalidColor( fila:number, color:string){
+    this.worksheet.getCell(`T${fila}`).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: color },
+      bgColor: { argb: '' }
+    }
+    this.worksheet.getCell(`U${fila}`).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: color },
+      bgColor: { argb: '' }
+    }
+    this.worksheet.getCell(`V${fila}`).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: color },
+      bgColor: { argb: '' }
+    }
+    this.worksheet.getCell(`W${fila}`).fill = {
+      type: 'pattern',
+      pattern: 'solid',
+      fgColor: { argb: color },
+      bgColor: { argb: '' }
+    }
+    
+
   }
 
 }
