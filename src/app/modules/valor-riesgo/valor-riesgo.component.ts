@@ -1530,7 +1530,7 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${this.cont46}`,'Contacto y/o salpicadura de químicos');
          /*TAREAS DE ALTO RIESGO */
         this.fnParamExcelTitle(`K${this.cont49}`,`K${this.cont50}`,'TAREAS DE ALTO RIESGO','calibri',10,'E37A23','FFFFFF');
-        this.fnParamBorderTitle(`L${this.cont49}`,'Trabajo en alturas por encima de 1.50 metros');
+        this.fnParamBorderTitle(`L${this.cont49}`,'Trabajo en alturas por encima de 2 metros');
         this.fnParamBorderTitle(`L${this.cont51}`,'Trabajo en espacios confinados');
         this.fnParamBorderTitle(`L${this.cont50}`,'Trabajo en caliente corte y soldadura');
   }
