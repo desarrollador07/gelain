@@ -1,3 +1,12 @@
+<div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+    <div class="ui-grid-row" style="margin-bottom: 5px;">
+        <div class="ui-grid-col-12">
+            <div style="text-align: left;">
+                <button style="width: 100px;" pButton type="button" icon="pi pi-angle-left" class="p-button-rounded p-button-success p-mr-2" (click)="backClicked()" label="Regresar"></button>
+            </div>
+        </div>
+    </div>
+</div>
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 <form [formGroup]="vrform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
 
