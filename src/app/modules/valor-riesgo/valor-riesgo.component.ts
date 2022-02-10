@@ -1447,16 +1447,16 @@ export class ValorRiesgoComponent implements OnInit {
   }
 
   fnGroup(j:number){
-    this.fnParamSubtitle(`A${this.cont1}`,`A${this.cont2}`,this.vrData[j].idpareanombre);
+        this.fnParamSubtitle(`A${this.cont1}`,`A${this.cont2}`,this.vrData[j].idpareanombre);
         this.fnParamSubtitle(`B${this.cont1}`,`B${this.cont2}`,this.vrData[j].idpnombre);
         this.fnParamSubtitle(`C${this.cont1}`,`C${this.cont2}`,this.vrData[j].idpcedula);
         this.fnParamSubtitle(`D${this.cont1}`,`D${this.cont2}`,this.vrData[j].idptelefono);
         this.fnParamSubtitle(`E${this.cont1}`,`E${this.cont2}`,this.vrData[j].idpsede);
-        this.fnParamSubtitle(`F${this.cont1}`,`F${this.cont2}`,'');
-        this.fnParamSubtitle(`G${this.cont1}`,`G${this.cont2}`,'');
-        this.fnParamSubtitle(`H${this.cont1}`,`H${this.cont2}`,'');
-        this.fnParamSubtitle(`I${this.cont1}`,`I${this.cont2}`,'');
-        this.fnParamSubtitle(`J${this.cont1}`,`J${this.cont2}`,'');
+        this.fnParamSubtitle(`F${this.cont1}`,`F${this.cont2}`,this.vrData[j].idpproceso);
+        this.fnParamSubtitle(`G${this.cont1}`,`G${this.cont2}`,this.vrData[j].idpzona);
+        this.fnParamSubtitle(`H${this.cont1}`,`H${this.cont2}`,this.vrData[j].idpactividades);
+        this.fnParamSubtitle(`I${this.cont1}`,`I${this.cont2}`,this.vrData[j].idptareas);
+        this.fnParamSubtitle(`J${this.cont1}`,`J${this.cont2}`,this.vrData[j].idprutinario);
 
         /*FACTORES DE RIESGO */
         /*BIOLOGICO */
@@ -1533,6 +1533,14 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${this.cont49}`,'Trabajo en alturas por encima de 2 metros');
         this.fnParamBorderTitle(`L${this.cont51}`,'Trabajo en espacios confinados');
         this.fnParamBorderTitle(`L${this.cont50}`,'Trabajo en caliente corte y soldadura');
+
+        this.fnParamSubtitle(`AA${this.cont1}`,`AA${this.cont2}`,this.vrData[j].idppeor_consecuencia);
+        this.fnParamSubtitle(`AB${this.cont1}`,`AB${this.cont2}`,this.vrData[j].idpexisten_requisito);
+        this.fnParamSubtitle(`AC${this.cont1}`,`AC${this.cont2}`,this.vrData[j].idpeliminacion);
+        this.fnParamSubtitle(`AD${this.cont1}`,`AD${this.cont2}`,this.vrData[j].idpsustitucion);
+        this.fnParamSubtitle(`AE${this.cont1}`,`AE${this.cont2}`,this.vrData[j].idpcontrolinf);
+        this.fnParamSubtitle(`AF${this.cont1}`,`AF${this.cont2}`,this.vrData[j].idpcontrolesadm);
+        this.fnParamSubtitle(`AG${this.cont1}`,`AG${this.cont2}`,this.vrData[j].idpequipoyelementos);
   }
 
   fnContSumaData(){
