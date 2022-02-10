@@ -1608,7 +1608,11 @@ export class ValorRiesgoComponent implements OnInit {
 
       if (number === 12 || number === 32 || number === 33) {
         this.worksheet.getColumn(number).width = 70;
-      } else{
+      } else if (number === 6 || number === 7) {
+        this.worksheet.getColumn(number).width = 35;
+      } else if (number === 8 || number === 9) {
+        this.worksheet.getColumn(number).width = 45;
+      } else {
         this.worksheet.getColumn(number).width = widthCell + 5;
       }
        /*Segun la columna correspondiente asigna el ancho de la celda y se le suma 5 para controlar el espaciado en las celdas */
