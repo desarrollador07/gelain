@@ -1314,7 +1314,7 @@ export class ValorRiesgoComponent implements OnInit {
       let blob = new Blob([data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
       /*Asigna el nombre del archivo con que se quiere guardar */
       saveAs(blob, `VR_${sessionStorage.getItem('nombreEmpresa')}_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}` + '.xlsx');
-    })
+    });
 
   }
 
@@ -1540,7 +1540,7 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamSubtitle(`AD${this.cont1}`,`AD${this.cont2}`,this.vrData[j].idpsustitucion);
         this.fnParamSubtitle(`AE${this.cont1}`,`AE${this.cont2}`,this.vrData[j].idpcontrolinf);
         this.fnParamSubtitle(`AF${this.cont1}`,`AF${this.cont2}`,this.vrData[j].idpcontrolesadm);
-        this.fnParamSubtitle(`AG${this.cont1}`,`AG${this.cont2}`,this.vrData[j].idpequipoyelementos);
+        this.fnParamSubtitle(`AG${this.cont1}`,`AG${this.cont2}`,this.vrData[j].idpelemntoprot);
   }
 
   fnContSumaData(){
@@ -1676,8 +1676,6 @@ export class ValorRiesgoComponent implements OnInit {
       fgColor: { argb: color },
       bgColor: { argb: '' }
     }
-    
-
   }
 
 }
