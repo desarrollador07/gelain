@@ -22,6 +22,10 @@ export class FormValorRiesgoComponent implements OnInit {
   userMod:any;
   areas: Area[] = [];
   area: SelectItem[] = [];
+  selectRutina:SelectItem[] = [
+    { label: 'SI', value: 'SI' },
+    { label: 'NO', value: 'NO' }
+  ];
   
   constructor(private fb: FormBuilder,
               private valoraRiesgoService: ValoracionRiesgosService,
@@ -64,6 +68,19 @@ export class FormValorRiesgoComponent implements OnInit {
       idpusuariocrea:[this.userMod],
       idpusuariomod:[this.userMod],
       idpestado:['a'],
+      /*-------------------ULTIMOS CAMPOS AGREGADOS-------------------- */
+      idpproceso:['.'],
+      idpzona:['.'],
+      idpactividades:['.'],
+      idptareas:['.'],
+      idprutinario:[''],
+      idppeor_consecuencia:['.'],
+      idpexisten_requisito:['.'],
+      idpeliminacion:['.'],
+      idpsustitucion:['.'],
+      idpcontrolinf:['.'],
+      idpcontrolesadm:['.'],
+      idpequipoyelementos:['.'],
       /* ----------------------BIOLOGICO------------------- */
       /*Biologico - Derivados de origen animal */
       idpbioderani_efectos:['.'],
@@ -870,6 +887,19 @@ export class FormValorRiesgoComponent implements OnInit {
         idpusuariocrea:this.localVR.idpusuariocrea,
         idpusuariomod:this.localVR.idpusuariomod,
         idpestado:this.localVR.idpestado,
+        /*-------------------ULTIMOS CAMPOS AGREGADOS-------------------- */
+        idpproceso:this.localVR.idpproceso,
+        idpzona:this.localVR.idpzona,
+        idpactividades:this.localVR.idpactividades,
+        idptareas:this.localVR.idptareas,
+        idprutinario:this.localVR.idprutinario,
+        idppeor_consecuencia:this.localVR.idppeor_consecuencia,
+        idpexisten_requisito:this.localVR.idpexisten_requisito,
+        idpeliminacion:this.localVR.idpeliminacion,
+        idpsustitucion:this.localVR.idpsustitucion,
+        idpcontrolinf:this.localVR.idpcontrolinf,
+        idpcontrolesadm:this.localVR.idpcontrolesadm,
+        idpequipoyelementos:this.localVR.idpequipoyelementos,
         /* ----------------------BIOLOGICO------------------- */
         /*Biologico - Derivados de origen animal */
         idpbioderani_efectos:this.localVR.idpbioderani_efectos,

@@ -91,6 +91,89 @@
                       </span>
                     </div>
                 </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpproceso" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Proceso</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpzona" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Zona</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpactividades" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Actividades</label>
+                      </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idptareas" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Tareas</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <p-dropdown [options]="selectRutina" formControlName="idprutinario" placeholder="Rutinario (SI - NO)"></p-dropdown>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idppeor_consecuencia" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Peor Consecuencia</label>
+                      </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-4">
+                        <span class="ui-float-label">
+                          <input formControlName="idpexisten_requisito" type="text" pInputText style="width:307.75px;text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Existencia Requisito Legal Especifico Asociado</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpeliminacion" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Eliminación</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpsustitucion" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Sustitución</label>
+                      </span>
+                    </div>
+                </div>
+                <div class="ui-g" style="margin-bottom: 10px;">
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpcontrolinf" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Control de Ingenieria</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-1"></div>
+                    <div class="ui-g-4">
+                        <span class="ui-float-label">
+                          <input formControlName="idpcontrolesadm" type="text"  pInputText style="width:307.75px;text-transform: uppercase;"> 
+                          <label for="float-input" style=" font-size: 15px; ">Controles Administrativos Señalización, Advertencia</label>
+                      </span>
+                    </div>
+                    <div class="ui-g-3">
+                        <span class="ui-float-label">
+                          <input formControlName="idpequipoyelementos" type="text" pInputText style="text-transform: uppercase;"> 
+                          <label for="float-input" style="font-size: 15px; ">Equipo / Elementos de Protección Personal</label>
+                      </span>
+                    </div>
+                </div>
 
             </fieldset>
             <br>
