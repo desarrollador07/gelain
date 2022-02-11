@@ -3,9 +3,6 @@
     <i class="pi pi-search"></i>
 </div>
 <br><br><br>
-
-
-
 <p-toast></p-toast>
 <p-toast position="top-left" key="tl"></p-toast>
 <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
@@ -14,46 +11,21 @@
         <button type="button" pButton icon="pi pi-check" label="Si" (click)="cd.accept()"></button>
     </p-footer>
 </p-confirmDialog>
-
-
-
-
 <div class="card">
-
-    <!-- <div class="ui-g-12 ui-md-12 ui-lg-12 ui-xl-6 ui-fluid"> -->
     <p-panel header="Areas">
         <p-table #dt [value]="pruebas" [globalFilterFields]="['areid','areempresa','arenombre','arefechaini','areactivo']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
-
-
             <ng-template pTemplate="header">
                 <tr>
-                    <th pSortableColumn="areid" pResizableColumn>ID
-
-                    </th>
-
-                    <!--  <th pSortableColumn="areempresa" pResizableColumn>Empresa
-
-                    </th> -->
-                    <th pSortableColumn="arenombre" pResizableColumn>Nombre
-
-                    </th>
-
-                    <th class="descarto" pSortableColumn="arefechaini" pResizableColumn>Fecha de Inicio
-
-                    </th>
-
-                    <th class="descarto" pSortableColumn="areactivo" pResizableColumn>Activo
-
-                    </th>
-                    <th pSortableColumn="name" pResizableColumn>
-
-                    </th>
+                    <th pSortableColumn="areid" pResizableColumn>ID</th>
+                    <th pSortableColumn="arenombre" pResizableColumn>Nombre</th>
+                    <th class="descarto" pSortableColumn="arefechaini" pResizableColumn>Fecha de Inicio</th>
+                    <th class="descarto" pSortableColumn="areactivo" pResizableColumn>Activo</th>
+                    <th pSortableColumn="name" pResizableColumn></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-columns let-prueba let-i="rowIndex">
                 <tr>
                     <td style="text-align:center" class="old-car">{{prueba.areid}}</td>
-                    <!--  <td style="text-align:center">{{prueba.areempresa}}</td> -->
                     <td style="text-align:center">{{prueba.arenombre}}</td>
                     <td style="text-align:center" class="descarto">{{prueba.arefechaini}}</td>
                     <td style="text-align:center" class="descarto">{{prueba.areactivo}}</td>
@@ -63,27 +35,10 @@
                     </td>
                 </tr>
             </ng-template>
-
-            <!-- <ng-template style="text-align:center" pTemplate="summary">
-
-                <div class="ui-g">
-
-                    <div class="ui-g-12 ui-md-6 ui-lg-3"> En total documentos.</div>
-
-                </div>
-
-
-
-            </ng-template> -->
-
         </p-table>
         <br>
         <div style="text-align:center">
             <button type="button" pButton icon="fa fa-plus" class="tooltip" title="Agregar prueba" pRipple routerLink="/main/addArea/crear" (click)="newcPrueba()" label="Agregar"></button>
-
         </div>
     </p-panel>
-
-
-
 </div>
