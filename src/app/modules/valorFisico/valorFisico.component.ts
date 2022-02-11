@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { AppState } from 'src/app/app.reducer';
 import { Store } from '@ngrx/store';
 import * as valoraFisicaAction from '../../store/actions/vf.actions';
+import { DatePipe } from '@angular/common';
 /*Model */
 import { ValorFisico } from '../../models/valorFisico.model';
 /*Modulos */
 import { MessageService, ConfirmationService, Message } from 'primeng/api';
 /*Servicios */
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
-import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -203,7 +203,7 @@ export class ValorfisicoComponent implements OnInit {
 
     });
   }
-
+  /*Función para acomodar la altura entre las filas de la tabla */
   makeRowsSameHeight() {
      
     setTimeout(() => {

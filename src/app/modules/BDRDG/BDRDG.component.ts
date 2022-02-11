@@ -102,96 +102,93 @@ export class BDRDGComponent implements OnInit {
      
     });
     
-   
   }
 
   async consultaEmpleados(id:number){
 
-      await this.empleadosService
-      .buscarByEmpleadosRepor(id).toPromise().then((data: any)=>{
-       
-        this.pruebas = data;
-        this.makeRowsSameHeight();
-        this.pruebas.map(res=>{
-          this.empresas.map(x=>{
-          if (res.emdempresa === x.empid) {
-            res.nomempresa = x.empnombre;
-            res.ciudadEmpresa = x.empciudad;
-            res.DepartamentoEmpresa = x.empdepartamento;
-          }
-          });
-        });
-        if (this.pruebas.length > 0) {
-          this.loading = false;
-        }else{
-          this.loading = false;
+    await this.empleadosService.buscarByEmpleadosRepor(id).toPromise().then((data: any)=>{
+      
+      this.pruebas = data;
+      this.makeRowsSameHeight();
+      this.pruebas.map(res=>{
+        this.empresas.map(x=>{
+        if (res.emdempresa === x.empid) {
+          res.nomempresa = x.empnombre;
+          res.ciudadEmpresa = x.empciudad;
+          res.DepartamentoEmpresa = x.empdepartamento;
         }
-      }); 
+        });
+      });
+      if (this.pruebas.length > 0) {
+        this.loading = false;
+      }else{
+        this.loading = false;
+      }
+    }); 
 
   }
 
 
-      buscarArea(cpruebas:Empleado){
-        this.area =[];
-        this.areasServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
-          this.areas = data;
-          this.areas.map(x=>{
-            this.area.push({
-              label:x.arenombre,
-              value: x.areid
-            });
-          });
+  buscarArea(cpruebas:Empleado){
+    this.area =[];
+    this.areasServices.buscarByArea(cpruebas.emdid).toPromise().then((data:any)=>{
+      this.areas = data;
+      this.areas.map(x=>{
+        this.area.push({
+          label:x.arenombre,
+          value: x.areid
         });
-      }
+      });
+    });
+  }
 
-      indexData(){
-         this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
-          this.empresas = data;
-        });
-    
-         this.empleadosService.getPrueba().toPromise().then((data: any)=>{
-          this.pruebas = data;
-          this.pruebas.map(res=>{
-            this.empresas.map(x=>{
+  indexData(){
+    this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
+      this.empresas = data;
+    });
+  
+    this.empleadosService.getPrueba().toPromise().then((data: any)=>{
+        this.pruebas = data;
+        this.pruebas.map(res=>{
+          this.empresas.map(x=>{
             if (res.emdempresa === x.empid) {
               res.nomempresa = x.empnombre;
               res.ciudadEmpresa = x.empciudad;
               res.DepartamentoEmpresa = x.empdepartamento;
             }
-            });
           });
-      });
-    }
+        });
+    });
+  }
 
 
-    exportPdf() {
-      import("jspdf").then(jsPDF => {
-          import("jspdf-autotable").then(x => {
-              const doc = new jsPDF.default();
-              //doc.autoTable(this.columns, this.pruebas);
-              doc.save('empleados.pdf');
-          })
-      })
+  exportPdf() {
+    import("jspdf").then(jsPDF => {
+        import("jspdf-autotable").then(x => {
+            const doc = new jsPDF.default();
+            doc.save('empleados.pdf');
+        });
+    });
   }
   
   exportExcel() {
-      import("xlsx").then(xlsx => {
-          const worksheet = xlsx.utils.json_to_sheet(this.getCars());
-          const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
-          const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
-          this.saveAsExcelFile(excelBuffer,`EMPLEADOS_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
-      });
+    import("xlsx").then(xlsx => {
+        const worksheet = xlsx.utils.json_to_sheet(this.getCars());
+        const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+        this.saveAsExcelFile(excelBuffer,`EMPLEADOS_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
+    });
   }
 
   saveAsExcelFile(buffer: any, fileName: string): void {
-      import("file-saver").then(FileSaver => {
-          let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
-          let EXCEL_EXTENSION = '.xlsx';
-          const data: Blob = new Blob([buffer], {
-              type: EXCEL_TYPE
-          });
-          FileSaver.saveAs(data, fileName  + EXCEL_EXTENSION);
-      });
+    import("file-saver").then(FileSaver => {
+        let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+        let EXCEL_EXTENSION = '.xlsx';
+        const data: Blob = new Blob([buffer], {
+            type: EXCEL_TYPE
+        });
+        FileSaver.saveAs(data, fileName  + EXCEL_EXTENSION);
+    });
   }
 
   getCars() {

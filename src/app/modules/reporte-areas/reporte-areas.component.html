@@ -51,25 +51,74 @@
 <br>
 <fieldset>
     <legend><b><h4>REPORTE ÁREAS</h4></b></legend>
+    <!-- -----------------------------------PDF ÁREAS ------------------------------------------------>
+    <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+        <kendo-pdf-export #pdf paperSize="A4" margin="1cm" [scale]="0.5">
+            <div style=" font-size: 15px; text-align: left;">
+                <p style="text-align: left;">{{nombreGelain}}</p>
+                <p style="text-align: left;">Nit: {{nitGelain}}</p>
+                <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+                <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+                <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+                <p>{{fechaActual | date:"medium" }}</p>
+            </div>
+            <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+            <br>
+            <br>
+            <div style="font-size: 20px; text-align: center;">
+
+                <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+
+                <p>Usuario: {{usuario}}</p>
+
+            </div>
+            <br>
+            <br>
+            <br>
+            <div>
+                <kendo-grid [data]="sales9">
+                    <kendo-grid-column field="nombreArea" title="Areas">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable (Q1)">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="categorias.cat2" title="Riesgo bajo (Q2)">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="categorias.cat3" title="Riesgo medio (Q3)">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="categorias.cat4" title="Riesgo alto (Q4)">
+                    </kendo-grid-column>
+                    <kendo-grid-column field="categorias.cat5" title="Riesgo muy alto (Q5)">
+                    </kendo-grid-column>
+                </kendo-grid>
+            </div>
+            <br>
+            <br>
+            <p-chart type="horizontalBar" [data]="data"></p-chart>
+            <div style=" font-size: 17px; text-align: center; padding-top: 450px;">
+                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+            </div>
+        </kendo-pdf-export>
+
+    </div>
     <!-- -----------------------------------REPORTE ÁREAS--------------------------------------------->
     <div class="ui-g">
         <p-panel header="REPORTE ÁREAS">
             <div>
-                <!-- <div class="example-config">
-                  <button class="k-button" (click)="pdf8.saveAs(text8)">
-                    Generar Reporte
-                  </button>
-              </div> -->
+                <div class="example-config">
+                    <button class="k-button" (click)="pdf.saveAs(text)">
+                        Generar Reporte
+                    </button>
+                </div>
                 <br>
                 <div>
                     <kendo-grid [data]="sales9">
-                        <kendo-grid-column field="nombreArea" title="Áreas">
+                        <kendo-grid-column field="nombreArea" title="Areas">
                         </kendo-grid-column>
                         <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable (Q1)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="categorias.cat2" title="Riego bajo (Q2)">
+                        <kendo-grid-column field="categorias.cat2" title="Riesgo bajo (Q2)">
                         </kendo-grid-column>
-                        <kendo-grid-column field="categorias.cat3" title="Riego medio (Q3)">
+                        <kendo-grid-column field="categorias.cat3" title="Riesgo medio (Q3)">
                         </kendo-grid-column>
                         <kendo-grid-column field="categorias.cat4" title="Riesgo alto (Q4)">
                         </kendo-grid-column>

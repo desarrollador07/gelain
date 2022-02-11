@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,6 +28,7 @@ export class FormValorRiesgoComponent implements OnInit {
   ];
   
   constructor(private fb: FormBuilder,
+              private _location: Location,
               private valoraRiesgoService: ValoracionRiesgosService,
               private areasServices: AreasService,
               private router: Router,
@@ -4940,5 +4941,10 @@ export class FormValorRiesgoComponent implements OnInit {
       })
     }
   }
+  backClicked() {
+    this._location.back();
+  }
+
+  
 
 }

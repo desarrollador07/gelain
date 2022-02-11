@@ -34,7 +34,7 @@ export class AreaComponent implements OnInit {
       {label: 'Empresas', icon: 'fa fa-fw fa-bar-chart'},
       {label: 'Areas', icon: 'fa fa-fw fa-book'},
       {label: 'Empleados', icon: 'fa fa-fw fa-user'},
-  ];
+    ];
 
   }
 
@@ -52,22 +52,21 @@ export class AreaComponent implements OnInit {
       }
     });
         
+  }
 
-      }
+  editPrueba(cpruebas:Area){
+    sessionStorage.setItem('prueba',JSON.stringify(cpruebas));
+  }
 
-      editPrueba(cpruebas:Area){
-        sessionStorage.setItem('prueba',JSON.stringify(cpruebas));
-      }
-    
-      newcPrueba(){
-        sessionStorage.removeItem('prueba');
-      }
+  newcPrueba(){
+    sessionStorage.removeItem('prueba');
+  }
 
-      indexData(){
-        this.areasServices.buscarByArea(this.localIDEmp).subscribe((data: any)=>{
-          this.pruebas = data;
-        });
-      }
+  indexData(){
+    this.areasServices.buscarByArea(this.localIDEmp).subscribe((data: any)=>{
+      this.pruebas = data;
+    });
+  }
   
 
 }

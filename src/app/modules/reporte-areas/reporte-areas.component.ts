@@ -37,12 +37,23 @@ export class ReporteAreasComponent implements OnInit {
     dateFormat: "yy-mm-dd",
     weekHeader: "Wk",
   };
+  nombreGelain:any;
+  nitGelain:any;
+  correoGelain:any;
+  telefono:any;
+  fechaActual :Date;
+  redGelain:any;
+  nEmpresa:any;
+  usuario:any;
+  text:string;
   
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
               private datepipe: DatePipe,
               private store: Store<AppState>) { 
     this.idEmpresa = sessionStorage.getItem("idEmpresa");
+    this.usuario = sessionStorage.getItem("user");
+    this.nEmpresa = sessionStorage.getItem("nombreEmpresa");
   }
 
   async ngOnInit() {
@@ -62,12 +73,14 @@ export class ReporteAreasComponent implements OnInit {
 
       if(sessionStorage.getItem('idEmpresa') === null){
         this.showInfo();
+        this.loading = false;
       }
     });
-    
+    this.datosGelain();
     const fecini = new Date();
     this.fechainicial = new Date(fecini.getFullYear(), fecini.getMonth()-1, 1);
     this.fechafinal = new Date();
+    this.text = 'Reporte_Áreas_'+this.datepipe.transform(this.fechafinal, "yyyy-MM-dd");;
   }
 
   /*Consulta reportes áreas */
@@ -256,6 +269,18 @@ export class ReporteAreasComponent implements OnInit {
     });
 
     this.fnOrgPart2();
+  }
+
+  datosGelain(){
+    
+    this.pruebaServices.getDatosEmpresaGelain().subscribe((data:any)=>{
+      this.nombreGelain = data.nombre;
+      this.nitGelain= data.nit;
+      this.correoGelain= data.correo;
+      this.telefono= data.telefono;
+      this.redGelain= data.instagram;
+
+    })
   }
 
 }
