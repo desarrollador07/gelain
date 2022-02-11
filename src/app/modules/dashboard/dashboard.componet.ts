@@ -19,23 +19,14 @@ import { BreadcrumbService } from '../../breadcrumb.service';
 })
 export class DashboardComponent implements OnInit {
     images: any[];
-
     cities: SelectItem[];
-
     cars: Car[];
-
     cols: any[];
-
     chartData: any;
-
     events: any[];
-
     selectedCity: any;
-
     selectedCar: Car;
-
     items: MenuItem[];
-
     fullcalendarOptions: any;
     
     constructor(private carService: CarService, private eventService: EventService, private breadcrumbService: BreadcrumbService) {

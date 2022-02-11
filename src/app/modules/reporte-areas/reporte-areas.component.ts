@@ -73,6 +73,7 @@ export class ReporteAreasComponent implements OnInit {
 
       if(sessionStorage.getItem('idEmpresa') === null){
         this.showInfo();
+        this.loading = false;
       }
     });
     this.datosGelain();
