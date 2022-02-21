@@ -31,7 +31,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" formControlName="vafsexo"></p-dropdown>
+                            <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" (ngModelChange)="changeSexo()" formControlName="vafsexo"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafSexoValid"></p-message>
                     </div>
@@ -743,7 +743,7 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
+            <fieldset *ngIf="validSexoFem">
                 <legend><b>SOLO PARA MUJERES MAYORES DE 40 AÑOS</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
@@ -770,8 +770,7 @@
                     </div>
                 </div>
             </fieldset>
-            <br>
-            <fieldset>
+            <fieldset *ngIf="validSexoMas">
                 <legend><b>SOLO PARA HOMBRES MAYORES DE 40 AÑOS</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
