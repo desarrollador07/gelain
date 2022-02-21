@@ -92,81 +92,30 @@ export class ExformVfComponent implements OnInit {
   get vafsede() {
     return this.userform.get('vafsede').invalid && this.userform.get('vafsede').touched
   }
-  get vafpeso() {
-    return this.userform.get('vafpeso').invalid && this.userform.get('vafpeso').touched
-  }
-  get vaftalla() {
-    return this.userform.get('vaftalla').invalid && this.userform.get('vaftalla').touched
-  }
-  get vafimc() {
-    return this.userform.get('vafimc').invalid && this.userform.get('vafimc').touched
-  }
-  get vafperimetro() {
-    return this.userform.get('vafperimetro').invalid && this.userform.get('vafperimetro').touched
-  }
-  get vafp0() {
-    return this.userform.get('vafp0').invalid && this.userform.get('vafp0').touched
-  }
-  get vafp1() {
-    return this.userform.get('vafp1').invalid && this.userform.get('vafp1').touched
-  }
-  get vafp2() {
-    return this.userform.get('vafp2').invalid && this.userform.get('vafp2').touched
-  }
-  get vaftestbiering() {
-    return this.userform.get('vaftestbiering').invalid && this.userform.get('vaftestbiering').touched
-  }
-  get vaftestpuenteder() {
-    return this.userform.get('vaftestpuenteder').invalid && this.userform.get('vaftestpuenteder').touched
-  }
-  get vaftestpuenteizq() {
-    return this.userform.get('vaftestpuenteizq').invalid && this.userform.get('vaftestpuenteizq').touched
-  }
-  get vaftestresistronco() {
-    return this.userform.get('vaftestresistronco').invalid && this.userform.get('vaftestresistronco').touched
-  }
-  get vaftestflextronco() {
-    return this.userform.get('vaftestflextronco').invalid && this.userform.get('vaftestflextronco').touched
-  }
-  get vaftestmovhombder() {
-    return this.userform.get('vaftestmovhombder').invalid && this.userform.get('vaftestmovhombder').touched
-  }
-  get vaftestmovhombizq() {
-    return this.userform.get('vaftestmovhombizq').invalid && this.userform.get('vaftestmovhombizq').touched
-  }
- 
   get vafcedula() {
     return this.userform.get('vafcedula').invalid && this.userform.get('vafcedula').touched
   }
-
   get vafSexoValid() {
     return this.userform.get('vafsexo').invalid && this.userform.get('vafsexo').dirty
   }
-
   get vafGrupoSanguineoValid() {
     return this.userform.get('vafgruposanguineo').invalid && this.userform.get('vafgruposanguineo').touched
   }
-
   get vafTelefonoValid() {
     return this.userform.get('vaftelefono').invalid && this.userform.get('vaftelefono').touched
   }
-
   get vafCiudadValid() {
     return this.userform.get('vafciudad').invalid && this.userform.get('vafciudad').touched
   }
-
   get vafEdadValid() {
     return this.userform.get('vafedad').invalid && this.userform.get('vafedad').touched
   }
-
   get vafCorreoValid() {
     return this.userform.get('vafcorreo').invalid && this.userform.get('vafcorreo').touched
   }
-
   get vafFechaValid() {
     return this.userform.get('vaffecha').invalid && this.userform.get('vaffecha').dirty
   }
-
   get vafCargoValid() {
     return this.userform.get('vafcargo').invalid && this.userform.get('vafcargo').touched
   }
@@ -473,20 +422,20 @@ export class ExformVfComponent implements OnInit {
       vafidarea: ['', Validators.required],
       vafidnombre: ['', Validators.required],
       vafsede: ['', Validators.required],
-      vafpeso: ['', Validators.required],
-      vaftalla: ['', Validators.required],
-      vafimc: ['', Validators.required],
-      vafperimetro: ['', Validators.required],
-      vafp0: ['', Validators.required],
-      vafp1: ['', Validators.required],
-      vafp2: ['', Validators.required],
-      vaftestbiering: ['',  Validators.required],
-      vaftestpuenteder: ['', Validators.required],
-      vaftestpuenteizq: ['', Validators.required],
-      vaftestresistronco: ['', Validators.required],
-      vaftestflextronco: ['', Validators.required],
-      vaftestmovhombder: ['', Validators.required],
-      vaftestmovhombizq: ['',  Validators.required],
+      vafpeso: [''],
+      vaftalla: [''],
+      vafimc: [''],
+      vafperimetro: [''],
+      vafp0: [''],
+      vafp1: [''],
+      vafp2: [''],
+      vaftestbiering: [''],
+      vaftestpuenteder: [''],
+      vaftestpuenteizq: [''],
+      vaftestresistronco: [''],
+      vaftestflextronco: [''],
+      vaftestmovhombder: [''],
+      vaftestmovhombizq: [''],
       vafcedula: ['', Validators.required],
       vafsexo: ['', Validators.required],
       vafgruposanguineo: ['', Validators.required],

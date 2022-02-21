@@ -284,8 +284,7 @@ export class FormPruebaComponent implements OnInit {
       this.pruebas = data;
     });
   }
-
-
+  /*Copia links al portapapeles del SO */
   copyToClipBoard(idHtml) {
     var content:any = document.getElementById(idHtml);
     content.select();
