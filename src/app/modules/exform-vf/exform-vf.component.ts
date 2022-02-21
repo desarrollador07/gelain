@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 /*Modulos */
 import { SelectItem, MessageService } from 'primeng/api';
 /*Modelos */
@@ -62,21 +63,28 @@ export class ExformVfComponent implements OnInit {
   msjCR:string = '';
   colorMsj:string = '';
   colorMsj1:string = '';
+  ocultarSecciones:boolean = false;
+  id:number;
   
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
               private vfService: ValoracionFisicaService,
+              private route: ActivatedRoute,
               private fb: FormBuilder,
-              private _messageService: MessageService) {}
+              private _messageService: MessageService) {
+                this.id = Number(this.route.snapshot.paramMap.get("id"));  
+              }
   
               
   async ngOnInit() {
 
     this.formulario();
     this.selectData();
-    
     await this.consultarEmpresas();
-    
+    this.userform.patchValue({
+      vafidempresa: this.id
+    })
+    await this.buscarArea();
   }
 
   /*Apartado de Validaciones */
@@ -896,6 +904,8 @@ limpiarForm(){
           value: x.empid
         }); 
       });
+
+
     });
   }
 

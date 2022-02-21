@@ -124,7 +124,7 @@
                 </div>
             </fieldset>
             <br>
-            <fieldset>
+            <fieldset *ngIf="ocultarSecciones">
                 <legend><b>EVALUACIÓN COMPOSICIÓN CORPORAL</b></legend>
                 <div class="ui-g">
                     <div class="ui-g-12">
@@ -162,8 +162,7 @@
                 </div>
 
             </fieldset>
-            <br>
-            <fieldset>
+            <fieldset *ngIf="ocultarSecciones">
                 <legend><b>EVALUACIÓN CARDIORESPIRATORIA</b></legend>
 
                 <div class="ui-g">
@@ -237,8 +236,7 @@
                     </div>
                 </div>
             </fieldset>
-            <br>
-            <fieldset>
+            <fieldset *ngIf="ocultarSecciones">
                 <legend><b>EVALUACIÓN MUSCULAR</b></legend>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -272,8 +270,7 @@
                     </div>
                 </div>
             </fieldset>
-            <br>
-            <fieldset>
+            <fieldset *ngIf="ocultarSecciones">
                 <legend><b>EVALUACIÓN DE FLEXIBILIDAD</b></legend>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -300,7 +297,7 @@
                     </div>
                 </div>
             </fieldset>
-            <br>
+
             <fieldset>
                 <legend><b>CONDICIONES DE SALUD</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
