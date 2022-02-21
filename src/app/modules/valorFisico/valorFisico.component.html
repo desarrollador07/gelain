@@ -99,12 +99,40 @@
                         <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="/main/FormValorFisico/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                         <button pButton tooltipPosition="top" pTooltip="Eliminar Registro" pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deletePrueba(rowData)" class="p-button-rounded p-button-warning"></button>
                     </td>
-                    <td style="height: 42.8px;">{{rowData.vafcedula}}</td>
+                    <td style="height: 42.8px;" [ngStyle]="{'color': 
+                        rowData.vafpeso === null || 
+                        rowData.vaftalla === null ||
+                        rowData.vafimc === null ||
+                        rowData.vafperimetro === null ||
+                        rowData.vafp0 === null ||
+                        rowData.vafp1 === null ||
+                        rowData.vafp2 === null ||
+                        rowData.vaftestbiering === null ||
+                        rowData.vaftestpuenteder === null ||
+                        rowData.vaftestpuenteizq === null ||
+                        rowData.vaftestresistronco === null ||
+                        rowData.vaftestflextronco === null ||
+                        rowData.vaftestmovhombder === null ||
+                        rowData.vaftestmovhombizq === null  ? '#E3000A':null}">{{rowData.vafcedula}}</td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
-                    <td style="height: 43.13px;" *ngFor="let col of columns">
+                    <td style="height: 43.13px;" *ngFor="let col of columns" [ngStyle]="{'color': 
+                        rowData.vafpeso === null || 
+                        rowData.vaftalla === null ||
+                        rowData.vafimc === null ||
+                        rowData.vafperimetro === null ||
+                        rowData.vafp0 === null ||
+                        rowData.vafp1 === null ||
+                        rowData.vafp2 === null ||
+                        rowData.vaftestbiering === null ||
+                        rowData.vaftestpuenteder === null ||
+                        rowData.vaftestpuenteizq === null ||
+                        rowData.vaftestresistronco === null ||
+                        rowData.vaftestflextronco === null ||
+                        rowData.vaftestmovhombder === null ||
+                        rowData.vaftestmovhombizq === null  ? '#E3000A':null}">
                         <div *ngIf="col.field === 'vaf_fecha_creacion' else elseData">
                             {{rowData[col.field] | date:'dd-MM-yyyy, h:mm a'}}
                         </div>
