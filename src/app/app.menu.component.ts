@@ -49,11 +49,11 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                 
             },
             { 
-                label: 'Valoración Psicologica', 
+                label: 'Valoración Psicólogica', 
                 icon: 'pi fa-fw pi-list',
                 items:[
                     {
-                        label: 'Empleados', 
+                        label: 'Valoración Psicólogica', 
                         icon: 'fa fa-fw fa-user',
                         routerLink: ['empleado'],
                     },
@@ -117,19 +117,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                         label: 'Identificación de Peligros', 
                         icon: 'pi pi-exclamation-triangle', 
                         routerLink: ['valor-riesgo'] 
-                    },
-                    // {
-                    //     label: 'Reportes', 
-                    //     icon: 'pi fa-fw pi-angle-right',
-                    //     items:[
-                    //         {
-                    //             label: 'Informe Valoración Peligros', 
-                    //             icon: 'pi pi-circle-on',
-                    //             routerLink: ['grafica-vf'],
-                    //         },
-                    //     ]
-                    // }
-                    
+                    }   
                 ],
             },
            
