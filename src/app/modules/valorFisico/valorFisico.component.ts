@@ -75,6 +75,7 @@ export class ValorfisicoComponent implements OnInit {
       }
     });
   }
+  
   /*Agrega el objeto selecionado de VF */
   editPrueba(vfData:ValorFisico){
     sessionStorage.setItem('valorFisico',JSON.stringify(vfData));
@@ -106,10 +107,7 @@ export class ValorfisicoComponent implements OnInit {
   }
 
   datosGenerales(){
-    this.frozenCols = [
-      { field: 'vafcedula', header: 'Cédula', width: '180px' }
-    ];
-
+ 
     this.cols = [
       { field: 'vafidnombre', header: 'Nombre', width: '350px' },
       { field: 'vafciudad', header: 'Ciudad', width: '200px' },

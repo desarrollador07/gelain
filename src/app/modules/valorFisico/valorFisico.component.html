@@ -64,13 +64,26 @@
 </div>
 <div class="card animated fadeIn fast">
     <p-panel header="VALORACIÓN DE LA CONDICIÓN FÍSICA">
-        <p-table #dt [value]="vfData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro','vaf_fecha_creacion']"
+        <p-table #dt [value]="vfData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="300px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro','vaf_fecha_creacion']"
             [rows]="10" [paginator]="true" [rowHover]="true">
+            <ng-template pTemplate="frozencolgroup">
+                <colgroup>
+                    <col style="width:120px;">
+                    <col style="width:180px;">
+                </colgroup>
+            </ng-template>
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
-                    <col [ngStyle]="{'width': '120px'}">
                 </colgroup>
+            </ng-template>
+            <ng-template pTemplate="frozenheader">
+                <tr>
+                    <th>Opciones</th>
+                    <th pSortableColumn="vafcedula">Cédula
+                        <p-sortIcon field="vafcedula"></p-sortIcon>
+                    </th>
+                </tr>
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
@@ -78,22 +91,26 @@
                         {{col.header}}
                         <p-sortIcon [field]="col.field"></p-sortIcon>
                     </th>
-                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="frozenbody" let-rowData>
+                <tr>
+                    <td style="text-align:center;height: 42.8px;">
+                        <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="/main/FormValorFisico/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton tooltipPosition="top" pTooltip="Eliminar Registro" pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deletePrueba(rowData)" class="p-button-rounded p-button-warning"></button>
+                    </td>
+                    <td style="height: 42.8px;">{{rowData.vafcedula}}</td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
-                    <td *ngFor="let col of columns">
+                    <td style="height: 43.13px;" *ngFor="let col of columns">
                         <div *ngIf="col.field === 'vaf_fecha_creacion' else elseData">
                             {{rowData[col.field] | date:'dd-MM-yyyy, h:mm a'}}
                         </div>
                         <ng-template #elseData>
                             {{rowData[col.field]| uppercase}}
                         </ng-template>
-                    </td>
-                    <td style="text-align:center">
-                        <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="/main/FormValorFisico/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton tooltipPosition="top" pTooltip="Eliminar Registro" pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deletePrueba(rowData)" class="p-button-rounded p-button-warning"></button>
                     </td>
                 </tr>
             </ng-template>
