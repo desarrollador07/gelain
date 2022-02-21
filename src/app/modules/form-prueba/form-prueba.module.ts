@@ -9,7 +9,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { MessageService} from 'primeng/api';
 import {InputTextModule} from 'primeng/inputtext';
-import { ButtonModule, MenuItemContent } from 'primeng/primeng';
+import { ButtonModule, MenuItemContent, TooltipModule } from 'primeng/primeng';
 import {DropdownModule} from 'primeng/dropdown';
 import {  PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table'
@@ -41,6 +41,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     CalendarModule,
     StepsModule,
     ChipsModule,
+    TooltipModule
   ],
   providers:[
     MessageService,

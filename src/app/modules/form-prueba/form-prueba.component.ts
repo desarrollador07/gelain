@@ -286,4 +286,12 @@ export class FormPruebaComponent implements OnInit {
   }
 
 
+  copyToClipBoard(idHtml) {
+    var content:any = document.getElementById(idHtml);
+    content.select();
+    document.execCommand('copy');
+    this._messageService.add({severity: 'info',summary: 'Informativo',detail: 'Link Copiado', life: 3000});
+  } 
+
+
 }

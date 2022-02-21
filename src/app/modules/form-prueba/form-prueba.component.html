@@ -83,19 +83,24 @@
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empActiva"></p-message>
                     </div>
-                    <div class="ui-g-1"></div>
+                    <div class="ui-g-1" style="text-align: right;">
+                        <button pButton pRipple tooltipPosition="top" type="button" pTooltip="Copiar" icon="pi pi-copy" pRipple (click)="copyToClipBoard('f1')" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                    </div>
                     <div class="ui-g-3" *ngIf="bandera">
                         <span class="ui-float-label">
-                            <input  type="text"  style="width : 140%;" value="{{linkformulario}}" pInputText> 
+                            <input  type="text"  style="width : 140%;" id="f1" value="{{linkformulario}}" pInputText readonly="readonly"> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Link para formularios</label>
                         </span>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-8"></div>
+                    <div class="ui-g-7"></div>
+                    <div class="ui-g-1" style="text-align: right;">
+                        <button pButton pRipple tooltipPosition="top" type="button" pTooltip="Copiar" icon="pi pi-copy" pRipple (click)="copyToClipBoard('f2')" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                    </div>
                     <div class="ui-g-3" *ngIf="bandera">
                         <span class="ui-float-label">
-                            <input  type="text"  style="width : 140%;" value="{{linkformulario2}}" pInputText> 
+                            <input  type="text"  style="width : 140%;" id="f2" value="{{linkformulario2}}" pInputText readonly="readonly"> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Link valoración física</label>
                         </span>
                     </div>
