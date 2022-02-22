@@ -22,7 +22,7 @@ export class GraficaVfComponent implements OnInit {
   categories: string[] = ["Bajo Peso", "Peso Normal", "Sobrepeso", "Obesidad T1", "Obesidad T2","Obesidad T3"];
   seriesData2F: number[] = [];
   seriesData2M: number[] = [];
-  categories2: string[] = ["Bajo", "Ideal", "Alto"];
+  categories2: string[] = ["Cumple", "No Cumple"];
   seriesData3: number[] = [];
   categories3: string[] = ["Excelente", "Bueno", "Medio", "Insuficiente", "Malo"];
   seriesData4Mop1: number[] = [];
@@ -184,41 +184,34 @@ export class GraficaVfComponent implements OnInit {
   fnPeriAbdo(){
     var cont1F:number = 0;
     var cont2F:number = 0;
-    var cont3F:number = 0;
     var cont1M:number = 0;
     var cont2M:number = 0;
-    var cont3M:number = 0;
     var totalM:number = 0;
     var totalF:number = 0;
 
     this.vfData.map( resp => {
-        if (resp.vafsexo === "F" && resp.vafperimetro > 60 && resp.vafperimetro < 80 ) {
+        if (resp.vafsexo === "F" && resp.vafperimetro > 0 && resp.vafperimetro <= 81 ) {
           cont1F += 1;
-        } else if (resp.vafsexo === "F" && resp.vafperimetro >= 80 && resp.vafperimetro < 90) {
+        } else if (resp.vafsexo === "F" && resp.vafperimetro > 81 ) {
           cont2F += 1;
-        } else if (resp.vafsexo === "F" && resp.vafperimetro >= 90 && resp.vafperimetro < 100) {
-          cont3F += 1;
-        }
+        } 
 
-        if (resp.vafsexo === "M" && resp.vafperimetro > 60 && resp.vafperimetro < 90 ) {
+        if (resp.vafsexo === "M" && resp.vafperimetro > 0 && resp.vafperimetro <= 91 ) {
           cont1M += 1;
-        } else if (resp.vafsexo === "M" && resp.vafperimetro >= 90 && resp.vafperimetro < 100) {
+        } else if (resp.vafsexo === "M" && resp.vafperimetro > 91 ){
           cont2M += 1;
-        } else if (resp.vafsexo === "M" && resp.vafperimetro >= 101 && resp.vafperimetro < 120) {
-          cont3M += 1;
-        }
+        } 
     });
-    totalM = cont1M + cont2M + cont3M ;
-    totalF = cont1F + cont2F + cont3F;
+    totalM = cont1M + cont2M;
+    totalF = cont1F + cont2F;
     this.sales2 = [
-      { brand: 'Bajo', hombre: cont1M, mujer: cont1F },
-      { brand: 'Ideal', hombre: cont2M, mujer: cont2F },
-      { brand: 'Alto', hombre: cont3M, mujer: cont3F },
+      { brand: 'Cumple', hombre: cont1M, mujer: cont1F },
+      { brand: 'No Cumple', hombre: cont2M, mujer: cont2F },
       { brand: 'TOTAL', hombre: totalM, mujer: totalF},
     ];
 
-    this.seriesData2F.push(cont1F,cont2F,cont3F);
-    this.seriesData2M.push(cont1M,cont2M,cont3M);
+    this.seriesData2F.push(cont1F,cont2F);
+    this.seriesData2M.push(cont1M,cont2M);
     
   }
   /*Función que calcula y crea el arreglo para la grafica del Test de Ruffier */
@@ -662,6 +655,8 @@ export class GraficaVfComponent implements OnInit {
     this.limpiarData();
     await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
       this.vfData = data;
+      console.log("DATA", data);
+      
       if (this.vfData.length === 0) {
         this.loadingEmpty = false;
         this.showInfo();
