@@ -465,11 +465,11 @@ export class FormValorFisicoComponent implements OnInit {
   }
 
   get vafmujer40_opcValid() {
-    return this.userform.get('vafmujer40_opc').invalid && this.userform.get('vafmujer40_opc').dirty && this.validSexoFem === true
+    return this.validSexoFem === true && this.userform.value.vafmujer40_opc === '';
   }
 
   get vafhombre40_opcValid() {
-    return this.userform.get('vafhombre40_opc').invalid && this.userform.get('vafhombre40_opc').dirty && this.validSexoMas === true
+    return this.validSexoMas === true && this.userform.value.vafhombre40_opc === '';
   }
 
   get vafdiscapacidad_opcValid() {
@@ -631,12 +631,11 @@ export class FormValorFisicoComponent implements OnInit {
   get discapacidadValidAprob(){
     return this.userform.get('vafdiscapacidad_opc').value === 1 && this.userform.get('vafdiscapacidad_var').value.length <= 1
   }
-
   get aprobForm (){
     return this.userform.invalid || this.vafcs15Valid || this.vafcs21Valid || this.cancerValidAprob || this.hiper_arteValidAprob || 
            this.asmaValidAprob || this.cardioValidAprob || this.diabetValidAprob || this.alergiaValidAprob || this.artritisValidAprob || 
            this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob || 
-           this.validSexoFem || this.validSexoMas;
+           this.vafmujer40_opcValid || this.vafhombre40_opcValid;
   }
 
   get vafAF_p01Valid() {
@@ -1284,9 +1283,17 @@ export class FormValorFisicoComponent implements OnInit {
     if (this.userform.value.vafsexo === 'F') {
       this.validSexoFem = true;
       this.validSexoMas = false;
+      this.userform.patchValue({
+        vafhombre40_opc: "",
+        vafhombre40_var: "."
+      });
     }else{
       this.validSexoMas = true;
       this.validSexoFem = false;
+      this.userform.patchValue({
+        vafmujer40_opc: "",
+        vafmujer40_var: ".",
+      });
     }
   }
 }

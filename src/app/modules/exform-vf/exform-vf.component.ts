@@ -66,6 +66,8 @@ export class ExformVfComponent implements OnInit {
   colorMsj1:string = '';
   ocultarSecciones:boolean = false;
   id:number;
+  validSexoFem:boolean = false;
+  validSexoMas:boolean = false;
   
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
@@ -242,11 +244,11 @@ export class ExformVfComponent implements OnInit {
   }
 
   get vafmujer40_opcValid() {
-    return this.userform.get('vafmujer40_opc').invalid && this.userform.get('vafmujer40_opc').dirty
+    return this.validSexoFem === true && this.userform.value.vafmujer40_opc === '';
   }
 
   get vafhombre40_opcValid() {
-    return this.userform.get('vafhombre40_opc').invalid && this.userform.get('vafhombre40_opc').dirty
+    return this.validSexoMas === true && this.userform.value.vafhombre40_opc === ''
   }
 
   get vafdiscapacidad_opcValid() {
@@ -412,7 +414,8 @@ export class ExformVfComponent implements OnInit {
   get aprobForm (){
     return this.userform.invalid || this.vafcs15Valid || this.vafcs21Valid || this.cancerValidAprob || this.hiper_arteValidAprob || 
            this.asmaValidAprob || this.cardioValidAprob || this.diabetValidAprob || this.alergiaValidAprob || this.artritisValidAprob || 
-           this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob;
+           this.emValidAprob || this.erValidAprob || this.mujer40ValidAprob || this.hombre40ValidAprob || this.discapacidadValidAprob ||
+           this.vafmujer40_opcValid || this.vafhombre40_opcValid;
   }
 
   get vafAF_p01Valid() {
@@ -493,9 +496,9 @@ export class ExformVfComponent implements OnInit {
       vafem_var: [''],
       vafer_opc: ['',Validators.required],
       vafer_var: [''],
-      vafmujer40_opc: ['', Validators.required],
+      vafmujer40_opc: [''],
       vafmujer40_var: ['.'],
-      vafhombre40_opc: ['', Validators.required],
+      vafhombre40_opc: [''],
       vafhombre40_var: ['.'],
       vafdiscapacidad_opc: ['', Validators.required],
       vafdiscapacidad_var: ['.'],
@@ -1039,6 +1042,24 @@ limpiarForm(){
 
   cancelar(){
     window.open('https://www.google.com','_self');
+  }
+
+  changeSexo(){
+    if (this.userform.value.vafsexo === 'F') {
+      this.validSexoFem = true;
+      this.validSexoMas = false;
+      this.userform.patchValue({
+        vafhombre40_opc: "",
+        vafhombre40_var: "."
+      });
+    }else{
+      this.validSexoMas = true;
+      this.validSexoFem = false;
+      this.userform.patchValue({
+        vafmujer40_opc: "",
+        vafmujer40_var: ".",
+      });
+    }
   }
 
 }
