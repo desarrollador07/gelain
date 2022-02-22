@@ -31,7 +31,7 @@ export class GraficaVfComponent implements OnInit {
   seriesData4Fop1: number[] = [];
   seriesData4Fop2: number[] = [];
   seriesData4Fop3: number[] = [];
-  categories4: string[] = ["Excelente", "Bien", "Regular", "Mal"];
+  categories4: string[] = ["Excelente", "Bien", "Regular", "Malo"];
   seriesData5: number[] = [];
   categories5: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
   seriesData6: number[] = [];
@@ -39,7 +39,7 @@ export class GraficaVfComponent implements OnInit {
   seriesData7: number[] = [];
   categories7: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
   seriesData8: number[] = [];
-  categories8: string[] = ["Mal", "Regular", "Bien", "Excelente"];
+  categories8: string[] = ["Malo", "Regular", "Bien", "Excelente"];
   vfData: ValorFisico[] = [];
   idEmpresa:any;
   imc:number [] = [];
