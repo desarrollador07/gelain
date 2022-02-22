@@ -75,13 +75,6 @@ export class FormValorRiesgoComponent implements OnInit {
       idpactividades:['.'],
       idptareas:['.'],
       idprutinario:[''],
-      idppeor_consecuencia:['.'],
-      idpexisten_requisito:['.'],
-      idpeliminacion:['.'],
-      idpsustitucion:['.'],
-      idpcontrolinf:['.'],
-      idpcontrolesadm:['.'],
-      idpequipoyelementos:['.'],
       /* ----------------------BIOLOGICO------------------- */
       /*Biologico - Derivados de origen animal */
       idpbioderani_efectos:['.'],
@@ -894,13 +887,6 @@ export class FormValorRiesgoComponent implements OnInit {
         idpactividades:this.localVR.idpactividades,
         idptareas:this.localVR.idptareas,
         idprutinario:this.localVR.idprutinario,
-        idppeor_consecuencia:this.localVR.idppeor_consecuencia,
-        idpexisten_requisito:this.localVR.idpexisten_requisito,
-        idpeliminacion:this.localVR.idpeliminacion,
-        idpsustitucion:this.localVR.idpsustitucion,
-        idpcontrolinf:this.localVR.idpcontrolinf,
-        idpcontrolesadm:this.localVR.idpcontrolesadm,
-        idpequipoyelementos:this.localVR.idpequipoyelementos,
         /* ----------------------BIOLOGICO------------------- */
         /*Biologico - Derivados de origen animal */
         idpbioderani_efectos:this.localVR.idpbioderani_efectos,

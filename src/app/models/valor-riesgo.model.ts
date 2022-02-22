@@ -673,13 +673,6 @@ export interface ValorRiesgoModel{
     idpactividades?:string,
     idptareas?:string,
     idprutinario?:string,
-    idppeor_consecuencia?:string,
-    idpexisten_requisito?:string,
-    idpeliminacion?:string,
-    idpsustitucion?:string,
-    idpcontrolinf?:string,
-    idpcontrolesadm?:string,
-    idpequipoyelementos?:string,
     idp_id?:number,
 
 
