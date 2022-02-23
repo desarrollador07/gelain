@@ -61,6 +61,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>IMC</p>
         </div>
         <br>
         <br>
@@ -107,6 +108,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>PERIMETRO ABDOMINAL</p>
         </div>
         <br>
         <br>
@@ -154,6 +156,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA</p>
         </div>
         <br>
         <br>
@@ -198,6 +201,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES)</p>
         </div>
         <br>
         <br>
@@ -248,6 +252,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES)</p>
         </div>
         <br>
         <br>
@@ -298,6 +303,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>NIVEL DE FLEXIBILIDAD</p>
         </div>
         <br>
         <br>
@@ -342,27 +348,30 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>ANTECEDENTES FAMILIARES DE ENFERMEDAD</p>
         </div>
         <br>
         <br>
         <br>
-        <kendo-grid [data]="sales7">
-            <kendo-grid-column field="brand" title="Calificativo">
-            </kendo-grid-column>
-            <kendo-grid-column field="rango" title="Rango">
-            </kendo-grid-column>
-        </kendo-grid>
+        <div>
+            <kendo-grid [data]="sales7">
+                <kendo-grid-column field="nombreUsuario" title="Usuarios">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat1" title="Cáncer (Q1)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat2" title="Metabólicas (Q2)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat3" title="Cardiacas (Q3)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat4" title="Enfermedades Mentales (Q4)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat5" title="Otros (Q5)">
+                </kendo-grid-column>
+            </kendo-grid>
+        </div>
         <br>
-        <kendo-chart>
-            <kendo-chart-category-axis>
-                <kendo-chart-category-axis-item [categories]="categories6">
-                </kendo-chart-category-axis-item>
-            </kendo-chart-category-axis>
-            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-            <kendo-chart-series>
-                <kendo-chart-series-item [data]="[seriesData6[0],seriesData6[1],seriesData6[2]]"> </kendo-chart-series-item>
-            </kendo-chart-series>
-        </kendo-chart>
+        <br>
+        <p-chart type="horizontalBar" [data]="data2"></p-chart>
         <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
             <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
         </div>
@@ -386,6 +395,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>CONDICIONES DE SALUD</p>
         </div>
         <br>
         <br>
@@ -442,6 +452,7 @@
         <div style="font-size: 20px; text-align: center;">
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
+            <p>ESTILO DE VIDA FANTASTICO</p>
         </div>
         <br>
         <br>
@@ -687,7 +698,7 @@
                 </div>
             </div>
             <div class="ui-g">
-                <div class="ui-g-6" style="text-align: center;">
+                <div class="ui-g-12" style="text-align: center;">
                     <fieldset>
                         <legend><b>NIVEL DE FLEXIBILIDAD</b></legend>
                         <div class="ui-g" *ngIf="!loading">
@@ -724,7 +735,9 @@
                         </div>
                     </fieldset>
                 </div>
-                <div class="ui-g-6" style="text-align: center;">
+            </div>
+            <div class="ui-g">
+                <div class="ui-g-12" style="text-align: center;">
                     <fieldset>
                         <legend><b>ANTECEDENTES FAMILIARES DE ENFERMEDAD</b></legend>
                         <div class="ui-g" *ngIf="!loading">
@@ -740,23 +753,25 @@
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales7">
-                                    <kendo-grid-column field="brand" title="Calificativo">
-                                    </kendo-grid-column>
-                                    <kendo-grid-column field="rango" title="Rango">
-                                    </kendo-grid-column>
-                                </kendo-grid>
+                                <div>
+                                    <kendo-grid [data]="sales7">
+                                        <kendo-grid-column field="nombreUsuario" title="Usuarios">
+                                        </kendo-grid-column>
+                                        <kendo-grid-column field="categorias.cat1" title="Cáncer (Q1)">
+                                        </kendo-grid-column>
+                                        <kendo-grid-column field="categorias.cat2" title="Metabólicas (Q2)">
+                                        </kendo-grid-column>
+                                        <kendo-grid-column field="categorias.cat3" title="Cardiacas (Q3)">
+                                        </kendo-grid-column>
+                                        <kendo-grid-column field="categorias.cat4" title="Enfermedades Mentales (Q4)">
+                                        </kendo-grid-column>
+                                        <kendo-grid-column field="categorias.cat5" title="Otros (Q5)">
+                                        </kendo-grid-column>
+                                    </kendo-grid>
+                                </div>
                                 <br>
-                                <kendo-chart>
-                                    <kendo-chart-category-axis>
-                                        <kendo-chart-category-axis-item [categories]="categories6">
-                                        </kendo-chart-category-axis-item>
-                                    </kendo-chart-category-axis>
-                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                                    <kendo-chart-series>
-                                        <kendo-chart-series-item [data]="seriesData6"> </kendo-chart-series-item>
-                                    </kendo-chart-series>
-                                </kendo-chart>
+                                <br>
+                                <p-chart type="horizontalBar" [data]="data2"></p-chart>
                             </div>
                         </div>
                     </fieldset>

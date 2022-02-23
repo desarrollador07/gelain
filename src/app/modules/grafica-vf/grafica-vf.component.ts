@@ -53,6 +53,8 @@ export class GraficaVfComponent implements OnInit {
   sales5: any[] = [];/*Arreglo Nivel de estabilidad y resistencia del core (MUJERES) */
   sales6: any[] = [];/*Arreglo Nivel de flexibilidad */
   sales7: any[] = [];/*Arreglo Antecedentes familiares de enfermedades */
+  data2:any;/*Arreglo Antecedentes familiares de enfermedades T1*/
+  dataCat2:any [] = [];/*Arreglo Antecedentes familiares de enfermedades T2*/
   sales8: any[] = [];/*Arreglo Condiciones de salud */
   dataCat:any [] = [];/*Arreglo Condiciones de salud T1 */
   data:any;/*Arreglo Condiciones de salud T2 */
@@ -468,59 +470,103 @@ export class GraficaVfComponent implements OnInit {
     var cont1:number = 0;
     var cont2:number = 0;
     var cont3:number = 0;
-    var total:number = 0;
+    var cont4:number = 0;
+    var cont5:number = 0;
+    var contNombre:number  = 0;
+    var nombreUsuario:string;
+    var obj = {};
+    var obj1 = {};
 
     this.vfData.map(resp => {
 
-      let cont:number = 0;
+      nombreUsuario = `Usuario${contNombre}`;
 
+      /*Categoria Cáncer  */
       if (resp.vafcancer_opc  === 1) {
-        cont += 1;
+        cont1 += 1;
       } 
+      /*Categoria Metabólicas */
       if (resp.vafhiper_arte_opc === 1) {
-        cont += 1;
+        cont2 += 1;
       } 
-      if (resp.vafasma_opc === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcardio_opc === 1) {
-        cont += 1;
-      } 
+
       if (resp.vafdiabet_opc === 1){
-        cont += 1;
+        cont2 += 1;
       } 
-      if (resp.vafalergia_opc === 1) {
-        cont += 1;
-      } 
-      if (resp.vafartritis_opc === 1) {
-        cont += 1;
-      } 
-      if (resp.vafem_opc === 1) {
-        cont += 1;
-      } 
+
       if (resp.vafer_opc === 1) {
-        cont += 1;
+        cont2 += 1;
       }
 
-      if (cont < 3) {
-        cont1 += 1;
-      } else if (cont > 3  &&  cont <= 6) {
-        cont2 += 1;
-      } else  if (cont > 6 && cont <= 9) {
+      /*Categoria Cardiacas */
+      if (resp.vafcardio_opc === 1) {
+        cont3 += 1;
+      } 
+
+      if (resp.vafAF_p01 === 1) {
         cont3 += 1;
       }
-    })
 
-    total = cont1 + cont2 + cont3;
+      if (resp.vafAF_p02 === 1) {
+        cont3 += 1;
+      }
 
-    this.sales7 = [
-      { brand: 'Nivel Alto', rango: cont1 },
-      { brand: 'Nivel Medio', rango: cont2 },
-      { brand: 'Nivel Bajo', rango: cont3 },
-      { brand: 'TOTAL', rango: total },
-    ];
+      /*Categoria Enfermedades Mentales */
+      if (resp.vafem_opc === 1) {
+        cont4 += 1;
+      } 
 
-    this.seriesData6.push(cont1,cont2,cont3);
+      /*Categoria Otros */
+      if (resp.vafasma_opc === 1) {
+        cont5 += 1;
+      } 
+      
+      if (resp.vafalergia_opc === 1) {
+        cont5 += 1;
+      } 
+      if (resp.vafartritis_opc === 1) {
+        cont5 += 1;
+      } 
+      
+      obj = {
+        nombreUsuario,
+        categorias: {
+          cat1:cont1,
+          cat2:cont2,
+          cat3:cont3,
+          cat4:cont4,
+          cat5:cont5,
+        }
+      }
+      
+      obj1 = {
+        label:nombreUsuario,
+            backgroundColor: this.colorHEX(),
+            borderColor: '#464444',
+            data:[
+              cont1,
+              cont2,
+              cont3,
+              cont4,
+              cont5
+            ]
+      }
+
+      this.dataCat2.push(obj1);
+      this.sales7.push(obj);
+      cont1 = 0;
+      cont2 = 0;
+      cont3 = 0;
+      cont4 = 0;
+      cont5 = 0;
+      contNombre += 1;
+    });
+
+    this.data2 = {
+      labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
+      datasets: this.dataCat2
+    }
+
   }
   /*Función que calcula y crea el arreglo para la grafica de la condición de salud */
   fncondSalud(){
@@ -676,21 +722,6 @@ export class GraficaVfComponent implements OnInit {
       cont += 1;
     });
 
-    /*Proceso que permite eliminar todos los datos repetidos de un arreglo */
-    var hash = {};
-    this.sales9 = this.sales9.filter(function(current) {
-      var exists = !hash[current.nombreArea];
-      hash[current.nombreArea] = true;
-      return exists;
-    });
-
-    var hash = {};
-    this.dataCat = this.dataCat.filter(function(current) {
-      var exists = !hash[current.label];
-      hash[current.label] = true;
-      return exists;
-    });
-
     this.data = {
       labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'],
       datasets: this.dataCat
@@ -801,6 +832,8 @@ export class GraficaVfComponent implements OnInit {
     this.sales8 = [];
     this.data = [];
     this.dataCat = [];
+    this.data2 = [];
+    this.dataCat2 = [];
     this.sales9 = [];
   }
   /*Data para la generación del pdf 1 */
