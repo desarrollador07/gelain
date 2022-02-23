@@ -54,6 +54,8 @@ export class GraficaVfComponent implements OnInit {
   sales6: any[] = [];/*Arreglo Nivel de flexibilidad */
   sales7: any[] = [];/*Arreglo Antecedentes familiares de enfermedades */
   sales8: any[] = [];/*Arreglo Condiciones de salud */
+  dataCat:any [] = [];/*Arreglo Condiciones de salud T1 */
+  data:any;/*Arreglo Condiciones de salud T2 */
   sales9: any[] = [];/*Arreglo Estilo de vida fantastico */
   nombreGelain:any;
   nitGelain:any;
@@ -375,7 +377,8 @@ export class GraficaVfComponent implements OnInit {
     var total50:number = 0;
 
     this.vfData.map(resp => {
-
+      console.log("data",resp);
+      
       if (resp.vafsexo === "F" && Number(resp.vafedad) <= 35) {
         if (Number(resp.vaftestbiering) >= 50 ) {
           cont1F35 += 1;
@@ -521,102 +524,191 @@ export class GraficaVfComponent implements OnInit {
   }
   /*Función que calcula y crea el arreglo para la grafica de la condición de salud */
   fncondSalud(){
-    var cont1:number = 0;
-    var cont2:number = 0;
-    var cont3:number = 0;
-    var total:number = 0;
+    var nombreUsuario:string;
+    var cont:number = 0;
+    var contador1:number = 0;
+    var contador2:number = 0;
+    var contador3:number = 0;
+    var contador4:number = 0;
+    var contador5:number = 0;
+    var contador6:number = 0;
+    var contador7:number = 0;
+    var contador8:number = 0;
+    var contador9:number = 0;
+    var contador10:number = 0;
+    var obj = {};
+    var obj1 = {};
 
+    /*NOTA IMPORTANTE: A partir de la pregunta 14 en adelante se cuenta la 15 como 16 asi sucesivamente, la razón las subpreguntas que tienen estas */
     this.vfData.map(resp => {
-
-      let cont:number = 0;
-
-      if (resp.vafcs01  === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs02 === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs03 === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs04 === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs05 === 1){
-        cont += 1;
-      } 
-      if (resp.vafcs06 === 1) {
-        cont += 1;
-      } 
+      nombreUsuario = `Usuario${cont}`;
+      /*Categoria Depresión  P7*/
       if (resp.vafcs07 === 1) {
-        cont += 1;
+        contador1 += 1;
       } 
-      if (resp.vafcs08 === 1) {
-        cont += 1;
+
+      /*Categoria Metabólicas P1,P2,P3 Y P5*/
+      if (resp.vafcs01  === 1) {
+        contador2 += 1;
       } 
-      if (resp.vafcs09 === 1) {
-        cont += 1;
+
+      if (resp.vafcs02 === 1) {
+        contador2 += 1;
       }
 
-      if (resp.vafcs10 === 1) {
-        cont += 1;
+      if (resp.vafcs03 === 1) {
+        contador2 += 1;
+      }
+
+      if (resp.vafcs05 === 1) {
+        contador2 += 1;
+      }
+
+      /*Categoria Respiratorias P4*/
+      if (resp.vafcs04 === 1) {
+        contador3 += 1;
+      } 
+
+      /*Categoria Cardiacas P6 Y P16*/
+      if (resp.vafcs06 === 1) {
+        contador4 += 1;
+      } 
+
+      if (resp.vafcs17 === 1) {
+        contador4 += 1;
+      }
+
+      /*Categoria Osteomusculares P10 Y P11*/
+      if (resp.vafcs10 === 1 ) {
+        contador5 += 1;
       }
 
       if (resp.vafcs11 === 1) {
-        cont += 1;
+        contador5 += 1;
       }
 
+      /*Categoria Digestivos P13 */
+      if ( resp.vafcs13 === 1) {
+        contador6 += 1;
+      }
+
+      /*Categoria S.N.C P8 Y P9 */
+      if (resp.vafcs08 === 1) {
+        contador7 += 1;
+      } 
+
+      if (resp.vafcs09 === 1) {
+        contador7 += 1;
+      }
+
+      /*Categoria Visual P17 Y P18 */
+      if ( resp.vafcs18 === 1) {
+        contador8 += 1;
+      }
+
+      if( resp.vafcs19 === 1){
+        contador8 += 1;
+      }
+
+      /*Categoria Cáncer P15 */
+      if (resp.vafcs16 === 1 ) {
+        contador9 += 1;
+      }
+
+      /*Categoria Cáncer P12, P14 Y P19 */
       if (resp.vafcs12 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs13 === 1) {
-        cont += 1;
+        contador10 += 1;
       }
 
       if (resp.vafcs14 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs16 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs17 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs18 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs19 === 1) {
-        cont += 1;
+        contador10 += 1;
       }
 
       if (resp.vafcs20 === 1) {
-        cont += 1;
+        contador10 += 1;
       }
 
-      if (cont < 6) {
-        cont1 += 1;
-      } else if (cont > 6  &&  cont <= 12) {
-        cont2 += 1;
-      } else  if (cont > 12 && cont <= 19) {
-        cont3 += 1;
+      obj = {
+        nombreUsuario,
+        categorias: {
+          cat1:contador1,
+          cat2:contador2,
+          cat3:contador3,
+          cat4:contador4,
+          cat5:contador5,
+          cat6:contador6,
+          cat7:contador7,
+          cat8:contador8,
+          cat9:contador9,
+          cat10:contador10
+        }
       }
-    })
+      
+      obj1 = {
+        label:nombreUsuario,
+            backgroundColor: this.colorHEX(),
+            borderColor: '#464444',
+            data:[
+              contador1,
+              contador2,
+              contador3,
+              contador4,
+              contador5,
+              contador6,
+              contador7,
+              contador8,
+              contador9,
+              contador10
+            ]
+      }
+      this.dataCat.push(obj1);
+      this.sales8.push(obj);
+      contador1 = 0;
+      contador2 = 0;
+      contador3 = 0;
+      contador4 = 0;
+      contador5 = 0;
+      contador6 = 0;
+      contador7 = 0;
+      contador8 = 0;
+      contador9 = 0;
+      contador10 = 0;
+      cont += 1;
+    });
 
-    total = cont1 + cont2 + cont3;
+    /*Proceso que permite eliminar todos los datos repetidos de un arreglo */
+    var hash = {};
+    this.sales9 = this.sales9.filter(function(current) {
+      var exists = !hash[current.nombreArea];
+      hash[current.nombreArea] = true;
+      return exists;
+    });
 
-    this.sales8 = [
-      { brand: 'Nivel Alto', rango: cont1 },
-      { brand: 'Nivel Medio', rango: cont2 },
-      { brand: 'Nivel Bajo', rango: cont3 },
-      { brand: 'TOTAL', rango: total },
-    ];
+    var hash = {};
+    this.dataCat = this.dataCat.filter(function(current) {
+      var exists = !hash[current.label];
+      hash[current.label] = true;
+      return exists;
+    });
 
-    this.seriesData7.push(cont1,cont2,cont3);
+    this.data = {
+      labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'],
+      datasets: this.dataCat
+    }
+  }
+
+  colorHEX(){
+    var color = "";
+    for(var i=0;i<6;i++){
+      color = color + this.generarLetra() ;
+    }
+    return "#" + color;
+  }
+
+  generarLetra(){
+    var letras = ["a","b","c","d","e","f","0","1","2","3","4","5","6","7","8","9"];
+    var numero = (Math.random()*15).toFixed(0);
+    return letras[numero];
   }
   /*Función que calcula y crea el arreglo para la grafica de estilo de vida fantastico */
   fnTestFantastico(){
@@ -707,6 +799,8 @@ export class GraficaVfComponent implements OnInit {
     this.sales6 = [];
     this.sales7 = [];
     this.sales8 = [];
+    this.data = [];
+    this.dataCat = [];
     this.sales9 = [];
   }
   /*Data para la generación del pdf 1 */
