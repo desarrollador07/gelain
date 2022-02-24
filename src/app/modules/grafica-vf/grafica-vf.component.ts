@@ -472,6 +472,11 @@ export class GraficaVfComponent implements OnInit {
     var cont3:number = 0;
     var cont4:number = 0;
     var cont5:number = 0;
+    var totalCont1:number = 0;
+    var totalCont2:number = 0;
+    var totalCont3:number = 0;
+    var totalCont4:number = 0;
+    var totalCont5:number = 0;
     var contNombre:number  = 0;
     var nombreUsuario:string;
     var obj = {};
@@ -552,6 +557,12 @@ export class GraficaVfComponent implements OnInit {
             ]
       }
 
+      totalCont1 += cont1;
+      totalCont2 += cont2;
+      totalCont3 += cont3;
+      totalCont4 += cont4;
+      totalCont5 += cont5;
+
       this.dataCat2.push(obj1);
       this.sales7.push(obj);
       cont1 = 0;
@@ -562,6 +573,18 @@ export class GraficaVfComponent implements OnInit {
       contNombre += 1;
     });
 
+    obj = {
+      nombreUsuario : `TOTAL USUARIOS ${contNombre}`,
+      categorias: {
+        cat1:totalCont1,
+        cat2:totalCont2,
+        cat3:totalCont3,
+        cat4:totalCont4,
+        cat5:totalCont5,
+      }
+    }
+    this.sales7.push(obj);
+    
     this.data2 = {
       labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
       datasets: this.dataCat2
@@ -582,6 +605,17 @@ export class GraficaVfComponent implements OnInit {
     var contador8:number = 0;
     var contador9:number = 0;
     var contador10:number = 0;
+    var totalcontador1:number = 0;
+    var totalcontador2:number = 0;
+    var totalcontador3:number = 0;
+    var totalcontador4:number = 0;
+    var totalcontador5:number = 0;
+    var totalcontador6:number = 0;
+    var totalcontador7:number = 0;
+    var totalcontador8:number = 0;
+    var totalcontador9:number = 0;
+    var totalcontador10:number = 0;
+
     var obj = {};
     var obj1 = {};
 
@@ -674,6 +708,17 @@ export class GraficaVfComponent implements OnInit {
         contador10 += 1;
       }
 
+      totalcontador1 += contador1;
+      totalcontador2 += contador2;
+      totalcontador3 += contador3;
+      totalcontador4 += contador4;
+      totalcontador5 += contador5;
+      totalcontador6 += contador6;
+      totalcontador7 += contador7;
+      totalcontador8 += contador8;
+      totalcontador9 += contador9;
+      totalcontador10 += contador10;
+
       obj = {
         nombreUsuario,
         categorias: {
@@ -722,6 +767,22 @@ export class GraficaVfComponent implements OnInit {
       cont += 1;
     });
 
+    obj = {
+      nombreUsuario:`TOTAL USUARIOS ${cont}`,
+      categorias: {
+        cat1:totalcontador1,
+        cat2:totalcontador2,
+        cat3:totalcontador3,
+        cat4:totalcontador4,
+        cat5:totalcontador5,
+        cat6:totalcontador6,
+        cat7:totalcontador7,
+        cat8:totalcontador8,
+        cat9:totalcontador9,
+        cat10:totalcontador10
+      }
+    }
+    this.sales8.push(obj);
     this.data = {
       labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'],
       datasets: this.dataCat
