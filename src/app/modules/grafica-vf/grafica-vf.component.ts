@@ -64,7 +64,7 @@ export class GraficaVfComponent implements OnInit {
   correoGelain:any;
   telefono:any;
   redGelain:any;
-  fechaActual :Date;
+  fechaActual :Date = new Date();
   nEmpresa:any;
   usuario:any;
   hora:any;
@@ -379,7 +379,6 @@ export class GraficaVfComponent implements OnInit {
     var total50:number = 0;
 
     this.vfData.map(resp => {
-      console.log("data",resp);
       
       if (resp.vafsexo === "F" && Number(resp.vafedad) <= 35) {
         if (Number(resp.vaftestbiering) >= 50 ) {
@@ -483,7 +482,7 @@ export class GraficaVfComponent implements OnInit {
     var obj1 = {};
 
     this.vfData.map(resp => {
-
+      contNombre += 1;
       nombreUsuario = `Usuario${contNombre}`;
 
       /*Categoria Cáncer  */
@@ -570,11 +569,11 @@ export class GraficaVfComponent implements OnInit {
       cont3 = 0;
       cont4 = 0;
       cont5 = 0;
-      contNombre += 1;
+      
     });
-
+    
     obj = {
-      nombreUsuario : `TOTAL USUARIOS ${contNombre}`,
+      nombreUsuario : `TOTAL U ${this.vfData.length}`,
       categorias: {
         cat1:totalCont1,
         cat2:totalCont2,
@@ -621,6 +620,7 @@ export class GraficaVfComponent implements OnInit {
 
     /*NOTA IMPORTANTE: A partir de la pregunta 14 en adelante se cuenta la 15 como 16 asi sucesivamente, la razón las subpreguntas que tienen estas */
     this.vfData.map(resp => {
+      cont += 1;
       nombreUsuario = `Usuario${cont}`;
       /*Categoria Depresión  P7*/
       if (resp.vafcs07 === 1) {
@@ -764,11 +764,11 @@ export class GraficaVfComponent implements OnInit {
       contador8 = 0;
       contador9 = 0;
       contador10 = 0;
-      cont += 1;
+      
     });
 
     obj = {
-      nombreUsuario:`TOTAL USUARIOS ${cont}`,
+      nombreUsuario:`TOTAL U ${this.vfData.length}`,
       categorias: {
         cat1:totalcontador1,
         cat2:totalcontador2,
