@@ -35,9 +35,9 @@ export class GraficaVfComponent implements OnInit {
   seriesData5: number[] = [];
   categories5: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
   seriesData6: number[] = [];
-  categories6: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
+  categories6: string[] = ["Cancer", "Metabolicas", "Cardiacas","Enfermedades mentales","Otras"];
   seriesData7: number[] = [];
-  categories7: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
+  categories7: string[] = ["Depresion", "Metabolicas", "Respiratorias","Cardiacas","Osteomusculares","Digestivos","S.N.C","Visual","Cancer","Otros"];
   seriesData8: number[] = [];
   categories8: string[] = ["Mal", "Regular", "Bien", "Excelente"];
   vfData: ValorFisico[] = [];
@@ -476,14 +476,9 @@ export class GraficaVfComponent implements OnInit {
     var totalCont3:number = 0;
     var totalCont4:number = 0;
     var totalCont5:number = 0;
-    var contNombre:number  = 0;
-    var nombreUsuario:string;
-    var obj = {};
-    var obj1 = {};
+    var total:number = 0;
 
     this.vfData.map(resp => {
-      contNombre += 1;
-      nombreUsuario = `Usuario${contNombre}`;
 
       /*Categoria Cáncer  */
       if (resp.vafcancer_opc  === 1) {
@@ -532,38 +527,12 @@ export class GraficaVfComponent implements OnInit {
         cont5 += 1;
       } 
       
-      obj = {
-        nombreUsuario,
-        categorias: {
-          cat1:cont1,
-          cat2:cont2,
-          cat3:cont3,
-          cat4:cont4,
-          cat5:cont5,
-        }
-      }
-      
-      obj1 = {
-        label:nombreUsuario,
-            backgroundColor: this.colorHEX(),
-            borderColor: '#464444',
-            data:[
-              cont1,
-              cont2,
-              cont3,
-              cont4,
-              cont5
-            ]
-      }
-
       totalCont1 += cont1;
       totalCont2 += cont2;
       totalCont3 += cont3;
       totalCont4 += cont4;
       totalCont5 += cont5;
 
-      this.dataCat2.push(obj1);
-      this.sales7.push(obj);
       cont1 = 0;
       cont2 = 0;
       cont3 = 0;
@@ -572,28 +541,23 @@ export class GraficaVfComponent implements OnInit {
       
     });
     
-    obj = {
-      nombreUsuario : `TOTAL U ${this.vfData.length}`,
-      categorias: {
-        cat1:totalCont1,
-        cat2:totalCont2,
-        cat3:totalCont3,
-        cat4:totalCont4,
-        cat5:totalCont5,
-      }
-    }
-    this.sales7.push(obj);
-    
-    this.data2 = {
-      labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
-      datasets: this.dataCat2
-    }
+    total = totalCont1 + totalCont2 + totalCont3 + totalCont4 + totalCont5;
+ 
+    this.sales7 = [
+      { brand: 'Cancer', rango: totalCont1 },
+      { brand: 'Metabólicas', rango: totalCont2 },
+      { brand: 'Cardiacas', rango: totalCont3 },
+      { brand: 'Enfermedades mentales', rango: totalCont4 },
+      { brand: 'Otras', rango: totalCont5 },
+      { brand: 'TOTAL', rango: total },
+    ];
+
+
+    this.seriesData6.push(totalCont1,totalCont2,totalCont3,totalCont4,totalCont5);
 
   }
   /*Función que calcula y crea el arreglo para la grafica de la condición de salud */
   fncondSalud(){
-    var nombreUsuario:string;
-    var cont:number = 0;
     var contador1:number = 0;
     var contador2:number = 0;
     var contador3:number = 0;
@@ -614,14 +578,12 @@ export class GraficaVfComponent implements OnInit {
     var totalcontador8:number = 0;
     var totalcontador9:number = 0;
     var totalcontador10:number = 0;
+    var total:number = 0;
 
-    var obj = {};
-    var obj1 = {};
 
     /*NOTA IMPORTANTE: A partir de la pregunta 14 en adelante se cuenta la 15 como 16 asi sucesivamente, la razón las subpreguntas que tienen estas */
     this.vfData.map(resp => {
-      cont += 1;
-      nombreUsuario = `Usuario${cont}`;
+
       /*Categoria Depresión  P7*/
       if (resp.vafcs07 === 1) {
         contador1 += 1;
@@ -719,41 +681,6 @@ export class GraficaVfComponent implements OnInit {
       totalcontador9 += contador9;
       totalcontador10 += contador10;
 
-      obj = {
-        nombreUsuario,
-        categorias: {
-          cat1:contador1,
-          cat2:contador2,
-          cat3:contador3,
-          cat4:contador4,
-          cat5:contador5,
-          cat6:contador6,
-          cat7:contador7,
-          cat8:contador8,
-          cat9:contador9,
-          cat10:contador10
-        }
-      }
-      
-      obj1 = {
-        label:nombreUsuario,
-            backgroundColor: this.colorHEX(),
-            borderColor: '#464444',
-            data:[
-              contador1,
-              contador2,
-              contador3,
-              contador4,
-              contador5,
-              contador6,
-              contador7,
-              contador8,
-              contador9,
-              contador10
-            ]
-      }
-      this.dataCat.push(obj1);
-      this.sales8.push(obj);
       contador1 = 0;
       contador2 = 0;
       contador3 = 0;
@@ -767,26 +694,23 @@ export class GraficaVfComponent implements OnInit {
       
     });
 
-    obj = {
-      nombreUsuario:`TOTAL U ${this.vfData.length}`,
-      categorias: {
-        cat1:totalcontador1,
-        cat2:totalcontador2,
-        cat3:totalcontador3,
-        cat4:totalcontador4,
-        cat5:totalcontador5,
-        cat6:totalcontador6,
-        cat7:totalcontador7,
-        cat8:totalcontador8,
-        cat9:totalcontador9,
-        cat10:totalcontador10
-      }
-    }
-    this.sales8.push(obj);
-    this.data = {
-      labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6', 'Q7', 'Q8', 'Q9', 'Q10'],
-      datasets: this.dataCat
-    }
+    total = totalcontador1 + totalcontador2 + totalcontador3 + totalcontador4 + totalcontador5 + totalcontador6 + totalcontador7 + totalcontador8 + totalcontador9 + totalcontador10;
+ 
+    this.sales8 = [
+      { brand: 'Depresion ', rango: totalcontador1 },
+      { brand: 'Metabolicas', rango: totalcontador2 },
+      { brand: 'Respiratorias', rango: totalcontador3 },
+      { brand: 'Cardiacas', rango: totalcontador4 },
+      { brand: 'Osteomusculares', rango: totalcontador5 },
+      { brand: 'Digestivos', rango: totalcontador6 },
+      { brand: 'S.N.C', rango: totalcontador7 },
+      { brand: 'Visual', rango: totalcontador8 },
+      { brand: 'Cancer', rango: totalcontador9 },
+      { brand: 'Otras', rango: totalcontador10 },
+      { brand: 'TOTAL', rango: total },
+    ];
+
+    this.seriesData7.push(totalcontador1,totalcontador2,totalcontador3,totalcontador4,totalcontador5,totalcontador6,totalcontador7,totalcontador8,totalcontador9,totalcontador10);
   }
 
   colorHEX(){

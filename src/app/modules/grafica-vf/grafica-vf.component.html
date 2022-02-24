@@ -355,23 +355,24 @@
         <br>
         <div>
             <kendo-grid [data]="sales7">
-                <kendo-grid-column field="nombreUsuario" title="Usuarios">
+                <kendo-grid-column field="brand" title="Calificativo">
                 </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat1" title="Cáncer (Q1)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat2" title="Metabólicas (Q2)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat3" title="Cardiacas (Q3)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat4" title="Enfermedades Mentales (Q4)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat5" title="Otros (Q5)">
+                <kendo-grid-column field="rango" title="Rango">
                 </kendo-grid-column>
             </kendo-grid>
         </div>
         <br>
         <br>
-        <p-chart type="horizontalBar" [data]="data2"></p-chart>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories6">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="[seriesData6[0],seriesData6[1],seriesData6[2],seriesData6[3],seriesData6[4]]"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
         <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
             <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
         </div>
@@ -402,33 +403,24 @@
         <br>
         <div>
             <kendo-grid [data]="sales8">
-                <kendo-grid-column field="nombreUsuario" title="Usuarios">
+                <kendo-grid-column field="brand" title="Calificativo">
                 </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat1" title="Depresión (Q1)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat2" title="Metabólicas (Q2)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat3" title="Respiratorias (Q3)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat4" title="Cardiacas (Q4)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat5" title="Osteomusculares (Q5)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat6" title="Digestivos (Q6)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat7" title="S.N.C  (Q7)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat8" title="Visual (Q8)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat9" title="Cáncer (Q9)">
-                </kendo-grid-column>
-                <kendo-grid-column field="categorias.cat10" title="Otros (Q10)">
+                <kendo-grid-column field="rango" title="Rango">
                 </kendo-grid-column>
             </kendo-grid>
         </div>
         <br>
         <br>
-        <p-chart type="horizontalBar" [data]="data"></p-chart>
+        <kendo-chart>
+            <kendo-chart-category-axis>
+                <kendo-chart-category-axis-item [categories]="categories7">
+                </kendo-chart-category-axis-item>
+            </kendo-chart-category-axis>
+            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+            <kendo-chart-series>
+                <kendo-chart-series-item [data]="[seriesData7[0],seriesData7[1],seriesData7[2],seriesData7[3],seriesData7[4],seriesData7[5],seriesData7[6],seriesData7[7],seriesData7[8],seriesData7[9]]"> </kendo-chart-series-item>
+            </kendo-chart-series>
+        </kendo-chart>
         <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
             <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
         </div>
@@ -755,23 +747,24 @@
                                 <br>
                                 <div>
                                     <kendo-grid [data]="sales7">
-                                        <kendo-grid-column field="nombreUsuario" title="Usuarios">
+                                        <kendo-grid-column field="brand" title="Calificativo">
                                         </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat1" title="Cáncer (Q1)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat2" title="Metabólicas (Q2)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat3" title="Cardiacas (Q3)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat4" title="Enfermedades Mentales (Q4)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat5" title="Otros (Q5)">
+                                        <kendo-grid-column field="rango" title="Rango">
                                         </kendo-grid-column>
                                     </kendo-grid>
                                 </div>
                                 <br>
                                 <br>
-                                <p-chart type="horizontalBar" [data]="data2"></p-chart>
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories6">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData6"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
                             </div>
                         </div>
                     </fieldset>
@@ -796,33 +789,24 @@
                                 <br>
                                 <div>
                                     <kendo-grid [data]="sales8">
-                                        <kendo-grid-column field="nombreUsuario" title="Usuarios">
+                                        <kendo-grid-column field="brand" title="Calificativo">
                                         </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat1" title="Depresión (Q1)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat2" title="Metabólicas (Q2)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat3" title="Respiratorias (Q3)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat4" title="Cardiacas (Q4)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat5" title="Osteomusculares (Q5)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat6" title="Digestivos (Q6)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat7" title="S.N.C  (Q7)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat8" title="Visual (Q8)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat9" title="Cáncer (Q9)">
-                                        </kendo-grid-column>
-                                        <kendo-grid-column field="categorias.cat10" title="Otros (Q10)">
+                                        <kendo-grid-column field="rango" title="Rango">
                                         </kendo-grid-column>
                                     </kendo-grid>
                                 </div>
                                 <br>
                                 <br>
-                                <p-chart type="horizontalBar" [data]="data"></p-chart>
+                                <kendo-chart>
+                                    <kendo-chart-category-axis>
+                                        <kendo-chart-category-axis-item [categories]="categories7">
+                                        </kendo-chart-category-axis-item>
+                                    </kendo-chart-category-axis>
+                                    <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                                    <kendo-chart-series>
+                                        <kendo-chart-series-item [data]="seriesData7"> </kendo-chart-series-item>
+                                    </kendo-chart-series>
+                                </kendo-chart>
                             </div>
                         </div>
                     </fieldset>
