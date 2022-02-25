@@ -1533,14 +1533,6 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${this.cont49}`,'Trabajo en alturas por encima de 2 metros');
         this.fnParamBorderTitle(`L${this.cont51}`,'Trabajo en espacios confinados');
         this.fnParamBorderTitle(`L${this.cont50}`,'Trabajo en caliente corte y soldadura');
-
-        this.fnParamSubtitle(`AA${this.cont1}`,`AA${this.cont2}`,this.vrData[j].idppeor_consecuencia);
-        this.fnParamSubtitle(`AB${this.cont1}`,`AB${this.cont2}`,this.vrData[j].idpexisten_requisito);
-        this.fnParamSubtitle(`AC${this.cont1}`,`AC${this.cont2}`,this.vrData[j].idpeliminacion);
-        this.fnParamSubtitle(`AD${this.cont1}`,`AD${this.cont2}`,this.vrData[j].idpsustitucion);
-        this.fnParamSubtitle(`AE${this.cont1}`,`AE${this.cont2}`,this.vrData[j].idpcontrolinf);
-        this.fnParamSubtitle(`AF${this.cont1}`,`AF${this.cont2}`,this.vrData[j].idpcontrolesadm);
-        this.fnParamSubtitle(`AG${this.cont1}`,`AG${this.cont2}`,this.vrData[j].idpelemntoprot);
   }
 
   fnContSumaData(){
