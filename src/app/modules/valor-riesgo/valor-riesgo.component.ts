@@ -300,7 +300,8 @@ export class ValorRiesgoComponent implements OnInit {
 
   fnArrData() {
     let arrFinal :any;
-    arrFinal = this.vrData.map( resp => { 
+    arrFinal = this.vrData.map( (resp:ValorRiesgoModel) => { 
+      /*Arreglo que llena  la info  del Excel en las Subcategorias */
       return [
         /* ----------------------BIOLOGICO------------------- */
         [ 
@@ -318,9 +319,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbioderani_tb_nc,
             resp.idpbioderani_intervencion,
             resp.idpbioderani_tb_nr,
-            '',
             resp.idpbioderani_numpuestos,
             resp.idpbioderani_observaciones,
+            resp.idpbioderani_peorconsecue,
+            resp.idpbioderani_existerequisito,
+            resp.idpbioderani_elimina,
+            resp.idpbioderani_sustitucion,
+            resp.idpbioderani_ctrlingenieria,
+            resp.idpbioderani_ctrladmin,
+            resp.idpbioderani_equipoeleme
           ]
           ,
           [
@@ -337,9 +344,16 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbiohongo_tb_nc,
             resp.idpbiohongo_intervencion,
             resp.idpbiohongo_tb_nr,
-            '',
             resp.idpbiohongo_numpuestos,
             resp.idpbiohongo_observaciones,
+            resp.idpbiohongo_peorconsecue,
+            resp.idpbiohongo_existerequisito,
+            resp.idpbiohongo_elimina,
+            resp.idpbiohongo_sustitucion,
+            resp.idpbiohongo_ctrlingenieria,
+            resp.idpbiohongo_ctrladmin,
+            resp.idpbiohongo_equipoeleme
+            
           ],
           [
             /*Biologico - Microorganismos tipo bacterias */
@@ -355,9 +369,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbiobacterias_tb_nc,
             resp.idpbiobacterias_intervencion,
             resp.idpbiobacterias_tb_nr,
-            '',
             resp.idpbiobacterias_numpuestos,
             resp.idpbiobacterias_observaciones,
+            resp.idpbiobacterias_peorconsecue,
+            resp.idpbiobacterias_existerequisito,
+            resp.idpbiobacterias_elimina,
+            resp.idpbiobacterias_sustitucion,
+            resp.idpbiobacterias_ctrlingenieria,
+            resp.idpbiobacterias_ctrladmin,
+            resp.idpbiobacterias_equipoeleme
           ],
           [
             /*Biologico - Microorganismos tipo virus */
@@ -373,9 +393,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbiovirus_tb_nc,
             resp.idpbiovirus_intervencion,
             resp.idpbiovirus_tb_nr,
-            '',
             resp.idpbiovirus_numpuestos,
             resp.idpbiovirus_observaciones,
+            resp.idpbiovirus_peorconsecue,
+            resp.idpbiovirus_existerequisito,
+            resp.idpbiovirus_elimina,
+            resp.idpbiovirus_sustitucion,
+            resp.idpbiovirus_ctrlingenieria,
+            resp.idpbiovirus_ctrladmin,
+            resp.idpbiovirus_equipoeleme
           ],
           [
             /*Biologico - Parásitos */
@@ -391,9 +417,16 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpbioparasitos_tb_nc,
             resp.idpbioparasitos_intervencion,
             resp.idpbioparasitos_tb_nr,
-            '',
             resp.idpbioparasitos_numpuestos,
             resp.idpbioparasitos_observaciones,
+            resp.idpbioparasitos_peorconsecue,
+            resp.idpbioparasitos_existerequisito,
+            resp.idpbioparasitos_elimina,
+            resp.idpbioparasitos_sustitucion,
+            resp.idpbioparasitos_ctrlingenieria,
+            resp.idpbioparasitos_ctrladmin,
+            resp.idpbioparasitos_equipoeleme
+            
           ]
         ],
         /* ----------------------CARGA FÍSICA------------------- */
@@ -412,9 +445,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargesfuerzos_tb_nc,
             resp.idpcargesfuerzos_intervencion,
             resp.idpcargesfuerzos_tb_nr,
-            '',
             resp.idpcargesfuerzos_numpuestos,
             resp.idpcargesfuerzos_observaciones,
+            resp.idpcargesfuerzos_peorconsecue,
+            resp.idpcargesfuerzos_existerequisito,
+            resp.idpcargesfuerzos_elimina,
+            resp.idpcargesfuerzos_sustitucion,
+            resp.idpcargesfuerzos_ctrlingenieria,
+            resp.idpcargesfuerzos_ctrladmin,
+            resp.idpcargesfuerzos_equipoeleme
           ],
           [
             /* Carga Física - Carga dinámica por movimientos repetitivos */
@@ -430,9 +469,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargmovimiento_tb_nc,
             resp.idpcargmovimiento_intervencion,
             resp.idpcargmovimiento_tb_nr,
-            '',
             resp.idpcargmovimiento_numpuestos,
             resp.idpcargmovimiento_observaciones,
+            resp.idpcargmovimiento_peorconsecue,
+            resp.idpcargmovimiento_existerequisito,
+            resp.idpcargmovimiento_elimina,
+            resp.idpcargmovimiento_sustitucion,
+            resp.idpcargmovimiento_ctrlingenieria,
+            resp.idpcargmovimiento_ctrladmin,
+            resp.idpcargmovimiento_equipoeleme
           ],
           [
             /* Carga Física - Carga dinámica por sobreesfuerzos de la voz */
@@ -448,9 +493,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargvoz_tb_nc,
             resp.idpcargvoz_intervencion,
             resp.idpcargvoz_tb_nr,
-            '',
             resp.idpcargvoz_numpuestos,
             resp.idpcargvoz_observaciones,
+            resp.idpcargvoz_peorconsecue,
+            resp.idpcargvoz_existerequisito,
+            resp.idpcargvoz_elimina,
+            resp.idpcargvoz_sustitucion,
+            resp.idpcargvoz_ctrlingenieria,
+            resp.idpcargvoz_ctrladmin,
+            resp.idpcargvoz_equipoeleme
           ],
           [
             /* Carga Física - Carga estática de pie */
@@ -466,9 +517,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargpie_tb_nc,
             resp.idpcargpie_intervencion,
             resp.idpcargpie_tb_nr,
-            '',
             resp.idpcargpie_numpuestos,
             resp.idpcargpie_observaciones,
+            resp.idpcargpie_peorconsecue,
+            resp.idpcargpie_existerequisito,
+            resp.idpcargpie_elimina,
+            resp.idpcargpie_sustitucion,
+            resp.idpcargpie_ctrlingenieria,
+            resp.idpcargpie_ctrladmin,
+            resp.idpcargpie_equipoeleme
           ],
           [
             /* Carga Física - Posiciones prolongadas sentado */
@@ -484,9 +541,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpcargsentado_tb_nc,
             resp.idpcargsentado_intervencion,
             resp.idpcargsentado_tb_nr,
-            '',
             resp.idpcargsentado_numpuestos,
             resp.idpcargsentado_observaciones,
+            resp.idpcargsentado_peorconsecue,
+            resp.idpcargsentado_existerequisito,
+            resp.idpcargsentado_elimina,
+            resp.idpcargsentado_sustitucion,
+            resp.idpcargsentado_ctrlingenieria,
+            resp.idpcargsentado_ctrladmin,
+            resp.idpcargsentado_equipoeleme
           ] 
         ],
         /* ----------------------ELÉCTRICO------------------- */
@@ -505,9 +568,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpelectricobaja_tb_nc,
             resp.idpelectricobaja_intervencion,
             resp.idpelectricobaja_tb_nr,
-            '',
             resp.idpelectricobaja_numpuestos,
             resp.idpelectricobaja_observaciones,
+            resp.idpelectricobaja_peorconsecue,
+            resp.idpelectricobaja_existerequisito,
+            resp.idpelectricobaja_elimina,
+            resp.idpelectricobaja_sustitucion,
+            resp.idpelectricobaja_ctrlingenieria,
+            resp.idpelectricobaja_ctrladmin,
+            resp.idpelectricobaja_equipoeleme
           ],
           [
              /* Eléctrico - Energía eléctrica de alta */
@@ -523,9 +592,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpelectricoalta_tb_nc,
             resp.idpelectricoalta_intervencion,
             resp.idpelectricoalta_tb_nr,
-            '',
             resp.idpelectricoalta_numpuestos,
             resp.idpelectricoalta_observaciones,
+            resp.idpelectricoalta_peorconsecue,
+            resp.idpelectricoalta_existerequisito,
+            resp.idpelectricoalta_elimina,
+            resp.idpelectricoalta_sustitucion,
+            resp.idpelectricoalta_ctrlingenieria,
+            resp.idpelectricoalta_ctrladmin,
+            resp.idpelectricoalta_equipoeleme
           ],
           [
             /* Eléctrico - Cables eléctricos expuestos, encintados, tomacorrientes sobrecargados */
@@ -541,9 +616,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpelectricocables_tb_nc,
             resp.idpelectricocables_intervencion,
             resp.idpelectricocables_tb_nr,
-            '',
             resp.idpelectricocables_numpuestos,
             resp.idpelectricocables_observaciones,
+            resp.idpelectricocables_peorconsecue,
+            resp.idpelectricocables_existerequisito,
+            resp.idpelectricocables_elimina,
+            resp.idpelectricocables_sustitucion,
+            resp.idpelectricocables_ctrlingenieria,
+            resp.idpelectricocables_ctrladmin,
+            resp.idpelectricocables_equipoeleme
           ]
         ],
         /* ----------------------FÍSICO------------------- */
@@ -562,9 +643,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoilumdef_tb_nc,
             resp.idpfisicoilumdef_intervencion,
             resp.idpfisicoilumdef_tb_nr,
-            '',
             resp.idpfisicoilumdef_numpuestos,
             resp.idpfisicoilumdef_observaciones,
+            resp.idpfisicoilumdef_peorconsecue,
+            resp.idpfisicoilumdef_existerequisito,
+            resp.idpfisicoilumdef_elimina,
+            resp.idpfisicoilumdef_sustitucion,
+            resp.idpfisicoilumdef_ctrlingenieria,
+            resp.idpfisicoilumdef_ctrladmin,
+            resp.idpfisicoilumdef_equipoeleme
           ],
           [
             /* Físico - Iluminación en exceso */
@@ -580,9 +667,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoilumexceso_tb_nc,
             resp.idpfisicoilumexceso_intervencion,
             resp.idpfisicoilumexceso_tb_nr,
-            '',
             resp.idpfisicoilumexceso_numpuestos,
             resp.idpfisicoilumexceso_observaciones,
+            resp.idpfisicoilumexceso_peorconsecue,
+            resp.idpfisicoilumexceso_existerequisito,
+            resp.idpfisicoilumexceso_elimina,
+            resp.idpfisicoilumexceso_sustitucion,
+            resp.idpfisicoilumexceso_ctrlingenieria,
+            resp.idpfisicoilumexceso_ctrladmin,
+            resp.idpfisicoilumexceso_equipoeleme
           ],
           [
             /* Físico - Radiaciones no ionizantes por ultravioleta */
@@ -598,9 +691,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisiconoradiaciones_tb_nc,
             resp.idpfisiconoradiaciones_intervencion,
             resp.idpfisiconoradiaciones_tb_nr,
-            '',
             resp.idpfisiconoradiaciones_numpuestos,
             resp.idpfisiconoradiaciones_observaciones,
+            resp.idpfisiconoradiaciones_peorconsecue,
+            resp.idpfisiconoradiaciones_existerequisito,
+            resp.idpfisiconoradiaciones_elimina,
+            resp.idpfisiconoradiaciones_sustitucion,
+            resp.idpfisiconoradiaciones_ctrlingenieria,
+            resp.idpfisiconoradiaciones_ctrladmin,
+            resp.idpfisiconoradiaciones_equipoeleme
           ],
           [
             /* Físico - Radiaciones ionizantes */
@@ -616,9 +715,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoradiaciones_tb_nc,
             resp.idpfisicoradiaciones_intervencion,
             resp.idpfisicoradiaciones_tb_nr,
-            '',
             resp.idpfisicoradiaciones_numpuestos,
             resp.idpfisicoradiaciones_observaciones,
+            resp.idpfisicoradiaciones_peorconsecue,
+            resp.idpfisicoradiaciones_existerequisito,
+            resp.idpfisicoradiaciones_elimina,
+            resp.idpfisicoradiaciones_sustitucion,
+            resp.idpfisicoradiaciones_ctrlingenieria,
+            resp.idpfisicoradiaciones_ctrladmin,
+            resp.idpfisicoradiaciones_equipoeleme
           ],
           [
             /* Físico - Ruido */
@@ -634,9 +739,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicoruido_tb_nc,
             resp.idpfisicoruido_intervencion,
             resp.idpfisicoruido_tb_nr,
-            '',
             resp.idpfisicoruido_numpuestos,
             resp.idpfisicoruido_observaciones,
+            resp.idpfisicoruido_peorconsecue,
+            resp.idpfisicoruido_existerequisito,
+            resp.idpfisicoruido_elimina,
+            resp.idpfisicoruido_sustitucion,
+            resp.idpfisicoruido_ctrlingenieria,
+            resp.idpfisicoruido_ctrladmin,
+            resp.idpfisicoruido_equipoeleme
           ],
           [
             /* Físico - Vibraciones */
@@ -652,9 +763,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicovibraciones_tb_nc,
             resp.idpfisicovibraciones_intervencion,
             resp.idpfisicovibraciones_tb_nr,
-            '',
             resp.idpfisicovibraciones_numpuestos,
             resp.idpfisicovibraciones_observaciones,
+            resp.idpfisicovibraciones_peorconsecue,
+            resp.idpfisicovibraciones_existerequisito,
+            resp.idpfisicovibraciones_elimina,
+            resp.idpfisicovibraciones_sustitucion,
+            resp.idpfisicovibraciones_ctrlingenieria,
+            resp.idpfisicovibraciones_ctrladmin,
+            resp.idpfisicovibraciones_equipoeleme
           ],
           [
             /* Físico - Transferencias de temperaturas por calor */
@@ -670,9 +787,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicocalor_tb_nc,
             resp.idpfisicocalor_intervencion,
             resp.idpfisicocalor_tb_nr,
-            '',
             resp.idpfisicocalor_numpuestos,
             resp.idpfisicocalor_observaciones,
+            resp.idpfisicocalor_peorconsecue,
+            resp.idpfisicocalor_existerequisito,
+            resp.idpfisicocalor_elimina,
+            resp.idpfisicocalor_sustitucion,
+            resp.idpfisicocalor_ctrlingenieria,
+            resp.idpfisicocalor_ctrladmin,
+            resp.idpfisicocalor_equipoeleme
           ],
           [
             /* Físico - Transferencias de temperaturas por frio */
@@ -688,9 +811,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpfisicofrio_tb_nc,
             resp.idpfisicofrio_intervencion,
             resp.idpfisicofrio_tb_nr,
-            '',
             resp.idpfisicofrio_numpuestos,
             resp.idpfisicofrio_observaciones,
+            resp.idpfisicofrio_peorconsecue,
+            resp.idpfisicofrio_existerequisito,
+            resp.idpfisicofrio_elimina,
+            resp.idpfisicofrio_sustitucion,
+            resp.idpfisicofrio_ctrlingenieria,
+            resp.idpfisicofrio_ctrladmin,
+            resp.idpfisicofrio_equipoeleme
           ]
         ],
         /* ----------------------INCENDIOS / EXPLOSIONES------------------- */
@@ -709,9 +838,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpincendioscombust_tb_nc,
             resp.idpincendioscombust_intervencion,
             resp.idpincendioscombust_tb_nr,
-            '',
             resp.idpincendioscombust_numpuestos,
             resp.idpincendioscombust_observaciones,
+            resp.idpincendioscombust_peorconsecue,
+            resp.idpincendioscombust_existerequisito,
+            resp.idpincendioscombust_elimina,
+            resp.idpincendioscombust_sustitucion,
+            resp.idpincendioscombust_ctrlingenieria,
+            resp.idpincendioscombust_ctrladmin,
+            resp.idpincendioscombust_equipoeleme
           ],
           [
             /* Incendios / Explosiones - Ausencia de equipo contra incendio */
@@ -727,9 +862,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpincendiosequipo_tb_nc,
             resp.idpincendiosequipo_intervencion,
             resp.idpincendiosequipo_tb_nr,
-            '',
             resp.idpincendiosequipo_numpuestos,
             resp.idpincendiosequipo_observaciones,
+            resp.idpincendiosequipo_peorconsecue,
+            resp.idpincendiosequipo_existerequisito,
+            resp.idpincendiosequipo_elimina,
+            resp.idpincendiosequipo_sustitucion,
+            resp.idpincendiosequipo_ctrlingenieria,
+            resp.idpincendiosequipo_ctrladmin,
+            resp.idpincendiosequipo_equipoeleme
           ],
           [
             /* Incendios / Explosiones - Sustancias inflamables */
@@ -745,9 +886,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpincendiossustancias_tb_nc,
             resp.idpincendiossustancias_intervencion,
             resp.idpincendiossustancias_tb_nr,
-            '',
             resp.idpincendiossustancias_numpuestos,
             resp.idpincendiossustancias_observaciones,
+            resp.idpincendiossustancias_peorconsecue,
+            resp.idpincendiossustancias_existerequisito,
+            resp.idpincendiossustancias_elimina,
+            resp.idpincendiossustancias_sustitucion,
+            resp.idpincendiossustancias_ctrlingenieria,
+            resp.idpincendiossustancias_ctrladmin,
+            resp.idpincendiossustancias_equipoeleme
           ]
         ],
         /* ----------------------LOCATIVOS------------------- */
@@ -766,9 +913,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativospisos_tb_nc,
             resp.idplocativospisos_intervencion,
             resp.idplocativospisos_tb_nr,
-            '',
             resp.idplocativospisos_numpuestos,
             resp.idplocativospisos_observaciones,
+            resp.idplocativospisos_peorconsecue,
+            resp.idplocativospisos_existerequisito,
+            resp.idplocativospisos_elimina,
+            resp.idplocativospisos_sustitucion,
+            resp.idplocativospisos_ctrlingenieria,
+            resp.idplocativospisos_ctrladmin,
+            resp.idplocativospisos_equipoeleme
           ],
           [
             /* Locativos - Escaleras defectuosas */
@@ -784,9 +937,16 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosescaleras_tb_nc,
             resp.idplocativosescaleras_intervencion,
             resp.idplocativosescaleras_tb_nr,
-            '',
             resp.idplocativosescaleras_numpuestos,
             resp.idplocativosescaleras_observaciones,
+            resp.idplocativosescaleras_peorconsecue,
+            resp.idplocativosescaleras_existerequisito,
+            resp.idplocativosescaleras_elimina,
+            resp.idplocativosescaleras_sustitucion,
+            resp.idplocativosescaleras_ctrlingenieria,
+            resp.idplocativosescaleras_ctrladmin,
+            resp.idplocativosescaleras_equipoeleme
+   
           ],
           [
             /* Locativos - Almacenamiento, estanterías en mal estado */
@@ -802,9 +962,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosestanterias_tb_nc,
             resp.idplocativosestanterias_intervencion,
             resp.idplocativosestanterias_tb_nr,
-            '',
             resp.idplocativosestanterias_numpuestos,
             resp.idplocativosestanterias_observaciones,
+            resp.idplocativosestanterias_peorconsecue,
+            resp.idplocativosestanterias_existerequisito,
+            resp.idplocativosestanterias_elimina,
+            resp.idplocativosestanterias_sustitucion,
+            resp.idplocativosestanterias_ctrlingenieria,
+            resp.idplocativosestanterias_ctrladmin,
+            resp.idplocativosestanterias_equipoeleme
           ],
           [
             /* Locativos - Almacenamiento, arrumes con altura inadecuada */
@@ -820,9 +986,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosarrumes_tb_nc,
             resp.idplocativosarrumes_intervencion,
             resp.idplocativosarrumes_tb_nr,
-            '',
             resp.idplocativosarrumes_numpuestos,
             resp.idplocativosarrumes_observaciones,
+            resp.idplocativosarrumes_peorconsecue,
+            resp.idplocativosarrumes_existerequisito,
+            resp.idplocativosarrumes_elimina,
+            resp.idplocativosarrumes_sustitucion,
+            resp.idplocativosarrumes_ctrlingenieria,
+            resp.idplocativosarrumes_ctrladmin,
+            resp.idplocativosarrumes_equipoeleme
           ],
           [
             /* Locativos - Señalización y demarcación deficiente, inexistente o inadecuada */
@@ -838,9 +1010,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosenalizacion_tb_nc,
             resp.idplocativosenalizacion_intervencion,
             resp.idplocativosenalizacion_tb_nr,
-            '',
             resp.idplocativosenalizacion_numpuestos,
             resp.idplocativosenalizacion_observaciones,
+            resp.idplocativosenalizacion_peorconsecue,
+            resp.idplocativosenalizacion_existerequisito,
+            resp.idplocativosenalizacion_elimina,
+            resp.idplocativosenalizacion_sustitucion,
+            resp.idplocativosenalizacion_ctrlingenieria,
+            resp.idplocativosenalizacion_ctrladmin,
+            resp.idplocativosenalizacion_equipoeleme
           ],
           [
             /* Locativos - Falta de orden y aseo */
@@ -856,9 +1034,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idplocativosaseo_tb_nc,
             resp.idplocativosaseo_intervencion,
             resp.idplocativosaseo_tb_nr,
-            '',
             resp.idplocativosaseo_numpuestos,
             resp.idplocativosaseo_observaciones,
+            resp.idplocativosaseo_peorconsecue,
+            resp.idplocativosaseo_existerequisito,
+            resp.idplocativosaseo_elimina,
+            resp.idplocativosaseo_sustitucion,
+            resp.idplocativosaseo_ctrlingenieria,
+            resp.idplocativosaseo_ctrladmin,
+            resp.idplocativosaseo_equipoeleme
           ]
         ],
         /* ----------------------MECÁNICOS------------------- */
@@ -877,9 +1061,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicoherramient_tb_nc,
             resp.idpmecanicoherramient_intervencion,
             resp.idpmecanicoherramient_tb_nr,
-            '',
             resp.idpmecanicoherramient_numpuestos,
             resp.idpmecanicoherramient_observaciones,
+            resp.idpmecanicoherramient_peorconsecue,
+            resp.idpmecanicoherramient_existerequisito,
+            resp.idpmecanicoherramient_elimina,
+            resp.idpmecanicoherramient_sustitucion,
+            resp.idpmecanicoherramient_ctrlingenieria,
+            resp.idpmecanicoherramient_ctrladmin,
+            resp.idpmecanicoherramient_equipoeleme
           ],
           [
             /* Mecánicos - Superficies cortantes */
@@ -895,9 +1085,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicocortante_tb_nc,
             resp.idpmecanicocortante_intervencion,
             resp.idpmecanicocortante_tb_nr,
-            '',
             resp.idpmecanicocortante_numpuestos,
             resp.idpmecanicocortante_observaciones,
+            resp.idpmecanicocortante_peorconsecue,
+            resp.idpmecanicocortante_existerequisito,
+            resp.idpmecanicocortante_elimina,
+            resp.idpmecanicocortante_sustitucion,
+            resp.idpmecanicocortante_ctrlingenieria,
+            resp.idpmecanicocortante_ctrladmin,
+            resp.idpmecanicocortante_equipoeleme
           ],
           [
             /* Mecánicos - Contacto con elementos cortopunzantes */
@@ -913,9 +1109,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicocortopunz_tb_nc,
             resp.idpmecanicocortopunz_intervencion,
             resp.idpmecanicocortopunz_tb_nr,
-            '',
             resp.idpmecanicocortopunz_numpuestos,
             resp.idpmecanicocortopunz_observaciones,
+            resp.idpmecanicocortopunz_peorconsecue,
+            resp.idpmecanicocortopunz_existerequisito,
+            resp.idpmecanicocortopunz_elimina,
+            resp.idpmecanicocortopunz_sustitucion,
+            resp.idpmecanicocortopunz_ctrlingenieria,
+            resp.idpmecanicocortopunz_ctrladmin,
+            resp.idpmecanicocortopunz_equipoeleme
           ],
           [
             /* Mecánicos - Materiales proyectados sólidos o fluidos */
@@ -931,9 +1133,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpmecanicomateriales_tb_nc,
             resp.idpmecanicomateriales_intervencion,
             resp.idpmecanicomateriales_tb_nr,
-            '',
             resp.idpmecanicomateriales_numpuestos,
             resp.idpmecanicomateriales_observaciones,
+            resp.idpmecanicomateriales_peorconsecue,
+            resp.idpmecanicomateriales_existerequisito,
+            resp.idpmecanicomateriales_elimina,
+            resp.idpmecanicomateriales_sustitucion,
+            resp.idpmecanicomateriales_ctrlingenieria,
+            resp.idpmecanicomateriales_ctrladmin,
+            resp.idpmecanicomateriales_equipoeleme
           ]
         ],
         /* ----------------------PSICOSOCIAL------------------- */
@@ -952,9 +1160,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppsicosobrecarga_tb_nc,
             resp.idppsicosobrecarga_intervencion,
             resp.idppsicosobrecarga_tb_nr,
-            '',
             resp.idppsicosobrecarga_numpuestos,
             resp.idppsicosobrecarga_observaciones,
+            resp.idppsicosobrecarga_peorconsecue,
+            resp.idppsicosobrecarga_existerequisito,
+            resp.idppsicosobrecarga_elimina,
+            resp.idppsicosobrecarga_sustitucion,
+            resp.idppsicosobrecarga_ctrlingenieria,
+            resp.idppsicosobrecarga_ctrladmin,
+            resp.idppsicosobrecarga_equipoeleme
           ],
           [
             /* Psicosocial - Resposanbilidad en el cargo/ manejo de personal */
@@ -970,9 +1184,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppsicoresponsabilidad_tb_nc,
             resp.idppsicoresponsabilidad_intervencion,
             resp.idppsicoresponsabilidad_tb_nr,
-            '',
             resp.idppsicoresponsabilidad_numpuestos,
             resp.idppsicoresponsabilidad_observaciones,
+            resp.idppsicoresponsabilidad_peorconsecue,
+            resp.idppsicoresponsabilidad_existerequisito,
+            resp.idppsicoresponsabilidad_elimina,
+            resp.idppsicoresponsabilidad_sustitucion,
+            resp.idppsicoresponsabilidad_ctrlingenieria,
+            resp.idppsicoresponsabilidad_ctrladmin,
+            resp.idppsicoresponsabilidad_equipoeleme
           ],
           [
             /* Psicosocial - Trabajo repetitivo */
@@ -988,9 +1208,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppsicorepetitivo_tb_nc,
             resp.idppsicorepetitivo_intervencion,
             resp.idppsicorepetitivo_tb_nr,
-            '',
             resp.idppsicorepetitivo_numpuestos,
             resp.idppsicorepetitivo_observaciones,
+            resp.idppsicorepetitivo_peorconsecue,
+            resp.idppsicorepetitivo_existerequisito,
+            resp.idppsicorepetitivo_elimina,
+            resp.idppsicorepetitivo_sustitucion,
+            resp.idppsicorepetitivo_ctrlingenieria,
+            resp.idppsicorepetitivo_ctrladmin,
+            resp.idppsicorepetitivo_equipoeleme
           ]
         ],
         /* ----------------------PÚBLICOS------------------- */
@@ -1009,9 +1235,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicorobo_tb_nc,
             resp.idppublicorobo_intervencion,
             resp.idppublicorobo_tb_nr,
-            '',
             resp.idppublicorobo_numpuestos,
             resp.idppublicorobo_observaciones,
+            resp.idppublicorobo_peorconsecue,
+            resp.idppublicorobo_existerequisito,
+            resp.idppublicorobo_elimina,
+            resp.idppublicorobo_sustitucion,
+            resp.idppublicorobo_ctrlingenieria,
+            resp.idppublicorobo_ctrladmin,
+            resp.idppublicorobo_equipoeleme
           ],
           [
             /* Públicos - Terrorismo */
@@ -1027,9 +1259,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicoterrorismo_tb_nc,
             resp.idppublicoterrorismo_intervencion,
             resp.idppublicoterrorismo_tb_nr,
-            '',
             resp.idppublicoterrorismo_numpuestos,
             resp.idppublicoterrorismo_observaciones,
+            resp.idppublicoterrorismo_peorconsecue,
+            resp.idppublicoterrorismo_existerequisito,
+            resp.idppublicoterrorismo_elimina,
+            resp.idppublicoterrorismo_sustitucion,
+            resp.idppublicoterrorismo_ctrlingenieria,
+            resp.idppublicoterrorismo_ctrladmin,
+            resp.idppublicoterrorismo_equipoeleme
           ],
           [
             /* Públicos - Situación de Agresión fisica */
@@ -1045,9 +1283,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicoagresion_tb_nc,
             resp.idppublicoagresion_intervencion,
             resp.idppublicoagresion_tb_nr,
-            '',
             resp.idppublicoagresion_numpuestos,
             resp.idppublicoagresion_observaciones,
+            resp.idppublicoagresion_peorconsecue,
+            resp.idppublicoagresion_existerequisito,
+            resp.idppublicoagresion_elimina,
+            resp.idppublicoagresion_sustitucion,
+            resp.idppublicoagresion_ctrlingenieria,
+            resp.idppublicoagresion_ctrladmin,
+            resp.idppublicoagresion_equipoeleme
           ],
           [
             /* Públicos - Situación de asonada */
@@ -1063,9 +1307,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idppublicoasonada_tb_nc,
             resp.idppublicoasonada_intervencion,
             resp.idppublicoasonada_tb_nr,
-            '',
             resp.idppublicoasonada_numpuestos,
             resp.idppublicoasonada_observaciones,
+            resp.idppublicoasonada_peorconsecue,
+            resp.idppublicoasonada_existerequisito,
+            resp.idppublicoasonada_elimina,
+            resp.idppublicoasonada_sustitucion,
+            resp.idppublicoasonada_ctrlingenieria,
+            resp.idppublicoasonada_ctrladmin,
+            resp.idppublicoasonada_equipoeleme
           ]
         ],
         /* ----------------------TRANSITO------------------- */
@@ -1084,9 +1334,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptransitomoto_tb_nc,
             resp.idptransitomoto_intervencion,
             resp.idptransitomoto_tb_nr,
-            '',
             resp.idptransitomoto_numpuestos,
             resp.idptransitomoto_observaciones,
+            resp.idptransitomoto_peorconsecue,
+            resp.idptransitomoto_existerequisito,
+            resp.idptransitomoto_elimina,
+            resp.idptransitomoto_sustitucion,
+            resp.idptransitomoto_ctrlingenieria,
+            resp.idptransitomoto_ctrladmin,
+            resp.idptransitomoto_equipoeleme
           ],
           [
             /* Transito - Transporte carro / ambulancia */
@@ -1102,9 +1358,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptransitocarro_tb_nc,
             resp.idptransitocarro_intervencion,
             resp.idptransitocarro_tb_nr,
-            '',
             resp.idptransitocarro_numpuestos,
             resp.idptransitocarro_observaciones,
+            resp.idptransitocarro_peorconsecue,
+            resp.idptransitocarro_existerequisito,
+            resp.idptransitocarro_elimina,
+            resp.idptransitocarro_sustitucion,
+            resp.idptransitocarro_ctrlingenieria,
+            resp.idptransitocarro_ctrladmin,
+            resp.idptransitocarro_equipoeleme
           ]
         ],
         /* ----------------------QUÍMICOS-------------------- */
@@ -1123,9 +1385,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicosaerosol_tb_nc,
             resp.idpquimicosaerosol_intervencion,
             resp.idpquimicosaerosol_tb_nr,
-            '',
             resp.idpquimicosaerosol_numpuestos,
             resp.idpquimicosaerosol_observaciones,
+            resp.idpquimicosaerosol_peorconsecue,
+            resp.idpquimicosaerosol_existerequisito,
+            resp.idpquimicosaerosol_elimina,
+            resp.idpquimicosaerosol_sustitucion,
+            resp.idpquimicosaerosol_ctrlingenieria,
+            resp.idpquimicosaerosol_ctrladmin,
+            resp.idpquimicosaerosol_equipoeleme
           ],
           [
             /* Químicos - Gases y vapores */
@@ -1141,9 +1409,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicosgases_tb_nc,
             resp.idpquimicosgases_intervencion,
             resp.idpquimicosgases_tb_nr,
-            '',
             resp.idpquimicosgases_numpuestos,
             resp.idpquimicosgases_observaciones,
+            resp.idpquimicosgases_peorconsecue,
+            resp.idpquimicosgases_existerequisito,
+            resp.idpquimicosgases_elimina,
+            resp.idpquimicosgases_sustitucion,
+            resp.idpquimicosgases_ctrlingenieria,
+            resp.idpquimicosgases_ctrladmin,
+            resp.idpquimicosgases_equipoeleme
           ],
           [
             /* Químicos - Sustancias sólidas (polvos) */
@@ -1159,9 +1433,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicossustanc_tb_nc,
             resp.idpquimicossustanc_intervencion,
             resp.idpquimicossustanc_tb_nr,
-            '',
             resp.idpquimicossustanc_numpuestos,
             resp.idpquimicossustanc_observaciones,
+            resp.idpquimicossustanc_peorconsecue,
+            resp.idpquimicossustanc_existerequisito,
+            resp.idpquimicossustanc_elimina,
+            resp.idpquimicossustanc_sustitucion,
+            resp.idpquimicossustanc_ctrlingenieria,
+            resp.idpquimicossustanc_ctrladmin,
+            resp.idpquimicossustanc_equipoeleme
           ],
           [
             /* Químicos - Contacto y/o salpicadura de químicos */
@@ -1177,9 +1457,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idpquimicoscontacto_tb_nc,
             resp.idpquimicoscontacto_intervencion,
             resp.idpquimicoscontacto_tb_nr,
-            '',
             resp.idpquimicoscontacto_numpuestos,
             resp.idpquimicoscontacto_observaciones,
+            resp.idpquimicoscontacto_peorconsecue,
+            resp.idpquimicoscontacto_existerequisito,
+            resp.idpquimicoscontacto_elimina,
+            resp.idpquimicoscontacto_sustitucion,
+            resp.idpquimicoscontacto_ctrlingenieria,
+            resp.idpquimicoscontacto_ctrladmin,
+            resp.idpquimicoscontacto_equipoeleme
           ]
         ],
         /* ----------------------TAREAS DE ALTO RIESGO------------------- */
@@ -1198,9 +1484,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptareasalturas_tb_nc,
             resp.idptareasalturas_intervencion,
             resp.idptareasalturas_tb_nr,
-            '',
             resp.idptareasalturas_numpuestos,
             resp.idptareasalturas_observaciones,
+            resp.idptareasalturas_peorconsecue,
+            resp.idptareasalturas_existerequisito,
+            resp.idptareasalturas_elimina,
+            resp.idptareasalturas_sustitucion,
+            resp.idptareasalturas_ctrlingenieria,
+            resp.idptareasalturas_ctrladmin,
+            resp.idptareasalturas_equipoeleme
           ],
           [
             /* Tareas de alto riesgo - Trabajo en espacios confinados */
@@ -1216,9 +1508,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptareasconfinados_tb_nc,
             resp.idptareasconfinados_intervencion,
             resp.idptareasconfinados_tb_nr,
-            '',
             resp.idptareasconfinados_numpuestos,
             resp.idptareasconfinados_observaciones,
+            resp.idptareasconfinados_peorconsecue,
+            resp.idptareasconfinados_existerequisito,
+            resp.idptareasconfinados_elimina,
+            resp.idptareasconfinados_sustitucion,
+            resp.idptareasconfinados_ctrlingenieria,
+            resp.idptareasconfinados_ctrladmin,
+            resp.idptareasconfinados_equipoeleme
           ],
           [
             /* Tareas de alto riesgo - Trabajo en caliente corte y soldadura */
@@ -1234,9 +1532,15 @@ export class ValorRiesgoComponent implements OnInit {
             resp.idptareassoldadura_tb_nc,
             resp.idptareassoldadura_intervencion,
             resp.idptareassoldadura_tb_nr,
-            '',
             resp.idptareassoldadura_numpuestos,
             resp.idptareassoldadura_observaciones,
+            resp.idptareassoldadura_peorconsecue,
+            resp.idptareassoldadura_existerequisito,
+            resp.idptareassoldadura_elimina,
+            resp.idptareassoldadura_sustitucion,
+            resp.idptareassoldadura_ctrlingenieria,
+            resp.idptareassoldadura_ctrladmin,
+            resp.idptareassoldadura_equipoeleme
           ]
         ]
 
@@ -1327,7 +1631,7 @@ export class ValorRiesgoComponent implements OnInit {
       'ÁREA','NOMBRE LIDER','CÉDULA','TELEFONO','SEDE','PROCESO' ,'ZONA/LUGAR','ACTIVIDADES','TAREAS',
       'RUTINARIO (SI/NO)','FACTORES DE RIESGO','INDICADORES DE RIESGO','EFECTOS POSIBLES','FUENTE','MEDIO',
       'INDIVIDUO','TABLA ND','TABLA NE','NP = (ND*NE)','INTERPRETACIÓN','NC','INTERVENCIÓN','TABLA NR',
-      'ACEPTABILIDAD DEL RIESGO','N° EXPUESTOS','OBSERVACIONES','PEOR CONSECUENCIA', 
+      'N° EXPUESTOS','OBSERVACIONES','PEOR CONSECUENCIA', 
       'EXISTENCIA REQUISITO LEGAL ESPECIFICO ASOCIADO (SI/NO)','ELIMINACIÓN','SUSTITUCIÓN','CONTROL DE INGENIERIA',
       'CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA','EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL']
  
@@ -1533,6 +1837,7 @@ export class ValorRiesgoComponent implements OnInit {
         this.fnParamBorderTitle(`L${this.cont49}`,'Trabajo en alturas por encima de 2 metros');
         this.fnParamBorderTitle(`L${this.cont51}`,'Trabajo en espacios confinados');
         this.fnParamBorderTitle(`L${this.cont50}`,'Trabajo en caliente corte y soldadura');
+
   }
 
   fnContSumaData(){
@@ -1638,9 +1943,8 @@ export class ValorRiesgoComponent implements OnInit {
   fnHeaderSup(){
     this.fnParamExcelTitle(`N1`,`P1`,'CONTROL EXISTENTE','calibri',12,'A7ACA7','000000');
     this.fnParamExcelTitle(`Q1`,`W1`,'EVALUACION DEL RIESGO','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`X1`,`X1`,'VALORACION DEL RIESGO','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`Y1`,`AA1`,'CRITERIOS PARA ESTABLECER CONTROLES','calibri',12,'A7ACA7','000000');
-    this.fnParamExcelTitle(`AB1`,`AG1`,'MEDIDAS DE INTERVENCIÓN','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`X1`,`Z1`,'CRITERIOS PARA ESTABLECER CONTROLES','calibri',12,'A7ACA7','000000');
+    this.fnParamExcelTitle(`AA1`,`AF1`,'MEDIDAS DE INTERVENCIÓN','calibri',12,'A7ACA7','000000');
   }
 
   fnvalidColor( fila:number, color:string){
