@@ -41,11 +41,12 @@ export class ReporteAreasComponent implements OnInit {
   nitGelain:any;
   correoGelain:any;
   telefono:any;
-  fechaActual :Date;
+  fechaActual :Date = new Date();
   redGelain:any;
   nEmpresa:any;
   usuario:any;
   text:string;
+ 
   
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
@@ -172,6 +173,12 @@ export class ReporteAreasComponent implements OnInit {
   /*Función que organiza la segunda parte de la información de las areas en el cual 
     organiza la información  como la necesita la grafica para su visualización */
   fnOrgPart2(){
+      var obj = {};
+      var totalcont1:number = 0;
+      var totalcont2:number = 0;
+      var totalcont3:number = 0;
+      var totalcont4:number = 0;
+      var totalcont5:number = 0;
      /*Proceso que permite eliminar todos los datos repetidos de un arreglo */
      var hash = {};
      this.sales9 = this.sales9.filter(function(current) {
@@ -186,11 +193,32 @@ export class ReporteAreasComponent implements OnInit {
        hash[current.label] = true;
        return exists;
      });
- 
-     this.data = {
-       labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
-       datasets: this.dataCat
-     }
+      
+    this.dataCat.map(resp => {
+      totalcont1 += resp.data[0];
+      totalcont2 += resp.data[1];
+      totalcont3 += resp.data[2];
+      totalcont4 += resp.data[3];
+      totalcont5 += resp.data[4];
+    })
+    
+    obj = {
+      nombreArea: `TOTAL`,
+      categorias: {
+        cat1:totalcont1,
+        cat2:totalcont2,
+        cat3:totalcont3,
+        cat4:totalcont4,
+        cat5:totalcont5
+      }
+    }
+
+    this.sales9.push(obj);
+
+    this.data = {
+      labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
+      datasets: this.dataCat
+    }
   }
 
   limpiarData(){
@@ -207,7 +235,7 @@ export class ReporteAreasComponent implements OnInit {
   }
   colorHEX(){
     var color = "";
-    for(var i=0;i<6;i++){
+    for(var i = 0; i < 6; i++){
       color = color + this.generarLetra() ;
     }
     return "#" + color;

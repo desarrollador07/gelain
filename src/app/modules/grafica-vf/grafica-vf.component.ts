@@ -35,9 +35,9 @@ export class GraficaVfComponent implements OnInit {
   seriesData5: number[] = [];
   categories5: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
   seriesData6: number[] = [];
-  categories6: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
+  categories6: string[] = ["Cancer", "Metabolicas", "Cardiacas","Enfermedades mentales","Otras"];
   seriesData7: number[] = [];
-  categories7: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
+  categories7: string[] = ["Depresion", "Metabolicas", "Respiratorias","Cardiacas","Osteomusculares","Digestivos","S.N.C","Visual","Cancer","Otros"];
   seriesData8: number[] = [];
   categories8: string[] = ["Malo", "Regular", "Bien", "Excelente"];
   vfData: ValorFisico[] = [];
@@ -53,14 +53,18 @@ export class GraficaVfComponent implements OnInit {
   sales5: any[] = [];/*Arreglo Nivel de estabilidad y resistencia del core (MUJERES) */
   sales6: any[] = [];/*Arreglo Nivel de flexibilidad */
   sales7: any[] = [];/*Arreglo Antecedentes familiares de enfermedades */
+  data2:any;/*Arreglo Antecedentes familiares de enfermedades T1*/
+  dataCat2:any [] = [];/*Arreglo Antecedentes familiares de enfermedades T2*/
   sales8: any[] = [];/*Arreglo Condiciones de salud */
+  dataCat:any [] = [];/*Arreglo Condiciones de salud T1 */
+  data:any;/*Arreglo Condiciones de salud T2 */
   sales9: any[] = [];/*Arreglo Estilo de vida fantastico */
   nombreGelain:any;
   nitGelain:any;
   correoGelain:any;
   telefono:any;
   redGelain:any;
-  fechaActual :Date;
+  fechaActual :Date = new Date();
   nEmpresa:any;
   usuario:any;
   hora:any;
@@ -368,7 +372,7 @@ export class GraficaVfComponent implements OnInit {
     var total50:number = 0;
 
     this.vfData.map(resp => {
-
+      
       if (resp.vafsexo === "F" && Number(resp.vafedad) <= 35) {
         if (Number(resp.vaftestbiering) >= 50 ) {
           cont1F35 += 1;
@@ -458,158 +462,262 @@ export class GraficaVfComponent implements OnInit {
     var cont1:number = 0;
     var cont2:number = 0;
     var cont3:number = 0;
+    var cont4:number = 0;
+    var cont5:number = 0;
+    var totalCont1:number = 0;
+    var totalCont2:number = 0;
+    var totalCont3:number = 0;
+    var totalCont4:number = 0;
+    var totalCont5:number = 0;
     var total:number = 0;
 
     this.vfData.map(resp => {
 
-      let cont:number = 0;
-
+      /*Categoria Cáncer  */
       if (resp.vafcancer_opc  === 1) {
-        cont += 1;
+        cont1 += 1;
       } 
+      /*Categoria Metabólicas */
       if (resp.vafhiper_arte_opc === 1) {
-        cont += 1;
+        cont2 += 1;
       } 
-      if (resp.vafasma_opc === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcardio_opc === 1) {
-        cont += 1;
-      } 
+
       if (resp.vafdiabet_opc === 1){
-        cont += 1;
+        cont2 += 1;
       } 
-      if (resp.vafalergia_opc === 1) {
-        cont += 1;
-      } 
-      if (resp.vafartritis_opc === 1) {
-        cont += 1;
-      } 
-      if (resp.vafem_opc === 1) {
-        cont += 1;
-      } 
+
       if (resp.vafer_opc === 1) {
-        cont += 1;
+        cont2 += 1;
       }
 
-      if (cont < 3) {
-        cont1 += 1;
-      } else if (cont > 3  &&  cont <= 6) {
-        cont2 += 1;
-      } else  if (cont > 6 && cont <= 9) {
+      /*Categoria Cardiacas */
+      if (resp.vafcardio_opc === 1) {
+        cont3 += 1;
+      } 
+
+      if (resp.vafAF_p01 === 1) {
         cont3 += 1;
       }
-    })
 
-    total = cont1 + cont2 + cont3;
+      if (resp.vafAF_p02 === 1) {
+        cont3 += 1;
+      }
 
+      /*Categoria Enfermedades Mentales */
+      if (resp.vafem_opc === 1) {
+        cont4 += 1;
+      } 
+
+      /*Categoria Otros */
+      if (resp.vafasma_opc === 1) {
+        cont5 += 1;
+      } 
+      
+      if (resp.vafalergia_opc === 1) {
+        cont5 += 1;
+      } 
+      if (resp.vafartritis_opc === 1) {
+        cont5 += 1;
+      } 
+      
+      totalCont1 += cont1;
+      totalCont2 += cont2;
+      totalCont3 += cont3;
+      totalCont4 += cont4;
+      totalCont5 += cont5;
+
+      cont1 = 0;
+      cont2 = 0;
+      cont3 = 0;
+      cont4 = 0;
+      cont5 = 0;
+      
+    });
+    
+    total = totalCont1 + totalCont2 + totalCont3 + totalCont4 + totalCont5;
+ 
     this.sales7 = [
-      { brand: 'Nivel Alto', rango: cont1 },
-      { brand: 'Nivel Medio', rango: cont2 },
-      { brand: 'Nivel Bajo', rango: cont3 },
+      { brand: 'Cancer', rango: totalCont1 },
+      { brand: 'Metabólicas', rango: totalCont2 },
+      { brand: 'Cardiacas', rango: totalCont3 },
+      { brand: 'Enfermedades mentales', rango: totalCont4 },
+      { brand: 'Otras', rango: totalCont5 },
       { brand: 'TOTAL', rango: total },
     ];
 
-    this.seriesData6.push(cont1,cont2,cont3);
+
+    this.seriesData6.push(totalCont1,totalCont2,totalCont3,totalCont4,totalCont5);
+
   }
   /*Función que calcula y crea el arreglo para la grafica de la condición de salud */
   fncondSalud(){
-    var cont1:number = 0;
-    var cont2:number = 0;
-    var cont3:number = 0;
+    var contador1:number = 0;
+    var contador2:number = 0;
+    var contador3:number = 0;
+    var contador4:number = 0;
+    var contador5:number = 0;
+    var contador6:number = 0;
+    var contador7:number = 0;
+    var contador8:number = 0;
+    var contador9:number = 0;
+    var contador10:number = 0;
+    var totalcontador1:number = 0;
+    var totalcontador2:number = 0;
+    var totalcontador3:number = 0;
+    var totalcontador4:number = 0;
+    var totalcontador5:number = 0;
+    var totalcontador6:number = 0;
+    var totalcontador7:number = 0;
+    var totalcontador8:number = 0;
+    var totalcontador9:number = 0;
+    var totalcontador10:number = 0;
     var total:number = 0;
 
+
+    /*NOTA IMPORTANTE: A partir de la pregunta 14 en adelante se cuenta la 15 como 16 asi sucesivamente, la razón las subpreguntas que tienen estas */
     this.vfData.map(resp => {
 
-      let cont:number = 0;
-
-      if (resp.vafcs01  === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs02 === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs03 === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs04 === 1) {
-        cont += 1;
-      } 
-      if (resp.vafcs05 === 1){
-        cont += 1;
-      } 
-      if (resp.vafcs06 === 1) {
-        cont += 1;
-      } 
+      /*Categoria Depresión  P7*/
       if (resp.vafcs07 === 1) {
-        cont += 1;
+        contador1 += 1;
       } 
-      if (resp.vafcs08 === 1) {
-        cont += 1;
+
+      /*Categoria Metabólicas P1,P2,P3 Y P5*/
+      if (resp.vafcs01  === 1) {
+        contador2 += 1;
       } 
-      if (resp.vafcs09 === 1) {
-        cont += 1;
+
+      if (resp.vafcs02 === 1) {
+        contador2 += 1;
       }
 
-      if (resp.vafcs10 === 1) {
-        cont += 1;
+      if (resp.vafcs03 === 1) {
+        contador2 += 1;
+      }
+
+      if (resp.vafcs05 === 1) {
+        contador2 += 1;
+      }
+
+      /*Categoria Respiratorias P4*/
+      if (resp.vafcs04 === 1) {
+        contador3 += 1;
+      } 
+
+      /*Categoria Cardiacas P6 Y P16*/
+      if (resp.vafcs06 === 1) {
+        contador4 += 1;
+      } 
+
+      if (resp.vafcs17 === 1) {
+        contador4 += 1;
+      }
+
+      /*Categoria Osteomusculares P10 Y P11*/
+      if (resp.vafcs10 === 1 ) {
+        contador5 += 1;
       }
 
       if (resp.vafcs11 === 1) {
-        cont += 1;
+        contador5 += 1;
       }
 
+      /*Categoria Digestivos P13 */
+      if ( resp.vafcs13 === 1) {
+        contador6 += 1;
+      }
+
+      /*Categoria S.N.C P8 Y P9 */
+      if (resp.vafcs08 === 1) {
+        contador7 += 1;
+      } 
+
+      if (resp.vafcs09 === 1) {
+        contador7 += 1;
+      }
+
+      /*Categoria Visual P17 Y P18 */
+      if ( resp.vafcs18 === 1) {
+        contador8 += 1;
+      }
+
+      if( resp.vafcs19 === 1){
+        contador8 += 1;
+      }
+
+      /*Categoria Cáncer P15 */
+      if (resp.vafcs16 === 1 ) {
+        contador9 += 1;
+      }
+
+      /*Categoria Cáncer P12, P14 Y P19 */
       if (resp.vafcs12 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs13 === 1) {
-        cont += 1;
+        contador10 += 1;
       }
 
       if (resp.vafcs14 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs16 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs17 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs18 === 1) {
-        cont += 1;
-      }
-
-      if (resp.vafcs19 === 1) {
-        cont += 1;
+        contador10 += 1;
       }
 
       if (resp.vafcs20 === 1) {
-        cont += 1;
+        contador10 += 1;
       }
 
-      if (cont < 6) {
-        cont1 += 1;
-      } else if (cont > 6  &&  cont <= 12) {
-        cont2 += 1;
-      } else  if (cont > 12 && cont <= 19) {
-        cont3 += 1;
-      }
-    })
+      totalcontador1 += contador1;
+      totalcontador2 += contador2;
+      totalcontador3 += contador3;
+      totalcontador4 += contador4;
+      totalcontador5 += contador5;
+      totalcontador6 += contador6;
+      totalcontador7 += contador7;
+      totalcontador8 += contador8;
+      totalcontador9 += contador9;
+      totalcontador10 += contador10;
 
-    total = cont1 + cont2 + cont3;
+      contador1 = 0;
+      contador2 = 0;
+      contador3 = 0;
+      contador4 = 0;
+      contador5 = 0;
+      contador6 = 0;
+      contador7 = 0;
+      contador8 = 0;
+      contador9 = 0;
+      contador10 = 0;
+      
+    });
 
+    total = totalcontador1 + totalcontador2 + totalcontador3 + totalcontador4 + totalcontador5 + totalcontador6 + totalcontador7 + totalcontador8 + totalcontador9 + totalcontador10;
+ 
     this.sales8 = [
-      { brand: 'Nivel Alto', rango: cont1 },
-      { brand: 'Nivel Medio', rango: cont2 },
-      { brand: 'Nivel Bajo', rango: cont3 },
+      { brand: 'Depresion ', rango: totalcontador1 },
+      { brand: 'Metabolicas', rango: totalcontador2 },
+      { brand: 'Respiratorias', rango: totalcontador3 },
+      { brand: 'Cardiacas', rango: totalcontador4 },
+      { brand: 'Osteomusculares', rango: totalcontador5 },
+      { brand: 'Digestivos', rango: totalcontador6 },
+      { brand: 'S.N.C', rango: totalcontador7 },
+      { brand: 'Visual', rango: totalcontador8 },
+      { brand: 'Cancer', rango: totalcontador9 },
+      { brand: 'Otras', rango: totalcontador10 },
       { brand: 'TOTAL', rango: total },
     ];
 
-    this.seriesData7.push(cont1,cont2,cont3);
+    this.seriesData7.push(totalcontador1,totalcontador2,totalcontador3,totalcontador4,totalcontador5,totalcontador6,totalcontador7,totalcontador8,totalcontador9,totalcontador10);
+  }
+
+  colorHEX(){
+    var color = "";
+    for(var i=0;i<6;i++){
+      color = color + this.generarLetra() ;
+    }
+    return "#" + color;
+  }
+
+  generarLetra(){
+    var letras = ["a","b","c","d","e","f","0","1","2","3","4","5","6","7","8","9"];
+    var numero = (Math.random()*15).toFixed(0);
+    return letras[numero];
   }
   /*Función que calcula y crea el arreglo para la grafica de estilo de vida fantastico */
   fnTestFantastico(){
@@ -702,6 +810,10 @@ export class GraficaVfComponent implements OnInit {
     this.sales6 = [];
     this.sales7 = [];
     this.sales8 = [];
+    this.data = [];
+    this.dataCat = [];
+    this.data2 = [];
+    this.dataCat2 = [];
     this.sales9 = [];
   }
   /*Data para la generación del pdf 1 */
