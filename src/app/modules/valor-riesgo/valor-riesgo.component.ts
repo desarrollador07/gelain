@@ -1631,15 +1631,15 @@ export class ValorRiesgoComponent implements OnInit {
       'ÁREA','NOMBRE LIDER','CÉDULA','TELEFONO','SEDE','PROCESO' ,'ZONA/LUGAR','ACTIVIDADES','TAREAS',
       'RUTINARIO (SI/NO)','FACTORES DE RIESGO','INDICADORES DE RIESGO','EFECTOS POSIBLES','FUENTE','MEDIO',
       'INDIVIDUO','TABLA ND','TABLA NE','NP = (ND*NE)','INTERPRETACIÓN','NC','INTERVENCIÓN','TABLA NR',
-      'N° EXPUESTOS','OBSERVACIONES','PEOR CONSECUENCIA', 
-      'EXISTENCIA REQUISITO LEGAL ESPECIFICO ASOCIADO (SI/NO)','ELIMINACIÓN','SUSTITUCIÓN','CONTROL DE INGENIERIA',
-      'CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA','EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL']
+      'N° EXPUESTOS','OBSERVACIONES','PEOR CONSECUENCIA', 'EXISTENCIA REQUISITO LEGAL ESPECIFICO ASOCIADO (SI/NO)',
+      'ELIMINACIÓN','SUSTITUCIÓN','CONTROL DE INGENIERIA','CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA',
+      'EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL'];
  
     /*Se crea un objeto con el cual la función del excel la va recibir */
     let reportData = {
       data: dataExcel,
       headers: headerData
-    }
+    };
 
     this.exportExcel2(reportData);
   }
@@ -1650,10 +1650,10 @@ export class ValorRiesgoComponent implements OnInit {
       left: { style: 'thin' },
       bottom: { style: 'thin' },
       right: { style: 'thin' }
-    }
+    };
     this.worksheet.getCell(cell).value = title;
     /*Alinea el titulo y lo centra en la celda combinada */
-    this.worksheet.getCell(cell).alignment = { vertical: 'middle', horizontal: 'center' }
+    this.worksheet.getCell(cell).alignment = { vertical: 'middle', horizontal: 'center' };
   }
 
   /*Función  que parametriza las celdas para los encabezados  los cual se requieren combinar las celdas */
@@ -1666,7 +1666,7 @@ export class ValorRiesgoComponent implements OnInit {
       left: { style: 'thin' },
       bottom: { style: 'thin' },
       right: { style: 'thin' }
-    }
+    };
     /* Asigna estilos a la celda combinada según lo que queremos en el titulo */
     let titleRow = this.worksheet.getCell(cell1);
     /*Toma el valor del titulo */
@@ -1677,16 +1677,16 @@ export class ValorRiesgoComponent implements OnInit {
       size: size,
       bold: true,
       color: { argb: colorFont },
-    }
+    };
     /*Alinea el titulo y lo centra en la celda combinada */
-    titleRow.alignment = { vertical: 'middle', horizontal: 'center' }
+    titleRow.alignment = { vertical: 'middle', horizontal: 'center' };
 
     this.worksheet.getCell(cell1).fill = {
       type: 'pattern',
       pattern: 'solid',
       fgColor: { argb: color },
       bgColor: { argb: '' }
-    }
+    };
 
   }
 
@@ -1919,23 +1919,23 @@ export class ValorRiesgoComponent implements OnInit {
         left: { style: 'thin' },
         bottom: { style: 'thin' },
         right: { style: 'thin' }
-      }
+      };
 
       cell.fill = {
         type: 'pattern',
         pattern: 'solid',
         fgColor: { argb: 'A7ACA7' },
         bgColor: { argb: '' }
-      }
+      };
 
       cell.font = {
         name: 'calibri',
         size: 12,
         bold: true
-      }
+      };
 
       /*Alinea el titulo y lo centra en la celda combinada */
-      cell.alignment = { vertical: 'middle', horizontal: 'center' }
+      cell.alignment = { vertical: 'middle', horizontal: 'center' };
 
     });
   }
@@ -1953,25 +1953,25 @@ export class ValorRiesgoComponent implements OnInit {
       pattern: 'solid',
       fgColor: { argb: color },
       bgColor: { argb: '' }
-    }
+    };
     this.worksheet.getCell(`U${fila}`).fill = {
       type: 'pattern',
       pattern: 'solid',
       fgColor: { argb: color },
       bgColor: { argb: '' }
-    }
+    };
     this.worksheet.getCell(`V${fila}`).fill = {
       type: 'pattern',
       pattern: 'solid',
       fgColor: { argb: color },
       bgColor: { argb: '' }
-    }
+    };
     this.worksheet.getCell(`W${fila}`).fill = {
       type: 'pattern',
       pattern: 'solid',
       fgColor: { argb: color },
       bgColor: { argb: '' }
-    }
+    };
   }
 
 }
