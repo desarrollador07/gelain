@@ -42,6 +42,7 @@ export class ExformVfComponent implements OnInit {
   selectvafc13:SelectItem[] = [];
   selectvafc14:SelectItem[] = [];
   selectvafc15:SelectItem[] = [];
+  selectvafc16:SelectItem[] = [];
   cancerSelect: string[] = [];
   haSelect: string[] = [];
   asmaSelect: string[] = [];
@@ -1036,6 +1037,11 @@ limpiarForm(){
                          { label: 'Casi siempre.', value: 2 },
                          { label: 'A veces.', value: 1 },
                          { label: 'Casi nunca.', value: 0 },
+                         { label: 'No Aplica.', value: 2 });
+
+  this.selectvafc16.push({ label: 'Seleccione una opción', value: ''},
+                         { label: 'No.', value: 0 },
+                         { label: 'Si.', value: 1 },
                          { label: 'No Aplica.', value: 2 });
 
   }
