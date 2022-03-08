@@ -103,6 +103,13 @@
                     <td style="height: 43.13px;">{{empleado.emdcedula}}</td>
                 </tr>
             </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="cols.length + 1">
+                        No se encontraron resultados
+                    </td>
+                </tr>
+            </ng-template>
             <ng-template pTemplate="body" let-empleado let-i="rowIndex" let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns" style="height: 43.13px;">

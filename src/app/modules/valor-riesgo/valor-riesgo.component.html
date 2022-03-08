@@ -88,6 +88,13 @@
                     </th>
                 </tr>
             </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="cols.length + 1">
+                        No se encontraron resultados
+                    </td>
+                </tr>
+            </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns">

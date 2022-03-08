@@ -86,6 +86,13 @@
                     </th>
                 </tr>
             </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td [attr.colspan]="cols.length">
+                        No se encontraron resultados
+                    </td>
+                </tr>
+            </ng-template>
             <ng-template pTemplate="body" let-rdEmpleado let-i="rowIndex">
                 <tr>
                     <td style="text-align:left">{{rdEmpleado.emdcedula}}</td>
