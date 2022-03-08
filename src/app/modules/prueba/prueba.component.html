@@ -22,6 +22,7 @@
         <p-table #dt [value]="empresas" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="header">
                 <tr>
+                    <th [ngStyle]="{'width': '8%'}"></th>
                     <th pSortableColumn="empnit" pResizableColumn>Nit
                         <p-sortIcon field="empnit"></p-sortIcon>
                     </th>
@@ -40,21 +41,20 @@
                     <th class="descarto" pSortableColumn="emptelefono" pResizableColumn>Telefono
                         <p-sortIcon field="emptelefono"></p-sortIcon>
                     </th>
-                    <th [ngStyle]="{'width': '8%'}"></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-columns let-emp let-i="rowIndex">
                 <tr>
+                    <td style="text-align:center">
+                        <button pButton pRipple tooltipPosition="top" pTooltip="Editar Registro" icon="pi pi-pencil" pRipple (click)="editEmpresa(emp)" routerLink="/main/prueba/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple tooltipPosition="top" pTooltip="Eliminar Registro" icon="pi pi-trash" pRipple (click)="deleteEmpresa(emp)" class="p-button-rounded p-button-warning"></button>
+                    </td>
                     <td style="text-align:left">{{emp.empnit}}</td>
                     <td style="text-align:left">{{emp.empnombre | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{emp.emprepresentante | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{emp.empdepartamento | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{emp.empciudad | uppercase}}</td>
                     <td style="text-align:left" class="descarto">{{emp.emptelefono}}</td>
-                    <td style="text-align:center">
-                        <button pButton pRipple tooltipPosition="top" pTooltip="Editar Registro" icon="pi pi-pencil" pRipple (click)="editEmpresa(emp)" routerLink="/main/prueba/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton pRipple tooltipPosition="top" pTooltip="Eliminar Registro" icon="pi pi-trash" pRipple (click)="deleteEmpresa(emp)" class="p-button-rounded p-button-warning"></button>
-                    </td>
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">

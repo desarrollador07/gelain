@@ -169,10 +169,6 @@ export class EmpleadosComponent implements OnInit {
         {label: 'Empleados', icon: 'fa fa-fw fa-user'},
       ];
 
-      this.frozenCols = [
-        { field: 'emdcedula', header: 'Cédula', width: '160px' }
-      ];
-  
       this.cols = [
         { field: 'emdnombres', header: 'Nombre', width: '500px' },
         { field: 'emdtraciudad', header: 'Ciudad', width: '250px' },

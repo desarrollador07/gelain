@@ -65,7 +65,7 @@
 </div>
 <div class="card animated fadeIn fast">
     <p-panel header="VALORACIÓN DE RIESGOS">
-        <p-table #dt [value]="vrData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="300px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['idpareanombre','idpnombre','idpfechacrea']" [rows]="10" [paginator]="true" [rowHover]="true">
+        <p-table #dt [value]="vrData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="420px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['idpareanombre','idpnombre','idpfechacrea']" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="caption">
                 <div class="ui-g">
                     <div class="ui-g-2">
@@ -78,7 +78,6 @@
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
-                    <col [ngStyle]="{'width': '120px'}">
                 </colgroup>
             </ng-template>
             <ng-template pTemplate="header" let-columns>
@@ -87,7 +86,6 @@
                         {{col.header}}
                         <p-sortIcon [field]="col.field"></p-sortIcon>
                     </th>
-                    <th></th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-rowData let-columns="columns">
@@ -97,12 +95,14 @@
                             {{rowData[col.field]| date:'dd-MM-yyyy, h:mm a'}}
                         </div>
                         <ng-template #elseBlock>
-                            {{rowData[col.field]| uppercase}}
+                            <div *ngIf="col.field === 'opciones' else elseBlock1" style="text-align: center;">
+                                <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="./form-valor-riesgo" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                                <button pButton tooltipPosition="top" pTooltip="Eliminar Registro" pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deleteVR(rowData.idp_id)" class="p-button-rounded p-button-warning"></button>
+                            </div>
+                            <ng-template #elseBlock1>
+                                {{rowData[col.field]| uppercase}}
+                            </ng-template>
                         </ng-template>
-                    </td>
-                    <td style="text-align:center">
-                        <button pButton tooltipPosition="top" pTooltip="Editar Registro" pRipple icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(rowData)" routerLink="./form-valor-riesgo" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton tooltipPosition="top" pTooltip="Eliminar Registro" pRipple icon="pi pi-trash" title="Eliminar" pRipple (click)="deleteVR(rowData.idp_id)" class="p-button-rounded p-button-warning"></button>
                     </td>
                 </tr>
             </ng-template>

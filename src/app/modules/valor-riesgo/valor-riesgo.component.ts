@@ -191,6 +191,7 @@ export class ValorRiesgoComponent implements OnInit {
 
   datosGenerales(){
     this.frozenCols = [
+      { field: 'opciones', header: 'Opciones', width: '120px' },
       { field: 'idpareanombre', header: 'Area', width: '300px' }
     ];
 
