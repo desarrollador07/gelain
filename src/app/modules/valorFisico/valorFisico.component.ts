@@ -21,6 +21,7 @@ export class ValorfisicoComponent implements OnInit {
   vfData: ValorFisico[] = [];/*Arreglo VF */
   idEmpresa:any;
   loading:boolean = true;
+  validEmp:boolean = false;
   cols:any[] = [];
   msgs: Message[] = [];
   frozenCols: any[] = [];
@@ -139,11 +140,13 @@ export class ValorfisicoComponent implements OnInit {
       }
       if (this.id !== undefined && this.id !== null) {
         this.limpiarData();
+        this.validEmp = false;
         await this.indexData(this.id);
       }
       
       if(sessionStorage.getItem('idEmpresa') === null){
         this.loading = false;
+        this.validEmp = true;
         this.showInfo();
       }
      

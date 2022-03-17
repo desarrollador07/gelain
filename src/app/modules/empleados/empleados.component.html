@@ -136,8 +136,7 @@
         </p-table>
         <br>
         <div style="text-align:center">
-            <button type="button" pButton icon="fa fa-plus" tooltipPosition="top" pTooltip="Agregar Registro" (click)="confirmationForm()" label="Agregar"></button>
-
+            <button type="button" pButton icon="fa fa-plus" [disabled]="validEmp" tooltipPosition="top" pTooltip="Agregar Registro" (click)="confirmationForm()" label="Agregar"></button>
         </div>
     </p-panel>
 </div>

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-    menuMode = "horizontal";
+    menuMode = 'horizontal';
 
     topbarMenuActive: boolean;
 
@@ -19,7 +19,7 @@ export class AppComponent {
 
     layoutMenuScroller: HTMLDivElement;
 
-    lightMenu = true;
+    lightMenu = false;
 
     menuClick: boolean;
 
@@ -63,7 +63,6 @@ export class AppComponent {
     }
 
     onMenuButtonClick(event) {
-
         this.menuClick = true;
         this.topbarMenuActive = false;
 
@@ -80,6 +79,8 @@ export class AppComponent {
     }
 
     onMenuClick($event) {
+        console.log("entro 2");
+        
         this.menuClick = true;
         this.resetMenu = false;
     }
@@ -120,19 +121,19 @@ export class AppComponent {
     }
 
     isHorizontal() {
-        return this.menuMode === "horizontal";
+        return this.menuMode === 'horizontal';
     }
 
     isSlim() {
-        return this.menuMode === "slim";
+        return this.menuMode === 'slim';
     }
 
     isOverlay() {
-        return this.menuMode === "overlay";
+        return this.menuMode === 'overlay';
     }
 
     isStatic() {
-        return this.menuMode === "static";
+        return this.menuMode === 'static';
     }
 
     isMobile() {
@@ -150,6 +151,6 @@ export class AppComponent {
 
     hideOverlayMenu() {
         this.overlayMenuActive = false;
-        this.staticMenuMobileActive = false;
+        this.staticMenuMobileActive = true;
     }
 }

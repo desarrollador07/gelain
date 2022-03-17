@@ -20,6 +20,7 @@ export class ValorRiesgoComponent implements OnInit {
   vrData: ValorRiesgoModel[] = [];/*Arreglo VR */
   idEmpresa:any;
   loading:boolean = true;
+  validEmp:boolean = false;
   msgs: Message[] = [];
   cols:any[] = [];
   frozenCols: any[] = [];
@@ -221,11 +222,13 @@ export class ValorRiesgoComponent implements OnInit {
       }
       if (this.id !== undefined && this.id !== null) {
         this.limpiarData();
+        this.validEmp = false;
         await this.buscarArea(this.id);
         await this.indexData(this.id);
       }
       if(sessionStorage.getItem('idEmpresa') === null){
         this.loading = false;
+        this.validEmp = true;
         this.showInfo();
       }
      

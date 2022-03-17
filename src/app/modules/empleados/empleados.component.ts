@@ -38,6 +38,7 @@ export class EmpleadosComponent implements OnInit {
   fechainicial: Date;
   fechafinal: Date;
   idEmpresa:any;
+  validEmp:boolean = false;
   empleadoData: Empleado[] = [];
   items1: MenuItem[];
   empresas: Empresa[] = [];
@@ -77,7 +78,6 @@ export class EmpleadosComponent implements OnInit {
     /*Consulta Empresas */
     await this.consultaEmpresas();
     this.consultaStore();
-    
     this.dataGeneral();
 
   }
@@ -264,12 +264,14 @@ export class EmpleadosComponent implements OnInit {
         }
         if (this.id !== undefined && this.id !== null) {
           this.limpiarData();
+          this.validEmp = false;
           /*Consulta de Empleados */
           await this.consultaEmpleados(this.id);
         }
   
         if(sessionStorage.getItem('idEmpresa') === null){
           this.loading = false;
+          this.validEmp = true;
           this.showInfo();
         }
        

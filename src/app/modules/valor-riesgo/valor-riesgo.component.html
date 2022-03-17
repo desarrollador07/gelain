@@ -121,7 +121,7 @@
         </p-table>
         <br>
         <div style="text-align:center">
-            <button type="button" pButton tooltipPosition="top" pTooltip="Agregar Registro" icon="fa fa-plus" pRipple routerLink="./form-valor-riesgo" (click)="newVR()" label="Agregar"></button>
+            <button type="button" pButton tooltipPosition="top" [disabled]="validEmp" pTooltip="Agregar Registro" icon="fa fa-plus" pRipple routerLink="./form-valor-riesgo" (click)="newVR()" label="Agregar"></button>
         </div>
     </p-panel>
 </div>

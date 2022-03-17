@@ -1,43 +1,54 @@
-<div class="layout-topbar">
-    <a href="#" id="topbar-menu-button" (click)="app.onMenuButtonClick($event)">
-        <i class="fa fa-angle-left arrow"></i>
-        <i class="fa fa-angle-up mobile"></i>
-    </a>
-    <div class="search-input">
-        <img class="cursor" *ngIf="imgvalidator" src="https://gelainbienestarlaboral.com/GELAIN/img/logotoobar.png" style="width: 92%; height: 137%;padding-bottom: 3%;" alt="logo-GELAIN" routerLink="/main/dashboard">
-    </div>
-    <a href="/#/main/dashboard" class="logo-container">
-        <span style="font-size: 2em;color: aliceblue;">GELAIN Gestión Laboral Integral</span>
-    </a>
-    <a id="topbar-profile-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
-        <span style="font-size: 17px;color: aliceblue;">{{nombre | uppercase}}</span>
-        <img src="{{imagenfin}}" alt="ecuador-layout" class='imgRedonda' />
-        <i class="fa fa-sort-desc"></i>
-    </a>
-
-    <a id="topbar-profile-menu-button" *ngIf="imgvalidator">
-        <span class="ui-float-label">
-            <div class="ui-g" *ngIf="loading" style="text-align: center;">
-                <div class="ui-g-12" style="text-align: center;">
-                    <p-progressSpinner class="animated fadeIn" [style]="{width: '20px', height: '20px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+<div class="layout-wrapper">
+    <div class="layout-topbar">
+        <a href="#" id="topbar-menu-button" (click)="app.onMenuButtonClick($event)">
+            <i class="fa fa-angle-left arrow"></i>
+            <i class="fa fa-angle-up mobile"></i>
+        </a>
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
+            <div class="ui-grid-row">
+                <div class="ui-grid-col-7">
+                    <div class="search-input" *ngIf="imgvalidator">
+                        <img class="cursor" src="https://gelainbienestarlaboral.com/GELAIN/img/logotoobar.png" style="width: 165.69px; height: 43.83px;padding-bottom: 5%;" alt="logo-GELAIN" routerLink="/main/dashboard">
+                    </div>
+                    <a href="/#/main/dashboard" *ngIf="imgvalidator" class="logo-container">
+                        <span style="font-size: 2em;color: aliceblue;">GELAIN Gestión Laboral Integral</span>
+                    </a>
+                </div>
+                <div class="ui-md-12 ui-lg-3 ui-xl-12">
+                    <a class="logo-container">
+                        <span class="ui-float-label">
+                            <div class="ui-g" *ngIf="loading" style="text-align: center;">
+                                <div class="ui-g-12" style="text-align: center;">
+                                    <p-progressSpinner class="animated fadeIn" [style]="{width: '20px', height: '20px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+                                </div>
+                            </div>
+                            <p-dropdown *ngIf="!loading" [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa" >
+                                <ng-template let-empresa>
+                                    <div class="ui-helper-clearfix" style="height: 25px;">
+                                        <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
+                                    </div>
+                                </ng-template>
+                            </p-dropdown>
+                        </span>
+                    </a>
+                </div>
+                <div class="ui-grid-col-2">
+                    <a id="topbar-profile-menu-button" href="#" (click)="app.onTopbarMenuButtonClick($event)">
+                        <span style="font-size: 17px;color: aliceblue;">{{nombre | uppercase}}</span>
+                        <img src="{{imagenfin}}" alt="ecuador-layout" class='imgRedonda' />
+                        <i class="fa fa-sort-desc"></i>
+                    </a>
                 </div>
             </div>
-            <p-dropdown *ngIf="!loading" [options]="empresa" (onChange)="buscarActualizarData()" [(ngModel)]="empresaSelect" placeholder="Seleccione una empresa" >
-                <ng-template let-empresa>
-                    <div class="ui-helper-clearfix" style="height: 25px;">
-                        <div style="font-size:14px;float:left;margin-top:4px">{{empresa.label}}</div>
-                    </div>
-                </ng-template>
-            </p-dropdown>
-        </span>
-    </a>
 
-    <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
-        <li (click)="salir()">
-            <a href="#" (click)="app.onTopbarSubItemClick($event)">
-                <i class="fa fa-fw fa-sign-out"></i>
-                <span class="topbar-item-name">Cerrar sesión</span>
-            </a>
-        </li>
-    </ul>
+            <ul id="topbar-usermenu" class="fadeInDown animated" [ngClass]="{'usermenu-active': app.topbarMenuActive}">
+                <li (click)="salir()">
+                    <a href="#" (click)="app.onTopbarSubItemClick($event)">
+                        <i class="fa fa-fw fa-sign-out"></i>
+                        <span class="topbar-item-name">Cerrar sesión</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

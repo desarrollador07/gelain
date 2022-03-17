@@ -443,7 +443,7 @@ a {
     }
     .layout-wrapper .layout-topbar .logo-container {
         top: -30px;
-        left: -20px;
+        /* left: -20px; */
     }
     .layout-wrapper .layout-topbar #topbar-profile-menu-button {
         position: absolute;
