@@ -1,5 +1,5 @@
 import { DatePipe, Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService, SelectItem } from 'primeng/api';
@@ -26,7 +26,8 @@ export class FormValorRiesgoComponent implements OnInit {
     { label: 'SI', value: 'SI' },
     { label: 'NO', value: 'NO' }
   ];
-  
+  mobWidth: any;
+  imgvalidator: boolean = true;
   constructor(private fb: FormBuilder,
               private _location: Location,
               private valoraRiesgoService: ValoracionRiesgosService,
@@ -5631,6 +5632,24 @@ export class FormValorRiesgoComponent implements OnInit {
     this._location.back();
   }
 
-  
+  validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+    return false;        
+  }
+
+  @HostListener("window:resize", ["$event"])
+    onResize() {
+        this.mobWidth = window.innerWidth;
+        console.log("width",this.mobWidth)
+        if (this.mobWidth <= 1024) {
+            this.imgvalidator = false;
+        } else {
+            this.imgvalidator = true;
+        }
+        console.log("RESIZE", this.imgvalidator);
+        
+  }
 
 }
