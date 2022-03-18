@@ -18,6 +18,7 @@ export class ReporteAreasComponent implements OnInit {
   dataGrafica: any; /*Data que necesita la grafica de areas */
   sales9: any[] = [];/*Data de la tabla de Reporte Áreas con los datos procesados */
   idEmpresa:any;
+  validEmp:boolean = false;
   data: any;
   msgs: Message[] = [];
   fechainicial: Date;
@@ -68,6 +69,7 @@ export class ReporteAreasComponent implements OnInit {
       this.limpiarData();
       if (this.id !== undefined && this.id !== null) {
         this.msgs = [];
+        this.validEmp = false;
       /*Consulta reporte áreas */
       await this.fnConsultarReporteAreas(this.id);
       }
@@ -75,6 +77,7 @@ export class ReporteAreasComponent implements OnInit {
       if(sessionStorage.getItem('idEmpresa') === null){
         this.showInfo();
         this.loading = false;
+        this.validEmp = true;
       }
     });
     this.datosGelain();

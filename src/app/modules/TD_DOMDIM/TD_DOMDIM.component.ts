@@ -35,6 +35,7 @@ export class TD_DOMDIMComponent implements OnInit {
   idtemporal:any;
   nEmpresa:any;
   usuario:any;
+  validEmp:boolean = false;
   msgs: Message[] = [];
   sales: any[] = [];
   sales2: any[] = [];
@@ -1136,6 +1137,7 @@ total_general2 :any[] = [];
       this.limpiarData();
 
       if (this.id !== undefined && this.id !== null) {
+        this.validEmp = false;
         this.msgs = [];
         await this.fnBuscarCatalogos(this.id);
         await this.fnBuscarCatalogosControl(this.id);
@@ -1149,6 +1151,7 @@ total_general2 :any[] = [];
 
       if(sessionStorage.getItem('idEmpresa') === null){
         this.showInfo();
+        this.validEmp = true;
       }
      
     });

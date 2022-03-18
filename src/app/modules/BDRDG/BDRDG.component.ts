@@ -21,6 +21,7 @@ import { DatePipe } from '@angular/common';
 export class BDRDGComponent implements OnInit {
   idEmpresa:any;
   idtemporal:any;
+  validEmp:boolean = false;
   prueba: Empleado;
   pruebas: Empleado[] = [];
   pruebas2: Empleado[] = [];
@@ -92,11 +93,13 @@ export class BDRDGComponent implements OnInit {
       }
       if (this.id !== undefined && this.id !== null) {
         this.limpiarData();
+        this.validEmp = false;
         await this.consultaEmpleados(this.id);
       }
 
       if(sessionStorage.getItem('idEmpresa') === null){
         this.loading = false;
+        this.validEmp = true;
         this.showInfo();
       }
      

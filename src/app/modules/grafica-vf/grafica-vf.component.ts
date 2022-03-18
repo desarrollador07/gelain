@@ -19,6 +19,7 @@ export class GraficaVfComponent implements OnInit {
 
   seriesDataF: number[] = [];
   seriesDataM: number[] = [];
+  validEmp:boolean = false;
   categories: string[] = ["Bajo Peso", "Peso Normal", "Sobrepeso", "Obesidad T1", "Obesidad T2","Obesidad T3"];
   seriesData2F: number[] = [];
   seriesData2M: number[] = [];
@@ -871,12 +872,14 @@ export class GraficaVfComponent implements OnInit {
       }
       if (this.id !== undefined && this.id !== null) {
         this.loading = false;
+        this.validEmp = false;
         this.msgs = [];
         await this.consultaVF(this.id);
       }
 
       if(sessionStorage.getItem('idEmpresa') === null){
         this.loading = false;
+        this.validEmp = true;
         this.showInfo2();
       }
     });

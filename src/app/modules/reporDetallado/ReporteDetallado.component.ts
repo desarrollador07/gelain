@@ -61,7 +61,7 @@ export class ReporteDetalladoComponent implements OnInit {
     { field: 'emdzona', header: 'Sede' },
     { field: 'emdfechamod', header: 'Fecha Modificación' } 
   ];
-
+  validEmp:boolean = false;
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
               private datepipe: DatePipe,
@@ -82,6 +82,7 @@ export class ReporteDetalladoComponent implements OnInit {
       }
       if (id !== undefined && id !== null) {
         this.limpiarData();
+        this.validEmp = false;
       /*Consulta de reportes por empleado */
       await this.consultarReportes(id);
       }
@@ -89,6 +90,7 @@ export class ReporteDetalladoComponent implements OnInit {
       if(sessionStorage.getItem('idEmpresa') === null){
         this.loading = false;
         this.showInfo();
+        this.validEmp = true;
       }
     });
 
