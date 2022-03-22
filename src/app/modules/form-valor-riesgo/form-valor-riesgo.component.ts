@@ -5641,15 +5641,12 @@ export class FormValorRiesgoComponent implements OnInit {
 
   @HostListener("window:resize", ["$event"])
     onResize() {
-        this.mobWidth = window.innerWidth;
-        console.log("width",this.mobWidth)
-        if (this.mobWidth <= 1024) {
-            this.imgvalidator = false;
-        } else {
-            this.imgvalidator = true;
-        }
-        console.log("RESIZE", this.imgvalidator);
-        
+    this.mobWidth = window.innerWidth;
+    if (this.mobWidth <= 1024) {
+        this.imgvalidator = false;
+    } else {
+        this.imgvalidator = true;
+    }  
   }
 
 }
