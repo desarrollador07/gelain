@@ -5649,4 +5649,11 @@ export class FormValorRiesgoComponent implements OnInit {
     }  
   }
 
+  validaLogNumber(value:any){
+    console.log("value", value)
+    if( value.length > 2 ) {
+      value = value.slice(0,2)
+    }
+  }
+
 }
