@@ -73,8 +73,8 @@
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Telefono</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empTelefono"></p-message>
-                        <p-message severity="error" text="la cantidad minima son 7 caracteres" *ngIf="empTelefonomin"></p-message>
-                        <p-message severity="error" text="la cantidad maxima son 10 caracteres" *ngIf="empTelefonomax"></p-message>
+                        <p-message severity="error" text="La cantidad minima son 7 caracteres" *ngIf="empTelefonomin"></p-message>
+                        <p-message severity="error" text="La cantidad maxima son 10 caracteres" *ngIf="empTelefonomax"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
@@ -83,7 +83,7 @@
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empActiva"></p-message>
                     </div>
-                    <div class="ui-g-1" style="text-align: right;">
+                    <div class="ui-g-1" style="text-align: right;" *ngIf="bandera">
                         <button pButton pRipple tooltipPosition="top" type="button" pTooltip="Copiar" icon="pi pi-copy" pRipple (click)="copyToClipBoard('f1')" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                     </div>
                     <div class="ui-g-3" *ngIf="bandera">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-7"></div>
-                    <div class="ui-g-1" style="text-align: right;">
+                    <div class="ui-g-1" style="text-align: right;" *ngIf="bandera">
                         <button pButton pRipple tooltipPosition="top" type="button" pTooltip="Copiar" icon="pi pi-copy" pRipple (click)="copyToClipBoard('f2')" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                     </div>
                     <div class="ui-g-3" *ngIf="bandera">
