@@ -18,7 +18,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="empNit"  formControlName="empnit" type="number" pInputText> 
+                            <input   [class.is-invalid]="empNit" maxlength="20" formControlName="empnit" type="number" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nit</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empNit"></p-message>
@@ -26,7 +26,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="empNombre"   formControlName="empnombre" type="text" pInputText> 
+                            <input  [class.is-invalid]="empNombre" maxlength="60"  formControlName="empnombre" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empNombre"></p-message>
@@ -34,7 +34,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="empRepresentante"   formControlName="emprepresentante" type="text" pInputText> 
+                            <input  [class.is-invalid]="empRepresentante" maxlength="60"  formControlName="emprepresentante" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Representante</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empRepresentante"></p-message>
@@ -44,7 +44,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="empDepartamento"    formControlName="empdepartamento" type="text" pInputText> 
+                            <input  [class.is-invalid]="empDepartamento" maxlength="60"   formControlName="empdepartamento" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Departamento</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empDepartamento"></p-message>
@@ -52,7 +52,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="empCiudad"  formControlName="empciudad" type="text" pInputText> 
+                            <input   [class.is-invalid]="empCiudad" maxlength="60" formControlName="empciudad" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Ciudad</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empCiudad"></p-message>
@@ -60,7 +60,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="empDireccion"   formControlName="empdireccion" type="text" pInputText> 
+                            <input  [class.is-invalid]="empDireccion" maxlength="60"  formControlName="empdireccion" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Direccion</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empDireccion"></p-message>
@@ -69,7 +69,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="empTelefono"   formControlName="emptelefono" type="text" pInputText> 
+                            <input  [class.is-invalid]="empTelefono" maxlength="60"  formControlName="emptelefono" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Telefono</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empTelefono"></p-message>
