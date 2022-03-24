@@ -12,48 +12,15 @@
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
     <p-panel header="NUEVA AREA">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
-
-
-
-
-
             <fieldset>
                 <legend><b>Informacion</b></legend>
-                <!--  <div class="ui-g-12 ui-md-6 ui-lg-4">
-                    <span class="ui-float-label">
-                        <input   style="width : 60%; heigth : 1%"  formControlName="areempresa" type="text" pInputText> 
-                        <label for="float-input"  style="font-size: 13px; font-weight: bold;">Empresa</label>
-                    </span>
-
-                </div> -->
                 <div class="ui-g-12 ui-md-6 ui-lg-4">
                     <span class="ui-float-label">
-                        <input   style="width : 60%; heigth : 1%"  formControlName="arenombre" type="text" pInputText> 
+                        <input   style="width : 60%;" maxlength="60"  formControlName="arenombre" type="text" pInputText> 
                         <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
                     </span>
-
                 </div>
-                <!--                 <div class="ui-g-12 ui-md-6 ui-lg-4">
-                    <span class="ui-float-label">
-                        <input   style="width : 60%; heigth : 1%"  formControlName="arefechaini" type="text" pInputText> 
-                        <label for="float-input"  style="font-size: 13px; font-weight: bold;">Fecha inicial</label>
-                    </span>
-
-                </div>
-                <div class="ui-g-12 ui-md-6 ui-lg-4">
-                    <span class="ui-float-label">
-                        <input   style="width : 60%; heigth : 1%"  formControlName="areactivo" type="text" pInputText> 
-                        <label for="float-input"  style="font-size: 13px; font-weight: bold;">Activo</label>
-                    </span>
-
-                </div> -->
-
-
             </fieldset>
-
-
-
-
             <br>
             <div style="text-align:center">
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;

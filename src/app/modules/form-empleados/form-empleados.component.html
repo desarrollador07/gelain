@@ -31,7 +31,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdCedula"  formControlName="emdcedula" type="number" pInputText> 
+                            <input   [class.is-invalid]="emdCedula" maxlength="15" formControlName="emdcedula" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Numero de Identificacion</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdCedula"></p-message>
@@ -39,7 +39,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input [class.is-invalid]="emdNombres"  formControlName="emdnombres" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input [class.is-invalid]="emdNombres" maxlength="100" formControlName="emdnombres" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; "> Nombre</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdNombres"></p-message>
@@ -47,7 +47,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdApellidos"  formControlName="emdapellidos" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="emdApellidos" maxlength="100" formControlName="emdapellidos" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Apellido</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdApellidos"></p-message>
@@ -88,7 +88,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdProfesion"  formControlName="emdprofesion" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input   [class.is-invalid]="emdProfesion" maxlength="100" formControlName="emdprofesion" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ocupacion o profesion</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdProfesion"></p-message>
@@ -105,7 +105,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdCiudad"   formControlName="emdciudad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="emdCiudad" maxlength="100"  formControlName="emdciudad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ciudad</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdCiudad"></p-message>
@@ -113,7 +113,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input    [class.is-invalid]="emDepartamento"  formControlName="emddepartamento" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input    [class.is-invalid]="emDepartamento" maxlength="100" formControlName="emddepartamento" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Departamento</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emDepartamento"></p-message>
@@ -121,7 +121,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdDireccion"  formControlName="emddireccion" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input   [class.is-invalid]="emdDireccion" maxlength="100" formControlName="emddireccion" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Direccion</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdDireccion"></p-message>
@@ -131,7 +131,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdTelefono"   formControlName="emdtelefono" type="text" pInputText> 
+                            <input   [class.is-invalid]="emdTelefono" maxlength="100"  formControlName="emdtelefono" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Telefono</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTelefono"></p-message>
@@ -141,7 +141,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="emdEmail"  formControlName="emdemail" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input   [class.is-invalid]="emdEmail" maxlength="100" formControlName="emdemail" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Correo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdEmail"></p-message>
@@ -185,7 +185,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdTraCiudad"   formControlName="emdtraciudad" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="emdTraCiudad" maxlength="100"  formControlName="emdtraciudad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ciudad</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraCiudad"></p-message>
@@ -193,7 +193,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdTraDepartamento"   formControlName="emdtradepartamento" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="emdTraDepartamento" maxlength="100"  formControlName="emdtradepartamento" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Departamento</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTraDepartamento"></p-message>
@@ -202,7 +202,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdZona"   formControlName="emdzona" type="text"   pInputText> 
+                            <input  [class.is-invalid]="emdZona"  maxlength="50" formControlName="emdzona" type="text"   pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Sede</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdZona"></p-message>
@@ -211,7 +211,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdCargo"   formControlName="emdcargo" type="text" pInputText style="text-transform: uppercase;"> 
+                            <input  [class.is-invalid]="emdCargo" maxlength="60"  formControlName="emdcargo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdCargo"></p-message>
@@ -255,7 +255,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input [class.is-invalid]="emdTiempolab"  formControlName="emdtiempolab" type="number" min="-1" (ngModelChange)="numeromax()"  pInputText> 
+                            <input [class.is-invalid]="emdTiempolab" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" formControlName="emdtiempolab" type="number" min="-1" (ngModelChange)="numeromax()"  pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Cuantos Años lleva en la Empresa</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiempolab"></p-message>
@@ -264,7 +264,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-3">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="emdTiemcargo"   formControlName="emdtiemcargo" type="number" min="-1" max="{{nummax}}" (ngModelChange)="validaciontiempos()"  pInputText> 
+                            <input  [class.is-invalid]="emdTiemcargo"   oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" formControlName="emdtiemcargo" type="number" min="-1" max="{{nummax}}" (ngModelChange)="validaciontiempos()"  pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Cuantos años en el Cargo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTiemcargo"></p-message>

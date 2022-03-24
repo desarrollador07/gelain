@@ -123,34 +123,24 @@
 <form [formGroup]="userformArea" (ngSubmit)="onSubmit2()">
     <p-panel header="NUEVA AREA">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
-
-
-
-
-
             <fieldset>
                 <legend><b>NOMBRE DEL AREAS</b></legend>
                 <div class="ui-g-12 ui-md-6 ui-lg-4">
                     <span class="ui-float-label">
-                        <input   style="width : 60%;"  formControlName="arenombre" type="text" pInputText> 
+                        <input   style="width : 60%;" maxlength="60" formControlName="arenombre" type="text" pInputText> 
                         <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
                     </span>
 
                 </div>
             </fieldset>
-
-
             <br>
             <div style="text-align:center">
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userformArea.valid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/listarEmpresa']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
-
         </div>
-
     </p-panel>
     <!-- <pre>{{userform.value | json}}</pre> -->
-
 </form>
 
 <div class="card">
