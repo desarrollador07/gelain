@@ -234,7 +234,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbioderani_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                              <input  formControlName="idpbioderani_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -242,7 +242,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -250,7 +250,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -266,7 +266,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-12 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_elimina" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -274,7 +274,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-12 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -282,7 +282,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-12 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -290,7 +290,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-12 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -298,7 +298,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-12 ui-lg-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioderani_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpbioderani_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -313,25 +313,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_efectos" type="text" pInputText> 
+                                              <input formControlName="idpbiohongo_efectos" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiohongo_ctrlfuente" type="text" pInputText> 
+                                              <input formControlName="idpbiohongo_ctrlfuente" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                           </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_ctrlmedio" type="text" pInputText> 
+                                              <input  formControlName="idpbiohongo_ctrlmedio" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_ctrlindividuo" type="text" pInputText> 
+                                              <input  formControlName="idpbiohongo_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -340,7 +340,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                  <input formControlName="idpbiohongo_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
+                                                  <input formControlName="idpbiohongo_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)"  type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
                                                   <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -349,7 +349,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                  <input formControlName="idpbiohongo_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
+                                                  <input formControlName="idpbiohongo_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)"  type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart2NP()" pInputText> 
                                                   <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -372,7 +372,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                  <input formControlName="idpbiohongo_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart2NR()" pInputText> 
+                                                  <input formControlName="idpbiohongo_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart2NR()" pInputText> 
                                                   <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -392,7 +392,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiohongo_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                              <input  formControlName="idpbiohongo_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -400,7 +400,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -408,7 +408,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -424,7 +424,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_elimina" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -432,7 +432,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -440,7 +440,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -448,7 +448,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -456,7 +456,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiohongo_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpbiohongo_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -471,25 +471,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_efectos" type="text" pInputText> 
+                                              <input formControlName="idpbiobacterias_efectos" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiobacterias_ctrlfuente" type="text" pInputText> 
+                                              <input formControlName="idpbiobacterias_ctrlfuente" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_ctrlmedio" type="text" pInputText> 
+                                              <input  formControlName="idpbiobacterias_ctrlmedio" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_ctrlindividuo" type="text" pInputText> 
+                                              <input  formControlName="idpbiobacterias_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -498,7 +498,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                  <input formControlName="idpbiobacterias_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
+                                                  <input formControlName="idpbiobacterias_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
                                                   <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -507,7 +507,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                  <input formControlName="idpbiobacterias_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
+                                                  <input formControlName="idpbiobacterias_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart3NP()" pInputText> 
                                                   <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -530,7 +530,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                  <input formControlName="idpbiobacterias_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart3NR()" pInputText> 
+                                                  <input formControlName="idpbiobacterias_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart3NR()" pInputText> 
                                                   <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -550,7 +550,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                              <input  formControlName="idpbiobacterias_numpuestos" type="number" pInputText> 
+                                              <input  formControlName="idpbiobacterias_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -558,7 +558,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -566,7 +566,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -582,7 +582,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_elimina" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -590,7 +590,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -598,7 +598,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -606,7 +606,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -614,7 +614,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiobacterias_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpbiobacterias_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -629,25 +629,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_efectos" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpbiovirus_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpbiovirus_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpbiovirus_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpbiovirus_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -656,7 +656,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpbiovirus_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
+                                                    <input formControlName="idpbiovirus_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -665,7 +665,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpbiovirus_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
+                                                    <input formControlName="idpbiovirus_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart4NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -688,7 +688,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpbiovirus_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart4NR()" pInputText> 
+                                                    <input formControlName="idpbiovirus_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart4NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -708,7 +708,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpbiovirus_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpbiovirus_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -716,7 +716,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpbiovirus_observaciones" type="text" pInputText> 
+                                              <input formControlName="idpbiovirus_observaciones" maxlength="512" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -724,7 +724,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -740,7 +740,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_elimina" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -748,7 +748,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -756,7 +756,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -764,7 +764,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -772,7 +772,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbiovirus_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpbiovirus_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -787,25 +787,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_efectos" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpbioparasitos_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpbioparasitos_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpbioparasitos_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpbioparasitos_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -814,7 +814,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpbioparasitos_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
+                                                    <input formControlName="idpbioparasitos_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -823,7 +823,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpbioparasitos_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
+                                                    <input formControlName="idpbioparasitos_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart5NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -846,7 +846,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpbioparasitos_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart5NR()" pInputText> 
+                                                    <input formControlName="idpbioparasitos_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoBioPart5NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -866,7 +866,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpbioparasitos_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpbioparasitos_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -874,7 +874,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -882,7 +882,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -898,7 +898,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_elimina" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -906,7 +906,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -914,7 +914,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -922,7 +922,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -930,7 +930,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpbioparasitos_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpbioparasitos_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -956,25 +956,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_efectos" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargesfuerzos_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpcargesfuerzos_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargesfuerzos_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpcargesfuerzos_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -983,7 +983,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargesfuerzos_tb_nd"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
+                                                    <input formControlName="idpcargesfuerzos_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -992,7 +992,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargesfuerzos_tb_ne"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
+                                                    <input formControlName="idpcargesfuerzos_tb_ne"  oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart1NP()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1015,7 +1015,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargesfuerzos_tb_nc"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart1NR()" type="number" pInputText> 
+                                                    <input formControlName="idpcargesfuerzos_tb_nc"  oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart1NR()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1035,7 +1035,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargesfuerzos_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                                <input  formControlName="idpcargesfuerzos_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -1043,7 +1043,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -1051,7 +1051,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -1067,7 +1067,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_elimina" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -1075,7 +1075,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -1083,7 +1083,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -1091,7 +1091,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -1099,7 +1099,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargesfuerzos_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpcargesfuerzos_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -1114,25 +1114,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_efectos" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargmovimiento_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpcargmovimiento_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargmovimiento_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpcargmovimiento_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -1141,7 +1141,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargmovimiento_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
+                                                    <input formControlName="idpcargmovimiento_tb_nd"  oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1150,7 +1150,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargmovimiento_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
+                                                    <input formControlName="idpcargmovimiento_tb_ne"  oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart2NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1173,7 +1173,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargmovimiento_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart2NR()" pInputText> 
+                                                    <input formControlName="idpcargmovimiento_tb_nc"  oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart2NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1193,7 +1193,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargmovimiento_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                                <input  formControlName="idpcargmovimiento_numpuestos"  oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -1201,7 +1201,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -1209,7 +1209,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -1225,7 +1225,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_elimina" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -1233,7 +1233,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -1241,7 +1241,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -1249,7 +1249,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -1257,7 +1257,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargmovimiento_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpcargmovimiento_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -1272,25 +1272,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_efectos" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargvoz_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpcargvoz_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargvoz_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpcargvoz_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -1299,7 +1299,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargvoz_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
+                                                    <input formControlName="idpcargvoz_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1308,7 +1308,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargvoz_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
+                                                    <input formControlName="idpcargvoz_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart3NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1331,7 +1331,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargvoz_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart3NR()" pInputText> 
+                                                    <input formControlName="idpcargvoz_tb_nc"  oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart3NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1351,7 +1351,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargvoz_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpcargvoz_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -1359,7 +1359,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -1367,7 +1367,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -1383,7 +1383,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_elimina" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -1391,7 +1391,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -1399,7 +1399,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -1407,7 +1407,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -1415,7 +1415,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargvoz_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpcargvoz_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -1430,25 +1430,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_efectos" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargpie_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpcargpie_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargpie_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpcargpie_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -1457,7 +1457,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargpie_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
+                                                    <input formControlName="idpcargpie_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1466,7 +1466,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargpie_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
+                                                    <input formControlName="idpcargpie_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart4NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1489,7 +1489,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargpie_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart4NR()" pInputText> 
+                                                    <input formControlName="idpcargpie_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart4NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1509,7 +1509,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargpie_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpcargpie_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -1517,7 +1517,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -1525,7 +1525,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -1541,7 +1541,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_elimina" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -1549,7 +1549,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -1557,7 +1557,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -1565,7 +1565,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -1573,7 +1573,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargpie_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpcargpie_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -1588,25 +1588,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_efectos" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargsentado_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpcargsentado_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargsentado_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpcargsentado_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -1615,7 +1615,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargsentado_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
+                                                    <input formControlName="idpcargsentado_tb_nd"  oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1624,7 +1624,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargsentado_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
+                                                    <input formControlName="idpcargsentado_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart5NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1647,7 +1647,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpcargsentado_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart5NR()" pInputText> 
+                                                    <input formControlName="idpcargsentado_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoCarFPart5NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                  </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1667,7 +1667,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpcargsentado_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpcargsentado_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -1675,7 +1675,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -1683,7 +1683,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -1699,7 +1699,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_elimina" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -1707,7 +1707,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -1715,7 +1715,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -1723,7 +1723,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -1731,7 +1731,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpcargsentado_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpcargsentado_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -1757,25 +1757,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_efectos" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricobaja_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpelectricobaja_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricobaja_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpelectricobaja_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -1784,7 +1784,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricobaja_tb_nd"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart1NP()" type="number" pInputText> 
+                                                    <input formControlName="idpelectricobaja_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart1NP()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1793,7 +1793,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricobaja_tb_ne"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart1NP()" type="number" pInputText> 
+                                                    <input formControlName="idpelectricobaja_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart1NP()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1816,7 +1816,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricobaja_tb_nc"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart1NR()" type="number" pInputText> 
+                                                    <input formControlName="idpelectricobaja_tb_nc"  oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart1NR()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1836,7 +1836,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricobaja_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                                <input  formControlName="idpelectricobaja_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -1844,7 +1844,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -1852,7 +1852,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -1868,7 +1868,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_elimina" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -1876,7 +1876,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -1884,7 +1884,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -1892,7 +1892,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -1900,7 +1900,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricobaja_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpelectricobaja_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -1915,25 +1915,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_efectos" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricoalta_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpelectricoalta_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricoalta_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpelectricoalta_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -1942,7 +1942,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricoalta_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart2NP()" pInputText> 
+                                                    <input formControlName="idpelectricoalta_tb_nd"  oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart2NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1951,7 +1951,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricoalta_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart2NP()" pInputText> 
+                                                    <input formControlName="idpelectricoalta_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart2NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1974,7 +1974,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricoalta_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart2NR()" pInputText> 
+                                                    <input formControlName="idpelectricoalta_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart2NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -1994,7 +1994,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricoalta_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                                <input  formControlName="idpelectricoalta_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -2002,7 +2002,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_observaciones" maxlength="512"  type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -2010,7 +2010,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -2026,7 +2026,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_elimina" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -2042,7 +2042,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -2050,7 +2050,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -2058,7 +2058,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricoalta_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpelectricoalta_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -2073,25 +2073,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_efectos" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricocables_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpelectricocables_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricocables_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpelectricocables_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -2100,7 +2100,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricocables_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart3NP()" pInputText> 
+                                                    <input formControlName="idpelectricocables_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart3NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2109,7 +2109,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricocables_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart3NP()" pInputText> 
+                                                    <input formControlName="idpelectricocables_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart3NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2132,7 +2132,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpelectricocables_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart3NR()" pInputText> 
+                                                    <input formControlName="idpelectricocables_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoElecPart3NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2152,7 +2152,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpelectricocables_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpelectricocables_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -2160,7 +2160,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_observaciones" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_observaciones" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -2168,7 +2168,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -2184,7 +2184,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_elimina" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -2192,7 +2192,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -2200,7 +2200,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -2208,7 +2208,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -2216,7 +2216,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpelectricocables_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpelectricocables_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -2242,25 +2242,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_efectos" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisicoilumdef_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpfisicoilumdef_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisicoilumdef_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpfisicoilumdef_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -2269,7 +2269,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisicoilumdef_tb_nd"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart1NP()" type="number" pInputText> 
+                                                    <input formControlName="idpfisicoilumdef_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart1NP()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2278,7 +2278,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisicoilumdef_tb_ne"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart1NP()" type="number" pInputText> 
+                                                    <input formControlName="idpfisicoilumdef_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart1NP()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2301,7 +2301,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisicoilumdef_tb_nc"  (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart1NR()" type="number" pInputText> 
+                                                    <input formControlName="idpfisicoilumdef_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart1NR()" type="number" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2321,7 +2321,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisicoilumdef_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                                <input  formControlName="idpfisicoilumdef_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -2329,7 +2329,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpfisicoilumdef_observaciones" type="text" pInputText> 
+                                              <input formControlName="idpfisicoilumdef_observaciones" maxlength="512" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -2337,7 +2337,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -2353,7 +2353,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_elimina" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -2361,7 +2361,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -2369,7 +2369,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -2377,7 +2377,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -2385,7 +2385,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumdef_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumdef_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -2400,25 +2400,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_efectos" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisicoilumexceso_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpfisicoilumexceso_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisicoilumexceso_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpfisicoilumexceso_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -2427,7 +2427,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisicoilumexceso_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart2NP()" pInputText> 
+                                                    <input formControlName="idpfisicoilumexceso_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart2NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2436,7 +2436,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisicoilumexceso_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart2NP()" pInputText> 
+                                                    <input formControlName="idpfisicoilumexceso_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart2NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2459,7 +2459,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisicoilumexceso_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart2NR()" pInputText> 
+                                                    <input formControlName="idpfisicoilumexceso_tb_nc" oninput="if( this.value.length > 3) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart2NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2479,7 +2479,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisicoilumexceso_numpuestos" (keypress)='validaNumericos($event)' type="number" pInputText> 
+                                                <input  formControlName="idpfisicoilumexceso_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" (keypress)='validaNumericos($event)' type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -2487,7 +2487,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpfisicoilumexceso_observaciones" type="text" pInputText> 
+                                              <input formControlName="idpfisicoilumexceso_observaciones" maxlength="512" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -2495,7 +2495,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -2511,7 +2511,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_elimina" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -2519,7 +2519,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -2527,7 +2527,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -2535,7 +2535,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -2543,7 +2543,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisicoilumexceso_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpfisicoilumexceso_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
@@ -2558,25 +2558,25 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_efectos" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_efectos" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">EFECTOS POSIBLES</label>     
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_ctrlfuente" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_ctrlfuente" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - FUENTE</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisiconoradiaciones_ctrlmedio" type="text" pInputText> 
+                                                <input  formControlName="idpfisiconoradiaciones_ctrlmedio" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black;  ">CONTROL EXISTENTE - MEDIO</label>
                                             </span>
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisiconoradiaciones_ctrlindividuo" type="text" pInputText> 
+                                                <input  formControlName="idpfisiconoradiaciones_ctrlindividuo" maxlength="128" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL EXISTENTE - INDIVIDUO</label>
                                             </span>
                                         </div>
@@ -2585,7 +2585,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisiconoradiaciones_tb_nd" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart8NP()" pInputText> 
+                                                    <input formControlName="idpfisiconoradiaciones_tb_nd" oninput="if( this.value.length > 2 ) this.value = this.value.slice(0,2)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart8NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px; color: black;">TABLA ND</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op3.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2594,7 +2594,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisiconoradiaciones_tb_ne" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart8NP()" pInputText> 
+                                                    <input formControlName="idpfisiconoradiaciones_tb_ne" oninput="if( this.value.length > 1 ) this.value = this.value.slice(0,1)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart8NP()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NE</label>
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op2.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2617,7 +2617,7 @@
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <div class="ui-inputgroup">
                                                 <span class="ui-float-label">
-                                                    <input formControlName="idpfisiconoradiaciones_tb_nc" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart8NR()" pInputText> 
+                                                    <input formControlName="idpfisiconoradiaciones_tb_nc" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)" type="number" (keypress)='validaNumericos($event)' (ngModelChange)="fnCalculoFPart8NR()" pInputText> 
                                                     <label for="float-input" style="font-size: 15px;color: black; ">TABLA NC DIGITADO</label>     
                                                 </span>
                                                 <span class="ui-inputgroup-addon span-border" (click)="op1.toggle($event)"><i class="pi pi-search"  style="font-size:16px"></i></span>
@@ -2637,7 +2637,7 @@
                                         </div>
                                         <div class="ui-g-12 ui-md-6 ui-lg-3">
                                             <span class="ui-float-label">
-                                                <input  formControlName="idpfisiconoradiaciones_numpuestos" type="number" pInputText> 
+                                                <input  formControlName="idpfisiconoradiaciones_numpuestos" oninput="if( this.value.length > 4 ) this.value = this.value.slice(0,4)" type="number" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">N° EXPUESTOS</label>
                                             </span>
                                         </div>
@@ -2645,7 +2645,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                              <input formControlName="idpfisiconoradiaciones_observaciones" type="text" pInputText> 
+                                              <input formControlName="idpfisiconoradiaciones_observaciones" maxlength="512" type="text" pInputText> 
                                               <label for="float-input" style="font-size: 15px;color: black; ">OBSERVACIONES</label>     
                                             </span>
                                         </div>
@@ -2653,7 +2653,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_peorconsecue" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_peorconsecue" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">PEOR CONSECUENCIA</label>     
                                             </span>
                                         </div>
@@ -2669,7 +2669,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_elimina" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_elimina" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">ELIMINACIÓN</label>     
                                             </span>
                                         </div>
@@ -2677,7 +2677,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_sustitucion" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_sustitucion" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">SUSTITUCIÓN</label>     
                                             </span>
                                         </div>
@@ -2685,7 +2685,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_ctrlingenieria" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_ctrlingenieria" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROL DE INGENIERIA</label>     
                                             </span>
                                         </div>
@@ -2693,7 +2693,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_ctrladmin" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_ctrladmin" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">CONTROLES ADMINISTRATIVOS SEÑALIZACIÓN, ADVERTENCIA</label>     
                                             </span>
                                         </div>
@@ -2701,7 +2701,7 @@
                                     <div class="ui-g" style="margin: 10px;">
                                         <div class="ui-g-12">
                                             <span class="ui-float-label">
-                                                <input formControlName="idpfisiconoradiaciones_equipoeleme" type="text" pInputText> 
+                                                <input formControlName="idpfisiconoradiaciones_equipoeleme" maxlength="512" type="text" pInputText> 
                                                 <label for="float-input" style="font-size: 15px;color: black; ">EQUIPO / ELEMENTOS DE PROTECCIÓN PERSONAL</label>     
                                             </span>
                                         </div>
