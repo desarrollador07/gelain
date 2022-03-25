@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 /*Modulos */
@@ -69,6 +69,8 @@ export class ExformVfComponent implements OnInit {
   id:number;
   validSexoFem:boolean = false;
   validSexoMas:boolean = false;
+  mobWidth: any;
+  imgvalidator: boolean = true;
   
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
@@ -76,6 +78,7 @@ export class ExformVfComponent implements OnInit {
               private route: ActivatedRoute,
               private fb: FormBuilder,
               private _messageService: MessageService) {
+                this.onResize();
                 this.id = Number(this.route.snapshot.paramMap.get("id"));  
               }
   
@@ -431,7 +434,7 @@ export class ExformVfComponent implements OnInit {
   formulario(){
     this.userform = this.fb.group({
       vafid:[''],
-      vafidempresa: ['', Validators.required],
+      vafidempresa: [this.id, Validators.required],
       vafidarea: ['', Validators.required],
       vafidnombre: ['', Validators.required],
       vafsede: ['', Validators.required],
@@ -917,10 +920,11 @@ limpiarForm(){
   async buscarArea(){
 
     let id:number =  0;
-  
-    id = this.userform.value.vafidempresa;
     
+    id = this.id;
+  
     this.area =[];
+
     await this.areasServices.buscarByArea(id).toPromise().then((data:any)=>{
       this.areas = data;
       this.areas.map(x=>{
@@ -1068,4 +1072,13 @@ limpiarForm(){
     }
   }
 
+  @HostListener("window:resize", ["$event"])
+    onResize() {
+    this.mobWidth = window.innerWidth;
+    if (this.mobWidth <= 1024) {
+        this.imgvalidator = false;
+    } else {
+        this.imgvalidator = true;
+    }  
+  }
 }

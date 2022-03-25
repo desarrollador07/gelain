@@ -63,7 +63,7 @@
 </div>
 <div class="card">
     <p-panel header="Empleados">
-        <p-table #dt [value]="pruebas" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa', 'emdfechareg']"
+        <p-table #dt [value]="pruebas" [columns]="cols" [responsive]="true" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="180px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa', 'emdfechareg']"
             [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="caption">
                 <div class="ui-helper-clearfix" style="text-align: left">

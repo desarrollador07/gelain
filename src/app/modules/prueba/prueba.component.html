@@ -19,7 +19,8 @@
 </div>
 <div class="card">
     <p-panel header="Empresas">
-        <p-table #dt [value]="empresas" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
+        <p-table #dt [value]="empresas" [responsive]="true" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['empid','empnit','empnombre','emprepresentante','empdepartamento','empciudad','emptelefono']" [resizableColumns]="true" [rows]="10" [paginator]="true"
+            [rowHover]="true">
             <ng-template pTemplate="header">
                 <tr>
                     <th [ngStyle]="{'width': '8%'}"></th>

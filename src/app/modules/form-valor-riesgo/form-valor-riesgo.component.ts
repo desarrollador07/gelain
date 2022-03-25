@@ -35,6 +35,7 @@ export class FormValorRiesgoComponent implements OnInit {
               private router: Router,
               private _messageService: MessageService,
               private datepipe: DatePipe) { 
+                this.onResize();
                 this.idEmpresa = Number(sessionStorage.getItem('idEmpresa')); 
                 this.userMod = sessionStorage.getItem('user');
                 this.fechaActual = this.datepipe.transform(new Date(), 'yyyy-MM-dd');
@@ -5647,13 +5648,6 @@ export class FormValorRiesgoComponent implements OnInit {
     } else {
         this.imgvalidator = true;
     }  
-  }
-
-  validaLogNumber(value:any){
-    console.log("value", value)
-    if( value.length > 2 ) {
-      value = value.slice(0,2)
-    }
   }
 
 }

@@ -16,7 +16,7 @@
             <fieldset>
                 <legend><b>INFORMACION DE LA EMPRESA</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="empNit" maxlength="20" formControlName="empnit" type="number" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nit</label>
@@ -24,7 +24,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empNit"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="empNombre" maxlength="60"  formControlName="empnombre" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre</label>
@@ -32,7 +32,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empNombre"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="empRepresentante" maxlength="60"  formControlName="emprepresentante" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Representante</label>
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="empDepartamento" maxlength="60"   formControlName="empdepartamento" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Departamento</label>
@@ -50,7 +50,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empDepartamento"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="empCiudad" maxlength="60" formControlName="empciudad" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Ciudad</label>
@@ -58,7 +58,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empCiudad"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="empDireccion" maxlength="60"  formControlName="empdireccion" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Direccion</label>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="empTelefono" maxlength="60"  formControlName="emptelefono" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Telefono</label>
@@ -77,16 +77,16 @@
                         <p-message severity="error" text="La cantidad maxima son 10 caracteres" *ngIf="empTelefonomax"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-4 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="empActiva" [options]="estado" formControlName="empactiva" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="empActiva"></p-message>
                     </div>
-                    <div class="ui-g-1" style="text-align: right;" *ngIf="bandera">
+                    <div class="ui-g-2 ui-md-2 ui-lg-1" style="text-align: right;" *ngIf="bandera">
                         <button pButton pRipple tooltipPosition="top" type="button" pTooltip="Copiar" icon="pi pi-copy" pRipple (click)="copyToClipBoard('f1')" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                     </div>
-                    <div class="ui-g-3" *ngIf="bandera">
+                    <div class="ui-g-6 ui-md-6 ui-lg-3" *ngIf="bandera">
                         <span class="ui-float-label">
                             <input  type="text"  style="width : 140%;" id="f1" value="{{linkformulario}}" pInputText readonly="readonly"> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Link Valoración Psicólogica</label>
@@ -94,11 +94,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-7"></div>
-                    <div class="ui-g-1" style="text-align: right;" *ngIf="bandera">
+                    <div class="ui-g-1 ui-md-1 ui-lg-7"></div>
+                    <div class="ui-g-1 ui-md-1 ui-lg-1" style="text-align: right;" *ngIf="bandera">
                         <button pButton pRipple tooltipPosition="top" type="button" pTooltip="Copiar" icon="pi pi-copy" pRipple (click)="copyToClipBoard('f2')" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
                     </div>
-                    <div class="ui-g-3" *ngIf="bandera">
+                    <div class="ui-g-6 ui-md-6 ui-lg-3" *ngIf="bandera">
                         <span class="ui-float-label">
                             <input  type="text"  style="width : 140%;" id="f2" value="{{linkformulario2}}" pInputText readonly="readonly"> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Link Valoración Física</label>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
@@ -69,6 +69,8 @@ export class FormValorFisicoComponent implements OnInit {
   colorMsj1:string = '';
   validSexoFem:boolean = false;
   validSexoMas:boolean = false;
+  mobWidth: any;
+  imgvalidator: boolean = true;
 
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
@@ -81,7 +83,7 @@ export class FormValorFisicoComponent implements OnInit {
   }
 
   async ngOnInit() {
-
+    this.onResize();
     this.localPrueba = JSON.parse(sessionStorage.getItem('valorFisico'));
     this.formulario();
     this.selectData();
@@ -1301,5 +1303,15 @@ export class FormValorFisicoComponent implements OnInit {
         vafmujer40_var: ".",
       });
     }
+  }
+
+  @HostListener("window:resize", ["$event"])
+    onResize() {
+    this.mobWidth = window.innerWidth;
+    if (this.mobWidth <= 1024) {
+        this.imgvalidator = false;
+    } else {
+        this.imgvalidator = true;
+    }  
   }
 }

@@ -3,17 +3,17 @@
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-g" style="text-align: center;">
-                <div class="ui-g-3 ui-md-6 ui-lg-3" style="margin-top: 30px;">
+                <div class="ui-g-12 ui-md-6 ui-lg-3" style="margin-top: 30px;">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
                 </div>
-                <div class="ui-g-5 ui-md-6 ui-lg-3">
+                <div class="ui-g-12 ui-md-6 ui-lg-5" *ngIf="imgvalidator">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/ValoracionFisica.png" alt="" width="800px" height="230px">
                 </div>
             </div>
             <fieldset>
                 <legend><b>Ficha De Valoración De La Condición Física</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafcedula"  maxlength="15" formControlName="vafcedula" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Cedula</label>     
@@ -21,7 +21,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafidnombre"  maxlength="200" formControlName="vafidnombre" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos </label>
@@ -29,7 +29,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidnombre"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" (ngModelChange)="changeSexo()" formControlName="vafsexo"></p-dropdown>
                         </span>
@@ -38,7 +38,7 @@
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafEdadValid" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)"  formControlName="vafedad" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Edad </label>
@@ -46,7 +46,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-calendar [showIcon]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="vaffecha" [locale]="es" dateFormat="yy-mm-dd"></p-calendar>
                             <label style="font-size: 15px;">Fecha Nacimiento (YYYY-MM-DD)</label>
@@ -54,7 +54,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafFechaValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input [class.is-invalid]="vafGrupoSanguineoValid" formControlName="vafgruposanguineo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Grupo Sanguineo</label>
@@ -64,7 +64,7 @@
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafCiudadValid"  formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ciudad</label>
@@ -72,7 +72,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCiudadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafCorreoValid"  formControlName="vafcorreo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Correo</label>
@@ -80,7 +80,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCorreoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafTelefonoValid"  formControlName="vaftelefono" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Telefono</label>
@@ -89,14 +89,14 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafidempresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="vafidempresa" [showClear]="true" placeholder="Empresas"></p-dropdown>  
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidempresa"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input [class.is-invalid]="vafCargoValid" formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
@@ -104,7 +104,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCargoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafsede"  formControlName="vafsede" maxlength="50" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Sede</label>
@@ -114,7 +114,7 @@
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas"></p-dropdown>
                         </span>
@@ -132,27 +132,27 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  style="width: 50%;"  [class.is-invalid]="vafpeso"  oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vafpeso" (ngModelChange)="fnFormulaIMC()" type="number"  pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Peso</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafpeso"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input style="width: 50%;" [class.is-invalid]="vaftalla" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftalla" (ngModelChange)="fnFormulaIMC()" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; "> Talla - Altura en M</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftalla"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input style="width: 50%;"   formControlName="vafimc" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" type="number" pInputText readonly="readonly" > 
                             <label for="float-input" style="font-size: 15px; ">IMC</label>
                         </span>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input style="width: 60%;"  [class.is-invalid]="vafperimetro"  formControlName="vafperimetro" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Perimetro abdominal</label>
@@ -172,13 +172,13 @@
                     </div>
                 </div>
                 <div class="ui-g">
-                    <div class="ui-g-4">
+                    <div class="ui-g-12 ui-md-6 ui-lg-4">
                         <b><p style="font-size: medium;"> (Mujeres 20 rep en 30” - Hombres 30 rep en 45”) </p></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><p style="font-size: medium;">Formula  I: ((P0+P1+P2)-200) /10</p></b>
                     </div>
-                    <div class="ui-g-2" style="text-align: center;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="text-align: center;">
                         <div *ngIf="validMsj">
                             <b style="font-size:large">Resultado I: <label>{{totalCR}}</label></b>
                         </div>
@@ -186,7 +186,7 @@
                             <b style="font-size:large">Resultado I: <label>No valido</label></b>
                         </div>
                     </div>
-                    <div class="ui-g-3" style="text-align: center;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;">
                         <label style="font-size: medium;" [ngStyle]="{'color': colorMsj }"><b>{{msjCR}}</b></label>
                     </div>
                 </div>
@@ -194,45 +194,45 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-9">
                         <div class="ui-g" style="margin-bottom: 10px;">
-                            <div class="ui-g-3">
+                            <div class="ui-g-12 ui-md-6 ui-lg-3">
                                 <span class="ui-float-label">
                                     <input   [class.is-invalid]="vafp0" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" (ngModelChange)="validCardioRes()" formControlName="vafp0" type="number" pInputText> 
                                     <label for="float-input" style="font-size: 15px; ">P0</label>
                                 </span>
                                 <p-message severity="error" text="Este campo es requerido" *ngIf="vafp0"></p-message>
                             </div>
-                            <div class="ui-g-8">
+                            <div class="ui-g-12 ui-md-12 ui-lg-8">
                                 <b><p style="font-size:medium;">Sí I= 0 rendimiento cardiovascular (CV) excelente (Propio de atletas).</p></b>
                                 <b><p style="font-size:medium;">Sí I= Esta entre 0,1 y 5 rendimiento cardiovascular (CV) bueno.</p></b>
                             </div>
                         </div>
                         <div class="ui-g" style="margin-bottom: 10px;">
-                            <div class="ui-g-3">
+                            <div class="ui-g-12 ui-md-6 ui-lg-3">
                                 <span class="ui-float-label">
                                     <input [class.is-invalid]="vafp1" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" (ngModelChange)="validCardioRes()"  formControlName="vafp1" type="number" pInputText style="text-transform: uppercase;"> 
                                     <label for="float-input" style="font-size: 15px; ">P1</label>
                                 </span>
                                 <p-message severity="error" text="Este campo es requerido" *ngIf="vafp1"></p-message>
                             </div>
-                            <div class="ui-g-8">
+                            <div class="ui-g-12 ui-md-12 ui-lg-8">
                                 <b><p style="font-size:medium;">Sí I= Esta entre 5,1 Y 10 rendimientos cardiovascular (CV) medio.</p></b>
                                 <b><p style="font-size:medium;">Sí I= Esta entre 10,1 y 15 rendimiento cardiovascular (CV) insuficiente.</p></b>
                             </div>
                         </div>
                         <div class="ui-g" style="margin-bottom: 10px;">
-                            <div class="ui-g-3">
+                            <div class="ui-g-12 ui-md-6 ui-lg-3">
                                 <span class="ui-float-label">
                                     <input  [class.is-invalid]="vafp2" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" (ngModelChange)="validCardioRes()"  formControlName="vafp2" type="number" pInputText style="text-transform: uppercase;"> 
                                     <label for="float-input" style="font-size: 15px; ">P2</label>
                                 </span>
                                 <p-message severity="error" text="Este campo es requerido" *ngIf="vafp2"></p-message>
                             </div>
-                            <div class="ui-g-8">
+                            <div class="ui-g-12 ui-md-12 ui-lg-8">
                                 <b><p style="font-size:medium;">Sí I= Esta entre 15,1 y 20 rendimiento cardiovascular (CV) malo (Requiere Evaluación Médica).</p></b>
                             </div>
                         </div>
                     </div>
-                    <div class="ui-g-3" *ngIf="imgValid1" style="margin-top: 25px;text-align: center;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" *ngIf="imgValid1" style="margin-top: 25px;text-align: center;">
                         <img [src]="imagenIcon1" class="animate__animated animate__bounce" alt="" width="110" height="110">
                     </div>
                 </div>
@@ -242,28 +242,28 @@
                 <legend><b>EVALUACIÓN MUSCULAR</b></legend>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input style="width: 90%;" [class.is-invalid]="vaftestbiering" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftestbiering" type="number" pInputText> 
+                            <input  [class.is-invalid]="vaftestbiering" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftestbiering" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Test de maxima cantidad de abdominales</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestbiering"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input style="width: 80%;" [class.is-invalid]="vaftestpuenteder" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftestpuenteder" type="number" pInputText > 
+                            <input  [class.is-invalid]="vaftestpuenteder" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftestpuenteder" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Test de puente lateral derecho</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestpuenteder"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input style="width: 80%;" [class.is-invalid]="vaftestpuenteizq" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestpuenteizq" type="number" pInputText > 
+                            <input  [class.is-invalid]="vaftestpuenteizq" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestpuenteizq" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Test de puente lateral izquierdo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestpuenteizq"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestresistronco" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestresistronco" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Test de puente prono</label>
@@ -277,23 +277,23 @@
                 <legend><b>EVALUACIÓN DE FLEXIBILIDAD</b></legend>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input style="width: 90%;"  [class.is-invalid]="vaftestflextronco" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestflextronco" type="number" pInputText> 
+                            <input   [class.is-invalid]="vaftestflextronco" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestflextronco" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Test de flexión del tronco</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestflextronco"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input style="width: 80%;" [class.is-invalid]="vaftestmovhombder" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestmovhombder" type="number" pInputText > 
+                            <input  [class.is-invalid]="vaftestmovhombder" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestmovhombder" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Movilidad del hombro derecho</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovhombder"></p-message>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input style="width: 80%;"  [class.is-invalid]="vaftestmovhombizq" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestmovhombizq" type="number" pInputText > 
+                            <input   [class.is-invalid]="vaftestmovhombizq" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestmovhombizq" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Movilidad del hombro izquierdo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovhombizq"></p-message>
@@ -305,10 +305,10 @@
                 <legend><b>CONDICIONES DE SALUD</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">1) ¿Tiene presión arterial alta o hipertensión?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs01Valid"  [options]="selectvafc1" formControlName="vafcs01" ></p-dropdown>
                         </span>
@@ -317,10 +317,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">2) ¿Le han diagnosticado azúcar en la sangre o diabetes?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs02Valid"  [options]="selectvafc1" formControlName="vafcs02"></p-dropdown>
                         </span>
@@ -329,10 +329,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">3) ¿Tiene alto el colesterol, los triglicéridos o ambos?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs03Valid"  [options]="selectvafc14" formControlName="vafcs03"></p-dropdown>
                         </span>
@@ -341,10 +341,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">4) ¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs04Valid"  [options]="selectvafc1" formControlName="vafcs04" ></p-dropdown>
                         </span>
@@ -353,10 +353,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">5) ¿Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs05Valid"  [options]="selectvafc1" formControlName="vafcs05"></p-dropdown>
                         </span>
@@ -365,10 +365,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">6) ¿Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs06Valid"  [options]="selectvafc1" formControlName="vafcs06"></p-dropdown>
                         </span>
@@ -377,10 +377,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">7) ¿Sufre o ha sufrido de trastornos depresivos?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs07Valid"  [options]="selectvafc1" formControlName="vafcs07"></p-dropdown>
                         </span>
@@ -389,10 +389,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">8) ¿Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs08Valid"  [options]="selectvafc1" formControlName="vafcs08"></p-dropdown>
                         </span>
@@ -401,10 +401,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">9) ¿Ha tenido epilepsia o ataques de convulsiones?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs09Valid"  [options]="selectvafc1" formControlName="vafcs09"></p-dropdown>
                         </span>
@@ -413,10 +413,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">10) ¿Ha tenido fracturas, luxaciones, hernias  o esguinces?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs10Valid"  [options]="selectvafc1" formControlName="vafcs10"></p-dropdown>
                         </span>
@@ -425,10 +425,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs11Valid"  [options]="selectvafc1" formControlName="vafcs11"></p-dropdown>
                         </span>
@@ -437,10 +437,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">12) ¿Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs12Valid"  [options]="selectvafc1" formControlName="vafcs12"></p-dropdown>
                         </span>
@@ -449,10 +449,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">13) ¿Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs13Valid"  [options]="selectvafc1" formControlName="vafcs13"></p-dropdown>
                         </span>
@@ -461,10 +461,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirurgicamente?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs14Valid"  [options]="selectvafc1" formControlName="vafcs14"></p-dropdown>
                         </span>
@@ -473,7 +473,7 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs14 === 1">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label   style="font-size: 15px;">14 a) Especifique el motivo de la cirugía :</label></b>
                     </div>
                     <div class="ui-g-5">
@@ -485,10 +485,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">15) ¿Le han diagnosticado cancer?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs16Valid"  [options]="selectvafc1" formControlName="vafcs16"></p-dropdown>
                         </span>
@@ -497,10 +497,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">16) ¿Tiene problemas de coagulación de la sangre?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs17Valid"  [options]="selectvafc1" formControlName="vafcs17"></p-dropdown>
                         </span>
@@ -509,10 +509,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">17) ¿Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs18Valid"  [options]="selectvafc1" formControlName="vafcs18"></p-dropdown>
                         </span>
@@ -521,10 +521,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">18) ¿Usa corrección visual?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs19Valid"  [options]="selectvafc1" formControlName="vafcs19"></p-dropdown>
                         </span>
@@ -533,10 +533,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">19) ¿Consume algún medicamento bajo formula medica?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcs20Valid"  [options]="selectvafc1" formControlName="vafcs20"></p-dropdown>
                         </span>
@@ -548,7 +548,7 @@
                     <div class="ui-g-5">
                         <b><label   style="font-size: 15px;">19 a) Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafcs21Valid"  maxlength="256" formControlName="vafcs21" type="text" pInputText >
                             <p-message severity="error" text="Este campo es requerido" *ngIf="vafcs21Valid"></p-message>
@@ -561,12 +561,12 @@
                 <legend><b>ANTECEDENTES FAMILIARES</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="font-weight: bold;text-align: center; font-size: large;">ENFERMEDAD</div>
-                    <div class="ui-g-4" style="font-weight: bold;text-align: center;font-size: large">FAMILIAR QUIEN?</div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="font-weight: bold;text-align: center; font-size: large;">ENFERMEDAD</div>
+                    <div class="ui-g-12 ui-md-5 ui-lg-4" style="font-weight: bold;text-align: center;font-size: large">FAMILIAR QUIEN?</div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label >CANCER</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafcancer_opc === 1">
@@ -574,7 +574,7 @@
                         <p-multiSelect [class.is-invalid]="cancerValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafcancer_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="cancerValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcancer_opcValid"  [options]="selectvafc1" formControlName="vafcancer_opc"></p-dropdown>
                         </span>
@@ -583,7 +583,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label >HIPERTENSION ARTERIAL</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafhiper_arte_opc === 1">
@@ -591,7 +591,7 @@
                         <p-multiSelect [class.is-invalid]="hiper_arteValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafhiper_arte_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="hiper_arteValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafhiper_arte_opcValid"  [options]="selectvafc1" formControlName="vafhiper_arte_opc"></p-dropdown>
                         </span>
@@ -600,7 +600,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label  >ASMA</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafasma_opc === 1">
@@ -608,7 +608,7 @@
                         <p-multiSelect [class.is-invalid]="asmaValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafasma_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="asmaValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafasma_opcValid"  [options]="selectvafc1" formControlName="vafasma_opc"></p-dropdown>
                         </span>
@@ -617,7 +617,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label  >CARDIOPATIAS</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafcardio_opc === 1">
@@ -625,7 +625,7 @@
                         <p-multiSelect [class.is-invalid]="cardioValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafcardio_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="cardioValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafcardio_opcValid"  [options]="selectvafc1" formControlName="vafcardio_opc"></p-dropdown>
                         </span>
@@ -634,7 +634,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label  >DIABETES</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafdiabet_opc === 1">
@@ -642,7 +642,7 @@
                         <p-multiSelect [class.is-invalid]="diabetValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafdiabet_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="diabetValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafdiabet_opcValid"  [options]="selectvafc1" formControlName="vafdiabet_opc"></p-dropdown>
                         </span>
@@ -651,7 +651,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label  >ALERGIAS</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafalergia_opc === 1">
@@ -659,7 +659,7 @@
                         <p-multiSelect [class.is-invalid]="alergiaValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafalergia_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="alergiaValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafalergia_opcValid"  [options]="selectvafc1" formControlName="vafalergia_opc"></p-dropdown>
                         </span>
@@ -668,7 +668,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label  >ARTRITIS</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafartritis_opc === 1">
@@ -676,7 +676,7 @@
                         <p-multiSelect [class.is-invalid]="artritisValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafartritis_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="artritisValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafartritis_opcValid"  [options]="selectvafc1" formControlName="vafartritis_opc"></p-dropdown>
                         </span>
@@ -685,7 +685,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label  >ENFERMEDADES MENTALES</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafem_opc === 1">
@@ -693,7 +693,7 @@
                         <p-multiSelect [class.is-invalid]="emValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafem_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafem_opcValid"  [options]="selectvafc1" formControlName="vafem_opc"></p-dropdown>
                         </span>
@@ -702,7 +702,7 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3" style="text-align: center;margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
                         <b><label >ENFERMEDADES RENALES</label></b>
                     </div>
                     <div class="ui-g-5" *ngIf="userform.value.vafer_opc === 1">
@@ -710,7 +710,7 @@
                         <p-multiSelect [class.is-invalid]="erValidAprob" [options]="arrFamSelect" defaultLabel="Seleccione una o más opciones" formControlName="vafer_var" [panelStyle]="{minWidth:'12em'}"></p-multiSelect>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="erValidAprob"></p-message>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafer_opcValid"  [options]="selectvafc1" formControlName="vafer_opc"></p-dropdown>
                         </span>
@@ -719,10 +719,10 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6" style="margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6" style="margin-top: 20px;">
                         <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Padre, o Hermano antes de los 55 años de edad?</label></b>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafAF_p01Valid"  [options]="selectvafc1" formControlName="vafAF_p01"></p-dropdown>
                         </span>
@@ -731,10 +731,10 @@
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6" style="margin-top: 20px;">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6" style="margin-top: 20px;">
                         <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Madre, o Hermana antes de los 65 años de edad?</label></b>
                     </div>
-                    <div class="ui-g-2" style="margin-top: 18px;">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafAF_p02Valid"  [options]="selectvafc1" formControlName="vafAF_p02"></p-dropdown>
                         </span>
@@ -747,10 +747,10 @@
                 <legend><b>SOLO PARA MUJERES MAYORES DE 40 AÑOS</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez, una mamografía?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafmujer40_opcValid"  [options]="selectvafc16" formControlName="vafmujer40_opc"></p-dropdown>
                         </span>
@@ -762,7 +762,7 @@
                     <div class="ui-g-6">
                         <b><label  style="font-size: 15px;">¿Se ha realizado el examen de mamografía en los últimos 12 meses?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown  [class.is-invalid]="mujer40ValidAprob" [options]="selectvafc0" formControlName="vafmujer40_var" ></p-dropdown>
                             <p-message severity="error" text="Este campo es requerido" *ngIf="mujer40ValidAprob"></p-message>
@@ -777,7 +777,7 @@
                     <div class="ui-g-6">
                         <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez,  el examen de prostata?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafhombre40_opcValid"  [options]="selectvafc16" formControlName="vafhombre40_opc"></p-dropdown>
                         </span>
@@ -789,7 +789,7 @@
                     <div class="ui-g-6">
                         <b><label  style="font-size: 15px;">¿Se ha realizado el examen de prostata en los últimos 12 meses?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown  [class.is-invalid]="hombre40ValidAprob" [options]="selectvafc0" formControlName="vafhombre40_var" ></p-dropdown>
                             <p-message severity="error" text="Este campo es requerido" *ngIf="hombre40ValidAprob"></p-message>
@@ -802,10 +802,10 @@
                 <legend><b>DISCAPACIDAD</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia?</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafdiscapacidad_opcValid"  [options]="selectvafc1" formControlName="vafdiscapacidad_opc"></p-dropdown>
                         </span>
@@ -814,10 +814,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafdiscapacidad_opc === 1">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label   style="font-size: 15px;">Especifique cuál :</label></b>
                     </div>
-                    <div class="ui-g-5">
+                    <div class="ui-g-12 ui-md-10 ui-lg-5">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="discapacidadValidAprob"  maxlength="256" formControlName="vafdiscapacidad_var" type="text" pInputText>
                             <p-message severity="error" text="Este campo es requerido" *ngIf="discapacidadValidAprob"></p-message>
@@ -844,28 +844,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Tengo con quién hablar de las cosas que son importantes para mi:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_familiap01_opcValid"  (ngModelChange)="fnSumatoriaFamiliaTF()" [options]="selectvafc2" formControlName="vaf_familiap01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_familiap01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_familia_num" readonly="readonly" type="number" pInputText>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">Yo doy y recibo cariño:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_familiap02_opcValid"  [options]="selectvafc2" (ngModelChange)="fnSumatoriaFamiliaTF()" formControlName="vaf_familiap02_opc"></p-dropdown>
                         </span>
@@ -880,28 +880,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">Yo realizo actividad física (Caminar, subir escalas, trabajo en la casa, hacer el jardín):</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_actifisip01_opcValid" (ngModelChange)="fnSumatoriaActividadTF()" [options]="selectvafc2" formControlName="vaf_actifisip01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_actifisip01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_actifisi_num" readonly="readonly" type="number" pInputText>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido):</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_actifisip02_opcValid"  (ngModelChange)="fnSumatoriaActividadTF()" [options]="selectvafc3" formControlName="vaf_actifisip02_opc"></p-dropdown>
                         </span>
@@ -916,28 +916,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Mi alimentación es balanceada (*):</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_nutricionp01_opcValid" (ngModelChange)="fnSumatoriaNutricionTF()"  [options]="selectvafc2" formControlName="vaf_nutricionp01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_nutricionp01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_nutricion_num" readonly="readonly" type="text" pInputText>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">A menudo consumo mucha azúcar o sal o comida chatarra o con mucha grasa:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_nutricionp02_opcValid" (ngModelChange)="fnSumatoriaNutricionTF()" [options]="selectvafc4" formControlName="vaf_nutricionp02_opc"></p-dropdown>
                         </span>
@@ -946,11 +946,11 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">Estoy pasado/ a de mi peso ideal  en </label></b>
                         <input style="width: 10%;" maxlength="3" formControlName="vaf_nutricionp03_var" type="text" pInputText>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_nutricionp03_opcValid" (ngModelChange)="fnSumatoriaNutricionTF()"  [options]="selectvafc5" formControlName="vaf_nutricionp03_opc"></p-dropdown>
                         </span>
@@ -965,29 +965,29 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label style="font-size: 15px;">Yo fumo cigarrillos:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_tabacop01_opcValid" (ngModelChange)="fnSumatoriaTabacoTF()"  [options]="selectvafc6" formControlName="vaf_tabacop01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_tabacop01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_tabaco_num" type="text" readonly="readonly" pInputText>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">Generalmente fumo 
                             <input style="width: 10%;" [class.is-invalid]="vaftestmovhombizq" maxlength="3" formControlName="vaf_tabacop02_var" type="text" pInputText> cigarrillos por día:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_tabacop02_opcValid"  (ngModelChange)="fnSumatoriaTabacoTF()" [options]="selectvafc7" formControlName="vaf_tabacop02_opc"></p-dropdown>
                         </span>
@@ -1002,28 +1002,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Mi número promedio de tragos (**) por semana es de:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_alcoholp01_opcValid" (ngModelChange)="fnSumatoriaAlcoholTF()" [options]="selectvafc8" formControlName="vaf_alcoholp01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_alcoholp01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_alcohol_num" readonly="readonly" type="number" pInputText>
                     </div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Bebo más de cuatro tragos en una misma ocasión:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_alcoholp02_opcValid" (ngModelChange)="fnSumatoriaAlcoholTF()"  [options]="selectvafc9" formControlName="vaf_alcoholp02_opc"></p-dropdown>
                         </span>
@@ -1032,10 +1032,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Manejo el auto despúes de beber alcohol:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_alcoholp03_opcValid"  (ngModelChange)="fnSumatoriaAlcoholTF()" [options]="selectvafc10" formControlName="vaf_alcoholp03_opc"></p-dropdown>
                         </span>
@@ -1050,28 +1050,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Duermo bien y me siento descansado/a:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_suenop01_opcValid"  (ngModelChange)="fnSumatoriaSuenoTF()" [options]="selectvafc2" formControlName="vaf_suenop01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_suenop01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_sueno_num" readonly="readonly" type="number" pInputText>
                     </div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Yo me siento capaz de manejar el estrés o la tensión en mi vida:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_suenop02_opcValid" (ngModelChange)="fnSumatoriaSuenoTF()"  [options]="selectvafc2" formControlName="vaf_suenop02_opc"></p-dropdown>
                         </span>
@@ -1080,10 +1080,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Yo me relajo y disfruto mi tiempo libre:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_suenop03_opcValid"  (ngModelChange)="fnSumatoriaSuenoTF()" [options]="selectvafc2" formControlName="vaf_suenop03_opc"></p-dropdown>
                         </span>
@@ -1098,28 +1098,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Parece que ando acelerado/a:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_tipop01_opcValid" (ngModelChange)="fnSumatoriaTipoTF()"  [options]="selectvafc11" formControlName="vaf_tipop01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_tipop01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" formControlName="vaf_tipo_num" type="text" readonly="readonly" pInputText>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Me siento enojado/a o agresivo/a:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_tipop02_opcValid"  (ngModelChange)="fnSumatoriaTipoTF()" [options]="selectvafc11" formControlName="vaf_tipop02_opc"></p-dropdown>
                         </span>
@@ -1134,28 +1134,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Yo soy un pensador positivo u optimista:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_introspep01_opcValid" (ngModelChange)="fnSumatoriaIntrospeTF()"  [options]="selectvafc2" formControlName="vaf_introspep01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_introspep01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" maxlength="3" readonly="readonly" formControlName="vaf_introspe_num" type="number" pInputText>
                     </div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Yo me siento tenso/a o apretado/a :</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_introspep02_opcValid"  (ngModelChange)="fnSumatoriaIntrospeTF()" [options]="selectvafc11" formControlName="vaf_introspep02_opc"></p-dropdown>
                         </span>
@@ -1164,10 +1164,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Yo me siento deprimido/a o triste :</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_introspep03_opcValid" (ngModelChange)="fnSumatoriaIntrospeTF()"  [options]="selectvafc11" formControlName="vaf_introspep03_opc"></p-dropdown>
                         </span>
@@ -1182,28 +1182,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Uso siempre el cinturón de seguridad:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_condup01_opcValid"  (ngModelChange)="fnSumatoriaConduccionTF()" [options]="selectvafc15" formControlName="vaf_condup01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_condup01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_condu_num" type="number" pInputText>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Yo me siento satisfecho/a con mi trabajo o mis actividades:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_condup02_opcValid" (ngModelChange)="fnSumatoriaConduccionTF()"  [options]="selectvafc2" formControlName="vaf_condup02_opc"></p-dropdown>
                         </span>
@@ -1218,28 +1218,28 @@
                 </legend>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_otrasdp01_opcValid" (ngModelChange)="fnSumatoriaOtrasDTF()"  [options]="selectvafc9" formControlName="vaf_otrasdp01_opc"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaf_otrasdp01_opcValid"></p-message>
                     </div>
-                    <div class="ui-g-2" style="text-align: right;">
+                    <div class="ui-g-6 ui-md-3 ui-lg-2" style="text-align: right;">
                         <h2>PUNTAJE: </h2>
                     </div>
-                    <div class="ui-g-1">
+                    <div class="ui-g-6 ui-md-3 ui-lg-1">
                         <input style="width: 90%; font-size: xx-large;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_otrasd_num" type="text" pInputText>
                     </div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Uso excesivamente los remedios que me indican o los que puedo comprar sin receta:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_otrasdp02_opcValid" (ngModelChange)="fnSumatoriaOtrasDTF()"  [options]="selectvafc9" formControlName="vaf_otrasdp02_opc"></p-dropdown>
                         </span>
@@ -1248,10 +1248,10 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-6">
+                    <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label   style="font-size: 15px;">Bebo café, té o bebidas cola que tienen cafeína:</label></b>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vaf_otrasdp03_opcValid"  (ngModelChange)="fnSumatoriaOtrasDTF()" [options]="selectvafc13" formControlName="vaf_otrasdp03_opc"></p-dropdown>
                         </span>
@@ -1263,16 +1263,16 @@
             <fieldset style="border: 2px solid #39b021;">
                 <legend style="background: #39b021;font-size: medium;"><b>RESULTADO DEL CUESTIONARIO TEST "FANTASTICO"</b></legend>
                 <div class="ui-g">
-                    <div class="ui-g-4" style="text-align: right;margin-top: 10px;">
+                    <div class="ui-g-6 ui-md-4 ui-lg-4" style="text-align: right;margin-top: 10px;">
                         <h1 style="color: #16520a;">TOTAL:</h1>
                     </div>
-                    <div class="ui-g-2">
+                    <div class="ui-g-6 ui-md-4 ui-lg-2">
                         <input style="font-size:50px;text-align: center;" readonly="readonly" maxlength="3" formControlName="vaf_fantastico_total" type="number" pInputText>
                     </div>
-                    <div class="ui-g-3" style="margin-top: 10px; text-align: center;">
+                    <div class="ui-g-12 ui-md-4 ui-lg-3" style="margin-top: 10px; text-align: center;">
                         <h2><label [ngStyle]="{'color': colorMsj1 }">{{respEstado}}</label></h2>
                     </div>
-                    <div *ngIf="imgValid" class="ui-g-3" style="margin-top: 10px; text-align: center;">
+                    <div *ngIf="imgValid" class="ui-g-12 ui-md-6 ui-lg-3" style="margin-top: 10px; text-align: center;">
                         <img [src]="imagenIcon" class="animate__animated animate__bounce" alt="" width="110" height="110">
                     </div>
                 </div>

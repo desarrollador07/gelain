@@ -16,7 +16,8 @@
 </div>
 <div class="card">
     <p-panel header="Empleados Pendientes">
-        <p-table #dt [columns]="cols" [frozenColumns]="frozenCols" [value]="epData" [scrollable]="true" frozenWidth="150px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos']" [rows]="10" [paginator]="true" [rowHover]="true">
+        <p-table #dt [columns]="cols" [frozenColumns]="frozenCols" [responsive]="true" [value]="epData" [scrollable]="true" frozenWidth="150px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos']" [rows]="10" [paginator]="true"
+            [rowHover]="true">
             <ng-template pTemplate="colgroup" let-columns>
                 <colgroup>
                     <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">

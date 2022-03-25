@@ -38,7 +38,7 @@ export class AppTopBarComponent {
                 private router: Router,
                 private store: Store<AppState>,
                 private empresaServices: EmpresaService) {
-
+      this.onResize();
       this.nombre = sessionStorage.getItem("user");
       this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));
        if (sessionStorage.getItem("user")==="LINA") {
