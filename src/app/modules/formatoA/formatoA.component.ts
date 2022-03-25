@@ -581,10 +581,8 @@ getFormulario(){
     validacionDeEstados(){
       if(this.localPrueba !==null){
         if (this.localPrueba.inaatencionausuarios == "1") {
-          console.log("validacion",this.localPrueba.inaatencionausuarios);
           
          this.vart=true;
-         console.log("bolean", this.vart);
   
         }else{
          this.vart=false;
@@ -597,7 +595,6 @@ getFormulario(){
         }
 
         if (this.vart == true && this.vart2 == true) {
-          console.log('true2');
           this.userform.patchValue({
             inaidempleado:this.localPrueba.inaidempleado,
             inaruido:this.localPrueba.inaruido,
@@ -729,7 +726,6 @@ getFormulario(){
           })
           
         } else if (this.vart == true && this.vart2 == false) {
-          console.log('trueflase');
           this.userform.patchValue({
             inaidempleado:this.localPrueba.inaidempleado,
             inaruido:this.localPrueba.inaruido,
@@ -863,7 +859,6 @@ getFormulario(){
           })
           
         }else if (this.vart == false && this.vart2 == true) {
-          console.log('falsetrue');
           this.userform.patchValue({
             inaidempleado:this.localPrueba.inaidempleado,
             inaruido:this.localPrueba.inaruido,
@@ -997,7 +992,6 @@ getFormulario(){
           })
           
         } else {
-          console.log('flaselalse');
           this.userform.patchValue({
             inaidempleado:this.localPrueba.inaidempleado,
             inaruido:this.localPrueba.inaruido,

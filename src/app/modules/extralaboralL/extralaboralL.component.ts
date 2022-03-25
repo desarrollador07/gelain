@@ -86,7 +86,6 @@ export class ExtralaboralLComponent implements OnInit {
 
     
     this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
-    console.log(this.idl);
     
     await this.formatoExtraService.buscarExtra((this.idl)).toPromise().then((data:any)=>{
         this.localPrueba = data[0];

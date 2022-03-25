@@ -185,8 +185,6 @@ export class FormatoALComponent implements OnInit {
     this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
     await  this.formatoAService.buscarByFa(this.idl).toPromise().then((data:any)=>{
         this.localPrueba = data[0]; 
-        console.log("LOCAL", this.localPrueba);
-        
     });
 
 
