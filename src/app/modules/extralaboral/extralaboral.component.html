@@ -14,16 +14,16 @@
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
 
             <div class="ui-g" style="margin-bottom: 10px;">
-                <div class="ui-g-3">
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="50%">
                 </div>
-                <div class="ui-g-3">
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/Extralaboral.png" alt="" width="100%" height="100%">
                 </div>
-                <div class="ui-g-3" style="text-align: center;">
+                <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
                 </div>
-                <div class="ui-g-3">
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
                     <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
                 </div>
             </div>
@@ -34,42 +34,35 @@
                 <legend><b>Las siguientes preguntas están relacionadas con varias condiciones de la zona donde usted vive:</b></legend>
                 <fieldset>
                     <div class="ui-g" style="margin-bottom: 10px;">
-                        <div class="ui-g-3"></div>
-                        <div class="ui-g-3">
+                        <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                        <div class="ui-g-12 ui-md-6 ui-lg-3">
                             <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cedula: {{cedula}}</label></b>
                         </div>
-
-                        <div class="ui-g-3">
-
+                        <div class="ui-g-12 ui-md-6 ui-lg-3">
                             <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Nombre: {{nombre}}</label></b>
-
                         </div>
                     </div>
                 </fieldset>
                 <br>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) Es fácil trasportarme entre mi casa y el trabajo</label></b>
                     </div>
-
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extfaciltransporte"  [options]="a1" formControlName="extfaciltransporte" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extfaciltransporte"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) Tengo que tomar varios medios de transporte para llegar a mi lugar de trabajo</label></b>
                     </div>
-
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extvariostransporte"  [options]="a11" formControlName="extvariostransporte" [showClear]="true"></p-dropdown>
                         </span>
@@ -77,13 +70,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) Paso mucho tiempo viajando de ida y regreso al trabajo</label></b>
                     </div>
-
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extmuchotiemviaje"  [options]="a11" formControlName="extmuchotiemviaje" [showClear]="true"></p-dropdown>
                         </span>
@@ -91,13 +82,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) Me transporto cómodamente entre mi casa y el trabajo</label></b>
                     </div>
-
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="exttranscomodo"  [options]="a1" formControlName="exttranscomodo" [showClear]="true"></p-dropdown>
                         </span>
@@ -105,13 +94,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) La zona donde vivo es segura</label></b>
                     </div>
-
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extzonasegura"  [options]="a1" formControlName="extzonasegura" [showClear]="true"></p-dropdown>
                         </span>
@@ -119,13 +106,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
-
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) En la zona donde vivo se presentan hurtos y mucha delincuencia</label></b>
                     </div>
-
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extzonadelincuencia"  [options]="a11" formControlName="extzonadelincuencia" [showClear]="true"></p-dropdown>
                         </span>
@@ -133,11 +118,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) Desde donde vivo me es fácil llegar al centro médico donde me atienden</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extfacilcmedico"  [options]="a1" formControlName="extfacilcmedico" [showClear]="true"></p-dropdown>
                         </span>
@@ -145,11 +130,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) Cerca a mi vivienda las vías están en buenas condiciones</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extbuenasvias"  [options]="a1" formControlName="extbuenasvias" [showClear]="true"></p-dropdown>
                         </span>
@@ -157,11 +142,11 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) Cerca a mi vivienda encuentro fácilmente transporte</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                              <p-dropdown [class.is-invalid]="extcercatransporte"  [options]="a1" formControlName="extcercatransporte" [showClear]="true"></p-dropdown>
                         </span>
@@ -169,51 +154,49 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) Las condiciones de mi vivienda son buenas</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extcondicvivienda"  [options]="a1" formControlName="extcondicvivienda" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extcondicvivienda"  [options]="a1" formControlName="extcondicvivienda" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extcondicvivienda"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) En mi vivienda hay servicios de agua y luz</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extagualuz"  [options]="a1" formControlName="extagualuz" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extagualuz"  [options]="a1" formControlName="extagualuz" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extagualuz"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) Las condiciones de mi vivienda me permiten descansar cuando lo requiero</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extpermdescanzar"  [options]="a1" formControlName="extpermdescanzar" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extpermdescanzar"  [options]="a1" formControlName="extpermdescanzar" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extpermdescanzar"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) Las condiciones de mi vivienda me permiten sentirme cómodo</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extviviendacomoda"  [options]="a1" formControlName="extviviendacomoda" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extviviendacomoda"  [options]="a1" formControlName="extviviendacomoda" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extviviendacomoda"></p-message>
                     </div>
@@ -223,234 +206,229 @@
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con su vida fuera del trabajo:</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) Me queda tiempo para actividades de recreación</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="exttiemporecreo"  [options]="a1" formControlName="exttiemporecreo" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="exttiemporecreo"  [options]="a1" formControlName="exttiemporecreo" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="exttiemporecreo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) Fuera del trabajo tengo tiempo suficiente para descansar</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="exttiempodescanzo"  [options]="a1" formControlName="exttiempodescanzo" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="exttiempodescanzo"  [options]="a1" formControlName="exttiempodescanzo" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="exttiempodescanzo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) Tengo tiempo para atender mis asuntos personales y del hogar</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="exttiempopersonal"  [options]="a1" formControlName="exttiempopersonal" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="exttiempopersonal"  [options]="a1" formControlName="exttiempopersonal" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="exttiempopersonal"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) Tengo tiempo para compartir con mi familia o amigos</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="exttiempofamilia"  [options]="a1" formControlName="exttiempofamilia" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="exttiempofamilia"  [options]="a1" formControlName="exttiempofamilia" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="exttiempofamilia"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18) Tengo buena comunicación con las personas cercanas</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extbuenacomunica"  [options]="a1" formControlName="extbuenacomunica" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extbuenacomunica"  [options]="a1" formControlName="extbuenacomunica" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extbuenacomunica"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) Las relaciones con mis amigos son buenas</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extrelacionamigos"  [options]="a1" formControlName="extrelacionamigos" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extrelacionamigos"  [options]="a1" formControlName="extrelacionamigos" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extrelacionamigos"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20) Converso con personas cercanas sobre diferentes temas</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extconversoperson"  [options]="a1" formControlName="extconversoperson" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extconversoperson"  [options]="a1" formControlName="extconversoperson" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extconversoperson"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21) Mis amigos están dispuestos a escucharme cuando tengo problemas</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extamigosescuchan"  [options]="a1" formControlName="extamigosescuchan" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extamigosescuchan"  [options]="a1" formControlName="extamigosescuchan" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extamigosescuchan"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22) Cuento con el apoyo de mi familia cuando tengo problemas</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extapoyofamiliar"  [options]="a1" formControlName="extapoyofamiliar" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extapoyofamiliar"  [options]="a1" formControlName="extapoyofamiliar" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extapoyofamiliar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">23) Puedo hablar con personas cercanas sobre las cosas que me pasan</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="exthabloconperso"  [options]="a1" formControlName="exthabloconperso" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="exthabloconperso"  [options]="a1" formControlName="exthabloconperso" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="exthabloconperso"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">24) Mis problemas personales o familiares afectan mi trabajo</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extproblemfamiliar"  [options]="a11" formControlName="extproblemfamiliar" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extproblemfamiliar"  [options]="a11" formControlName="extproblemfamiliar" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extproblemfamiliar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">25) La relación con mi familia cercana es cordial</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extrelacionfamiliar"  [options]="a1" formControlName="extrelacionfamiliar" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extrelacionfamiliar"  [options]="a1" formControlName="extrelacionfamiliar" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extrelacionfamiliar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">26) Mis problemas personales o familiares me quitan la energía que necesito para trabajar</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extquitanenergia"  [options]="a11" formControlName="extquitanenergia" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extquitanenergia"  [options]="a11" formControlName="extquitanenergia" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extquitanenergia"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">27) Los problemas con mis familiares los resolvemos de manera amistosa"</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extresolveamistosa"  [options]="a1" formControlName="extresolveamistosa" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extresolveamistosa"  [options]="a1" formControlName="extresolveamistosa" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extresolveamistosa"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">28) Mis problemas personales o familiares afectan mis relaciones en el trabajo</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extafectrelacionestra"  [options]="a11" formControlName="extafectrelacionestra" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extafectrelacionestra"  [options]="a11" formControlName="extafectrelacionestra" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extafectrelacionestra"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">29) El dinero que ganamos en el hogar alcanza para cubrir los gastos básicos</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extdineroalcanza"  [options]="a1" formControlName="extdineroalcanza" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extdineroalcanza"  [options]="a1" formControlName="extdineroalcanza" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extdineroalcanza"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">30) Tengo otros compromisos económicos que afectan mucho el presupuesto familiar</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extpresupuesfamilia"  [options]="a11" formControlName="extpresupuesfamilia" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extpresupuesfamilia"  [options]="a11" formControlName="extpresupuesfamilia" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extpresupuesfamilia"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-3"></div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">31) En mi hogar tenemos deudas difíciles de pagar</label></b>
                     </div>
-                    <div class="ui-g-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-             <p-dropdown [class.is-invalid]="extdeudashogar"  [options]="a11" formControlName="extdeudashogar" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extdeudashogar"  [options]="a11" formControlName="extdeudashogar" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extdeudashogar"></p-message>
                     </div>
                 </div>
             </fieldset>
-
             <br>
             <div style="text-align:center">
                 <button style="height:30px;width:120px" class="ui-button-rounded ui-button-warning" title="Atras" pRipple pButton type="button" label="Atras" class="ui-button-rounded" icon="pi pi-caret-left" (click)="volver()"></button>&nbsp;
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/empleado']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
-
         </div>
-
     </p-panel>
-
     <!--     <pre>{{userform.value | json}}</pre> -->
-
 </form>
