@@ -159,22 +159,15 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdEstracto"></p-message>
                     </div>
                 </div>
-
-
-
-
-                <div class="ui-g-12 ui-md-6 ui-lg-4">
-                    <div style="width: 245px;">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="emdTipovivienda" [options]="tipovivi" formControlName="emdtipovivienda" [showClear]="true"></p-dropdown>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="emdTipovivienda"></p-message>
-                    </div>
-
+                <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <span class="ui-float-label">
+                        <p-dropdown [class.is-invalid]="emdTipovivienda" [options]="tipovivi" formControlName="emdtipovivienda" [showClear]="true"></p-dropdown>
+                    </span>
+                    <p-message severity="error" text="Este campo es requerido" *ngIf="emdTipovivienda"></p-message>
                 </div>
                 <div class="ui-g-12 ui-md-6 ui-lg-4">
                     <span class="ui-float-label">
-                        <input [class.is-invalid]="emdPersdepen"  style="width : 90%;"  formControlName="emdpersdepen" type="number" min="0" pInputText> 
+                        <input [class.is-invalid]="emdPersdepen"   formControlName="emdpersdepen" type="number" min="0" pInputText> 
                         <label for="float-input" style="font-size: 13px; ">Numero de personas que dependen de usted</label>
                     </span>
                     <p-message severity="error" text="Este campo es requerido" *ngIf="emdPersdepen"></p-message>
