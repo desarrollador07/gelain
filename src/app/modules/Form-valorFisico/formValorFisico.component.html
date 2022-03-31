@@ -13,7 +13,7 @@
             <fieldset>
                 <legend><b>Ficha De Valoración De La Condición Física</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafcedula"  maxlength="15" formControlName="vafcedula" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Cedula</label>     
@@ -21,7 +21,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafidnombre"  maxlength="200" formControlName="vafidnombre" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos </label>
@@ -29,7 +29,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidnombre"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" (ngModelChange)="changeSexo()" formControlName="vafsexo"></p-dropdown>
                         </span>
@@ -38,7 +38,7 @@
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafEdadValid" oninput="if( this.value.length > 3 ) this.value = this.value.slice(0,3)"  formControlName="vafedad" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Edad </label>
@@ -46,7 +46,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <p-calendar [showIcon]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="vaffecha" [locale]="es" dateFormat="yy-mm-dd"></p-calendar>
                             <label style="font-size: 15px;">Fecha Nacimiento (YYYY-MM-DD)</label>
@@ -54,7 +54,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafFechaValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input [class.is-invalid]="vafGrupoSanguineoValid" formControlName="vafgruposanguineo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Grupo Sanguineo</label>
@@ -64,7 +64,7 @@
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafCiudadValid"  formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Ciudad</label>
@@ -72,7 +72,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCiudadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafCorreoValid"  formControlName="vafcorreo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Correo</label>
@@ -80,7 +80,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCorreoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafTelefonoValid"  formControlName="vaftelefono" type="text" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Telefono</label>
@@ -89,14 +89,14 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafidempresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="vafidempresa" [showClear]="true" placeholder="Empresas"></p-dropdown>  
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidempresa"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input [class.is-invalid]="vafCargoValid" formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
@@ -104,7 +104,7 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCargoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vafsede"  formControlName="vafsede" maxlength="50" type="text" pInputText style="text-transform: uppercase;"> 
                             <label for="float-input" style="font-size: 15px; ">Sede</label>
@@ -114,7 +114,7 @@
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas"></p-dropdown>
                         </span>
@@ -132,27 +132,27 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input    [class.is-invalid]="vafpeso"  oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vafpeso" (ngModelChange)="fnFormulaIMC()" type="number"  pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Peso</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafpeso"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftalla" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftalla" (ngModelChange)="fnFormulaIMC()" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; "> Talla - Altura en M</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftalla"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  formControlName="vafimc" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" type="number" pInputText readonly="readonly" > 
                             <label for="float-input" style="font-size: 15px; ">IMC</label>
                         </span>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vafperimetro"  formControlName="vafperimetro" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Perimetro abdominal</label>
@@ -194,7 +194,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-9">
                         <div class="ui-g" style="margin-bottom: 10px;">
-                            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                            <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                                 <span class="ui-float-label">
                                     <input   [class.is-invalid]="vafp0" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" (ngModelChange)="validCardioRes()" formControlName="vafp0" type="number" pInputText> 
                                     <label for="float-input" style="font-size: 15px; ">P0</label>
@@ -207,7 +207,7 @@
                             </div>
                         </div>
                         <div class="ui-g" style="margin-bottom: 10px;">
-                            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                            <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                                 <span class="ui-float-label">
                                     <input [class.is-invalid]="vafp1" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" (ngModelChange)="validCardioRes()"  formControlName="vafp1" type="number" pInputText style="text-transform: uppercase;"> 
                                     <label for="float-input" style="font-size: 15px; ">P1</label>
@@ -220,7 +220,7 @@
                             </div>
                         </div>
                         <div class="ui-g" style="margin-bottom: 10px;">
-                            <div class="ui-g-12 ui-md-6 ui-lg-3">
+                            <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                                 <span class="ui-float-label">
                                     <input  [class.is-invalid]="vafp2" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" (ngModelChange)="validCardioRes()"  formControlName="vafp2" type="number" pInputText style="text-transform: uppercase;"> 
                                     <label for="float-input" style="font-size: 15px; ">P2</label>
@@ -242,28 +242,28 @@
                 <legend><b>EVALUACIÓN MUSCULAR</b></legend>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestbiering" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftestbiering" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Test de maxima cantidad de abdominales</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestbiering"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestpuenteder" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)"  formControlName="vaftestpuenteder" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Test de puente lateral derecho</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestpuenteder"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestpuenteizq" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestpuenteizq" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Test de puente lateral izquierdo</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestpuenteizq"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestresistronco" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestresistronco" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Test de puente prono</label>
@@ -277,21 +277,21 @@
                 <legend><b>EVALUACIÓN DE FLEXIBILIDAD</b></legend>
                 <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vaftestflextronco" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestflextronco" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Test de flexión del tronco</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestflextronco"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input  [class.is-invalid]="vaftestmovhombder" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestmovhombder" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Movilidad del hombro derecho</label>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vaftestmovhombder"></p-message>
                     </div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
+                    <div class="ui-g-12 ui-md-6 ui-lg-3 p15padding">
                         <span class="ui-float-label">
                             <input   [class.is-invalid]="vaftestmovhombizq" oninput="if( this.value.length > 9 ) this.value = this.value.slice(0,9)" formControlName="vaftestmovhombizq" type="number" pInputText > 
                             <label for="float-input" style="font-size: 15px; ">Movilidad del hombro izquierdo</label>
