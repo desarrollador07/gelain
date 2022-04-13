@@ -198,13 +198,161 @@ export class BDRDGComponent implements OnInit {
       let pruebass = [];
       let arreglado :any;
       let fecha:Date;
-      
+      console.log(this.pruebas);
       for(let car of this.pruebas) {
           car.emdnombres = car.emdnombres.toUpperCase()+" "+car.emdapellidos.toUpperCase();
           
           fecha = new Date(car.emdfecnacido);
           var year = fecha.getFullYear();
           car.emdfecnacidoRepor = year;
+          
+          switch (car.emdsexo) {
+            case 'F':
+              car.emdsexo = 'Femenino';
+              break;
+            case 'M':
+              car.emdsexo = 'Masculino';
+              break;
+          }
+
+          switch (car.emdnivelestudio) {
+            case '1':
+              car.emdnivelestudio = 'Ninguno';
+              break;
+            case '2':
+              car.emdnivelestudio = 'Primaria incompleta';
+              break;
+            case '3':
+              car.emdnivelestudio = 'Primaria completa';
+              break;
+            case '4':
+              car.emdnivelestudio = 'Bachillerato incompleto';
+              break;
+            case '5':
+              car.emdnivelestudio = 'Bachillerato completo';
+              break;
+            case '6':
+              car.emdnivelestudio = 'Técnico - Tecnólogo incompleto';
+              break;
+            case '7':
+              car.emdnivelestudio = 'Técnico - Tecnólogo completo';
+              break;
+            case '8':
+              car.emdnivelestudio = 'Profesional incompleto';
+              break;
+            case '9':
+              car.emdnivelestudio = 'Profesional incompleto';
+              break;
+            case '10':
+              car.emdnivelestudio = 'Carrera militar / Policia';
+              break;
+            case '11':
+              car.emdnivelestudio = 'Post-grado incompleto';
+              break;
+            case '12':
+              car.emdnivelestudio = 'Post-grado completo';
+              break;
+          }
+
+          switch (car.emdestcivil) {
+            case '1':
+              car.emdestcivil = 'Soltero(a)';
+              break;
+            case '2':
+              car.emdestcivil = 'Casado(a)';
+              break;
+            case '3':
+              car.emdestcivil = 'Union libre';
+              break;
+            case '4':
+              car.emdestcivil = 'Separado(a)';
+              break;
+            case '5':
+              car.emdestcivil = 'Divorciado(a)';
+              break;
+            case '6':
+              car.emdestcivil = 'Viudo(a)';
+              break;
+            case '7':
+              car.emdestcivil = 'Sacerdote/Monja';
+              break;
+          }
+
+          switch (car.emdestracto) {
+            case '1':
+              car.emdestracto = 'Estracto 1';
+              break;
+            case '2':
+              car.emdestracto = 'Estracto 2';
+              break;
+            case '3':
+              car.emdestracto = 'Estracto 3';
+              break;
+            case '4':
+              car.emdestracto = 'Estracto 4';
+              break;
+            case '5':
+              car.emdestracto = 'Estracto 5';
+              break;
+            case '6':
+              car.emdestracto = 'Estracto 6';
+              break;
+            case '7':
+              car.emdestracto = 'Finca';
+              break;
+            case '8':
+              car.emdestracto = 'No se';
+              break;
+          }
+
+          switch (car.emdtipovivienda) {
+            case '1':
+              car.emdtipovivienda = 'Propia';
+              break;
+            case '2':
+              car.emdtipovivienda = 'En arriendo';
+              break;
+            case '3':
+              car.emdtipovivienda = 'Familiar';
+              break;
+          }
+
+          switch (car.emdtipodecargo) {
+            case '1':
+              car.emdtipodecargo = 'Jefatura - Tiene personal a cargo';
+              break;
+            case '2':
+              car.emdtipodecargo = 'Manejo de dinero - Información confidencial - Salud y seguridad de otras personas';
+              break;
+            case '3':
+              car.emdtipodecargo = 'Auxiliar - Asistente administrativo - Asistente técnico';
+              break;
+            case '4':
+              car.emdtipodecargo = 'Operario, operador, ayudante, servicios generales';
+              break;
+          }
+
+          switch (car.emdtipocontrato) {
+            case '1':
+              car.emdtipocontrato = 'Temporal de menos de 1 año';
+              break;
+            case '2':
+              car.emdtipocontrato = 'Temporal de 1 año o mas';
+              break;
+            case '3':
+              car.emdtipocontrato = 'Termino indefinido';
+              break;
+            case '4':
+              car.emdtipocontrato = 'Cooperado (cooperativa)';
+              break;
+            case '5':
+              car.emdtipocontrato = 'Prestacion de servicios';
+              break;
+            case '6':
+              car.emdtipocontrato = 'No se';
+              break;
+          }
+
           pruebass.push(car);
          
       }
