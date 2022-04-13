@@ -192,15 +192,17 @@ export class BDRDGComponent implements OnInit {
         });
         FileSaver.saveAs(data, fileName  + EXCEL_EXTENSION);
     });
+    this.makeRowsSameHeight();
   }
 
   getCars() {
       let pruebass = [];
       let arreglado :any;
       let fecha:Date;
-      console.log(this.pruebas);
+      
+
       for(let car of this.pruebas) {
-          car.emdnombres = car.emdnombres.toUpperCase()+" "+car.emdapellidos.toUpperCase();
+          car.nombreCompleto = car.emdnombres.toUpperCase()+" "+car.emdapellidos.toUpperCase();
           
           fecha = new Date(car.emdfecnacido);
           var year = fecha.getFullYear();
@@ -360,7 +362,7 @@ export class BDRDGComponent implements OnInit {
     return {
       'ID' : item.emdid,
       'CEDULA': item.emdcedula,
-      'NOMBRE: 1': item.emdnombres,
+      'NOMBRE: 1': item.nombreCompleto,
       'SEXO: 2': item.emdsexo,
       'AÑO DE NACIMIENTO: 3': item.emdfecnacidoRepor,
       'ESTADO CIVIL: 4': item.emdestcivil,
