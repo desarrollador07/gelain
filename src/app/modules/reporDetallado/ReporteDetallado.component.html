@@ -62,7 +62,7 @@
 </div>
 <div class="card">
     <p-panel header="REPORTE DETALLADO POR EMPLEADO">
-        <p-table #dt [value]="rdEmpleado" [columns]="cols" [responsive]="true" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos','emdtraciudad','emdzona']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true" [rowsPerPageOptions]="[10,20,30]">
+        <p-table #dt [value]="rdEmpleado" [columns]="cols" [scrollable]="true" [responsive]="true" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos','emdtraciudad','emdzona']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true" [rowsPerPageOptions]="[10,20,30]">
             <ng-template pTemplate="caption">
                 <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
                     <div class="ui-grid-row">
@@ -77,6 +77,11 @@
                         </div>
                     </div>
                 </div>
+            </ng-template>
+            <ng-template pTemplate="colgroup" let-columns>
+                <colgroup>
+                    <col *ngFor="let col of columns" [ngStyle]="{'width': col.width}">
+                </colgroup>
             </ng-template>
             <ng-template pTemplate="header" let-columns>
                 <tr>
@@ -97,10 +102,10 @@
                 <tr>
                     <td style="text-align:left">{{rdEmpleado.emdcedula}}</td>
                     <td style="text-align:left">{{rdEmpleado.emdnombres}} {{rdEmpleado.emdapellidos}}</td>
-                    <td style="text-align:left">{{rdEmpleado.emdtraciudad}}</td>
-                    <td style="text-align:left">{{rdEmpleado.emdtelefono}}</td>
-                    <td style="text-align:left">{{rdEmpleado.arenombre}}</td>
-                    <td style="text-align:left">{{rdEmpleado.emdzona}}</td>
+                    <td style="text-align:left">{{rdEmpleado.emdtraciudad | uppercase}}</td>
+                    <td style="text-align:left">{{rdEmpleado.emdtelefono | uppercase}}</td>
+                    <td style="text-align:left">{{rdEmpleado.arenombre | uppercase}}</td>
+                    <td style="text-align:left">{{rdEmpleado.emdzona | uppercase}}</td>
                     <td style="text-align:left">{{rdEmpleado.emdfechamod | date:'dd-MM-yyyy, h:mm a'}}</td>
                 </tr>
             </ng-template>

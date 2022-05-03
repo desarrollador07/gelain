@@ -54,13 +54,13 @@ export class ReporteDetalladoComponent implements OnInit {
 
   ];
   cols = [
-    { field: 'emdcedula', header: 'Cédula' },
-    { field: 'emdnombres', header: 'Nombre' },
-    { field: 'emdtraciudad', header: 'Ciudad' },
-    { field: 'emdtelefono', header: 'Telefono' },
-    { field: 'arenombre', header: 'Área' },
-    { field: 'emdzona', header: 'Sede' },
-    { field: 'emdfechamod', header: 'Fecha Modificación' } 
+    { field: 'emdcedula', header: 'Cédula', width: '130px' },
+    { field: 'emdnombres', header: 'Nombre', width: '400px' },
+    { field: 'emdtraciudad', header: 'Ciudad', width: '200px' },
+    { field: 'emdtelefono', header: 'Telefono', width: '160px' },
+    { field: 'arenombre', header: 'Área', width: '250px' },
+    { field: 'emdzona', header: 'Sede', width: '200px' },
+    { field: 'emdfechamod', header: 'Fecha Modificación', width: '200px' } 
   ];
   validEmp:boolean = false;
   empresasData:Empresa [] = [];
