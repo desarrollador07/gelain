@@ -48,6 +48,7 @@ export class FormEmpleadosLComponent implements OnInit {
   nummax:number = 0;
   nummaxpre:number = 0;
   bandera:boolean=false;
+  validSave:boolean = false;
   constructor(
               private empresaServices: EmpresaService,
               private areasServices: AreasService,
@@ -211,7 +212,7 @@ export class FormEmpleadosLComponent implements OnInit {
   onSubmit(){
 
     if(this.userform.valid){
-    
+      this.validSave = true;
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
         this.empleadosService.createPrueba(this.userform.value).subscribe(async data =>{

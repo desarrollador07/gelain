@@ -55,7 +55,8 @@ export class FormEmpleadosComponent implements OnInit {
   nummaxpre:number = 0;
   bandera:boolean=false;
   idEmpresa:number;
-  constructor(private pruebaservices: PruebaService,
+  validSave:boolean = false;
+  constructor(
               private empresaServices: EmpresaService,
               private formatoAService: FormatoAService,
               private formatoBService: FormatoBService,
@@ -253,7 +254,8 @@ export class FormEmpleadosComponent implements OnInit {
 
 
  onSubmit(){
-    if(this.userform.valid){
+   if(this.userform.valid){
+      this.validSave = true;
       
       if(this.localEmpleados !== null){
         /*Edición*/

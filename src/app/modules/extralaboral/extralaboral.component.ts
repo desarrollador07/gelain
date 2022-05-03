@@ -32,6 +32,7 @@ export class ExtralaboralComponent implements OnInit {
   datosEmpleado:any;
   cedula:any;
   nombre:any;
+  validSave:boolean = false;
  
   constructor(private pruebaservices: PruebaService,
               private formatoExtraService: FormatoExtraService,
@@ -255,11 +256,12 @@ export class ExtralaboralComponent implements OnInit {
 
  onSubmit(){
      if(this.userform.valid){
+       this.validSave = true;
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.extid; 
           this.formatoExtraService.updateExtra(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             setTimeout(() => {
               this.router.navigate(["/main/addEstres/editar"]);

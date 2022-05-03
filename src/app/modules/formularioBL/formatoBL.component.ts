@@ -31,6 +31,8 @@ export class FormatoBLComponent implements OnInit {
   vart : boolean;
   forrrB:FormatoB;
   idem:number = 0;
+  validSave:boolean = false;
+
   constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id")); 
@@ -556,7 +558,7 @@ export class FormatoBLComponent implements OnInit {
 
   onSubmit(){
     if(this.userform.valid){  
-
+      this.validSave = true;
       if(this.localPrueba !== null){
  
         this.idd = this.localPrueba.inbid;
@@ -565,7 +567,7 @@ export class FormatoBLComponent implements OnInit {
             sessionStorage.setItem('ForB',JSON.stringify(data));
           })
 
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
           this.userform.reset();
           setTimeout(() => {
             this.router.navigate(["/ExtralaboralL"]);

@@ -32,6 +32,8 @@ export class EstresComponent implements OnInit {
   datosEmpleado:any;
   cedula:any;
   nombre:any;
+  validSave:boolean = false;
+
   constructor(private pruebaservices: PruebaService,
               private empleadosService: EmpleadosService,
               private formatoEstresService: FormatoEstresService,
@@ -193,13 +195,14 @@ export class EstresComponent implements OnInit {
 
  onSubmit(){
      if(this.userform.valid){
+       this.validSave = true;
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.estid;
           this.formatoEstresService.updateEstres(this.userform.value,this.idd).subscribe((data: any) =>{
             this.empleadosService.updateEstado(this.idl).subscribe((data=>{
 
             }));
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['/main/empleado']);
           });

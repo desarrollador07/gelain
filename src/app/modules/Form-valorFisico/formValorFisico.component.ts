@@ -71,6 +71,7 @@ export class FormValorFisicoComponent implements OnInit {
   validSexoMas:boolean = false;
   mobWidth: any;
   imgvalidator: boolean = true;
+  validSave:boolean = false;
 
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
@@ -893,7 +894,7 @@ export class FormValorFisicoComponent implements OnInit {
   async onSubmit(){
 
     if(this.userform.valid){
-
+      this.validSave = true;
       this.validCS();
 
       if(this.localPrueba !== null){

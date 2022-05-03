@@ -71,6 +71,7 @@ export class ExformVfComponent implements OnInit {
   validSexoMas:boolean = false;
   mobWidth: any;
   imgvalidator: boolean = true;
+  validSave:boolean = false;
   
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
@@ -674,7 +675,7 @@ export class ExformVfComponent implements OnInit {
 async onSubmit(){
 
   if(this.userform.valid){
-
+    this.validSave = true;
     this.validCS();
 
       await this.vfService.createvalorFisico(this.tempValorF).toPromise().then((data:any)=>{

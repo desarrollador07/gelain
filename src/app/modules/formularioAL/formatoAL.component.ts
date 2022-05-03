@@ -31,6 +31,7 @@ export class FormatoALComponent implements OnInit {
   vart2 : boolean;
   formuA:FormatoA;
   idem:number = 0;
+  validSave:boolean = false;
  
   constructor(
               private formatoAService: FormatoAService,
@@ -679,7 +680,8 @@ export class FormatoALComponent implements OnInit {
 
 
  onSubmit(){
-     if(this.userform.valid){       
+     if(this.userform.valid){  
+       this.validSave = true;     
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.inaid;
           this.formatoAService.updateFormatoA(this.userform.value,this.idd).subscribe((data: any) =>{

@@ -33,6 +33,8 @@ export class FormatoBComponent implements OnInit {
   datosEmpleado:any;
   cedula:any;
   nombre:any;
+  validSave:boolean = false;
+
   constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
               private route: ActivatedRoute,private _messageService: MessageService) {  
                 this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
@@ -673,14 +675,15 @@ export class FormatoBComponent implements OnInit {
 
 
   onSubmit(){
-    if(this.userform.valid){       
+    if(this.userform.valid){ 
+      this.validSave = true;      
      if(this.localPrueba !== null){
  
         this.idd = this.localPrueba.inbid;
         this.formatoBService.updateFormatoB(this.userform.value,this.idd)
         .subscribe((data: any) =>{
         
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
           this.userform.reset();
           
         setTimeout(() => {

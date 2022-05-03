@@ -28,6 +28,7 @@ export class FormValorRiesgoComponent implements OnInit {
   ];
   mobWidth: any;
   imgvalidator: boolean = true;
+  validSave:boolean = false;
   constructor(private fb: FormBuilder,
               private _location: Location,
               private valoraRiesgoService: ValoracionRiesgosService,
@@ -1145,7 +1146,7 @@ export class FormValorRiesgoComponent implements OnInit {
   async onSubmit(){
 
     if(this.vrform.valid){
-
+      this.validSave = true;
       if(this.localVR !== null){
         const id = this.localVR.idp_id;
         this.vrform.value.idpusuariomod = this.userMod;

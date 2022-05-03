@@ -1279,7 +1279,7 @@
             </fieldset>
             <br>
             <div style="text-align:center">
-                <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="aprobForm"></button>&nbsp;
+                <button style="height:30px;width:120px" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="aprobForm || validSave"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" title="Cancelar" pRipple [routerLink]="['/main/ValorFisico']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
         </div>

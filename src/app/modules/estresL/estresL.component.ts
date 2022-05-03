@@ -28,6 +28,7 @@ export class EstresLComponent implements OnInit {
   activeIndex: number = 1;
   forrr:any[]=[];
   forrrEs:Estres;
+  validSave:boolean = false;
   constructor(
               private empleadosService: EmpleadosService,
               private formatoEstresService: FormatoEstresService,
@@ -246,6 +247,7 @@ export class EstresLComponent implements OnInit {
 
  onSubmit(){
      if(this.userform.valid){
+       this.validSave = true;
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.estid;
           this.formatoEstresService.updateEstres(this.userform.value,this.idd)
@@ -254,7 +256,7 @@ export class EstresLComponent implements OnInit {
 
             }));
 
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['FinalFormularios']);
           })

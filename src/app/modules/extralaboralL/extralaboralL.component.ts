@@ -29,6 +29,7 @@ export class ExtralaboralLComponent implements OnInit {
   forrr:any[]=[];
   forrrEx:Extralaboral;
   idem:number = 0;
+  validSave:boolean = false;
  
   constructor(
               private formatoExtraService: FormatoExtraService,
@@ -251,12 +252,13 @@ export class ExtralaboralLComponent implements OnInit {
 
  onSubmit(){
      if(this.userform.valid){
+       this.validSave = true;
       if(this.localPrueba !== null){
 
           this.idd = this.localPrueba.extid; 
           this.formatoExtraService.updateExtra(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             setTimeout(() => {
               this.router.navigate(["EstresL"]);
