@@ -42,4 +42,5 @@ export interface ReporteDetallado{
     Resestres_comporta?:string,
     Resestres_intelectuales?:string,
     Resestres_psicoemocionales?:string,
+    nombreCompleto?:string
 }

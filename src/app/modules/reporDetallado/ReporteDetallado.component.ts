@@ -144,7 +144,7 @@ export class ReporteDetalladoComponent implements OnInit {
       let empTemp:Empresa = {};
       
       for(let rDE of this.rdEmpleado) {
-          rDE.emdnombres = rDE.emdnombres.toString()+" "+rDE.emdapellidos.toString();
+          rDE.nombreCompleto = rDE.emdnombres.toString()+" "+rDE.emdapellidos.toString();
           rDETemp.push(rDE);
       }
       // console.log(this.rdEmpleado)
@@ -159,7 +159,7 @@ export class ReporteDetalladoComponent implements OnInit {
         return {
           'EMPRESA':empTemp.empnombre,
           'CEDULA': item.emdcedula,
-          'NOMBRE': item.emdnombres,
+          'NOMBRE': item.nombreCompleto,
           'CIUDAD':item.emdtraciudad,
           'SEXO':item.emdsexo,
           'FECHA NACIMIENTO':item.emdfecnacido,

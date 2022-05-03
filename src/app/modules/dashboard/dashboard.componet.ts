@@ -11,6 +11,7 @@ import { Car } from '../../demo/domain/car';
 import { CarService } from '../../demo/service/carservice';
 import { EventService } from '../../demo/service/eventservice';
 import { BreadcrumbService } from '../../breadcrumb.service';
+import { ValidacionService } from "src/app/services/validacion.service";
 
 @Component({
     selector: "app-dashboard",
@@ -29,7 +30,8 @@ export class DashboardComponent implements OnInit {
     items: MenuItem[];
     fullcalendarOptions: any;
     
-    constructor(private carService: CarService, private eventService: EventService, private breadcrumbService: BreadcrumbService) {
+    constructor(private carService: CarService, private eventService: EventService, private breadcrumbService: BreadcrumbService,private  validacionService: ValidacionService) {
+        this.validacionService.recargarPagina();
         this.breadcrumbService.setItems([
             { label: 'Dashboard', routerLink: [''] }
         ]);

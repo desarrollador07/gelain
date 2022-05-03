@@ -9,6 +9,7 @@ import { ValorFisico } from '../../models/valorFisico.model';
 import { MessageService, ConfirmationService, Message } from 'primeng/api';
 /*Servicios */
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
+import { ValidacionService } from 'src/app/services/validacion.service';
 
 
 @Component({
@@ -52,8 +53,10 @@ export class ValorfisicoComponent implements OnInit {
   constructor(private vfService: ValoracionFisicaService,
               private _messageService: MessageService,
               private _confirmationServices: ConfirmationService,
+              private validacionService: ValidacionService,
               private datepipe: DatePipe,
               private store: Store<AppState>) {
+               this.validacionService.recargarPagina();
                this.idEmpresa = sessionStorage.getItem('idEmpresa');   
   }
 

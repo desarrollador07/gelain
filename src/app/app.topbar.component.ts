@@ -11,6 +11,7 @@ import { Empresa } from './models/empresa.model';
 import { EmpresaService } from './services/empresa.service';
 /*Componente */
 import { AppComponent} from './app.component';
+import { ValidacionService } from './services/validacion.service';
 
 @Component({
   selector: 'app-topbar',
@@ -37,7 +38,9 @@ export class AppTopBarComponent {
     constructor(public app: AppComponent,
                 private router: Router,
                 private store: Store<AppState>,
-                private empresaServices: EmpresaService) {
+                private empresaServices: EmpresaService,
+                private validacionService: ValidacionService) {
+      this.validacionService.recargarPagina();
       this.onResize();
       this.nombre = sessionStorage.getItem("user");
       this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));

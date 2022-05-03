@@ -9,6 +9,7 @@ import { AreasService } from 'src/app/services/areas.service';
 import { ValoracionRiesgosService } from '../../services/valoracion-riesgos.service';
 import { Workbook } from 'exceljs';
 import { saveAs } from "file-saver";
+import { ValidacionService } from 'src/app/services/validacion.service';
 
 @Component({
   selector: 'app-valor-riesgo',
@@ -110,7 +111,9 @@ export class ValorRiesgoComponent implements OnInit {
               private datepipe: DatePipe,
               private areasServices: AreasService,
               private _confirmationServices: ConfirmationService,
+              private validacionService: ValidacionService,
               private store: Store<AppState>) {
+               this.validacionService.recargarPagina();
                this.idEmpresa = sessionStorage.getItem('idEmpresa');   
   }
 

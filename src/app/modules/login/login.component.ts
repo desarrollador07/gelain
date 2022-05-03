@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 /*Modulos */
 import { ConfirmationService, MessageService } from "primeng/api";
+import { ValidacionService } from "src/app/services/validacion.service";
 /*Modelos */
 import { User } from '../../models/user';
 /*Servicios */
@@ -30,8 +31,10 @@ export class LoginComponent implements OnInit {
         private fb: FormBuilder,
         private router: Router,
         private messageService: MessageService,
-        private pruebaservices: PruebaService
+        private pruebaservices: PruebaService,
+        private validacionService: ValidacionService
     ) {
+        this.validacionService.recargarPagina();
         this.crearFormulario();
     }
 

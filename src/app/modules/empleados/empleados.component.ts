@@ -15,6 +15,7 @@ import { FormatoBService } from 'src/app/services/formato-b.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 import { FormatoExtraService } from 'src/app/services/formato-extra.service';
 import { DatePipe } from '@angular/common';
+import { ValidacionService } from 'src/app/services/validacion.service';
 
 @Component({
   selector: 'app-empleados',
@@ -66,9 +67,11 @@ export class EmpleadosComponent implements OnInit {
               private empresaServices:EmpresaService,
               private router: Router,
               private datepipe: DatePipe,
+              private validacionService: ValidacionService,
               private _confirmationServices: ConfirmationService,
               private _messageService: MessageService,
               private store: Store<AppState>) {
+                this.validacionService.recargarPagina();
                 this.idEmpresa = sessionStorage.getItem("idEmpresa");
                 
    }
