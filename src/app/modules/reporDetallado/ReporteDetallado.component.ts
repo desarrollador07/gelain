@@ -8,6 +8,7 @@ import { ReporteDetallado } from '../../models/reporteDetallado';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
 import { DatePipe } from '@angular/common';
+import { Empresa } from 'src/app/models/empresa.model';
 
 
 @Component({
@@ -62,6 +63,7 @@ export class ReporteDetalladoComponent implements OnInit {
     { field: 'emdfechamod', header: 'Fecha Modificación' } 
   ];
   validEmp:boolean = false;
+  empresasData:Empresa [] = [];
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
               private datepipe: DatePipe,
@@ -71,9 +73,12 @@ export class ReporteDetalladoComponent implements OnInit {
                 this.fechafinal = new Date() 
    }
 
+
+
   async ngOnInit() {
   
     this.store.select('empresas').subscribe(async res=>{
+      this.empresasData = res.list;
       var id:number;
       if (res.empresa !== undefined) {
         id = res.empresa.empid;
@@ -136,15 +141,23 @@ export class ReporteDetalladoComponent implements OnInit {
   reporteDetalladoEmpleado() {
       let rDETemp = [];
       let dataReporte :any;
-
+      let empTemp:Empresa = {};
+      
       for(let rDE of this.rdEmpleado) {
           rDE.emdnombres = rDE.emdnombres.toString()+" "+rDE.emdapellidos.toString();
           rDETemp.push(rDE);
       }
-      
+      // console.log(this.rdEmpleado)
       dataReporte = rDETemp.map( item => { 
+        empTemp = this.empresasData.find(emp => emp.empid === item.emdempresa);
+        // console.log(empTemp);
+        if (empTemp === undefined) {
+          empTemp = {};
+        }
+        
         /*TODO: Falta asignar campo fecha de registro en la exportación, Novedad: Campo no creado en la tabla */
         return {
+          'EMPRESA':empTemp.empnombre,
           'CEDULA': item.emdcedula,
           'NOMBRE': item.emdnombres,
           'CIUDAD':item.emdtraciudad,

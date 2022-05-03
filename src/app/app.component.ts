@@ -79,8 +79,6 @@ export class AppComponent {
     }
 
     onMenuClick($event) {
-        console.log("entro 2");
-        
         this.menuClick = true;
         this.resetMenu = false;
     }
