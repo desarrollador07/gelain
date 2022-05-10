@@ -15,7 +15,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula" type="text" pInputText> 
+                            <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula"  onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" type="number" pInputText> 
                             <label for="float-input" style="font-size: 15px; ">Cedula</label>     
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
