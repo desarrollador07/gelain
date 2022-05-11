@@ -9,7 +9,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
 import { MessageService} from 'primeng/api';
 import {InputTextModule} from 'primeng/inputtext';
-import { ButtonModule, MenuItemContent } from 'primeng/primeng';
+import { ButtonModule } from 'primeng/primeng';
 import {DropdownModule} from 'primeng/dropdown';
 import {  PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table'
@@ -19,6 +19,7 @@ import { DatePipe } from '@angular/common';
 import {StepsModule} from 'primeng/steps';
 
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { VideoInfoModule } from 'src/app/components/video-info/video-info.module';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     ToastModule,
     CalendarModule,
     StepsModule,
+    VideoInfoModule
   ],
   providers:[
     MessageService,

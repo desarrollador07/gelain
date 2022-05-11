@@ -120,7 +120,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
-
+import { VideoInfoModule } from './components/video-info/video-info.module';
 
 
 @NgModule({
@@ -214,7 +214,8 @@ import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
             maxAge: 25,
             logOnly: true,
         }),
-        ScrollPanelModule
+        ScrollPanelModule,
+        VideoInfoModule
        
     ],
     declarations: [

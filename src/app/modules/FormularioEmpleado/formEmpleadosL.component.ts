@@ -787,4 +787,5 @@ export class FormEmpleadosLComponent implements OnInit {
     this.tsalario.push({ label: 'Una parte fija y otra variable', value: '2' });
     this.tsalario.push({ label: 'Todo variable', value: '3' });
   }
+
 }

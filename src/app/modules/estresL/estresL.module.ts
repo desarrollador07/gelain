@@ -18,6 +18,7 @@ import {CalendarModule} from 'primeng/calendar';
 import { DatePipe } from '@angular/common';
 import {StepsModule} from 'primeng/steps';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { VideoInfoModule } from 'src/app/components/video-info/video-info.module';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     ToastModule,
     CalendarModule,
     StepsModule,
+    VideoInfoModule
   ],
   providers:[
     MessageService,
