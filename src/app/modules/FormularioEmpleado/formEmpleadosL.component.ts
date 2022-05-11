@@ -49,6 +49,8 @@ export class FormEmpleadosLComponent implements OnInit {
   nummaxpre:number = 0;
   bandera:boolean=false;
   validSave:boolean = false;
+ 
+ 
   constructor(
               private empresaServices: EmpresaService,
               private areasServices: AreasService,

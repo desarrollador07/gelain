@@ -1,7 +1,7 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
     <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
-        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+        <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px">
             <div class="ui-g" style="text-align: center;">
                 <div class="ui-g-12 ui-md-6 ui-lg-3" style="margin-top: 30px;">
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
@@ -10,6 +10,7 @@
                     <img src="https://gelainbienestarlaboral.com/GELAIN/img/ValoracionFisica.png" alt="" width="800px" height="230px">
                 </div>
             </div>
+            <app-video-info [validVideo]="2"></app-video-info>
             <fieldset>
                 <legend><b>Ficha De Valoración De La Condición Física</b></legend>
                 <div class="ui-g" style="margin-bottom: 10px;">

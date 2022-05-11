@@ -5,10 +5,12 @@ import { RouterModule } from '@angular/router';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { MessageModule } from 'primeng/message';
 import { MessagesModule } from 'primeng/messages';
-import { FieldsetModule, DropdownModule, PanelModule, InputTextModule, MultiSelectModule, CalendarModule } from 'primeng/primeng';
+import { FieldsetModule, DropdownModule, PanelModule, InputTextModule, MultiSelectModule, CalendarModule, LightboxModule } from 'primeng/primeng';
 import { ToastModule } from 'primeng/toast';
 import { ExformVfRoutingModule } from './exform-vf-routing.module';
 import { ExformVfComponent } from './exform-vf.component';
+import { VideoInfoModule } from 'src/app/components/video-info/video-info.module';
+
 
 @NgModule({
   declarations: [ExformVfComponent],
@@ -28,6 +30,8 @@ import { ExformVfComponent } from './exform-vf.component';
     DropdownModule,
     PanelModule,
     InputTextModule,
+    LightboxModule,
+    VideoInfoModule
   ]
 })
 export class ExformVfModule { }
