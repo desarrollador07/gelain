@@ -112,7 +112,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) En mi trabajo me preocupa estar expuesto a sustancias químicas que afecten mi salud</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) En mi trabajo me preocupa estar expuesto a sustancias químicas que afecten mi salud <label style="color: red;" *ngIf="inasustanquimicasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -124,7 +124,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) Mi trabajo me exige hacer mucho esfuerzo físico</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) Mi trabajo me exige hacer mucho esfuerzo físico <label style="color: red;" *ngIf="inaesfuerzofisicoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -136,7 +136,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) Los equipos o herramientas con los que trabajo son cómodos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) Los equipos o herramientas con los que trabajo son cómodos <label style="color: red;" *ngIf="inaequiposcomodosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -148,7 +148,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) En mi trabajo me preocupa estar expuesto amicrobios, animales o plantas que afecten mi salud</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) En mi trabajo me preocupa estar expuesto amicrobios, animales o plantas que afecten mi salud <label style="color: red;" *ngIf="inaanimalesplantasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -160,7 +160,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) Me preocupa accidentarme en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) Me preocupa accidentarme en mi trabajo <label style="color: red;" *ngIf="inapreoaccidenteMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -173,7 +173,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) El lugar donde trabajo es limpio y ordenado</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) El lugar donde trabajo es limpio y ordenado <label style="color: red;" *ngIf="inalugarlimpioMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -186,10 +186,15 @@
             <br>
             <fieldset>
                 <legend><b>Para responder a las siguientes preguntas piense en la cantidad de trabajo que usted tiene a cargo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion2" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) Por la cantidad de trabajo que tengo debo quedarme tiempo adicional</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) Por la cantidad de trabajo que tengo debo quedarme tiempo adicional <label style="color: red;" *ngIf="inatiempoadicionalMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -201,7 +206,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) Me alcanza el tiempo de trabajo para tener al día mis deberes</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) Me alcanza el tiempo de trabajo para tener al día mis deberes <label style="color: red;" *ngIf="inaalcanzatiempoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -213,7 +218,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) Por la cantidad de trabajo que tengo debo trabajar sin parar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) Por la cantidad de trabajo que tengo debo trabajar sin parar <label style="color: red;" *ngIf="inatrabajasinpararMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -226,10 +231,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con el esfuerzo mental que le exige su trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion3" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) Mi trabajo me exige hacer mucho esfuerzo mental</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) Mi trabajo me exige hacer mucho esfuerzo mental <label style="color: red;" *ngIf="inaesfuerzomentalMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -241,7 +251,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) Mi trabajo me exige estar muy concentrado</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) Mi trabajo me exige estar muy concentrado <label style="color: red;" *ngIf="inaexigeconcentradoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -253,7 +263,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18) Mi trabajo me exige memorizar mucha información</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18) Mi trabajo me exige memorizar mucha información <label style="color: red;" *ngIf="inaexigememoriaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -265,7 +275,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) En mi trabajo tengo que tomar decisiones difíciles muy rápido</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) En mi trabajo tengo que tomar decisiones difíciles muy rápido <label style="color: red;" *ngIf="inadesiciondificilesMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -277,7 +287,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20) Mi trabajo me exige atender a muchos asuntos al mismo tiempo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20) Mi trabajo me exige atender a muchos asuntos al mismo tiempo <label style="color: red;" *ngIf="inaexigeasuntosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -289,7 +299,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21) Mi trabajo requiere que me fije en pequeños detalles</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21) Mi trabajo requiere que me fije en pequeños detalles <label style="color: red;" *ngIf="inapqnosdetallesMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -302,10 +312,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con las responsabilidades y actividades que usted debe hacer en su trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion4" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22) En mi trabajo respondo por cosas de mucho valor</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22) En mi trabajo respondo por cosas de mucho valor <label style="color: red;" *ngIf="inaresponcosasvalorMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -317,7 +332,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">23) En mi trabajo respondo por dinero de la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">23) En mi trabajo respondo por dinero de la empresa <label style="color: red;" *ngIf="inarespondineroMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -329,7 +344,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">24) Como parte de mis funciones debo responder por la seguridad de otros por la seguridad de otros</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">24) Como parte de mis funciones debo responder por la seguridad de otros por la seguridad de otros <label style="color: red;" *ngIf="inareponderotrosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -341,7 +356,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;" style="font-size: 15px;">25) Respondo ante mi jefe por los resultados de toda mi área de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;" style="font-size: 15px;">25) Respondo ante mi jefe por los resultados de toda mi área de trabajo <label style="color: red;" *ngIf="inaresponareaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -353,7 +368,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">26) Mi trabajo me exige cuidar la salud de otras personas personas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">26) Mi trabajo me exige cuidar la salud de otras personas personas <label style="color: red;" *ngIf="inareponsaludMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -365,7 +380,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">27) En el trabajo me dan órdenes contradictorias</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">27) En el trabajo me dan órdenes contradictorias <label style="color: red;" *ngIf="inaordecontradicMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -377,7 +392,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">28) En mi trabajo me piden hacer cosas innecesarias innecesarias</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">28) En mi trabajo me piden hacer cosas innecesarias innecesarias <label style="color: red;" *ngIf="inahacerinnecesariaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -389,7 +404,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">29) En mi trabajo se presentan situaciones en las que debo pasar por alto normas o procedimientos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">29) En mi trabajo se presentan situaciones en las que debo pasar por alto normas o procedimientos <label style="color: red;" *ngIf="inapasarnormasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -401,7 +416,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">30) En mi trabajo tengo que hacer cosas que se podrían hacer de una forma más práctica</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">30) En mi trabajo tengo que hacer cosas que se podrían hacer de una forma más práctica <label style="color: red;" *ngIf="inamaspracticasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -414,10 +429,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con la jornada de trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion5" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">31) Trabajo en horario de noche</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">31) Trabajo en horario de noche <label style="color: red;" *ngIf="inatrabajodenocheMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -429,7 +449,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">32) En mi trabajo es posible tomar pausas para descansar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">32) En mi trabajo es posible tomar pausas para descansar <label style="color: red;" *ngIf="inapausasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -441,7 +461,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">33) Mi trabajo me exige laborar en días de descanso, festivos o fines de semana</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">33) Mi trabajo me exige laborar en días de descanso, festivos o fines de semana <label style="color: red;" *ngIf="inatrabajodiadescaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -453,7 +473,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">34) En mi trabajo puedo tomar fines de semana o días de descanso al mes"duda"</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">34) En mi trabajo puedo tomar fines de semana o días de descanso al mes"duda" <label style="color: red;" *ngIf="inafinsemdescMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -465,7 +485,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">35) Cuando estoy en casa sigo pensando en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">35) Cuando estoy en casa sigo pensando en el trabajo <label style="color: red;" *ngIf="inaencasapiensotraMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -477,7 +497,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">36) Discuto con mi familia o amigos por causa de mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">36) Discuto con mi familia o amigos por causa de mi trabajo <label style="color: red;" *ngIf="inadiscutofamiliaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -489,7 +509,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">37) Debo atender asuntos de trabajo cuando estoy en casa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">37) Debo atender asuntos de trabajo cuando estoy en casa <label style="color: red;" *ngIf="inaasuntosencasaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -501,7 +521,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">38) Por mi trabajo el tiempo que paso con mi familia y amigos es muy poco</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">38) Por mi trabajo el tiempo que paso con mi familia y amigos es muy poco <label style="color: red;" *ngIf="inapocotiempofamiMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -514,10 +534,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con las decisiones y el control que le permite su trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion6" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">39) Mi trabajo me permite desarrollar mis habilidades</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">39) Mi trabajo me permite desarrollar mis habilidades <label style="color: red;" *ngIf="inapermitehabilidadMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -529,7 +554,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">40) Mi trabajo me permite aplicar mis conocimientos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">40) Mi trabajo me permite aplicar mis conocimientos <label style="color: red;" *ngIf="inapermiteconocimiMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -541,7 +566,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">41) Mi trabajo me permite aprender nuevas cosas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">41) Mi trabajo me permite aprender nuevas cosas <label style="color: red;" *ngIf="inapermiteaprenderMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -553,7 +578,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">42) Me asignan el trabajo teniendo en cuenta mis capacidades.</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">42) Me asignan el trabajo teniendo en cuenta mis capacidades <label style="color: red;" *ngIf="inamiscapacidadesMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -565,7 +590,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">43) Puedo tomar pausas cuando las necesito</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">43) Puedo tomar pausas cuando las necesito <label style="color: red;" *ngIf="inapausasnecesitoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -577,7 +602,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">44) Puedo decidir cuánto trabajo hago en el día</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">44) Puedo decidir cuánto trabajo hago en el día <label style="color: red;" *ngIf="inatrabajodiarioMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -589,7 +614,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">45) Puedo decidir la velocidad a la que trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">45) Puedo decidir la velocidad a la que trabajo <label style="color: red;" *ngIf="inadecivelocidadMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -601,7 +626,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">46) Puedo cambiar el orden de las actividades en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">46) Puedo cambiar el orden de las actividades en mi trabajo <label style="color: red;" *ngIf="inacambiarordenactMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -613,7 +638,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">47) Puedo parar un momento mi trabajo para atender algún asunto personal</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">47) Puedo parar un momento mi trabajo para atender algún asunto personal <label style="color: red;" *ngIf="inaatenderasunpersMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -627,10 +652,15 @@
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con cualquier tipo de cambio que ocurra en su
                 trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion7" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">48) Los cambios en mi trabajo han sido beneficiosos</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">48) Los cambios en mi trabajo han sido beneficiosos <label style="color: red;" *ngIf="inacambiosbeneficioMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -642,7 +672,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">49) Me explican claramente los cambios que ocurren en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">49) Me explican claramente los cambios que ocurren en mi trabajo <label style="color: red;" *ngIf="inaexplicancambiosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -654,7 +684,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">50) Puedo dar sugerencias sobre los cambios que ocurren en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">50) Puedo dar sugerencias sobre los cambios que ocurren en mi trabajo <label style="color: red;" *ngIf="inapuedodarsugerenMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -666,7 +696,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">51) Cuando se presentan cambios en mi trabajo se tienen en cuenta mis ideas y sugerencias</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">51) Cuando se presentan cambios en mi trabajo se tienen en cuenta mis ideas y sugerencias <label style="color: red;" *ngIf="inaencuentamisideasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -678,7 +708,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">52) Los cambios que se presentan en mi trabajo dificultan mi labor</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">52) Los cambios que se presentan en mi trabajo dificultan mi labor <label style="color: red;" *ngIf="inacambiosdificultanMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -692,10 +722,15 @@
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con la información que la empresa le ha dado 
                     sobre su trabajo.</b></legend>
+                    <div class="ui-g">
+                        <div class="ui-g-2" *ngIf="seccion8" style="color: red;">
+                            <strong>*</strong> Campo Obligatorio 
+                        </div>
+                    </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">53) Me informan con claridad cuáles son mis funciones</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">53) Me informan con claridad cuáles son mis funciones <label style="color: red;" *ngIf="inaclaridadfuncionesMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -707,7 +742,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">54) Me informan cuáles son las decisiones que puedo tomar en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">54) Me informan cuáles son las decisiones que puedo tomar en mi trabajo <label style="color: red;" *ngIf="inadecisionesatomarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -719,7 +754,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">55) Me explican claramente los resultados que debo lograr en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">55) Me explican claramente los resultados que debo lograr en mi trabajo <label style="color: red;" *ngIf="inaresultadoslograrMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -731,7 +766,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">56) Me explican claramente el efecto de mi trabajo en la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">56) Me explican claramente el efecto de mi trabajo en la empresa <label style="color: red;" *ngIf="inaefectoenempresaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -743,7 +778,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">57) Me explican claramente los objetivos de mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">57) Me explican claramente los objetivos de mi trabajo <label style="color: red;" *ngIf="inaexplicanobjetivosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -755,7 +790,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">58) Me informan claramente quien me puede orientar para hacer mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">58) Me informan claramente quien me puede orientar para hacer mi trabajo <label style="color: red;" *ngIf="inaorientaciontrabaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -767,7 +802,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">59) Me informan claramente con quien puedo resolver los asuntos de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">59) Me informan claramente con quien puedo resolver los asuntos de trabajo <label style="color: red;" *ngIf="inaresolverasuntosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -779,11 +814,16 @@
             </fieldset>
             <br>
             <fieldset>
-                <legend><b>Las siguientes preguntas están relacionadas con la formación y capacitación que la empresa le facilita para hacer su trabajo.</b></legend>
+                <legend><b>Las siguientes preguntas están relacionadas con la formación y capacitación que la empresa le facilita para hacer su trabajo <label style="color: red;" *ngIf="inacambiosdificultanMarca" ><strong>*</strong></label></b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion9" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">60) La empresa me permite asistir a capacitaciones relacionadas con mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">60) La empresa me permite asistir a capacitaciones relacionadas con mi trabajo <label style="color: red;" *ngIf="inaasiscapacitacionMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -795,7 +835,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">61) Recibo capacitación útil para hacer mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">61) Recibo capacitación útil para hacer mi trabajo <label style="color: red;" *ngIf="inarecibocapacitaciMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -807,7 +847,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">62) Recibo capacitación que me ayuda a hacer mejor mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">62) Recibo capacitación que me ayuda a hacer mejor mi trabajo <label style="color: red;" *ngIf="inarecibocapaciayudaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -820,10 +860,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con el o los jefes con quien tenga más contacto.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion10" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">63) Mi jefe me da instrucciones claras</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">63) Mi jefe me da instrucciones claras <label style="color: red;" *ngIf="inajefeintruccionesMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -835,7 +880,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">64) Mi jefe ayuda a organizar mejor el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">64) Mi jefe ayuda a organizar mejor el trabajo <label style="color: red;" *ngIf="inajefeayudaorganizMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -847,7 +892,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">65) Mi jefe tiene en cuenta mis puntos de vista y opiniones</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">65) Mi jefe tiene en cuenta mis puntos de vista y opiniones <label style="color: red;" *ngIf="inajefemispuntosvistMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -859,7 +904,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">66) Mi jefe me anima para hacer mejor mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">66) Mi jefe me anima para hacer mejor mi trabajo <label style="color: red;" *ngIf="inajefeanimaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -871,7 +916,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">67) Mi jefe distribuye las tareas de forma que me facilita el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">67) Mi jefe distribuye las tareas de forma que me facilita el trabajo <label style="color: red;" *ngIf="inajefedistribuyeMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -883,7 +928,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">68) Mi jefe me comunica a tiempo la información relacionada con el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">68) Mi jefe me comunica a tiempo la información relacionada con el trabajo <label style="color: red;" *ngIf="inajefecomunicaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -895,7 +940,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">69) La orientación que me da mi jefe me ayuda a hacer mejor el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">69) La orientación que me da mi jefe me ayuda a hacer mejor el trabajo <label style="color: red;" *ngIf="inajefeorienracionMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -907,7 +952,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">70) Mi jefe me ayuda a progresar en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">70) Mi jefe me ayuda a progresar en el trabajo <label style="color: red;" *ngIf="inajefeayudaprogresMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -919,7 +964,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">71) Mi jefe me ayuda a sentirme bien en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">71) Mi jefe me ayuda a sentirme bien en el trabajo <label style="color: red;" *ngIf="inajefeayudasentimeMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -931,7 +976,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">72) Mi jefe ayuda a solucionar los problemas que se presentan en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">72) Mi jefe ayuda a solucionar los problemas que se presentan en el trabajo <label style="color: red;" *ngIf="inajefesolucionarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -943,7 +988,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">73) Siento que puedo confiar en mi jefe</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">73) Siento que puedo confiar en mi jefe <label style="color: red;" *ngIf="inajefeconfioMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -955,7 +1000,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">74) Mi jefe me escucha cuando tengo problemas de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">74) Mi jefe me escucha cuando tengo problemas de trabajo <label style="color: red;" *ngIf="inajefeescuchaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -967,7 +1012,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">75) Mi jefe me brinda su apoyo cuando lo necesito</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">75) Mi jefe me brinda su apoyo cuando lo necesito <label style="color: red;" *ngIf="inajefeapoyoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -981,10 +1026,15 @@
             <fieldset>
                 <legend><b>Las siguientes preguntas indagan sobre las relaciones con otras personas y el apoyo entre las
                 personas de su trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion11" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">76) Me agrada el ambiente de mi grupo de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">76) Me agrada el ambiente de mi grupo de trabajo <label style="color: red;" *ngIf="inaagradaambienteMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -996,7 +1046,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">77) En mi grupo de trabajo me tratan de forma respetuosa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">77) En mi grupo de trabajo me tratan de forma respetuosa <label style="color: red;" *ngIf="inagruporespetoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1008,7 +1058,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">78) Siento que puedo confiar en mis compañeros de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">78) Siento que puedo confiar en mis compañeros de trabajo <label style="color: red;" *ngIf="inaconfiocompanerosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1020,31 +1070,31 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">79) Me siento a gusto con mis compañeros de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">79) Me siento a gusto con mis compañeros de trabajo <label style="color: red;" *ngIf="inaagustocompanerosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="inaagustocompaneros"  [options]="a1" formControlName="inaagustocompaneros" [showClear]="true"></p-dropdown>
                         </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaagustocompaneros"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">80) En mi grupo de trabajo algunas personas me maltratan</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">80) En mi grupo de trabajo algunas personas me maltratan <label style="color: red;" *ngIf="inagrupomaltrataMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown [class.is-invalid]="inagrupomaltrata"  [options]="a11" formControlName="inagrupomaltrata" [showClear]="true"></p-dropdown>
                         </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf=""></p-message>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inagrupomaltrata"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">81) Entre compañeros solucionamos los problemas de forma respetuosa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">81) Entre compañeros solucionamos los problemas de forma respetuosa <label style="color: red;" *ngIf="inasolucionacompaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1056,7 +1106,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">82) Hay integración en mi grupo de trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">82) Hay integración en mi grupo de trabajo <label style="color: red;" *ngIf="inaintegraciongrpMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1068,7 +1118,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">83) Mi grupo de trabajo es muy unido</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">83) Mi grupo de trabajo es muy unido <label style="color: red;" *ngIf="inagrupounidoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1080,7 +1130,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">84) Las personas en mi trabajo me hacen sentir parte del grupo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">84) Las personas en mi trabajo me hacen sentir parte del grupo <label style="color: red;" *ngIf="inasentirpartegrupoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1092,7 +1142,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">85) Cuando tenemos que realizar trabajo de grupo los compañeros colaboran</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">85) Cuando tenemos que realizar trabajo de grupo los compañeros colaboran <label style="color: red;" *ngIf="inatrabajogrupoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1104,7 +1154,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">86) Es fácil poner de acuerdo al grupo para hacer el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">86) Es fácil poner de acuerdo al grupo para hacer el trabajo <label style="color: red;" *ngIf="inagrupodeacuerdoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1116,7 +1166,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">87) Mis compañeros de trabajo me ayudan cuando tengo dificultades</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">87) Mis compañeros de trabajo me ayudan cuando tengo dificultades <label style="color: red;" *ngIf="inagrupoayudaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1128,7 +1178,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">88) En mi trabajo las personas nos apoyamos unos a otros</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">88) En mi trabajo las personas nos apoyamos unos a otros <label style="color: red;" *ngIf="inaapoyounootrosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1140,7 +1190,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">89) Algunos compañeros de trabajo me escuchan cuando tengo problemas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">89) Algunos compañeros de trabajo me escuchan cuando tengo problemas <label style="color: red;" *ngIf="inaescuchanprobleMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1153,10 +1203,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con la información que usted recibe sobre su rendimiento en el trabajo</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion12" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">90) Me informan sobre lo que hago bien en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">90) Me informan sobre lo que hago bien en mi trabajo <label style="color: red;" *ngIf="inainfhagobienMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1168,7 +1223,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">91) Me informan sobre lo que debo mejorar en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">91) Me informan sobre lo que debo mejorar en mi trabajo <label style="color: red;" *ngIf="inainfmejorarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1180,7 +1235,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">92) La información que recibo sobre mi rendimiento en el trabajo es clara</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">92) La información que recibo sobre mi rendimiento en el trabajo es clara <label style="color: red;" *ngIf="inainfrendimientoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1192,7 +1247,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">93) La forma como evalúan mi trabajo en la empresa me ayuda a mejorar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">93) La forma como evalúan mi trabajo en la empresa me ayuda a mejorar <label style="color: red;" *ngIf="inaevaluantrabajoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1204,7 +1259,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">94) Me informan a tiempo sobre lo que debo mejorar en el trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">94) Me informan a tiempo sobre lo que debo mejorar en el trabajo <label style="color: red;" *ngIf="inainfatiempomejoraMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1217,10 +1272,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con la satisfacción, reconocimiento y la seguridad que le ofrece su trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion13" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">95) En la empresa confían en mi trabajo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">95) En la empresa confían en mi trabajo <label style="color: red;" *ngIf="inaempconfiantrabMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1232,7 +1292,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">96) En la empresa me pagan a tiempo mi salario</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">96) En la empresa me pagan a tiempo mi salario <label style="color: red;" *ngIf="inaemppaganatiempoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1244,7 +1304,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">97) El pago que recibo es el que me ofreció la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">97) El pago que recibo es el que me ofreció la empresa <label style="color: red;" *ngIf="inapagoofrecidoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1256,7 +1316,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">98) El pago que recibo es el que merezco por el trabajo que realizo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">98) El pago que recibo es el que merezco por el trabajo que realizo <label style="color: red;" *ngIf="inapagomerezcoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1268,7 +1328,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">99) En mi trabajo tengo posibilidades de progresar</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">99) En mi trabajo tengo posibilidades de progresar <label style="color: red;" *ngIf="inaposibprogresarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1280,7 +1340,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">100) Las personas que hacen bien el trabajo pueden progresar en la empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">100) Las personas que hacen bien el trabajo pueden progresar en la empresa <label style="color: red;" *ngIf="inahacerbienprogMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1292,7 +1352,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">101) La empresa se preocupa por el bienestar de los trabajadores</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">101) La empresa se preocupa por el bienestar de los trabajadores <label style="color: red;" *ngIf="inaempbienestartrabMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1304,7 +1364,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">102) Mi trabajo en la empresa es estable</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">102) Mi trabajo en la empresa es estable <label style="color: red;" *ngIf="inatrabajoestableMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1316,7 +1376,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">103) El trabajo que hago me hace sentir bien</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">103) El trabajo que hago me hace sentir bien <label style="color: red;" *ngIf="inatrabsentirbienMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1328,7 +1388,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">104) Siento orgullo de trabajar en esta empresa</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">104) Siento orgullo de trabajar en esta empresa <label style="color: red;" *ngIf="inasientoorgulloMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1340,7 +1400,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">105) Hablo bien de la empresa con otras personas</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">105) Hablo bien de la empresa con otras personas <label style="color: red;" *ngIf="inahablobienempresMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -1353,15 +1413,21 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con la atención a clientes y usuarios</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion14" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo debo brindar servicio a clientes o usuarios</label></b>
+                        <b><label for="float-input" style="font-size: 15px;">En mi trabajo debo brindar servicio a clientes o usuarios <label style="color: red;" *ngIf="inaatencionausuariosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
                             <p-dropdown  [options]="a2" formControlName="inaatencionausuarios" [showClear]="true" (ngModelChange)="vlaidar()"></p-dropdown>
                         </span>
+                        <p-message severity="error" text="Este campo es requerido" *ngIf="inaatencionausuarios"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
@@ -1477,10 +1543,15 @@
             </fieldset>
             <br>
             <fieldset>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion15" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">Soy jefe de otras personas en mi trabajo: </label></b>
+                        <b><label for="float-input" style="font-size: 15px;">Soy jefe de otras personas en mi trabajo <label style="color: red;" *ngIf="inasoyjefeMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">

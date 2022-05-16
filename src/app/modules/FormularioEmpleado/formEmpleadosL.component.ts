@@ -15,6 +15,7 @@ import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoAService } from 'src/app/services/formato-a.service';
 import { FormatoBService } from 'src/app/services/formato-b.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
+import { Empleado } from 'src/app/models/empleado.mdel';
 
 @Component({
   selector: 'app-form-prueba',
@@ -61,7 +62,8 @@ export class FormEmpleadosLComponent implements OnInit {
     dateFormat: "yy-mm-dd",
     weekHeader: "Wk",
   };
- 
+  localPrueba: Empleado = {};
+  idLocal:any;
  
   constructor(
               private empresaServices: EmpresaService,
@@ -78,7 +80,7 @@ export class FormEmpleadosLComponent implements OnInit {
               private datepipe: DatePipe) {  
 
     this.idem = Number(this.route.snapshot.paramMap.get("id"));
-    localStorage.clear();
+    this.idLocal = JSON.parse(sessionStorage.getItem('IdEmpleado'));
   }
 
   async ngOnInit() {
@@ -93,6 +95,49 @@ export class FormEmpleadosLComponent implements OnInit {
     this.formExtra();
     /*Formulario Estres*/
     this.formEstres();
+
+    if (this.idLocal !== null) {
+      await  this.empleadosService.buscarByEmpleado(this.idLocal).toPromise().then((data:any)=>{
+        this.localPrueba = data[0]; 
+      });
+
+      this.userform.patchValue({
+        emdid:this.localPrueba.emdid,
+        emdcedula: this.localPrueba.emdcedula,
+        emdnombres: this.localPrueba.emdnombres,
+        emdapellidos: this.localPrueba.emdapellidos,
+        emdsexo: this.localPrueba.emdsexo,
+        emdfecnacido: this.localPrueba.emdfecnacido,
+        emdestcivil: this.localPrueba.emdestcivil,
+        emdnivelestudio: this.localPrueba.emdnivelestudio,
+        emdprofesion: this.localPrueba.emdprofesion,
+        emddepartamento: this.localPrueba.emddepartamento,
+        emdciudad: this.localPrueba.emdciudad,
+        emddireccion: this.localPrueba.emddireccion,
+        emdtelefono: this.localPrueba.emdtelefono,
+        emdemail: this.localPrueba.emdemail,
+        emdestracto: this.localPrueba.emdestracto,
+        emdtipovivienda: this.localPrueba.emdtipovivienda,
+        emdpersdepen: this.localPrueba.emdpersdepen,
+        emdempresa: this.localPrueba.emdempresa,
+        emdtiempolab: this.localPrueba.emdtiempolab,
+        emdcargo: this.localPrueba.emdcargo,
+        emdtipodecargo: this.localPrueba.emdtipodecargo,
+        emdtiemcargo: this.localPrueba.emdtiemcargo,
+        emdtipocontrato: this.localPrueba.emdtipocontrato,
+        emdhorasdia:this.localPrueba.emdhorasdia,
+        emdtiposalario: this.localPrueba.emdtiposalario,
+        emdusuarioreg: this.localPrueba.emdusuarioreg,
+        emdipreg: this.localPrueba.emdipreg,
+        emdactivo:this.localPrueba.emdactivo,
+        emdzona:this.localPrueba.emdzona,
+        emdtraciudad:this.localPrueba.emdtraciudad,
+        emdtradepartamento:this.localPrueba.emdtradepartamento
+      })
+    }
+
+    
+
     /*Consulta las empresas */
     await this.consultarEmpresa();
     /*Consulta las areas */
@@ -123,49 +168,49 @@ export class FormEmpleadosLComponent implements OnInit {
     return this.userform.get('emdcedula').invalid && this.userform.get('emdcedula').touched
   }
   get emdCedulaMarca(){
-    return this.userform.get('emdcedula').pristine || this.userform.get('emdcedula').invalid
+    return this.userform.get('emdcedula').invalid
   }
   get emdNombres() {
     return this.userform.get('emdnombres').invalid && this.userform.get('emdnombres').touched
   }
   get emdNombresMarca(){
-    return this.userform.get('emdnombres').pristine || this.userform.get('emdnombres').invalid
+    return this.userform.get('emdnombres').invalid
   }
   get emdApellidos() {
     return this.userform.get('emdapellidos').invalid && this.userform.get('emdapellidos').touched
   }
   get emdApellidosMarca(){
-    return this.userform.get('emdapellidos').pristine || this.userform.get('emdapellidos').invalid
+    return this.userform.get('emdapellidos').invalid
   }
   get emdSexo() {
     return this.userform.get('emdsexo').invalid && this.userform.get('emdsexo').touched
   }
   get emdSexoMarca(){
-    return this.userform.get('emdsexo').untouched && this.userform.get('emdsexo').pristine || this.userform.get('emdsexo').invalid
+    return this.userform.get('emdsexo').untouched && this.userform.get('emdsexo').invalid
   }
   get emdFecnacido() {
     return this.userform.get('emdfecnacido').invalid && this.userform.get('emdfecnacido').touched
   }
   get emdFecnacidoMarca(){
-    return this.userform.get('emdfecnacido').untouched && this.userform.get('emdfecnacido').pristine || this.userform.get('emdfecnacido').invalid
+    return this.userform.get('emdfecnacido').untouched && this.userform.get('emdfecnacido').invalid
   }
   get emdEstcivil() {
     return this.userform.get('emdestcivil').invalid && this.userform.get('emdestcivil').touched
   }
   get emdEstcivilMarca(){
-    return this.userform.get('emdestcivil').untouched && this.userform.get('emdestcivil').pristine || this.userform.get('emdestcivil').invalid
+    return this.userform.get('emdestcivil').untouched && this.userform.get('emdestcivil').invalid
   }
   get emdNivelestudio() {
     return this.userform.get('emdnivelestudio').invalid && this.userform.get('emdnivelestudio').touched
   }
   get emdNivelestudioMarca(){
-    return this.userform.get('emdnivelestudio').untouched && this.userform.get('emdnivelestudio').pristine || this.userform.get('emdnivelestudio').invalid
+    return this.userform.get('emdnivelestudio').untouched && this.userform.get('emdnivelestudio').invalid
   }
   get emdProfesion() {
     return this.userform.get('emdprofesion').invalid && this.userform.get('emdprofesion').touched
   }
   get emdProfesionMarca(){
-    return this.userform.get('emdprofesion').pristine || this.userform.get('emdprofesion').invalid
+    return this.userform.get('emdprofesion').invalid
   }
   get seccion1(){
     return this.userform.get('emdcedula').invalid || this.userform.get('emdnombres').invalid || this.userform.get('emdapellidos').invalid 
@@ -177,25 +222,25 @@ export class FormEmpleadosLComponent implements OnInit {
     return this.userform.get('emddepartamento').invalid && this.userform.get('emddepartamento').touched
   }
   get emDepartamentoMarca(){
-    return this.userform.get('emddepartamento').pristine || this.userform.get('emddepartamento').invalid
+    return this.userform.get('emddepartamento').invalid
   }
   get emdCiudad() {
     return this.userform.get('emdciudad').invalid && this.userform.get('emdciudad').touched
   }
   get emdCiudadMarca(){
-    return this.userform.get('emdciudad').pristine || this.userform.get('emdciudad').invalid
+    return this.userform.get('emdciudad').invalid
   }
   get emdDireccion() {
     return this.userform.get('emddireccion').invalid && this.userform.get('emddireccion').touched
   }
   get emdDireccionMarca(){
-    return this.userform.get('emddireccion').pristine || this.userform.get('emddireccion').invalid
+    return this.userform.get('emddireccion').invalid
   }
   get emdTelefono() {
     return this.userform.get('emdtelefono').invalid && this.userform.get('emdtelefono').touched
   }
   get emdTelefonoMarca(){
-    return this.userform.get('emdtelefono').pristine || this.userform.get('emdtelefono').invalid
+    return this.userform.get('emdtelefono').invalid
   }
   get emdTelefonomin() {
     return this.userform.get('emdtelefono').hasError('minlength') 
@@ -207,25 +252,25 @@ export class FormEmpleadosLComponent implements OnInit {
     return this.userform.get('emdemail').invalid && this.userform.get('emdemail').touched
   }
   get emdEmailMarca(){
-    return this.userform.get('emdemail').pristine || this.userform.get('emdemail').invalid
+    return this.userform.get('emdemail').invalid
   }
   get emdEstracto() {
     return this.userform.get('emdestracto').invalid && this.userform.get('emdestracto').touched
   }
   get emdEstractoMarca(){
-    return this.userform.get('emdestracto').untouched && this.userform.get('emdestracto').pristine || this.userform.get('emdestracto').invalid
+    return this.userform.get('emdestracto').untouched && this.userform.get('emdestracto').invalid
   }
   get emdTipovivienda() {
     return this.userform.get('emdtipovivienda').invalid && this.userform.get('emdtipovivienda').touched
   }
   get emdTipoviviendaMarca(){
-    return this.userform.get('emdtipovivienda').untouched && this.userform.get('emdtipovivienda').pristine || this.userform.get('emdtipovivienda').invalid
+    return this.userform.get('emdtipovivienda').untouched && this.userform.get('emdtipovivienda').invalid
   }
   get emdPersdepen() {
     return this.userform.get('emdpersdepen').invalid && this.userform.get('emdpersdepen').touched
   }
   get emdPersdepenMarca(){
-    return this.userform.get('emdpersdepen').pristine || this.userform.get('emdpersdepen').invalid
+    return this.userform.get('emdpersdepen').invalid
   }
   get seccion2(){
     return this.userform.get('emddepartamento').invalid || this.userform.get('emdciudad').invalid || this.userform.get('emddireccion').invalid 
@@ -242,49 +287,49 @@ export class FormEmpleadosLComponent implements OnInit {
     return this.userform.get('emdtiempolab').invalid && this.userform.get('emdtiempolab').touched
   }
   get emdTiempolabMarca(){
-    return this.userform.get('emdtiempolab').pristine || this.userform.get('emdtiempolab').invalid
+    return this.userform.get('emdtiempolab').invalid
   }
   get emdCargo() {
     return this.userform.get('emdcargo').invalid && this.userform.get('emdcargo').touched
   }
   get emdCargoMarca(){
-    return this.userform.get('emdcargo').pristine || this.userform.get('emdcargo').invalid
+    return this.userform.get('emdcargo').invalid
   }
   get emdTipodecargo() {
     return this.userform.get('emdtipodecargo').invalid && this.userform.get('emdtipodecargo').touched
   }
   get emdTipodecargoMarca(){
-    return this.userform.get('emdtipodecargo').pristine || this.userform.get('emdtipodecargo').invalid
+    return this.userform.get('emdtipodecargo').invalid
   }
   get emdTiemcargo() {
     return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
   }
   get emdTiemcargolabMarca(){
-    return this.userform.get('emdtiemcargo').pristine || this.userform.get('emdtiemcargo').invalid
+    return this.userform.get('emdtiemcargo').invalid
   }
   get emdArea() {
     return this.userform.get('emdarea').invalid && this.userform.get('emdarea').touched
   }
   get emdAreaMarca(){
-    return this.userform.get('emdarea').untouched && this.userform.get('emdarea').pristine || this.userform.get('emdarea').invalid
+    return this.userform.get('emdarea').untouched && this.userform.get('emdarea').invalid
   }
   get emdTipocontrato() {
     return this.userform.get('emdtipocontrato').invalid && this.userform.get('emdtipocontrato').touched
   }
   get emdTipocontratoMarca(){
-    return this.userform.get('emdtipocontrato').untouched && this.userform.get('emdtipocontrato').pristine || this.userform.get('emdtipocontrato').invalid
+    return this.userform.get('emdtipocontrato').untouched && this.userform.get('emdtipocontrato').invalid
   }
   get emdHorasdia() {
     return this.userform.get('emdhorasdia').invalid && this.userform.get('emdhorasdia').touched
   }
   get emdHorasdiaMarca(){
-    return this.userform.get('emdhorasdia').pristine || this.userform.get('emdhorasdia').invalid
+    return this.userform.get('emdhorasdia').invalid
   }
   get emdTiposalario() {
     return this.userform.get('emdtiposalario').invalid && this.userform.get('emdtiposalario').touched
   }
   get emdTiposalarioMarca(){
-    return this.userform.get('emdtiposalario').untouched && this.userform.get('emdtiposalario').pristine || this.userform.get('emdtiposalario').invalid
+    return this.userform.get('emdtiposalario').untouched && this.userform.get('emdtiposalario').invalid
   }
   get emdUsuarioreg() {
     return this.userform.get('emdusuarioreg').invalid && this.userform.get('emdusuarioreg').touched
@@ -300,7 +345,7 @@ export class FormEmpleadosLComponent implements OnInit {
     return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
   }
   get emdZonaMarca(){
-    return this.userform.get('emdzona').pristine || this.userform.get('emdzona').invalid
+    return this.userform.get('emdzona').invalid
   }
 
   get emdTraCiudad() {
@@ -330,62 +375,76 @@ export class FormEmpleadosLComponent implements OnInit {
       this.validSave = true;
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        this.empleadosService.createPrueba(this.userform.value).subscribe(async data =>{
-
-          sessionStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
-          sessionStorage.setItem('empRegExt',JSON.stringify(data));
-          this.userformExtra.value.extidempleado = data.emdid;
-          this.userformEstres.value.estidempleado = data.emdid;
-
-          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
-            this.userformFormaA.value.inaidempleado = data.emdid;
-            this.userformFormaA.value.inaatencionausuarios = 2;
-            this.userformFormaA.value.inasoyjefe = 2;
-            await this.formatoAService.buscarByFa(data.emdid).toPromise().then((data:any)=>{
+        if (this.localPrueba !== null) {
+          this.empleadosService.updatePrueba(this.userform.value,this.idLocal).subscribe((data:Empleado) => {
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
+            this.userform.reset();
+            if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+              this.router.navigate(["/FormularioAL/"+this.idem]);
+            }else{
+              this.router.navigate(["/FormularioBL/"+this.idem]);
+            }
+          })
+        }else{
+          
+          this.empleadosService.createPrueba(this.userform.value).subscribe(async data =>{
+  
+            sessionStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
+            sessionStorage.setItem('empRegExt',JSON.stringify(data));
+            this.userformExtra.value.extidempleado = data.emdid;
+            this.userformEstres.value.estidempleado = data.emdid;
+  
+            if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+              this.userformFormaA.value.inaidempleado = data.emdid;
+              this.userformFormaA.value.inaatencionausuarios = 2;
+              this.userformFormaA.value.inasoyjefe = 2;
+              await this.formatoAService.buscarByFa(data.emdid).toPromise().then((data:any)=>{
+                if (data.length  === 0) {
+                  this.formatoAService.createFormatoA(this.userformFormaA.value).subscribe((data:any)=>{});
+                }else{
+                  this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral A', life: 5000 });
+                }
+              });
+            }else{
+              this.userformFormaB.value.inbidempleado = data.emdid;
+              this.userformFormaB.value.inbatencionausuarios = 2;
+              await  this.formatoBService.buscarByFb(data.emdid).toPromise().then((data:any)=>{
+                if (data.length  === 0) {
+                  this.formatoBService.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
+                }else{
+                  this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral B', life: 5000 });
+                }
+              })
+              
+            }
+  
+            await this.formatoExtraService.buscarExtra(data.emdid).toPromise().then((data:any)=>{
               if (data.length  === 0) {
-                this.formatoAService.createFormatoA(this.userformFormaA.value).subscribe((data:any)=>{});
+                this.formatoExtraService.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
               }else{
-                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral A', life: 5000 });
+                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Extralaboral', life: 5000 });
               }
             });
-          }else{
-            this.userformFormaB.value.inbidempleado = data.emdid;
-            this.userformFormaB.value.inbatencionausuarios = 2;
-            await  this.formatoBService.buscarByFb(data.emdid).toPromise().then((data:any)=>{
+  
+            await  this.formatoEstresService.buscarByEstres(data.emdid).toPromise().then((data:any)=>{
               if (data.length  === 0) {
-                this.formatoBService.createFormatoB(this.userformFormaB.value).subscribe((data:any)=>{});
+                this.formatoEstresService.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
               }else{
-                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Intralaboral B', life: 5000 });
+                this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Formulario Estres', life: 5000 });
               }
-            })
+            });
             
-          }
-
-          await this.formatoExtraService.buscarExtra(data.emdid).toPromise().then((data:any)=>{
-            if (data.length  === 0) {
-              this.formatoExtraService.createExtra(this.userformExtra.value).subscribe((data:any)=>{});
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Creado', life: 3000})
+            this.userform.reset();
+            if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
+              this.router.navigate(["/FormularioAL/"+this.idem]);
             }else{
-              this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Extralaboral', life: 5000 });
+              this.router.navigate(["/FormularioBL/"+this.idem]);
             }
+            
           });
-
-          await  this.formatoEstresService.buscarByEstres(data.emdid).toPromise().then((data:any)=>{
-            if (data.length  === 0) {
-              this.formatoEstresService.createEstres(this.userformEstres.value).subscribe((data:any)=>{});
-            }else{
-              this._messageService.add({ severity: 'warn', summary: 'Advertencia', detail: 'Ya se cuenta con un registro creado para Formulario Estres', life: 5000 });
-            }
-          });
-          
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Creado', life: 3000})
-          this.userform.reset();
-          if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
-            this.router.navigate(["/FormularioAL/"+this.idem]);
-          }else{
-            this.router.navigate(["/FormularioBL/"+this.idem]);
-          }
-          
-        });
+        }
+      
       
     }else{
       this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
@@ -407,6 +466,12 @@ export class FormEmpleadosLComponent implements OnInit {
         });
       });
     });
+
+    if (this.idLocal !== null) {
+      this.userform.patchValue({
+        emdarea: this.localPrueba.emdarea
+      })
+    }
     
   }
 
@@ -814,7 +879,7 @@ export class FormEmpleadosLComponent implements OnInit {
   }
 
   cargaSelect(){
-    sessionStorage.removeItem('IdEmpleado');
+
     this.estado = [];
     this.estado.push({ label: 'Estado', value: '' });
     this.estado.push({ label: 'Activo', value: '1' });
