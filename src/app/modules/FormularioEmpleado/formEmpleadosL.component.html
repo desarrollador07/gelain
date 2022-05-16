@@ -13,19 +13,18 @@
     <p-panel header="FICHA DE DATOS GENERALES">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px">
 
-
             <div class="ui-g" style="margin-bottom: 10px;">
                 <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="logo_gelain.jpg" width="60%">
                 </div>
                 <div class="ui-g-12 ui-md-6 ui-lg-3">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Datos_Generales.png" alt="" width="100%" height="100%">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/Datos_Generales.png" alt="Datos_Generales.png" width="100%" height="100%">
                 </div>
                 <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="" width="50%">
+                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/colescudo.png" alt="colescudo.png" width="50%">
                 </div>
                 <div class="ui-g-12 ui-md-6 ui-lg-3">
-                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
+                    <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="logoJaveriana.png" width="90%">
                 </div>
             </div>
             <app-video-info [validVideo]="1"></app-video-info>
@@ -279,21 +278,10 @@
                         <p-message severity="error" text="Este campo es requerido,Debe ser entero" *ngIf="emdHorasdia"></p-message>
                     </div>
                 </div>
-
                 <br>
-
-
-
-
-
             </fieldset>
-
-
-
-
             <br>
             <div style="text-align:center">
-
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid || validSave"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" (click)="cancelar()" title="Cancelar" pRipple label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
