@@ -32,10 +32,15 @@
 
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con las condiciones ambientales del(los) sitio(s) o lugar(es) donde habitualmente realiza su trabajo.</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-2" *ngIf="seccion1" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) El ruido en el lugar donde trabajo es molesto</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) El ruido en el lugar donde trabajo es molesto <label style="color: red;" *ngIf="inaruidoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -44,11 +49,10 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="inaruido"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) En el lugar donde trabajo hace mucho frío</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) En el lugar donde trabajo hace mucho frío <label style="color: red;" *ngIf="inafrioMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -60,7 +64,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) En el lugar donde trabajo hace mucho calor</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) En el lugar donde trabajo hace mucho calor <label style="color: red;" *ngIf="inacalorMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -72,7 +76,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) El aire en el lugar donde trabajo es fresco y agradable</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) El aire en el lugar donde trabajo es fresco y agradable <label style="color: red;" *ngIf="inaairefrescoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -84,7 +88,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) La luz del sitio donde trabajo es agradable</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) La luz del sitio donde trabajo es agradable <label style="color: red;" *ngIf="inaluzMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -96,7 +100,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) El espacio donde trabajo es cómodo</label></b>
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) El espacio donde trabajo es cómodo <label style="color: red;" *ngIf="inacomodoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">

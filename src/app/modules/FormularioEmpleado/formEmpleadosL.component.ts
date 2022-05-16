@@ -49,6 +49,18 @@ export class FormEmpleadosLComponent implements OnInit {
   nummaxpre:number = 0;
   bandera:boolean=false;
   validSave:boolean = false;
+  es: any = {
+    firstDayOfWeek: 0,
+    dayNames: ["Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sabado"],
+    dayNamesShort: ["Dom", "Lun", "Mart", "Mie", "Jue", "Vie", "Sab"],
+    dayNamesMin: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    monthNames: ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+    monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+    today: "Hoy",
+    clear: "Limpiar",
+    dateFormat: "yy-mm-dd",
+    weekHeader: "Wk",
+  };
  
  
   constructor(
@@ -106,42 +118,84 @@ export class FormEmpleadosLComponent implements OnInit {
   }
 
   /*Apartado Validaciones */
+  /* --------------------------------------------SECCION 1 --------------------------------- */
   get emdCedula() {
     return this.userform.get('emdcedula').invalid && this.userform.get('emdcedula').touched
   }
-
+  get emdCedulaMarca(){
+    return this.userform.get('emdcedula').pristine || this.userform.get('emdcedula').invalid
+  }
   get emdNombres() {
     return this.userform.get('emdnombres').invalid && this.userform.get('emdnombres').touched
+  }
+  get emdNombresMarca(){
+    return this.userform.get('emdnombres').pristine || this.userform.get('emdnombres').invalid
   }
   get emdApellidos() {
     return this.userform.get('emdapellidos').invalid && this.userform.get('emdapellidos').touched
   }
+  get emdApellidosMarca(){
+    return this.userform.get('emdapellidos').pristine || this.userform.get('emdapellidos').invalid
+  }
   get emdSexo() {
     return this.userform.get('emdsexo').invalid && this.userform.get('emdsexo').touched
+  }
+  get emdSexoMarca(){
+    return this.userform.get('emdsexo').untouched && this.userform.get('emdsexo').pristine || this.userform.get('emdsexo').invalid
   }
   get emdFecnacido() {
     return this.userform.get('emdfecnacido').invalid && this.userform.get('emdfecnacido').touched
   }
+  get emdFecnacidoMarca(){
+    return this.userform.get('emdfecnacido').untouched && this.userform.get('emdfecnacido').pristine || this.userform.get('emdfecnacido').invalid
+  }
   get emdEstcivil() {
     return this.userform.get('emdestcivil').invalid && this.userform.get('emdestcivil').touched
+  }
+  get emdEstcivilMarca(){
+    return this.userform.get('emdestcivil').untouched && this.userform.get('emdestcivil').pristine || this.userform.get('emdestcivil').invalid
   }
   get emdNivelestudio() {
     return this.userform.get('emdnivelestudio').invalid && this.userform.get('emdnivelestudio').touched
   }
+  get emdNivelestudioMarca(){
+    return this.userform.get('emdnivelestudio').untouched && this.userform.get('emdnivelestudio').pristine || this.userform.get('emdnivelestudio').invalid
+  }
   get emdProfesion() {
     return this.userform.get('emdprofesion').invalid && this.userform.get('emdprofesion').touched
   }
+  get emdProfesionMarca(){
+    return this.userform.get('emdprofesion').pristine || this.userform.get('emdprofesion').invalid
+  }
+  get seccion1(){
+    return this.userform.get('emdcedula').invalid || this.userform.get('emdnombres').invalid || this.userform.get('emdapellidos').invalid 
+        || this.userform.get('emdsexo').invalid || this.userform.get('emdfecnacido').invalid || this.userform.get('emdestcivil').invalid 
+        || this.userform.get('emdnivelestudio').invalid || this.userform.get('emdprofesion').invalid;
+  }
+  /* --------------------------------------------SECCION 2 --------------------------------- */
   get emDepartamento() {
     return this.userform.get('emddepartamento').invalid && this.userform.get('emddepartamento').touched
+  }
+  get emDepartamentoMarca(){
+    return this.userform.get('emddepartamento').pristine || this.userform.get('emddepartamento').invalid
   }
   get emdCiudad() {
     return this.userform.get('emdciudad').invalid && this.userform.get('emdciudad').touched
   }
+  get emdCiudadMarca(){
+    return this.userform.get('emdciudad').pristine || this.userform.get('emdciudad').invalid
+  }
   get emdDireccion() {
     return this.userform.get('emddireccion').invalid && this.userform.get('emddireccion').touched
   }
+  get emdDireccionMarca(){
+    return this.userform.get('emddireccion').pristine || this.userform.get('emddireccion').invalid
+  }
   get emdTelefono() {
     return this.userform.get('emdtelefono').invalid && this.userform.get('emdtelefono').touched
+  }
+  get emdTelefonoMarca(){
+    return this.userform.get('emdtelefono').pristine || this.userform.get('emdtelefono').invalid
   }
   get emdTelefonomin() {
     return this.userform.get('emdtelefono').hasError('minlength') 
@@ -152,41 +206,85 @@ export class FormEmpleadosLComponent implements OnInit {
   get emdEmail() {
     return this.userform.get('emdemail').invalid && this.userform.get('emdemail').touched
   }
+  get emdEmailMarca(){
+    return this.userform.get('emdemail').pristine || this.userform.get('emdemail').invalid
+  }
   get emdEstracto() {
     return this.userform.get('emdestracto').invalid && this.userform.get('emdestracto').touched
+  }
+  get emdEstractoMarca(){
+    return this.userform.get('emdestracto').untouched && this.userform.get('emdestracto').pristine || this.userform.get('emdestracto').invalid
   }
   get emdTipovivienda() {
     return this.userform.get('emdtipovivienda').invalid && this.userform.get('emdtipovivienda').touched
   }
+  get emdTipoviviendaMarca(){
+    return this.userform.get('emdtipovivienda').untouched && this.userform.get('emdtipovivienda').pristine || this.userform.get('emdtipovivienda').invalid
+  }
   get emdPersdepen() {
     return this.userform.get('emdpersdepen').invalid && this.userform.get('emdpersdepen').touched
   }
+  get emdPersdepenMarca(){
+    return this.userform.get('emdpersdepen').pristine || this.userform.get('emdpersdepen').invalid
+  }
+  get seccion2(){
+    return this.userform.get('emddepartamento').invalid || this.userform.get('emdciudad').invalid || this.userform.get('emddireccion').invalid 
+        || this.userform.get('emdtelefono').invalid || this.userform.get('emdemail').invalid || this.userform.get('emdestracto').invalid
+        || this.userform.get('emdtipovivienda').invalid || this.userform.get('emdpersdepen').invalid;
+  }
+
+  /* --------------------------------------------SECCION 3 --------------------------------- */
   get emdEmpresa() {
     return this.userform.get('emdempresa').invalid && this.userform.get('emdempresa').touched
   }
+ 
   get emdTiempolab() {
     return this.userform.get('emdtiempolab').invalid && this.userform.get('emdtiempolab').touched
+  }
+  get emdTiempolabMarca(){
+    return this.userform.get('emdtiempolab').pristine || this.userform.get('emdtiempolab').invalid
   }
   get emdCargo() {
     return this.userform.get('emdcargo').invalid && this.userform.get('emdcargo').touched
   }
+  get emdCargoMarca(){
+    return this.userform.get('emdcargo').pristine || this.userform.get('emdcargo').invalid
+  }
   get emdTipodecargo() {
     return this.userform.get('emdtipodecargo').invalid && this.userform.get('emdtipodecargo').touched
+  }
+  get emdTipodecargoMarca(){
+    return this.userform.get('emdtipodecargo').pristine || this.userform.get('emdtipodecargo').invalid
   }
   get emdTiemcargo() {
     return this.userform.get('emdtiemcargo').invalid && this.userform.get('emdtiemcargo').touched
   }
+  get emdTiemcargolabMarca(){
+    return this.userform.get('emdtiemcargo').pristine || this.userform.get('emdtiemcargo').invalid
+  }
   get emdArea() {
     return this.userform.get('emdarea').invalid && this.userform.get('emdarea').touched
+  }
+  get emdAreaMarca(){
+    return this.userform.get('emdarea').untouched && this.userform.get('emdarea').pristine || this.userform.get('emdarea').invalid
   }
   get emdTipocontrato() {
     return this.userform.get('emdtipocontrato').invalid && this.userform.get('emdtipocontrato').touched
   }
+  get emdTipocontratoMarca(){
+    return this.userform.get('emdtipocontrato').untouched && this.userform.get('emdtipocontrato').pristine || this.userform.get('emdtipocontrato').invalid
+  }
   get emdHorasdia() {
     return this.userform.get('emdhorasdia').invalid && this.userform.get('emdhorasdia').touched
   }
+  get emdHorasdiaMarca(){
+    return this.userform.get('emdhorasdia').pristine || this.userform.get('emdhorasdia').invalid
+  }
   get emdTiposalario() {
     return this.userform.get('emdtiposalario').invalid && this.userform.get('emdtiposalario').touched
+  }
+  get emdTiposalarioMarca(){
+    return this.userform.get('emdtiposalario').untouched && this.userform.get('emdtiposalario').pristine || this.userform.get('emdtiposalario').invalid
   }
   get emdUsuarioreg() {
     return this.userform.get('emdusuarioreg').invalid && this.userform.get('emdusuarioreg').touched
@@ -201,15 +299,30 @@ export class FormEmpleadosLComponent implements OnInit {
   get emdZona() {
     return this.userform.get('emdzona').invalid && this.userform.get('emdzona').touched
   }
+  get emdZonaMarca(){
+    return this.userform.get('emdzona').pristine || this.userform.get('emdzona').invalid
+  }
 
   get emdTraCiudad() {
     return this.userform.get('emdtraciudad').invalid && this.userform.get('emdtraciudad').touched
   }
 
+  get emdTraCiudadMarca(){
+    return this.userform.get('emdtraciudad').invalid
+  }
   get emdTraDepartamento() {
     return this.userform.get('emdtradepartamento').invalid && this.userform.get('emdtradepartamento').touched
   }
+  get emdTraDepartamentoMarca(){
+    return this.userform.get('emdtradepartamento').invalid
+  }
 
+  get seccion3(){
+    return this.userform.get('emdempresa').invalid || this.userform.get('emdtiempolab').invalid || this.userform.get('emdcargo').invalid
+        || this.userform.get('emdtipodecargo').invalid || this.userform.get('emdtiemcargo').invalid || this.userform.get('emdarea').invalid
+        || this.userform.get('emdtipocontrato').invalid || this.userform.get('emdhorasdia').invalid || this.userform.get('emdtiposalario').invalid
+        || this.userform.get('emdzona').invalid || this.userform.get('emdtraciudad').invalid || this.userform.get('emdtradepartamento').invalid
+  }
 
   onSubmit(){
 
@@ -298,36 +411,24 @@ export class FormEmpleadosLComponent implements OnInit {
   }
 
   numeromax(){
-    // if(this.localPrueba !==null){
-    //   this.nummaxpre = Number(this.localPrueba.emdtiempolab);
-    //   this.nummax = this.userform.value.emdtiempolab;
-      
-    // }else{
-      this.nummax = this.userform.value.emdtiempolab;
-     
-    // }
+    this.nummax = this.userform.value.emdtiempolab;
   }
+
   validaciontiempos(){
       if (this.userform.value.emdtiemcargo > this.userform.value.emdtiempolab) {
-
         this.bandera = true;
-
       }else{
         this.bandera = false;
       }
-  
   }
 
   validaciontiemposnegativos(){
     if (this.userform.value.emdtiemcargo > -1) {
-
       this.bandera = true;
-
     }else{
       this.bandera = false;
     }
-
-}
+  }
 
   async consultarEmpresa(){
 
@@ -721,12 +822,10 @@ export class FormEmpleadosLComponent implements OnInit {
     this.estado.push({ label: 'Pendiente', value: 'P' });
 
     this.sexo = [];
-    this.sexo.push({ label: 'Sexo', value: ''});
     this.sexo.push({ label: 'Masculino', value: 'M' });
     this.sexo.push({ label: 'Femenino', value: 'F' });
 
     this.civil = [];
-    this.civil.push({ label: 'Estado Civil', value: '' });
     this.civil.push({ label: 'Soltero(a)', value: '1' });
     this.civil.push({ label: 'Casado(a)', value: '2' });
     this.civil.push({ label: 'Union libre', value: '3' });
@@ -736,7 +835,6 @@ export class FormEmpleadosLComponent implements OnInit {
     this.civil.push({ label: 'Sacerdote/Monja', value:' 7' });
 
     this.estudio = [];
-    this.estudio.push({ label: 'Ultimos niveles de estudio', value: '' });
     this.estudio.push({ label: 'Ninguno', value: '1' });
     this.estudio.push({ label: 'Primaria incompleta', value: '2' });
     this.estudio.push({ label: 'Primaria completa', value: '3' });
@@ -751,7 +849,6 @@ export class FormEmpleadosLComponent implements OnInit {
     this.estudio.push({ label: 'Post-grado completo', value:'12' });
 
     this.estrato = [];
-    this.estrato.push({ label: 'Estrato de su vivienda', value: '' });
     this.estrato.push({ label: '1', value: '1' });
     this.estrato.push({ label: '2', value: '2' });
     this.estrato.push({ label: '3', value: '3' });
@@ -762,20 +859,17 @@ export class FormEmpleadosLComponent implements OnInit {
     this.estrato.push({ label: 'No se', value:'8' });
 
     this.tipovivi = [];
-    this.tipovivi.push({ label: 'Tipo de Vivienda', value: '' });
     this.tipovivi.push({ label: 'Propia', value: '1' });
     this.tipovivi.push({ label: 'En arriendo', value: '2' });
     this.tipovivi.push({ label: 'Familiar', value: '3' });
 
     this.cargo = [];
-    this.cargo.push({ label: 'Tipo de Cargo', value: '' });
     this.cargo.push({ label: 'Jefatura - tiene personal a cargo', value: '1' });
     this.cargo.push({ label: 'Manejo de dinero - Información confidencial - Salud y seguridad de otras personas', value: '2' });
     this.cargo.push({ label: 'Auxiliar - asistente administrativo - asistente técnico', value: '3' });
     this.cargo.push({ label: 'Operario, operador, ayudante, servicios generales', value: '4' });
  
     this.tContrato = [];
-    this.tContrato.push({ label: 'Tipo de Contrato', value: '' });
     this.tContrato.push({ label: 'Temporal de menos de 1 año', value: '1' });
     this.tContrato.push({ label: 'Temporal de 1 año o mas', value: '2' });
     this.tContrato.push({ label: 'Termino indefinido', value: '3' });
@@ -784,7 +878,6 @@ export class FormEmpleadosLComponent implements OnInit {
     this.tContrato.push({ label: 'No se', value: '6' });
   
     this.tsalario = [];
-    this.tsalario.push({ label: 'Tipo de salario', value: '' });
     this.tsalario.push({ label: 'Fijo', value: '1' });
     this.tsalario.push({ label: 'Una parte fija y otra variable', value: '2' });
     this.tsalario.push({ label: 'Todo variable', value: '3' });

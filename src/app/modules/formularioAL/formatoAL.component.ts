@@ -192,7 +192,7 @@ export class FormatoALComponent implements OnInit {
 
 
     this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: '' });
+    this.a1.push({ label: 'Seleccione una opción', value: '' });
     this.a1.push({ label: 'Siempre', value: '0' });
     this.a1.push({ label: 'Casi Siempre', value: '1' });
     this.a1.push({ label: 'Algunas Veces', value: '2' });
@@ -200,7 +200,7 @@ export class FormatoALComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: '' });
+    this.a11.push({ label: 'Seleccione una opción', value: '' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -208,7 +208,7 @@ export class FormatoALComponent implements OnInit {
     this.a11.push({ label: 'Nunca', value: '0' });
 
     this.a2 = [];
-    this.a2.push({ label: 'Seleccione...', value: '' });
+    this.a2.push({ label: 'Seleccione una opción', value: '' });
     this.a2.push({ label: 'Si', value: '1' });
     this.a2.push({ label: 'No', value: '2' });
 
@@ -357,24 +357,47 @@ export class FormatoALComponent implements OnInit {
       })
     } 
   };
-
+  /*Apartado de validaciones */
+  /*----------------------------- Seccion 1 ------------------------------- */
+  get seccion1(){
+    return this.userform.get('inaruido').invalid || this.userform.get('inafrio').invalid || this.userform.get('inacalor').invalid
+        || this.userform.get('inaairefresco').invalid;
+  }
+  get inaruidoMarca(){
+    return this.userform.get('inaruido').pristine || this.userform.get('inaruido').invalid
+  }
   get inaruido() {
     return this.userform.get('inaruido').invalid && this.userform.get('inaruido').touched
   }
   get inafrio() {
     return this.userform.get('inafrio').invalid && this.userform.get('inafrio').touched
   }
+  get inafrioMarca(){
+    return this.userform.get('inafrio').pristine || this.userform.get('inafrio').invalid
+  }
   get inacalor() {
     return this.userform.get('inacalor').invalid && this.userform.get('inacalor').touched
+  }
+  get inacalorMarca(){
+    return this.userform.get('inacalor').pristine || this.userform.get('inacalor').invalid
   }
   get inaairefresco() {
     return this.userform.get('inaairefresco').invalid && this.userform.get('inaairefresco').touched
   }
+  get inaairefrescoMarca(){
+    return this.userform.get('inaairefresco').pristine || this.userform.get('inaairefresco').invalid
+  }
   get inaluz() {
     return this.userform.get('inaluz').invalid && this.userform.get('inaluz').touched
   }
+  get inaluzMarca(){
+    return this.userform.get('inaluz').pristine || this.userform.get('inaluz').invalid
+  }
   get inacomodo() {
     return this.userform.get('inacomodo').invalid && this.userform.get('inacomodo').touched
+  }
+  get inacomodoMarca(){
+    return this.userform.get('inacomodo').pristine || this.userform.get('inacomodo').invalid
   }
   get inasustanquimicas() {
     return this.userform.get('inasustanquimicas').invalid && this.userform.get('inasustanquimicas').touched
