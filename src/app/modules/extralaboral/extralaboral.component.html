@@ -27,136 +27,126 @@
                     <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
                 </div>
             </div>
-
-
-
+            <!-- <app-video-info [validVideo]="1"></app-video-info> -->
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con varias condiciones de la zona donde usted vive:</b></legend>
-                <fieldset>
-                    <div class="ui-g" style="margin-bottom: 10px;">
-                        <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                        <div class="ui-g-12 ui-md-6 ui-lg-3">
-                            <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cedula: {{cedula}}</label></b>
-                        </div>
-                        <div class="ui-g-12 ui-md-6 ui-lg-3">
-                            <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Nombre: {{nombre}}</label></b>
-                        </div>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion1" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
                     </div>
-                </fieldset>
-                <br>
-                <br>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) Es fácil trasportarme entre mi casa y el trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">1) Es fácil trasportarme entre mi casa y el trabajo <label style="color: red;" *ngIf="extfaciltransporteMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extfaciltransporte"  [options]="a1" formControlName="extfaciltransporte" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extfaciltransporte"  [options]="a1" formControlName="extfaciltransporte" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extfaciltransporte"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) Tengo que tomar varios medios de transporte para llegar a mi lugar de trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">2) Tengo que tomar varios medios de transporte para llegar a mi lugar de trabajo <label style="color: red;" *ngIf="extvariostransporteMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extvariostransporte"  [options]="a11" formControlName="extvariostransporte" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extvariostransporte"  [options]="a11" formControlName="extvariostransporte" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extvariostransporte"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) Paso mucho tiempo viajando de ida y regreso al trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">3) Paso mucho tiempo viajando de ida y regreso al trabajo <label style="color: red;" *ngIf="extmuchotiemviajeMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extmuchotiemviaje"  [options]="a11" formControlName="extmuchotiemviaje" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extmuchotiemviaje"  [options]="a11" formControlName="extmuchotiemviaje" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extmuchotiemviaje"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) Me transporto cómodamente entre mi casa y el trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">4) Me transporto cómodamente entre mi casa y el trabajo <label style="color: red;" *ngIf="exttranscomodoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="exttranscomodo"  [options]="a1" formControlName="exttranscomodo" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="exttranscomodo"  [options]="a1" formControlName="exttranscomodo" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="exttranscomodo"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) La zona donde vivo es segura</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">5) La zona donde vivo es segura <label style="color: red;" *ngIf="extzonaseguraMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extzonasegura"  [options]="a1" formControlName="extzonasegura" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extzonasegura"  [options]="a1" formControlName="extzonasegura" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extzonasegura"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) En la zona donde vivo se presentan hurtos y mucha delincuencia</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">6) En la zona donde vivo se presentan hurtos y mucha delincuencia <label style="color: red;" *ngIf="extzonadelincuenciaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extzonadelincuencia"  [options]="a11" formControlName="extzonadelincuencia" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extzonadelincuencia"  [options]="a11" formControlName="extzonadelincuencia" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extzonadelincuencia"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) Desde donde vivo me es fácil llegar al centro médico donde me atienden</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">7) Desde donde vivo me es fácil llegar al centro médico donde me atienden <label style="color: red;" *ngIf="extfacilcmedicoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extfacilcmedico"  [options]="a1" formControlName="extfacilcmedico" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extfacilcmedico"  [options]="a1" formControlName="extfacilcmedico" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extfacilcmedico"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) Cerca a mi vivienda las vías están en buenas condiciones</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">8) Cerca a mi vivienda las vías están en buenas condiciones <label style="color: red;" *ngIf="extbuenasviasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extbuenasvias"  [options]="a1" formControlName="extbuenasvias" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extbuenasvias"  [options]="a1" formControlName="extbuenasvias" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extbuenasvias"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) Cerca a mi vivienda encuentro fácilmente transporte</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">9) Cerca a mi vivienda encuentro fácilmente transporte <label style="color: red;" *ngIf="extcercatransporteMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="extcercatransporte"  [options]="a1" formControlName="extcercatransporte" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="extcercatransporte"  [options]="a1" formControlName="extcercatransporte" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extcercatransporte"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) Las condiciones de mi vivienda son buenas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">10) Las condiciones de mi vivienda son buenas <label style="color: red;" *ngIf="extcondicviviendaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -166,9 +156,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) En mi vivienda hay servicios de agua y luz</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">11) En mi vivienda hay servicios de agua y luz <label style="color: red;" *ngIf="extagualuzMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -177,10 +167,11 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extagualuz"></p-message>
                     </div>
                 </div>
+
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) Las condiciones de mi vivienda me permiten descansar cuando lo requiero</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">12) Las condiciones de mi vivienda me permiten descansar cuando lo requiero <label style="color: red;" *ngIf="extpermdescanzarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -189,10 +180,11 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="extpermdescanzar"></p-message>
                     </div>
                 </div>
+
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) Las condiciones de mi vivienda me permiten sentirme cómodo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">13) Las condiciones de mi vivienda me permiten sentirme cómodo <label style="color: red;" *ngIf="extviviendacomodaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -205,10 +197,15 @@
             <br>
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con su vida fuera del trabajo:</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion2" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) Me queda tiempo para actividades de recreación</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">14) Me queda tiempo para actividades de recreación <label style="color: red;" *ngIf="exttiemporecreoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -218,9 +215,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) Fuera del trabajo tengo tiempo suficiente para descansar</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">15) Fuera del trabajo tengo tiempo suficiente para descansar <label style="color: red;" *ngIf="exttiempodescanzoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -230,9 +227,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) Tengo tiempo para atender mis asuntos personales y del hogar</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">16) Tengo tiempo para atender mis asuntos personales y del hogar <label style="color: red;" *ngIf="exttiempopersonalMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -242,9 +239,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) Tengo tiempo para compartir con mi familia o amigos</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">17) Tengo tiempo para compartir con mi familia o amigos <label style="color: red;" *ngIf="exttiempofamiliaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -254,9 +251,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18) Tengo buena comunicación con las personas cercanas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">18) Tengo buena comunicación con las personas cercanas <label style="color: red;" *ngIf="extbuenacomunicaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -266,9 +263,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) Las relaciones con mis amigos son buenas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">19) Las relaciones con mis amigos son buenas <label style="color: red;" *ngIf="extrelacionamigosMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -278,9 +275,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20) Converso con personas cercanas sobre diferentes temas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">20) Converso con personas cercanas sobre diferentes temas <label style="color: red;" *ngIf="extconversopersonMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -290,9 +287,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21) Mis amigos están dispuestos a escucharme cuando tengo problemas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">21) Mis amigos están dispuestos a escucharme cuando tengo problemas <label style="color: red;" *ngIf="extamigosescuchanMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -302,9 +299,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22) Cuento con el apoyo de mi familia cuando tengo problemas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">22) Cuento con el apoyo de mi familia cuando tengo problemas <label style="color: red;" *ngIf="extapoyofamiliarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -314,9 +311,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">23) Puedo hablar con personas cercanas sobre las cosas que me pasan</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">23) Puedo hablar con personas cercanas sobre las cosas que me pasan <label style="color: red;" *ngIf="exthabloconpersoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -326,9 +323,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">24) Mis problemas personales o familiares afectan mi trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">24) Mis problemas personales o familiares afectan mi trabajo <label style="color: red;" *ngIf="extproblemfamiliarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -338,9 +335,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">25) La relación con mi familia cercana es cordial</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">25) La relación con mi familia cercana es cordial <label style="color: red;" *ngIf="extrelacionfamiliarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -350,9 +347,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">26) Mis problemas personales o familiares me quitan la energía que necesito para trabajar</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">26) Mis problemas personales o familiares me quitan la energía que necesito para trabajar <label style="color: red;" *ngIf="extquitanenergiaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -362,9 +359,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">27) Los problemas con mis familiares los resolvemos de manera amistosa"</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">27) Los problemas con mis familiares los resolvemos de manera amistosa" <label style="color: red;" *ngIf="extresolveamistosaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -374,9 +371,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">28) Mis problemas personales o familiares afectan mis relaciones en el trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">28) Mis problemas personales o familiares afectan mis relaciones en el trabajo <label style="color: red;" *ngIf="extafectrelacionestraMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -386,9 +383,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">29) El dinero que ganamos en el hogar alcanza para cubrir los gastos básicos</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">29) El dinero que ganamos en el hogar alcanza para cubrir los gastos básicos <label style="color: red;" *ngIf="extdineroalcanzaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -398,9 +395,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">30) Tengo otros compromisos económicos que afectan mucho el presupuesto familiar</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">30) Tengo otros compromisos económicos que afectan mucho el presupuesto familiar <label style="color: red;" *ngIf="extpresupuesfamiliaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -410,9 +407,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">31) En mi hogar tenemos deudas difíciles de pagar</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">31) En mi hogar tenemos deudas difíciles de pagar <label style="color: red;" *ngIf="extdeudashogarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">

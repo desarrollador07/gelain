@@ -157,95 +157,207 @@ export class ExtralaboralComponent implements OnInit {
   };
 
 
+  /*Apartado de Validaciones */
+  /* -------------------------------------- Sección 1 -------------------------- */
+  get seccion1(){
+    return this.userform.get('extfaciltransporte').invalid || this.userform.get('extvariostransporte').invalid || this.userform.get('extmuchotiemviaje').invalid
+        || this.userform.get('exttranscomodo').invalid || this.userform.get('extzonasegura').invalid || this.userform.get('extzonadelincuencia').invalid
+        || this.userform.get('extfacilcmedico').invalid || this.userform.get('extbuenasvias').invalid || this.userform.get('extcercatransporte').invalid
+        || this.userform.get('extcondicvivienda').invalid || this.userform.get('extagualuz').invalid || this.userform.get('extpermdescanzar').invalid
+        || this.userform.get('extviviendacomoda').invalid; 
+  }
+  get extfaciltransporteMarca(){
+    return this.userform.get('extfaciltransporte').invalid
+  }
   get extfaciltransporte() {
     return this.userform.get('extfaciltransporte').invalid && this.userform.get('extfaciltransporte').touched
+  }
+  get extvariostransporteMarca(){
+    return this.userform.get('extvariostransporte').invalid
   }
   get extvariostransporte() {
     return this.userform.get('extvariostransporte').invalid && this.userform.get('extvariostransporte').touched
   }
+  get extmuchotiemviajeMarca(){
+    return this.userform.get('extmuchotiemviaje').invalid
+  }
   get extmuchotiemviaje() {
     return this.userform.get('extmuchotiemviaje').invalid && this.userform.get('extmuchotiemviaje').touched
+  }
+  get exttranscomodoMarca(){
+    return this.userform.get('exttranscomodo').invalid
   }
   get exttranscomodo() {
     return this.userform.get('exttranscomodo').invalid && this.userform.get('exttranscomodo').touched
   }
+  get extzonaseguraMarca(){
+    return this.userform.get('extzonasegura').invalid
+  }
   get extzonasegura() {
     return this.userform.get('extzonasegura').invalid && this.userform.get('extzonasegura').touched
+  }
+  get extzonadelincuenciaMarca(){
+    return this.userform.get('extzonadelincuencia').invalid
   }
   get extzonadelincuencia() {
     return this.userform.get('extzonadelincuencia').invalid && this.userform.get('extzonadelincuencia').touched
   }
+  get extfacilcmedicoMarca(){
+    return this.userform.get('extfacilcmedico').invalid
+  }
   get extfacilcmedico() {
     return this.userform.get('extfacilcmedico').invalid && this.userform.get('extfacilcmedico').touched
+  }
+  get extbuenasviasMarca(){
+    return this.userform.get('extbuenasvias').invalid
   }
   get extbuenasvias() {
     return this.userform.get('extbuenasvias').invalid && this.userform.get('extbuenasvias').touched
   }
+  get extcercatransporteMarca(){
+    return this.userform.get('extcercatransporte').invalid
+  }
   get extcercatransporte() {
     return this.userform.get('extcercatransporte').invalid && this.userform.get('extcercatransporte').touched
+  }
+  get extcondicviviendaMarca(){
+    return this.userform.get('extcondicvivienda').invalid
   }
   get extcondicvivienda() {
     return this.userform.get('extcondicvivienda').invalid && this.userform.get('extcondicvivienda').touched
   }
+  get extagualuzMarca(){
+    return this.userform.get('extagualuz').invalid
+  }
   get extagualuz() {
     return this.userform.get('extagualuz').invalid && this.userform.get('extagualuz').touched
+  }
+  get extpermdescanzarMarca(){
+    return this.userform.get('extpermdescanzar').invalid
   }
   get extpermdescanzar() {
     return this.userform.get('extpermdescanzar').invalid && this.userform.get('extpermdescanzar').touched
   }
+  get extviviendacomodaMarca(){
+    return this.userform.get('extviviendacomoda').invalid
+  }
   get extviviendacomoda() {
     return this.userform.get('extviviendacomoda').invalid && this.userform.get('extviviendacomoda').touched
+  }
+
+  /* -------------------------------------- Sección 2 -------------------------- */
+  get seccion2(){
+    return this.userform.get('exttiemporecreo').invalid || this.userform.get('exttiempodescanzo').invalid || this.userform.get('exttiempopersonal').invalid
+        || this.userform.get('exttiempofamilia').invalid || this.userform.get('extbuenacomunica').invalid || this.userform.get('extrelacionamigos').invalid
+        || this.userform.get('extconversoperson').invalid || this.userform.get('extamigosescuchan').invalid || this.userform.get('extapoyofamiliar').invalid
+        || this.userform.get('exthabloconperso').invalid || this.userform.get('extproblemfamiliar').invalid || this.userform.get('extrelacionfamiliar').invalid 
+        || this.userform.get('extquitanenergia').invalid || this.userform.get('extresolveamistosa').invalid || this.userform.get('extafectrelacionestra').invalid 
+        || this.userform.get('extdineroalcanza').invalid || this.userform.get('extpresupuesfamilia').invalid || this.userform.get('extdeudashogar').invalid; 
+  }
+  get exttiemporecreoMarca(){
+    return this.userform.get('exttiemporecreo').invalid
   }
   get exttiemporecreo() {
     return this.userform.get('exttiemporecreo').invalid && this.userform.get('exttiemporecreo').touched
   }
+  get exttiempodescanzoMarca(){
+    return this.userform.get('exttiempodescanzo').invalid
+  }
   get exttiempodescanzo() {
     return this.userform.get('exttiempodescanzo').invalid && this.userform.get('exttiempodescanzo').touched
+  }
+  get exttiempopersonalMarca(){
+    return this.userform.get('exttiempopersonal').invalid
   }
   get exttiempopersonal() {
     return this.userform.get('exttiempopersonal').invalid && this.userform.get('exttiempopersonal').touched
   }
+  get exttiempofamiliaMarca(){
+    return this.userform.get('exttiempofamilia').invalid
+  }
   get exttiempofamilia() {
     return this.userform.get('exttiempofamilia').invalid && this.userform.get('exttiempofamilia').touched
+  }
+  get extbuenacomunicaMarca(){
+    return this.userform.get('extbuenacomunica').invalid
   }
   get extbuenacomunica() {
     return this.userform.get('extbuenacomunica').invalid && this.userform.get('extbuenacomunica').touched
   }
+  get extrelacionamigosMarca(){
+    return this.userform.get('extrelacionamigos').invalid
+  }
   get extrelacionamigos() {
     return this.userform.get('extrelacionamigos').invalid && this.userform.get('extrelacionamigos').touched
+  }
+  get extconversopersonMarca(){
+    return this.userform.get('extconversoperson').invalid
   }
   get extconversoperson() {
     return this.userform.get('extconversoperson').invalid && this.userform.get('extconversoperson').touched
   }
+  get extamigosescuchanMarca(){
+    return this.userform.get('extamigosescuchan').invalid
+  }
   get extamigosescuchan() {
     return this.userform.get('extamigosescuchan').invalid && this.userform.get('extamigosescuchan').touched
+  }
+  get extapoyofamiliarMarca(){
+    return this.userform.get('extapoyofamiliar').invalid
   }
   get extapoyofamiliar() {
     return this.userform.get('extapoyofamiliar').invalid && this.userform.get('extapoyofamiliar').touched
   }
+  get exthabloconpersoMarca(){
+    return this.userform.get('exthabloconperso').invalid
+  }
   get exthabloconperso() {
     return this.userform.get('exthabloconperso').invalid && this.userform.get('exthabloconperso').touched
+  }
+  get extproblemfamiliarMarca(){
+    return this.userform.get('extproblemfamiliar').invalid
   }
   get extproblemfamiliar() {
     return this.userform.get('extproblemfamiliar').invalid && this.userform.get('extproblemfamiliar').touched
   }
+  get extrelacionfamiliarMarca(){
+    return this.userform.get('extrelacionfamiliar').invalid
+  }
   get extrelacionfamiliar() {
     return this.userform.get('extrelacionfamiliar').invalid && this.userform.get('extrelacionfamiliar').touched
+  }
+  get extquitanenergiaMarca(){
+    return this.userform.get('extquitanenergia').invalid
   }
   get extquitanenergia() {
     return this.userform.get('extquitanenergia').invalid && this.userform.get('extquitanenergia').touched
   }
+  get extresolveamistosaMarca(){
+    return this.userform.get('extresolveamistosa').invalid
+  }
   get extresolveamistosa() {
     return this.userform.get('extresolveamistosa').invalid && this.userform.get('extresolveamistosa').touched
+  }
+  get extafectrelacionestraMarca(){
+    return this.userform.get('extafectrelacionestra').invalid
   }
   get extafectrelacionestra() {
     return this.userform.get('extafectrelacionestra').invalid && this.userform.get('extafectrelacionestra').touched
   }
+  get extdineroalcanzaMarca(){
+    return this.userform.get('extdineroalcanza').invalid
+  }
   get extdineroalcanza() {
     return this.userform.get('extdineroalcanza').invalid && this.userform.get('extdineroalcanza').touched
   }
+  get extpresupuesfamiliaMarca(){
+    return this.userform.get('extpresupuesfamilia').invalid
+  }
   get extpresupuesfamilia() {
     return this.userform.get('extpresupuesfamilia').invalid && this.userform.get('extpresupuesfamilia').touched
+  }
+  get extdeudashogarMarca(){
+    return this.userform.get('extdeudashogar').invalid
   }
   get extdeudashogar() {
     return this.userform.get('extdeudashogar').invalid && this.userform.get('extdeudashogar').touched
