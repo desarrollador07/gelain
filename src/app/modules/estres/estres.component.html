@@ -26,138 +26,126 @@
                     <img style="padding-top: 40px;" src="https://gelainbienestarlaboral.com/GELAIN/img/logoJaveriana.png" alt="" width="90%">
                 </div>
             </div>
+            <!-- <app-video-info [validVideo]="1"></app-video-info> -->
             <fieldset>
                 <legend><b>Las siguientes preguntas están relacionadas con las condiciones ambientales del(los) sitio(s) o lugar(es) donde habitualmente realiza su trabajo.</b></legend>
-                <fieldset>
-                    <div class="ui-g" style="margin-bottom: 10px;">
-                        <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                        <div class="ui-g-12 ui-md-6 ui-lg-3">
-                            <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cedula: {{cedula}}</label></b>
-                        </div>
-                        <div class="ui-g-12 ui-md-6 ui-lg-3">
-                            <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Nombre: {{nombre}}</label></b>
-                        </div>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion1" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
                     </div>
-                </fieldset>
-                <br>
-                <br>
+                </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">1) Dolores en el cuello y espalda o tensión muscular</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;">1) Dolores en el cuello y espalda o tensión muscular <label style="color: red;" *ngIf="estdolorcuelloMarca" ><strong>*</strong></label></label></b>
                     </div>
-
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estdolorcuello"  [options]="a1" formControlName="estdolorcuello" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estdolorcuello"  [options]="a1" formControlName="estdolorcuello" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estdolorcuello"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-
-                        <b><label for="float-input" style="font-size: 15px;">2) Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;">2) Problemas gastrointestinales, úlcera péptica, acidez, problemas digestivos o del colon <label style="color: red;" *ngIf="estprobgastricoMarca" ><strong>*</strong></label></label></b>
                     </div>
-
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estprobgastrico"  [options]="a1" formControlName="estprobgastrico" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estprobgastrico"  [options]="a1" formControlName="estprobgastrico" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estprobgastrico"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-
-                        <b><label for="float-input" style="font-size: 15px;">3) Problemas respiratorios</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;">3) Problemas respiratorios <label style="color: red;" *ngIf="estprobrespiraMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estprobrespira"  [options]="a1" formControlName="estprobrespira" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estprobrespira"  [options]="a1" formControlName="estprobrespira" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estprobrespira"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">4) Dolor de cabeza</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;">4) Dolor de cabeza <label style="color: red;" *ngIf="estdolorcabezaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estdolorcabeza"  [options]="a11" formControlName="estdolorcabeza" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estdolorcabeza"  [options]="a11" formControlName="estdolorcabeza" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estdolorcabeza"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">5) Transtornos del sueño como somnolencia durante el día o desvelo en la noche</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;">5) Transtornos del sueño como somnolencia durante el día o desvelo en la noche <label style="color: red;" *ngIf="esttrastsuenoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="esttrastsueno"  [options]="a11" formControlName="esttrastsueno" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="esttrastsueno"  [options]="a11" formControlName="esttrastsueno" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="esttrastsueno"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b> <label for="float-input" style="font-size: 15px;">6) Palpitaciones en el pecho o problemas cardíacos</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b> <label for="float-input" style="font-size: 15px;">6) Palpitaciones en el pecho o problemas cardíacos <label style="color: red;" *ngIf="estpalpitacionMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estpalpitacion"  [options]="a11" formControlName="estpalpitacion" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estpalpitacion"  [options]="a11" formControlName="estpalpitacion" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estpalpitacion"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label for="float-input" style="font-size: 15px;">7) Cambios fuertes en el apetito</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b><label for="float-input" style="font-size: 15px;">7) Cambios fuertes en el apetito <label style="color: red;" *ngIf="estcamapetitoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estcamapetito"  [options]="a12" formControlName="estcamapetito" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estcamapetito"  [options]="a12" formControlName="estcamapetito" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estcamapetito"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b> <label for="float-input" style="font-size: 15px;">8) Problemas relacionados con la función de los organos genitales (impotencia, frigidez)</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b> <label for="float-input" style="font-size: 15px;">8) Problemas relacionados con la función de los organos genitales (impotencia, frigidez) <label style="color: red;" *ngIf="estprobgenitalMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estprobgenital"  [options]="a12" formControlName="estprobgenital" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estprobgenital"  [options]="a12" formControlName="estprobgenital" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estprobgenital"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">9) Dificultades en las relaciones familiares</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">9) Dificultades en las relaciones familiares <label style="color: red;" *ngIf="estdiffamiliarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
-                             <p-dropdown [class.is-invalid]="estdiffamiliar"  [options]="a1" formControlName="estdiffamiliar" [showClear]="true"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="estdiffamiliar"  [options]="a1" formControlName="estdiffamiliar" [showClear]="true"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estdiffamiliar"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b> <label for="float-input" style="font-size: 15px;">10) Dificultad para permanecer quieto o dificultad para iniciar actividades</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b> <label for="float-input" style="font-size: 15px;">10) Dificultad para permanecer quieto o dificultad para iniciar actividades <label style="color: red;" *ngIf="estdifquietoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -167,9 +155,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">11) Dificultad en las relaciones con otras personas</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">11) Dificultad en las relaciones con otras personas <label style="color: red;" *ngIf="estdifpersonasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -179,9 +167,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">12) Sensación de asilamiento o desinterés</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">12) Sensación de asilamiento o desinterés <label style="color: red;" *ngIf="estsensaislamiMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -190,10 +178,11 @@
                         <p-message severity="error" text="Este campo es requerido" *ngIf="estsensaislami"></p-message>
                     </div>
                 </div>
+
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">13) Sentimiento de sobrecarga de trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">13) Sentimiento de sobrecarga de trabajo <label style="color: red;" *ngIf="estsobrecargaMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -203,9 +192,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b> <label for="float-input" style="font-size: 15px;">14) Dificultad para concentrarse, olvidos frecuentes</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b> <label for="float-input" style="font-size: 15px;">14) Dificultad para concentrarse, olvidos frecuentes <label style="color: red;" *ngIf="estdifconcentrarMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -215,9 +204,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b> <label for="float-input" style="font-size: 15px;">15) Aumento en el número de accidentes de trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b> <label for="float-input" style="font-size: 15px;">15) Aumento en el número de accidentes de trabajo <label style="color: red;" *ngIf="estaumentaccidMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -227,9 +216,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">16) Sentimiento de frustración, de no haber hecho lo que se quería en la vida</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">16) Sentimiento de frustración, de no haber hecho lo que se quería en la vida <label style="color: red;" *ngIf="estsentfrustraMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -239,9 +228,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">17) Cansancio, tedio o desgano</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">17) Cansancio, tedio o desgano <label style="color: red;" *ngIf="estcansancioMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -251,9 +240,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">18) Disminución del rendimiento en el trabajo o poca creatividad</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">18) Disminución del rendimiento en el trabajo o poca creatividad <label style="color: red;" *ngIf="estdismrendimieMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -263,9 +252,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">19) Deseo de no asistir al trabajo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">19) Deseo de no asistir al trabajo <label style="color: red;" *ngIf="estdeseonotrabMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -275,9 +264,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">20) Bajo compromiso o poco interés con lo que se hace</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">20) Bajo compromiso o poco interés con lo que se hace <label style="color: red;" *ngIf="estpocointeresMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -287,9 +276,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">21) Dificultad para tomar decisiones</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">21) Dificultad para tomar decisiones <label style="color: red;" *ngIf="estdifdecisionesMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -299,9 +288,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">22) Deseo de cambiar de empleo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">22) Deseo de cambiar de empleo <label style="color: red;" *ngIf="estcambioempleoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -311,9 +300,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">23) Sentimiento de soledad o miedo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">23) Sentimiento de soledad o miedo <label style="color: red;" *ngIf="estsentisoledadMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -323,9 +312,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b> <label for="float-input" style="font-size: 15px;">24) Sentimiento de irritabilidad, actitudes y pensamientos negativos</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b> <label for="float-input" style="font-size: 15px;">24) Sentimiento de irritabilidad, actitudes y pensamientos negativos <label style="color: red;" *ngIf="estsentinegativoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -335,9 +324,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>    <label for="float-input" style="font-size: 15px;">25) Sentimiento de angustia, preocupación o tristeza</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>    <label for="float-input" style="font-size: 15px;">25) Sentimiento de angustia, preocupación o tristeza <label style="color: red;" *ngIf="estsetangpretrisMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -347,9 +336,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">26) Consumo de drogas para aliviar la tensión o los nervios</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">26) Consumo de drogas para aliviar la tensión o los nervios <label style="color: red;" *ngIf="estconsdrogasMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -359,9 +348,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">27) Sentimientos de que "no vale nada", o "no sirve para nada"</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">27) Sentimientos de que "no vale nada", o "no sirve para nada" <label style="color: red;" *ngIf="estsentinosirveMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -371,9 +360,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">28) Consumo de bebidas alcohólicas o café o cigarrillo</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">28) Consumo de bebidas alcohólicas o café o cigarrillo <label style="color: red;" *ngIf="estconsucigarriMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -383,9 +372,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">29) Sentimiento de que está perdiendo la razón</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">29) Sentimiento de que está perdiendo la razón <label style="color: red;" *ngIf="estperdirazonMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -395,9 +384,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>  <label for="float-input" style="font-size: 15px;">30) Comportamientos rígidos, obstinación o terquedad</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>  <label for="float-input" style="font-size: 15px;">30) Comportamientos rígidos, obstinación o terquedad <label style="color: red;" *ngIf="estcomprigidoMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -407,9 +396,9 @@
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <div class="ui-g-12 ui-md-12 ui-lg-3"></div>
-                    <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b>   <label for="float-input" style="font-size: 15px;">31) Sensación de no poder manejar los problemas de la vida</label></b>
+                    <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
+                    <div class="ui-g-12 ui-md-6 ui-lg-5">
+                        <b>   <label for="float-input" style="font-size: 15px;">31) Sensación de no poder manejar los problemas de la vida <label style="color: red;" *ngIf="estsensproblemMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">

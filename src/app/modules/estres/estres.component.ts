@@ -93,103 +93,206 @@ export class EstresComponent implements OnInit {
     } 
   };
 
+  get seccion1(){
+    return this.userform.get('estdolorcuello').invalid || this.userform.get('estprobgastrico').invalid || this.userform.get('estprobrespira').invalid
+        || this.userform.get('estdolorcabeza').invalid || this.userform.get('esttrastsueno').invalid || this.userform.get('estpalpitacion').invalid 
+        || this.userform.get('estcamapetito').invalid || this.userform.get('estprobgenital').invalid || this.userform.get('estdiffamiliar').invalid
+        || this.userform.get('estdifquieto').invalid || this.userform.get('estdifpersonas').invalid || this.userform.get('estsensaislami').invalid
+        || this.userform.get('estsobrecarga').invalid || this.userform.get('estdifconcentrar').invalid || this.userform.get('estaumentaccid').invalid
+        || this.userform.get('estsentfrustra').invalid || this.userform.get('estcansancio').invalid || this.userform.get('estdismrendimie').invalid
+        || this.userform.get('estdeseonotrab').invalid || this.userform.get('estpocointeres').invalid || this.userform.get('estdifdecisiones').invalid
+        || this.userform.get('estcambioempleo').invalid || this.userform.get('estsentisoledad').invalid || this.userform.get('estsentinegativo').invalid
+        || this.userform.get('estsetangpretris').invalid || this.userform.get('estconsdrogas').invalid || this.userform.get('estsentinosirve').invalid
+        || this.userform.get('estconsucigarri').invalid || this.userform.get('estperdirazon').invalid || this.userform.get('estcomprigido').invalid 
+        || this.userform.get('estsensproblem').invalid; 
+  }
+
+  get estdolorcuelloMarca(){
+    return this.userform.get('estdolorcuello').invalid
+  }
   get estdolorcuello() {
     return this.userform.get('estdolorcuello').invalid && this.userform.get('estdolorcuello').touched
+  }
+  get estprobgastricoMarca(){
+    return this.userform.get('estprobgastrico').invalid
   }
   get estprobgastrico() {
     return this.userform.get('estprobgastrico').invalid && this.userform.get('estprobgastrico').touched
   }
+  get estprobrespiraMarca(){
+    return this.userform.get('estprobrespira').invalid
+  }
   get estprobrespira() {
     return this.userform.get('estprobrespira').invalid && this.userform.get('estprobrespira').touched
+  }
+  get estdolorcabezaMarca(){
+    return this.userform.get('estdolorcabeza').invalid
   }
   get estdolorcabeza() {
     return this.userform.get('estdolorcabeza').invalid && this.userform.get('estdolorcabeza').touched
   }
+  get esttrastsuenoMarca(){
+    return this.userform.get('esttrastsueno').invalid
+  }
   get esttrastsueno() {
     return this.userform.get('esttrastsueno').invalid && this.userform.get('esttrastsueno').touched
+  }
+  get estpalpitacionMarca(){
+    return this.userform.get('estpalpitacion').invalid
   }
   get estpalpitacion() {
     return this.userform.get('estpalpitacion').invalid && this.userform.get('estpalpitacion').touched
   }
+  get estcamapetitoMarca(){
+    return this.userform.get('estcamapetito').invalid
+  }
   get estcamapetito() {
     return this.userform.get('estcamapetito').invalid && this.userform.get('estcamapetito').touched
+  }
+  get estprobgenitalMarca(){
+    return this.userform.get('estprobgenital').invalid
   }
   get estprobgenital() {
     return this.userform.get('estprobgenital').invalid && this.userform.get('estprobgenital').touched
   }
+  get estdiffamiliarMarca(){
+    return this.userform.get('estdiffamiliar').invalid
+  }
   get estdiffamiliar() {
     return this.userform.get('estdiffamiliar').invalid && this.userform.get('estdiffamiliar').touched
+  }
+  get estdifquietoMarca(){
+    return this.userform.get('estdifquieto').invalid
   }
   get estdifquieto() {
     return this.userform.get('estdifquieto').invalid && this.userform.get('estdifquieto').touched
   }
+  get estdifpersonasMarca(){
+    return this.userform.get('estdifpersonas').invalid
+  }
   get estdifpersonas() {
     return this.userform.get('estdifpersonas').invalid && this.userform.get('estdifpersonas').touched
+  }
+  get estsensaislamiMarca(){
+    return this.userform.get('estsensaislami').invalid
   }
   get estsensaislami() {
     return this.userform.get('estsensaislami').invalid && this.userform.get('estsensaislami').touched
   }
+  get estsobrecargaMarca(){
+    return this.userform.get('estsobrecarga').invalid
+  }
   get estsobrecarga() {
     return this.userform.get('estsobrecarga').invalid && this.userform.get('estsobrecarga').touched
+  }
+  get estdifconcentrarMarca(){
+    return this.userform.get('estdifconcentrar').invalid
   }
   get estdifconcentrar() {
     return this.userform.get('estdifconcentrar').invalid && this.userform.get('estdifconcentrar').touched
   }
+  get estaumentaccidMarca(){
+    return this.userform.get('estaumentaccid').invalid
+  }
   get estaumentaccid() {
     return this.userform.get('estaumentaccid').invalid && this.userform.get('estaumentaccid').touched
+  }
+  get estsentfrustraMarca(){
+    return this.userform.get('estsentfrustra').invalid
   }
   get estsentfrustra() {
     return this.userform.get('estsentfrustra').invalid && this.userform.get('estsentfrustra').touched
   }
+  get estcansancioMarca(){
+    return this.userform.get('estcansancio').invalid
+  }
   get estcansancio() {
     return this.userform.get('estcansancio').invalid && this.userform.get('estcansancio').touched
+  }
+  get estdismrendimieMarca(){
+    return this.userform.get('estdismrendimie').invalid
   }
   get estdismrendimie() {
     return this.userform.get('estdismrendimie').invalid && this.userform.get('estdismrendimie').touched
   }
+  get estdeseonotrabMarca(){
+    return this.userform.get('estdeseonotrab').invalid
+  }
   get estdeseonotrab() {
     return this.userform.get('estdeseonotrab').invalid && this.userform.get('estdeseonotrab').touched
+  }
+  get estpocointeresMarca(){
+    return this.userform.get('estpocointeres').invalid
   }
   get estpocointeres() {
     return this.userform.get('estpocointeres').invalid && this.userform.get('estpocointeres').touched
   }
+  get estdifdecisionesMarca(){
+    return this.userform.get('estdifdecisiones').invalid
+  }
   get estdifdecisiones() {
     return this.userform.get('estdifdecisiones').invalid && this.userform.get('estdifdecisiones').touched
+  }
+  get estcambioempleoMarca(){
+    return this.userform.get('estcambioempleo').invalid
   }
   get estcambioempleo() {
     return this.userform.get('estcambioempleo').invalid && this.userform.get('estcambioempleo').touched
   }
+  get estsentisoledadMarca(){
+    return this.userform.get('estsentisoledad').invalid
+  }
   get estsentisoledad() {
     return this.userform.get('estsentisoledad').invalid && this.userform.get('estsentisoledad').touched
+  }
+  get estsentinegativoMarca(){
+    return this.userform.get('estsentinegativo').invalid
   }
   get estsentinegativo() {
     return this.userform.get('estsentinegativo').invalid && this.userform.get('estsentinegativo').touched
   }
+  get estsetangpretrisMarca(){
+    return this.userform.get('estsetangpretris').invalid
+  }
   get estsetangpretris() {
     return this.userform.get('estsetangpretris').invalid && this.userform.get('estsetangpretris').touched
+  }
+  get estconsdrogasMarca(){
+    return this.userform.get('estconsdrogas').invalid
   }
   get estconsdrogas() {
     return this.userform.get('estconsdrogas').invalid && this.userform.get('estconsdrogas').touched
   }
+  get estsentinosirveMarca(){
+    return this.userform.get('estsentinosirve').invalid
+  }
   get estsentinosirve() {
     return this.userform.get('estsentinosirve').invalid && this.userform.get('estsentinosirve').touched
+  }
+  get estconsucigarriMarca(){
+    return this.userform.get('estconsucigarri').invalid
   }
   get estconsucigarri() {
     return this.userform.get('estconsucigarri').invalid && this.userform.get('estconsucigarri').touched
   }
+  get estperdirazonMarca(){
+    return this.userform.get('estperdirazon').invalid
+  }
   get estperdirazon() {
     return this.userform.get('estperdirazon').invalid && this.userform.get('estperdirazon').touched
+  }
+  get estcomprigidoMarca(){
+    return this.userform.get('estcomprigido').invalid
   }
   get estcomprigido() {
     return this.userform.get('estcomprigido').invalid && this.userform.get('estcomprigido').touched
   }
+  get estsensproblemMarca(){
+    return this.userform.get('estsensproblem').invalid
+  }
   get estsensproblem() {
     return this.userform.get('estsensproblem').invalid && this.userform.get('estsensproblem').touched
   }
-
-
-
-
 
  onSubmit(){
      if(this.userform.valid){
