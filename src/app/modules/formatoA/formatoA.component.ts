@@ -40,7 +40,6 @@ export class FormatoAComponent implements OnInit {
               private formatoAService: FormatoAService,
               private fb: FormBuilder,
               private router: Router,
-              private route: ActivatedRoute,
               private _messageService: MessageService) {
                 this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
                 this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
@@ -86,323 +85,751 @@ export class FormatoAComponent implements OnInit {
 
 
   };
-
+/*Apartado de validaciones */
+  /*----------------------------- Seccion 1 ------------------------------- */
+  get seccion1(){
+    return this.userform.get('inaruido').invalid || this.userform.get('inafrio').invalid || this.userform.get('inacalor').invalid
+        || this.userform.get('inaairefresco').invalid || this.userform.get('inaluz').invalid || this.userform.get('inacomodo').invalid 
+        || this.userform.get('inasustanquimicas').invalid || this.userform.get('inaesfuerzofisico').invalid || this.userform.get('inaequiposcomodos').invalid
+        || this.userform.get('inaanimalesplantas').invalid || this.userform.get('inapreoaccidente').invalid || this.userform.get('inalugarlimpio').invalid;
+  }
+  get inaruidoMarca(){
+    return this.userform.get('inaruido').invalid
+  }
   get inaruido() {
     return this.userform.get('inaruido').invalid && this.userform.get('inaruido').touched
   }
   get inafrio() {
     return this.userform.get('inafrio').invalid && this.userform.get('inafrio').touched
   }
+  get inafrioMarca(){
+    return this.userform.get('inafrio').invalid
+  }
   get inacalor() {
     return this.userform.get('inacalor').invalid && this.userform.get('inacalor').touched
+  }
+  get inacalorMarca(){
+    return this.userform.get('inacalor').invalid
   }
   get inaairefresco() {
     return this.userform.get('inaairefresco').invalid && this.userform.get('inaairefresco').touched
   }
+  get inaairefrescoMarca(){
+    return this.userform.get('inaairefresco').invalid
+  }
   get inaluz() {
     return this.userform.get('inaluz').invalid && this.userform.get('inaluz').touched
+  }
+  get inaluzMarca(){
+    return this.userform.get('inaluz').invalid
   }
   get inacomodo() {
     return this.userform.get('inacomodo').invalid && this.userform.get('inacomodo').touched
   }
+  get inacomodoMarca(){
+    return this.userform.get('inacomodo').invalid
+  }
   get inasustanquimicas() {
     return this.userform.get('inasustanquimicas').invalid && this.userform.get('inasustanquimicas').touched
+  }
+  get inasustanquimicasMarca(){
+    return this.userform.get('inasustanquimicas').invalid
   }
   get inaesfuerzofisico() {
     return this.userform.get('inaesfuerzofisico').invalid && this.userform.get('inaesfuerzofisico').touched
   }
+  get inaesfuerzofisicoMarca(){
+    return this.userform.get('inaesfuerzofisico').invalid
+  }
   get inaequiposcomodos() {
     return this.userform.get('inaequiposcomodos').invalid && this.userform.get('inaequiposcomodos').touched
+  }
+  get inaequiposcomodosMarca(){
+    return this.userform.get('inaequiposcomodos').invalid
   }
   get inaanimalesplantas() {
     return this.userform.get('inaanimalesplantas').invalid && this.userform.get('inaanimalesplantas').touched
   }
+  get inaanimalesplantasMarca(){
+    return this.userform.get('inaanimalesplantas').invalid
+  }
   get inapreoaccidente() {
     return this.userform.get('inapreoaccidente').invalid && this.userform.get('inapreoaccidente').touched
+  }
+  get inapreoaccidenteMarca(){
+    return this.userform.get('inapreoaccidente').invalid
   }
   get inalugarlimpio() {
     return this.userform.get('inalugarlimpio').invalid && this.userform.get('inalugarlimpio').touched
   }
+  get inalugarlimpioMarca(){
+    return this.userform.get('inalugarlimpio').invalid
+  }
+
+  /*----------------------------- Seccion 2 ------------------------------- */
+  get seccion2(){
+    return this.userform.get('inaalcanzatiempo').invalid || this.userform.get('inatrabajasinparar').invalid;   
+  }
   get inatiempoadicional() {
     return this.userform.get('inatiempoadicional').invalid && this.userform.get('inatiempoadicional').touched
+  }
+  get inatiempoadicionalMarca(){
+    return this.userform.get('inatiempoadicional').invalid
   }
   get inaalcanzatiempo() {
     return this.userform.get('inaalcanzatiempo').invalid && this.userform.get('inaalcanzatiempo').touched
   }
+  get inaalcanzatiempoMarca(){
+    return this.userform.get('inaalcanzatiempo').invalid
+  }
   get inatrabajasinparar() {
     return this.userform.get('inatrabajasinparar').invalid && this.userform.get('inatrabajasinparar').touched
+  }
+  get inatrabajasinpararMarca(){
+    return this.userform.get('inatrabajasinparar').invalid
+  }
+
+  /*----------------------------- Seccion 3 ------------------------------- */
+  get seccion3(){
+    return this.userform.get('inaesfuerzomental').invalid || this.userform.get('inaexigeconcentrado').invalid || this.userform.get('inaexigememoria').invalid
+        || this.userform.get('inadesiciondificiles').invalid || this.userform.get('inaexigeasuntos').invalid || this.userform.get('inapqnosdetalles').invalid;   
+  }
+  get inaesfuerzomentalMarca(){
+    return this.userform.get('inaesfuerzomental').invalid
   }
   get inaesfuerzomental() {
     return this.userform.get('inaesfuerzomental').invalid && this.userform.get('inaesfuerzomental').touched
   }
+  get inaexigeconcentradoMarca(){
+    return this.userform.get('inaexigeconcentrado').invalid
+  }
   get inaexigeconcentrado() {
     return this.userform.get('inaexigeconcentrado').invalid && this.userform.get('inaexigeconcentrado').touched
+  }
+  get inaexigememoriaMarca(){
+    return this.userform.get('inaexigememoria').invalid
   }
   get inaexigememoria() {
     return this.userform.get('inaexigememoria').invalid && this.userform.get('inaexigememoria').touched
   }
-
+  get inadesiciondificilesMarca(){
+    return this.userform.get('inadesiciondificiles').invalid
+  }
   get inadesiciondificiles() {
     return this.userform.get('inadesiciondificiles').invalid && this.userform.get('inadesiciondificiles').touched
+  }
+  get inaexigeasuntosMarca(){
+    return this.userform.get('inaexigeasuntos').invalid
   }
   get inaexigeasuntos() {
     return this.userform.get('inaexigeasuntos').invalid && this.userform.get('inaexigeasuntos').touched
   }
+  get inapqnosdetallesMarca(){
+    return this.userform.get('inapqnosdetalles').invalid
+  }
   get inapqnosdetalles() {
     return this.userform.get('inapqnosdetalles').invalid && this.userform.get('inapqnosdetalles').touched
+  }
+
+  /*----------------------------- Seccion 4 ------------------------------- */
+  get seccion4(){
+    return this.userform.get('inaresponcosasvalor').invalid || this.userform.get('inarespondinero').invalid || this.userform.get('inareponderotros').invalid
+        || this.userform.get('inaresponarea').invalid || this.userform.get('inareponsalud').invalid || this.userform.get('inaordecontradic').invalid
+        || this.userform.get('inahacerinnecesaria').invalid || this.userform.get('inapasarnormas').invalid || this.userform.get('inamaspracticas').invalid;   
+  }
+  get inaresponcosasvalorMarca(){
+    return this.userform.get('inaresponcosasvalor').invalid
   }
   get inaresponcosasvalor() {
     return this.userform.get('inaresponcosasvalor').invalid && this.userform.get('inaresponcosasvalor').touched
   }
+  get inarespondineroMarca(){
+    return this.userform.get('inarespondinero').invalid
+  }
   get inarespondinero() {
     return this.userform.get('inarespondinero').invalid && this.userform.get('inarespondinero').touched
+  }
+  get inareponderotrosMarca(){
+    return this.userform.get('inareponderotros').invalid
   }
   get inareponderotros() {
     return this.userform.get('inareponderotros').invalid && this.userform.get('inareponderotros').touched
   }
+  get inaresponareaMarca(){
+    return this.userform.get('inaresponarea').invalid
+  }
   get inaresponarea() {
     return this.userform.get('inaresponarea').invalid && this.userform.get('inaresponarea').touched
+  }
+  get inareponsaludMarca(){
+    return this.userform.get('inareponsalud').invalid
   }
   get inareponsalud() {
     return this.userform.get('inareponsalud').invalid && this.userform.get('inareponsalud').touched
   }
+  get inaordecontradicMarca(){
+    return this.userform.get('inaordecontradic').invalid
+  }
   get inaordecontradic() {
     return this.userform.get('inaordecontradic').invalid && this.userform.get('inaordecontradic').touched
+  }
+  get inahacerinnecesariaMarca(){
+    return this.userform.get('inahacerinnecesaria').invalid
   }
   get inahacerinnecesaria() {
     return this.userform.get('inahacerinnecesaria').invalid && this.userform.get('inahacerinnecesaria').touched
   }
+  get inapasarnormasMarca(){
+    return this.userform.get('inapasarnormas').invalid
+  }
   get inapasarnormas() {
     return this.userform.get('inapasarnormas').invalid && this.userform.get('inapasarnormas').touched
+  }
+  get inamaspracticasMarca(){
+    return this.userform.get('inamaspracticas').invalid
   }
   get inamaspracticas() {
     return this.userform.get('inamaspracticas').invalid && this.userform.get('inamaspracticas').touched
   }
+
+  /*----------------------------- Seccion 5 ------------------------------- */
+  get seccion5(){
+    return this.userform.get('inatrabajodenoche').invalid || this.userform.get('inapausas').invalid || this.userform.get('inatrabajodiadesca').invalid
+        || this.userform.get('inafinsemdesc').invalid || this.userform.get('inaencasapiensotra').invalid || this.userform.get('inadiscutofamilia').invalid
+        || this.userform.get('inaasuntosencasa').invalid || this.userform.get('inapocotiempofami').invalid;   
+  }
+  get inatrabajodenocheMarca(){
+    return this.userform.get('inatrabajodenoche').invalid
+  }
   get inatrabajodenoche() {
     return this.userform.get('inatrabajodenoche').invalid && this.userform.get('inatrabajodenoche').touched
+  }
+  get inapausasMarca(){
+    return this.userform.get('inapausas').invalid
   }
   get inapausas() {
     return this.userform.get('inapausas').invalid && this.userform.get('inapausas').touched
   }
+  get inatrabajodiadescaMarca(){
+    return this.userform.get('inatrabajodiadesca').invalid
+  }
   get inatrabajodiadesca() {
     return this.userform.get('inatrabajodiadesca').invalid && this.userform.get('inatrabajodiadesca').touched
+  }
+  get inafinsemdescMarca(){
+    return this.userform.get('inafinsemdesc').invalid
   }
   get inafinsemdesc() {
     return this.userform.get('inafinsemdesc').invalid && this.userform.get('inafinsemdesc').touched
   }
+  get inaencasapiensotraMarca(){
+    return this.userform.get('inaencasapiensotra').invalid
+  }
   get inaencasapiensotra() {
     return this.userform.get('inaencasapiensotra').invalid && this.userform.get('inaencasapiensotra').touched
+  }
+  get inadiscutofamiliaMarca(){
+    return this.userform.get('inadiscutofamilia').invalid
   }
   get inadiscutofamilia() {
     return this.userform.get('inadiscutofamilia').invalid && this.userform.get('inadiscutofamilia').touched
   }
+  get inaasuntosencasaMarca(){
+    return this.userform.get('inaasuntosencasa').invalid
+  }
   get inaasuntosencasa() {
     return this.userform.get('inaasuntosencasa').invalid && this.userform.get('inaasuntosencasa').touched
+  }
+  get inapocotiempofamiMarca(){
+    return this.userform.get('inapocotiempofami').invalid
   }
   get inapocotiempofami() {
     return this.userform.get('inapocotiempofami').invalid && this.userform.get('inapocotiempofami').touched
   }
+
+   /*----------------------------- Seccion 6 ------------------------------- */
+   get seccion6(){
+    return this.userform.get('inapermitehabilidad').invalid || this.userform.get('inapermiteconocimi').invalid || this.userform.get('inapermiteaprender').invalid
+        || this.userform.get('inamiscapacidades').invalid || this.userform.get('inapausasnecesito').invalid || this.userform.get('inatrabajodiario').invalid
+        || this.userform.get('inadecivelocidad').invalid || this.userform.get('inacambiarordenact').invalid || this.userform.get('inaatenderasunpers').invalid;   
+  }
+  get inapermitehabilidadMarca(){
+    return this.userform.get('inapermitehabilidad').invalid
+  }
   get inapermitehabilidad() {
     return this.userform.get('inapermitehabilidad').invalid && this.userform.get('inapermitehabilidad').touched
+  }
+  get inapermiteconocimiMarca(){
+    return this.userform.get('inapermiteconocimi').invalid
   }
   get inapermiteconocimi() {
     return this.userform.get('inapermiteconocimi').invalid && this.userform.get('inapermiteconocimi').touched
   }
+  get inapermiteaprenderMarca(){
+    return this.userform.get('inapermiteaprender').invalid
+  }
   get inapermiteaprender() {
     return this.userform.get('inapermiteaprender').invalid && this.userform.get('inapermiteaprender').touched
+  }
+  get inamiscapacidadesMarca(){
+    return this.userform.get('inamiscapacidades').invalid
   }
   get inamiscapacidades() {
     return this.userform.get('inamiscapacidades').invalid && this.userform.get('inamiscapacidades').touched
   }
+  get inapausasnecesitoMarca(){
+    return this.userform.get('inapausasnecesito').invalid
+  }
   get inapausasnecesito() {
     return this.userform.get('inapausasnecesito').invalid && this.userform.get('inapausasnecesito').touched
+  }
+  get inatrabajodiarioMarca(){
+    return this.userform.get('inatrabajodiario').invalid
   }
   get inatrabajodiario() {
     return this.userform.get('inatrabajodiario').invalid && this.userform.get('inatrabajodiario').touched
   }
+  get inadecivelocidadMarca(){
+    return this.userform.get('inadecivelocidad').invalid
+  }
   get inadecivelocidad() {
     return this.userform.get('inadecivelocidad').invalid && this.userform.get('inadecivelocidad').touched
+  }
+  get inacambiarordenactMarca(){
+    return this.userform.get('inacambiarordenact').invalid
   }
   get inacambiarordenact() {
     return this.userform.get('inacambiarordenact').invalid && this.userform.get('inacambiarordenact').touched
   }
+  get inaatenderasunpersMarca(){
+    return this.userform.get('inaatenderasunpers').invalid
+  }
   get inaatenderasunpers() {
     return this.userform.get('inaatenderasunpers').invalid && this.userform.get('inaatenderasunpers').touched
+  }
+
+  /*----------------------------- Seccion 7 ------------------------------- */
+  get seccion7(){
+    return this.userform.get('inacambiosbeneficio').invalid || this.userform.get('inaexplicancambios').invalid || this.userform.get('inapuedodarsugeren').invalid
+        || this.userform.get('inaencuentamisideas').invalid || this.userform.get('inacambiosdificultan').invalid;   
+  }
+  get inacambiosbeneficioMarca(){
+    return this.userform.get('inacambiosbeneficio').invalid
   }
   get inacambiosbeneficio() {
     return this.userform.get('inacambiosbeneficio').invalid && this.userform.get('inacambiosbeneficio').touched
   }
+  get inaexplicancambiosMarca(){
+    return this.userform.get('inaexplicancambios').invalid
+  }
   get inaexplicancambios() {
     return this.userform.get('inaexplicancambios').invalid && this.userform.get('inaexplicancambios').touched
+  }
+  get inapuedodarsugerenMarca(){
+    return this.userform.get('inapuedodarsugeren').invalid
   }
   get inapuedodarsugeren() {
     return this.userform.get('inapuedodarsugeren').invalid && this.userform.get('inapuedodarsugeren').touched
   }
+  get inaencuentamisideasMarca(){
+    return this.userform.get('inaencuentamisideas').invalid
+  }
   get inaencuentamisideas() {
     return this.userform.get('inaencuentamisideas').invalid && this.userform.get('inaencuentamisideas').touched
+  }
+  get inacambiosdificultanMarca(){
+    return this.userform.get('inacambiosdificultan').invalid
   }
   get inacambiosdificultan() {
     return this.userform.get('inacambiosdificultan').invalid && this.userform.get('inacambiosdificultan').touched
   }
+
+  /*----------------------------- Seccion 8 ------------------------------- */
+  get seccion8(){
+    return this.userform.get('inaclaridadfunciones').invalid || this.userform.get('inadecisionesatomar').invalid || this.userform.get('inaresultadoslograr').invalid
+        || this.userform.get('inaefectoenempresa').invalid || this.userform.get('inaexplicanobjetivos').invalid || this.userform.get('inaorientaciontraba').invalid
+        || this.userform.get('inaresolverasuntos').invalid; 
+  }
+  get inaclaridadfuncionesMarca(){
+    return this.userform.get('inaclaridadfunciones').invalid
+  }
   get inaclaridadfunciones() {
     return this.userform.get('inaclaridadfunciones').invalid && this.userform.get('inaclaridadfunciones').touched
+  }
+  get inadecisionesatomarMarca(){
+    return this.userform.get('inadecisionesatomar').invalid
   }
   get inadecisionesatomar() {
     return this.userform.get('inadecisionesatomar').invalid && this.userform.get('inadecisionesatomar').touched
   }
+  get inaresultadoslograrMarca(){
+    return this.userform.get('inaresultadoslograr').invalid
+  }
   get inaresultadoslograr() {
     return this.userform.get('inaresultadoslograr').invalid && this.userform.get('inaresultadoslograr').touched
+  }
+  get inaefectoenempresaMarca(){
+    return this.userform.get('inaefectoenempresa').invalid
   }
   get inaefectoenempresa() {
     return this.userform.get('inaefectoenempresa').invalid && this.userform.get('inaefectoenempresa').touched
   }
+  get inaexplicanobjetivosMarca(){
+    return this.userform.get('inaexplicanobjetivos').invalid
+  }
   get inaexplicanobjetivos() {
     return this.userform.get('inaexplicanobjetivos').invalid && this.userform.get('inaexplicanobjetivos').touched
+  }
+  get inaorientaciontrabaMarca(){
+    return this.userform.get('inaorientaciontraba').invalid
   }
   get inaorientaciontraba() {
     return this.userform.get('inaorientaciontraba').invalid && this.userform.get('inaorientaciontraba').touched
   }
+  get inaresolverasuntosMarca(){
+    return this.userform.get('inaresolverasuntos').invalid
+  }
   get inaresolverasuntos() {
     return this.userform.get('inaresolverasuntos').invalid && this.userform.get('inaresolverasuntos').touched
+  }
+
+  /*----------------------------- Seccion 9 ------------------------------- */
+  get seccion9(){
+    return this.userform.get('inaasiscapacitacion').invalid || this.userform.get('inarecibocapacitaci').invalid || this.userform.get('inarecibocapaciayuda').invalid; 
+  }
+  get inaasiscapacitacionMarca(){
+    return this.userform.get('inaasiscapacitacion').invalid
   }
   get inaasiscapacitacion() {
     return this.userform.get('inaasiscapacitacion').invalid && this.userform.get('inaasiscapacitacion').touched
   }
+  get inarecibocapacitaciMarca(){
+    return this.userform.get('inarecibocapacitaci').invalid
+  }
   get inarecibocapacitaci() {
     return this.userform.get('inarecibocapacitaci').invalid && this.userform.get('inarecibocapacitaci').touched
+  }
+  get inarecibocapaciayudaMarca(){
+    return this.userform.get('inarecibocapaciayuda').invalid
   }
   get inarecibocapaciayuda() {
     return this.userform.get('inarecibocapaciayuda').invalid && this.userform.get('inarecibocapaciayuda').touched
   }
+
+  /*----------------------------- Seccion 10 ------------------------------- */
+  get seccion10(){
+    return this.userform.get('inajefeintrucciones').invalid || this.userform.get('inajefeayudaorganiz').invalid || this.userform.get('inajefemispuntosvist').invalid
+        || this.userform.get('inajefeanima').invalid || this.userform.get('inajefedistribuye').invalid || this.userform.get('inajefecomunica').invalid
+        || this.userform.get('inajefeorienracion').invalid || this.userform.get('inajefeayudaprogres').invalid || this.userform.get('inajefeayudasentime').invalid
+        || this.userform.get('inajefesolucionar').invalid || this.userform.get('inajefeconfio').invalid || this.userform.get('inajefeescucha').invalid
+        || this.userform.get('inajefeapoyo').invalid; 
+  }
+  get inajefeintruccionesMarca(){
+    return this.userform.get('inajefeintrucciones').invalid
+  }
   get inajefeintrucciones() {
     return this.userform.get('inajefeintrucciones').invalid && this.userform.get('inajefeintrucciones').touched
+  }
+  get inajefeayudaorganizMarca(){
+    return this.userform.get('inajefeayudaorganiz').invalid
   }
   get inajefeayudaorganiz() {
     return this.userform.get('inajefeayudaorganiz').invalid && this.userform.get('inajefeayudaorganiz').touched
   }
+  get inajefemispuntosvistMarca(){
+    return this.userform.get('inajefemispuntosvist').invalid
+  }
   get inajefemispuntosvist() {
     return this.userform.get('inajefemispuntosvist').invalid && this.userform.get('inajefemispuntosvist').touched
+  }
+  get inajefeanimaMarca(){
+    return this.userform.get('inajefeanima').invalid
   }
   get inajefeanima() {
     return this.userform.get('inajefeanima').invalid && this.userform.get('inajefeanima').touched
   }
+  get inajefedistribuyeMarca(){
+    return this.userform.get('inajefedistribuye').invalid
+  }
   get inajefedistribuye() {
     return this.userform.get('inajefedistribuye').invalid && this.userform.get('inajefedistribuye').touched
+  }
+  get inajefecomunicaMarca(){
+    return this.userform.get('inajefecomunica').invalid
   }
   get inajefecomunica() {
     return this.userform.get('inajefecomunica').invalid && this.userform.get('inajefecomunica').touched
   }
+  get inajefeorienracionMarca(){
+    return this.userform.get('inajefeorienracion').invalid
+  }
   get inajefeorienracion() {
     return this.userform.get('inajefeorienracion').invalid && this.userform.get('inajefeorienracion').touched
+  }
+  get inajefeayudaprogresMarca(){
+    return this.userform.get('inajefeayudaprogres').invalid
   }
   get inajefeayudaprogres() {
     return this.userform.get('inajefeayudaprogres').invalid && this.userform.get('inajefeayudaprogres').touched
   }
+  get inajefeayudasentimeMarca(){
+    return this.userform.get('inajefeayudasentime').invalid
+  }
   get inajefeayudasentime() {
     return this.userform.get('inajefeayudasentime').invalid && this.userform.get('inajefeayudasentime').touched
+  }
+  get inajefesolucionarMarca(){
+    return this.userform.get('inajefesolucionar').invalid
   }
   get inajefesolucionar() {
     return this.userform.get('inajefesolucionar').invalid && this.userform.get('inajefesolucionar').touched
   }
+  get inajefeconfioMarca(){
+    return this.userform.get('inajefeconfio').invalid
+  }
   get inajefeconfio() {
     return this.userform.get('inajefeconfio').invalid && this.userform.get('inajefeconfio').touched
+  }
+  get inajefeescuchaMarca(){
+    return this.userform.get('inajefeescucha').invalid
   }
   get inajefeescucha() {
     return this.userform.get('inajefeescucha').invalid && this.userform.get('inajefeescucha').touched
   }
+  get inajefeapoyoMarca(){
+    return this.userform.get('inajefeapoyo').invalid
+  }
   get inajefeapoyo() {
     return this.userform.get('inajefeapoyo').invalid && this.userform.get('inajefeapoyo').touched
+  }
+
+  /*----------------------------- Seccion 11 ------------------------------- */
+  get seccion11(){
+    return this.userform.get('inaagradaambiente').invalid || this.userform.get('inagruporespeto').invalid || this.userform.get('inaconfiocompaneros').invalid
+        || this.userform.get('inaagustocompaneros').invalid || this.userform.get('inagrupomaltrata').invalid || this.userform.get('inasolucionacompa').invalid
+        || this.userform.get('inaintegraciongrp').invalid || this.userform.get('inagrupounido').invalid || this.userform.get('inasentirpartegrupo').invalid
+        || this.userform.get('inatrabajogrupo').invalid || this.userform.get('inagrupodeacuerdo').invalid || this.userform.get('inagrupoayuda').invalid
+        || this.userform.get('inaapoyounootros').invalid || this.userform.get('inaescuchanproble').invalid; 
+  }
+  get inaagradaambienteMarca(){
+    return this.userform.get('inaagradaambiente').invalid
   }
   get inaagradaambiente() {
     return this.userform.get('inaagradaambiente').invalid && this.userform.get('inaagradaambiente').touched
   }
+  get inagruporespetoMarca(){
+    return this.userform.get('inagruporespeto').invalid
+  }
   get inagruporespeto() {
     return this.userform.get('inagruporespeto').invalid && this.userform.get('inagruporespeto').touched
+  }
+  get inaconfiocompanerosMarca(){
+    return this.userform.get('inaconfiocompaneros').invalid
   }
   get inaconfiocompaneros() {
     return this.userform.get('inaconfiocompaneros').invalid && this.userform.get('inaconfiocompaneros').touched
   }
+  get inaagustocompanerosMarca(){
+    return this.userform.get('inaagustocompaneros').invalid
+  }
   get inaagustocompaneros() {
     return this.userform.get('inaagustocompaneros').invalid && this.userform.get('inaagustocompaneros').touched
+  }
+  get inagrupomaltrataMarca(){
+    return this.userform.get('inagrupomaltrata').invalid
   }
   get inagrupomaltrata() {
     return this.userform.get('inagrupomaltrata').invalid && this.userform.get('inagrupomaltrata').touched
   }
+  get inasolucionacompaMarca(){
+    return this.userform.get('inasolucionacompa').invalid
+  }
   get inasolucionacompa() {
     return this.userform.get('inasolucionacompa').invalid && this.userform.get('inasolucionacompa').touched
+  }
+  get inaintegraciongrpMarca(){
+    return this.userform.get('inaintegraciongrp').invalid
   }
   get inaintegraciongrp() {
     return this.userform.get('inaintegraciongrp').invalid && this.userform.get('inaintegraciongrp').touched
   }
+  get inagrupounidoMarca(){
+    return this.userform.get('inagrupounido').invalid
+  }
   get inagrupounido() {
     return this.userform.get('inagrupounido').invalid && this.userform.get('inagrupounido').touched
+  }
+  get inasentirpartegrupoMarca(){
+    return this.userform.get('inasentirpartegrupo').invalid
   }
   get inasentirpartegrupo() {
     return this.userform.get('inasentirpartegrupo').invalid && this.userform.get('inasentirpartegrupo').touched
   }
+  get inatrabajogrupoMarca(){
+    return this.userform.get('inatrabajogrupo').invalid
+  }
   get inatrabajogrupo() {
     return this.userform.get('inatrabajogrupo').invalid && this.userform.get('inatrabajogrupo').touched
+  }
+  get inagrupodeacuerdoMarca(){
+    return this.userform.get('inagrupodeacuerdo').invalid
   }
   get inagrupodeacuerdo() {
     return this.userform.get('inagrupodeacuerdo').invalid && this.userform.get('inagrupodeacuerdo').touched
   }
+  get inagrupoayudaMarca(){
+    return this.userform.get('inagrupoayuda').invalid
+  }
   get inagrupoayuda() {
     return this.userform.get('inagrupoayuda').invalid && this.userform.get('inagrupoayuda').touched
+  }
+  get inaapoyounootrosMarca(){
+    return this.userform.get('inaapoyounootros').invalid
   }
   get inaapoyounootros() {
     return this.userform.get('inaapoyounootros').invalid && this.userform.get('inaapoyounootros').touched
   }
+  get inaescuchanprobleMarca(){
+    return this.userform.get('inaescuchanproble').invalid
+  }
   get inaescuchanproble() {
     return this.userform.get('inaescuchanproble').invalid && this.userform.get('inaescuchanproble').touched
+  }
+
+  /*----------------------------- Seccion 12 ------------------------------- */
+  get seccion12(){
+    return this.userform.get('inainfhagobien').invalid || this.userform.get('inainfmejorar').invalid || this.userform.get('inainfrendimiento').invalid
+        || this.userform.get('inaevaluantrabajo').invalid || this.userform.get('inainfatiempomejora').invalid; 
+  }
+  get inainfhagobienMarca(){
+    return this.userform.get('inainfhagobien').invalid
   }
   get inainfhagobien() {
     return this.userform.get('inainfhagobien').invalid && this.userform.get('inainfhagobien').touched
   }
+  get inainfmejorarMarca(){
+    return this.userform.get('inainfmejorar').invalid
+  }
   get inainfmejorar() {
     return this.userform.get('inainfmejorar').invalid && this.userform.get('inainfmejorar').touched
+  }
+  get inainfrendimientoMarca(){
+    return this.userform.get('inainfrendimiento').invalid
   }
   get inainfrendimiento() {
     return this.userform.get('inainfrendimiento').invalid && this.userform.get('inainfrendimiento').touched
   }
+  get inaevaluantrabajoMarca(){
+    return this.userform.get('inaevaluantrabajo').invalid
+  }
   get inaevaluantrabajo() {
     return this.userform.get('inaevaluantrabajo').invalid && this.userform.get('inaevaluantrabajo').touched
+  }
+  get inainfatiempomejoraMarca(){
+    return this.userform.get('inainfatiempomejora').invalid
   }
   get inainfatiempomejora() {
     return this.userform.get('inainfatiempomejora').invalid && this.userform.get('inainfatiempomejora').touched
   }
+
+  /*----------------------------- Seccion 13 ------------------------------- */
+  get seccion13(){
+    return this.userform.get('inaempconfiantrab').invalid || this.userform.get('inaemppaganatiempo').invalid || this.userform.get('inapagoofrecido').invalid
+        || this.userform.get('inapagomerezco').invalid || this.userform.get('inaposibprogresar').invalid || this.userform.get('inahacerbienprog').invalid
+        || this.userform.get('inaempbienestartrab').invalid || this.userform.get('inatrabajoestable').invalid || this.userform.get('inatrabsentirbien').invalid
+        || this.userform.get('inasientoorgullo').invalid || this.userform.get('inahablobienempres').invalid; 
+  }
+  get inaempconfiantrabMarca(){
+    return this.userform.get('inaempconfiantrab').invalid
+  }
   get inaempconfiantrab() {
     return this.userform.get('inaempconfiantrab').invalid && this.userform.get('inaempconfiantrab').touched
+  }
+  get inaemppaganatiempoMarca(){
+    return this.userform.get('inaemppaganatiempo').invalid
   }
   get inaemppaganatiempo() {
     return this.userform.get('inaemppaganatiempo').invalid && this.userform.get('inaemppaganatiempo').touched
   }
+  get inapagoofrecidoMarca(){
+    return this.userform.get('inapagoofrecido').invalid
+  }
   get inapagoofrecido() {
     return this.userform.get('inapagoofrecido').invalid && this.userform.get('inapagoofrecido').touched
+  }
+  get inapagomerezcoMarca(){
+    return this.userform.get('inapagomerezco').invalid
   }
   get inapagomerezco() {
     return this.userform.get('inapagomerezco').invalid && this.userform.get('inapagomerezco').touched
   }
+  get inaposibprogresarMarca(){
+    return this.userform.get('inaposibprogresar').invalid
+  }
   get inaposibprogresar() {
     return this.userform.get('inaposibprogresar').invalid && this.userform.get('inaposibprogresar').touched
+  }
+  get inahacerbienprogMarca(){
+    return this.userform.get('inahacerbienprog').invalid
   }
   get inahacerbienprog() {
     return this.userform.get('inahacerbienprog').invalid && this.userform.get('inahacerbienprog').touched
   }
+  get inaempbienestartrabMarca(){
+    return this.userform.get('inaempbienestartrab').invalid
+  }
   get inaempbienestartrab() {
     return this.userform.get('inaempbienestartrab').invalid && this.userform.get('inaempbienestartrab').touched
+  }
+  get inatrabajoestableMarca(){
+    return this.userform.get('inatrabajoestable').invalid
   }
   get inatrabajoestable() {
     return this.userform.get('inatrabajoestable').invalid && this.userform.get('inatrabajoestable').touched
   }
+  get inatrabsentirbienMarca(){
+    return this.userform.get('inatrabsentirbien').invalid
+  }
   get inatrabsentirbien() {
     return this.userform.get('inatrabsentirbien').invalid && this.userform.get('inatrabsentirbien').touched
+  }
+  get inasientoorgulloMarca(){
+    return this.userform.get('inasientoorgullo').invalid
   }
   get inasientoorgullo() {
     return this.userform.get('inasientoorgullo').invalid && this.userform.get('inasientoorgullo').touched
   }
+  get inahablobienempresMarca(){
+    return this.userform.get('inahablobienempres').invalid
+  }
   get inahablobienempres() {
     return this.userform.get('inahablobienempres').invalid && this.userform.get('inahablobienempres').touched
   }
+
+  /* -------------------------------------- Sección 14 -------------------------- */
+  get seccion14(){
+    return this.userform.get('inaatencionausuarios').invalid; 
+  }
+
+  get inaatencionausuariosMarca(){
+    return this.userform.get('inaatencionausuarios').invalid
+  }
+  get inaatencionausuarios() {
+    return this.userform.get('inaatencionausuarios').invalid && this.userform.get('inaatencionausuarios').touched
+  }
+
+  /* -------------------------------------- Sección 15 -------------------------- */
+  get seccion15(){
+    return this.userform.get('inasoyjefe').invalid; 
+  }
+
+  get inasoyjefeMarca(){
+    return this.userform.get('inasoyjefe').invalid
+  }
+  get inasoyjefe() {
+    return this.userform.get('inasoyjefe').invalid && this.userform.get('inasoyjefe').touched
+  }
+
 
 getFormulario(){
   this.userform = this.fb.group({
@@ -515,7 +942,7 @@ getFormulario(){
     inasientoorgullo: ['', Validators.required],
     inahablobienempres: ['', Validators.required],
 
-    inaatencionausuarios : [''],
+    inaatencionausuarios : ['',Validators.required],
     inausuenojados: [''],
     inausupreocupados: [''],
     inausutristes: [''],
@@ -525,7 +952,7 @@ getFormulario(){
     inaususentimidistin: [''],
     inasituaviolencia: [''],
     inaexigedolorosas: [''],
-    inasoyjefe : [''],
+    inasoyjefe : ['',Validators.required],
     inacomuntarde: [''],
     inairrespetuosos: [''],
     inadificorganiza: [''],
