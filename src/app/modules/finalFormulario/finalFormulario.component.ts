@@ -22,13 +22,6 @@ export class FinalFormularioComponent implements OnInit {
   salir(){
     sessionStorage.removeItem('empRegExt');
     sessionStorage.removeItem('IdEmpleado');
-    sessionStorage.removeItem('ForA');
-    sessionStorage.removeItem('ForAA');
-    sessionStorage.removeItem('ForB');
-    sessionStorage.removeItem('Extra');
-    sessionStorage.removeItem('ExtraE');
-    sessionStorage.removeItem('estresEs');
-    sessionStorage.removeItem('estres');
   }
 
 }

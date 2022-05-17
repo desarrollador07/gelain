@@ -5,7 +5,7 @@ import { EstresLComponent } from './estresL.component';
 const routes: Routes = [
   {
 
-    path: '',
+    path: ':id',
     component: EstresLComponent,
 
   },

@@ -5,7 +5,7 @@ import { ExtralaboralLComponent } from './extralaboralL.component';
 const routes: Routes = [
   {
 
-    path: '',
+    path: ':id',
     component: ExtralaboralLComponent,
 
   },

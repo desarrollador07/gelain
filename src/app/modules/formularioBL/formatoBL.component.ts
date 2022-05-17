@@ -33,12 +33,13 @@ export class FormatoBLComponent implements OnInit {
   idem:number = 0;
   validSave:boolean = false;
 
-  constructor(private pruebaservices: PruebaService,private formatoBService: FormatoBService,private fb: FormBuilder,private router: Router,
-              private route: ActivatedRoute,private _messageService: MessageService) {  
-                this.idem = Number(this.route.snapshot.paramMap.get("id")); 
-                
-                this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
-                localStorage.clear();
+  constructor(private formatoBService: FormatoBService,
+              private fb: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute,
+              private _messageService: MessageService) {  
+      this.idem = Number(this.route.snapshot.paramMap.get("id")); 
+      this.idl = JSON.parse(sessionStorage.getItem('IdEmpleado'));
   }
 
   async ngOnInit() {
@@ -155,7 +156,7 @@ export class FormatoBLComponent implements OnInit {
     })
 
     this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: '' });
+    this.a1.push({ label: 'Seleccione una opción', value: '' });
     this.a1.push({ label: 'Siempre', value: '0' });
     this.a1.push({ label: 'Casi Siempre', value: '1' });
     this.a1.push({ label: 'Algunas Veces', value: '2' });
@@ -163,7 +164,7 @@ export class FormatoBLComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: '' });
+    this.a11.push({ label: 'Seleccione una opción', value: '' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -171,7 +172,7 @@ export class FormatoBLComponent implements OnInit {
     this.a11.push({ label: 'Nunca', value: '0' });
 
     this.a2 = [];
-    this.a2.push({ label: 'Seleccione...', value: '' });
+    this.a2.push({ label: 'Seleccione una opción', value: '' });
     this.a2.push({ label: 'Si', value: '1' });
     this.a2.push({ label: 'No', value: '2' });
 
@@ -286,190 +287,432 @@ export class FormatoBLComponent implements OnInit {
       })
     } 
   };
-
+  /*Apartado de Validaciones */
+  /* --------------------------------------------SECCIÓN 1 --------------------------------- */
+  get seccion1(){
+    return this.userform.get('inbruido').invalid || this.userform.get('inbfrio').invalid || this.userform.get('inbcalor').invalid
+        || this.userform.get('inbairefresco').invalid || this.userform.get('inbluz').invalid || this.userform.get('inbcomodo').invalid
+        || this.userform.get('inbsustanquimicas').invalid || this.userform.get('inbesfuerzofisico').invalid || this.userform.get('inbequiposcomodos').invalid
+        || this.userform.get('inbanimalesplantas').invalid || this.userform.get('inbpreoaccidente').invalid || this.userform.get('inblugarlimpio').invalid;
+  }
+  get inbruidoMarca(){
+    return this.userform.get('inbruido').invalid
+  }
   get inbruido() {
     return this.userform.get('inbruido').invalid && this.userform.get('inbruido').touched
+  }
+  get inbfrioMarca(){
+    return this.userform.get('inbfrio').invalid
   }
   get inbfrio() {
     return this.userform.get('inbfrio').invalid && this.userform.get('inbfrio').touched
   }
+  get inbcalorMarca(){
+    return this.userform.get('inbcalor').invalid
+  }
   get inbcalor() {
     return this.userform.get('inbcalor').invalid && this.userform.get('inbcalor').touched
+  }
+  get inbairefrescoMarca(){
+    return this.userform.get('inbairefresco').invalid
   }
   get inbairefresco() {
     return this.userform.get('inbairefresco').invalid && this.userform.get('inbairefresco').touched
   }
+  get inbluzMarca(){
+    return this.userform.get('inbluz').invalid
+  }
   get inbluz() {
     return this.userform.get('inbluz').invalid && this.userform.get('inbluz').touched
+  }
+  get inbcomodoMarca(){
+    return this.userform.get('inbcomodo').invalid
   }
   get inbcomodo() {
     return this.userform.get('inbcomodo').invalid && this.userform.get('inbcomodo').touched
   }
+  get inbsustanquimicasMarca(){
+    return this.userform.get('inbsustanquimicas').invalid
+  }
   get inbsustanquimicas() {
     return this.userform.get('inbsustanquimicas').invalid && this.userform.get('inbsustanquimicas').touched
+  }
+  get inbesfuerzofisicoMarca(){
+    return this.userform.get('inbesfuerzofisico').invalid
   }
   get inbesfuerzofisico() {
     return this.userform.get('inbesfuerzofisico').invalid && this.userform.get('inbesfuerzofisico').touched
   }
+  get inbequiposcomodosMarca(){
+    return this.userform.get('inbequiposcomodos').invalid
+  }
   get inbequiposcomodos() {
     return this.userform.get('inbequiposcomodos').invalid && this.userform.get('inbequiposcomodos').touched
+  }
+  get inbanimalesplantasMarca(){
+    return this.userform.get('inbanimalesplantas').invalid
   }
   get inbanimalesplantas() {
     return this.userform.get('inbanimalesplantas').invalid && this.userform.get('inbanimalesplantas').touched
   }
+  get inbpreoaccidenteMarca(){
+    return this.userform.get('inbpreoaccidente').invalid
+  }
   get inbpreoaccidente() {
     return this.userform.get('inbpreoaccidente').invalid && this.userform.get('inbpreoaccidente').touched
+  }
+  get inblugarlimpioMarca(){
+    return this.userform.get('inblugarlimpio').invalid
   }
   get inblugarlimpio() {
     return this.userform.get('inblugarlimpio').invalid && this.userform.get('inblugarlimpio').touched
   }
+
+  /* --------------------------------------------SECCIÓN 2 --------------------------------- */
+  get seccion2(){
+    return this.userform.get('inbtiempoadicional').invalid || this.userform.get('inbalcanzatiempo').invalid || this.userform.get('inbtrabajasinparar').invalid;
+  }
+  get inbtiempoadicionalMarca(){
+    return this.userform.get('inbtiempoadicional').invalid
+  }
   get inbtiempoadicional() {
     return this.userform.get('inbtiempoadicional').invalid && this.userform.get('inbtiempoadicional').touched
+  }
+  get inbalcanzatiempoMarca(){
+    return this.userform.get('inbalcanzatiempo').invalid
   }
   get inbalcanzatiempo() {
     return this.userform.get('inbalcanzatiempo').invalid && this.userform.get('inbalcanzatiempo').touched
   }
+  get inbtrabajasinpararMarca(){
+    return this.userform.get('inbtrabajasinparar').invalid
+  }
   get inbtrabajasinparar() {
     return this.userform.get('inbtrabajasinparar').invalid && this.userform.get('inbtrabajasinparar').touched
+  }
+
+  /* --------------------------------------------SECCIÓN 3 --------------------------------- */
+  get seccion3(){
+    return this.userform.get('inbesfuerzomental').invalid || this.userform.get('inbexigeconcentrado').invalid || this.userform.get('inbexigememoria').invalid
+        || this.userform.get('inbhacercalculos').invalid || this.userform.get('inbpqnosdetalles').invalid;
+  }
+  get inbesfuerzomentalMarca(){
+    return this.userform.get('inbesfuerzomental').invalid
   }
   get inbesfuerzomental() {
     return this.userform.get('inbesfuerzomental').invalid && this.userform.get('inbesfuerzomental').touched
   }
+  get inbexigeconcentradoMarca(){
+    return this.userform.get('inbexigeconcentrado').invalid
+  }
   get inbexigeconcentrado() {
     return this.userform.get('inbexigeconcentrado').invalid && this.userform.get('inbexigeconcentrado').touched
+  }
+  get inbexigememoriaMarca(){
+    return this.userform.get('inbexigememoria').invalid
   }
   get inbexigememoria() {
     return this.userform.get('inbexigememoria').invalid && this.userform.get('inbexigememoria').touched
   }
+  get inbhacercalculosMarca(){
+    return this.userform.get('inbhacercalculos').invalid
+  }
   get inbhacercalculos() {
     return this.userform.get('inbhacercalculos').invalid && this.userform.get('inbhacercalculos').touched
+  }
+  get inbpqnosdetallesMarca(){
+    return this.userform.get('inbpqnosdetalles').invalid
   }
   get inbpqnosdetalles() {
     return this.userform.get('inbpqnosdetalles').invalid && this.userform.get('inbpqnosdetalles').touched
   }
+
+  /* --------------------------------------------SECCIÓN 4 --------------------------------- */
+  get seccion4(){
+    return this.userform.get('inbtrabajonoche').invalid || this.userform.get('inbtomarpausas').invalid || this.userform.get('inbtrabajodiadesca').invalid
+        || this.userform.get('inbfinsemdesc').invalid || this.userform.get('inbencasapiensotra').invalid || this.userform.get('inbdiscutofamilia').invalid
+        || this.userform.get('inbasuntosencasa').invalid || this.userform.get('inbpocotiempofami').invalid;
+  }
+  get inbtrabajonocheMarca(){
+    return this.userform.get('inbtrabajonoche').invalid
+  }
   get inbtrabajonoche() {
     return this.userform.get('inbtrabajonoche').invalid && this.userform.get('inbtrabajonoche').touched
+  }
+  get inbtomarpausasMarca(){
+    return this.userform.get('inbtomarpausas').invalid
   }
   get inbtomarpausas() {
     return this.userform.get('inbtomarpausas').invalid && this.userform.get('inbtomarpausas').touched
   }
+  get inbtrabajodiadescaMarca(){
+    return this.userform.get('inbtrabajodiadesca').invalid
+  }
   get inbtrabajodiadesca() {
     return this.userform.get('inbtrabajodiadesca').invalid && this.userform.get('inbtrabajodiadesca').touched
+  }
+  get inbfinsemdescMarca(){
+    return this.userform.get('inbfinsemdesc').invalid
   }
   get inbfinsemdesc() {
     return this.userform.get('inbfinsemdesc').invalid && this.userform.get('inbfinsemdesc').touched
   }
+  get inbencasapiensotraMarca(){
+    return this.userform.get('inbencasapiensotra').invalid
+  }
   get inbencasapiensotra() {
     return this.userform.get('inbencasapiensotra').invalid && this.userform.get('inbencasapiensotra').touched
+  }
+  get inbdiscutofamiliaMarca(){
+    return this.userform.get('inbdiscutofamilia').invalid
   }
   get inbdiscutofamilia() {
     return this.userform.get('inbdiscutofamilia').invalid && this.userform.get('inbdiscutofamilia').touched
   }
+  get inbasuntosencasaMarca(){
+    return this.userform.get('inbasuntosencasa').invalid
+  }
   get inbasuntosencasa() {
     return this.userform.get('inbasuntosencasa').invalid && this.userform.get('inbasuntosencasa').touched
+  }
+  get inbpocotiempofamiMarca(){
+    return this.userform.get('inbpocotiempofami').invalid
   }
   get inbpocotiempofami() {
     return this.userform.get('inbpocotiempofami').invalid && this.userform.get('inbpocotiempofami').touched
   }
+
+  /* --------------------------------------------SECCIÓN 5 --------------------------------- */
+  get seccion5(){
+    return this.userform.get('inbhacercosasnuevas').invalid || this.userform.get('inbpermitehabilidad').invalid || this.userform.get('inbpermiteconocimi').invalid
+        || this.userform.get('inbpermiteaprender').invalid || this.userform.get('inbpausasnecesito').invalid || this.userform.get('inbtrabajodiario').invalid
+        || this.userform.get('inbdecivelocidad').invalid || this.userform.get('inbcambiarordenact').invalid || this.userform.get('inbatenderasunpers').invalid;
+  }
+  get inbhacercosasnuevasMarca(){
+    return this.userform.get('inbhacercosasnuevas').invalid
+  }
   get inbhacercosasnuevas() {
     return this.userform.get('inbhacercosasnuevas').invalid && this.userform.get('inbhacercosasnuevas').touched
+  }
+  get inbpermitehabilidadMarca(){
+    return this.userform.get('inbpermitehabilidad').invalid
   }
   get inbpermitehabilidad() {
     return this.userform.get('inbpermitehabilidad').invalid && this.userform.get('inbpermitehabilidad').touched
   }
+  get inbpermiteconocimiMarca(){
+    return this.userform.get('inbpermiteconocimi').invalid
+  }
   get inbpermiteconocimi() {
     return this.userform.get('inbpermiteconocimi').invalid && this.userform.get('inbpermiteconocimi').touched
+  }
+  get inbpermiteaprenderMarca(){
+    return this.userform.get('inbpermiteaprender').invalid
   }
   get inbpermiteaprender() {
     return this.userform.get('inbpermiteaprender').invalid && this.userform.get('inbpermiteaprender').touched
   }
+  get inbpausasnecesitoMarca(){
+    return this.userform.get('inbpausasnecesito').invalid
+  }
   get inbpausasnecesito() {
     return this.userform.get('inbpausasnecesito').invalid && this.userform.get('inbpausasnecesito').touched
+  }
+  get inbtrabajodiarioMarca(){
+    return this.userform.get('inbtrabajodiario').invalid
   }
   get inbtrabajodiario() {
     return this.userform.get('inbtrabajodiario').invalid && this.userform.get('inbtrabajodiario').touched
   }
+  get inbdecivelocidadMarca(){
+    return this.userform.get('inbdecivelocidad').invalid
+  }
   get inbdecivelocidad() {
     return this.userform.get('inbdecivelocidad').invalid && this.userform.get('inbdecivelocidad').touched
+  }
+  get inbcambiarordenactMarca(){
+    return this.userform.get('inbcambiarordenact').invalid
   }
   get inbcambiarordenact() {
     return this.userform.get('inbcambiarordenact').invalid && this.userform.get('inbcambiarordenact').touched
   }
+  get inbatenderasunpersMarca(){
+    return this.userform.get('inbatenderasunpers').invalid
+  }
   get inbatenderasunpers() {
     return this.userform.get('inbatenderasunpers').invalid && this.userform.get('inbatenderasunpers').touched
+  }
+
+  /* --------------------------------------------SECCIÓN 6 --------------------------------- */
+  get seccion6(){
+    return this.userform.get('inbexplicancambios').invalid || this.userform.get('inbpuedodarsugeren').invalid || this.userform.get('inbencuentamisideas').invalid;
+  }
+  get inbexplicancambiosMarca(){
+    return this.userform.get('inbexplicancambios').invalid
   }
   get inbexplicancambios() {
     return this.userform.get('inbexplicancambios').invalid && this.userform.get('inbexplicancambios').touched
   }
+  get inbpuedodarsugerenMarca(){
+    return this.userform.get('inbpuedodarsugeren').invalid
+  }
   get inbpuedodarsugeren() {
     return this.userform.get('inbpuedodarsugeren').invalid && this.userform.get('inbpuedodarsugeren').touched
+  }
+  get inbencuentamisideasMarca(){
+    return this.userform.get('inbencuentamisideas').invalid
   }
   get inbencuentamisideas() {
     return this.userform.get('inbencuentamisideas').invalid && this.userform.get('inbencuentamisideas').touched
   }
+
+  /* --------------------------------------------SECCIÓN 7 --------------------------------- */
+  get seccion7(){
+    return this.userform.get('inbclaridadfunciones').invalid || this.userform.get('inbdecisionesatomar').invalid || this.userform.get('inbresultadoslograr').invalid
+        || this.userform.get('inbexplicanobjetivos').invalid || this.userform.get('inbinfquienresolver').invalid;
+  }
+  get inbclaridadfuncionesMarca(){
+    return this.userform.get('inbclaridadfunciones').invalid
+  }
   get inbclaridadfunciones() {
     return this.userform.get('inbclaridadfunciones').invalid && this.userform.get('inbclaridadfunciones').touched
+  }
+  get inbdecisionesatomarMarca(){
+    return this.userform.get('inbdecisionesatomar').invalid
   }
   get inbdecisionesatomar() {
     return this.userform.get('inbdecisionesatomar').invalid && this.userform.get('inbdecisionesatomar').touched
   }
+  get inbresultadoslograrMarca(){
+    return this.userform.get('inbresultadoslograr').invalid
+  }
   get inbresultadoslograr() {
     return this.userform.get('inbresultadoslograr').invalid && this.userform.get('inbresultadoslograr').touched
+  }
+  get inbexplicanobjetivosMarca(){
+    return this.userform.get('inbexplicanobjetivos').invalid
   }
   get inbexplicanobjetivos() {
     return this.userform.get('inbexplicanobjetivos').invalid && this.userform.get('inbexplicanobjetivos').touched
   }
+  get inbinfquienresolverMarca(){
+    return this.userform.get('inbinfquienresolver').invalid
+  }
   get inbinfquienresolver() {
     return this.userform.get('inbinfquienresolver').invalid && this.userform.get('inbinfquienresolver').touched
+  }
+
+  /* --------------------------------------------SECCIÓN 8 --------------------------------- */
+  get seccion8(){
+    return this.userform.get('inbasiscapacitacion').invalid || this.userform.get('inbrecibocapacitaci').invalid || this.userform.get('inbrecibocapaciayuda').invalid;
+  }
+  get inbasiscapacitacionMarca(){
+    return this.userform.get('inbasiscapacitacion').invalid
   }
   get inbasiscapacitacion() {
     return this.userform.get('inbasiscapacitacion').invalid && this.userform.get('inbasiscapacitacion').touched
   }
+  get inbrecibocapacitaciMarca(){
+    return this.userform.get('inbrecibocapacitaci').invalid
+  }
   get inbrecibocapacitaci() {
     return this.userform.get('inbrecibocapacitaci').invalid && this.userform.get('inbrecibocapacitaci').touched
+  }
+  get inbrecibocapaciayudaMarca(){
+    return this.userform.get('inbrecibocapaciayuda').invalid
   }
   get inbrecibocapaciayuda() {
     return this.userform.get('inbrecibocapaciayuda').invalid && this.userform.get('inbrecibocapaciayuda').touched
   }
+
+  /* --------------------------------------------SECCIÓN 9 --------------------------------- */
+  get seccion9(){
+    return this.userform.get('inbjefeayudaorganiz').invalid || this.userform.get('inbjefemispuntosvist').invalid || this.userform.get('inbjefeanima').invalid
+        || this.userform.get('inbjefedistribuye').invalid || this.userform.get('inbjefecomunica').invalid || this.userform.get('inbjefeorienracion').invalid
+        || this.userform.get('inbjefeayudaprogres').invalid || this.userform.get('inbjefeayudasentime').invalid || this.userform.get('inbjefesolucionar').invalid
+        || this.userform.get('inbjeferespeto').invalid || this.userform.get('inbjefeconfio').invalid || this.userform.get('inbjefeescucha').invalid
+        || this.userform.get('inbjefeapoyo').invalid;
+  }
+  get inbjefeayudaorganizMarca(){
+    return this.userform.get('inbjefeayudaorganiz').invalid
+  }
   get inbjefeayudaorganiz() {
     return this.userform.get('inbjefeayudaorganiz').invalid && this.userform.get('inbjefeayudaorganiz').touched
+  }
+  get inbjefemispuntosvistMarca(){
+    return this.userform.get('inbjefemispuntosvist').invalid
   }
   get inbjefemispuntosvist() {
     return this.userform.get('inbjefemispuntosvist').invalid && this.userform.get('inbjefemispuntosvist').touched
   }
+  get inbjefeanimaMarca(){
+    return this.userform.get('inbjefeanima').invalid
+  }
   get inbjefeanima() {
     return this.userform.get('inbjefeanima').invalid && this.userform.get('inbjefeanima').touched
+  }
+  get inbjefedistribuyeMarca(){
+    return this.userform.get('inbjefedistribuye').invalid
   }
   get inbjefedistribuye() {
     return this.userform.get('inbjefedistribuye').invalid && this.userform.get('inbjefedistribuye').touched
   }
+  get inbjefecomunicaMarca(){
+    return this.userform.get('inbjefecomunica').invalid
+  }
   get inbjefecomunica() {
     return this.userform.get('inbjefecomunica').invalid && this.userform.get('inbjefecomunica').touched
+  }
+  get inbjefeorienracionMarca(){
+    return this.userform.get('inbjefeorienracion').invalid
   }
   get inbjefeorienracion() {
     return this.userform.get('inbjefeorienracion').invalid && this.userform.get('inbjefeorienracion').touched
   }
+  get inbjefeayudaprogresMarca(){
+    return this.userform.get('inbjefeayudaprogres').invalid
+  }
   get inbjefeayudaprogres() {
     return this.userform.get('inbjefeayudaprogres').invalid && this.userform.get('inbjefeayudaprogres').touched
+  }
+  get inbjefeayudasentimeMarca(){
+    return this.userform.get('inbjefeayudasentime').invalid
   }
   get inbjefeayudasentime() {
     return this.userform.get('inbjefeayudasentime').invalid && this.userform.get('inbjefeayudasentime').touched
   }
+  get inbjefesolucionarMarca(){
+    return this.userform.get('inbjefesolucionar').invalid
+  }
   get inbjefesolucionar() {
     return this.userform.get('inbjefesolucionar').invalid && this.userform.get('inbjefesolucionar').touched
+  }
+  get inbjeferespetoMarca(){
+    return this.userform.get('inbjeferespeto').invalid
   }
   get inbjeferespeto() {
     return this.userform.get('inbjeferespeto').invalid && this.userform.get('inbjeferespeto').touched
   }
+  get inbjefeconfioMarca(){
+    return this.userform.get('inbjefeconfio').invalid
+  }
   get inbjefeconfio() {
     return this.userform.get('inbjefeconfio').invalid && this.userform.get('inbjefeconfio').touched
+  }
+  get inbjefeescuchaMarca(){
+    return this.userform.get('inbjefeescucha').invalid
   }
   get inbjefeescucha() {
     return this.userform.get('inbjefeescucha').invalid && this.userform.get('inbjefeescucha').touched
   }
+  get inbjefeapoyoMarca(){
+    return this.userform.get('inbjefeapoyo').invalid
+  }
   get inbjefeapoyo() {
     return this.userform.get('inbjefeapoyo').invalid && this.userform.get('inbjefeapoyo').touched
   }
+
+  /* --------------------------------------------SECCIÓN 10 --------------------------------- */
   get inbagradaambiente() {
     return this.userform.get('inbagradaambiente').invalid && this.userform.get('inbagradaambiente').touched
   }
@@ -560,17 +803,12 @@ export class FormatoBLComponent implements OnInit {
     if(this.userform.valid){  
       this.validSave = true;
       if(this.localPrueba !== null){
- 
         this.idd = this.localPrueba.inbid;
         this.formatoBService.updateFormatoB(this.userform.value,this.idd).subscribe((data: any) =>{
-          this.formatoBService.buscarByFb(this.localPrueba.inbidempleado).subscribe((data:any)=>{
-            sessionStorage.setItem('ForB',JSON.stringify(data));
-          })
-
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
           this.userform.reset();
           setTimeout(() => {
-            this.router.navigate(["/ExtralaboralL"]);
+            this.router.navigate(["/ExtralaboralL/"+this.idem]);
           }, 1000); 
         })
       }

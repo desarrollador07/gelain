@@ -156,7 +156,6 @@ export class EmpleadosComponent implements OnInit {
       sessionStorage.removeItem('IdEmpleado');
       sessionStorage.removeItem('ForA');
       sessionStorage.removeItem('ForAA');
-      sessionStorage.removeItem('ForB');
       sessionStorage.removeItem('Extra');
       sessionStorage.removeItem('estres');
       sessionStorage.removeItem('estresEs');

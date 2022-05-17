@@ -89,12 +89,6 @@ export class ValorfisicoComponent implements OnInit {
     sessionStorage.removeItem('valorFisico');
     sessionStorage.removeItem('prueba');
     sessionStorage.removeItem('IdEmpleado');
-    sessionStorage.removeItem('ForA');
-    sessionStorage.removeItem('ForAA');
-    sessionStorage.removeItem('ForB');
-    sessionStorage.removeItem('Extra');
-    sessionStorage.removeItem('estres');
-    sessionStorage.removeItem('estresEs');
   }
   /*Consulta los registros de la valoración física */
   async indexData(id:number){

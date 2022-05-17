@@ -377,18 +377,19 @@ export class FormEmpleadosLComponent implements OnInit {
         this.userform.value.emdfecnacido = date;
         if (this.localPrueba !== null) {
           this.empleadosService.updatePrueba(this.userform.value,this.idLocal).subscribe((data:Empleado) => {
-            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
-            if (Number(data.emdtipodecargo)==1 || Number(data.emdtipodecargo)==2) {
-              this.router.navigate(["/FormularioAL/"+this.idem]);
-            }else{
-              this.router.navigate(["/FormularioBL/"+this.idem]);
-            }
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
+            setTimeout(() => {
+              if (Number(data.emdtipodecargo) == 1 || Number(data.emdtipodecargo) == 2) {
+                this.router.navigate(["/FormularioAL/"+this.idem]);
+              }else{
+                this.router.navigate(["/FormularioBL/"+this.idem]);
+              }
+            },500)
           })
         }else{
           
           this.empleadosService.createPrueba(this.userform.value).subscribe(async data =>{
-  
             sessionStorage.setItem('IdEmpleado',JSON.stringify(data.emdid));
             sessionStorage.setItem('empRegExt',JSON.stringify(data));
             this.userformExtra.value.extidempleado = data.emdid;

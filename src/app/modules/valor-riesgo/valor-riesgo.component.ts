@@ -145,12 +145,6 @@ export class ValorRiesgoComponent implements OnInit {
     sessionStorage.removeItem('valorRiesgo');
     sessionStorage.removeItem('prueba');
     sessionStorage.removeItem('IdEmpleado');
-    sessionStorage.removeItem('ForA');
-    sessionStorage.removeItem('ForAA');
-    sessionStorage.removeItem('ForB');
-    sessionStorage.removeItem('Extra');
-    sessionStorage.removeItem('estres');
-    sessionStorage.removeItem('estresEs');
   }
   /*Consulta los registros de la valoración Riesgos */
   async indexData(id:number){
