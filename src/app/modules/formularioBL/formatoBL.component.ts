@@ -137,7 +137,7 @@ export class FormatoBLComponent implements OnInit {
       inbsientoorgullo :['', Validators.required],
       inbhablobienempres :['', Validators.required],
 
-      inbatencionausuarios :[''],
+      inbatencionausuarios :['', Validators.required],
       inbusuenojados :[''],
       inbusupreocupados :[''],
       inbusutristes :[''],
@@ -713,88 +713,199 @@ export class FormatoBLComponent implements OnInit {
   }
 
   /* --------------------------------------------SECCIÓN 10 --------------------------------- */
+  get seccion10(){
+    return this.userform.get('inbagradaambiente').invalid || this.userform.get('inbgruporespeto').invalid || this.userform.get('inbconfiocompaneros').invalid
+        || this.userform.get('inbagustocompaneros').invalid || this.userform.get('inbgrupomaltrata').invalid || this.userform.get('inbsolucionacompa').invalid
+        || this.userform.get('inbgrupounido').invalid || this.userform.get('inbtrabajogrupo').invalid || this.userform.get('inbgrupodeacuerdo').invalid
+        || this.userform.get('inbgrupoayuda').invalid || this.userform.get('inbapoyounootros').invalid || this.userform.get('inbescuchanproble').invalid;
+  }
+  get inbagradaambienteMarca(){
+    return this.userform.get('inbagradaambiente').invalid
+  }
   get inbagradaambiente() {
     return this.userform.get('inbagradaambiente').invalid && this.userform.get('inbagradaambiente').touched
+  }
+  get inbgruporespetoMarca(){
+    return this.userform.get('inbgruporespeto').invalid
   }
   get inbgruporespeto() {
     return this.userform.get('inbgruporespeto').invalid && this.userform.get('inbgruporespeto').touched
   }
+  get inbconfiocompanerosMarca(){
+    return this.userform.get('inbconfiocompaneros').invalid
+  }
   get inbconfiocompaneros() {
     return this.userform.get('inbconfiocompaneros').invalid && this.userform.get('inbconfiocompaneros').touched
+  }
+  get inbagustocompanerosMarca(){
+    return this.userform.get('inbagustocompaneros').invalid
   }
   get inbagustocompaneros() {
     return this.userform.get('inbagustocompaneros').invalid && this.userform.get('inbagustocompaneros').touched
   }
+  get inbgrupomaltrataMarca(){
+    return this.userform.get('inbgrupomaltrata').invalid
+  }
   get inbgrupomaltrata() {
     return this.userform.get('inbgrupomaltrata').invalid && this.userform.get('inbgrupomaltrata').touched
+  }
+  get inbsolucionacompaMarca(){
+    return this.userform.get('inbsolucionacompa').invalid
   }
   get inbsolucionacompa() {
     return this.userform.get('inbsolucionacompa').invalid && this.userform.get('inbsolucionacompa').touched
   }
+  get inbgrupounidoMarca(){
+    return this.userform.get('inbgrupounido').invalid
+  }
   get inbgrupounido() {
     return this.userform.get('inbgrupounido').invalid && this.userform.get('inbgrupounido').touched
+  }
+  get inbtrabajogrupoMarca(){
+    return this.userform.get('inbtrabajogrupo').invalid
   }
   get inbtrabajogrupo() {
     return this.userform.get('inbtrabajogrupo').invalid && this.userform.get('inbtrabajogrupo').touched
   }
+  get inbgrupodeacuerdoMarca(){
+    return this.userform.get('inbgrupodeacuerdo').invalid
+  }
   get inbgrupodeacuerdo() {
     return this.userform.get('inbgrupodeacuerdo').invalid && this.userform.get('inbgrupodeacuerdo').touched
+  }
+  get inbgrupoayudaMarca(){
+    return this.userform.get('inbgrupoayuda').invalid
   }
   get inbgrupoayuda() {
     return this.userform.get('inbgrupoayuda').invalid && this.userform.get('inbgrupoayuda').touched
   }
+  get inbapoyounootrosMarca(){
+    return this.userform.get('inbapoyounootros').invalid
+  }
   get inbapoyounootros() {
     return this.userform.get('inbapoyounootros').invalid && this.userform.get('inbapoyounootros').touched
+  }
+  get inbescuchanprobleMarca(){
+    return this.userform.get('inbescuchanproble').invalid
   }
   get inbescuchanproble() {
     return this.userform.get('inbescuchanproble').invalid && this.userform.get('inbescuchanproble').touched
   }
+
+  /* --------------------------------------------SECCIÓN 11 --------------------------------- */
+  get seccion11(){
+    return this.userform.get('inbinfhagobien').invalid || this.userform.get('inbinfmejorar').invalid || this.userform.get('inbinfrendimiento').invalid
+        || this.userform.get('inbevaluantrabajo').invalid || this.userform.get('inbinfatiempomejora').invalid;
+  }
+  get inbinfhagobienMarca(){
+    return this.userform.get('inbinfhagobien').invalid
+  }
   get inbinfhagobien() {
     return this.userform.get('inbinfhagobien').invalid && this.userform.get('inbinfhagobien').touched
+  }
+  get inbinfmejorarMarca(){
+    return this.userform.get('inbinfmejorar').invalid
   }
   get inbinfmejorar() {
     return this.userform.get('inbinfmejorar').invalid && this.userform.get('inbinfmejorar').touched
   }
+  get inbinfrendimientoMarca(){
+    return this.userform.get('inbinfrendimiento').invalid
+  }
   get inbinfrendimiento() {
     return this.userform.get('inbinfrendimiento').invalid && this.userform.get('inbinfrendimiento').touched
+  }
+  get inbevaluantrabajoMarca(){
+    return this.userform.get('inbevaluantrabajo').invalid
   }
   get inbevaluantrabajo() {
     return this.userform.get('inbevaluantrabajo').invalid && this.userform.get('inbevaluantrabajo').touched
   }
+  get inbinfatiempomejoraMarca(){
+    return this.userform.get('inbinfatiempomejora').invalid
+  }
   get inbinfatiempomejora() {
     return this.userform.get('inbinfatiempomejora').invalid && this.userform.get('inbinfatiempomejora').touched
+  }
+
+  /* --------------------------------------------SECCIÓN 12 --------------------------------- */
+  get seccion12(){
+    return this.userform.get('inbemppaganatiempo').invalid || this.userform.get('inbpagoofrecido').invalid || this.userform.get('inbpagomerezco').invalid
+        || this.userform.get('inbposibprogresar').invalid || this.userform.get('inbhacerbienprog').invalid || this.userform.get('inbempbienestartrab').invalid
+        || this.userform.get('inbtrabajoestable').invalid || this.userform.get('inbtrabsentirbien').invalid || this.userform.get('inbsientoorgullo').invalid
+        || this.userform.get('inbhablobienempres').invalid;
+  }
+  get inbemppaganatiempoMarca(){
+    return this.userform.get('inbemppaganatiempo').invalid
   }
   get inbemppaganatiempo() {
     return this.userform.get('inbemppaganatiempo').invalid && this.userform.get('inbemppaganatiempo').touched
   }
+  get inbpagoofrecidoMarca(){
+    return this.userform.get('inbpagoofrecido').invalid
+  }
   get inbpagoofrecido() {
     return this.userform.get('inbpagoofrecido').invalid && this.userform.get('inbpagoofrecido').touched
+  }
+  get inbpagomerezcoMarca(){
+    return this.userform.get('inbpagomerezco').invalid
   }
   get inbpagomerezco() {
     return this.userform.get('inbpagomerezco').invalid && this.userform.get('inbpagomerezco').touched
   }
+  get inbposibprogresarMarca(){
+    return this.userform.get('inbposibprogresar').invalid
+  }
   get inbposibprogresar() {
     return this.userform.get('inbposibprogresar').invalid && this.userform.get('inbposibprogresar').touched
+  }
+  get inbhacerbienprogMarca(){
+    return this.userform.get('inbhacerbienprog').invalid
   }
   get inbhacerbienprog() {
     return this.userform.get('inbhacerbienprog').invalid && this.userform.get('inbhacerbienprog').touched
   }
+  get inbempbienestartrabMarca(){
+    return this.userform.get('inbempbienestartrab').invalid
+  }
   get inbempbienestartrab() {
     return this.userform.get('inbempbienestartrab').invalid && this.userform.get('inbempbienestartrab').touched
+  }
+  get inbtrabajoestableMarca(){
+    return this.userform.get('inbtrabajoestable').invalid
   }
   get inbtrabajoestable() {
     return this.userform.get('inbtrabajoestable').invalid && this.userform.get('inbtrabajoestable').touched
   }
+  get inbtrabsentirbienMarca(){
+    return this.userform.get('inbtrabsentirbien').invalid
+  }
   get inbtrabsentirbien() {
     return this.userform.get('inbtrabsentirbien').invalid && this.userform.get('inbtrabsentirbien').touched
   }
+  get inbsientoorgulloMarca(){
+    return this.userform.get('inbsientoorgullo').invalid
+  }
   get inbsientoorgullo() {
     return this.userform.get('inbsientoorgullo').invalid && this.userform.get('inbsientoorgullo').touched
+  }
+  get inbhablobienempresMarca(){
+    return this.userform.get('inbhablobienempres').invalid
   }
   get inbhablobienempres() {
     return this.userform.get('inbhablobienempres').invalid && this.userform.get('inbhablobienempres').touched
   }
 
+  /* --------------------------------------------SECCIÓN 13 --------------------------------- */
+  get seccion13(){
+    return this.userform.get('inbatencionausuarios').invalid;
+  }
+  get inbatencionausuariosMarca(){
+    return this.userform.get('inbatencionausuarios').invalid
+  }
+  get inbatencionausuarios() {
+    return this.userform.get('inbatencionausuarios').invalid && this.userform.get('inbatencionausuarios').touched
+  }
 
 
 

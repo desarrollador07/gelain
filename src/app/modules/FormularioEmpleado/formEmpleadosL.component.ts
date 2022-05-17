@@ -97,6 +97,8 @@ export class FormEmpleadosLComponent implements OnInit {
     this.formEstres();
 
     if (this.idLocal !== null) {
+      
+      
       await  this.empleadosService.buscarByEmpleado(this.idLocal).toPromise().then((data:any)=>{
         this.localPrueba = data[0]; 
       });
@@ -375,7 +377,7 @@ export class FormEmpleadosLComponent implements OnInit {
       this.validSave = true;
         let date = this.datepipe.transform(this.userform.value.emdfecnacido,'yyyy-MM-dd');
         this.userform.value.emdfecnacido = date;
-        if (this.localPrueba !== null) {
+        if (this.idLocal !== null) {
           this.empleadosService.updatePrueba(this.userform.value,this.idLocal).subscribe((data:Empleado) => {
             this.userform.reset();
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})

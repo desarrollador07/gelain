@@ -35,14 +35,12 @@ export class EstresComponent implements OnInit {
   validSave:boolean = false;
 
   constructor(private pruebaservices: PruebaService,
-              private empleadosService: EmpleadosService,
               private formatoEstresService: FormatoEstresService,
               private fb: FormBuilder,
               private router: Router,
-              private route: ActivatedRoute,
               private _messageService: MessageService) {  
                 this.datosEmpleado = sessionStorage.getItem("IdEmpleado");
-                this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
+                this.idl = JSON.parse(sessionStorage.getItem('IdEmpleado'));
   }
 
   async ngOnInit() {
@@ -199,9 +197,6 @@ export class EstresComponent implements OnInit {
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.estid;
           this.formatoEstresService.updateEstres(this.userform.value,this.idd).subscribe((data: any) =>{
-            this.empleadosService.updateEstado(this.idl).subscribe((data=>{
-
-            }));
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['/main/empleado']);
@@ -261,21 +256,22 @@ export class EstresComponent implements OnInit {
 
   select(){
     this.a1 = [];
-    this.a1.push({ label: 'Seleccione...', value: '' });
-    this.a1.push({ label: 'Siempre', value: '9' });
-    this.a1.push({ label: 'Casi Siempre', value: '6' });
-    this.a1.push({ label: 'A Veces', value: '3' });
-    this.a1.push({ label: 'Nunca', value: '0' });
+    this.a1.push({ label: 'Seleccione una opción', value: '' });
+    this.a1.push({ label: 'Siempre', value: '1' });
+    this.a1.push({ label: 'Casi Siempre', value: '2' });
+    this.a1.push({ label: 'Algunas Veces', value: '3' });
+    this.a1.push({ label: 'Casi nunca', value: '4' });
+    this.a1.push({ label: 'Nunca', value: '5' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: '' });
+    this.a11.push({ label: 'Seleccione una opción', value: '' });
     this.a11.push({ label: 'Siempre', value: '6' });
     this.a11.push({ label: 'Casi Siempre', value: '4' });
     this.a11.push({ label: 'A Veces', value: '2' });
     this.a11.push({ label: 'Nunca', value: '0' });
 
     this.a12 = [];
-    this.a12.push({ label: 'Seleccione...', value: '' });
+    this.a12.push({ label: 'Seleccione una opción', value: '' });
     this.a12.push({ label: 'Siempre', value: '3' });
     this.a12.push({ label: 'Casi Siempre', value: '2' });
     this.a12.push({ label: 'A Veces', value: '1' });
