@@ -59,14 +59,8 @@ export class FormPruebaComponent implements OnInit {
     sessionStorage.removeItem('IdEmpleado');
     let today = new Date();
     this.localIDEmp =JSON.parse(sessionStorage.getItem('Idempres'));
-    // this.linkformulario = "http://localhost:4200/#/terminos-condiciones/"+this.localIDEmp;
-    // this.linkformulario = "https://gelainbienestarlaboral.com/GELAIN/ng/#/terminos-condiciones/"+this.localIDEmp;
     this.linkformulario = `${this.base_Url}terminos-condiciones/${this.localIDEmp}`;
     this.linkformulario2 = `${this.base_Url}consentimiento-vf/${this.localIDEmp}`;
-    //this.linkformulario="https://gelainbienestarlaboral.com/GELAIN/ng2/#/terminos-condiciones/"+this.localIDEmp;
-    // this.linkformulario2 = "http://localhost:4200/#/consentimiento-vf/"+this.localIDEmp;
-    // this.linkformulario2 = "https://gelainbienestarlaboral.com/GELAIN/ng/#/consentimiento-vf/"+this.localIDEmp;
-    //this.linkformulario2="https://gelainbienestarlaboral.com/GELAIN/ng2/#/consentimiento-vf/"+this.localIDEmp;
     
     if(this.localIDEmp !== null){
       this.indexData();
