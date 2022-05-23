@@ -13,122 +13,92 @@
             <app-video-info [validVideo]="2"></app-video-info>
             <fieldset>
                 <legend><b>Ficha De Valoración De La Condición Física</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion1" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
+                <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula"  onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Cedula</label>     
-                        </span>
+                        Cédula <label style="color: red;" *ngIf="vafcedulaMarca" ><strong>*</strong></label> :
+                        <input   [class.is-invalid]="vafcedula"  formControlName="vafcedula"  onkeypress="return ((event.charCode >= 48 && event.charCode <= 57) || (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122))" type="number" pInputText>    
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafcedula"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input   [class.is-invalid]="vafidnombre"  formControlName="vafidnombre" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Nombre y Apellidos </label>
-                        </span>
+                        Nombre y Apellidos <label style="color: red;" *ngIf="vafidnombreMarca" ><strong>*</strong></label> :
+                        <input   [class.is-invalid]="vafidnombre"  formControlName="vafidnombre" type="text" pInputText> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidnombre"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" (ngModelChange)="changeSexo()" formControlName="vafsexo"></p-dropdown>
-                        </span>
+                        Sexo <label style="color: red;" *ngIf="vafsexoMarca" ><strong>*</strong></label> :
+                        <p-dropdown  [class.is-invalid]="vafSexoValid" [options]="sexo" (ngModelChange)="changeSexo()" placeholder="Seleccione una opción" formControlName="vafsexo"></p-dropdown>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafSexoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafEdadValid"  formControlName="vafedad" type="number" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Edad </label>
-                        </span>
+                        Edad <label style="color: red;" *ngIf="vafedadMarca" ><strong>*</strong></label> :
+                        <input  [class.is-invalid]="vafEdadValid"  formControlName="vafedad" type="number" pInputText> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafEdadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <p-calendar [showIcon]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="vaffecha" [locale]="es" dateFormat="yy-mm-dd"></p-calendar>
-                            <label style="font-size: 15px;">Fecha Nacimiento (YYYY-MM-DD)</label>
-                        </span>
+                        Fecha Nacimiento (YYYY-MM-DD) <label style="color: red;" *ngIf="vaffechaMarca" ><strong>*</strong></label> :
+                        <p-calendar [showIcon]="true" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" formControlName="vaffecha" [locale]="es" dateFormat="yy-mm-dd"></p-calendar>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafFechaValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input [class.is-invalid]="vafGrupoSanguineoValid" formControlName="vafgruposanguineo" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Grupo Sanguineo</label>
-                        </span>
+                        Grupo Sanguíneo <label style="color: red;" *ngIf="vafgruposanguineoMarca" ><strong>*</strong></label> :
+                        <input [class.is-invalid]="vafGrupoSanguineoValid" formControlName="vafgruposanguineo" type="text" pInputText style="text-transform: uppercase;"> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafGrupoSanguineoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafCiudadValid"  formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Ciudad</label>
-                        </span>
+                        Ciudad <label style="color: red;" *ngIf="vafciudadMarca" ><strong>*</strong></label> :
+                        <input  [class.is-invalid]="vafCiudadValid"  formControlName="vafciudad" type="text" pInputText style="text-transform: uppercase;"> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCiudadValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafCorreoValid"  formControlName="vafcorreo" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Correo</label>
-                        </span>
+                        Correo <label style="color: red;" *ngIf="vafcorreoMarca" ><strong>*</strong></label> :
+                        <input  [class.is-invalid]="vafCorreoValid"  formControlName="vafcorreo" type="text" placeholder="ejemplo@gmail.com" pInputText > 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCorreoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafTelefonoValid"  formControlName="vaftelefono" type="text" pInputText> 
-                            <label for="float-input" style="font-size: 15px; ">Telefono</label>
-                        </span>
+                        Teléfono <label style="color: red;" *ngIf="vaftelefonoMarca" ><strong>*</strong></label> :
+                        <input  [class.is-invalid]="vafTelefonoValid"  formControlName="vaftelefono" type="text" pInputText> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafTelefonoValid"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
-                    <!-- <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="vafidempresa"  [options]="empresa" (ngModelChange)="buscarArea()" formControlName="vafidempresa" [showClear]="true" placeholder="Empresas"></p-dropdown>  
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidempresa"></p-message>
-                    </div> -->
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas"></p-dropdown>
-                        </span>
+                        Área <label style="color: red;" *ngIf="vafidareaMarca" ><strong>*</strong></label> :
+                        <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" placeholder="Seleccione una opción" [showClear]="true" ></p-dropdown>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input [class.is-invalid]="vafCargoValid" formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Nombre del Cargo</label>
-                        </span>
+                        Nombre del Cargo <label style="color: red;" *ngIf="vafcargoMarca" ><strong>*</strong></label> :
+                        <input [class.is-invalid]="vafCargoValid" formControlName="vafcargo" type="text" pInputText style="text-transform: uppercase;"> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafCargoValid"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <input  [class.is-invalid]="vafsede"  formControlName="vafsede" type="text" pInputText style="text-transform: uppercase;"> 
-                            <label for="float-input" style="font-size: 15px; ">Sede</label>
-                        </span>
+                        Sede <label style="color: red;" *ngIf="vafsedeMarca" ><strong>*</strong></label> :
+                        <input  [class.is-invalid]="vafsede"  formControlName="vafsede" type="text" pInputText style="text-transform: uppercase;"> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="vafsede"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                 </div>
-                <div class="ui-g" style="margin-bottom: 10px;">
-                    <!-- <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="vafidarea" [options]="area" formControlName="vafidarea" [showClear]="true" placeholder="Areas"></p-dropdown>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="vafidarea"></p-message>
-                    </div> -->
-                    <div class="ui-g-1"></div>
-                </div>
+
             </fieldset>
             <br>
             <fieldset *ngIf="ocultarSecciones">
@@ -307,10 +277,16 @@
 
             <fieldset>
                 <legend><b>CONDICIONES DE SALUD</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion2" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
+                <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">1) ¿Tiene presión arterial alta o hipertensión?</label></b>
+                        <b><label  style="font-size: 15px;">1) ¿Tiene presión arterial alta o hipertensión? <label style="color: red;" *ngIf="vafcs01Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -322,7 +298,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">2) ¿Le han diagnosticado azúcar en la sangre o diabetes?</label></b>
+                        <b><label   style="font-size: 15px;">2) ¿Le han diagnosticado azúcar en la sangre o diabetes? <label style="color: red;" *ngIf="vafcs02Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -334,7 +310,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">3) ¿Tiene alto el colesterol, los triglicéridos o ambos?</label></b>
+                        <b><label   style="font-size: 15px;">3) ¿Tiene alto el colesterol, los triglicéridos o ambos? <label style="color: red;" *ngIf="vafcs03Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -346,7 +322,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">4) ¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)?</label></b>
+                        <b><label   style="font-size: 15px;">4) ¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)? <label style="color: red;" *ngIf="vafcs04Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -358,7 +334,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">5) ¿Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis?</label></b>
+                        <b><label  style="font-size: 15px;">5) ¿Sufre o ha sufrido de insuficiencia renal crónica o le han realizado diálisis? <label style="color: red;" *ngIf="vafcs05Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -370,7 +346,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">6) ¿Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas?</label></b>
+                        <b><label   style="font-size: 15px;">6) ¿Sufre o ha sufrido de enfermedades del corazón como infarto, ataque cardíaco, soplos o enfermedades de las válvulas? <label style="color: red;" *ngIf="vafcs06Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -382,7 +358,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">7) ¿Sufre o ha sufrido de trastornos depresivos?</label></b>
+                        <b><label  style="font-size: 15px;">7) ¿Sufre o ha sufrido de trastornos depresivos? <label style="color: red;" *ngIf="vafcs07Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -394,7 +370,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">8) ¿Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames?</label></b>
+                        <b><label   style="font-size: 15px;">8) ¿Sufre o ha sufrido de enfermedades del sistema nervioso como esclerosis múltiple, parálisis, trombosis o derrames? <label style="color: red;" *ngIf="vafcs08Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -406,7 +382,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">9) ¿Ha tenido epilepsia o ataques de convulsiones?</label></b>
+                        <b><label   style="font-size: 15px;">9) ¿Ha tenido epilepsia o ataques de convulsiones? <label style="color: red;" *ngIf="vafcs09Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -418,7 +394,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">10) ¿Ha tenido fracturas, luxaciones, hernias  o esguinces?</label></b>
+                        <b><label   style="font-size: 15px;">10) ¿Ha tenido fracturas, luxaciones, hernias  o esguinces? <label style="color: red;" *ngIf="vafcs10Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -430,7 +406,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo?</label></b>
+                        <b><label  style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo? <label style="color: red;" *ngIf="vafcs11Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -442,7 +418,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">12) ¿Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño?</label></b>
+                        <b><label   style="font-size: 15px;">12) ¿Ha presentado o presenta actualmente episodios de insomnio y/o consume medicamentos para conciliar el sueño? <label style="color: red;" *ngIf="vafcs12Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -454,7 +430,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">13) ¿Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)?</label></b>
+                        <b><label   style="font-size: 15px;">13) ¿Ha presentado o presenta actualmente problemas digestivos (estreñimiento, gastritis, reflujo y problemas de colon)? <label style="color: red;" *ngIf="vafcs13Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -466,7 +442,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirurgicamente?</label></b>
+                        <b><label   style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirurgicamente? <label style="color: red;" *ngIf="vafcs14Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -478,7 +454,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs14 === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label   style="font-size: 15px;">14 a) Especifique el motivo de la cirugía :</label></b>
+                        <b><label   style="font-size: 15px;">14 a) Especifique el motivo de la cirugía <label style="color: red;" *ngIf="vafcs15Marca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-10 ui-lg-5">
                         <span class="ui-float-label">
@@ -490,7 +466,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">15) ¿Le han diagnosticado cancer?</label></b>
+                        <b><label  style="font-size: 15px;">15) ¿Le han diagnosticado cancer? <label style="color: red;" *ngIf="vafcs16Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -502,7 +478,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">16) ¿Tiene problemas de coagulación de la sangre?</label></b>
+                        <b><label   style="font-size: 15px;">16) ¿Tiene problemas de coagulación de la sangre? <label style="color: red;" *ngIf="vafcs17Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -514,7 +490,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">17) ¿Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa?</label></b>
+                        <b><label   style="font-size: 15px;">17) ¿Ha tenido problemas de conjuntivitis, picazón, resequedad, lagrimeo, visión borrosa? <label style="color: red;" *ngIf="vafcs18Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -526,7 +502,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">18) ¿Usa corrección visual?</label></b>
+                        <b><label   style="font-size: 15px;">18) ¿Usa corrección visual? <label style="color: red;" *ngIf="vafcs19Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -538,7 +514,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">19) ¿Consume algún medicamento bajo formula medica?</label></b>
+                        <b><label  style="font-size: 15px;">19) ¿Consume algún medicamento bajo formula medica? <label style="color: red;" *ngIf="vafcs20Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -550,7 +526,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafcs20 === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5">
-                        <b><label   style="font-size: 15px;">19 a) Mencione el medicamento y el motivo para el cual fue recetado.</label></b>
+                        <b><label   style="font-size: 15px;">19 a) Mencione el medicamento y el motivo para el cual fue recetado. <label style="color: red;" *ngIf="vafcs21Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
                         <span class="ui-float-label">
@@ -563,6 +539,12 @@
             <br>
             <fieldset>
                 <legend><b>ANTECEDENTES FAMILIARES</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion3" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
+                <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="font-weight: bold;text-align: center; font-size: large;">ENFERMEDAD</div>
@@ -571,7 +553,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label >CANCER</label></b>
+                        <b><label >CANCER <label style="color: red;" *ngIf="vafcancer_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafcancer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcancer_var}}</p>
@@ -588,7 +570,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label >HIPERTENSION ARTERIAL</label></b>
+                        <b><label >HIPERTENSION ARTERIAL <label style="color: red;" *ngIf="vafhiper_arte_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafhiper_arte_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafhiper_arte_var}}</p>
@@ -605,7 +587,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >ASMA</label></b>
+                        <b><label  >ASMA <label style="color: red;" *ngIf="vafasma_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafasma_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafasma_var}}</p>
@@ -622,7 +604,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >CARDIOPATIAS</label></b>
+                        <b><label  >CARDIOPATIAS <label style="color: red;" *ngIf="vafcardio_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafcardio_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcardio_var}}</p>
@@ -639,7 +621,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >DIABETES</label></b>
+                        <b><label  >DIABETES <label style="color: red;" *ngIf="vafdiabet_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafdiabet_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafdiabet_var}}</p>
@@ -656,7 +638,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >ALERGIAS</label></b>
+                        <b><label  >ALERGIAS <label style="color: red;" *ngIf="vafalergia_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafalergia_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafalergia_var}}</p>
@@ -673,7 +655,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >ARTRITIS</label></b>
+                        <b><label  >ARTRITIS <label style="color: red;" *ngIf="vafartritis_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafartritis_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafartritis_var}}</p>
@@ -690,7 +672,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >ENFERMEDADES MENTALES</label></b>
+                        <b><label  >ENFERMEDADES MENTALES <label style="color: red;" *ngIf="vafem_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafem_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafem_var}}</p>
@@ -707,7 +689,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label >ENFERMEDADES RENALES</label></b>
+                        <b><label >ENFERMEDADES RENALES <label style="color: red;" *ngIf="vafer_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafer_var}}</p>
@@ -724,7 +706,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6" style="margin-top: 20px;">
-                        <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Padre, o Hermano antes de los 55 años de edad?</label></b>
+                        <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Padre, o Hermano antes de los 55 años de edad? <label style="color: red;" *ngIf="vafAF_p01Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -736,7 +718,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6" style="margin-top: 20px;">
-                        <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Madre, o Hermana antes de los 65 años de edad?</label></b>
+                        <b><label style="font-size: 15px;">¿Cuenta con un familiar que ha sufrido de un ataque al corazón, Madre, o Hermana antes de los 65 años de edad? <label style="color: red;" *ngIf="vafAF_p02Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2" style="margin-top: 18px;">
                         <span class="ui-float-label">
@@ -749,10 +731,16 @@
             <br>
             <fieldset *ngIf="validSexoFem">
                 <legend><b>SOLO PARA MUJERES MAYORES DE 40 AÑOS</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion4" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
+                <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez, una mamografía?</label></b>
+                        <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez, una mamografía? <label style="color: red;" *ngIf="vafmujer40_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -764,7 +752,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafmujer40_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">¿Se ha realizado el examen de mamografía en los últimos 12 meses?</label></b>
+                        <b><label  style="font-size: 15px;">¿Se ha realizado el examen de mamografía en los últimos 12 meses? <label style="color: red;" *ngIf="vafmujer40_varMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -776,10 +764,16 @@
             </fieldset>
             <fieldset *ngIf="validSexoMas">
                 <legend><b>SOLO PARA HOMBRES MAYORES DE 40 AÑOS</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion5" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
+                <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez,  el examen de prostata?</label></b>
+                        <b><label  style="font-size: 15px;">¿Si usted es mayor de 40 años, se ha realizado alguna vez,  el examen de prostata? <label style="color: red;" *ngIf="vafhombre40_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -791,7 +785,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafhombre40_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">¿Se ha realizado el examen de prostata en los últimos 12 meses?</label></b>
+                        <b><label  style="font-size: 15px;">¿Se ha realizado el examen de prostata en los últimos 12 meses? <label style="color: red;" *ngIf="vafhombre40_varMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -804,10 +798,16 @@
             <br>
             <fieldset>
                 <legend><b>DISCAPACIDAD</b></legend>
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion6" style="color: red;">
+                        <strong>*</strong> Campo Obligatorio 
+                    </div>
+                </div>
+                <br>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia?</label></b>
+                        <b><label   style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia? <label style="color: red;" *ngIf="vafdiscapacidad_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -819,7 +819,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;" *ngIf="userform.value.vafdiscapacidad_opc === 1">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        <b><label   style="font-size: 15px;">Especifique cuál :</label></b>
+                        <b><label   style="font-size: 15px;">Especifique cuál <label style="color: red;" *ngIf="vafdiscapacidad_varMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5">
                         <span class="ui-float-label">
