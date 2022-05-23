@@ -842,6 +842,12 @@
                 </div>
             </div>
             <br>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion7" style="color: red;">
+                    <strong>*</strong> Campo Obligatorio 
+                </div>
+            </div>
+            <br>
             <fieldset style="border: 2px solid #39b021;">
                 <legend style="background: #39b021;">
                     <h1>F <b style="font-size:small;">FAMILIA Y AMIGOS</b></h1>
@@ -849,7 +855,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Tengo con quién hablar de las cosas que son importantes para mi:</label></b>
+                        <b><label   style="font-size: 15px;">Tengo con quién hablar de las cosas que son importantes para mi <label style="color: red;" *ngIf="vaf_familiap01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -867,7 +873,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">Yo doy y recibo cariño:</label></b>
+                        <b><label  style="font-size: 15px;">Yo doy y recibo cariño <label style="color: red;" *ngIf="vaf_familiap02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -885,7 +891,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">Yo realizo actividad física (Caminar, subir escalas, trabajo en la casa, hacer el jardín):</label></b>
+                        <b><label  style="font-size: 15px;">Yo realizo actividad física (Caminar, subir escalas, trabajo en la casa, hacer el jardín)<label style="color: red;" *ngIf="vaf_actifisip01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -903,7 +909,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido):</label></b>
+                        <b><label  style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido)<label style="color: red;" *ngIf="vaf_actifisip02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -921,7 +927,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Mi alimentación es balanceada (*):</label></b>
+                        <b><label   style="font-size: 15px;">Mi alimentación es balanceada (*)<label style="color: red;" *ngIf="vaf_nutricionp01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -939,7 +945,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">A menudo consumo mucha azúcar o sal o comida chatarra o con mucha grasa:</label></b>
+                        <b><label   style="font-size: 15px;">A menudo consumo mucha azúcar o sal o comida chatarra o con mucha grasa <label style="color: red;" *ngIf="vaf_nutricionp02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -951,7 +957,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">Estoy pasado/ a de mi peso ideal  en </label></b>
+                        <b><label  style="font-size: 15px;">Estoy pasado/ a de mi peso ideal  en <label style="color: red;" *ngIf="vaf_nutricionp03_opcMarca" ><strong>*</strong></label> </label></b>
                         <input style="width: 10%;" maxlength="3" formControlName="vaf_nutricionp03_var" type="text" pInputText>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
@@ -970,7 +976,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label style="font-size: 15px;">Yo fumo cigarrillos:</label></b>
+                        <b><label style="font-size: 15px;">Yo fumo cigarrillos <label style="color: red;" *ngIf="vaf_tabacop01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -989,7 +995,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
                         <b><label  style="font-size: 15px;">Generalmente fumo 
-                            <input style="width: 10%;"  maxlength="3" formControlName="vaf_tabacop02_var" type="text" pInputText> cigarrillos por día:</label></b>
+                            <input style="width: 10%;"  maxlength="3" formControlName="vaf_tabacop02_var" type="text" pInputText> cigarrillos por día <label style="color: red;" *ngIf="vaf_tabacop02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1007,7 +1013,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Mi número promedio de tragos (**) por semana es de:</label></b>
+                        <b><label   style="font-size: 15px;">Mi número promedio de tragos (**) por semana es de <label style="color: red;" *ngIf="vaf_alcoholp01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1025,7 +1031,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Bebo más de cuatro tragos en una misma ocasión:</label></b>
+                        <b><label   style="font-size: 15px;">Bebo más de cuatro tragos en una misma ocasión <label style="color: red;" *ngIf="vaf_alcoholp02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1037,7 +1043,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Manejo el auto despúes de beber alcohol:</label></b>
+                        <b><label   style="font-size: 15px;">Manejo el auto despúes de beber alcohol <label style="color: red;" *ngIf="vaf_alcoholp03_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1055,7 +1061,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Duermo bien y me siento descansado/a:</label></b>
+                        <b><label   style="font-size: 15px;">Duermo bien y me siento descansado/a <label style="color: red;" *ngIf="vaf_suenop01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1073,7 +1079,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Yo me siento capaz de manejar el estrés o la tensión en mi vida:</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento capaz de manejar el estrés o la tensión en mi vida <label style="color: red;" *ngIf="vaf_suenop02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1085,7 +1091,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Yo me relajo y disfruto mi tiempo libre:</label></b>
+                        <b><label   style="font-size: 15px;">Yo me relajo y disfruto mi tiempo libre <label style="color: red;" *ngIf="vaf_suenop03_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1103,7 +1109,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Parece que ando acelerado/a:</label></b>
+                        <b><label   style="font-size: 15px;">Parece que ando acelerado/a <label style="color: red;" *ngIf="vaf_tipop01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1121,7 +1127,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Me siento enojado/a o agresivo/a:</label></b>
+                        <b><label   style="font-size: 15px;">Me siento enojado/a o agresivo/a <label style="color: red;" *ngIf="vaf_tipop02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1139,7 +1145,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Yo soy un pensador positivo u optimista:</label></b>
+                        <b><label   style="font-size: 15px;">Yo soy un pensador positivo u optimista <label style="color: red;" *ngIf="vaf_introspep01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1157,7 +1163,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Yo me siento tenso/a o apretado/a :</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento tenso/a o apretado/a <label style="color: red;" *ngIf="vaf_introspep02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1169,7 +1175,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Yo me siento deprimido/a o triste :</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento deprimido/a o triste <label style="color: red;" *ngIf="vaf_introspep03_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1187,7 +1193,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Uso siempre el cinturón de seguridad:</label></b>
+                        <b><label   style="font-size: 15px;">Uso siempre el cinturón de seguridad <label style="color: red;" *ngIf="vaf_condup01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1205,7 +1211,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Yo me siento satisfecho/a con mi trabajo o mis actividades:</label></b>
+                        <b><label   style="font-size: 15px;">Yo me siento satisfecho/a con mi trabajo o mis actividades <label style="color: red;" *ngIf="vaf_condup02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1223,7 +1229,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base:</label></b>
+                        <b><label   style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base <label style="color: red;" *ngIf="vaf_otrasdp01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1241,7 +1247,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Uso excesivamente los remedios que me indican o los que puedo comprar sin receta:</label></b>
+                        <b><label   style="font-size: 15px;">Uso excesivamente los remedios que me indican o los que puedo comprar sin receta <label style="color: red;" *ngIf="vaf_otrasdp02_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1253,7 +1259,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Bebo café, té o bebidas cola que tienen cafeína:</label></b>
+                        <b><label   style="font-size: 15px;">Bebo café, té o bebidas cola que tienen cafeína <label style="color: red;" *ngIf="vaf_otrasdp03_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">

@@ -453,6 +453,94 @@ export class ExformVfComponent implements OnInit {
     return this.userform.get('vafdiscapacidad_opc').invalid && this.userform.get('vafdiscapacidad_opc').dirty
   }
 
+  get seccion7(){
+    return this.vaf_familiap01_opcMarca || this.vaf_familiap02_opcMarca || this.vaf_actifisip01_opcMarca
+        || this.vaf_actifisip02_opcMarca || this.vaf_nutricionp01_opcMarca || this.vaf_nutricionp02_opcMarca
+        || this.vaf_nutricionp03_opcMarca || this.vaf_tabacop01_opcMarca || this.vaf_tabacop02_opcMarca
+        || this.vaf_alcoholp01_opcMarca || this.vaf_alcoholp02_opcMarca || this.vaf_alcoholp03_opcMarca
+        || this.vaf_suenop01_opcMarca || this.vaf_suenop02_opcMarca || this.vaf_suenop03_opcMarca
+        || this.vaf_tipop01_opcMarca || this.vaf_tipop02_opcMarca || this.vaf_introspep01_opcMarca
+        || this.vaf_introspep02_opcMarca || this.vaf_introspep03_opcMarca || this.vaf_condup01_opcMarca
+        || this.vaf_condup02_opcMarca || this.vaf_otrasdp01_opcMarca || this.vaf_otrasdp02_opcMarca
+        || this.vaf_otrasdp03_opcMarca; 
+  }
+
+  get vaf_familiap01_opcMarca(){
+    return this.userform.get('vaf_familiap01_opc').invalid;
+  }
+  get vaf_otrasdp01_opcMarca(){
+    return this.userform.get('vaf_otrasdp01_opc').invalid;
+  }
+  get vaf_otrasdp02_opcMarca(){
+    return this.userform.get('vaf_otrasdp02_opc').invalid;
+  }
+  get vaf_otrasdp03_opcMarca(){
+    return this.userform.get('vaf_otrasdp03_opc').invalid;
+  }
+  get vaf_familiap02_opcMarca(){
+    return this.userform.get('vaf_familiap02_opc').invalid;
+  }
+  get vaf_actifisip01_opcMarca(){
+    return this.userform.get('vaf_actifisip01_opc').invalid;
+  }
+  get vaf_actifisip02_opcMarca(){
+    return this.userform.get('vaf_actifisip02_opc').invalid;
+  }
+  get vaf_nutricionp01_opcMarca(){
+    return this.userform.get('vaf_nutricionp01_opc').invalid;
+  }
+  get vaf_nutricionp02_opcMarca(){
+    return this.userform.get('vaf_nutricionp02_opc').invalid;
+  }
+  get vaf_nutricionp03_opcMarca(){
+    return this.userform.get('vaf_nutricionp03_opc').invalid;
+  }
+  get vaf_tabacop01_opcMarca(){
+    return this.userform.get('vaf_tabacop01_opc').invalid;
+  }
+  get vaf_tabacop02_opcMarca(){
+    return this.userform.get('vaf_tabacop02_opc').invalid;
+  }
+  get vaf_alcoholp01_opcMarca(){
+    return this.userform.get('vaf_alcoholp01_opc').invalid;
+  }
+  get vaf_alcoholp02_opcMarca(){
+    return this.userform.get('vaf_alcoholp02_opc').invalid;
+  }
+  get vaf_alcoholp03_opcMarca(){
+    return this.userform.get('vaf_alcoholp03_opc').invalid;
+  }
+  get vaf_suenop01_opcMarca(){
+    return this.userform.get('vaf_suenop01_opc').invalid;
+  }
+  get vaf_suenop02_opcMarca(){
+    return this.userform.get('vaf_suenop02_opc').invalid;
+  }
+  get vaf_suenop03_opcMarca(){
+    return this.userform.get('vaf_suenop03_opc').invalid;
+  }
+  get vaf_tipop01_opcMarca(){
+    return this.userform.get('vaf_tipop01_opc').invalid;
+  }
+  get vaf_tipop02_opcMarca(){
+    return this.userform.get('vaf_tipop02_opc').invalid;
+  }
+  get vaf_introspep01_opcMarca(){
+    return this.userform.get('vaf_introspep01_opc').invalid;
+  }
+  get vaf_introspep02_opcMarca(){
+    return this.userform.get('vaf_introspep02_opc').invalid;
+  }
+  get vaf_introspep03_opcMarca(){
+    return this.userform.get('vaf_introspep03_opc').invalid;
+  }
+  get vaf_condup01_opcMarca(){
+    return this.userform.get('vaf_condup01_opc').invalid;
+  }
+  get vaf_condup02_opcMarca(){
+    return this.userform.get('vaf_condup02_opc').invalid;
+  }
+
   get vaf_familiap01_opcValid() {
     return this.userform.get('vaf_familiap01_opc').invalid && this.userform.get('vaf_familiap01_opc').dirty
   }
