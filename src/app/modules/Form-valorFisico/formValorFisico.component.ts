@@ -67,8 +67,8 @@ export class FormValorFisicoComponent implements OnInit {
   msjCR:string = '';
   colorMsj:string = '';
   colorMsj1:string = '';
-  validSexoFem:boolean = false;
-  validSexoMas:boolean = false;
+  validSexoFem:boolean;
+  validSexoMas:boolean;
   mobWidth: any;
   imgvalidator: boolean = true;
   validSave:boolean = false;
@@ -210,10 +210,6 @@ export class FormValorFisicoComponent implements OnInit {
         vafem_var: this.localPrueba.vafem_var,
         vafer_opc: this.localPrueba.vafer_opc,
         vafer_var: this.localPrueba.vafer_var,
-        vafmujer40_opc: this.localPrueba.vafmujer40_opc,
-        vafmujer40_var: this.localPrueba.vafmujer40_var,
-        vafhombre40_opc: this.localPrueba.vafhombre40_opc,
-        vafhombre40_var: this.localPrueba.vafhombre40_var,
         vafdiscapacidad_opc: this.localPrueba.vafdiscapacidad_opc,
         vafdiscapacidad_var: this.localPrueba.vafdiscapacidad_var,
         vaf_familiap01_opc: this.localPrueba.vaf_familiap01_opc,
@@ -258,6 +254,9 @@ export class FormValorFisicoComponent implements OnInit {
         vafAF_p02: this.localPrueba.vafAF_p02
 
       });
+      console.log(this.localPrueba);
+      
+      this.changeSexo();
       this.validCardioRes();
       // this.validEstado(this.userform.value.vaf_fantastico_total);
     } 
@@ -265,6 +264,52 @@ export class FormValorFisicoComponent implements OnInit {
   }
   
   /*Apartado de Validaciones */
+  get seccion1(){
+    return this.userform.get('vafcedula').invalid || this.userform.get('vafidnombre').invalid || this.userform.get('vafsexo').invalid
+        || this.userform.get('vafedad').invalid || this.userform.get('vaffecha').invalid || this.userform.get('vafgruposanguineo').invalid
+        || this.userform.get('vafciudad').invalid || this.userform.get('vafcorreo').invalid || this.userform.get('vaftelefono').invalid
+        || this.userform.get('vafidarea').invalid || this.userform.get('vafcargo').invalid || this.userform.get('vafsede').invalid
+        || this.vafidempresaMarca; 
+  }
+  get vafcedulaMarca(){
+    return this.userform.get('vafcedula').invalid;
+  }
+  get vafidempresaMarca(){
+    return this.userform.get('vafidempresa').invalid;
+  }
+  get vafidnombreMarca(){
+    return this.userform.get('vafidnombre').invalid;
+  }
+  get vafsexoMarca(){
+    return this.userform.get('vafsexo').invalid;
+  }
+  get vafedadMarca(){
+    return this.userform.get('vafedad').invalid;
+  }
+  get vaffechaMarca(){
+    return this.userform.get('vaffecha').invalid;
+  }
+  get vafgruposanguineoMarca(){
+    return this.userform.get('vafgruposanguineo').invalid;
+  }
+  get vafciudadMarca(){
+    return this.userform.get('vafciudad').invalid;
+  }
+  get vafcorreoMarca(){
+    return this.userform.get('vafcorreo').invalid;
+  }
+  get vaftelefonoMarca(){
+    return this.userform.get('vaftelefono').invalid;
+  }
+  get vafidareaMarca(){
+    return this.userform.get('vafidarea').invalid;
+  }
+  get vafcargoMarca(){
+    return this.userform.get('vafcargo').invalid;
+  }
+  get vafsedeMarca(){
+    return this.userform.get('vafsede').invalid;
+  }
   get vafidempresa() {
     return this.userform.get('vafidempresa').invalid && this.userform.get('vafidempresa').dirty
   }
@@ -277,6 +322,24 @@ export class FormValorFisicoComponent implements OnInit {
   get vafsede() {
     return this.userform.get('vafsede').invalid && this.userform.get('vafsede').touched
   }
+
+  get seccion8(){
+    return this.vafpesoMarca || this.vaftallaMarca || this.vafimcMarca || this.vafperimetroMarca; 
+  }
+
+  get vafpesoMarca(){
+    return this.userform.get('vafpeso').invalid;
+  }
+  get vaftallaMarca(){
+    return this.userform.get('vaftalla').invalid;
+  }
+  get vafimcMarca(){
+    return this.userform.get('vafimc').invalid;
+  }
+  get vafperimetroMarca(){
+    return this.userform.get('vafperimetro').invalid;
+  }
+
   get vafpeso() {
     return this.userform.get('vafpeso').invalid && this.userform.get('vafpeso').touched
   }
@@ -289,6 +352,20 @@ export class FormValorFisicoComponent implements OnInit {
   get vafperimetro() {
     return this.userform.get('vafperimetro').invalid && this.userform.get('vafperimetro').touched
   }
+
+  get seccion9(){
+    return this.vafp0Marca || this.vafp1Marca || this.vafp2Marca; 
+  }
+  get vafp0Marca(){
+    return this.userform.get('vafp0').invalid;
+  }
+  get vafp1Marca(){
+    return this.userform.get('vafp1').invalid;
+  }
+  get vafp2Marca(){
+    return this.userform.get('vafp2').invalid;
+  }
+
   get vafp0() {
     return this.userform.get('vafp0').invalid && this.userform.get('vafp0').touched
   }
@@ -297,6 +374,22 @@ export class FormValorFisicoComponent implements OnInit {
   }
   get vafp2() {
     return this.userform.get('vafp2').invalid && this.userform.get('vafp2').touched
+  }
+
+  get seccion10(){
+    return this.vaftestbieringMarca || this.vaftestpuentederMarca || this.vaftestpuenteizqMarca || this.vaftestresistroncoMarca; 
+  }
+  get vaftestbieringMarca(){
+    return this.userform.get('vaftestbiering').invalid;
+  }
+  get vaftestpuentederMarca(){
+    return this.userform.get('vaftestpuenteder').invalid;
+  }
+  get vaftestpuenteizqMarca(){
+    return this.userform.get('vaftestpuenteizq').invalid;
+  }
+  get vaftestresistroncoMarca(){
+    return this.userform.get('vaftestresistronco').invalid;
   }
   get vaftestbiering() {
     return this.userform.get('vaftestbiering').invalid && this.userform.get('vaftestbiering').touched
@@ -309,6 +402,19 @@ export class FormValorFisicoComponent implements OnInit {
   }
   get vaftestresistronco() {
     return this.userform.get('vaftestresistronco').invalid && this.userform.get('vaftestresistronco').touched
+  }
+
+  get seccion11(){
+    return this.vaftestflextroncoMarca || this.vaftestmovhombderMarca || this.vaftestmovhombizqMarca; 
+  }
+  get vaftestflextroncoMarca(){
+    return this.userform.get('vaftestflextronco').invalid;
+  }
+  get vaftestmovhombderMarca(){
+    return this.userform.get('vaftestmovhombder').invalid;
+  }
+  get vaftestmovhombizqMarca(){
+    return this.userform.get('vaftestmovhombizq').invalid;
   }
   get vaftestflextronco() {
     return this.userform.get('vaftestflextronco').invalid && this.userform.get('vaftestflextronco').touched
@@ -356,6 +462,80 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafcargo').invalid && this.userform.get('vafcargo').touched
   }
 
+  get seccion2(){
+    return this.userform.get('vafcs01').invalid || this.userform.get('vafcs02').invalid || this.userform.get('vafcs03').invalid
+        || this.userform.get('vafcs04').invalid || this.userform.get('vafcs05').invalid || this.userform.get('vafcs06').invalid
+        || this.userform.get('vafcs07').invalid || this.userform.get('vafcs07').invalid || this.userform.get('vafcs08').invalid
+        || this.userform.get('vafcs09').invalid || this.userform.get('vafcs10').invalid || this.userform.get('vafcs11').invalid
+        || this.userform.get('vafcs12').invalid || this.userform.get('vafcs13').invalid || this.userform.get('vafcs14').invalid
+        || this.vafcs15Valid || this.userform.get('vafcs16').invalid || this.userform.get('vafcs17').invalid
+        || this.userform.get('vafcs18').invalid || this.userform.get('vafcs19').invalid || this.userform.get('vafcs20').invalid
+        || this.vafcs21Valid; 
+  }
+
+  get vafcs01Marca(){
+    return this.userform.get('vafcs01').invalid;
+  }
+  get vafcs02Marca(){
+    return this.userform.get('vafcs02').invalid;
+  }
+  get vafcs03Marca(){
+    return this.userform.get('vafcs03').invalid;
+  }
+  get vafcs04Marca(){
+    return this.userform.get('vafcs04').invalid;
+  }
+  get vafcs05Marca(){
+    return this.userform.get('vafcs05').invalid;
+  }
+  get vafcs06Marca(){
+    return this.userform.get('vafcs06').invalid;
+  }
+  get vafcs07Marca(){
+    return this.userform.get('vafcs07').invalid;
+  }
+  get vafcs08Marca(){
+    return this.userform.get('vafcs08').invalid;
+  }
+  get vafcs09Marca(){
+    return this.userform.get('vafcs09').invalid;
+  }
+  get vafcs10Marca(){
+    return this.userform.get('vafcs10').invalid;
+  }
+  get vafcs11Marca(){
+    return this.userform.get('vafcs11').invalid;
+  }
+  get vafcs12Marca(){
+    return this.userform.get('vafcs12').invalid;
+  }
+  get vafcs13Marca(){
+    return this.userform.get('vafcs13').invalid;
+  }
+  get vafcs14Marca(){
+    return this.userform.get('vafcs14').invalid;
+  }
+  get vafcs15Marca(){
+    return this.vafcs15Valid;
+  }
+  get vafcs16Marca(){
+    return this.userform.get('vafcs16').invalid;
+  }
+  get vafcs17Marca(){
+    return this.userform.get('vafcs17').invalid;
+  }
+  get vafcs18Marca(){
+    return this.userform.get('vafcs18').invalid;
+  }
+  get vafcs19Marca(){
+    return this.userform.get('vafcs19').invalid;
+  }
+  get vafcs20Marca(){
+    return this.userform.get('vafcs20').invalid;
+  }
+  get vafcs21Marca(){
+    return this.vafcs21Valid;
+  }
   get vafcs01Valid() {
     return this.userform.get('vafcs01').invalid && this.userform.get('vafcs01').dirty
   }
@@ -432,6 +612,47 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafcs20').invalid && this.userform.get('vafcs20').dirty
   }
 
+  get seccion3(){
+    return this.vafcancer_opcMarca || this.vafhiper_arte_opcMarca || this.vafasma_opcMarca || this.vafcardio_opcMarca
+        || this.vafdiabet_opcMarca || this.vafalergia_opcMarca || this.vafartritis_opcMarca || this.vafem_opcMarca
+        || this.vafer_opcMarca || this.vafAF_p01Marca || this.vafAF_p02Marca; 
+  }
+  get vafcancer_opcMarca(){
+    return this.userform.get('vafcancer_opc').invalid || this.cancerValidAprob;
+  }
+
+  get vafhiper_arte_opcMarca(){
+    return this.userform.get('vafhiper_arte_opc').invalid || this.hiper_arteValidAprob;
+  }
+  get vafasma_opcMarca(){
+    return this.userform.get('vafasma_opc').invalid || this.asmaValidAprob;
+  }
+  get vafcardio_opcMarca(){
+    return this.userform.get('vafcardio_opc').invalid || this.cardioValidAprob;
+  }
+  get vafdiabet_opcMarca(){
+    return this.userform.get('vafdiabet_opc').invalid || this.diabetValidAprob;
+  }
+  get vafalergia_opcMarca(){
+    return this.userform.get('vafalergia_opc').invalid || this.alergiaValidAprob;
+  }
+  get vafartritis_opcMarca(){
+    return this.userform.get('vafartritis_opc').invalid || this.artritisValidAprob;
+  }
+  get vafem_opcMarca(){
+    return this.userform.get('vafem_opc').invalid || this.emValidAprob;
+  }
+  get vafer_opcMarca(){
+    return this.userform.get('vafer_opc').invalid || this.erValidAprob;
+  }
+
+  get vafAF_p01Marca(){
+    return this.userform.get('vafAF_p01').invalid;
+  }
+  get vafAF_p02Marca(){
+    return this.userform.get('vafAF_p02').invalid;
+  }
+
   get vafcancer_opcValid() {
     return this.userform.get('vafcancer_opc').invalid && this.userform.get('vafcancer_opc').dirty
   }
@@ -468,8 +689,30 @@ export class FormValorFisicoComponent implements OnInit {
     return this.userform.get('vafer_opc').invalid && this.userform.get('vafer_opc').dirty
   }
 
+  get seccion4(){
+    return this.vafmujer40_opcMarca || this.vafmujer40_varMarca; 
+  }
+
+  get vafmujer40_opcMarca(){
+    return this.vafmujer40_opcValid;
+  }
+  get vafmujer40_varMarca(){
+    return this.mujer40ValidAprob;
+  }
+
   get vafmujer40_opcValid() {
     return this.validSexoFem === true && this.userform.value.vafmujer40_opc === '';
+  }
+
+  get seccion5(){
+    return this.vafhombre40_opcMarca || this.vafhombre40_varMarca; 
+  }
+
+  get vafhombre40_opcMarca(){
+    return this.vafhombre40_opcValid;
+  }
+  get vafhombre40_varMarca(){
+    return this.hombre40ValidAprob;
   }
 
   get vafhombre40_opcValid() {
@@ -478,6 +721,105 @@ export class FormValorFisicoComponent implements OnInit {
 
   get vafdiscapacidad_opcValid() {
     return this.userform.get('vafdiscapacidad_opc').invalid && this.userform.get('vafdiscapacidad_opc').dirty
+  }
+
+  get seccion6(){
+    return this.vafdiscapacidad_opcMarca || this.vafdiscapacidad_varMarca; 
+  }
+
+  get vafdiscapacidad_opcMarca(){
+    return this.userform.get('vafdiscapacidad_opc').invalid || this.discapacidadValidAprob;
+  }
+  get vafdiscapacidad_varMarca(){
+    return this.discapacidadValidAprob;
+  }
+
+  get seccion7(){
+    return this.vaf_familiap01_opcMarca || this.vaf_familiap02_opcMarca || this.vaf_actifisip01_opcMarca
+        || this.vaf_actifisip02_opcMarca || this.vaf_nutricionp01_opcMarca || this.vaf_nutricionp02_opcMarca
+        || this.vaf_nutricionp03_opcMarca || this.vaf_tabacop01_opcMarca || this.vaf_tabacop02_opcMarca
+        || this.vaf_alcoholp01_opcMarca || this.vaf_alcoholp02_opcMarca || this.vaf_alcoholp03_opcMarca
+        || this.vaf_suenop01_opcMarca || this.vaf_suenop02_opcMarca || this.vaf_suenop03_opcMarca
+        || this.vaf_tipop01_opcMarca || this.vaf_tipop02_opcMarca || this.vaf_introspep01_opcMarca
+        || this.vaf_introspep02_opcMarca || this.vaf_introspep03_opcMarca || this.vaf_condup01_opcMarca
+        || this.vaf_condup02_opcMarca || this.vaf_otrasdp01_opcMarca || this.vaf_otrasdp02_opcMarca
+        || this.vaf_otrasdp03_opcMarca; 
+  }
+
+  get vaf_familiap01_opcMarca(){
+    return this.userform.get('vaf_familiap01_opc').invalid;
+  }
+  get vaf_otrasdp01_opcMarca(){
+    return this.userform.get('vaf_otrasdp01_opc').invalid;
+  }
+  get vaf_otrasdp02_opcMarca(){
+    return this.userform.get('vaf_otrasdp02_opc').invalid;
+  }
+  get vaf_otrasdp03_opcMarca(){
+    return this.userform.get('vaf_otrasdp03_opc').invalid;
+  }
+  get vaf_familiap02_opcMarca(){
+    return this.userform.get('vaf_familiap02_opc').invalid;
+  }
+  get vaf_actifisip01_opcMarca(){
+    return this.userform.get('vaf_actifisip01_opc').invalid;
+  }
+  get vaf_actifisip02_opcMarca(){
+    return this.userform.get('vaf_actifisip02_opc').invalid;
+  }
+  get vaf_nutricionp01_opcMarca(){
+    return this.userform.get('vaf_nutricionp01_opc').invalid;
+  }
+  get vaf_nutricionp02_opcMarca(){
+    return this.userform.get('vaf_nutricionp02_opc').invalid;
+  }
+  get vaf_nutricionp03_opcMarca(){
+    return this.userform.get('vaf_nutricionp03_opc').invalid;
+  }
+  get vaf_tabacop01_opcMarca(){
+    return this.userform.get('vaf_tabacop01_opc').invalid;
+  }
+  get vaf_tabacop02_opcMarca(){
+    return this.userform.get('vaf_tabacop02_opc').invalid;
+  }
+  get vaf_alcoholp01_opcMarca(){
+    return this.userform.get('vaf_alcoholp01_opc').invalid;
+  }
+  get vaf_alcoholp02_opcMarca(){
+    return this.userform.get('vaf_alcoholp02_opc').invalid;
+  }
+  get vaf_alcoholp03_opcMarca(){
+    return this.userform.get('vaf_alcoholp03_opc').invalid;
+  }
+  get vaf_suenop01_opcMarca(){
+    return this.userform.get('vaf_suenop01_opc').invalid;
+  }
+  get vaf_suenop02_opcMarca(){
+    return this.userform.get('vaf_suenop02_opc').invalid;
+  }
+  get vaf_suenop03_opcMarca(){
+    return this.userform.get('vaf_suenop03_opc').invalid;
+  }
+  get vaf_tipop01_opcMarca(){
+    return this.userform.get('vaf_tipop01_opc').invalid;
+  }
+  get vaf_tipop02_opcMarca(){
+    return this.userform.get('vaf_tipop02_opc').invalid;
+  }
+  get vaf_introspep01_opcMarca(){
+    return this.userform.get('vaf_introspep01_opc').invalid;
+  }
+  get vaf_introspep02_opcMarca(){
+    return this.userform.get('vaf_introspep02_opc').invalid;
+  }
+  get vaf_introspep03_opcMarca(){
+    return this.userform.get('vaf_introspep03_opc').invalid;
+  }
+  get vaf_condup01_opcMarca(){
+    return this.userform.get('vaf_condup01_opc').invalid;
+  }
+  get vaf_condup02_opcMarca(){
+    return this.userform.get('vaf_condup02_opc').invalid;
   }
 
   get vaf_familiap01_opcValid() {
@@ -1292,17 +1634,31 @@ export class FormValorFisicoComponent implements OnInit {
     if (this.userform.value.vafsexo === 'F') {
       this.validSexoFem = true;
       this.validSexoMas = false;
-      this.userform.patchValue({
-        vafhombre40_opc: "",
-        vafhombre40_var: "."
-      });
+      if (this.localPrueba !== null) {
+        this.userform.patchValue({
+          vafmujer40_opc: this.localPrueba.vafmujer40_opc,
+          vafmujer40_var: this.localPrueba.vafmujer40_var
+        })
+      }else{
+        this.userform.patchValue({
+          vafmujer40_opc: "",
+          vafmujer40_var: ".",
+        });
+      }
     }else{
       this.validSexoMas = true;
       this.validSexoFem = false;
-      this.userform.patchValue({
-        vafmujer40_opc: "",
-        vafmujer40_var: ".",
-      });
+      if (this.localPrueba !== null) {
+        this.userform.patchValue({
+          vafhombre40_opc: this.localPrueba.vafhombre40_opc,
+          vafhombre40_var: this.localPrueba.vafhombre40_var
+        })
+      }else{
+        this.userform.patchValue({
+          vafhombre40_opc: "",
+          vafhombre40_var: "."
+        });
+      }
     }
   }
 
