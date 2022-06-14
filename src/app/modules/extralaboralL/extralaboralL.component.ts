@@ -92,11 +92,11 @@ export class ExtralaboralLComponent implements OnInit {
 
     this.a1 = [];
     this.a1.push({ label: 'Seleccione una opción', value: '' });
-    this.a1.push({ label: 'Siempre', value: '1' });
-    this.a1.push({ label: 'Casi Siempre', value: '2' });
-    this.a1.push({ label: 'Algunas Veces', value: '3' });
-    this.a1.push({ label: 'Casi nunca', value: '4' });
-    this.a1.push({ label: 'Nunca', value: '5' });
+    this.a1.push({ label: 'Siempre', value: '0' });
+    this.a1.push({ label: 'Casi Siempre', value: '1' });
+    this.a1.push({ label: 'Algunas Veces', value: '2' });
+    this.a1.push({ label: 'Casi nunca', value: '3' });
+    this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
     this.a11.push({ label: 'Seleccione una opción', value: '' });
