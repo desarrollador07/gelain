@@ -128,7 +128,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         setTimeout(() => {
-            this.layoutMenuScrollerViewChild.moveBar();
+            // this.layoutMenuScrollerViewChild.moveBar();
         }, 100);
     }
 

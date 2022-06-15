@@ -112,6 +112,7 @@ export class ReporteDetalladoComponent implements OnInit {
     await this.pruebaServices
     .getReporteExcelDetallado(id).toPromise().then((data: any)=>{
       this.rdEmpleado = data;
+      
       if (this.rdEmpleado.length > 0) {
         this.loading = false;
       }else{
@@ -270,6 +271,8 @@ export class ReporteDetalladoComponent implements OnInit {
   }
 
   async consultaAll(){
+    this.actuPtable = false;
+    this.rdEmpleado = [];
     await this.pruebaServices
     .getAllReporteDetallado().toPromise().then((data: any)=>{
       this.rdEmpleado = data;
@@ -278,6 +281,11 @@ export class ReporteDetalladoComponent implements OnInit {
       }else{
         this.loading = false;
       }
+      this.actuPtable = true;
+    }, err => {
+      console.log(err);
+      this.actuPtable = true;
+      this.loading = false;
     });
   }
 
@@ -355,19 +363,23 @@ export class ReporteDetalladoComponent implements OnInit {
   }
 
   async buscadorAvanzado(idEmp:number,valorBuscado:string, tipo:number,check:number, fechaInicial:string, fechaFinal:string){
-    
+    this.actuPtable = false;
+    this.rdEmpleado = [];
     await this.pruebaServices.getBuscardorData(idEmp,valorBuscado,tipo,check,fechaInicial,fechaFinal).toPromise().then((res:any) => {
             
       if (res.length === 0) {
         this._messageService.add({ severity: 'info', summary: 'Sin Resultados', detail: 'No se encontraron resultados para el tipo de busqueda', life: 3000 });
       }else{
-        this.rdEmpleado = [];
         this.rdEmpleado = res;
       }
-
+      this.actuPtable = true;
       this.loading = false;
       
-    },err => console.log(err));
+    },err => {
+      console.log(err);
+      this.actuPtable = true;
+      this.loading = false;
+    });
   }
 
    /*Mensaje Informativo cuando esta seleccionada la empresa */
