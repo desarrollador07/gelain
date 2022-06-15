@@ -22,7 +22,7 @@ export class ReporteDetalladoComponent implements OnInit {
   idtemporal:number = 0;
   rdEmpleado: ReporteDetallado[] = [];/*Reporte detallado por Empleado */
   buscarData:string;
-  selectReporte: any;
+  selectReporte: any = 8;
   loading:boolean = true;
   checked:boolean = true;
   msgs: Message[] = [];
@@ -64,6 +64,8 @@ export class ReporteDetalladoComponent implements OnInit {
   ];
   validEmp:boolean = false;
   empresasData:Empresa [] = [];
+  actuPtable:boolean = true;
+
   constructor(private pruebaServices:PruebaService,
               private _messageService: MessageService,
               private datepipe: DatePipe,
@@ -105,7 +107,8 @@ export class ReporteDetalladoComponent implements OnInit {
   }
 
   async consultarReportes(id:number){
-
+    this.actuPtable = false;
+    this.rdEmpleado = [];
     await this.pruebaServices
     .getReporteExcelDetallado(id).toPromise().then((data: any)=>{
       this.rdEmpleado = data;
@@ -114,6 +117,11 @@ export class ReporteDetalladoComponent implements OnInit {
       }else{
         this.loading = false;
       }
+      this.actuPtable = true;
+    }, err => {
+      console.log();
+      this.loading = false;
+      this.actuPtable = true;
     });
 
   }

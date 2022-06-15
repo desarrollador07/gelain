@@ -49,7 +49,7 @@
                 <p-calendar [disabled]="!checked" [(ngModel)]="fechafinal" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechafinal"></p-calendar>
             </div>
             <div class="ui-g-12 ui-md-12 ui-lg-12" style="text-align: center;margin-top: 5px;">
-                <button class="btnsearch" pButton label="Buscar" [disabled]="validEmp" (click)="buscador()"></button>
+                <button class="btnsearch" pButton label="Buscar"  icon="pi pi-search" [disabled]="validEmp" (click)="buscador()"></button>
             </div>
         </div>
     </fieldset>
@@ -60,7 +60,7 @@
         <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
     </div>
 </div>
-<div class="card">
+<div class="card animated fadeIn fast" *ngIf="actuPtable">
     <p-panel header="REPORTE DETALLADO POR EMPLEADO">
         <p-table #dt [value]="rdEmpleado" [columns]="cols" [scrollable]="true" [responsive]="true" [globalFilterFields]="['emdcedula','emdnombres','emdapellidos','emdtraciudad','emdzona']" [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true" [rowsPerPageOptions]="[10,20,30]">
             <ng-template pTemplate="caption">
