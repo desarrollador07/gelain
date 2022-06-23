@@ -944,12 +944,19 @@ total_general2 :any[] = [];
     this.Riesgo_altoD =((this.donadata[3] *100)/this.total);
     this.Riesgo_muy_altoD = Number((((this.donadata[4] *100)/this.total)));
 
-      this.dataDona = [{ category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))},
-      { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD ))  },
-      { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD ))  },
-      { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD ))  },
-      { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))   },
-      { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)) }];
+      // this.dataDona = [{ category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))},
+      // { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD ))  },
+      // { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD )) },
+      // { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD ))  },
+      // { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))  },
+      // { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)) }];
+
+      this.dataDona = [
+        { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD )), colorField: '#FC0202' },
+        { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD )), colorField: '#F07712' },
+        { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD )), colorField:'#F0F012'  },
+        { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD )), colorField:'#97C015'   },
+        { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)), colorField:'#1E830A' }];
 
       this.options2 = {
           title: {
@@ -1413,12 +1420,12 @@ total_general2 :any[] = [];
     this.Riesgo_altoD =((this.donadata[3] *100)/this.total);
     this.Riesgo_muy_altoD = Number((((this.donadata[4] *100)/this.total)));
 
-      this.dataDona = [{ category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))},
-      { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD ))  },
-      { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD ))  },
-      { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD ))  },
-      { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD ))   },
-      { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)) }];
+      this.dataDona = [
+      { category: 'Riesgo_bajo', value: (new Intl.NumberFormat().format(this.Riesgo_bajoD )), colorField: '#FC0202' },
+      { category: 'Riesgo_medio', value: (new Intl.NumberFormat().format(this.Riesgo_medioD )), colorField: '#F07712' },
+      { category: 'Riesgo_alto', value: (new Intl.NumberFormat().format(this.Riesgo_altoD )), colorField:'#F0F012'  },
+      { category: 'Riesgo_muy_alto', value: (new Intl.NumberFormat().format(this.Riesgo_muy_altoD )), colorField:'#97C015'   },
+      { category: 'Sin_riesgo_o_riesgo_despreciable', value: (new Intl.NumberFormat().format(this.Sin_riesgo_o_riesgo_despreciableD)), colorField:'#1E830A' }];
 
       this.options2 = {
           title: {
