@@ -10,7 +10,6 @@ import { Empresa } from '../../models/empresa.model';
 import { Empleado } from '../../models/empleado.mdel';
 import { Area } from '../../models/area.model';
 /*Servicios */
-import { PruebaService } from '../../services/prueba.service';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';

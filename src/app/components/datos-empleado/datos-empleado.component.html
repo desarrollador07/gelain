@@ -1,0 +1,15 @@
+
+<fieldset [ngStyle]="{'border': backSolidBorder}">
+    <legend [ngStyle]="{'background': backColor, 'color': colorLetra }" ><b>Datos del empleado</b></legend>
+    <div class="ui-g" style="margin-bottom: 10px;">
+        <div class="ui-g-3"></div>
+        <div class="ui-g-3">
+            <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Cédula: {{cedula}}</label></b>
+        </div>
+        <div class="ui-g-6">
+            <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Nombre: {{nombre | titlecase}}</label></b>
+        </div>
+    </div>
+</fieldset>
+<br>
+

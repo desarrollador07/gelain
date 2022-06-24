@@ -32,6 +32,9 @@ export class FormatoBLComponent implements OnInit {
   forrrB:FormatoB;
   idem:number = 0;
   validSave:boolean = false;
+  dataEmpleado:any;
+  cedula:string;
+  nombre:string;
 
   constructor(private formatoBService: FormatoBService,
               private fb: FormBuilder,
@@ -40,9 +43,12 @@ export class FormatoBLComponent implements OnInit {
               private _messageService: MessageService) {  
       this.idem = Number(this.route.snapshot.paramMap.get("id")); 
       this.idl = JSON.parse(sessionStorage.getItem('IdEmpleado'));
+      this.dataEmpleado = JSON.parse(sessionStorage.getItem('empRegExt'));
   }
 
   async ngOnInit() {
+    this.cedula = this.dataEmpleado.emdcedula;
+    this.nombre = `${this.dataEmpleado.emdnombres} ${this.dataEmpleado.emdapellidos}`;
     this.vart=false;
 
     this.userform = this.fb.group({

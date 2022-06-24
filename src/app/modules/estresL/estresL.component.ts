@@ -30,6 +30,9 @@ export class EstresLComponent implements OnInit {
   forrrEs:Estres;
   validSave:boolean = false;
   idem:number = 0;
+  dataEmpleado:any;
+  cedula:string;
+  nombre:string;
 
   constructor(
               private empleadosService: EmpleadosService,
@@ -39,10 +42,13 @@ export class EstresLComponent implements OnInit {
               private route: ActivatedRoute,
               private _messageService: MessageService) {  
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));
+                this.dataEmpleado = JSON.parse(sessionStorage.getItem('empRegExt'));  
   }
 
  async ngOnInit() {
-
+  this.cedula = this.dataEmpleado.emdcedula;
+  this.nombre = `${this.dataEmpleado.emdnombres} ${this.dataEmpleado.emdapellidos}`;
+  
     this.userform = this.fb.group({
       estid:[''],
       estidempleado:[Number(this.idl)],

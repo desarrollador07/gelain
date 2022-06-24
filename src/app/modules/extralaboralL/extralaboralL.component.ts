@@ -30,18 +30,23 @@ export class ExtralaboralLComponent implements OnInit {
   forrrEx:Extralaboral;
   idem:number = 0;
   validSave:boolean = false;
- 
+  dataEmpleado:any;
+  cedula:string;
+  nombre:string;
+  
   constructor(
               private formatoExtraService: FormatoExtraService,
               private fb: FormBuilder,
               private router: Router,
               private route: ActivatedRoute,
               private _messageService: MessageService) {  
-                this.idem = Number(this.route.snapshot.paramMap.get("id"));  
+                this.idem = Number(this.route.snapshot.paramMap.get("id"));
+                this.dataEmpleado = JSON.parse(sessionStorage.getItem('empRegExt'));  
   }
 
  async ngOnInit() {
-
+  this.cedula = this.dataEmpleado.emdcedula;
+  this.nombre = `${this.dataEmpleado.emdnombres} ${this.dataEmpleado.emdapellidos}`;
 
     this.userform = this.fb.group({
       extid:[''],

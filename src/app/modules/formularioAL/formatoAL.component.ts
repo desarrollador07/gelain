@@ -32,6 +32,9 @@ export class FormatoALComponent implements OnInit {
   formuA:FormatoA;
   idem:number = 0;
   validSave:boolean = false;
+  dataEmpleado:any;
+  cedula:string;
+  nombre:string;
  
   constructor(
               private formatoAService: FormatoAService,
@@ -40,10 +43,12 @@ export class FormatoALComponent implements OnInit {
               private route: ActivatedRoute,
               private _messageService: MessageService) {
                 this.idem = Number(this.route.snapshot.paramMap.get("id"));
+                this.dataEmpleado = JSON.parse(sessionStorage.getItem('empRegExt'));
   }
 
  async ngOnInit() {
-
+    this.cedula = this.dataEmpleado.emdcedula;
+    this.nombre = `${this.dataEmpleado.emdnombres} ${this.dataEmpleado.emdapellidos}`;
     this.vart=false;
     this.vart2=false;
 
@@ -183,6 +188,7 @@ export class FormatoALComponent implements OnInit {
     
 
     this.idl =JSON.parse(sessionStorage.getItem('IdEmpleado'));
+             
     await  this.formatoAService.buscarByFa(this.idl).toPromise().then((data:any)=>{
         this.localPrueba = data[0]; 
     });
