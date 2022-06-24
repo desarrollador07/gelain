@@ -47,6 +47,10 @@ export class ReporteAreasComponent implements OnInit {
   nEmpresa:any;
   usuario:any;
   text:string;
+  arrColors:string [] = ['#4472C4','#70AD47','#FFC000','#794DF5','#E7E6E6',
+                         '#ED7D31','#F062C7','#edb8fa','#fadc9b','#f6d1de',
+                         '#a5eea0','#bf9780','#dfcae1','#e2e37e','#ffbfb0',
+                         '#8cfca4','#ebf3a0','#f9d99a','#95b8f6','#c5d084'];
  
   
   constructor(private pruebaServices:PruebaService,
@@ -112,6 +116,7 @@ export class ReporteAreasComponent implements OnInit {
     var obj1 = {};
 
     this.dataAreas.map(datai => {
+      
       nombreArea = datai.arenombre;
       this.dataAreas.map(dataj => {
         
@@ -154,7 +159,7 @@ export class ReporteAreasComponent implements OnInit {
       
       obj1 = {
         label:nombreArea,
-            backgroundColor: this.colorHEX(),
+            backgroundColor: '#fffff',
             borderColor: '#464444',
             data:[
               contador1,
@@ -164,8 +169,10 @@ export class ReporteAreasComponent implements OnInit {
               contador5
             ]
       }
+
       this.dataCat.push(obj1);
       this.sales9.push(obj);
+      
       contador1 = 0;
       contador2 = 0;
       contador3 = 0;
@@ -177,6 +184,7 @@ export class ReporteAreasComponent implements OnInit {
     organiza la información  como la necesita la grafica para su visualización */
   fnOrgPart2(){
       var obj = {};
+      var contColor:number = 0;
       var totalcont1:number = 0;
       var totalcont2:number = 0;
       var totalcont3:number = 0;
@@ -198,11 +206,13 @@ export class ReporteAreasComponent implements OnInit {
      });
       
     this.dataCat.map(resp => {
+      resp.backgroundColor = this.arrColors[contColor]
       totalcont1 += resp.data[0];
       totalcont2 += resp.data[1];
       totalcont3 += resp.data[2];
       totalcont4 += resp.data[3];
       totalcont5 += resp.data[4];
+      contColor ++;
     })
     
     obj = {
@@ -215,13 +225,12 @@ export class ReporteAreasComponent implements OnInit {
         cat5:totalcont5
       }
     }
-
     this.sales9.push(obj);
-
     this.data = {
       labels: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5'],
       datasets: this.dataCat
     }
+
   }
 
   limpiarData(){
