@@ -69,25 +69,17 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
             <kendo-grid [data]="sales">
-                <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                 <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
-                    <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                     <ng-template let-column let-columnIndex="columnIndex">
-                        <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
@@ -119,17 +111,14 @@
                     </kendo-grid-column>
                 </kendo-grid-column-group>
             </kendo-grid>
-
         </div>
         <br>
         <br>
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                     </kendo-chart-category-axis-item>
@@ -161,18 +150,14 @@
             <div style=" font-size: 17px; text-align: center; padding-top: 450px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
-
         </div>
     </kendo-pdf-export>
-
 </div>
 
 <!-- --------------------------------- PDF CONTROL SOBRE EL TRABAJO-  2------------------------------ -->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
-
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
@@ -184,25 +169,17 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
             <kendo-grid [data]="sales2">
-                <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                 <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="100" [locked]="false">
-                    <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                     <ng-template let-column let-columnIndex="columnIndex">
-                        <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
@@ -238,23 +215,15 @@
                         </ng-template>
                     </kendo-grid-column>
                 </kendo-grid-column-group>
-
-
-
             </kendo-grid>
-
         </div>
         <br>
         <br>
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
-
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
                     </kendo-chart-category-axis-item>
@@ -281,26 +250,18 @@
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
-
-
-
-
-
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
         </div>
     </kendo-pdf-export>
-
 </div>
 
 <!-- --------------------------------- PDF DEMANDAS DEL TRABAJO  3------------------------------ -->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf3 paperSize="A4" margin="1cm" [scale]="0.5">
-
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
@@ -312,26 +273,17 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
-
             <kendo-grid [data]="sales3">
-                <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                 <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                    <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                     <ng-template let-column let-columnIndex="columnIndex">
-                        <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
@@ -383,20 +335,14 @@
                     </kendo-grid-column>
                 </kendo-grid-column-group>
             </kendo-grid>
-
-
-
-
         </div>
         <br>
         <br>
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
                     </kendo-chart-category-axis-item>
@@ -423,23 +369,18 @@
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
-
-
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
         </div>
     </kendo-pdf-export>
-
 </div>
 
 <!-- -----------------------------------PDF RECOMPENSAS 4--------------------------------------------->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
-
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
@@ -451,26 +392,17 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
-
             <kendo-grid [data]="sales4">
-                <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                 <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                    <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                     <ng-template let-column let-columnIndex="columnIndex">
-                        <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
@@ -498,11 +430,8 @@
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
                     </kendo-chart-category-axis-item>
@@ -541,7 +470,6 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
-
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
@@ -587,10 +515,8 @@
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
                     </kendo-chart-category-axis-item>
@@ -621,17 +547,14 @@
             <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
                 <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
             </div>
-
         </div>
     </kendo-pdf-export>
-
 </div>
 
 <!-- -----------------------------------Estres Detalles 6--------------------------------------------->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
-
         <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
@@ -643,20 +566,14 @@
         <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
         <br>
         <br>
-
-
         <div style="font-size: 20px; text-align: center;">
-
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
             <p>Usuario: {{usuario}}</p>
-
         </div>
         <br>
         <br>
         <br>
         <div>
-
             <kendo-grid [data]="sales6">
                 <kendo-grid-column field="brand" title="Nivel de riesgo">
                 </kendo-grid-column>
@@ -675,10 +592,8 @@
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                     </kendo-chart-category-axis-item>
@@ -742,7 +657,6 @@
                 </kendo-grid-column>
                 <kendo-grid-column field="TOTAL_ESTRES" title="TOTAL ESTRES">
                 </kendo-grid-column>
-
             </kendo-grid>
         </div>
         <br>
@@ -750,12 +664,11 @@
         <br>
         <br>
         <br>
-
         <div style="text-align: center;">
             <kendo-chart>
                 <kendo-chart-legend position="bottom"></kendo-chart-legend>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="pie" [data]="dataDona" field="value" categoryField="category" [labels]="{ visible: true, content: labelContent }">
+                    <kendo-chart-series-item colorField="colorField" type="pie" [data]="dataDona" field="value" categoryField="category" [labels]="{ visible: true, content: labelContent }">
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
@@ -792,7 +705,7 @@
             <kendo-grid [data]="sales8">
                 <kendo-grid-column field="brand" title="Nivel de riesgo">
                 </kendo-grid-column>
-                <kendo-grid-column field="" title="TOTAL INTRALABORAL (Q1)">
+                <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL (Q1)">
                 </kendo-grid-column>
                 <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL (Q2)">
                 </kendo-grid-column>
@@ -842,6 +755,110 @@
 
 </div>
 
+<!-- -----------------------------------Total Dominios --------------------------------------------->
+
+<div  style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+    <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
+        <div style=" font-size: 15px; text-align: left;">
+            <p style="text-align: left;">{{nombreGelain}}</p>
+            <p style="text-align: left;">Nit: {{nitGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
+            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
+            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
+            <p>{{fechaActual | date:"medium" }}</p>
+        </div>
+        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
+        <br>
+        <br>
+        <div style="font-size: 20px; text-align: center;">
+            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
+            <p>Usuario: {{usuario}}</p>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div>
+            <kendo-grid [data]="dataTotalDominios">
+                <kendo-grid-column  field="brand" title="Nivel de riesgo" [width]="130" [locked]="false"></kendo-grid-column>
+                <kendo-grid-column-group field="td" title="TOTAL DOMINIOS" [width]="600" [locked]="false">
+                    <kendo-grid-column field="lrst" title="Liderazgo y relaciones sociales en el trabajo (Q1)" [width]="130" [locked]="false"></kendo-grid-column>
+                    <kendo-grid-column field="cst" title="Control sobre el trabajo (Q2)" [width]="130" [locked]="false"></kendo-grid-column>
+                    <kendo-grid-column field="demanda" title="Demandas del trabajo (Q3)" [width]="130" [locked]="false"></kendo-grid-column>
+                    <kendo-grid-column field="recompensa" title="Recompensas (Q4)" [width]="130" [locked]="false"></kendo-grid-column>
+                </kendo-grid-column-group>
+            </kendo-grid>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="text-align: center;">
+            <!-- <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-series>
+                    <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item color="#97C015" type="bar" [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item color="#F0F012" type="bar" [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item color="#F07712" type="bar" [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item color="#FC0202" type="bar" [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+            </kendo-chart> -->
+            <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                <kendo-chart-category-axis>
+                    <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                    </kendo-chart-category-axis-item>
+                </kendo-chart-category-axis>
+                <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                <kendo-chart-series>
+                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[sinRiesgoli[0], sinRiesgoCo[0], sinRiesgodem[0],sinRiesgore[0]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[sinRiesgoli[1], sinRiesgoCo[1], sinRiesgodem[1],sinRiesgore[1]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[sinRiesgoli[2], sinRiesgoCo[2], sinRiesgodem[2],sinRiesgore[2]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[sinRiesgoli[3], sinRiesgoCo[3], sinRiesgodem[3],sinRiesgore[3]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[sinRiesgoli[4], sinRiesgoCo[4], sinRiesgodem[4],sinRiesgore[4]]">
+                        <kendo-chart-series-item-labels position="center">
+                        </kendo-chart-series-item-labels>
+                    </kendo-chart-series-item>
+                </kendo-chart-series>
+            </kendo-chart>
+            <div style=" font-size: 17px; text-align: center; padding-top: 480px;">
+                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+            </div>
+        </div>
+    </kendo-pdf-export>
+
+</div>
+
 
 <!-- -----------------------------------------------VISUAL--------------------------------------------->
 
@@ -867,11 +884,8 @@
                 <br>
                 <div>
                     <kendo-grid [data]="sales">
-                        <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
-                            <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                             <ng-template let-column let-columnIndex="columnIndex">
-                                <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                                 {{ column.field }}({{ columnIndex }})
                             </ng-template>
                         </kendo-grid-column>
@@ -908,7 +922,6 @@
                 <br>
                 <div>
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                             </kendo-chart-category-axis-item>
@@ -931,7 +944,6 @@
                                 <kendo-chart-series-item-labels position="center">
                                 </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
-
                             <kendo-chart-series-item type="bar" color="#FC0202" [data]="[liderazgo2[4],  relaciones2[4], retroalimentacion2[4],rela_colaboradores2[4]]">
                                 <kendo-chart-series-item-labels position="center">
                                 </kendo-chart-series-item-labels>
@@ -957,11 +969,8 @@
                 <br>
                 <div>
                     <kendo-grid [data]="sales2">
-                        <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                            <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                             <ng-template let-column let-columnIndex="columnIndex">
-                                <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                                 {{ column.field }}({{ columnIndex }})
                             </ng-template>
                         </kendo-grid-column>
@@ -1003,7 +1012,6 @@
                 <br>
                 <div>
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
                             </kendo-chart-category-axis-item>
@@ -1050,11 +1058,8 @@
                 <br>
                 <div>
                     <kendo-grid [data]="sales3">
-                        <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                            <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                             <ng-template let-column let-columnIndex="columnIndex">
-                                <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                                 {{ column.field }}({{ columnIndex }})
                             </ng-template>
                         </kendo-grid-column>
@@ -1222,14 +1227,79 @@
             </div>
         </p-panel>
     </div>
-
-
-
+</fieldset>
+<br>
+<fieldset>
+    <legend><b>TOTAL DOMINIOS</b></legend>
+    <br>
+    <div *ngIf="validCTodos">
+        <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
+    </div>
+    <div *ngIf="!validCTodos">
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+    </div>
+    <br>
+    <div>
+        <p-panel header="TOTAL DOMINIOS">
+            <div>
+                <div class="example-config">
+                    <button class="k-button" (click)="pdf9.saveAs(text9)">
+                      Generar Reporte
+                    </button>
+                </div>
+                <br>
+                <div>
+                    <kendo-grid [data]="dataTotalDominios">
+                        <kendo-grid-column  field="brand" title="Nivel de riesgo" [width]="130" [locked]="false"></kendo-grid-column>
+                        <kendo-grid-column-group field="td" title="TOTAL DOMINIOS" [width]="600" [locked]="false">
+                            <kendo-grid-column field="lrst" title="Liderazgo y relaciones sociales en el trabajo (Q1)" [width]="130" [locked]="false"></kendo-grid-column>
+                            <kendo-grid-column field="cst" title="Control sobre el trabajo (Q2)" [width]="130" [locked]="false"></kendo-grid-column>
+                            <kendo-grid-column field="demanda" title="Demandas del trabajo (Q3)" [width]="130" [locked]="false"></kendo-grid-column>
+                            <kendo-grid-column field="recompensa" title="Recompensas (Q4)" [width]="130" [locked]="false"></kendo-grid-column>
+                        </kendo-grid-column-group>
+                    </kendo-grid>
+                </div>
+                <br>
+                <br>
+                <div style="text-align: center;">
+                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart-category-axis>
+                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                            </kendo-chart-category-axis-item>
+                        </kendo-chart-category-axis>
+                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                        <kendo-chart-series>
+                            <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[sinRiesgoli[0], sinRiesgoCo[0], sinRiesgodem[0],sinRiesgore[0]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[sinRiesgoli[1], sinRiesgoCo[1], sinRiesgodem[1],sinRiesgore[1]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[sinRiesgoli[2], sinRiesgoCo[2], sinRiesgodem[2],sinRiesgore[2]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[sinRiesgoli[3], sinRiesgoCo[3], sinRiesgodem[3],sinRiesgore[3]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[sinRiesgoli[4], sinRiesgoCo[4], sinRiesgodem[4],sinRiesgore[4]]">
+                                <kendo-chart-series-item-labels position="center">
+                                </kendo-chart-series-item-labels>
+                            </kendo-chart-series-item>
+                        </kendo-chart-series>
+                    </kendo-chart>
+                </div>
+            </div>
+        </p-panel>
+    </div>
 </fieldset>
 <br>
 <!-- -----------------------------------RIESGO PSICOSOCIAL  EXTRALABORAL 5--------------------------------------------->
 <fieldset>
-    <legend><b>RIESGO PSICOSOCIAL  EXTRALABORAL </b></legend>
+    <legend><b>RIESGO PSICOSOCIAL EXTRALABORAL </b></legend>
     <br>
     <div *ngIf="validCTodos">
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
@@ -1273,7 +1343,6 @@
                 <br>
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
                             </kendo-chart-category-axis-item>
@@ -1343,7 +1412,6 @@
                 <br>
                 <div style="text-align: center;">
                     <kendo-chart>
-                        <!-- <kendo-chart style="width: 80%; height: 180px; text-align: center;"> -->
                         <kendo-chart-legend position="bottom"></kendo-chart-legend>
                         <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
                         <kendo-chart-series>
@@ -1351,15 +1419,11 @@
                             </kendo-chart-series-item>
                         </kendo-chart-series>
                     </kendo-chart>
-                    <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                 </div>
             </div>
         </p-panel>
     </div>
     <br>
-
-
-
 </fieldset>
 <br>
 <!-- -----------------------------------Estres Detalles 6--------------------------------------------->
@@ -1427,16 +1491,9 @@
                                 </kendo-chart-series-item-labels>
                             </kendo-chart-series-item>
                         </kendo-chart-series>
-                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
                     </kendo-chart>
-
                 </div>
-
-
             </div>
-
-
         </p-panel>
     </div>
     <br>

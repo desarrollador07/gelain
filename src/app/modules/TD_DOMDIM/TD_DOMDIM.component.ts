@@ -45,6 +45,7 @@ export class TD_DOMDIMComponent implements OnInit {
   sales6: any[] = [];
   sales7: any[] = [];
   sales8: any[] = [];
+  dataTotalDominios: any[] = [];
   loading:boolean = true;
   es: any = {
     firstDayOfWeek: 0,
@@ -240,6 +241,7 @@ total_general2 :any[] = [];
   text6:any;
   text7:any;
   text8:any;
+  text9:any;
   fechainicial: Date;
   fechafinal: Date;
   id:any;
@@ -651,7 +653,8 @@ total_general2 :any[] = [];
         { brand: 'Riesgo alto',                      recompensas_trabajo: this.recompensas_trabajo[3], reconocimiento: this.reconocimiento[3],TotalDominio:this.sinRiesgore[3] },
         { brand: 'Riesgo muy alto',                  recompensas_trabajo: this.recompensas_trabajo[4], reconocimiento: this.reconocimiento[4],TotalDominio:this.sinRiesgore[4] },
         { brand: 'TOTAL',                            recompensas_trabajo: this.recompensas_trabajo2[5],reconocimiento: this.reconocimiento2[5],TotalDominio:this.sinRiesgo2re[0] },
-    ];
+      ];
+      
       
     
   }
@@ -751,6 +754,19 @@ total_general2 :any[] = [];
       default:
         break;
     }
+  }
+
+  totalDominios(){
+    this.dataTotalDominios = [];
+    this.dataTotalDominios = [
+      { brand: 'Sin riesgo o riesgo despreciable', lrst: this.sinRiesgoli[0], cst: this.sinRiesgoCo[0], demanda: this.sinRiesgodem[0],recompensa:this.sinRiesgore[0] },
+      { brand: 'Riesgo bajo',                      lrst: this.sinRiesgoli[1], cst: this.sinRiesgoCo[1], demanda: this.sinRiesgodem[1],recompensa:this.sinRiesgore[1] },
+      { brand: 'Riesgo medio',                     lrst: this.sinRiesgoli[2], cst: this.sinRiesgoCo[2], demanda: this.sinRiesgodem[2],recompensa:this.sinRiesgore[2] },
+      { brand: 'Riesgo alto',                      lrst: this.sinRiesgoli[3], cst: this.sinRiesgoCo[3], demanda: this.sinRiesgodem[3],recompensa:this.sinRiesgore[3] },
+      { brand: 'Riesgo muy alto',                  lrst: this.sinRiesgoli[4], cst: this.sinRiesgoCo[4], demanda: this.sinRiesgodem[4],recompensa:this.sinRiesgore[4] },
+      { brand: 'TOTAL',                  lrst: this.sinRiesgo2li[0], cst: this.sinRiesgo2co[0], demanda: this.sinRiesgo2dem[0],recompensa:this.sinRiesgo2re[0] },
+    ]
+    
   }
 
   PsicoExtra(data){
@@ -1154,6 +1170,7 @@ total_general2 :any[] = [];
         await this.fnBuscarCatalogosPsicoEstresDetalles(this.id);
         await this.fnBuscarCatalogosTotal(this.id);
         await this.metodo(this.id);
+        this.totalDominios();
       }
 
       if(sessionStorage.getItem('idEmpresa') === null){
@@ -1182,6 +1199,7 @@ total_general2 :any[] = [];
     this.text6 = "Estres_"+this.fecha;
     this.text7 = "ESTRES_DETALLES_"+this.fecha;
     this.text8 = "TOTALES_GENERALES_"+this.fecha;
+    this.text9 = "TOTAL_DOMINIOS_"+this.fecha;
   }
 
   // --------------------------------------------------------- METODOS DE CONSULTA POR FECHA --------------------------------------
