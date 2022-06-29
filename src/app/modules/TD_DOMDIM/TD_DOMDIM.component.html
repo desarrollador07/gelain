@@ -9,14 +9,6 @@
     <fieldset>
         <legend><b>Búsqueda Por Fecha</b></legend>
         <div class="ui-g">
-            <!-- <div class="ui-grid-col-4" style="text-align: center;">
-                <div id="search-wrapperTercero">
-                    <input type="search" id="searchTercero" (keyup.enter)="getEmpleadoByFiltro()" [(ngModel)]="buscarData" pInputText placeholder="Digite el dato a buscar">
-                    <p-dropdown id="searchDropdown" [options]="tipoSelect" [(ngModel)]="selectBuscar"></p-dropdown>
-                    <i class="pi pi-search"></i>
-                </div>
-            </div>
-            <div class="ui-grid-col-2"></div> -->
             <div class="ui-g-12 ui-md-12 ui-lg-2"></div>
             <div class="ui-g-4 ui-md-4 ui-lg-1" style="margin-top:10px">
                 <div style="text-align: right;">
@@ -794,7 +786,7 @@
         <br>
         <br>
         <div style="text-align: center;">
-            <!-- <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
                     </kendo-chart-category-axis-item>
@@ -821,7 +813,7 @@
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
-            </kendo-chart> -->
+            </kendo-chart> 
             <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
@@ -856,7 +848,6 @@
             </div>
         </div>
     </kendo-pdf-export>
-
 </div>
 
 
@@ -1116,7 +1107,6 @@
                 <br>
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
                             </kendo-chart-category-axis-item>
@@ -1162,11 +1152,8 @@
                 <br>
                 <div>
                     <kendo-grid [data]="sales4">
-                        <!-- <kendo-grid [data]="sales4" scrollable="scrollable"> -->
                         <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                            <!-- <kendo-grid-column field="ProductName" title="Nivel de riesgo" [width]="300" [locked]="true"> -->
                             <ng-template let-column let-columnIndex="columnIndex">
-                                <!-- <ng-template kendoGridFooterTemplate let-column let-columnIndex="columnIndex"> -->
                                 {{ column.field }}({{ columnIndex }})
                             </ng-template>
                         </kendo-grid-column>
@@ -1193,8 +1180,6 @@
                 <br>
                 <div style="text-align: center;">
                     <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <!-- <kendo-chart-title text="LIDERAZGO Y RELACIONES SOCIALES"></kendo-chart-title> -->
-
                         <kendo-chart-category-axis>
                             <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
                             </kendo-chart-category-axis-item>
@@ -1376,8 +1361,6 @@
         </p-panel>
     </div>
     <br>
-
-
 </fieldset>
 <br>
 <!-- -----------------------------------Estres 7--------------------------------------------->
