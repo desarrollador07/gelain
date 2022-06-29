@@ -786,34 +786,6 @@
         <br>
         <br>
         <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
-                <kendo-chart-category-axis>
-                    <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
-                    </kendo-chart-category-axis-item>
-                </kendo-chart-category-axis>
-                <kendo-chart-series>
-                    <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
-                        <kendo-chart-series-item-labels position="center">
-                        </kendo-chart-series-item-labels>
-                    </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#97C015" type="bar" [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
-                        <kendo-chart-series-item-labels position="center">
-                        </kendo-chart-series-item-labels>
-                    </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#F0F012" type="bar" [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
-                        <kendo-chart-series-item-labels position="center">
-                        </kendo-chart-series-item-labels>
-                    </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#F07712" type="bar" [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
-                        <kendo-chart-series-item-labels position="center">
-                        </kendo-chart-series-item-labels>
-                    </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#FC0202" type="bar" [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
-                        <kendo-chart-series-item-labels position="center">
-                        </kendo-chart-series-item-labels>
-                    </kendo-chart-series-item>
-                </kendo-chart-series>
-            </kendo-chart> 
             <kendo-chart style="width: 80%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
@@ -849,7 +821,6 @@
         </div>
     </kendo-pdf-export>
 </div>
-
 
 <!-- -----------------------------------------------VISUAL--------------------------------------------->
 
