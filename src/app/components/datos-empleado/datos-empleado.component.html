@@ -10,6 +10,15 @@
             <b><label for="float-input" style="font-size: 15px;" style="font-size: 15px;">Nombre: {{nombre | titlecase}}</label></b>
         </div>
     </div>
+    <div class="ui-g" *ngIf="imgValid">
+        <div class="ui-g-12 ui-md-12 ui-lg-2"></div>
+        <div class="ui-g-12 ui-md-12 ui-lg-8">
+            <div style="text-align: center;">
+                <img  [src]="dataImagen" alt="" height="150px" width="90%">
+            </div>
+        </div>
+        <div class="ui-g-12 ui-md-12 ui-lg-2"></div>
+    </div>
 </fieldset>
 <br>
 

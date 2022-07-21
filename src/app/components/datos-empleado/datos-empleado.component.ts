@@ -11,6 +11,9 @@ export class DatosEmpleadoComponent implements OnInit {
   @Input() nombre:string;
   @Input() backColor:string;
   @Input() colorLetra:string;
+  @Input() imgValid:boolean;
+  @Input() dataImagen:string;
+
   backSolidBorder:string;
 
   constructor() { }
