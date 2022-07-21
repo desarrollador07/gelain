@@ -113,5 +113,7 @@ export interface ValorFisico{
     vaf_fantastico_total?:number,
     vafAF_p01?:number,
     vafAF_p02?:number,
-    vaf_fecha_creacion?:Date
+    vaf_fecha_creacion?:Date,
+    nombreEmp?:string,
+    nombreArea?:string,
 }

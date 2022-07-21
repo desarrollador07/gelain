@@ -93,7 +93,6 @@ export class FormValorFisicoComponent implements OnInit {
     
     
     if(this.localPrueba !== null){
-
       this.validEstado(this.localPrueba.vaf_fantastico_total);
 
       if(this.localPrueba.vafcancer_var === '.'){
@@ -254,7 +253,6 @@ export class FormValorFisicoComponent implements OnInit {
         vafAF_p02: this.localPrueba.vafAF_p02
 
       });
-      console.log(this.localPrueba);
       
       this.changeSexo();
       this.validCardioRes();

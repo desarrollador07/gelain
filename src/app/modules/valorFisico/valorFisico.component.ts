@@ -10,6 +10,10 @@ import { MessageService, ConfirmationService, Message } from 'primeng/api';
 /*Servicios */
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
 import { ValidacionService } from 'src/app/services/validacion.service';
+import { Empresa } from 'src/app/models/empresa.model';
+import { EmpresaService } from 'src/app/services/empresa.service';
+import { AreasService } from 'src/app/services/areas.service';
+import { Area } from 'src/app/models/area.model';
 
 
 @Component({
@@ -50,8 +54,13 @@ export class ValorfisicoComponent implements OnInit {
   buscarData:string = '';
   selectBuscar:any = 1;
   id:any;
+  empresas: Empresa[] = [];
+  areasData: Area[] = [];
+  
   constructor(private vfService: ValoracionFisicaService,
+              private empresaServices:EmpresaService,
               private _messageService: MessageService,
+              private areasServices: AreasService,
               private _confirmationServices: ConfirmationService,
               private validacionService: ValidacionService,
               private datepipe: DatePipe,
@@ -99,6 +108,18 @@ export class ValorfisicoComponent implements OnInit {
         this.store.dispatch(
           valoraFisicaAction.addValoFisicas({ list: data })
         );
+        this.vfData.map(res=>{
+          this.empresas.map(x=>{
+            if (res.vafidempresa === x.empid) {
+              res.nombreEmp = x.empnombre;
+            }
+          });
+          this.areasData.map(x=>{
+            if (res.vafidarea === x.areid) {
+              res.nombreArea = x.arenombre;
+            }
+          });
+        });
       }
       this.loading = false;
     });
@@ -127,7 +148,8 @@ export class ValorfisicoComponent implements OnInit {
     this.fechafinal = new Date();
   }
 
-  consultaStore(){
+  async consultaStore(){
+    
     this.store.select('empresas').subscribe(async res=>{
 
       if (res.empresa !== undefined) {
@@ -137,6 +159,8 @@ export class ValorfisicoComponent implements OnInit {
       }
       if (this.id !== undefined && this.id !== null) {
         this.limpiarData();
+        await this.consultEmpresa();
+        await this.consultArea(this.id);
         this.validEmp = false;
         await this.indexData(this.id);
       }
@@ -235,6 +259,72 @@ export class ValorfisicoComponent implements OnInit {
 
   limpiarData(){
     this.msgs = [];
+    this.empresas = [];
+    this.areasData = [];
+    this.vfData = [];
+  }
+
+  exportExcel() {
+    import("xlsx").then(xlsx => {
+        const worksheet = xlsx.utils.json_to_sheet(this.orgDataExcel());
+        const workbook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+        const excelBuffer: any = xlsx.write(workbook, { bookType: 'xlsx', type: 'array' });
+        this.saveAsExcelFile(excelBuffer,`VF_${this.datepipe.transform(this.fechafinal, "yyyy-MM-dd")}`);
+    });
+  }
+
+  orgDataExcel(){
+    let arrTemp :any;
+    
+    arrTemp = this.vfData.map( item => { 
+      switch (item.vafsexo) {
+        case 'F':
+          item.vafsexo = 'Femenino';
+          break;
+        case 'M':
+          item.vafsexo = 'Masculino';
+          break;
+      }
+      return {
+        'CEDULA': item.vafcedula,
+        'NOMBRE': item.vafidnombre.toUpperCase(),
+        'SEXO': item.vafsexo,
+        'EDAD': item.vafedad,
+        'FECHA NACIMIENTO': item.vaffecha,
+        'GRUPO SANGUINEO': item.vafgruposanguineo,
+        'CIUDAD': item.vafciudad.toUpperCase(),
+        'CORREO': item.vafcorreo,
+        'TELEFONO': item.vaftelefono,
+        'EMPRESA': item.nombreEmp,
+        'NOMBRE CARGO': item.vafcargo.toUpperCase(),
+        'SEDE': item.vafsede.toUpperCase(),
+        'ÁREA': item.nombreArea
+      }; 
+    });  
+    return arrTemp;
+  }
+
+  saveAsExcelFile(buffer: any, fileName: string): void {
+    import("file-saver").then(FileSaver => {
+        let EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+        let EXCEL_EXTENSION = '.xlsx';
+        const data: Blob = new Blob([buffer], {
+            type: EXCEL_TYPE
+        });
+        FileSaver.saveAs(data, fileName  + EXCEL_EXTENSION);
+    });
+    this.makeRowsSameHeight();
+  }
+
+  async consultArea(id:number){
+    await this.areasServices.buscarByArea(id).toPromise().then((data: any)=>{
+      this.areasData = data;
+    });
+  }
+  async consultEmpresa(){
+    await this.empresaServices.getEmpresa().toPromise().then((data:any)=>{
+      this.empresas = data;
+    });
   }
 
 }

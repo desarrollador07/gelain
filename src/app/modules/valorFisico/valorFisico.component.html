@@ -66,6 +66,11 @@
     <p-panel header="VALORACIÓN DE LA CONDICIÓN FÍSICA">
         <p-table #dt [value]="vfData" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="300px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['vafcedula','vafidnombre','vafpeso','vaftalla','vafimc','vafperimetro','vaf_fecha_creacion']"
             [rows]="10" [paginator]="true" [rowHover]="true">
+            <ng-template pTemplate="caption">
+                <div class="ui-helper-clearfix" style="text-align: left">
+                    <button type="button" pButton icon="pi pi-download" iconPos="left" label="EXCEL" (click)="exportExcel()" style="margin-right: 0.5em;" class="ui-button-success"></button>
+                </div>
+            </ng-template>
             <ng-template pTemplate="frozencolgroup">
                 <colgroup>
                     <col style="width:120px;">
