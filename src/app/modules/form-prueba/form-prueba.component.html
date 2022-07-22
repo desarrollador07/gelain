@@ -1,5 +1,4 @@
 <p-toast></p-toast>
-<p-toast position="top-left" key="tl"></p-toast>
 <p-confirmDialog #cd header="Confirmation" icon="pi pi-exclamation-triangle">
     <p-footer>
         <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
@@ -8,7 +7,6 @@
 </p-confirmDialog>
 
 
-<p-toast></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
     <p-panel header="NUEVA EMPRESA">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">

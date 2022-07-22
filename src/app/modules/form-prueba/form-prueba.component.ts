@@ -55,7 +55,7 @@ export class FormPruebaComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+     
     sessionStorage.removeItem('IdEmpleado');
     let today = new Date();
     this.localIDEmp =JSON.parse(sessionStorage.getItem('Idempres'));
@@ -208,7 +208,7 @@ export class FormPruebaComponent implements OnInit {
         this.areasServices.createArea(this.userformArea.value)
         .subscribe((data=>{
           console.log(data);
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Creado', life: 3000})
           this.userformArea.reset();
           this.indexData();
           
@@ -216,7 +216,7 @@ export class FormPruebaComponent implements OnInit {
       
       
     }else{
-      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
+      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'Surgio un error inesperado', life: 3000})
       this.userform.reset();
       this.router.navigate(["/main/listarPrueba"]);
       
@@ -240,18 +240,39 @@ export class FormPruebaComponent implements OnInit {
     }
   }
 
-  deletePrueba(prueba: Area) {
+  async deletePrueba(objArea: Area) {
 
     this._confirmationServices.confirm({
-      message: '¿Seguro que desea eliminar este elemento?',
+      message: '¿Seguro que desea eliminar esta área?',
       header:'confirmacion',
       icon:'pi pi-exclamation-triangle',
-      accept:() => {
-        this.areasServices.deleteArea(prueba)
-        .toPromise().then(data => {
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento eliminado', life: 3000})
-          this.indexData();
+      accept: async () => {
+        let arrTemp:any [] = [];
+        await this.areasServices.buscarByAreaEmp(objArea.areempresa,objArea.areid).toPromise().then((res:any) => {
+          res.map((data:any) => {
+            arrTemp.push(data);
+          })
         });
+        await this.areasServices.buscarByAreaVR(objArea.areempresa,objArea.areid).toPromise().then((res:any) => {
+          res.map((data:any) => {
+            arrTemp.push(data);
+          })
+        });
+        await this.areasServices.buscarByAreaVF(objArea.areempresa,objArea.areid).toPromise().then((res:any) => {
+          res.map((data:any) => {
+            arrTemp.push(data);
+          })
+        });
+
+        if (arrTemp.length > 0) {
+          this._messageService.add({severity: 'warn',summary: 'Advertencia',detail: 'El área ha eliminar tiene elementos relacionados, no podra continuar con esta operación.', life: 6000})
+        }else{
+          this.areasServices.deleteArea(objArea).toPromise().then(data => {
+            this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Eiminado', life: 3000})
+            this.indexData();
+          });
+        }
+        
       }
     });
   }

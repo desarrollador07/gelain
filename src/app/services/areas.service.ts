@@ -15,6 +15,9 @@ export class AreasService {
   Url4pa = `${this.apiUrl}/lv/public/deleteArea`;
   Url5pa = `${this.apiUrl}/lv/public/getideArea`;
   Url6pa = `${this.apiUrl}/lv/public/getideAreaUnica`;
+  Url7pa = `${this.apiUrl}/lv/public/getidAreaEmp`;
+  Url8pa = `${this.apiUrl}/lv/public/getidAreaVR`;
+  Url9pa = `${this.apiUrl}/lv/public/getidAreaVF`;
   
   constructor(private http: HttpClient) { }
   
@@ -37,6 +40,18 @@ export class AreasService {
 
  buscarByArea(id:number){
     return this.http.get(this.Url5pa + "/" + id);
+  }
+
+  buscarByAreaEmp(idEmp:number,idArea:number){
+    return this.http.get(this.Url7pa +`/${idEmp}/${idArea}`);
+  }
+
+  buscarByAreaVR(idEmp:number,idArea:number){
+    return this.http.get(this.Url8pa +`/${idEmp}/${idArea}`);
+  }
+
+  buscarByAreaVF(idEmp:number,idArea:number){
+    return this.http.get(this.Url9pa +`/${idEmp}/${idArea}`);
   }
 
   buscarByAreaExpecifica(idE:number,id:number){
