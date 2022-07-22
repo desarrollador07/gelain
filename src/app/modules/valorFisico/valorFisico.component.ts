@@ -275,9 +275,11 @@ export class ValorfisicoComponent implements OnInit {
 
   orgDataExcel(){
     let arrTemp :any;
-    
+    let fechaN:any;
+    let fechaC:any;
     arrTemp = this.vfData.map( item => { 
-      
+      fechaN = this.datepipe.transform(item.vaffecha, "yyyy-MM-dd h:mm:ss a");
+      fechaC = this.datepipe.transform(item.vaf_fecha_creacion, "yyyy-MM-dd h:mm:ss a");
       for (const key in item) {
         
         switch (key) {
@@ -476,7 +478,7 @@ export class ValorfisicoComponent implements OnInit {
         'NOMBRE': item.vafidnombre.toUpperCase(),
         'SEXO': item.asigSexo,
         'EDAD': item.vafedad,
-        'FECHA NACIMIENTO': item.vaffecha,
+        'FECHA NACIMIENTO': fechaN,
         'GRUPO SANGUINEO': item.vafgruposanguineo,
         'CIUDAD': item.vafciudad.toUpperCase(),
         'CORREO': item.vafcorreo,
@@ -584,6 +586,7 @@ export class ValorfisicoComponent implements OnInit {
         'TAEVF - O P3': item.potrasdp03_opc,
         'TAEVF - O PUNTAJE': item.vaf_otrasd_num,
         'TAEVF - PUNTAJE TOTAL': item.vaf_fantastico_total,
+        'FECHA CREACIÓN': fechaC,
 
       }; 
     });  
