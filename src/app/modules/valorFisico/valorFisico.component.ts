@@ -278,10 +278,9 @@ export class ValorfisicoComponent implements OnInit {
     let fechaN:any;
     let fechaC:any;
     arrTemp = this.vfData.map( item => { 
-      fechaN = this.datepipe.transform(item.vaffecha, "yyyy-MM-dd h:mm:ss a");
+      fechaN = this.datepipe.transform(item.vaffecha, "yyyy-MM-dd");
       fechaC = this.datepipe.transform(item.vaf_fecha_creacion, "yyyy-MM-dd h:mm:ss a");
       for (const key in item) {
-        
         switch (key) {
           case 'vafsexo':
               item.asigSexo = this.asignarValorSexo(item[key]);
