@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Validators,FormGroup,FormBuilder } from '@angular/forms';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { Router } from '@angular/router';
 /*Modulos */
 import { MessageService, SelectItem } from 'primeng/api';
@@ -75,6 +75,7 @@ export class FormValorFisicoComponent implements OnInit {
 
   constructor(private areasServices: AreasService,
               private empresaServices: EmpresaService,
+              private _location: Location,
               private vfService: ValoracionFisicaService,
               private fb: FormBuilder,
               private router: Router,
@@ -253,7 +254,7 @@ export class FormValorFisicoComponent implements OnInit {
         vafAF_p02: this.localPrueba.vafAF_p02
 
       });
-      
+      this.fnSumatoriaTotal();
       this.changeSexo();
       this.validCardioRes();
       // this.validEstado(this.userform.value.vaf_fantastico_total);
@@ -1592,7 +1593,7 @@ export class FormValorFisicoComponent implements OnInit {
 
   this.selectvafc10.push( { label: 'Seleccione una opción', value: ''},
                           { label: 'Nunca.', value: 2 },
-                          { label: 'Solo  rara vez.', value: 1 },
+                          { label: 'Solo rara vez.', value: 1 },
                           { label: 'A menudo.', value: 0 });
 
   this.selectvafc11.push( { label: 'Seleccione una opción', value: ''},
@@ -1600,10 +1601,10 @@ export class FormValorFisicoComponent implements OnInit {
                           { label: 'Algunas veces.', value: 1 },
                           { label: 'A menudo.', value: 0 });
 
-  this.selectvafc12.push( { label: 'Seleccione una opción', value: ''},
-                          { label: 'Siempre.', value: 2 },
-                          { label: 'A veces.', value: 1 },
-                          { label: 'A menudo.', value: 0 });
+  // this.selectvafc12.push( { label: 'Seleccione una opción', value: ''},
+  //                         { label: 'Siempre.', value: 2 },
+  //                         { label: 'A veces.', value: 1 },
+  //                         { label: 'A menudo.', value: 0 });
 
   this.selectvafc13.push( { label: 'Seleccione una opción', value: ''},
                           { label: 'Menos de 3 por día.', value: 2 },
@@ -1620,7 +1621,7 @@ export class FormValorFisicoComponent implements OnInit {
                           { label: 'Casi siempre.', value: 2 },
                           { label: 'A veces.', value: 1 },
                           { label: 'Casi nunca.', value: 0 },
-                          { label: 'No Aplica.', value: 2 });
+                          { label: 'No Aplica.', value: 2 });//Se dejo con 2 para no afectar la puntación del usuario, y no aplica para los que tienen moto
 
   this.selectvafc16.push({ label: 'Seleccione una opción', value: ''},
                          { label: 'No.', value: 0 },
@@ -1668,5 +1669,9 @@ export class FormValorFisicoComponent implements OnInit {
     } else {
         this.imgvalidator = true;
     }  
+  }
+
+  backClicked() {
+    this._location.back();
   }
 }
