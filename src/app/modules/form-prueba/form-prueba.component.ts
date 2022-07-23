@@ -42,6 +42,7 @@ export class FormPruebaComponent implements OnInit {
   linkformulario:any;
   linkformulario2:any;
   base_Url:string = environment.localUrl;
+  clonedAreas: { [s: string]: Area; } = {};
  
   constructor(
               private empresaServices: EmpresaService,
@@ -57,7 +58,6 @@ export class FormPruebaComponent implements OnInit {
   ngOnInit() {
      
     sessionStorage.removeItem('IdEmpleado');
-    let today = new Date();
     this.localIDEmp =JSON.parse(sessionStorage.getItem('Idempres'));
     this.linkformulario = `${this.base_Url}terminos-condiciones/${this.localIDEmp}`;
     this.linkformulario2 = `${this.base_Url}consentimiento-vf/${this.localIDEmp}`;
@@ -74,7 +74,6 @@ export class FormPruebaComponent implements OnInit {
 
     this.localPruebaA =JSON.parse(sessionStorage.getItem('pruebaArea'));
     this.localPrueba =JSON.parse(sessionStorage.getItem('prueba'));
-    //console.log('f',this.localPrueba);
 
     this.userform = this.fb.group({
       empid:[''],
@@ -94,7 +93,7 @@ export class FormPruebaComponent implements OnInit {
       areid:[''],
       areempresa: [''],
       arenombre: ['', Validators.required],
-      arefechaini: [today],
+      arefechaini: [''],
       areactivo: ['1'],
     });
 
@@ -205,9 +204,11 @@ export class FormPruebaComponent implements OnInit {
     if(this.userformArea.valid){
 
         this.userformArea.value.areempresa = this.localIDEmp2;
+        this.userformArea.value.areactivo = '1';
+        
+        
         this.areasServices.createArea(this.userformArea.value)
         .subscribe((data=>{
-          console.log(data);
           this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Creado', life: 3000})
           this.userformArea.reset();
           this.indexData();
@@ -244,7 +245,7 @@ export class FormPruebaComponent implements OnInit {
 
     this._confirmationServices.confirm({
       message: '¿Seguro que desea eliminar esta área?',
-      header:'confirmacion',
+      header:'Confirmación',
       icon:'pi pi-exclamation-triangle',
       accept: async () => {
         let arrTemp:any [] = [];
@@ -307,5 +308,32 @@ export class FormPruebaComponent implements OnInit {
     this._messageService.add({severity: 'info',summary: 'Informativo',detail: 'Link Copiado', life: 3000});
   } 
 
+  onRowEditInit(area: Area) {
+    this.clonedAreas[area.areid] = {...area};
+  }
+
+  async onRowEditSave(area: Area) {
+      if (area.arenombre.length > 0) {
+        await this.areasServices.editArea(area,area.areid).toPromise().then(res => {
+          if (res) {
+            delete this.clonedAreas[area.areid];
+            this._messageService.add({severity:'success', summary: 'Exitoso', detail:'Área actualizada'});
+          }else{
+            this._messageService.add({severity:'error', summary: 'Fallo', detail:'Surgio un error inesperado al actualizar el área'});
+          }
+        },err => {
+          console.log(err);
+          this._messageService.add({severity:'error', summary: 'Fallo', detail:'Surgio un error inesperado al actualizar el área'});
+        })
+
+      }else {
+          this._messageService.add({severity:'error', summary: 'Error', detail:'El nombre del área es requerida'});
+      }
+  }
+
+  onRowEditCancel(area: Area, index: number) {
+      this.pruebas[index] = this.clonedAreas[area.areid];
+      delete this.clonedAreas[area.areid];
+  }
 
 }

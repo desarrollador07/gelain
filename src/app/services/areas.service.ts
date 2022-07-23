@@ -18,6 +18,7 @@ export class AreasService {
   Url7pa = `${this.apiUrl}/lv/public/getidAreaEmp`;
   Url8pa = `${this.apiUrl}/lv/public/getidAreaVR`;
   Url9pa = `${this.apiUrl}/lv/public/getidAreaVF`;
+  Url10pa = `${this.apiUrl}/lv/public/editArea`;
   
   constructor(private http: HttpClient) { }
   
@@ -56,5 +57,9 @@ export class AreasService {
 
   buscarByAreaExpecifica(idE:number,id:number){
     return this.http.get(this.Url6pa + "/" + idE+"/"+id);
+  }
+
+  editArea(area: Area,id:number){
+    return this.http.put<Area>(this.Url10pa + "/" + id,area);
   }
 }
