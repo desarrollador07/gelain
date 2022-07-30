@@ -1,3 +1,8 @@
+# PARA CORRER LA APP
+si llega a salir el error "ERROR in node_modules/exceljs/index.d.ts(1511,41): error TS2694: Namespace 'NodeJS' has no exported member 'TypedArray'." 
+
+Es necesario eliminar la entrada del TypedArray de la linea en cuestion, el resultado deberia ser = 'Buffer  | DataView | ArrayBuffer;'
+
 # Ecuador
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.2.
