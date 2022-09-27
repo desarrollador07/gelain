@@ -139,8 +139,6 @@ export class FormContactosComponent implements OnInit {
     return this.userform.get('concorreo').invalid
   }
   get conatendioMarca(){
-    console.log(this.userform.get('conatendio').invalid);
-    
     return this.userform.get('conatendio').invalid
   }
   get conestadoMarca(){

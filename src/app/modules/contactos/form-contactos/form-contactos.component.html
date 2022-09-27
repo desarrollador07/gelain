@@ -30,7 +30,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="connombre" maxlength="60"  formControlName="connombre" type="text" pInputText> 
+                            <input  [class.is-invalid]="conNombre" maxlength="60"  formControlName="connombre" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nombre 
                                 <label style="color: red;" *ngIf="connombreMarca" ><strong>*</strong></label></label>
                         </span>
@@ -39,7 +39,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="contelefono" maxlength="60"  formControlName="contelefono" type="text" pInputText> 
+                            <input  [class.is-invalid]="conTelefono" maxlength="60"  formControlName="contelefono" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Teléfono  
                                 <label style="color: red;" *ngIf="contelefonoMarca" ><strong>*</strong></label></label>
                         </span>
@@ -50,7 +50,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="condireccion" maxlength="60"   formControlName="condireccion" type="text" pInputText> 
+                            <input  [class.is-invalid]="conDireccion" maxlength="60"   formControlName="condireccion" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Dirección
                                 <label style="color: red;" *ngIf="condireccionMarca" ><strong>*</strong></label></label>
                         </span>
@@ -62,7 +62,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
                         <span class="ui-float-label">
-                            <input   [class.is-invalid]="concorreo" maxlength="60" formControlName="concorreo" type="text" pInputText> 
+                            <input   [class.is-invalid]="conCorreo" maxlength="60" formControlName="concorreo" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Email
                                 <label style="color: red;" *ngIf="concorreoMarca" ><strong>*</strong></label></label>
                         </span>
@@ -71,7 +71,7 @@
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
                         <span class="ui-float-label">
-                            <input  [class.is-invalid]="conatendio" maxlength="60"  formControlName="conatendio" type="text" pInputText> 
+                            <input  [class.is-invalid]="conAtendio" maxlength="60"  formControlName="conatendio" type="text" pInputText> 
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Atendido por
                                 <label style="color: red;" *ngIf="conatendioMarca" ><strong>*</strong></label></label>
                         </span>
@@ -81,16 +81,15 @@
                     <div class="ui-g-12 ui-md-4 ui-lg-3">
                         Estados<label style="color: red;" *ngIf="conestadoMarca" ><strong>*</strong></label> :
                         <span class="ui-float-label">
-                            <p-dropdown [class.is-invalid]="conestado"  [options]="estado" formControlName="conestado" [showClear]="true" placeholder="Seleccione una opción"></p-dropdown>
+                            <p-dropdown [class.is-invalid]="conEstado"  [options]="estado" formControlName="conestado" [showClear]="true" placeholder="Seleccione una opción"></p-dropdown>
                         </span>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="conEstado"></p-message>
                     </div>
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        Fecha creación (AAAA-MM-DD) <label style="color: red;" *ngIf="confechaMarca" ><strong>*</strong></label> :
+                        Fecha creación (AAAA-MM-DD)
                         <p-calendar formControlName="confecha" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechainicio"></p-calendar>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="confecha"></p-message>
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
@@ -109,7 +108,8 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <fieldset>
-                        <legend><b>NOTA</b></legend>
+                        <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nota
+                            <label style="color: red;" *ngIf="connotaMarca" ><strong>*</strong></label></label>
                         <textarea rows="5" cols="200" formControlName="connota" maxlength="512" pInputTextarea></textarea>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="conNota"></p-message>
                     </fieldset>
