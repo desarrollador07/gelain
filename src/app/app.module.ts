@@ -244,7 +244,7 @@ import { VideoInfoModule } from './components/video-info/video-info.module';
         TerminosCondicionesComponent,
         ReporteAreasComponent,
         TerminosCondicionesVfComponent,
-        GraficaVfComponent
+        GraficaVfComponent,
   
     ],
     providers: [DatePipe,

@@ -44,6 +44,11 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                         icon:'fa fa-fw fa-user',
                         routerLink: ["usuarios"]  
                     },
+                    {
+                        label:'Contactos',
+                        icon:'fa fa-address-book',
+                        routerLink: ["contactos"]  
+                    },
 
                 ] 
                 

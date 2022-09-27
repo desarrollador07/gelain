@@ -93,6 +93,13 @@ export const routes: Routes = [
                 ),
             },
             {
+                path: "contactos",
+                loadChildren: () =>
+                import('./modules/contactos/table-contactos/table-contactos.module').then(
+                    (m) => m.TableContactosModule
+                ),
+            },
+            {
                 path: "listarEmpresa",
                 loadChildren: () =>
                 import('./modules/prueba/prueba.module').then(
