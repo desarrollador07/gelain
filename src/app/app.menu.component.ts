@@ -91,29 +91,29 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                 ] 
                 
             },
-            {
-                label: 'Valoración Física', 
-                icon: 'pi fa-fw pi-list', 
-                items:[
-                    {
-                        label: 'Valoración C.Física', 
-                        icon: 'fa fa-fw fa-heartbeat', 
-                        routerLink: ['ValorFisico'] 
-                    },
-                    {
-                        label: 'Reportes', 
-                        icon: 'pi fa-fw pi-angle-right',
-                        items:[
-                            {
-                                label: 'Informe Valoración Física', 
-                                icon: 'pi pi-circle-on',
-                                routerLink: ['grafica-vf'],
-                            },
-                        ]
-                    }
+            // {
+            //     label: 'Valoración Física', 
+            //     icon: 'pi fa-fw pi-list', 
+            //     items:[
+            //         {
+            //             label: 'Valoración C.Física', 
+            //             icon: 'fa fa-fw fa-heartbeat', 
+            //             routerLink: ['ValorFisico'] 
+            //         },
+            //         {
+            //             label: 'Reportes', 
+            //             icon: 'pi fa-fw pi-angle-right',
+            //             items:[
+            //                 {
+            //                     label: 'Informe Valoración Física', 
+            //                     icon: 'pi pi-circle-on',
+            //                     routerLink: ['grafica-vf'],
+            //                 },
+            //             ]
+            //         }
                     
-                ],
-            },
+            //     ],
+            // },
             {
                 label: 'Valoración Riesgos', 
                 icon: 'pi fa-fw pi-list', 

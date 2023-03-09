@@ -210,20 +210,20 @@ export const routes: Routes = [
                         (m) => m.ReporteDetalladoModule
                     ),
             },
-            {
-                path: "ValorFisico",
-                loadChildren: () =>
-                    import("./modules/valorFisico/valorFisico.module").then(
-                        (m) => m.ValorFisicoModule
-                    ),
-            },
-            {
-                path: "FormValorFisico",
-                loadChildren: () =>
-                    import("./modules/Form-valorFisico/formValorFisico.module").then(
-                        (m) => m.FormValorFisicoModule
-                    ),
-            },
+            // {
+            //     path: "ValorFisico",
+            //     loadChildren: () =>
+            //         import("./modules/valorFisico/valorFisico.module").then(
+            //             (m) => m.ValorFisicoModule
+            //         ),
+            // },
+            // {
+            //     path: "FormValorFisico",
+            //     loadChildren: () =>
+            //         import("./modules/Form-valorFisico/formValorFisico.module").then(
+            //             (m) => m.FormValorFisicoModule
+            //         ),
+            // },
             {
                 path: "valor-riesgo",
                 loadChildren: () =>
