@@ -19,17 +19,17 @@ export const routes: Routes = [
         path: "terminos-condiciones/:id",
         component:TerminosCondicionesComponent
     },
-    {
-        path: "consentimiento-vf/:id",
-        component:TerminosCondicionesVfComponent
-    },
-    {
-        path: "exform-vf",
-        loadChildren: () =>
-            import("./modules/exform-vf/exform-vf.module").then(
-                (m) => m.ExformVfModule
-            ),
-    }, 
+    // {
+    //     path: "consentimiento-vf/:id",
+    //     component:TerminosCondicionesVfComponent
+    // },
+    // {
+    //     path: "exform-vf",
+    //     loadChildren: () =>
+    //         import("./modules/exform-vf/exform-vf.module").then(
+    //             (m) => m.ExformVfModule
+    //         ),
+    // }, 
     {
         path: "FormularioEmpleado",
         loadChildren: () =>
@@ -231,10 +231,10 @@ export const routes: Routes = [
                         (m) => m.ValorRiesgoModule
                     ),
             },
-            {
-                path: "grafica-vf",
-                component: GraficaVfComponent
-            },
+            // {
+            //     path: "grafica-vf",
+            //     component: GraficaVfComponent
+            // },
 
             
         ]
