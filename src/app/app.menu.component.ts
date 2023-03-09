@@ -114,17 +114,17 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                     
                 ],
             },
-            {
-                label: 'Valoración Riesgos', 
-                icon: 'pi fa-fw pi-list', 
-                items:[
-                    {
-                        label: 'Identificación de Peligros', 
-                        icon: 'pi pi-exclamation-triangle', 
-                        routerLink: ['valor-riesgo'] 
-                    }   
-                ],
-            },
+            // {
+            //     label: 'Valoración Riesgos', 
+            //     icon: 'pi fa-fw pi-list', 
+            //     items:[
+            //         {
+            //             label: 'Identificación de Peligros', 
+            //             icon: 'pi pi-exclamation-triangle', 
+            //             routerLink: ['valor-riesgo'] 
+            //         }   
+            //     ],
+            // },
            
             
  
