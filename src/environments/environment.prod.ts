@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  urlGlobal:'https://gelainbienestarlaboral.com/GELAIN',
-  localUrl:'https://gelainbienestarlaboral.com/GELAIN/ng/#/'
+  urlGlobal:'https://afiintegral.com.co/afi',
+  localUrl:'https://afiintegral.com.co/afi/ng/#/'
 };

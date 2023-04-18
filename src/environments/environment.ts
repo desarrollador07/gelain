@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  urlGlobal:'https://gelainbienestarlaboral.com/GELAIN',
+  urlGlobal:'https://afiintegral.com.co/afi',
   localUrl: 'http://localhost:4200/#/'
 };
