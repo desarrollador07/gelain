@@ -766,8 +766,6 @@ export class GraficaVfComponent implements OnInit {
     this.limpiarData();
     await this.vfService.getvalorFisicoId(id).toPromise().then((data:any)=>{
       this.vfData = data;
-      console.log("DATA", data);
-      
       if (this.vfData.length === 0) {
         this.loadingEmpty = false;
         this.showInfo();

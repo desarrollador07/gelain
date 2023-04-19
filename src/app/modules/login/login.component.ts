@@ -63,8 +63,6 @@ export class LoginComponent implements OnInit {
     ingresar() {
         this.loading = true;
         this.pruebaservices.logIn(this.loginForm.value).then(async(resp: any)=>{
-            console.log(resp);
-            
             if (resp.Autherror == "Unauthorized") {
                 this.messageService.add({
                     severity: "error",

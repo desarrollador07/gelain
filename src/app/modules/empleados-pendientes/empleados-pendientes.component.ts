@@ -54,13 +54,11 @@ export class EmpleadosPendientesComponent implements OnInit {
       }
     });
 
-   
   }
 
   async consultaEmpleadosPendientes(id:number){
     this.epService.getEmpleadosPendientes(id).toPromise().then((res:EmpleadoPendienteModel[]) => {
       this.epData = res;
-      console.log(res);
       
       if (this.epData.length > 0) {
         this.loading = false;
@@ -72,7 +70,7 @@ export class EmpleadosPendientesComponent implements OnInit {
   }
 
   makeRowsSameHeight() {
-     
+
     setTimeout(() => {
 
         if (document.getElementsByClassName('ui-table-scrollable-wrapper').length) {
