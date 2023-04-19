@@ -155,28 +155,26 @@ export class FormContactosComponent implements OnInit {
     this._location.back();
   }
 
-  onSubmit(){
+  async onSubmit(){
     if(this.userform.valid){
       if(this.contacto !== null){
         this.idd = this.contacto.con_id;
-        this.contactoService.updateContactos(this.userform.value,this.idd)
-        .subscribe((data: any) =>{
-         //this.buscarArea2();
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento Actualizado', life: 3000})
-          this.userform.reset();
-          this.router.navigate(["/main/contactos"]);
+        await this.contactoService.updateContactos(this.userform.value,this.idd)
+        .toPromise().then((data: any) =>{
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
         });
+        this.userform.reset();
+        this.router.navigate(["/main/contactos"]);
       }else{
-        this.contactoService.createContactos(this.userform.value)
-        .subscribe((data=>{
-          // sessionStorage.setItem('Idempres',JSON.stringify(data.empid));
-          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'elemento creado', life: 3000})        
-          this.router.navigate(["/main/contactos"]);
+        await this.contactoService.createContactos(this.userform.value)
+        .toPromise().then((data=>{
+          this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro creado', life: 3000})        
         }));
+        this.router.navigate(["/main/contactos"]);
       }
       
     }else{
-      this._messageService.add({severity: 'error',summary: 'fallido',detail: 'surgio un error', life: 3000})
+      this._messageService.add({severity: 'error',summary: 'Fallido',detail: 'surgio un error', life: 3000})
       this.userform.reset();
       this.router.navigate(["/main/contactos"]);
       

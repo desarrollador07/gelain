@@ -9,6 +9,7 @@ import { FormatoB } from '../../models/formatoB.model';
 /*Servicios */
 import { FormatoBService } from 'src/app/services/formato-b.service';
 import { PruebaService } from '../../services/prueba.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -17,6 +18,8 @@ import { PruebaService } from '../../services/prueba.service';
   styleUrls: ['./formatoBL.component.css'],
 })
 export class FormatoBLComponent implements OnInit {
+
+  apiUrl:string = environment.urlGlobal;
   localPrueba: FormatoB = {};
   forrr:any[]=[];
   userform: FormGroup;

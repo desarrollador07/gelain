@@ -10,6 +10,7 @@ import { Empleado } from '../../models/empleado.mdel';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
 import { FormatoExtraService } from 'src/app/services/formato-extra.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-extralaboral',
@@ -17,6 +18,8 @@ import { FormatoExtraService } from 'src/app/services/formato-extra.service';
   styleUrls: ['./extralaboral.component.css'],
 })
 export class ExtralaboralComponent implements OnInit {
+
+  apiUrl:string = environment.urlGlobal;
   localPrueba: Extralaboral = {};
   localvalidaEmple: Empleado = {};
   userform: FormGroup;

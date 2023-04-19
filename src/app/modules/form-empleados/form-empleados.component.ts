@@ -17,6 +17,7 @@ import { FormatoAService } from 'src/app/services/formato-a.service';
 import { FormatoBService } from 'src/app/services/formato-b.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
 import { FormatoExtraService } from 'src/app/services/formato-extra.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -25,6 +26,8 @@ import { FormatoExtraService } from 'src/app/services/formato-extra.service';
   styleUrls: ['./form-empleados.component.css']
 })
 export class FormEmpleadosComponent implements OnInit {
+
+  apiUrl:string = environment.urlGlobal;
   estado:SelectItem[];
   sexo: SelectItem[];
   civil: SelectItem[];

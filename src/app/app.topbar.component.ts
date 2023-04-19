@@ -12,6 +12,7 @@ import { EmpresaService } from './services/empresa.service';
 /*Componente */
 import { AppComponent} from './app.component';
 import { ValidacionService } from './services/validacion.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-topbar',
@@ -19,7 +20,8 @@ import { ValidacionService } from './services/validacion.service';
   styleUrls: ['./app.topbar.component.css']
 })
 export class AppTopBarComponent {
-
+  
+  apiUrl:string = environment.urlGlobal;
   idEmpresa:number;
   empresita:Empresa;
   nombre:string;
@@ -28,9 +30,9 @@ export class AppTopBarComponent {
   empresaSelect:any;
   mobWidth: any;
   imgvalidator: boolean = true;
-  imagen1:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr01.jpg";
-  imagen2:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr02.jpg";
-  imagen3:any = "https://gelainbienestarlaboral.com/GELAIN/img/usr03.jpg";
+  imagen1:any = "assets/layout/images/avatar.png"
+  imagen2:any = "assets/layout/images/avatar.png"
+  imagen3:any = "assets/layout/images/avatar.png"
   imagenDefecto:any = "assets/layout/images/avatar.png"
   imagenfin:any;
   loading:boolean = true;

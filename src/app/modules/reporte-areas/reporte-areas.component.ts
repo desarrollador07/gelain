@@ -5,6 +5,7 @@ import { Message, MessageService } from 'primeng/api';
 import { AppState } from 'src/app/app.reducer';
 /*Servicios */
 import { PruebaService } from 'src/app/services/prueba.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-reporte-areas',
@@ -13,6 +14,7 @@ import { PruebaService } from 'src/app/services/prueba.service';
 })
 export class ReporteAreasComponent implements OnInit {
   
+  apiUrl:string = environment.urlGlobal;
   dataAreas:any [] = [];/*Arreglo data Áreas */
   tempGraficaArea:string [] = [];
   dataGrafica: any; /*Data que necesita la grafica de areas */

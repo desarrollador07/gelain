@@ -7,6 +7,7 @@ import { LegendLabelsContentArgs } from '@progress/kendo-angular-charts';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
 import { Message, MessageService } from 'primeng/api';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -30,7 +31,7 @@ import { Message, MessageService } from 'primeng/api';
 })
 export class TD_DOMDIMComponent implements OnInit {
   
-
+  apiUrl:string = environment.urlGlobal;
   idEmpresa:any;
   idtemporal:any;
   nEmpresa:any;

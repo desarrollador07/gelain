@@ -9,6 +9,7 @@ import { FormatoA } from '../../models/formatoAmodel';
 /*Servicios */
 import { FormatoAService } from 'src/app/services/formato-a.service';
 import { PruebaService } from '../../services/prueba.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -17,6 +18,8 @@ import { PruebaService } from '../../services/prueba.service';
   styleUrls: ['./formatoA.component.css'],
 })
 export class FormatoAComponent implements OnInit {
+
+  apiUrl:string = environment.urlGlobal;
   localPrueba: FormatoA = {};
   userform: FormGroup;
   es: any;

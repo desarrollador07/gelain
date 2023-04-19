@@ -104,7 +104,8 @@ body {
     background-color: #fdfdfd;
     background-image: url('https://afiintegral.com.co/afi/img/bg-image-login.jpg');
     /* background-size: cover; */
-    background-position: top;
+    /* background-position: center; */
+    background-size: 100% 100%;
 }
 
 a {
@@ -2361,7 +2362,7 @@ body .layout-wrapper .layout-main .layout-content {
 
 .login-body .login-imagen {
     height: 100%;
-    background: url("https://gelainbienestarlaboral.com/GELAIN/img/agradecimiento-2-1.jpg") no-repeat;
+    background: url("https://afiintegral.com.co/afi/img/agradecimiento-2-1.jpg") no-repeat;
     background-size: cover;
     background-position: center;
 }

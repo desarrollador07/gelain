@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-datos-empleado',
@@ -6,7 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./datos-empleado.component.css']
 })
 export class DatosEmpleadoComponent implements OnInit {
-
+  
+  apiUrl:string = environment.urlGlobal;
   @Input() cedula:string;
   @Input() nombre:string;
   @Input() backColor:string;
@@ -14,7 +16,7 @@ export class DatosEmpleadoComponent implements OnInit {
   @Input() imgValid:boolean;
   @Input() nomImg:string;
   
-  dataImagen:string = 'https://gelainbienestarlaboral.com/GELAIN/img/';
+  dataImagen:string = `${this.apiUrl}/img/`;
   backSolidBorder:string;
 
   constructor() { }

@@ -9,6 +9,7 @@ import { ValorFisico } from 'src/app/models/valorFisico.model';
 /*Servicios */
 import { PruebaService } from 'src/app/services/prueba.service';
 import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-grafica-vf',
@@ -16,7 +17,8 @@ import { ValoracionFisicaService } from 'src/app/services/valoracion-fisica.serv
   styleUrls: ['./grafica-vf.component.css']
 })
 export class GraficaVfComponent implements OnInit {
-
+  
+  apiUrl:string = environment.urlGlobal;
   seriesDataF: number[] = [];
   seriesDataM: number[] = [];
   validEmp:boolean = false;

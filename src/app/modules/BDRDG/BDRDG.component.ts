@@ -12,6 +12,7 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 import { AreasService } from 'src/app/services/areas.service';
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-empleados',
@@ -19,6 +20,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./BDRDG.component.css']
 })
 export class BDRDGComponent implements OnInit {
+  apiUrl:string = environment.urlGlobal;
   idEmpresa:any;
   idtemporal:any;
   validEmp:boolean = false;
@@ -75,7 +77,7 @@ export class BDRDGComponent implements OnInit {
               private store: Store<AppState>) {
                 this.idEmpresa = sessionStorage.getItem("idEmpresa");
                 this.idtemporal = 0;
-                this.image.src = "https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg";      
+                this.image.src = this.apiUrl+"/img/logo_afi.jpg";      
    }
 
   async ngOnInit() {

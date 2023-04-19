@@ -15,11 +15,9 @@
     </p-footer>
 </p-confirmDialog>
 
-
 <form [formGroup]="userform" (ngSubmit)="onSubmit()">
     <p-panel header="NUEVO CONTACTO">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
-
             <fieldset>
                 <legend><b>INFORMACION DEL CONTACTO</b></legend>
                 <div class="ui-g">
@@ -54,11 +52,9 @@
                             <label for="float-input"  style="font-size: 13px; font-weight: bold;">Dirección
                                 <label style="color: red;" *ngIf="condireccionMarca" ><strong>*</strong></label></label>
                         </span>
-                 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="conDireccion"></p-message>
                     </div>
                 </div>
-
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
                         <span class="ui-float-label">
@@ -97,14 +93,6 @@
                         <p-calendar formControlName="confecultimocont" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechainicio"></p-calendar>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="conFecultimocont"></p-message>
                     </div>
-                    <!-- <div class="ui-g-12 ui-md-6 ui-lg-3" style="padding: 15px;">
-                        <span class="ui-float-label">
-                            <textarea rows="5" cols="30" formControlName="connota" maxlength="512" pInputTextarea></textarea> 
-                            <label for="float-input"  style="font-size: 13px; font-weight: bold;">Nota
-                                <label style="color: red;" *ngIf="connotaMarca" ><strong>*</strong></label></label>
-                        </span>
-                        <p-message severity="error" text="Este campo es requerido" *ngIf="conNota"></p-message>
-                    </div> -->
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <fieldset>
@@ -113,18 +101,14 @@
                         <textarea rows="5" cols="200" formControlName="connota" maxlength="512" pInputTextarea></textarea>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="conNota"></p-message>
                     </fieldset>
-
                 </div>
-
             </fieldset>
             <br>
             <br>
             <div style="text-align:center">
-
                 <button style="height:30px;width:120px" class="tooltip" title="Guardar" pRipple pButton type="submit" label="Guardar" class="ui-button-rounded" icon="pi pi-check" [disabled]="!userform.valid"></button>&nbsp;
                 <a style="height:30px;width:120px" pButton type="button" class="tooltip" title="Cancelar" pRipple [routerLink]="['/main/contactos']" label="Cancelar" class="ui-button-rounded ui-button-danger" icon="pi pi-times"></a>
             </div>
         </div>
     </p-panel>
-
 </form>

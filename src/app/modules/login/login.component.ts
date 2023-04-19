@@ -8,6 +8,7 @@ import { ValidacionService } from "src/app/services/validacion.service";
 import { User } from '../../models/user';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
+import { environment } from "src/environments/environment";
 
 
 @Component({
@@ -17,6 +18,8 @@ import { PruebaService } from '../../services/prueba.service';
     providers: [ConfirmationService, MessageService],
 })
 export class LoginComponent implements OnInit {
+
+    apiUrl:string = environment.urlGlobal;
     public formSubmitted = false;
     loginForm: FormGroup;
     user:String;
@@ -60,6 +63,7 @@ export class LoginComponent implements OnInit {
     ingresar() {
         this.loading = true;
         this.pruebaservices.logIn(this.loginForm.value).then(async(resp: any)=>{
+            console.log(resp);
             
             if (resp.Autherror == "Unauthorized") {
                 this.messageService.add({
@@ -69,7 +73,6 @@ export class LoginComponent implements OnInit {
                     life: 3000,
                 });
             }else{
-
                 if (resp.access_token !== null ) {
                     this.usuarioR = resp.user;
                     sessionStorage.setItem("token",resp.access_token);
@@ -87,8 +90,26 @@ export class LoginComponent implements OnInit {
                 }
             }
             this.loading = false;
-        }
-        );
+        }, err => {
+            console.error(err);
+            if (err.status === 422) {
+                this.messageService.add({
+                    severity: "error",
+                    summary: "Verificar",
+                    detail: "Usuario o contraseña no validos",
+                    life: 3000,
+                });
+                this.loginForm.reset();
+            }else{
+                this.messageService.add({
+                    severity: "error",
+                    summary: "Fallo",
+                    detail: "Se presento un error inesperado al iniciar sesión",
+                    life: 6000,
+                });
+            }
+            this.loading = false;
+        });
     
     }
 

@@ -8,8 +8,8 @@ import { MessageService, MenuItem, SelectItem} from 'primeng/api';
 import { Estres } from '../../models/estres.nodel';
 /*Servicios */
 import { PruebaService } from '../../services/prueba.service';
-import { EmpleadosService } from '../../services/empleados.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-estres',
@@ -17,6 +17,7 @@ import { FormatoEstresService } from 'src/app/services/formato-estres.service';
   styleUrls: ['./estres.component.css'],
 })
 export class EstresComponent implements OnInit {
+  apiUrl:string = environment.urlGlobal;
   localPrueba: Estres = {};
   userform: FormGroup;
   es: any;

@@ -7,6 +7,7 @@ import { Area } from 'src/app/models/area.model';
 import { AreasService } from 'src/app/services/areas.service';
 import { ValorRiesgoModel } from '../../models/valor-riesgo.model';
 import { ValoracionRiesgosService } from '../../services/valoracion-riesgos.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-form-valor-riesgo',
@@ -14,7 +15,8 @@ import { ValoracionRiesgosService } from '../../services/valoracion-riesgos.serv
   styleUrls: ['./form-valor-riesgo.component.css']
 })
 export class FormValorRiesgoComponent implements OnInit {
-
+  
+  apiUrl:string = environment.urlGlobal;
   vrform:FormGroup;
   localVR: ValorRiesgoModel = {};
   fechaActual:string = '.';

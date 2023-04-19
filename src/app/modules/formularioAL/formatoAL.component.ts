@@ -8,6 +8,7 @@ import { MessageService, MenuItem, SelectItem } from 'primeng/api';
 import { FormatoA } from '../../models/formatoAmodel';
 /*Servicios */
 import { FormatoAService } from 'src/app/services/formato-a.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-formatoA',
@@ -15,6 +16,8 @@ import { FormatoAService } from 'src/app/services/formato-a.service';
   styleUrls: ['./formatoAL.component.css'],
 })
 export class FormatoALComponent implements OnInit {
+
+  apiUrl:string = environment.urlGlobal;
   forrr:any[]=[];
   forrrA:FormatoA;
   localPrueba: FormatoA = {};

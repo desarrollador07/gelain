@@ -14,10 +14,10 @@
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-g">
                 <div class="ui-g-12 ui-md-12 ui-lg-3" style="text-align: center;">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/logo_gelain.jpg" alt="" width="60%">
+                    <img [src]="apiUrl+'/img/logo_afi.jpg'" alt="" width="60%">
                 </div>
                 <div class="ui-g-12 ui-md-6 ui-lg-3" *ngIf="imgvalidator">
-                    <img src="https://gelainbienestarlaboral.com/GELAIN/img/valoracion_riesgos.png" alt="" width="800px" height="230px">
+                    <img [src]="apiUrl+'/img/valoracion_riesgos.png'" alt="" width="800px" height="230px">
                 </div>
             </div>
             <fieldset>
@@ -8229,7 +8229,7 @@
     </div>
     <div class="ui-g">
         <div class="ui-g-12" style="text-align: center;">
-            <img src="https://gelainbienestarlaboral.com/GELAIN/img/Tabla_NC.png" alt="NC" />
+            <img [src]="apiUrl+'/img/Tabla_NC.png'" alt="NC" />
         </div>
     </div>
 </p-overlayPanel>
@@ -8241,7 +8241,7 @@
     </div>
     <div class="ui-g">
         <div class="ui-g-12" style="text-align: center;">
-            <img src="https://gelainbienestarlaboral.com/GELAIN/img/Tabla_NE.png" alt="NE" />
+            <img [src]="apiUrl+'/img/Tabla_NE.png'" alt="NE" />
         </div>
     </div>
 </p-overlayPanel>
@@ -8253,7 +8253,7 @@
     </div>
     <div class="ui-g">
         <div class="ui-g-12" style="text-align: center;">
-            <img src="https://gelainbienestarlaboral.com/GELAIN/img/Tabla_ND.png" alt="ND" />
+            <img [src]="apiUrl+'/img/Tabla_ND.png'" alt="ND" />
         </div>
     </div>
 </p-overlayPanel>

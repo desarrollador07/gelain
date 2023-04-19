@@ -8,6 +8,7 @@ import { Estres } from '../../models/estres.nodel';
 /*Servicios */
 import { EmpleadosService } from 'src/app/services/empleados.service';
 import { FormatoEstresService } from 'src/app/services/formato-estres.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -16,6 +17,8 @@ import { FormatoEstresService } from 'src/app/services/formato-estres.service';
   styleUrls: ['./estresL.component.css'],
 })
 export class EstresLComponent implements OnInit {
+
+  apiUrl:string = environment.urlGlobal;
   localPrueba: Estres = {};
   userform: FormGroup;
   es: any;
