@@ -3,7 +3,7 @@
 <div class="login-body">
     <div class="login-image">
         <div class="login-panel" style="border-radius: 10px;">
-            <img [src]="apiUrl+'/img/logo_afi.jpg'" alt="Logo" style="border-radius: 5px;" />
+            <img [src]="apiUrl+'/img/logo_afi.jpg'" alt="Logo" style="border-radius: 100%;" />
             <form [formGroup]="loginForm" (ngSubmit)="ingresar()" id="loginform">
                 <div class="ui-g-12">
                     <p-progressSpinner *ngIf="loading" [style]="{width: '45px', height: '45px'}" strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
