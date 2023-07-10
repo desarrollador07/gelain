@@ -70,7 +70,7 @@ export class FormatoBComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione...', value: '' });
+    this.a11.push({ label: 'Seleccione...', value: '0' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -395,15 +395,15 @@ export class FormatoBComponent implements OnInit {
       inbhablobienempres :['', Validators.required],
 
       inbatencionausuarios :['',Validators.required],
-      inbusuenojados :[''],
-      inbusupreocupados :[''],
-      inbusutristes :[''],
-      inbusuenfermos :[''],
-      inbusuneceayuda :[''],
-      inbusumemaltratan :[''],
-      inbsituaviolencia :[''],
-      inbexigedolorosas :[''],
-      inbexpretristeza :[''] 
+      inbusuenojados :['0'],
+      inbusupreocupados :['0'],
+      inbusutristes :['0'],
+      inbusuenfermos :['0'],
+      inbusuneceayuda :['0'],
+      inbusumemaltratan :['0'],
+      inbsituaviolencia :['0'],
+      inbexigedolorosas :['0'],
+      inbexpretristeza :['0'] 
 
     })
   }

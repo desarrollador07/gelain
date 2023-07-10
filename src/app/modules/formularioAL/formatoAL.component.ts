@@ -167,25 +167,25 @@ export class FormatoALComponent implements OnInit {
       inahablobienempres: ['', Validators.required],
 
       inaatencionausuarios : ['', Validators.required],
-      inausuenojados: [''],
-      inausupreocupados: [''],
-      inausutristes: [''],
-      inausuenfermos: [''],
-      inausuneceayuda: [''],
-      inausumemaltratan: [''],
-      inaususentimidistin: [''],
-      inasituaviolencia: [''],
-      inaexigedolorosas: [''],
+      inausuenojados: ['0'],
+      inausupreocupados: ['0'],
+      inausutristes: ['0'],
+      inausuenfermos: ['0'],
+      inausuneceayuda: ['0'],
+      inausumemaltratan: ['0'],
+      inaususentimidistin: ['0'],
+      inasituaviolencia: ['0'],
+      inaexigedolorosas: ['0'],
       inasoyjefe : ['', Validators.required],
-      inacomuntarde: [''],
-      inairrespetuosos: [''],
-      inadificorganiza: [''],
-      inaguardansilencio: [''],
-      inadificlogro: [''],
-      inainforirrespet: [''],
-      inapocacooperacio: [''],
-      inapocodesempeno: [''],
-      inacolabignoran: ['']
+      inacomuntarde: ['0'],
+      inairrespetuosos: ['0'],
+      inadificorganiza: ['0'],
+      inaguardansilencio: ['0'],
+      inadificlogro: ['0'],
+      inainforirrespet: ['0'],
+      inapocacooperacio: ['0'],
+      inapocodesempeno: ['0'],
+      inacolabignoran: ['0']
 
     })
     
@@ -205,7 +205,7 @@ export class FormatoALComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione una opción', value: '' });
+    this.a11.push({ label: 'Seleccione una opción', value: '0' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
