@@ -284,15 +284,16 @@ export class FormatoBLComponent implements OnInit {
         inbsientoorgullo:this.localPrueba.inbsientoorgullo,
         inbhablobienempres:this.localPrueba.inbhablobienempres,
         inbatencionausuarios:this.localPrueba.inbatencionausuarios,
-        inbusuenojados:this.localPrueba.inbusuenojados,
-        inbusupreocupados:this.localPrueba.inbusupreocupados,
-        inbusutristes:this.localPrueba.inbusutristes,
-        inbusuenfermos:this.localPrueba.inbusuenfermos,
-        inbusuneceayuda:this.localPrueba.inbusuneceayuda,
-        inbusumemaltratan:this.localPrueba.inbusumemaltratan,
-        inbsituaviolencia:this.localPrueba.inbsituaviolencia,
-        inbexigedolorosas:this.localPrueba.inbexigedolorosas,
-        inbexpretristeza:this.localPrueba.inbexpretristeza,  
+
+        inbusuenojados: this.localPrueba.inbusuenojados ? this.localPrueba.inbusuenojados : "0",
+        inbusupreocupados: this.localPrueba.inbusupreocupados ? this.localPrueba.inbusupreocupados : "0",
+        inbusutristes: this.localPrueba.inbusutristes ? this.localPrueba.inbusutristes : "0",
+        inbusuenfermos: this.localPrueba.inbusuenfermos ? this.localPrueba.inbusuenfermos : "0",
+        inbusuneceayuda: this.localPrueba.inbusuneceayuda ? this.localPrueba.inbusuneceayuda : "0",
+        inbusumemaltratan: this.localPrueba.inbusumemaltratan ? this.localPrueba.inbusumemaltratan : "0",
+        inbsituaviolencia: this.localPrueba.inbsituaviolencia ? this.localPrueba.inbsituaviolencia : "0",
+        inbexigedolorosas: this.localPrueba.inbexigedolorosas ? this.localPrueba.inbexigedolorosas : "0",
+        inbexpretristeza: this.localPrueba.inbexpretristeza ? this.localPrueba.inbexpretristeza : "0",
       })
     } 
   };
