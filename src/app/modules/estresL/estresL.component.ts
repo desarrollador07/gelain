@@ -371,10 +371,8 @@ export class EstresLComponent implements OnInit {
           this.idd = this.localPrueba.estid;
           this.formatoEstresService.updateEstres(this.userform.value,this.idd)
           .subscribe((data: any) =>{
-            this.empleadosService.updateEstado(this.idl).subscribe((data=>{
-
+            this.empleadosService.updateEstado(this.idl).subscribe((data=>{  
             }));
-
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['FinalFormularios']);
