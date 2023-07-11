@@ -164,25 +164,25 @@ export class FormatoALComponent implements OnInit {
       inahablobienempres: ['', Validators.required],
 
       inaatencionausuarios : ['', Validators.required],
-      inausuenojados: [''],
-      inausupreocupados: [''],
-      inausutristes: [''],
-      inausuenfermos: [''],
-      inausuneceayuda: [''],
-      inausumemaltratan: [''],
-      inaususentimidistin: [''],
-      inasituaviolencia: [''],
-      inaexigedolorosas: [''],
+      inausuenojados: ['0'],
+      inausupreocupados: ['0'],
+      inausutristes: ['0'],
+      inausuenfermos: ['0'],
+      inausuneceayuda: ['0'],
+      inausumemaltratan: ['0'],
+      inaususentimidistin: ['0'],
+      inasituaviolencia: ['0'],
+      inaexigedolorosas: ['0'],
       inasoyjefe : ['', Validators.required],
-      inacomuntarde: [''],
-      inairrespetuosos: [''],
-      inadificorganiza: [''],
-      inaguardansilencio: [''],
-      inadificlogro: [''],
-      inainforirrespet: [''],
-      inapocacooperacio: [''],
-      inapocodesempeno: [''],
-      inacolabignoran: ['']
+      inacomuntarde: ['0'],
+      inairrespetuosos: ['0'],
+      inadificorganiza: ['0'],
+      inaguardansilencio: ['0'],
+      inadificlogro: ['0'],
+      inainforirrespet: ['0'],
+      inapocacooperacio: ['0'],
+      inapocodesempeno: ['0'],
+      inacolabignoran: ['0']
 
     })
     
@@ -202,7 +202,7 @@ export class FormatoALComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione una opción', value: '' });
+    this.a11.push({ label: 'Seleccione una opción', value: '0' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -336,25 +336,26 @@ export class FormatoALComponent implements OnInit {
         inasientoorgullo:this.localPrueba.inasientoorgullo,
         inahablobienempres:this.localPrueba.inahablobienempres,
         inaatencionausuarios :this.localPrueba.inaatencionausuarios,
-        inausuenojados:this.localPrueba.inausuenojados,
-        inausupreocupados:this.localPrueba.inausupreocupados,
-        inausutristes:this.localPrueba.inausutristes,
-        inausuenfermos:this.localPrueba.inausuenfermos,
-        inausuneceayuda:this.localPrueba.inausuneceayuda,
-        inausumemaltratan:this.localPrueba.inausumemaltratan,
-        inaususentimidistin:this.localPrueba.inaususentimidistin,
-        inasituaviolencia:this.localPrueba.inasituaviolencia,
-        inaexigedolorosas:this.localPrueba.inaexigedolorosas,
+
         inasoyjefe :this.localPrueba.inasoyjefe,
-        inacomuntarde:this.localPrueba.inacomuntarde,
-        inairrespetuosos:this.localPrueba.inairrespetuosos,
-        inadificorganiza:this.localPrueba.inadificorganiza,
-        inaguardansilencio:this.localPrueba.inaguardansilencio,
-        inadificlogro:this.localPrueba.inadificlogro,
-        inainforirrespet:this.localPrueba.inainforirrespet,
-        inapocacooperacio:this.localPrueba.inapocacooperacio,
-        inapocodesempeno:this.localPrueba.inapocodesempeno,
-        inacolabignoran:this.localPrueba.inacolabignoran
+        inausuenojados: this.localPrueba.inausuenojados ? this.localPrueba.inausuenojados : "0",
+        inausupreocupados: this.localPrueba.inausupreocupados ? this.localPrueba.inausupreocupados : "0",
+        inausutristes: this.localPrueba.inausutristes ? this.localPrueba.inausutristes : "0",
+        inausuenfermos: this.localPrueba.inausuenfermos ? this.localPrueba.inausuenfermos : "0",
+        inausuneceayuda: this.localPrueba.inausuneceayuda ? this.localPrueba.inausuneceayuda : "0",
+        inausumemaltratan: this.localPrueba.inausumemaltratan ? this.localPrueba.inausumemaltratan : "0",
+        inaususentimidistin: this.localPrueba.inaususentimidistin ? this.localPrueba.inaususentimidistin : "0",
+        inasituaviolencia: this.localPrueba.inasituaviolencia ? this.localPrueba.inasituaviolencia : "0",
+        inaexigedolorosas: this.localPrueba.inaexigedolorosas ? this.localPrueba.inaexigedolorosas : "0",
+        inacomuntarde: this.localPrueba.inacomuntarde ? this.localPrueba.inacomuntarde : "0",
+        inairrespetuosos: this.localPrueba.inairrespetuosos ? this.localPrueba.inairrespetuosos : "0",
+        inadificorganiza: this.localPrueba.inadificorganiza ? this.localPrueba.inadificorganiza : "0",
+        inaguardansilencio: this.localPrueba.inaguardansilencio ? this.localPrueba.inaguardansilencio : "0",
+        inadificlogro: this.localPrueba.inadificlogro ? this.localPrueba.inadificlogro : "0",
+        inainforirrespet: this.localPrueba.inainforirrespet ? this.localPrueba.inainforirrespet : "0",
+        inapocacooperacio: this.localPrueba.inapocacooperacio ? this.localPrueba.inapocacooperacio : "0",
+        inapocodesempeno: this.localPrueba.inapocodesempeno ? this.localPrueba.inapocodesempeno : "0",
+        inacolabignoran: this.localPrueba.inacolabignoran ? this.localPrueba.inacolabignoran : "0"
 
       })
     } 

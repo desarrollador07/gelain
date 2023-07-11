@@ -36,6 +36,7 @@ export class EstresComponent implements OnInit {
 
   constructor(private pruebaservices: PruebaService,
               private formatoEstresService: FormatoEstresService,
+              private empleadosService: EmpleadosService,
               private fb: FormBuilder,
               private router: Router,
               private _messageService: MessageService) {  
@@ -300,6 +301,7 @@ export class EstresComponent implements OnInit {
       if(this.localPrueba !== null){
           this.idd = this.localPrueba.estid;
           this.formatoEstresService.updateEstres(this.userform.value,this.idd).subscribe((data: any) =>{
+            this.empleadosService.updateEstado(this.idl).subscribe();
             this._messageService.add({severity: 'success',summary: 'Exitoso',detail: 'Registro Actualizado', life: 3000})
             this.userform.reset();
             this.router.navigate(['/main/empleado']);

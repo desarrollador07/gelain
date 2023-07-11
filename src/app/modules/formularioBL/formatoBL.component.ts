@@ -144,15 +144,15 @@ export class FormatoBLComponent implements OnInit {
       inbhablobienempres :['', Validators.required],
 
       inbatencionausuarios :['', Validators.required],
-      inbusuenojados :[''],
-      inbusupreocupados :[''],
-      inbusutristes :[''],
-      inbusuenfermos :[''],
-      inbusuneceayuda :[''],
-      inbusumemaltratan :[''],
-      inbsituaviolencia :[''],
-      inbexigedolorosas :[''],
-      inbexpretristeza :[''] 
+      inbusuenojados :['0'],
+      inbusupreocupados :['0'],
+      inbusutristes :['0'],
+      inbusuenfermos :['0'],
+      inbusuneceayuda :['0'],
+      inbusumemaltratan :['0'],
+      inbsituaviolencia :['0'],
+      inbexigedolorosas :['0'],
+      inbexpretristeza :['0'] 
 
     })
 
@@ -170,7 +170,7 @@ export class FormatoBLComponent implements OnInit {
     this.a1.push({ label: 'Nunca', value: '4' });
 
     this.a11 = [];
-    this.a11.push({ label: 'Seleccione una opción', value: '' });
+    this.a11.push({ label: 'Seleccione una opción', value: '0' });
     this.a11.push({ label: 'Siempre', value: '4' });
     this.a11.push({ label: 'Casi Siempre', value: '3' });
     this.a11.push({ label: 'Algunas Veces', value: '2' });
@@ -281,15 +281,15 @@ export class FormatoBLComponent implements OnInit {
         inbsientoorgullo:this.localPrueba.inbsientoorgullo,
         inbhablobienempres:this.localPrueba.inbhablobienempres,
         inbatencionausuarios:this.localPrueba.inbatencionausuarios,
-        inbusuenojados:this.localPrueba.inbusuenojados,
-        inbusupreocupados:this.localPrueba.inbusupreocupados,
-        inbusutristes:this.localPrueba.inbusutristes,
-        inbusuenfermos:this.localPrueba.inbusuenfermos,
-        inbusuneceayuda:this.localPrueba.inbusuneceayuda,
-        inbusumemaltratan:this.localPrueba.inbusumemaltratan,
-        inbsituaviolencia:this.localPrueba.inbsituaviolencia,
-        inbexigedolorosas:this.localPrueba.inbexigedolorosas,
-        inbexpretristeza:this.localPrueba.inbexpretristeza,  
+        inbusuenojados: this.localPrueba.inbusuenojados ? this.localPrueba.inbusuenojados : "0",
+        inbusupreocupados: this.localPrueba.inbusupreocupados ? this.localPrueba.inbusupreocupados : "0",
+        inbusutristes: this.localPrueba.inbusutristes ? this.localPrueba.inbusutristes : "0",
+        inbusuenfermos: this.localPrueba.inbusuenfermos ? this.localPrueba.inbusuenfermos : "0",
+        inbusuneceayuda: this.localPrueba.inbusuneceayuda ? this.localPrueba.inbusuneceayuda : "0",
+        inbusumemaltratan: this.localPrueba.inbusumemaltratan ? this.localPrueba.inbusumemaltratan : "0",
+        inbsituaviolencia: this.localPrueba.inbsituaviolencia ? this.localPrueba.inbsituaviolencia : "0",
+        inbexigedolorosas: this.localPrueba.inbexigedolorosas ? this.localPrueba.inbexigedolorosas : "0",
+        inbexpretristeza: this.localPrueba.inbexpretristeza ? this.localPrueba.inbexpretristeza : "0"
       })
     } 
   };
@@ -938,7 +938,7 @@ export class FormatoBLComponent implements OnInit {
    } 
  }
 
-  vlaidar(){
+  validar(){
     if (this.userform.value.inbatencionausuarios == 1) {
       this.vart = true;
     }else{
