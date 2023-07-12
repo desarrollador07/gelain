@@ -47,7 +47,8 @@
 <!---------------------------------------------- IMC PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf1 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'IMC'}"></header-pdf-informe>
+        <!-- <div style=" font-size: 15px; text-align: left;">
             <p style="text-align: left;">{{nombreGelain}}</p>
             <p style="text-align: left;">Nit: {{nitGelain}}</p>
             <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
@@ -62,7 +63,7 @@
             <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
             <p>Usuario: {{usuario}}</p>
             <p><b>IMC</b></p>
-        </div>
+        </div> -->
         <br>
         <br>
         <br>

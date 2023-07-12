@@ -25,7 +25,9 @@
             </div>
 
             <div class="ui-g-6 ui-md-6 ui-lg-2" style="margin-top: 5px;">
-                <p-calendar [(ngModel)]="fechainicial" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechainicio"></p-calendar>
+                <p-calendar [(ngModel)]="fechainicial" [monthNavigator]="true" [yearNavigator]="true"
+                    yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd"
+                    name="fechainicio"></p-calendar>
             </div>
             <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
             <div class="ui-g-4 ui-md-4 ui-lg-1" style="margin-top: 10px;">
@@ -34,22 +36,27 @@
                 </div>
             </div>
             <div class="ui-g-6 ui-md-6 ui-lg-2" style="margin-top: 5px;">
-                <p-calendar [(ngModel)]="fechafinal" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechafinal"></p-calendar>
+                <p-calendar [(ngModel)]="fechafinal" [monthNavigator]="true" [yearNavigator]="true"
+                    yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd"
+                    name="fechafinal"></p-calendar>
             </div>
             <div class="ui-g-12 ui-md-12 ui-lg-2" style="text-align: center;margin-top: 5px;">
-                <button class="btnsearch" icon="pi pi-search" pButton label="Buscar" [disabled]="validEmp" (click)="getEmpleadoByFiltro()"></button>
+                <button class="btnsearch" icon="pi pi-search" pButton label="Buscar" [disabled]="validEmp"
+                    (click)="getEmpleadoByFiltro()"></button>
             </div>
         </div>
     </fieldset>
 </div>
 <div class="ui-g" *ngIf="loading">
     <div class="ui-g-12" style="text-align: center;">
-        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
+        <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10"
+            fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>
     </div>
 </div>
 <br>
 <div id="search-wrapper">
-    <input type="search" id="search" tooltipPosition="left" pTooltip="Filtrar registros de la tabla" pInputText placeholder="Filtrar" (input)="dt.filterGlobal($event.target.value, 'contains')">
+    <input type="search" id="search" tooltipPosition="left" pTooltip="Filtrar registros de la tabla" pInputText
+        placeholder="Filtrar" (input)="dt.filterGlobal($event.target.value, 'contains')">
     <i class="pi pi-search"></i>
 </div>
 <br><br><br>
@@ -65,7 +72,9 @@
 
 <div class="card">
     <p-panel header="Empleados">
-        <p-table #dt [value]="empleadoData" [responsive]="true" [columns]="cols" [frozenColumns]="frozenCols" [scrollable]="true" frozenWidth="280px" [rowsPerPageOptions]="[10,20,30]" [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa','emdfechareg']"
+        <p-table #dt [value]="empleadoData" [responsive]="true" [columns]="cols" [frozenColumns]="frozenCols"
+            [scrollable]="true" frozenWidth="280px" [rowsPerPageOptions]="[10,20,30]"
+            [globalFilterFields]="['emdid','emdcedula','emdnombres','emdapellidos','emddepartamento','emdciudad','emdtelefono','nomempresa','emdfechareg']"
             [resizableColumns]="true" [rows]="10" [paginator]="true" [rowHover]="true">
             <ng-template pTemplate="frozencolgroup">
                 <colgroup>
@@ -97,8 +106,12 @@
             <ng-template pTemplate="frozenbody" let-empleado>
                 <tr>
                     <td style="text-align:center;height: 43.13px;">
-                        <button pButton pRipple tooltipPosition="top" pTooltip="Editar Registro" icon="pi pi-pencil" title="Editar" pRipple (click)="editPrueba(empleado)" routerLink="/main/addempleado/editar" class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
-                        <button pButton pRipple tooltipPosition="top" pTooltip="Eliminar Registro" icon="pi pi-trash" title="Eliminar" pRipple (click)="deletePrueba(empleado)" class="p-button-rounded p-button-warning"></button>
+                        <button pButton pRipple tooltipPosition="top" pTooltip="Editar Registro" icon="pi pi-pencil"
+                            title="Editar" pRipple (click)="editPrueba(empleado)" routerLink="/main/addempleado/editar"
+                            class="p-button-rounded p-button-success p-mr-2" style="margin-right: .5em"></button>
+                        <button pButton pRipple tooltipPosition="top" pTooltip="Eliminar Registro" icon="pi pi-trash"
+                            title="Eliminar" pRipple (click)="deletePrueba(empleado)"
+                            class="p-button-rounded p-button-warning"></button>
                     </td>
                     <td style="height: 43.13px;">{{empleado.emdcedula}}</td>
                 </tr>
@@ -113,19 +126,24 @@
             <ng-template pTemplate="body" let-empleado let-i="rowIndex" let-columns="columns">
                 <tr>
                     <td *ngFor="let col of columns" style="height: 43.13px;">
-                        <div *ngIf="col.field === 'emdnombres'">
-                            {{empleado.emdnombres| uppercase}} {{empleado.emdapellidos | uppercase}}
-                        </div>
-                        <div *ngIf="col.field === 'emdfechareg'  else elseData">
-                            {{empleado[col.field]| date:'dd-MM-yyyy, h:mm a'}}
-                        </div>
-                        <ng-template #elseData>
-                            <div *ngIf="col.field !== 'emdnombres'">
+                        <ng-container [ngSwitch]="col.field">
+                            <ng-container *ngSwitchCase="'emdnombres'">
+                                {{empleado.emdnombres| uppercase}} {{empleado.emdapellidos | uppercase}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'emdfechareg'">
+                                {{empleado[col.field]| date:'dd-MM-yyyy, h:mm a'}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'emdtipodecargo'">
+                                <div style="text-align: center;">
+                                    <label *ngIf="empleado[col.field] < 3">A</label>
+                                    <label *ngIf="empleado[col.field] > 2">B</label>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
                                 {{empleado[col.field]| uppercase}}
-                            </div>
-                        </ng-template>
+                            </ng-container>
+                        </ng-container>
                     </td>
-
                 </tr>
             </ng-template>
             <ng-template pTemplate="summary">
@@ -136,7 +154,8 @@
         </p-table>
         <br>
         <div style="text-align:center">
-            <button type="button" pButton icon="fa fa-plus" [disabled]="validEmp" tooltipPosition="top" pTooltip="Agregar Registro" (click)="confirmationForm()" label="Agregar"></button>
+            <button type="button" pButton icon="fa fa-plus" [disabled]="validEmp" tooltipPosition="top"
+                pTooltip="Agregar Registro" (click)="confirmationForm()" label="Agregar"></button>
         </div>
     </p-panel>
 </div>

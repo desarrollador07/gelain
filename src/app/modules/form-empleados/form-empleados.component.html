@@ -77,7 +77,7 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        Ultimos Niveles de Estudio <label style="color: red;" *ngIf="emdNivelestudioMarca" ><strong>*</strong></label> :
+                        Últimos Niveles de Estudio <label style="color: red;" *ngIf="emdNivelestudioMarca" ><strong>*</strong></label> :
                         <p-dropdown [class.is-invalid]="emdNivelestudio"  [options]="estudio" formControlName="emdnivelestudio" [showClear]="true" placeholder="Seleccione una opción"></p-dropdown>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdNivelestudio"></p-message>
                     </div>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        Teléfono ó Celular <label style="color: red;" *ngIf="emdTelefonoMarca" ><strong>*</strong></label> :
+                        Teléfono o Celular <label style="color: red;" *ngIf="emdTelefonoMarca" ><strong>*</strong></label> :
                         <input   [class.is-invalid]="emdTelefono" maxlength="100"  formControlName="emdtelefono" type="text" pInputText> 
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdTelefono"></p-message>
                         <p-message severity="error" text="la cantidad minima son 7 caracteres" *ngIf="emdTelefonomin"></p-message>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3">
-                        Estracto de su vivienda <label style="color: red;" *ngIf="emdEstractoMarca" ><strong>*</strong></label> :
+                        Estrato de su vivienda <label style="color: red;" *ngIf="emdEstractoMarca" ><strong>*</strong></label> :
                         <p-dropdown [class.is-invalid]="emdEstracto" [options]="estrato" formControlName="emdestracto" [showClear]="true" placeholder="Seleccione una opción"></p-dropdown>
                         <p-message severity="error" text="Este campo es requerido" *ngIf="emdEstracto"></p-message>
                     </div>

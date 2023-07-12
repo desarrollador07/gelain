@@ -130,6 +130,8 @@ export class EmpleadosComponent implements OnInit {
     async consultaEmpleados(id:number){
       await this.empleadosService.buscarByEmpleados(id).toPromise().then((data: Empleado[])=>{
         this.empleadoData = data;
+        console.log("🚀 ~ file: empleados.component.ts:133 ~ EmpleadosComponent ~ awaitthis.empleadosService.buscarByEmpleados ~ data:", data)
+        
         this.empleadoData.map(res=>{
           this.empresas.map(x=>{
             if (res.emdempresa === x.empid) {
@@ -176,6 +178,7 @@ export class EmpleadosComponent implements OnInit {
         { field: 'emdtraciudad', header: 'Ciudad', width: '250px' },
         { field: 'emdtelefono', header: 'Telefono', width: '230px' },
         { field: 'nomempresa', header: 'Empresa', width: '400px' },
+        { field: 'emdtipodecargo', header: 'Formato', width: '120px' },
         { field: 'emdfechareg', header: 'Fecha Registro', width: '250px' },
         { field: 'emdactivo', header: 'Estado', width: '140px' }
       ];

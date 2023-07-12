@@ -38,9 +38,9 @@ export class GraficaVfComponent implements OnInit {
   seriesData5: number[] = [];
   categories5: string[] = ["Nivel Alto", "Nivel Medio", "Nivel Bajo"];
   seriesData6: number[] = [];
-  categories6: string[] = ["Cancer", "Metabolicas", "Cardiacas","Enfermedades mentales","Otras"];
+  categories6: string[] = ["Cáncer", "Metabólicas", "Cardiacas","Enfermedades mentales","Otras"];
   seriesData7: number[] = [];
-  categories7: string[] = ["Depresion", "Metabolicas", "Respiratorias","Cardiacas","Osteomusculares","Digestivos","S.N.C","Visual","Cancer","Otros"];
+  categories7: string[] = ["Depresion", "Metabólicas", "Respiratorias","Cardiacas","Osteomusculares","Digestivos","S.N.C","Visual","Cáncer","Otros"];
   seriesData8: number[] = [];
   categories8: string[] = ["Malo", "Regular", "Bien", "Excelente"];
   vfData: ValorFisico[] = [];
@@ -540,7 +540,7 @@ export class GraficaVfComponent implements OnInit {
     total = totalCont1 + totalCont2 + totalCont3 + totalCont4 + totalCont5;
  
     this.sales7 = [
-      { brand: 'Cancer', rango: totalCont1 },
+      { brand: 'Cáncer', rango: totalCont1 },
       { brand: 'Metabólicas', rango: totalCont2 },
       { brand: 'Cardiacas', rango: totalCont3 },
       { brand: 'Enfermedades mentales', rango: totalCont4 },
@@ -693,8 +693,8 @@ export class GraficaVfComponent implements OnInit {
     total = totalcontador1 + totalcontador2 + totalcontador3 + totalcontador4 + totalcontador5 + totalcontador6 + totalcontador7 + totalcontador8 + totalcontador9 + totalcontador10;
  
     this.sales8 = [
-      { brand: 'Depresion ', rango: totalcontador1 },
-      { brand: 'Metabolicas', rango: totalcontador2 },
+      { brand: 'Depresión ', rango: totalcontador1 },
+      { brand: 'Metabólicas', rango: totalcontador2 },
       { brand: 'Respiratorias', rango: totalcontador3 },
       { brand: 'Cardiacas', rango: totalcontador4 },
       { brand: 'Osteomusculares', rango: totalcontador5 },
