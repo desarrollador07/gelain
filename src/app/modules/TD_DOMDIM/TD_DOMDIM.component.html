@@ -7,7 +7,7 @@
 <!-- Apartado de la Busqueda avanzada -->
 <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
     <fieldset>
-        <legend><b>Búsqueda Por Fecha</b></legend>
+        <legend><b>Búsqueda por fecha</b></legend>
         <div class="ui-g">
             <div class="ui-g-12 ui-md-12 ui-lg-2"></div>
             <div class="ui-g-4 ui-md-4 ui-lg-1" style="margin-top:10px">
@@ -16,7 +16,9 @@
                 </div>
             </div>
             <div class="ui-g-6 ui-md-6 ui-lg-2" style="margin-top: 5px;">
-                <p-calendar [(ngModel)]="fechainicial" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechainicio"></p-calendar>
+                <p-calendar [(ngModel)]="fechainicial" [monthNavigator]="true" [yearNavigator]="true"
+                    yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd"
+                    name="fechainicio"></p-calendar>
             </div>
             <div class="ui-g-12 ui-md-12 ui-lg-1"></div>
             <div class="ui-g-4 ui-md-4 ui-lg-1" style="margin-top: 10px;">
@@ -25,10 +27,13 @@
                 </div>
             </div>
             <div class="ui-g-6 ui-md-6 ui-lg-2" style="margin-top: 5px;">
-                <p-calendar [(ngModel)]="fechafinal" [monthNavigator]="true" [yearNavigator]="true" yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd" name="fechafinal"></p-calendar>
+                <p-calendar [(ngModel)]="fechafinal" [monthNavigator]="true" [yearNavigator]="true"
+                    yearRange="1900:2030" [locale]="es" [showIcon]="true" dateFormat="yy-mm-dd"
+                    name="fechafinal"></p-calendar>
             </div>
             <div class="ui-g-12 ui-md-12 ui-lg-2" style="text-align: center;margin-top: 5px;">
-                <button class="btnsearch" pButton label="Buscar" [disabled]="validEmp" (click)="getReporteGraficaFiltro()"></button>
+                <button class="btnsearch" pButton label="Buscar" [disabled]="validEmp"
+                    (click)="getReporteGraficaFiltro()"></button>
             </div>
         </div>
     </fieldset>
@@ -50,60 +55,44 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales">
-                <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'LIDERAZGO Y RELACIONES SOCIALES'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales">
+            <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
+                <ng-template let-column let-columnIndex="columnIndex">
+                    {{ column.field }}({{ columnIndex }})
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
+                <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)" [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
-                    <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="100" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                </kendo-grid-column-group>
-            </kendo-grid>
-        </div>
+                <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)" [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)"
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)"
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <br>
         <br>
         <br>
@@ -116,31 +105,37 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="bar" color="#1E830A" noteTextField="notes" [notes]="notes" [stack]="{ type: '100%' }" [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
+                    <kendo-chart-series-item type="bar" color="#1E830A" noteTextField="notes" [notes]="notes"
+                        [stack]="{ type: '100%' }"
+                        [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
+                    <kendo-chart-series-item type="bar" color="#97C015"
+                        [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
+                    <kendo-chart-series-item type="bar" color="#F0F012"
+                        [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[liderazgo2[3],  relaciones2[3], retroalimentacion2[3],rela_colaboradores2[3]]">
+                    <kendo-chart-series-item type="bar" color="#F07712"
+                        [data]="[liderazgo2[3],  relaciones2[3], retroalimentacion2[3],rela_colaboradores2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
 
-                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[liderazgo2[4],  relaciones2[4], retroalimentacion2[4],rela_colaboradores2[4]]">
+                    <kendo-chart-series-item type="bar" color="#FC0202"
+                        [data]="[liderazgo2[4],  relaciones2[4], retroalimentacion2[4],rela_colaboradores2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 450px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -150,70 +145,51 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales2">
-                <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="100" [locked]="false">
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'CONTROL SOBRE EL TRABAJO'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales2">
+            <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
+                <ng-template let-column let-columnIndex="columnIndex">
+                    {{ column.field }}({{ columnIndex }})
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column-group title="CONTROL SOBRE EL TRABAJO" [locked]="false">
+                <kendo-grid-column field="claridad" title="Claridad de rol(Q1)"  [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column-group title="CONTROL SOBRE EL TRABAJO" [locked]="false">
-                    <kendo-grid-column field="claridad" title="Claridad de rol(Q1)" [width]="20" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="capacitacion" title="Capacitación(Q2)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="oportunidades" title="Oportunidades para el uso y desarrollo de habilidades y conocimientos(Q3)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="manejo" title="Participación y manejo del cambio(Q4)" [width]="100" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="control" title="Control y autonomía sobre el trabajo(Q5)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="80" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                </kendo-grid-column-group>
-            </kendo-grid>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+                <kendo-grid-column field="capacitacion" title="Capacitación(Q2)" [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="oportunidades"
+                    title="Oportunidades para el uso y desarrollo de habilidades y conocimientos(Q3)"
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="manejo" title="Participación y manejo del cambio(Q4)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="control" title="Control y autonomía sobre el trabajo(Q5)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
@@ -221,30 +197,35 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[claridad2[0], capacitacion2[0], oportunidades2[0],manejo2[0],control2[0]]">
+                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                        [data]="[claridad2[0], capacitacion2[0], oportunidades2[0],manejo2[0],control2[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[claridad2[1], capacitacion2[1], oportunidades2[1],manejo2[1],control2[1]]">
+                    <kendo-chart-series-item type="bar" color="#97C015"
+                        [data]="[claridad2[1], capacitacion2[1], oportunidades2[1],manejo2[1],control2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[claridad2[2], capacitacion2[2], oportunidades2[2],manejo2[2],control2[2]]">
+                    <kendo-chart-series-item type="bar" color="#F0F012"
+                        [data]="[claridad2[2], capacitacion2[2], oportunidades2[2],manejo2[2],control2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[claridad2[3], capacitacion2[3], oportunidades2[3],manejo2[3],control2[3]]">
+                    <kendo-chart-series-item type="bar" color="#F07712"
+                        [data]="[claridad2[3], capacitacion2[3], oportunidades2[3],manejo2[3],control2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[claridad2[4], capacitacion2[4], oportunidades2[4],manejo2[4],control2[4]]">
+                    <kendo-chart-series-item type="bar" color="#FC0202"
+                        [data]="[claridad2[4], capacitacion2[4], oportunidades2[4],manejo2[4],control2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -253,86 +234,71 @@
 <!-- --------------------------------- PDF DEMANDAS DEL TRABAJO  3------------------------------ -->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
-    <kendo-pdf-export #pdf3 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales3">
-                <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
+    <kendo-pdf-export #pdf3 paperSize="A4" margin="0.3cm" [scale]="0.45">
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'DEMANDAS DEL TRABAJO'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales3">
+            <kendo-grid-column field="brand" title="Nivel de riesgo"  [locked]="false">
+                <ng-template let-column let-columnIndex="columnIndex">
+                    {{ column.field }}({{ columnIndex }})
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column-group title="DEMANDAS DEL TRABAJO"  [locked]="false">
+                <kendo-grid-column field="demandas_ambientales" title="Demandas ambientales y de esfuerzo físico (Q1)"
+                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column-group title="DEMANDAS DEL TRABAJO" [width]="600" [locked]="false">
-                    <kendo-grid-column field="demandas_ambientales" title="Demandas ambientales y de esfuerzo físico(Q1)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="reponsabilidad" title="Nivel de responsabilidad del cargo(Q2)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="consistencia_rol" title="Consistencia del rol(Q3)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="demandas_emocionales" title="Demandas emocionales(Q4)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="demandas_jornada" title="Demandas de la jornada de trabajo(Q5)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="influ_extralaboral" title="Influencia del trabajo sobre el entorno extralaboral(Q6)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="demandas_cuantitativas" title="Demandas cuantitativas(Q7)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="demandas_mental" title="Demandas de carga mental(Q8)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                </kendo-grid-column-group>
-            </kendo-grid>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+                <kendo-grid-column field="reponsabilidad" title="Nivel de responsabilidad del cargo (Q2)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="consistencia_rol" title="Consistencia del rol (Q3)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="demandas_emocionales" title="Demandas emocionales (Q4)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="demandas_jornada" title="Demandas de la jornada de trabajo (Q5)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="influ_extralaboral"
+                    title="Influencia del trabajo sobre el entorno extralaboral (Q6)"  [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="demandas_cuantitativas" title="Demandas cuantitativas (Q7)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="demandas_mental" title="Demandas de carga mental (Q8)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO"  [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
@@ -340,30 +306,35 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[demandas_ambientales2[0], reponsabilidad2[0], consistencia_rol2[0],demandas_emocionales2[0],demandas_jornada2[0],influ_extralaboral2[0],demandas_cuantitativas2[0],demandas_mental2[0]]">
+                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                        [data]="[demandas_ambientales2[0], reponsabilidad2[0], consistencia_rol2[0],demandas_emocionales2[0],demandas_jornada2[0],influ_extralaboral2[0],demandas_cuantitativas2[0],demandas_mental2[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[demandas_ambientales2[1], reponsabilidad2[1], consistencia_rol2[1],demandas_emocionales2[1],demandas_jornada2[1],influ_extralaboral2[1],demandas_cuantitativas2[1],demandas_mental2[1]]">
+                    <kendo-chart-series-item type="bar" color="#97C015"
+                        [data]="[demandas_ambientales2[1], reponsabilidad2[1], consistencia_rol2[1],demandas_emocionales2[1],demandas_jornada2[1],influ_extralaboral2[1],demandas_cuantitativas2[1],demandas_mental2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[demandas_ambientales2[2], reponsabilidad2[2], consistencia_rol2[2],demandas_emocionales2[2],demandas_jornada2[2],influ_extralaboral2[2],demandas_cuantitativas2[2],demandas_mental2[2]]">
+                    <kendo-chart-series-item type="bar" color="#F0F012"
+                        [data]="[demandas_ambientales2[2], reponsabilidad2[2], consistencia_rol2[2],demandas_emocionales2[2],demandas_jornada2[2],influ_extralaboral2[2],demandas_cuantitativas2[2],demandas_mental2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[demandas_ambientales2[3], reponsabilidad2[3], consistencia_rol2[3],demandas_emocionales2[3],demandas_jornada2[3],influ_extralaboral2[3],demandas_cuantitativas2[3],demandas_mental2[3]]">
+                    <kendo-chart-series-item type="bar" color="#F07712"
+                        [data]="[demandas_ambientales2[3], reponsabilidad2[3], consistencia_rol2[3],demandas_emocionales2[3],demandas_jornada2[3],influ_extralaboral2[3],demandas_cuantitativas2[3],demandas_mental2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[demandas_ambientales2[4], reponsabilidad2[4], consistencia_rol2[4],demandas_emocionales2[4],demandas_jornada2[4],influ_extralaboral2[4],demandas_cuantitativas2[4],demandas_mental2[4]]">
+                    <kendo-chart-series-item type="bar" color="#FC0202"
+                        [data]="[demandas_ambientales2[4], reponsabilidad2[4], consistencia_rol2[4],demandas_emocionales2[4],demandas_jornada2[4],influ_extralaboral2[4],demandas_cuantitativas2[4],demandas_mental2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -373,50 +344,35 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales4">
-                <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'RECOMPENSAS'}"></header-pdf-informe>
+        <kendo-grid  [autoSize]="true" [scrollable]="'none'" [data]="sales4">
+            <kendo-grid-column field="brand" title="Nivel de riesgo"  [locked]="false">
+                <ng-template let-column let-columnIndex="columnIndex">
+                    {{ column.field }}({{ columnIndex }})
+                </ng-template>
+            </kendo-grid-column>
+            <kendo-grid-column-group title="RECOMPENSAS"  [locked]="false">
+                <kendo-grid-column field="recompensas_trabajo"
+                    title="Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza (Q1)"
+                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column-group title="RECOMPENSAS" [width]="600" [locked]="false">
-                    <kendo-grid-column field="recompensas_trabajo" title="Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza (Q1)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="reconocimiento" title="Reconocimiento y compensación (Q2)" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                    <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="130" [locked]="false">
-                        <ng-template let-column let-columnIndex="columnIndex">
-                            {{ column.field }}({{ columnIndex }})
-                        </ng-template>
-                    </kendo-grid-column>
-                </kendo-grid-column-group>
-            </kendo-grid>
-        </div>
+                <kendo-grid-column field="reconocimiento" title="Reconocimiento y compensación (Q2)" 
+                    [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO"  [locked]="false">
+                    <ng-template let-column let-columnIndex="columnIndex">
+                        {{ column.field }}({{ columnIndex }})
+                    </ng-template>
+                </kendo-grid-column>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <br>
         <br>
         <br>
@@ -429,30 +385,35 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [spacing]="0" [data]="[recompensas_trabajo2[0] , reconocimiento2[0] ]">
+                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [spacing]="0"
+                        [data]="[recompensas_trabajo2[0] , reconocimiento2[0] ]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[recompensas_trabajo2[1], reconocimiento2[1]]">
+                    <kendo-chart-series-item type="bar" color="#97C015"
+                        [data]="[recompensas_trabajo2[1], reconocimiento2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[recompensas_trabajo2[2], reconocimiento2[2]]">
+                    <kendo-chart-series-item type="bar" color="#F0F012"
+                        [data]="[recompensas_trabajo2[2], reconocimiento2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[recompensas_trabajo2[3], reconocimiento2[3]]">
+                    <kendo-chart-series-item type="bar" color="#F07712"
+                        [data]="[recompensas_trabajo2[3], reconocimiento2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[recompensas_trabajo2[4], reconocimiento2[4]]">
+                    <kendo-chart-series-item type="bar" color="#FC0202"
+                        [data]="[recompensas_trabajo2[4], reconocimiento2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -462,51 +423,33 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales5">
-                <kendo-grid-column field="brand" title="Nivel de riesgo">
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'RIESGO PSICOSOCIAL EXTRALABORAL'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales5">
+            <kendo-grid-column field="brand" title="Nivel de riesgo">
+            </kendo-grid-column>
+            <kendo-grid-column-group title="RIESGO PSICOSOCIAL  EXTRALABORAL" [locked]="false">
+                <kendo-grid-column field="tiempo_fuera" title="Tiempo fuera del trabajo (Q1)">
                 </kendo-grid-column>
-                <kendo-grid-column field="tiempo_fuera" title="Tiempo fuera del trabajo(Q1)">
+                <kendo-grid-column field="relaciones_familiares" title="Relaciones familiares (Q2)">
                 </kendo-grid-column>
-                <kendo-grid-column field="relaciones_familiares" title="Relaciones familiares(Q2)">
+                <kendo-grid-column field="com_relaciones_interperson"
+                    title="Comunicación y relaciones interpersonales (Q3)">
                 </kendo-grid-column>
-                <kendo-grid-column field="com_relaciones_interperson" title="Comunicación y relaciones interpersonales(Q3)">
+                <kendo-grid-column field="situacion_economica" title="Situación económica (Q4)">
                 </kendo-grid-column>
-                <kendo-grid-column field="situacion_economica" title="Situación económica(Q4)">
+                <kendo-grid-column field="caract_vivienda" title="Características de la vivienda y de su entorno (Q5)">
                 </kendo-grid-column>
-                <kendo-grid-column field="caract_vivienda" title="Características de la vivienda y de su entorno(Q5)">
+                <kendo-grid-column field="influencia_extralaboral"
+                    title="Influencia del entorno extralaboral sobre el trabajo (Q6)">
                 </kendo-grid-column>
-                <kendo-grid-column field="influencia_extralaboral" title="Influencia del entorno extralaboral sobre el trabajo(Q6)">
-                </kendo-grid-column>
-                <kendo-grid-column field="desplaz_vivienda" title="Desplazamiento vivienda – trabajo – vivienda(Q7)">
+                <kendo-grid-column field="desplaz_vivienda" 
+                    title="Desplazamiento vivienda, trabajo, vivienda (Q7)">
                 </kendo-grid-column>
                 <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO">
                 </kendo-grid-column>
-            </kendo-grid>
-        </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <div style="text-align: center;">
             <kendo-chart style="width: 90%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
@@ -514,61 +457,50 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[tiempo_fuera2[0], relaciones_familiares2[0], com_relaciones_interperson2[0],situacion_economica2[0],caract_vivienda2[0],influencia_extralaboral2[0],desplaz_vivienda2[0]]">
+                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                        [data]="[tiempo_fuera2[0], relaciones_familiares2[0], com_relaciones_interperson2[0],situacion_economica2[0],caract_vivienda2[0],influencia_extralaboral2[0],desplaz_vivienda2[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[tiempo_fuera2[1], relaciones_familiares2[1], com_relaciones_interperson2[1],situacion_economica2[1],caract_vivienda2[1],influencia_extralaboral2[1],desplaz_vivienda2[1]]">
+                    <kendo-chart-series-item type="bar" color="#97C015"
+                        [data]="[tiempo_fuera2[1], relaciones_familiares2[1], com_relaciones_interperson2[1],situacion_economica2[1],caract_vivienda2[1],influencia_extralaboral2[1],desplaz_vivienda2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[tiempo_fuera2[2], relaciones_familiares2[2], com_relaciones_interperson2[2],situacion_economica2[2],caract_vivienda2[2],influencia_extralaboral2[2],desplaz_vivienda2[2]]">
+                    <kendo-chart-series-item type="bar" color="#F0F012"
+                        [data]="[tiempo_fuera2[2], relaciones_familiares2[2], com_relaciones_interperson2[2],situacion_economica2[2],caract_vivienda2[2],influencia_extralaboral2[2],desplaz_vivienda2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[tiempo_fuera2[3], relaciones_familiares2[3], com_relaciones_interperson2[3],situacion_economica2[3],caract_vivienda2[3],influencia_extralaboral2[3],desplaz_vivienda2[3]]">
+                    <kendo-chart-series-item type="bar" color="#F07712"
+                        [data]="[tiempo_fuera2[3], relaciones_familiares2[3], com_relaciones_interperson2[3],situacion_economica2[3],caract_vivienda2[3],influencia_extralaboral2[3],desplaz_vivienda2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[tiempo_fuera2[4], relaciones_familiares2[4], com_relaciones_interperson2[4],situacion_economica2[4],caract_vivienda2[4],influencia_extralaboral2[4],desplaz_vivienda2[4]]">
+                    <kendo-chart-series-item type="bar" color="#FC0202"
+                        [data]="[tiempo_fuera2[4], relaciones_familiares2[4], com_relaciones_interperson2[4],situacion_economica2[4],caract_vivienda2[4],influencia_extralaboral2[4],desplaz_vivienda2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 430px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
 </div>
 
-<!-- -----------------------------------Estres Detalles 6--------------------------------------------->
+<!-- -----------------------------------Estrés Detalles 6--------------------------------------------->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales6">
-                <kendo-grid-column field="brand" title="Nivel de riesgo">
-                </kendo-grid-column>
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTRÉS DETALLES'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales6">
+            <kendo-grid-column field="brand" title="Nivel de riesgo">
+            </kendo-grid-column>
+            <kendo-grid-column-group title="ESTRÉS DETALLES" [locked]="false">
                 <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS">
                 </kendo-grid-column>
                 <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL">
@@ -577,8 +509,8 @@
                 </kendo-grid-column>
                 <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES">
                 </kendo-grid-column>
-            </kendo-grid>
-        </div>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <br>
         <br>
         <br>
@@ -591,81 +523,67 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[FISIOLOGICAS2[0], COMPORTAMIENTO_SOCIAL2[0],INTEL_LABORA2[0],PSICOEMOCIONALES2[0]]">
+                    <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }"
+                        [data]="[FISIOLOGICAS2[0], COMPORTAMIENTO_SOCIAL2[0],INTEL_LABORA2[0],PSICOEMOCIONALES2[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#97C015" type="bar" [data]="[FISIOLOGICAS2[1], COMPORTAMIENTO_SOCIAL2[1],INTEL_LABORA2[1],PSICOEMOCIONALES2[1]]">
+                    <kendo-chart-series-item color="#97C015" type="bar"
+                        [data]="[FISIOLOGICAS2[1], COMPORTAMIENTO_SOCIAL2[1],INTEL_LABORA2[1],PSICOEMOCIONALES2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#F0F012" type="bar" [data]="[FISIOLOGICAS2[2], COMPORTAMIENTO_SOCIAL2[2],INTEL_LABORA2[2],PSICOEMOCIONALES2[2]]">
+                    <kendo-chart-series-item color="#F0F012" type="bar"
+                        [data]="[FISIOLOGICAS2[2], COMPORTAMIENTO_SOCIAL2[2],INTEL_LABORA2[2],PSICOEMOCIONALES2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#F07712" type="bar" [data]="[FISIOLOGICAS2[3], COMPORTAMIENTO_SOCIAL2[3],INTEL_LABORA2[3],PSICOEMOCIONALES2[3]]">
+                    <kendo-chart-series-item color="#F07712" type="bar"
+                        [data]="[FISIOLOGICAS2[3], COMPORTAMIENTO_SOCIAL2[3],INTEL_LABORA2[3],PSICOEMOCIONALES2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#FC0202" type="bar" [data]="[FISIOLOGICAS2[4], COMPORTAMIENTO_SOCIAL2[4],INTEL_LABORA2[4],PSICOEMOCIONALES2[4]]">
+                    <kendo-chart-series-item color="#FC0202" type="bar"
+                        [data]="[FISIOLOGICAS2[4], COMPORTAMIENTO_SOCIAL2[4],INTEL_LABORA2[4],PSICOEMOCIONALES2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
 </div>
 
-<!-- -----------------------------------Estres 7--------------------------------------------->
+<!-- -----------------------------------Estrés 7--------------------------------------------->
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf7 paperSize="A4" margin="1cm" [scale]="0.5">
-
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales7">
-                <kendo-grid-column field="brand" title="Nivel de riesgo">
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTRÉS'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales7">
+            <kendo-grid-column field="brand" title="Nivel de riesgo">
+            </kendo-grid-column>
+            <kendo-grid-column-group title="ESTRÉS" [locked]="false">
+                <kendo-grid-column field="TOTAL_ESTRES" title="TOTAL ESTRÉS">
                 </kendo-grid-column>
-                <kendo-grid-column field="TOTAL_ESTRES" title="TOTAL ESTRES">
-                </kendo-grid-column>
-            </kendo-grid>
-        </div>
-        <br>
-        <br>
-        <br>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <br>
         <br>
         <div style="text-align: center;">
             <kendo-chart>
                 <kendo-chart-legend position="bottom"></kendo-chart-legend>
                 <kendo-chart-series>
-                    <kendo-chart-series-item colorField="colorField" type="pie" [data]="dataDona" field="value" categoryField="category" [labels]="{ visible: true, content: labelContent }">
+                    <kendo-chart-series-item colorField="colorField" type="pie" [data]="dataDona" field="value"
+                        categoryField="category" [labels]="{ visible: true, content: labelContent }">
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -675,36 +593,19 @@
 
 <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="sales8">
-                <kendo-grid-column field="brand" title="Nivel de riesgo">
-                </kendo-grid-column>
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'TOTALES GENERALES'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales8">
+            <kendo-grid-column field="brand" title="Nivel de riesgo">
+            </kendo-grid-column>
+            <kendo-grid-column-group title="TOTALES GENERALES" [locked]="false">
                 <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL (Q1)">
                 </kendo-grid-column>
                 <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL (Q2)">
                 </kendo-grid-column>
                 <kendo-grid-column field="total_general" title="TOTAL GENERAL (Q3)">
                 </kendo-grid-column>
-            </kendo-grid>
-        </div>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <br>
         <br>
         <br>
@@ -717,30 +618,35 @@
                     </kendo-chart-category-axis-item>
                 </kendo-chart-category-axis>
                 <kendo-chart-series>
-                    <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
+                    <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }"
+                        [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#97C015" type="bar" [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
+                    <kendo-chart-series-item color="#97C015" type="bar"
+                        [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#F0F012" type="bar" [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
+                    <kendo-chart-series-item color="#F0F012" type="bar"
+                        [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#F07712" type="bar" [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
+                    <kendo-chart-series-item color="#F07712" type="bar"
+                        [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item color="#FC0202" type="bar" [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
+                    <kendo-chart-series-item color="#FC0202" type="bar"
+                        [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 480px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -749,37 +655,23 @@
 
 <!-- -----------------------------------Total Dominios --------------------------------------------->
 
-<div  style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <div>
-            <kendo-grid [data]="dataTotalDominios">
-                <kendo-grid-column  field="brand" title="Nivel de riesgo" [width]="130" [locked]="false"></kendo-grid-column>
-                <kendo-grid-column-group field="td" title="TOTAL DOMINIOS" [width]="600" [locked]="false">
-                    <kendo-grid-column field="lrst" title="Liderazgo y relaciones sociales en el trabajo (Q1)" [width]="130" [locked]="false"></kendo-grid-column>
-                    <kendo-grid-column field="cst" title="Control sobre el trabajo (Q2)" [width]="130" [locked]="false"></kendo-grid-column>
-                    <kendo-grid-column field="demanda" title="Demandas del trabajo (Q3)" [width]="130" [locked]="false"></kendo-grid-column>
-                    <kendo-grid-column field="recompensa" title="Recompensas (Q4)" [width]="130" [locked]="false"></kendo-grid-column>
-                </kendo-grid-column-group>
-            </kendo-grid>
-        </div>
+        <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'TOTAL DOMINIOS'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="dataTotalDominios">
+            <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false"></kendo-grid-column>
+            <kendo-grid-column-group field="td" title="TOTAL DOMINIOS"  [locked]="false">
+                <kendo-grid-column field="lrst" title="Liderazgo y relaciones sociales en el trabajo (Q1)"
+                    [locked]="false"></kendo-grid-column>
+                <kendo-grid-column field="cst" title="Control sobre el trabajo (Q2)" 
+                    [locked]="false"></kendo-grid-column>
+                <kendo-grid-column field="demanda" title="Demandas del trabajo (Q3)" 
+                    [locked]="false"></kendo-grid-column>
+                <kendo-grid-column field="recompensa" title="Recompensas (Q4)" 
+                    [locked]="false"></kendo-grid-column>
+            </kendo-grid-column-group>
+        </kendo-grid>
         <br>
         <br>
         <br>
@@ -793,30 +685,35 @@
                 </kendo-chart-category-axis>
                 <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
                 <kendo-chart-series>
-                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[sinRiesgoli[0], sinRiesgoCo[0], sinRiesgodem[0],sinRiesgore[0]]">
+                    <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                        [data]="[sinRiesgoli[0], sinRiesgoCo[0], sinRiesgodem[0],sinRiesgore[0]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#97C015" [data]="[sinRiesgoli[1], sinRiesgoCo[1], sinRiesgodem[1],sinRiesgore[1]]">
+                    <kendo-chart-series-item type="bar" color="#97C015"
+                        [data]="[sinRiesgoli[1], sinRiesgoCo[1], sinRiesgodem[1],sinRiesgore[1]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F0F012" [data]="[sinRiesgoli[2], sinRiesgoCo[2], sinRiesgodem[2],sinRiesgore[2]]">
+                    <kendo-chart-series-item type="bar" color="#F0F012"
+                        [data]="[sinRiesgoli[2], sinRiesgoCo[2], sinRiesgodem[2],sinRiesgore[2]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#F07712" [data]="[sinRiesgoli[3], sinRiesgoCo[3], sinRiesgodem[3],sinRiesgore[3]]">
+                    <kendo-chart-series-item type="bar" color="#F07712"
+                        [data]="[sinRiesgoli[3], sinRiesgoCo[3], sinRiesgodem[3],sinRiesgore[3]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
-                    <kendo-chart-series-item type="bar" color="#FC0202" [data]="[sinRiesgoli[4], sinRiesgoCo[4], sinRiesgodem[4],sinRiesgore[4]]">
+                    <kendo-chart-series-item type="bar" color="#FC0202"
+                        [data]="[sinRiesgoli[4], sinRiesgoCo[4], sinRiesgodem[4],sinRiesgore[4]]">
                         <kendo-chart-series-item-labels position="center">
                         </kendo-chart-series-item-labels>
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
             <div style=" font-size: 17px; text-align: center; padding-top: 480px;">
-                <p>https://gelainbienestarlaboral.com/GELAIN/ng/#/login</p>
+                <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
     </kendo-pdf-export>
@@ -832,359 +729,414 @@
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
     </div>
     <div *ngIf="!validCTodos">
-        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b> -
+            Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
     </div>
     <br>
-    <div>
-        <p-panel header="LIDERAZGO Y RELACIONES SOCIALES">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf.saveAs(text1)">
-                  Generar Reporte
-                </button>
-                </div>
-                <br>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-panel header="LIDERAZGO Y RELACIONES SOCIALES">
                 <div>
-                    <kendo-grid [data]="sales">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
-                            <ng-template let-column let-columnIndex="columnIndex">
-                                {{ column.field }}({{ columnIndex }})
-                            </ng-template>
-                        </kendo-grid-column>
-                        <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
-                            <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)" [locked]="false">
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf.saveAs(text1)">
+                           <i class="fa fa-file-pdf-o"  aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo" [locked]="false">
                                 <ng-template let-column let-columnIndex="columnIndex">
                                     {{ column.field }}({{ columnIndex }})
                                 </ng-template>
                             </kendo-grid-column>
-                            <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="100" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                        </kendo-grid-column-group>
-                    </kendo-grid>
+                            <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
+                                <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)"
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)"
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)"
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)"
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO"
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item type="bar" color="#1E830A" noteTextField="notes" [notes]="notes"
+                                    [stack]="{ type: '100%' }"
+                                    [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#97C015"
+                                    [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F0F012"
+                                    [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F07712"
+                                    [data]="[liderazgo2[3],  relaciones2[3], retroalimentacion2[3],rela_colaboradores2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#FC0202"
+                                    [data]="[liderazgo2[4],  relaciones2[4], retroalimentacion2[4],rela_colaboradores2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div>
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" color="#1E830A" noteTextField="notes" [notes]="notes" [stack]="{ type: '100%' }" [data]="[liderazgo2[0], relaciones2[0], retroalimentacion2[0],rela_colaboradores2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[liderazgo2[1],  relaciones2[1], retroalimentacion2[1],rela_colaboradores2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[liderazgo2[2],  relaciones2[2], retroalimentacion2[2],rela_colaboradores2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[liderazgo2[3],  relaciones2[3], retroalimentacion2[3],rela_colaboradores2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[liderazgo2[4],  relaciones2[4], retroalimentacion2[4],rela_colaboradores2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
     <br>
 
     <!-- -----------------------------------CONTROL SOBRE EL TRABAJO-  2-------------------------------------------->
     <br>
-    <div>
-        <p-panel header="CONTROL SOBRE EL TRABAJO">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf2.saveAs(text2)">
-                  Generar Reporte
-                </button>
-                </div>
-                <br>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-panel header="CONTROL SOBRE EL TRABAJO">
                 <div>
-                    <kendo-grid [data]="sales2">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                            <ng-template let-column let-columnIndex="columnIndex">
-                                {{ column.field }}({{ columnIndex }})
-                            </ng-template>
-                        </kendo-grid-column>
-                        <kendo-grid-column-group title="CONTROL SOBRE EL TRABAJO" [width]="600" [locked]="false">
-                            <kendo-grid-column field="claridad" title="Claridad de rol(Q1)" [width]="100" [locked]="false">
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf2.saveAs(text2)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales2">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo"  [locked]="false">
                                 <ng-template let-column let-columnIndex="columnIndex">
                                     {{ column.field }}({{ columnIndex }})
                                 </ng-template>
                             </kendo-grid-column>
-                            <kendo-grid-column field="capacitacion" title="Capacitación(Q2)" [width]="100" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="oportunidades" title="Oportunidades para el uso y desarrollo de habilidades y conocimientos(Q3)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="manejo" title="Participación y manejo del cambio(Q4)" [width]="100" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="control" title="Control y autonomía sobre el trabajo(Q5)" [width]="100" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="90" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                        </kendo-grid-column-group>
-                    </kendo-grid>
+                            <kendo-grid-column-group title="CONTROL SOBRE EL TRABAJO"  [locked]="false">
+                                <kendo-grid-column field="claridad" title="Claridad de rol(Q1)" 
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="capacitacion" title="Capacitación(Q2)" 
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="oportunidades"
+                                    title="Oportunidades para el uso y desarrollo de habilidades y conocimientos(Q3)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="manejo" title="Participación y manejo del cambio(Q4)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="control" title="Control y autonomía sobre el trabajo(Q5)"
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div>
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                                    [data]="[claridad2[0], capacitacion2[0], oportunidades2[0],manejo2[0],control2[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#97C015"
+                                    [data]="[claridad2[1], capacitacion2[1], oportunidades2[1],manejo2[1],control2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F0F012"
+                                    [data]="[claridad2[2], capacitacion2[2], oportunidades2[2],manejo2[2],control2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F07712"
+                                    [data]="[claridad2[3], capacitacion2[3], oportunidades2[3],manejo2[3],control2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#FC0202"
+                                    [data]="[claridad2[4], capacitacion2[4], oportunidades2[4],manejo2[4],control2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div>
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[claridad2[0], capacitacion2[0], oportunidades2[0],manejo2[0],control2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[claridad2[1], capacitacion2[1], oportunidades2[1],manejo2[1],control2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[claridad2[2], capacitacion2[2], oportunidades2[2],manejo2[2],control2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[claridad2[3], capacitacion2[3], oportunidades2[3],manejo2[3],control2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[claridad2[4], capacitacion2[4], oportunidades2[4],manejo2[4],control2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
     <br>
     <!-- -----------------------------------DEMANDAS DEL TRABAJO  3--------------------------------------------->
 
-    <div>
-        <p-panel header="DEMANDAS DEL TRABAJO">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf3.saveAs(text3)">
-                        Generar Reporte
-                    </button>
-                </div>
-                <br>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-panel header="DEMANDAS DEL TRABAJO">
                 <div>
-                    <kendo-grid [data]="sales3">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                            <ng-template let-column let-columnIndex="columnIndex">
-                                {{ column.field }}({{ columnIndex }})
-                            </ng-template>
-                        </kendo-grid-column>
-                        <kendo-grid-column-group title="DEMANDAS DEL TRABAJO" [width]="600" [locked]="false">
-                            <kendo-grid-column field="demandas_ambientales" title="Demandas ambientales y de esfuerzo físico(Q1)" [width]="130" [locked]="false">
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf3.saveAs(text3)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales3">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo"  [locked]="false">
                                 <ng-template let-column let-columnIndex="columnIndex">
                                     {{ column.field }}({{ columnIndex }})
                                 </ng-template>
                             </kendo-grid-column>
-                            <kendo-grid-column field="reponsabilidad" title="Nivel de responsabilidad del cargo(Q2)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="consistencia_rol" title="Consistencia del rol(Q3)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="demandas_emocionales" title="Demandas emocionales(Q4)" [width]="80" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="demandas_jornada" title="Demandas de la jornada de trabajo(Q5)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="influ_extralaboral" title="Influencia del trabajo sobre el entorno extralaboral(Q6)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="demandas_cuantitativas" title="Demandas cuantitativas(Q7)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="demandas_mental" title="Demandas de carga mental(Q8)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                        </kendo-grid-column-group>
-                    </kendo-grid>
+                            <kendo-grid-column-group title="DEMANDAS DEL TRABAJO" [locked]="false">
+                                <kendo-grid-column field="demandas_ambientales"
+                                    title="Demandas ambientales y de esfuerzo físico (Q1)"  [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="reponsabilidad" title="Nivel de responsabilidad del cargo (Q2)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="consistencia_rol" title="Consistencia del rol (Q3)" 
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="demandas_emocionales" title="Demandas emocionales (Q4)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="demandas_jornada" title="Demandas de la jornada de trabajo (Q5)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="influ_extralaboral"
+                                    title="Influencia del trabajo sobre el entorno extralaboral (Q6)" 
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="demandas_cuantitativas" title="Demandas cuantitativas (Q7)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="demandas_mental" title="Demandas de carga mental (Q8)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO"  [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                                    [data]="[demandas_ambientales2[0], reponsabilidad2[0], consistencia_rol2[0],demandas_emocionales2[0],demandas_jornada2[0],influ_extralaboral2[0],demandas_cuantitativas2[0],demandas_mental2[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#97C015"
+                                    [data]="[demandas_ambientales2[1], reponsabilidad2[1], consistencia_rol2[1],demandas_emocionales2[1],demandas_jornada2[1],influ_extralaboral2[1],demandas_cuantitativas2[1],demandas_mental2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F0F012"
+                                    [data]="[demandas_ambientales2[2], reponsabilidad2[2], consistencia_rol2[2],demandas_emocionales2[2],demandas_jornada2[2],influ_extralaboral2[2],demandas_cuantitativas2[2],demandas_mental2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F07712"
+                                    [data]="[demandas_ambientales2[3], reponsabilidad2[3], consistencia_rol2[3],demandas_emocionales2[3],demandas_jornada2[3],influ_extralaboral2[3],demandas_cuantitativas2[3],demandas_mental2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#FC0202"
+                                    [data]="[demandas_ambientales2[4], reponsabilidad2[4], consistencia_rol2[4],demandas_emocionales2[4],demandas_jornada2[4],influ_extralaboral2[4],demandas_cuantitativas2[4],demandas_mental2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[demandas_ambientales2[0], reponsabilidad2[0], consistencia_rol2[0],demandas_emocionales2[0],demandas_jornada2[0],influ_extralaboral2[0],demandas_cuantitativas2[0],demandas_mental2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[demandas_ambientales2[1], reponsabilidad2[1], consistencia_rol2[1],demandas_emocionales2[1],demandas_jornada2[1],influ_extralaboral2[1],demandas_cuantitativas2[1],demandas_mental2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[demandas_ambientales2[2], reponsabilidad2[2], consistencia_rol2[2],demandas_emocionales2[2],demandas_jornada2[2],influ_extralaboral2[2],demandas_cuantitativas2[2],demandas_mental2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[demandas_ambientales2[3], reponsabilidad2[3], consistencia_rol2[3],demandas_emocionales2[3],demandas_jornada2[3],influ_extralaboral2[3],demandas_cuantitativas2[3],demandas_mental2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[demandas_ambientales2[4], reponsabilidad2[4], consistencia_rol2[4],demandas_emocionales2[4],demandas_jornada2[4],influ_extralaboral2[4],demandas_cuantitativas2[4],demandas_mental2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
     <br>
     <!-- -----------------------------------RECOMPENSAS 4--------------------------------------------->
-    <div>
-        <p-panel header="RECOMPENSAS">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf4.saveAs(text4)">
-                        Generar Reporte
-                    </button>
-                </div>
-                <br>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-panel header="RECOMPENSAS">
                 <div>
-                    <kendo-grid [data]="sales4">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo" [width]="130" [locked]="false">
-                            <ng-template let-column let-columnIndex="columnIndex">
-                                {{ column.field }}({{ columnIndex }})
-                            </ng-template>
-                        </kendo-grid-column>
-                        <kendo-grid-column-group title="RECOMPENSAS" [width]="600" [locked]="false">
-                            <kendo-grid-column field="recompensas_trabajo" title="Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza (Q1)" [width]="130" [locked]="false">
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf4.saveAs(text4)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales4">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo"  [locked]="false">
                                 <ng-template let-column let-columnIndex="columnIndex">
                                     {{ column.field }}({{ columnIndex }})
                                 </ng-template>
                             </kendo-grid-column>
-                            <kendo-grid-column field="reconocimiento" title="Reconocimiento y compensación (Q2)" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                            <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" [width]="130" [locked]="false">
-                                <ng-template let-column let-columnIndex="columnIndex">
-                                    {{ column.field }}({{ columnIndex }})
-                                </ng-template>
-                            </kendo-grid-column>
-                        </kendo-grid-column-group>
-                    </kendo-grid>
+                            <kendo-grid-column-group title="RECOMPENSAS" [locked]="false">
+                                <kendo-grid-column field="recompensas_trabajo"
+                                    title="Recompensas derivadas de la pertenencia a la organización y del trabajo que se realiza (Q1)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="reconocimiento" title="Reconocimiento y compensación (Q2)"
+                                     [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO" 
+                                    [locked]="false">
+                                    <ng-template let-column let-columnIndex="columnIndex">
+                                        {{ column.field }}({{ columnIndex }})
+                                    </ng-template>
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [spacing]="0"
+                                    [data]="[recompensas_trabajo2[0] , reconocimiento2[0] ]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#97C015"
+                                    [data]="[recompensas_trabajo2[1], reconocimiento2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F0F012"
+                                    [data]="[recompensas_trabajo2[2], reconocimiento2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F07712"
+                                    [data]="[recompensas_trabajo2[3], reconocimiento2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#FC0202"
+                                    [data]="[recompensas_trabajo2[4], reconocimiento2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [spacing]="0" [data]="[recompensas_trabajo2[0] , reconocimiento2[0] ]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[recompensas_trabajo2[1], reconocimiento2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[recompensas_trabajo2[2], reconocimiento2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[recompensas_trabajo2[3], reconocimiento2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[recompensas_trabajo2[4], reconocimiento2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
 </fieldset>
 <br>
+<!-- -----------------------------------TOTAL DOMINIOS--------------------------------------------->
 <fieldset>
     <legend><b>TOTAL DOMINIOS</b></legend>
     <br>
@@ -1192,64 +1144,77 @@
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
     </div>
     <div *ngIf="!validCTodos">
-        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b> -
+            Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
     </div>
     <br>
-    <div>
-        <p-panel header="TOTAL DOMINIOS">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf9.saveAs(text9)">
-                      Generar Reporte
-                    </button>
-                </div>
-                <br>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-panel header="TOTAL DOMINIOS">
                 <div>
-                    <kendo-grid [data]="dataTotalDominios">
-                        <kendo-grid-column  field="brand" title="Nivel de riesgo" [width]="130" [locked]="false"></kendo-grid-column>
-                        <kendo-grid-column-group field="td" title="TOTAL DOMINIOS" [width]="600" [locked]="false">
-                            <kendo-grid-column field="lrst" title="Liderazgo y relaciones sociales en el trabajo (Q1)" [width]="130" [locked]="false"></kendo-grid-column>
-                            <kendo-grid-column field="cst" title="Control sobre el trabajo (Q2)" [width]="130" [locked]="false"></kendo-grid-column>
-                            <kendo-grid-column field="demanda" title="Demandas del trabajo (Q3)" [width]="130" [locked]="false"></kendo-grid-column>
-                            <kendo-grid-column field="recompensa" title="Recompensas (Q4)" [width]="130" [locked]="false"></kendo-grid-column>
-                        </kendo-grid-column-group>
-                    </kendo-grid>
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf9.saveAs(text9)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="dataTotalDominios">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo" 
+                                [locked]="false"></kendo-grid-column>
+                            <kendo-grid-column-group field="td" title="TOTAL DOMINIOS" [locked]="false">
+                                <kendo-grid-column field="lrst" title="Liderazgo y relaciones sociales en el trabajo (Q1)"
+                                     [locked]="false"></kendo-grid-column>
+                                <kendo-grid-column field="cst" title="Control sobre el trabajo (Q2)" 
+                                    [locked]="false"></kendo-grid-column>
+                                <kendo-grid-column field="demanda" title="Demandas del trabajo (Q3)" 
+                                    [locked]="false"></kendo-grid-column>
+                                <kendo-grid-column field="recompensa" title="Recompensas (Q4)" 
+                                    [locked]="false"></kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                                    [data]="[sinRiesgoli[0], sinRiesgoCo[0], sinRiesgodem[0],sinRiesgore[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#97C015"
+                                    [data]="[sinRiesgoli[1], sinRiesgoCo[1], sinRiesgodem[1],sinRiesgore[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F0F012"
+                                    [data]="[sinRiesgoli[2], sinRiesgoCo[2], sinRiesgodem[2],sinRiesgore[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F07712"
+                                    [data]="[sinRiesgoli[3], sinRiesgoCo[3], sinRiesgodem[3],sinRiesgore[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#FC0202"
+                                    [data]="[sinRiesgoli[4], sinRiesgoCo[4], sinRiesgodem[4],sinRiesgore[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[sinRiesgoli[0], sinRiesgoCo[0], sinRiesgodem[0],sinRiesgore[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[sinRiesgoli[1], sinRiesgoCo[1], sinRiesgodem[1],sinRiesgore[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[sinRiesgoli[2], sinRiesgoCo[2], sinRiesgodem[2],sinRiesgore[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[sinRiesgoli[3], sinRiesgoCo[3], sinRiesgodem[3],sinRiesgore[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[sinRiesgoli[4], sinRiesgoCo[4], sinRiesgodem[4],sinRiesgore[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
 </fieldset>
 <br>
@@ -1261,265 +1226,307 @@
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
     </div>
     <div *ngIf="!validCTodos">
-        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b> -
+            Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
     </div>
     <br>
-    <div>
-        <p-panel header="RIESGO PSICOSOCIAL EXTRALABORAL">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf5.saveAs(text5)">
-                      Generar Reporte
-                    </button>
-                </div>
-                <br>
+    <div class="ui-g">
+        <div class="ui-g-12">
+            <p-panel header="RIESGO PSICOSOCIAL EXTRALABORAL">
                 <div>
-                    <kendo-grid [data]="sales5">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="tiempo_fuera" title="Tiempo fuera del trabajo(Q1)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="relaciones_familiares" title="Relaciones familiares(Q2)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="com_relaciones_interperson" title="Comunicación y relaciones interpersonales(Q3)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="situacion_economica" title="Situación económica(Q4)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="caract_vivienda" title="Características de la vivienda y de su entorno(Q5)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="influencia_extralaboral" title="Influencia del entorno extralaboral sobre el trabajo(Q6)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="desplaz_vivienda" title="Desplazamiento vivienda – trabajo – vivienda(Q7)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO">
-                        </kendo-grid-column>
-                    </kendo-grid>
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf5.saveAs(text5)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales5">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo">
+                            </kendo-grid-column>
+                            <kendo-grid-column-group title="RIESGO PSICOSOCIAL EXTRALABORAL" [locked]="false">
+                                <kendo-grid-column field="tiempo_fuera" title="Tiempo fuera del trabajo (Q1)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="relaciones_familiares" title="Relaciones familiares (Q2)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="com_relaciones_interperson"
+                                    title="Comunicación y relaciones interpersonales (Q3)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="situacion_economica" title="Situación económica (Q4)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="caract_vivienda"
+                                    title="Características de la vivienda y de su entorno (Q5)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="influencia_extralaboral"
+                                    title="Influencia del entorno extralaboral sobre el trabajo (Q6)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="desplaz_vivienda"
+                                    title="Desplazamiento vivienda, trabajo, vivienda (Q7)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="TotalDominio" title="TOTAL DOMINIO">
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }"
+                                    [data]="[tiempo_fuera2[0], relaciones_familiares2[0], com_relaciones_interperson2[0],situacion_economica2[0],caract_vivienda2[0],influencia_extralaboral2[0],desplaz_vivienda2[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#97C015"
+                                    [data]="[tiempo_fuera2[1], relaciones_familiares2[1], com_relaciones_interperson2[1],situacion_economica2[1],caract_vivienda2[1],influencia_extralaboral2[1],desplaz_vivienda2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F0F012"
+                                    [data]="[tiempo_fuera2[2], relaciones_familiares2[2], com_relaciones_interperson2[2],situacion_economica2[2],caract_vivienda2[2],influencia_extralaboral2[2],desplaz_vivienda2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#F07712"
+                                    [data]="[tiempo_fuera2[3], relaciones_familiares2[3], com_relaciones_interperson2[3],situacion_economica2[3],caract_vivienda2[3],influencia_extralaboral2[3],desplaz_vivienda2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item type="bar" color="#FC0202"
+                                    [data]="[tiempo_fuera2[4], relaciones_familiares2[4], com_relaciones_interperson2[4],situacion_economica2[4],caract_vivienda2[4],influencia_extralaboral2[4],desplaz_vivienda2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item type="bar" color="#1E830A" [stack]="{ type: '100%' }" [data]="[tiempo_fuera2[0], relaciones_familiares2[0], com_relaciones_interperson2[0],situacion_economica2[0],caract_vivienda2[0],influencia_extralaboral2[0],desplaz_vivienda2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#97C015" [data]="[tiempo_fuera2[1], relaciones_familiares2[1], com_relaciones_interperson2[1],situacion_economica2[1],caract_vivienda2[1],influencia_extralaboral2[1],desplaz_vivienda2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F0F012" [data]="[tiempo_fuera2[2], relaciones_familiares2[2], com_relaciones_interperson2[2],situacion_economica2[2],caract_vivienda2[2],influencia_extralaboral2[2],desplaz_vivienda2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#F07712" [data]="[tiempo_fuera2[3], relaciones_familiares2[3], com_relaciones_interperson2[3],situacion_economica2[3],caract_vivienda2[3],influencia_extralaboral2[3],desplaz_vivienda2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item type="bar" color="#FC0202" [data]="[tiempo_fuera2[4], relaciones_familiares2[4], com_relaciones_interperson2[4],situacion_economica2[4],caract_vivienda2[4],influencia_extralaboral2[4],desplaz_vivienda2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
     <br>
 </fieldset>
 <br>
-<!-- -----------------------------------Estres 7--------------------------------------------->
+<!-- -----------------------------------Estrés 7--------------------------------------------->
 <fieldset>
-    <legend><b>Estres</b></legend>
+    <legend><b>Estrés</b></legend>
     <br>
     <div *ngIf="validCTodos">
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
     </div>
     <div *ngIf="!validCTodos">
-        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b> -
+            Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
     </div>
     <br>
     <div class="ui-g">
-        <p-panel header="Estres">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf7.saveAs(text6)">
-                      Generar Reporte
-                    </button>
-                </div>
-                <br>
+        <div class="ui-g-12">
+            <p-panel header="Estrés">
                 <div>
-                    <kendo-grid [data]="sales7">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="TOTAL_ESTRES" title="TOTAL ESTRES">
-                        </kendo-grid-column>
-                    </kendo-grid>
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf7.saveAs(text6)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales7">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo">
+                            </kendo-grid-column>
+                            <kendo-grid-column-group title="ESTRÉS" [locked]="false">
+                                <kendo-grid-column field="TOTAL_ESTRES" title="TOTAL ESTRÉS">
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart>
+                            <kendo-chart-legend position="bottom"></kendo-chart-legend>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item colorField="colorField" type="pie" [data]="dataDona" field="value"
+                                    categoryField="category" [labels]="{ visible: true, content: labelContent }">
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart>
-                        <kendo-chart-legend position="bottom"></kendo-chart-legend>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item colorField="colorField" type="pie" [data]="dataDona" field="value" categoryField="category" [labels]="{ visible: true, content: labelContent }">
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
     <br>
 </fieldset>
 <br>
-<!-- -----------------------------------Estres Detalles 6--------------------------------------------->
+<!-- -----------------------------------Estrés Detalles 6--------------------------------------------->
 <fieldset>
-    <legend><b>ESTRES DETALLES</b></legend>
+    <legend><b>ESTRÉS DETALLES</b></legend>
     <br>
     <div *ngIf="validCTodos">
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
     </div>
     <div *ngIf="!validCTodos">
-        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b> -
+            Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
     </div>
     <br>
     <div class="ui-g">
-        <p-panel header="ESTRES DETALLES">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf6.saveAs(text7)">
-                      Generar Reporte
-                    </button>
-                </div>
-                <br>
+        <div class="ui-g-12">
+            <p-panel header="ESTRÉS DETALLES">
                 <div>
-                    <kendo-grid [data]="sales6">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS (Q1)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL (Q2)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="INTEL_LABORA" title="INTEL_LABORA (Q3)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES (Q4)">
-                        </kendo-grid-column>
-                    </kendo-grid>
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf6.saveAs(text7)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales6">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo">
+                            </kendo-grid-column>
+                            <kendo-grid-column-group title="ESTRÉS DETALLES" [locked]="false">
+                                <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS (Q1)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL (Q2)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="INTEL_LABORA" title="INTEL_LABORA (Q3)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES (Q4)">
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }"
+                                    [data]="[FISIOLOGICAS2[0], COMPORTAMIENTO_SOCIAL2[0],INTEL_LABORA2[0],PSICOEMOCIONALES2[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#97C015" type="bar"
+                                    [data]="[FISIOLOGICAS2[1], COMPORTAMIENTO_SOCIAL2[1],INTEL_LABORA2[1],PSICOEMOCIONALES2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#F0F012" type="bar"
+                                    [data]="[FISIOLOGICAS2[2], COMPORTAMIENTO_SOCIAL2[2],INTEL_LABORA2[2],PSICOEMOCIONALES2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#F07712" type="bar"
+                                    [data]="[FISIOLOGICAS2[3], COMPORTAMIENTO_SOCIAL2[3],INTEL_LABORA2[3],PSICOEMOCIONALES2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#FC0202" type="bar"
+                                    [data]="[FISIOLOGICAS2[4], COMPORTAMIENTO_SOCIAL2[4],INTEL_LABORA2[4],PSICOEMOCIONALES2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[FISIOLOGICAS2[0], COMPORTAMIENTO_SOCIAL2[0],INTEL_LABORA2[0],PSICOEMOCIONALES2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#97C015" type="bar" [data]="[FISIOLOGICAS2[1], COMPORTAMIENTO_SOCIAL2[1],INTEL_LABORA2[1],PSICOEMOCIONALES2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#F0F012" type="bar" [data]="[FISIOLOGICAS2[2], COMPORTAMIENTO_SOCIAL2[2],INTEL_LABORA2[2],PSICOEMOCIONALES2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#F07712" type="bar" [data]="[FISIOLOGICAS2[3], COMPORTAMIENTO_SOCIAL2[3],INTEL_LABORA2[3],PSICOEMOCIONALES2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#FC0202" type="bar" [data]="[FISIOLOGICAS2[4], COMPORTAMIENTO_SOCIAL2[4],INTEL_LABORA2[4],PSICOEMOCIONALES2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
     <br>
 </fieldset>
 <br>
 <!-- -----------------------------------Totales Generales 8--------------------------------------------->
 <fieldset>
-    <legend><b><h4>TOTALES GENERALES</h4></b></legend>
+    <legend><b>
+            <h4>TOTALES GENERALES</h4>
+        </b></legend>
     <br>
     <div *ngIf="validCTodos">
         <label style="font-size: medium;">Consulta: ( <b> Todos los registros </b> )</label>
     </div>
     <div *ngIf="!validCTodos">
-        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b>  - Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
+        <label style="font-size: medium;">Consulta:( Fecha Inicial = <b>{{fechainicial | date: 'yyyy-MM-dd'}}</b> -
+            Fecha Final = <b> {{fechafinal | date: 'yyyy-MM-dd'}}</b> )</label>
     </div>
     <br>
     <div class="ui-g">
-        <p-panel header="TOTALES GENERALES">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf8.saveAs(text8)">
-                      Generar Reporte
-                    </button>
-                </div>
-                <br>
+        <div class="ui-g-12">
+            <p-panel header="TOTALES GENERALES">
                 <div>
-                    <kendo-grid [data]="sales8">
-                        <kendo-grid-column field="brand" title="Nivel de riesgo">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL (Q1)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL (Q2)">
-                        </kendo-grid-column>
-                        <kendo-grid-column field="total_general" title="TOTAL GENERAL (Q3)">
-                        </kendo-grid-column>
-                    </kendo-grid>
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf8.saveAs(text8)">
+                           <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <div>
+                        <kendo-grid [autoSize]="true" [scrollable]="'none'"  [data]="sales8">
+                            <kendo-grid-column field="brand" title="Nivel de riesgo">
+                            </kendo-grid-column>
+                            <kendo-grid-column-group title="TOTALES GENERALES" [locked]="false">
+                                <kendo-grid-column field="total_intralaboral" title="TOTAL INTRALABORAL (Q1)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="total_extralaboral" title="TOTAL EXTRALABORAL (Q2)">
+                                </kendo-grid-column>
+                                <kendo-grid-column field="total_general" title="TOTAL GENERAL (Q3)">
+                                </kendo-grid-column>
+                            </kendo-grid-column-group>
+                        </kendo-grid>
+                    </div>
+                    <br>
+                    <br>
+                    <div style="text-align: center;">
+                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                            <kendo-chart-category-axis>
+                                <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
+                                </kendo-chart-category-axis-item>
+                            </kendo-chart-category-axis>
+                            <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
+                            <kendo-chart-series>
+                                <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }"
+                                    [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#97C015" type="bar"
+                                    [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#F0F012" type="bar"
+                                    [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#F07712" type="bar"
+                                    [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                                <kendo-chart-series-item color="#FC0202" type="bar"
+                                    [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
+                                    <kendo-chart-series-item-labels position="center">
+                                    </kendo-chart-series-item-labels>
+                                </kendo-chart-series-item>
+                            </kendo-chart-series>
+                        </kendo-chart>
+                    </div>
                 </div>
-                <br>
-                <br>
-                <div style="text-align: center;">
-                    <kendo-chart style="width: 80%; height: 180px; text-align: center;">
-                        <kendo-chart-category-axis>
-                            <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
-                            </kendo-chart-category-axis-item>
-                        </kendo-chart-category-axis>
-                        <kendo-chart-tooltip format="{0}"></kendo-chart-tooltip>
-                        <kendo-chart-series>
-                            <kendo-chart-series-item color="#1E830A" type="bar" [stack]="{ type: '100%' }" [data]="[total_intralaboral2[0], total_extralaboral[0],total_general2[0]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#97C015" type="bar" [data]="[total_intralaboral2[1], total_extralaboral[1],total_general2[1]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#F0F012" type="bar" [data]="[total_intralaboral2[2], total_extralaboral2[2],total_general2[2]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#F07712" type="bar" [data]="[total_intralaboral2[3], total_extralaboral2[3],total_general2[3]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                            <kendo-chart-series-item color="#FC0202" type="bar" [data]="[total_intralaboral2[4], total_extralaboral2[4],total_general2[4]]">
-                                <kendo-chart-series-item-labels position="center">
-                                </kendo-chart-series-item-labels>
-                            </kendo-chart-series-item>
-                        </kendo-chart-series>
-                    </kendo-chart>
-                </div>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
 </fieldset>
 <br>

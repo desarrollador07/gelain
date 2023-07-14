@@ -167,14 +167,14 @@ export class ReporteDetalladoComponent implements OnInit {
         /*TODO: Falta asignar campo fecha de registro en la exportación, Novedad: Campo no creado en la tabla */
         return {
           'EMPRESA':empTemp.empnombre,
-          'CEDULA': item.emdcedula,
+          'CÉDULA': item.emdcedula,
           'NOMBRE': item.nombreCompleto,
           'CIUDAD':item.emdtraciudad,
           'SEXO':item.emdsexo,
           'FECHA NACIMIENTO':item.emdfecnacido,
           'CARGO':item.emdcargo,
           'PROFESION':item.emdprofesion,
-          'TELEFONO':item.emdtelefono,
+          'TÉLEFONO':item.emdtelefono,
           'CORREO':item.emdemail,
           'SEDES':item.emdzona,
           'AREA':item.arenombre,

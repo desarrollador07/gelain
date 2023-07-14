@@ -190,14 +190,14 @@ export class ValorRiesgoComponent implements OnInit {
   datosGenerales(){
     this.frozenCols = [
       { field: 'opciones', header: 'Opciones', width: '120px' },
-      { field: 'idpareanombre', header: 'Area', width: '300px' }
+      { field: 'idpareanombre', header: 'Área', width: '300px' }
     ];
 
     this.cols = [
       { field: 'idpnombre', header: 'Nombre', width: '350px' },
       { field: 'idpfecha', header: 'Fecha', width: '160px' },
       { field: 'idpsede', header: 'Sede', width: '180px' },
-      { field: 'idptelefono', header: 'Telefono', width: '200px' },
+      { field: 'idptelefono', header: 'Télefono', width: '200px' },
       { field: 'idpestado', header: 'Estado', width: '100px' },
       { field: 'idphorario', header: 'Horario', width: '150px' },
       { field: 'idpfechacrea', header: 'Fecha Registro', width: '250px' },
@@ -1629,7 +1629,7 @@ export class ValorRiesgoComponent implements OnInit {
     const dataExcel = this.fnArrData();
     
     const headerData = [
-      'ÁREA','NOMBRE LIDER','CÉDULA','TELEFONO','SEDE','PROCESO' ,'ZONA/LUGAR','ACTIVIDADES','TAREAS',
+      'ÁREA','NOMBRE LÍDER','CÉDULA','TÉLEFONO','SEDE','PROCESO' ,'ZONA/LUGAR','ACTIVIDADES','TAREAS',
       'RUTINARIO (SI/NO)','FACTORES DE RIESGO','INDICADORES DE RIESGO','EFECTOS POSIBLES','FUENTE','MEDIO',
       'INDIVIDUO','TABLA ND','TABLA NE','NP = (ND*NE)','INTERPRETACIÓN','NC','INTERVENCIÓN','TABLA NR',
       'N° EXPUESTOS','OBSERVACIONES','PEOR CONSECUENCIA', 'EXISTENCIA REQUISITO LEGAL ESPECIFICO ASOCIADO (SI/NO)',

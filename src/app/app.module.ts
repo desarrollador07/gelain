@@ -121,6 +121,7 @@ import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
 import { VideoInfoModule } from './components/video-info/video-info.module';
+import { HeaderPdfInformeModule } from './components/header-pdf-informe/header-pdf-informe.module';
 
 
 @NgModule({
@@ -215,8 +216,9 @@ import { VideoInfoModule } from './components/video-info/video-info.module';
             logOnly: true,
         }),
         ScrollPanelModule,
-        VideoInfoModule
-       
+        VideoInfoModule,
+        HeaderPdfInformeModule
+        
     ],
     declarations: [
         AppComponent,
@@ -244,7 +246,7 @@ import { VideoInfoModule } from './components/video-info/video-info.module';
         TerminosCondicionesComponent,
         ReporteAreasComponent,
         TerminosCondicionesVfComponent,
-        GraficaVfComponent,
+        GraficaVfComponent
   
     ],
     providers: [DatePipe,

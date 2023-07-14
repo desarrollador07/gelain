@@ -132,7 +132,7 @@ export class ValorfisicoComponent implements OnInit {
       { field: 'vafciudad', header: 'Ciudad', width: '200px' },
       { field: 'vafcorreo', header: 'Correo', width: '300px' },
       { field: 'vafcargo', header: 'Cargo', width: '300px' },
-      { field: 'vaftelefono', header: 'Telefono', width: '180px' },
+      { field: 'vaftelefono', header: 'Télefono', width: '180px' },
       { field: 'vafsede', header: 'Sede', width: '200px' },
       { field: 'vafsexo', header: 'Sexo', width: '100px' },
       { field: 'vafedad', header: 'Edad', width: '100px' },
@@ -473,7 +473,7 @@ export class ValorfisicoComponent implements OnInit {
       }
 
       return {
-        'CEDULA': item.vafcedula,
+        'CÉDULA': item.vafcedula,
         'NOMBRE': item.vafidnombre.toUpperCase(),
         'SEXO': item.asigSexo,
         'EDAD': item.vafedad,
@@ -481,7 +481,7 @@ export class ValorfisicoComponent implements OnInit {
         'GRUPO SANGUINEO': item.vafgruposanguineo,
         'CIUDAD': item.vafciudad.toUpperCase(),
         'CORREO': item.vafcorreo,
-        'TELEFONO': item.vaftelefono,
+        'TÉLEFONO': item.vaftelefono,
         'EMPRESA': item.nombreEmp,
         'NOMBRE CARGO': item.vafcargo.toUpperCase(),
         'SEDE': item.vafsede.toUpperCase(),

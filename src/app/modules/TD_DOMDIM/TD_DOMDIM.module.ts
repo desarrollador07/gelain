@@ -39,12 +39,8 @@ import {
   ExcelModule,
   
 } from "@progress/kendo-angular-grid";
-
-
-
-
-
 import 'hammerjs';
+import { HeaderPdfInformeModule } from 'src/app/components/header-pdf-informe/header-pdf-informe.module';
 
 @NgModule({
   declarations: [TD_DOMDIMComponent],
@@ -84,7 +80,7 @@ import 'hammerjs';
     PDFModule,
     ExcelModule,
     PDFExportModule,
-
+    HeaderPdfInformeModule
     
   ],
   providers:[
