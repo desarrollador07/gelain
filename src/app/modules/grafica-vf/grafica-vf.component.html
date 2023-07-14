@@ -1,7 +1,7 @@
 <!-- Apartado de la Busqueda avanzada -->
 <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" *ngIf="loadingEmpty">
     <fieldset>
-        <legend><b>Búsqueda Por Fecha</b></legend>
+        <legend><b>Búsqueda por fecha</b></legend>
         <div class="ui-g">
             <!-- <div class="ui-grid-col-4" style="text-align: center;">
                 <div id="search-wrapperTercero">
@@ -48,26 +48,7 @@
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf1 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'IMC'}"></header-pdf-informe>
-        <!-- <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>IMC</b></p>
-        </div> -->
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales">
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
             <kendo-grid-column field="hombre" title="Hombre">
@@ -95,26 +76,8 @@
 <!---------------------------------------------- PERIMETRO ABDOMINAL PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>PERIMETRO ABDOMINAL</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales2">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'PERIMETRO ABDOMINAL'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales2">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
             <kendo-grid-column field="hombre" title="Hombre">
@@ -143,26 +106,8 @@
 <!---------------------------------------------- TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf3 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales3">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'TEST RUFFIER CAPACIDAD DE RECUPERACIÓN CARDIACA'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales3">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
             <kendo-grid-column field="rango" title="Rango">
@@ -188,33 +133,15 @@
 <!---------------------------------------------- NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES) PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES)</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales4">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (HOMBRES)'}"></header-pdf-informe>
+        <kendo-grid  [autoSize]="true" [scrollable]="'none'" [data]="sales4">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
-            <kendo-grid-column field="hombre35" title="Menor de 35 años">
+            <kendo-grid-column field="hombre35"  title="Menor de 35 años">
             </kendo-grid-column>
             <kendo-grid-column field="hombre44" title="35 a 44 años">
             </kendo-grid-column>
-            <kendo-grid-column field="hombre50" title="Mayor  de 44 años">
+            <kendo-grid-column field="hombre50" title="Mayor de 44 años">
             </kendo-grid-column>
         </kendo-grid>
         <br>
@@ -239,26 +166,8 @@
 <!---------------------------------------------- NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES) PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES)</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales5">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'NIVEL DE ESTABILIDAD Y RESISTENCIA DEL CORE (MUJERES)'}"></header-pdf-informe>
+        <kendo-grid  [autoSize]="true" [scrollable]="'none'" [data]="sales5">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
             <kendo-grid-column field="mujer35" title="Menor de 35 años">
@@ -290,26 +199,8 @@
 <!---------------------------------------------- NIVEL DE FLEXIBILIDAD PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>NIVEL DE FLEXIBILIDAD</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales6">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'NIVEL DE FLEXIBILIDAD'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales6">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
             <kendo-grid-column field="rango" title="Rango">
@@ -335,27 +226,9 @@
 <!---------------------------------------------- ANTECEDENTES FAMILIARES DE ENFERMEDAD PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf7 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>ANTECEDENTES FAMILIARES DE ENFERMEDAD</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ANTECEDENTES FAMILIARES DE ENFERMEDAD'}"></header-pdf-informe>
         <div>
-            <kendo-grid [data]="sales7">
+            <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales7">
                 <kendo-grid-column field="brand" title="Calificativo">
                 </kendo-grid-column>
                 <kendo-grid-column field="rango" title="Rango">
@@ -383,27 +256,9 @@
 <!---------------------------------------------- CONDICIONES DE SALUD PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>CONDICIONES DE SALUD</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'CONDICIONES DE SALUD'}"></header-pdf-informe>
         <div>
-            <kendo-grid [data]="sales8">
+            <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales8">
                 <kendo-grid-column field="brand" title="Calificativo">
                 </kendo-grid-column>
                 <kendo-grid-column field="rango" title="Rango">
@@ -422,7 +277,7 @@
                 <kendo-chart-series-item [data]="[seriesData7[0],seriesData7[1],seriesData7[2],seriesData7[3],seriesData7[4],seriesData7[5],seriesData7[6],seriesData7[7],seriesData7[8],seriesData7[9]]"> </kendo-chart-series-item>
             </kendo-chart-series>
         </kendo-chart>
-        <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
+        <div style=" font-size: 17px; text-align: center; padding-top: 150px;">
             <p>{{apiUrl}}/ng/#/login</p>
         </div>
     </kendo-pdf-export>
@@ -431,26 +286,8 @@
 <!---------------------------------------------- ESTILO DE VIDA FANTASTICO PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
-        <div style=" font-size: 15px; text-align: left;">
-            <p style="text-align: left;">{{nombreGelain}}</p>
-            <p style="text-align: left;">Nit: {{nitGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-            <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-            <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-            <p>{{fechaActual | date:"medium" }}</p>
-        </div>
-        <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-        <br>
-        <br>
-        <div style="font-size: 20px; text-align: center;">
-            <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-            <p>Usuario: {{usuario}}</p>
-            <p><b>ESTILO DE VIDA FANTASTICO</b></p>
-        </div>
-        <br>
-        <br>
-        <br>
-        <kendo-grid [data]="sales9">
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTILO DE VIDA FANTASTICO'}"></header-pdf-informe>
+        <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales9">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
             <kendo-grid-column field="rango" title="Rango">
@@ -488,12 +325,12 @@
                         <div class="ui-g">
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
-                                    <button class="k-button" (click)="pdf1.saveAs(text1)">
-                                      Generar Reporte
+                                    <button class="k-button"  (click)="pdf1.saveAs(text1)">
+                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales">
+                                <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="hombre" title="Hombre">
@@ -531,11 +368,11 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf2.saveAs(text2)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales2">
+                                <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales2">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="hombre" title="Hombre">
@@ -574,11 +411,11 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf3.saveAs(text3)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales3">
+                                <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales3">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="rango" title="Rango">
@@ -613,11 +450,11 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf4.saveAs(text4)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales4">
+                                <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales4">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="hombre35" title="Menor de 35 años">
@@ -659,11 +496,11 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf5.saveAs(text5)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales5">
+                                <kendo-grid  [autoSize]="true" [scrollable]="'none'" [data]="sales5">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="mujer35" title="Menor de 35 años">
@@ -704,11 +541,11 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf6.saveAs(text6)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales6">
+                                <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales6">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="rango" title="Rango">
@@ -743,12 +580,12 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf7.saveAs(text7)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
                                 <div>
-                                    <kendo-grid [data]="sales7">
+                                    <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales7">
                                         <kendo-grid-column field="brand" title="Calificativo">
                                         </kendo-grid-column>
                                         <kendo-grid-column field="rango" title="Rango">
@@ -785,12 +622,12 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf8.saveAs(text8)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
                                 <div>
-                                    <kendo-grid [data]="sales8">
+                                    <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales8">
                                         <kendo-grid-column field="brand" title="Calificativo">
                                         </kendo-grid-column>
                                         <kendo-grid-column field="rango" title="Rango">
@@ -816,7 +653,6 @@
             </div>
             <div class="ui-g">
                 <div class="ui-g-12" style="text-align: center;">
-
                     <fieldset>
                         <legend><b>ESTILO DE VIDA FANTASTICO</b></legend>
                         <div class="ui-g" *ngIf="!loading">
@@ -828,11 +664,11 @@
                             <div class="ui-g-12 animated fadeIn fast" style="text-align: left;" *ngIf="loading">
                                 <div class="example-config">
                                     <button class="k-button" (click)="pdf9.saveAs(text9)">
-                                      Generar Reporte
+                                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
                                     </button>
                                 </div>
                                 <br>
-                                <kendo-grid [data]="sales9">
+                                <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales9">
                                     <kendo-grid-column field="brand" title="Calificativo">
                                     </kendo-grid-column>
                                     <kendo-grid-column field="rango" title="Rango">

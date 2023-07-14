@@ -1,32 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TD_DOMDIMComponent} from './TD_DOMDIM.component';
+import { TD_DOMDIMComponent } from './TD_DOMDIM.component';
 import { TD_DOMDIMRoutingModule } from './TD_DOMDIM-routing.module';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {CalendarModule} from 'primeng/calendar';
-import {CheckboxModule} from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { CheckboxModule } from 'primeng/checkbox';
 import { RouterModule } from '@angular/router';
-import { DatePipe, CurrencyPipe} from '@angular/common';
-import {FieldsetModule} from 'primeng/fieldset';
-import {ProgressBarModule} from 'primeng/progressbar';
-import {ProgressSpinnerModule} from 'primeng/progressspinner';
-import {TableModule} from 'primeng/table';
-import {ButtonModule} from 'primeng/button';
-import {ToastModule} from 'primeng/toast';
-import {DropdownModule} from 'primeng/dropdown';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {ConfirmationService} from 'primeng/api';
-import { MessageService} from 'primeng/api';
-import {InputTextModule} from 'primeng/inputtext';
-import {InputTextareaModule } from 'primeng/primeng';
-import {  PanelModule } from 'primeng/panel';
-import {DataViewModule} from 'primeng/dataview';
+import { DatePipe, CurrencyPipe } from '@angular/common';
+import { FieldsetModule } from 'primeng/fieldset';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { DropdownModule } from 'primeng/dropdown';
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputTextareaModule } from 'primeng/primeng';
+import { PanelModule } from 'primeng/panel';
+import { DataViewModule } from 'primeng/dataview';
 import { DialogModule } from 'primeng/primeng';
-import {RadioButtonModule} from 'primeng/radiobutton';
-import {TabMenuModule} from 'primeng/tabmenu';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { TabMenuModule } from 'primeng/tabmenu';
 import { ChartModule } from 'primeng/chart';
 import { ChartsModule } from '@progress/kendo-angular-charts';
 
@@ -37,7 +37,7 @@ import 'hammerjs';
 import {
   PDFModule,
   ExcelModule,
-  
+
 } from "@progress/kendo-angular-grid";
 
 
@@ -45,6 +45,7 @@ import {
 
 
 import 'hammerjs';
+import { HeaderPdfInformeModule } from 'src/app/components/util-grafica-vf/header-pdf-informe/header-pdf-informe.module';
 
 @NgModule({
   declarations: [TD_DOMDIMComponent],
@@ -84,10 +85,10 @@ import 'hammerjs';
     PDFModule,
     ExcelModule,
     PDFExportModule,
-
-    
+    HeaderPdfInformeModule
+  
   ],
-  providers:[
+  providers: [
     DatePipe,
     MessageService,
     ConfirmationService,

@@ -473,7 +473,7 @@ export class ValorfisicoComponent implements OnInit {
       }
 
       return {
-        'CEDULA': item.vafcedula,
+        'CÉDULA': item.vafcedula,
         'NOMBRE': item.vafidnombre.toUpperCase(),
         'SEXO': item.asigSexo,
         'EDAD': item.vafedad,

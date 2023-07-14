@@ -1,6 +1,6 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
-    <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
+    <p-panel header="PROGRAMA DE HÁBITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px">
             <div class="ui-g" style="text-align: center;">
                 <div class="ui-g-12 ui-md-6 ui-lg-3" style="margin-top: 30px;">
@@ -12,7 +12,7 @@
             </div>
             <app-video-info [validVideo]="2"></app-video-info>
             <fieldset>
-                <legend><b>Ficha De Valoración De La Condición Física</b></legend>
+                <legend><b>FICHA DE VALORACIÓN DE LA CONDICIÓN FÍSICA</b></legend>
                 <div class="ui-g">
                     <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion1" style="color: red;">
                         <strong>*</strong> Campo Obligatorio 
@@ -322,7 +322,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">4) ¿Tiene o sufre de asma, efisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)? <label style="color: red;" *ngIf="vafcs04Marca" ><strong>*</strong></label></label></b>
+                        <b><label   style="font-size: 15px;">4) ¿Tiene o sufre de asma, enfisema pulmonar, bronquitis crónica o enfermedad  pulmonar obstructiva (EPOC)? <label style="color: red;" *ngIf="vafcs04Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -406,7 +406,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueleticas? Artiritis, Tendinitis, bursitis, epicondilitis, dolor lumbar,problemas de manguito rotador y tunel de carpo? <label style="color: red;" *ngIf="vafcs11Marca" ><strong>*</strong></label></label></b>
+                        <b><label  style="font-size: 15px;">11) ¿Le han diagnosticado enfermedades osteoarticulares o musculoesqueléticas, artritis, tendinitis, bursitis, epicondilitis, dolor lumbar, problemas de manguito rotador y túnel de carpo? <label style="color: red;" *ngIf="vafcs11Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -442,7 +442,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirurgicamente? <label style="color: red;" *ngIf="vafcs14Marca" ><strong>*</strong></label></label></b>
+                        <b><label   style="font-size: 15px;">14) ¿Ha tenido que ser intervenido quirúrgicamente? <label style="color: red;" *ngIf="vafcs14Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -466,7 +466,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">15) ¿Le han diagnosticado cancer? <label style="color: red;" *ngIf="vafcs16Marca" ><strong>*</strong></label></label></b>
+                        <b><label  style="font-size: 15px;">15) ¿Le han diagnosticado cáncer? <label style="color: red;" *ngIf="vafcs16Marca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -548,12 +548,12 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="font-weight: bold;text-align: center; font-size: large;">ENFERMEDAD</div>
-                    <div class="ui-g-12 ui-md-5 ui-lg-4" style="font-weight: bold;text-align: center;font-size: large">FAMILIAR QUIEN?</div>
+                    <div class="ui-g-12 ui-md-5 ui-lg-4" style="font-weight: bold;text-align: center;font-size: large">¿FAMILIAR QUIEN?</div>
                 </div>
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label >CANCER <label style="color: red;" *ngIf="vafcancer_opcMarca" ><strong>*</strong></label></label></b>
+                        <b><label >CÁNCER <label style="color: red;" *ngIf="vafcancer_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafcancer_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcancer_var}}</p>
@@ -570,7 +570,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label >HIPERTENSION ARTERIAL <label style="color: red;" *ngIf="vafhiper_arte_opcMarca" ><strong>*</strong></label></label></b>
+                        <b><label >HIPERTENSIÓN ARTERIAL <label style="color: red;" *ngIf="vafhiper_arte_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafhiper_arte_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafhiper_arte_var}}</p>
@@ -604,7 +604,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >CARDIOPATIAS <label style="color: red;" *ngIf="vafcardio_opcMarca" ><strong>*</strong></label></label></b>
+                        <b><label  >CARDIOPATÍAS <label style="color: red;" *ngIf="vafcardio_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafcardio_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcardio_var}}</p>
@@ -807,7 +807,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalia? <label style="color: red;" *ngIf="vafdiscapacidad_opcMarca" ><strong>*</strong></label></label></b>
+                        <b><label   style="font-size: 15px;">¿Tiene alguna discapacidad, limitación, invalidez o minusvalía? <label style="color: red;" *ngIf="vafdiscapacidad_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -833,7 +833,7 @@
             <hr>
             <div class="ui-g">
                 <div class="ui-g-12" style="text-align: center;">
-                    <h1 style="margin-bottom: 0px;">TEST DE AUTOEVALUCIÓN SOBRE ESTILOS DE VIDA: "FANTASTICO"</h1>
+                    <h1 style="margin-bottom: 0px;">TEST DE AUTOEVALUCIÓN SOBRE ESTILOS DE VIDA: "FANTÁSTICO"</h1>
                 </div>
             </div>
             <div class="ui-g">
@@ -909,7 +909,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label  style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rapido)<label style="color: red;" *ngIf="vaf_actifisip02_opcMarca" ><strong>*</strong></label>:</label></b>
+                        <b><label  style="font-size: 15px;">Yo hago ejercicio en forma activa al menos por 20 minutos (Correr, andar en bicicleta, caminar rápido)<label style="color: red;" *ngIf="vaf_actifisip02_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1043,7 +1043,7 @@
                 <div class="ui-g" style="margin-bottom: 10px;">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Manejo el auto despúes de beber alcohol <label style="color: red;" *ngIf="vaf_alcoholp03_opcMarca" ><strong>*</strong></label>:</label></b>
+                        <b><label   style="font-size: 15px;">Manejo el auto después de beber alcohol <label style="color: red;" *ngIf="vaf_alcoholp03_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">
@@ -1229,7 +1229,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-12 ui-lg-6">
-                        <b><label   style="font-size: 15px;">Uso drogas como marihuana, cocaina o pasta base <label style="color: red;" *ngIf="vaf_otrasdp01_opcMarca" ><strong>*</strong></label>:</label></b>
+                        <b><label   style="font-size: 15px;">Uso drogas como marihuana, cocaína o pasta base <label style="color: red;" *ngIf="vaf_otrasdp01_opcMarca" ><strong>*</strong></label>:</label></b>
                     </div>
                     <div class="ui-g-12 ui-md-6 ui-lg-2">
                         <span class="ui-float-label">

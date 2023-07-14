@@ -82,7 +82,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                                 routerLink: ['ReporteDetallado'],
                             },
                             {
-                                label: 'Informe Areas', 
+                                label: 'Informe Áreas', 
                                 icon: 'pi pi-circle-on',
                                 routerLink: ['reporte-areas'],
                             },

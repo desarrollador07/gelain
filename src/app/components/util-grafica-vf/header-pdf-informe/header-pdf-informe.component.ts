@@ -14,6 +14,8 @@ export class HeaderPdfInformeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.dataHeaderInfo);
+    
   }
 
 }

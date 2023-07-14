@@ -363,7 +363,7 @@ export class BDRDGComponent implements OnInit {
   arreglado = pruebass.map( item => { 
     return {
       'ID' : item.emdid,
-      'CEDULA': item.emdcedula,
+      'CÉDULA': item.emdcedula,
       'NOMBRE: 1': item.nombreCompleto,
       'SEXO: 2': item.emdsexo,
       'AÑO DE NACIMIENTO: 3': item.emdfecnacidoRepor,

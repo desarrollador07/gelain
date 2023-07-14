@@ -9,7 +9,7 @@
 </div>
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
 <form [formGroup]="userform" (ngSubmit)="onSubmit()" class="animated fadeIn fast">
-    <p-panel header="PROGRAMA DE HABITOS Y ESTILO DE VIDA SALUDABLE">
+    <p-panel header="PROGRAMA DE HÁBITOS Y ESTILO DE VIDA SALUDABLE">
         <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
             <div class="ui-g" style="text-align: center;">
                 <div class="ui-g-12 ui-md-12 ui-lg-3" style="text-align: center;">
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <fieldset>
-                <legend><b>Ficha De Valoración De La Condición Física</b></legend>
+                <legend><b>FICHA DE VALORACIÓN DE LA CONDICIÓN FÍSICA</b></legend>
                 <div class="ui-g">
                     <div class="ui-g-12 ui-md-12 ui-g-2" *ngIf="seccion1" style="color: red;">
                         <strong>*</strong> Campo Obligatorio 
@@ -580,7 +580,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label >HIPERTENSION ARTERIAL <label style="color: red;" *ngIf="vafhiper_arte_opcMarca" ><strong>*</strong></label></label></b>
+                        <b><label >HIPERTENSIÓN ARTERIAL <label style="color: red;" *ngIf="vafhiper_arte_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafhiper_arte_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafhiper_arte_var}}</p>
@@ -614,7 +614,7 @@
                 <div class="ui-g">
                     <div class="ui-g-1"></div>
                     <div class="ui-g-12 ui-md-6 ui-lg-3" style="text-align: center;margin-top: 20px;">
-                        <b><label  >CARDIOPATIAS <label style="color: red;" *ngIf="vafcardio_opcMarca" ><strong>*</strong></label></label></b>
+                        <b><label  >CARDIOPATÍAS <label style="color: red;" *ngIf="vafcardio_opcMarca" ><strong>*</strong></label></label></b>
                     </div>
                     <div class="ui-g-12 ui-md-12 ui-lg-5" *ngIf="userform.value.vafcardio_opc === 1">
                         <p><b>Familiares Seleccionados:</b> {{userform.value.vafcardio_var}}</p>

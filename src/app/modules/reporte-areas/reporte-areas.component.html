@@ -7,7 +7,7 @@
 <!-- Apartado de la Busqueda avanzada -->
 <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid">
     <fieldset>
-        <legend><b>Búsqueda Por Fecha</b></legend>
+        <legend><b>Búsqueda por fecha</b></legend>
         <div class="ui-g">
             <!-- <div class="ui-grid-col-4" style="text-align: center;">
                 <div id="search-wrapperTercero">
@@ -54,48 +54,26 @@
     <!-- -----------------------------------PDF ÁREAS ------------------------------------------------>
     <div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
         <kendo-pdf-export #pdf paperSize="A4" margin="1cm" [scale]="0.5">
-            <div style=" font-size: 15px; text-align: left;">
-                <p style="text-align: left;">{{nombreGelain}}</p>
-                <p style="text-align: left;">Nit: {{nitGelain}}</p>
-                <p style="text-align: left;"><i class="fa fa-envelope-o"></i> {{correoGelain}}</p>
-                <p style="text-align: left;"><i class="fa fa-phone"></i> {{telefono}}</p>
-                <p style="text-align: left;"><i class="fa fa-instagram">&nbsp; </i><i class="fa fa-facebook-official"></i> {{redGelain}}</p>
-                <p>{{fechaActual | date:"medium" }}</p>
-            </div>
-            <div style="font-size: 30px; text-align: center;" class="header"><b>{{nEmpresa}}</b></div>
-            <br>
-            <br>
-            <div style="font-size: 20px; text-align: center;">
-
-                <p>GENERACION DE INFORME: {{fechaActual | date:"medium" }}</p>
-
-                <p>Usuario: {{usuario}}</p>
-                <p><b>REPORTE AREAS</b></p>
-
-            </div>
-            <br>
-            <br>
-            <br>
-            <div>
-                <kendo-grid [data]="sales9">
-                    <kendo-grid-column field="nombreArea" title="Areas">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable (Q1)">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="categorias.cat2" title="Riesgo bajo (Q2)">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="categorias.cat3" title="Riesgo medio (Q3)">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="categorias.cat4" title="Riesgo alto (Q4)">
-                    </kendo-grid-column>
-                    <kendo-grid-column field="categorias.cat5" title="Riesgo muy alto (Q5)">
-                    </kendo-grid-column>
-                </kendo-grid>
-            </div>
+            <header-pdf-informe
+            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'REPORTE ÁREAS'}"></header-pdf-informe>
+            <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales9">
+                <kendo-grid-column field="nombreArea" title="Áreas">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable (Q1)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat2" title="Riesgo bajo (Q2)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat3" title="Riesgo medio (Q3)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat4" title="Riesgo alto (Q4)">
+                </kendo-grid-column>
+                <kendo-grid-column field="categorias.cat5" title="Riesgo muy alto (Q5)">
+                </kendo-grid-column>
+            </kendo-grid>
             <br>
             <br>
             <p-chart type="horizontalBar" [data]="data"></p-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 450px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 250px;">
                 <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </kendo-pdf-export>
@@ -103,16 +81,16 @@
     </div>
     <!-- -----------------------------------REPORTE ÁREAS--------------------------------------------->
     <div class="ui-g">
-        <p-panel header="REPORTE ÁREAS">
-            <div>
-                <div class="example-config">
-                    <button class="k-button" (click)="pdf.saveAs(text)">
-                        Generar Reporte
-                    </button>
-                </div>
-                <br>
+        <div class="ui-g-12">
+            <p-panel header="REPORTE ÁREAS">
                 <div>
-                    <kendo-grid [data]="sales9">
+                    <div class="example-config">
+                        <button class="k-button" (click)="pdf.saveAs(text)">
+                            <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Generar Reporte
+                        </button>
+                    </div>
+                    <br>
+                    <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales9">
                         <kendo-grid-column field="nombreArea" title="Areas">
                         </kendo-grid-column>
                         <kendo-grid-column field="categorias.cat1" title="Sin riesgo o riesgo despreciable (Q1)">
@@ -126,11 +104,11 @@
                         <kendo-grid-column field="categorias.cat5" title="Riesgo muy alto (Q5)">
                         </kendo-grid-column>
                     </kendo-grid>
+                    <br>
+                    <br>
+                    <p-chart type="horizontalBar" [data]="data"></p-chart>
                 </div>
-                <br>
-                <br>
-                <p-chart type="horizontalBar" [data]="data"></p-chart>
-            </div>
-        </p-panel>
+            </p-panel>
+        </div>
     </div>
 </fieldset>
