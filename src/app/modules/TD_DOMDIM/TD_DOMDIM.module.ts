@@ -45,7 +45,7 @@ import {
 
 
 import 'hammerjs';
-import { HeaderPdfInformeModule } from 'src/app/components/util-grafica-vf/header-pdf-informe/header-pdf-informe.module';
+import { HeaderPdfInformeModule } from 'src/app/components/header-pdf-informe/header-pdf-informe.module';
 
 @NgModule({
   declarations: [TD_DOMDIMComponent],

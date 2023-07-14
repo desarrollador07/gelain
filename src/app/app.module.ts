@@ -121,7 +121,7 @@ import { ProgressSpinnerModule, ScrollPanelModule } from 'primeng/primeng';
 import { TerminosCondicionesVfComponent } from './modules/terminos-condiciones-vf/terminos-condiciones-vf.component';
 import { GraficaVfComponent } from './modules/grafica-vf/grafica-vf.component';
 import { VideoInfoModule } from './components/video-info/video-info.module';
-import { HeaderPdfInformeModule } from './components/util-grafica-vf/header-pdf-informe/header-pdf-informe.module';
+import { HeaderPdfInformeModule } from './components/header-pdf-informe/header-pdf-informe.module';
 
 
 @NgModule({

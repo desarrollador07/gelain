@@ -283,10 +283,10 @@
     </kendo-pdf-export>
 </div>
 
-<!---------------------------------------------- ESTILO DE VIDA FANTASTICO PDF ---------------------------------------------- -->
+<!---------------------------------------------- ESTILO DE VIDA FANTÁSTICO PDF ---------------------------------------------- -->
 <div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
-        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTILO DE VIDA FANTASTICO'}"></header-pdf-informe>
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTILO DE VIDA FANTÁSTICO'}"></header-pdf-informe>
         <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales9">
             <kendo-grid-column field="brand" title="Calificativo">
             </kendo-grid-column>
@@ -312,7 +312,7 @@
 <!---------------------------------------------- TABLAS Y GRAFICAS (VISUAL) ---------------------------------------------- -->
 <div class="ui-g" *ngIf="loadingEmpty">
     <div class="ui-g-12">
-        <p-panel header="Graficas Valoración Física">
+        <p-panel header="Graficas valoración física">
             <div class="ui-g">
                 <div class="ui-g-12" style="text-align: center;">
                     <fieldset>
@@ -654,7 +654,7 @@
             <div class="ui-g">
                 <div class="ui-g-12" style="text-align: center;">
                     <fieldset>
-                        <legend><b>ESTILO DE VIDA FANTASTICO</b></legend>
+                        <legend><b>ESTILO DE VIDA FANTÁSTICO</b></legend>
                         <div class="ui-g" *ngIf="!loading">
                             <div class="ui-g-12" style="text-align: center;">
                                 <p-progressSpinner class="animated fadeIn" [style]="{width: '50px', height: '50px'}" strokeWidth="10" fill="#EEEEEE" animationDuration=".5s"></p-progressSpinner>

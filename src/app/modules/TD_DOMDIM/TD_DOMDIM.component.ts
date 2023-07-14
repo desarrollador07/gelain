@@ -1198,7 +1198,7 @@ total_general2 :any[] = [];
     this.text4 = "RECOMPENSAS_"+this.fecha;
     this.text5 = "RIESGO_PSICOSOCIAL_EXTRALABORAL_"+this.fecha;
     this.text6 = "Estres_"+this.fecha;
-    this.text7 = "ESTRES_DETALLES_"+this.fecha;
+    this.text7 = "ESTRÉS_DETALLES_"+this.fecha;
     this.text8 = "TOTALES_GENERALES_"+this.fecha;
     this.text9 = "TOTAL_DOMINIOS_"+this.fecha;
   }
