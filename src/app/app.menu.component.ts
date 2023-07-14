@@ -67,22 +67,22 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                         icon: 'pi fa-fw pi-angle-right',
                         items:[
                             {
-                                label: 'Informe Datos Generales', 
+                                label: 'Informe datos generales', 
                                 icon: 'pi pi-circle-on',
                                 routerLink: ['BDRDG'],
                             },
                             {
-                                label: 'Informe De Riesgos', 
+                                label: 'Informe de riesgos', 
                                 icon: 'pi pi-circle-on',
                                 routerLink: ['TD_DOMDIM'],
                             },
                             {
-                                label: 'Informe De Riesgos Detallado Por Empleado', 
+                                label: 'Informe de riesgos detallado por empleado', 
                                 icon: 'pi pi-circle-on',
                                 routerLink: ['ReporteDetallado'],
                             },
                             {
-                                label: 'Informe Áreas', 
+                                label: 'Informe áreas', 
                                 icon: 'pi pi-circle-on',
                                 routerLink: ['reporte-areas'],
                             },
@@ -105,7 +105,7 @@ export class AppMenuComponent implements OnInit, AfterViewInit {
                         icon: 'pi fa-fw pi-angle-right',
                         items:[
                             {
-                                label: 'Informe Valoración Física', 
+                                label: 'Informe valoración física', 
                                 icon: 'pi pi-circle-on',
                                 routerLink: ['grafica-vf'],
                             },
