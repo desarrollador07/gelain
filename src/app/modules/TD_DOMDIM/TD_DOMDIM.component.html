@@ -53,7 +53,7 @@
 
 <!-- ---------------------------------LIDERAZGO Y RELACIONES SOCIALES------------------------------ -->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0;">
     <kendo-pdf-export #pdf paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'LIDERAZGO Y RELACIONES SOCIALES'}"></header-pdf-informe>
@@ -64,23 +64,23 @@
                 </ng-template>
             </kendo-grid-column>
             <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
-                <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)" [locked]="false">
+                <kendo-grid-column field="liderazgo" title="Características del liderazgo (Q1)" [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)" [locked]="false">
+                <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo (Q2)" [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)"
+                <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño (Q3)"
                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)"
+                <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores (Q4)"
                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
@@ -98,8 +98,8 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                     </kendo-chart-category-axis-item>
@@ -143,7 +143,7 @@
 
 <!-- --------------------------------- PDF CONTROL SOBRE EL TRABAJO-  2------------------------------ -->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0;">
     <kendo-pdf-export #pdf2 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'CONTROL SOBRE EL TRABAJO'}"></header-pdf-informe>
@@ -154,30 +154,30 @@
                 </ng-template>
             </kendo-grid-column>
             <kendo-grid-column-group title="CONTROL SOBRE EL TRABAJO" [locked]="false">
-                <kendo-grid-column field="claridad" title="Claridad de rol(Q1)"  [locked]="false">
+                <kendo-grid-column field="claridad" title="Claridad de rol (Q1)"  [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="capacitacion" title="Capacitación(Q2)" [locked]="false">
+                <kendo-grid-column field="capacitacion" title="Capacitación (Q2)" [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
                 <kendo-grid-column field="oportunidades"
-                    title="Oportunidades para el uso y desarrollo de habilidades y conocimientos(Q3)"
+                    title="Oportunidades para el uso y desarrollo de habilidades y conocimientos (Q3)"
                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="manejo" title="Participación y manejo del cambio(Q4)" 
+                <kendo-grid-column field="manejo" title="Participación y manejo del cambio (Q4)" 
                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
                     </ng-template>
                 </kendo-grid-column>
-                <kendo-grid-column field="control" title="Control y autonomía sobre el trabajo(Q5)" 
+                <kendo-grid-column field="control" title="Control y autonomía sobre el trabajo (Q5)" 
                     [locked]="false">
                     <ng-template let-column let-columnIndex="columnIndex">
                         {{ column.field }}({{ columnIndex }})
@@ -190,8 +190,8 @@
                 </kendo-grid-column>
             </kendo-grid-column-group>
         </kendo-grid>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
                     </kendo-chart-category-axis-item>
@@ -233,7 +233,7 @@
 
 <!-- --------------------------------- PDF DEMANDAS DEL TRABAJO  3------------------------------ -->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0;">
     <kendo-pdf-export #pdf3 paperSize="A4" margin="0.3cm" [scale]="0.45">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'DEMANDAS DEL TRABAJO'}"></header-pdf-informe>
@@ -299,8 +299,8 @@
                 </kendo-grid-column>
             </kendo-grid-column-group>
         </kendo-grid>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
                     </kendo-chart-category-axis-item>
@@ -342,7 +342,7 @@
 
 <!-- -----------------------------------PDF RECOMPENSAS 4--------------------------------------------->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0; ">
     <kendo-pdf-export #pdf4 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'RECOMPENSAS'}"></header-pdf-informe>
@@ -378,8 +378,8 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
                     </kendo-chart-category-axis-item>
@@ -412,7 +412,7 @@
                     </kendo-chart-series-item>
                 </kendo-chart-series>
             </kendo-chart>
-            <div style=" font-size: 17px; text-align: center; padding-top: 500px;">
+            <div style=" font-size: 17px; text-align: center; padding-top: 350px;">
                 <p>{{apiUrl}}/ng/#/login</p>
             </div>
         </div>
@@ -421,7 +421,7 @@
 
 <!-- ------------------------------PDF RIESGO PSICOSOCIAL  EXTRALABORAL 5--------------------------------------------->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; right: -5000px; top: 0;">
     <kendo-pdf-export #pdf5 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'RIESGO PSICOSOCIAL EXTRALABORAL'}"></header-pdf-informe>
@@ -450,8 +450,8 @@
                 </kendo-grid-column>
             </kendo-grid-column-group>
         </kendo-grid>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
                     </kendo-chart-category-axis-item>
@@ -493,7 +493,7 @@
 
 <!-- -----------------------------------Estrés Detalles 6--------------------------------------------->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0;">
     <kendo-pdf-export #pdf6 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTRÉS DETALLES'}"></header-pdf-informe>
@@ -501,13 +501,13 @@
             <kendo-grid-column field="brand" title="Nivel de riesgo">
             </kendo-grid-column>
             <kendo-grid-column-group title="ESTRÉS DETALLES" [locked]="false">
-                <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS">
+                <kendo-grid-column field="FISIOLOGICAS" title="FISIOLOGICAS (Q1)">
                 </kendo-grid-column>
-                <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL">
+                <kendo-grid-column field="COMPORTAMIENTO_SOCIAL" title="COMPORTAMIENTO SOCIAL (Q2)">
                 </kendo-grid-column>
-                <kendo-grid-column field="INTEL_LABORA" title="INTEL_LABORA">
+                <kendo-grid-column field="INTEL_LABORA" title="INTEL_LABORA (Q3)">
                 </kendo-grid-column>
-                <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES">
+                <kendo-grid-column field="PSICOEMOCIONALES" title="PSICOEMOCIONALES (Q4)">
                 </kendo-grid-column>
             </kendo-grid-column-group>
         </kendo-grid>
@@ -516,8 +516,8 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                     </kendo-chart-category-axis-item>
@@ -559,7 +559,7 @@
 
 <!-- -----------------------------------Estrés 7--------------------------------------------->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0; width: 1000px;">
     <kendo-pdf-export #pdf7 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'ESTRÉS'}"></header-pdf-informe>
@@ -591,10 +591,9 @@
 
 <!-- -----------------------------------Totales Generales 8--------------------------------------------->
 
-<div class="nivel de riesgo pdf" style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0;">
     <kendo-pdf-export #pdf8 paperSize="A4" margin="1cm" [scale]="0.5">
-        <header-pdf-informe
-            [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'TOTALES GENERALES'}"></header-pdf-informe>
+        <header-pdf-informe [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'TOTALES GENERALES'}"></header-pdf-informe>
         <kendo-grid [autoSize]="true" [scrollable]="'none'" [data]="sales8">
             <kendo-grid-column field="brand" title="Nivel de riesgo">
             </kendo-grid-column>
@@ -612,8 +611,8 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 90%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
                     </kendo-chart-category-axis-item>
@@ -656,7 +655,7 @@
 
 <!-- -----------------------------------Total Dominios --------------------------------------------->
 
-<div style="position: absolute; left: -1000px; top: 0; width: 1000px;">
+<div style="position: absolute; left: -5000px; top: 0;">
     <kendo-pdf-export #pdf9 paperSize="A4" margin="1cm" [scale]="0.5">
         <header-pdf-informe
             [dataHeaderInfo]="{empresa: nEmpresa, usuario: usuario, titulo: 'TOTAL DOMINIOS'}"></header-pdf-informe>
@@ -678,8 +677,8 @@
         <br>
         <br>
         <br>
-        <div style="text-align: center;">
-            <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+        <div style="text-align: center; width: 1080px;">
+            <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                 <kendo-chart-category-axis>
                     <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                     </kendo-chart-category-axis-item>
@@ -752,25 +751,25 @@
                                 </ng-template>
                             </kendo-grid-column>
                             <kendo-grid-column-group title="LIDERAZGO Y RELACIONES SOCIALES" [locked]="false">
-                                <kendo-grid-column field="liderazgo" title="Características del liderazgo(Q1)"
+                                <kendo-grid-column field="liderazgo" title="Características del liderazgo (Q1)"
                                     [locked]="false">
                                     <ng-template let-column let-columnIndex="columnIndex">
                                         {{ column.field }}({{ columnIndex }})
                                     </ng-template>
                                 </kendo-grid-column>
-                                <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo(Q2)"
+                                <kendo-grid-column field="relaciones" title="Relaciones sociales en el trabajo (Q2)"
                                     [locked]="false">
                                     <ng-template let-column let-columnIndex="columnIndex">
                                         {{ column.field }}({{ columnIndex }})
                                     </ng-template>
                                 </kendo-grid-column>
-                                <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño(Q3)"
+                                <kendo-grid-column field="retroalimentacion" title="Retroalimentación del desempeño (Q3)"
                                     [locked]="false">
                                     <ng-template let-column let-columnIndex="columnIndex">
                                         {{ column.field }}({{ columnIndex }})
                                     </ng-template>
                                 </kendo-grid-column>
-                                <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores(Q4)"
+                                <kendo-grid-column field="rela_colaboradores" title="Relación con los colaboradores (Q4)"
                                     [locked]="false">
                                     <ng-template let-column let-columnIndex="columnIndex">
                                         {{ column.field }}({{ columnIndex }})
@@ -788,7 +787,7 @@
                     <br>
                     <br>
                     <div>
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                                 </kendo-chart-category-axis-item>
@@ -892,7 +891,7 @@
                     <br>
                     <br>
                     <div>
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5']">
                                 </kendo-chart-category-axis-item>
@@ -1012,7 +1011,7 @@
                     <br>
                     <br>
                     <div style="text-align: center;">
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7','Q8']">
                                 </kendo-chart-category-axis-item>
@@ -1096,7 +1095,7 @@
                     <br>
                     <br>
                     <div style="text-align: center;">
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2']">
                                 </kendo-chart-category-axis-item>
@@ -1178,7 +1177,7 @@
                     <br>
                     <br>
                     <div style="text-align: center;">
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                                 </kendo-chart-category-axis-item>
@@ -1272,7 +1271,7 @@
                     <br>
                     <br>
                     <div style="text-align: center;">
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4','Q5','Q6', 'Q7']">
                                 </kendo-chart-category-axis-item>
@@ -1407,7 +1406,7 @@
                     <br>
                     <br>
                     <div style="text-align: center;">
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3', 'Q4']">
                                 </kendo-chart-category-axis-item>
@@ -1490,7 +1489,7 @@
                     <br>
                     <br>
                     <div style="text-align: center;">
-                        <kendo-chart style="width: 80%; height: 180px; text-align: center;">
+                        <kendo-chart style="width: 100%; height: 180px; text-align: center;">
                             <kendo-chart-category-axis>
                                 <kendo-chart-category-axis-item [categories]="['Q1', 'Q2','Q3']">
                                 </kendo-chart-category-axis-item>
