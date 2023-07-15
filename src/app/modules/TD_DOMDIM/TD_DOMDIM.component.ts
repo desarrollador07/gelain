@@ -34,7 +34,7 @@ export class TD_DOMDIMComponent implements OnInit {
   apiUrl:string = environment.urlGlobal;
   idEmpresa:any;
   idtemporal:any;
-  nEmpresa:any;
+  nEmpresa: string = '';
   usuario:any;
   validEmp:boolean = false;
   msgs: Message[] = [];
@@ -256,7 +256,6 @@ total_general2 :any[] = [];
                 
                 this.idEmpresa = Number(sessionStorage.getItem("idEmpresa"));
                 this.usuario = sessionStorage.getItem("user");
-                this.nEmpresa = sessionStorage.getItem("nombreEmpresa");
                 this.idtemporal = 0;           
    }
 
@@ -1153,10 +1152,13 @@ total_general2 :any[] = [];
   consultaStore(){
     this.store.select('empresas').subscribe(async res=>{
 
+      this.nEmpresa = '';
       if (res.empresa !== undefined) {
         this.id = res.empresa.empid;
+        this.nEmpresa = res.empresa.empnombre;
       }else{
         this.id = this.idEmpresa;
+        this.nEmpresa = sessionStorage.getItem("nombreEmpresa");
       }
       this.limpiarData();
 
