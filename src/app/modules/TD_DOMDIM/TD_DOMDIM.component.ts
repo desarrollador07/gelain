@@ -245,7 +245,8 @@ total_general2 :any[] = [];
   text9:any;
   fechainicial: Date;
   fechafinal: Date;
-  id:any;
+  /**Id empresa */
+  id:any; 
   validCTodos:boolean = true;
  
 
@@ -871,7 +872,8 @@ total_general2 :any[] = [];
     
     await this.pruebaServices.getTotalGeneral(id).toPromise().then((data:any)=>{
       this.info15 = data;
-
+        console.log("🚀 ~ file: TD_DOMDIM.component.ts:875 ~ TD_DOMDIMComponent ~ awaitthis.pruebaServices.getTotalGeneral ~ data:", data)
+        
         for (let j = 0; j < this.info15.length; j++) {
           this.fnAsisgnarDatosFiltrosTotalGeneral(this.info15[j],j);
         }
@@ -882,6 +884,7 @@ total_general2 :any[] = [];
   }
 
   public fnAsisgnarDatosFiltrosTotalGeneral(data, tamaño:number): void {
+
     switch (tamaño) {
       case 0:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -891,6 +894,7 @@ total_general2 :any[] = [];
         this.n = Number((((data[3] *100)/this.Total)).toFixed(1));
         this.r = Number((((data[4] *100)/this.Total)).toFixed(1));
         this.total_intralaboral2.push(this.v, this.vb , this.a, this.n, this.r,this.Total);
+        
         break;
       case 1:
         this.Total =  data[0] + data[1] + data[2]+ data[3]+ data[4];
@@ -920,8 +924,12 @@ total_general2 :any[] = [];
   TotalGeneral(data){
     
       this.total_intralaboral  = data[0];
+      console.log("🚀 ~ file: TD_DOMDIM.component.ts:927 ~ TD_DOMDIMComponent ~ TotalGeneral ~ this.total_intralaboral:", this.total_intralaboral)
       this.total_extralaboral = data[1];
+      console.log("🚀 ~ file: TD_DOMDIM.component.ts:929 ~ TD_DOMDIMComponent ~ TotalGeneral ~ this.total_extralaboral:", this.total_extralaboral)
       this.total_general = data[2];
+      console.log("🚀 ~ file: TD_DOMDIM.component.ts:931 ~ TD_DOMDIMComponent ~ TotalGeneral ~ this.total_general:", this.total_general)
+      
       this.sales8 = [
         { brand: 'Sin riesgo o riesgo despreciable', total_intralaboral: this.total_intralaboral[0], total_extralaboral: this.total_extralaboral[0], total_general: this.total_general[0] },
         { brand: 'Riesgo bajo',                      total_intralaboral: this.total_intralaboral[1], total_extralaboral: this.total_extralaboral[1], total_general: this.total_general[1] },
@@ -1400,6 +1408,8 @@ total_general2 :any[] = [];
       this.info15 = [];
     await this.pruebaServices.getTotalGeneralByFecha(id,fechaIni,fechafin).toPromise().then((data:any)=>{
       this.info15 = data;
+      console.log("🚀 ~ file: TD_DOMDIM.component.ts:1411 ~ TD_DOMDIMComponent ~ awaitthis.pruebaServices.getTotalGeneralByFecha ~ data:", data)
+      
         for (let j = 0; j < this.info15.length; j++) {
           this.fnAsisgnarDatosFiltrosTotalGeneral(this.info15[j],j);
         }

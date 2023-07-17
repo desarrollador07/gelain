@@ -257,12 +257,12 @@ export class ReporteDetalladoComponent implements OnInit {
           'INTELECTUAL VALOR':item.estres_intelectuales_val,
           'PSICOEMOCIONAL VALOR':item.psicoemocionales_val,
 
+          'INTRALABORAL TOTAL':item.Restotal_intralaboral_fin,
+          'INTRALABORAL TOTAL VALOR':item.total_intralaboral_fin_val,
+          'EXTRALABORAL TOTAL':item.Restotal_extralaboral_fin,
+          'EXTRALABORAL TOTAL VALOR':item.total_extralaboral_fin_val,
           'TOTAL GENERAL':item.total_general,
-          'INTRALABORAL FIN':item.Restotal_intralaboral_fin,
-          'EXTRALABORAL FIN':item.Restotal_extralaboral_fin,
           'TOTAL GENERAL VALOR':item.total_general_val,
-          'INTRALABORAL FIN VALOR':item.total_intralaboral_fin_val,
-          'EXTRALABORAL FIN VALOR':item.total_extralaboral_fin_val,
           'FECHA DE MODIFICACIÓN':item.emdfechamod
         }; 
       });
