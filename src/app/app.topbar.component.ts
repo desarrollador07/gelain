@@ -30,10 +30,10 @@ export class AppTopBarComponent {
   empresaSelect: any;
   mobWidth: any;
   imgvalidator: boolean = true;
-  imagen1: any = "assets/layout/images/avatar.png"
-  imagen2: any = "assets/layout/images/avatar.png"
-  imagen3: any = "https://gelainbienestarlaboral.com/GELAIN/img/LOGO_AFI_REDONDO.jpg"
-  imagenDefecto: any = "assets/layout/images/avatar.png"
+  imagen1: any = "LOGO_REDONDO.png"
+  imagen2: any = "https://afiintegral.com.co/afi/img/LOGO_REDONDO.png";
+  imagen3: any = "https://afiintegral.com.co/afi/img/LOGO_REDONDO.png";
+  imagenDefecto: any = "https://afiintegral.com.co/afi/img/LOGO_REDONDO.png";
   imagenfin: any;
   loading: boolean = true;
 
